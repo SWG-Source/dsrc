@@ -108,7 +108,7 @@ public class crafting_bio_food_component extends script.systems.crafting.craftin
     }
     public void calcAndSetPrototypeProperties(obj_id prototype, draft_schematic.attribute[] itemAttributes) throws InterruptedException
     {
-        float secret_bonus = 1.f;
+        float secret_bonus = 1.0f;
         int filling = 0;
         int flavor = 0;
         int nutrition = 0;
@@ -120,29 +120,24 @@ public class crafting_bio_food_component extends script.systems.crafting.craftin
             secret_bonus = getFloatObjVar(self, "crafting_components.secrets.secret_bonus");
             faction = getIntObjVar(self, "crafting_components.secrets.faction");
         }
-        for (int i = 0; i < itemAttributes.length; ++i)
-        {
-            if (itemAttributes[i] == null)
-            {
+        for (draft_schematic.attribute itemAttribute : itemAttributes) {
+            if (itemAttribute == null) {
                 continue;
             }
-            if (!calcAndSetPrototypeProperty(prototype, itemAttributes[i]))
-            {
-                if (((itemAttributes[i].name).getAsciiId()).equals("add_filling"))
-                {
-                    filling = (int)itemAttributes[i].currentValue;
-                }
-                else if (((itemAttributes[i].name).getAsciiId()).equals("add_flavor"))
-                {
-                    flavor = (int)itemAttributes[i].currentValue;
-                }
-                else if (((itemAttributes[i].name).getAsciiId()).equals("add_nutrition"))
-                {
-                    nutrition = (int)itemAttributes[i].currentValue;
-                }
-                else if (((itemAttributes[i].name).getAsciiId()).equals("add_quantity"))
-                {
-                    quantity = (int)itemAttributes[i].currentValue;
+            if (!calcAndSetPrototypeProperty(prototype, itemAttribute)) {
+                switch (((itemAttribute.name).getAsciiId())) {
+                    case "add_filling":
+                        filling = (int) itemAttribute.currentValue;
+                        break;
+                    case "add_flavor":
+                        flavor = (int) itemAttribute.currentValue;
+                        break;
+                    case "add_nutrition":
+                        nutrition = (int) itemAttribute.currentValue;
+                        break;
+                    case "add_quantity":
+                        quantity = (int) itemAttribute.currentValue;
+                        break;
                 }
             }
         }

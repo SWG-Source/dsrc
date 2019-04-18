@@ -323,23 +323,18 @@ public class ai_combat extends script.base_script
     }
     public static obj_id getHealTarget(obj_id npc, obj_id[] myFriends) throws InterruptedException
     {
-        for (int i = 0; i < myFriends.length; i++)
-        {
-            if (getDistance(npc, myFriends[i]) < 60.0f)
-            {
-                int healthDamage = getAttribDamage(myFriends[i], HEALTH);
-                if (healthDamage < (getMaxAttrib(myFriends[i], HEALTH) / 2))
-                {
+        for (obj_id myFriend : myFriends) {
+            if (getDistance(npc, myFriend) < 60.0f) {
+                int healthDamage = getAttribDamage(myFriend, HEALTH);
+                if (healthDamage < (getMaxAttrib(myFriend, HEALTH) / 2)) {
                     healthDamage = 0;
                 }
-                int actionDamage = getAttribDamage(myFriends[i], ACTION);
-                if (actionDamage < (getMaxAttrib(myFriends[i], ACTION) / 2))
-                {
+                int actionDamage = getAttribDamage(myFriend, ACTION);
+                if (actionDamage < (getMaxAttrib(myFriend, ACTION) / 2)) {
                     actionDamage = 0;
                 }
-                if (healthDamage != 0 || actionDamage != 0)
-                {
-                    return myFriends[i];
+                if (healthDamage != 0 || actionDamage != 0) {
+                    return myFriend;
                 }
             }
         }
@@ -391,9 +386,8 @@ public class ai_combat extends script.base_script
         obj_id[] players = getAllPlayers(loc, 45.0f);
         if (players != null)
         {
-            for (int i = 0; i < players.length; i++)
-            {
-                playClientEffectLoc(players[i], "clienteffect/healing_healdamage.cef", loc, 0);
+            for (obj_id player : players) {
+                playClientEffectLoc(player, "clienteffect/healing_healdamage.cef", loc, 0);
             }
         }
         int healthDamage = getAttribDamage(target, HEALTH);

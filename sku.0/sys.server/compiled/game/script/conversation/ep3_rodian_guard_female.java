@@ -49,13 +49,13 @@ public class ep3_rodian_guard_female extends script.base_script
     {
         int questId = questGetQuestId("quest/ep3_rodian_hunter_1");
         questActivateQuest(questId, player, npc);
-        playClientEffectLoc(player, "clienteffect/voc_npc_cnv_rodian_short.cef", getLocation(npc), 0f);
+        playClientEffectLoc(player, "clienteffect/voc_npc_cnv_rodian_short.cef", getLocation(npc), 0.0f);
     }
     public void ep3_rodian_guard_female_action_giveQuestTwo(obj_id player, obj_id npc) throws InterruptedException
     {
         int questId = questGetQuestId("quest/ep3_rodian_hunter_2");
         questActivateQuest(questId, player, npc);
-        playClientEffectLoc(player, "clienteffect/voc_npc_cnv_rodian_medium.cef", getLocation(npc), 0f);
+        playClientEffectLoc(player, "clienteffect/voc_npc_cnv_rodian_medium.cef", getLocation(npc), 0.0f);
     }
     public void ep3_rodian_guard_female_action_clearQuests(obj_id player, obj_id npc) throws InterruptedException
     {
@@ -65,29 +65,29 @@ public class ep3_rodian_guard_female extends script.base_script
         questClearQuest(questId1, player);
         questClearQuest(questId2, player);
         questClearQuest(questId3, player);
-        playClientEffectLoc(player, "clienteffect/voc_npc_cnv_rodian_short.cef", getLocation(npc), 0f);
+        playClientEffectLoc(player, "clienteffect/voc_npc_cnv_rodian_short.cef", getLocation(npc), 0.0f);
     }
     public void ep3_rodian_guard_female_action_speak_SHORT(obj_id player, obj_id npc) throws InterruptedException
     {
-        playClientEffectLoc(player, "clienteffect/voc_npc_cnv_rodian_short.cef", getLocation(npc), 0f);
+        playClientEffectLoc(player, "clienteffect/voc_npc_cnv_rodian_short.cef", getLocation(npc), 0.0f);
     }
     public void ep3_rodian_guard_female_action_speak_MEDIUM(obj_id player, obj_id npc) throws InterruptedException
     {
-        playClientEffectLoc(player, "clienteffect/voc_npc_cnv_rodian_medium.cef", getLocation(npc), 0f);
+        playClientEffectLoc(player, "clienteffect/voc_npc_cnv_rodian_medium.cef", getLocation(npc), 0.0f);
     }
     public void ep3_rodian_guard_female_action_speak_LONG(obj_id player, obj_id npc) throws InterruptedException
     {
-        playClientEffectLoc(player, "clienteffect/voc_npc_cnv_rodian_long.cef", getLocation(npc), 0f);
+        playClientEffectLoc(player, "clienteffect/voc_npc_cnv_rodian_long.cef", getLocation(npc), 0.0f);
     }
     public void ep3_rodian_guard_female_action_giveQuestThree(obj_id player, obj_id npc) throws InterruptedException
     {
         int questId = questGetQuestId("quest/ep3_rodian_hunter_3");
         questActivateQuest(questId, player, npc);
-        playClientEffectLoc(player, "clienteffect/voc_npc_cnv_rodian_short.cef", getLocation(npc), 0f);
+        playClientEffectLoc(player, "clienteffect/voc_npc_cnv_rodian_short.cef", getLocation(npc), 0.0f);
     }
     public void ep3_rodian_guard_female_action_speak_FEMALE(obj_id player, obj_id npc) throws InterruptedException
     {
-        playClientEffectLoc(player, "clienteffect/voc_npc_cnv_rodian_guard_female.cef", getLocation(npc), 0f);
+        playClientEffectLoc(player, "clienteffect/voc_npc_cnv_rodian_guard_female.cef", getLocation(npc), 0.0f);
     }
     public int ep3_rodian_guard_female_handleBranch1(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {

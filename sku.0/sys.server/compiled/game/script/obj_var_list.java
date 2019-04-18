@@ -1394,24 +1394,18 @@ public final class obj_var_list extends obj_var implements Serializable
 		dictionary dict = (dictionary)m_data;
 		Vector returnedNames = new Vector();
 		Set keySet = dict.keySet();
-		Iterator objvarIterator = keySet.iterator();
-		while(objvarIterator.hasNext())
-		{
-			String key = (String)objvarIterator.next();
-			obj_var_list list = getObjVarList(key);
-			if (list != null)
-			{
-				String[] childstrings = list.getAllObjVarNames();
-				for (int i = 0; i < childstrings.length; ++i)
-				{
-					returnedNames.add (key + "." + childstrings[i]);
-				}
-			}
-			else
-			{
-				returnedNames.add (key);
-			}
-		}
+        for (Object o : keySet) {
+            String key = (String) o;
+            obj_var_list list = getObjVarList(key);
+            if (list != null) {
+                String[] childstrings = list.getAllObjVarNames();
+                for (String childstring : childstrings) {
+                    returnedNames.add(key + "." + childstring);
+                }
+            } else {
+                returnedNames.add(key);
+            }
+        }
 		String[] toReturn = new String[returnedNames.size()];
 		returnedNames.toArray(toReturn);
 		return toReturn;

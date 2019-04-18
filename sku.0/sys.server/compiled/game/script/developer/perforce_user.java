@@ -169,16 +169,13 @@ public class perforce_user extends script.base_script
             }
             clearSUIDataSourceContainer(page, "changes.dataTree");
             Set keySet = changes.keySet();
-            Iterator changesIter = keySet.iterator();
-            while (changesIter.hasNext())
-            {
-                String key = (String)changesIter.next();
-                Vector files = (Vector)changes.get(key);
+            for (Object o : keySet) {
+                String key = (String) o;
+                Vector files = (Vector) changes.get(key);
                 addSUIDataSourceContainer(page, "changes.dataTree", key);
                 setSUIProperty(page, "changes.dataTree." + key, "text", key);
-                for (iter = 0; iter < files.size(); ++iter)
-                {
-                    String f = ((String)files.get(iter));
+                for (iter = 0; iter < files.size(); ++iter) {
+                    String f = ((String) files.get(iter));
                     addSUIDataSourceContainer(page, "changes.dataTree." + key, f);
                     setSUIProperty(page, "changes.dataTree." + key + "." + f, "text", f);
                 }

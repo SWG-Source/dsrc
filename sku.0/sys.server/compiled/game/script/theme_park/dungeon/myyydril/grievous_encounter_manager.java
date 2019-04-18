@@ -94,7 +94,7 @@ public class grievous_encounter_manager extends script.base_script
         attachScript(grievous, "theme_park.dungeon.myyydril.grievous_death");
         setObjVar(self, "grievous_encounter.grievousId", grievous);
         setObjVar(grievous, "grievous_encounter.contentManager", self);
-        location guard1Loc = new location(-215.3f, -94f, 138.4f, grievousLoc.area, grievousLoc.cell);
+        location guard1Loc = new location(-215.3f, -94.0f, 138.4f, grievousLoc.area, grievousLoc.cell);
         location guard2Loc = new location(-217.2f, -93.7f, 134.9f, grievousLoc.area, grievousLoc.cell);
         obj_id grievousGuard1 = create.object("ep3_myyydril_nk3", guard1Loc);
         setObjVar(self, "grievous_encounter.grievousGuardIdOne", grievousGuard1);
@@ -135,11 +135,9 @@ public class grievous_encounter_manager extends script.base_script
         }
         location selfLocation = getLocation(self);
         obj_id[] objectsInRange = getObjectsInRange(selfLocation, 150.0f);
-        for (int i = 0; i < objectsInRange.length; i++)
-        {
-            if (isIdValid(objectsInRange[i]) && hasObjVar(objectsInRange[i], "grievous_encounter.isPowerCell"))
-            {
-                obj_id powerCell = objectsInRange[i];
+        for (obj_id obj_id : objectsInRange) {
+            if (isIdValid(obj_id) && hasObjVar(obj_id, "grievous_encounter.isPowerCell")) {
+                obj_id powerCell = obj_id;
                 destroyObject(powerCell);
             }
         }
@@ -203,14 +201,12 @@ public class grievous_encounter_manager extends script.base_script
             obj_id[] players = getEventPlayersInDungeon(getTopMostContainer(self));
             if (players != null && players.length > 0)
             {
-                for (int i = 0; i < players.length; i++)
-                {
+                for (obj_id player : players) {
                     string_id msg = new string_id("dungeon/myyydril", "encounter_ending");
-                    if (!badge.hasBadge(players[i], "bdg_kash_grievous"))
-                    {
-                        badge.grantBadge(players[i], "bdg_kash_grievous");
+                    if (!badge.hasBadge(player, "bdg_kash_grievous")) {
+                        badge.grantBadge(player, "bdg_kash_grievous");
                     }
-                    sendSystemMessage(players[i], msg);
+                    sendSystemMessage(player, msg);
                 }
             }
             messageTo(self, "handleEndEncounter", params, 60.0f, false);
@@ -222,18 +218,13 @@ public class grievous_encounter_manager extends script.base_script
         obj_id[] cellIds = getCellIds(dungeon);
         Vector eventPlayers = new Vector();
         eventPlayers.setSize(0);
-        for (int i = 0; i < cellIds.length; i++)
-        {
-            obj_id[] contents = getContents(cellIds[i]);
-            if (contents != null && contents.length > 0)
-            {
-                for (int k = 0; k < contents.length; k++)
-                {
-                    if (isPlayer(contents[k]) && hasScript(contents[k], "theme_park.dungeon.myyydril.grievous_player"))
-                    {
-                        if (validatePlayerSessionId(contents[k], dungeon))
-                        {
-                            eventPlayers = utils.addElement(eventPlayers, contents[k]);
+        for (obj_id cellId : cellIds) {
+            obj_id[] contents = getContents(cellId);
+            if (contents != null && contents.length > 0) {
+                for (obj_id content : contents) {
+                    if (isPlayer(content) && hasScript(content, "theme_park.dungeon.myyydril.grievous_player")) {
+                        if (validatePlayerSessionId(content, dungeon)) {
+                            eventPlayers = utils.addElement(eventPlayers, content);
                         }
                     }
                 }

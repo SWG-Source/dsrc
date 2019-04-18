@@ -46,9 +46,8 @@ public class swyckoff_test extends script.base.remote_object_requester
                 if (command.equalsIgnoreCase("sw_list_commands"))
                 {
                     String outstring = "commands possible:";
-                    for (int i = 0; i < COMMAND_LIST.length; i++)
-                    {
-                        outstring += " " + COMMAND_LIST[i];
+                    for (String s : COMMAND_LIST) {
+                        outstring += " " + s;
                     }
                     debugConsoleMsg(self, outstring);
                 }
@@ -138,9 +137,8 @@ public class swyckoff_test extends script.base.remote_object_requester
                     }
                     int[] buffcrcs = buff.getAllBuffs(oid);
                     String outstring = "Buffs on " + oid;
-                    for (int i = 0; i < buffcrcs.length; i++)
-                    {
-                        outstring += " " + buff.getBuffNameFromCrc(buffcrcs[i]);
+                    for (int buffcrc : buffcrcs) {
+                        outstring += " " + buff.getBuffNameFromCrc(buffcrc);
                     }
                     debugConsoleMsg(self, outstring);
                 }

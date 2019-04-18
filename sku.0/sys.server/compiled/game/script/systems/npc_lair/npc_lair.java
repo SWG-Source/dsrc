@@ -200,7 +200,7 @@ public class npc_lair extends script.theme_park.poi.base
         }
         if (!buildingToSpawn.equals("none"))
         {
-            obj_id mainBuilding = poiCreateObject(buildingToSpawn, 0f, 0f);
+            obj_id mainBuilding = poiCreateObject(buildingToSpawn, 0.0f, 0.0f);
             int intIndex = lairType.indexOf("theater");
             if (intIndex < 0)
             {
@@ -228,9 +228,8 @@ public class npc_lair extends script.theme_park.poi.base
     public float getAverageDifficulty(float[] fltDifficulties) throws InterruptedException
     {
         float fltAverage = 0;
-        for (int intI = 0; intI < fltDifficulties.length; intI++)
-        {
-            fltAverage = fltAverage + fltDifficulties[intI];
+        for (float fltDifficulty : fltDifficulties) {
+            fltAverage = fltAverage + fltDifficulty;
         }
         fltAverage = fltAverage / fltDifficulties.length;
         return fltAverage;
@@ -238,11 +237,9 @@ public class npc_lair extends script.theme_park.poi.base
     public float getMaxDifficulty(float[] fltDifficulties) throws InterruptedException
     {
         float fltMaxDifficulty = 0;
-        for (int intI = 0; intI < fltDifficulties.length; intI++)
-        {
-            if (fltDifficulties[intI] > fltMaxDifficulty)
-            {
-                fltMaxDifficulty = fltDifficulties[intI];
+        for (float fltDifficulty : fltDifficulties) {
+            if (fltDifficulty > fltMaxDifficulty) {
+                fltMaxDifficulty = fltDifficulty;
             }
         }
         return fltMaxDifficulty;
@@ -481,7 +478,7 @@ public class npc_lair extends script.theme_park.poi.base
         {
             if (dctCreatureInfo[i] != null)
             {
-                diffArray[i] = (float)dctCreatureInfo[i].getInt("level");
+                diffArray[i] = dctCreatureInfo[i].getInt("level");
             }
             else 
             {
@@ -613,7 +610,7 @@ public class npc_lair extends script.theme_park.poi.base
         if (utils.hasScriptVar(self, "npc_lair.mobile." + mobileNumber))
         {
             params.put("mobileNumber", mobileNumber);
-            messageTo(self, "spawnCreatures", params, .50f, false);
+            messageTo(self, "spawnCreatures", params, 0.50f, false);
         }
         else 
         {
@@ -740,23 +737,18 @@ public class npc_lair extends script.theme_park.poi.base
         location spawnLoc = getLocation(self);
         obj_id target = params.getObjId("npc_lair");
         int lairLevel = getIntObjVar(self, "spawning.intDifficultyLevel");
-        for (int i = 0; i < bossMonsters.length; i++)
-        {
-            int baseLevel = utils.dataTableGetInt(CREATURE_TABLE, bossMonsters[i], "BaseLevel");
+        for (String bossMonster : bossMonsters) {
+            int baseLevel = utils.dataTableGetInt(CREATURE_TABLE, bossMonster, "BaseLevel");
             obj_id mobile = null;
-            if (baseLevel < lairLevel)
-            {
-                mobile = create.object(bossMonsters[i], spawnLoc, lairLevel);
-            }
-            else 
-            {
-                mobile = create.object(bossMonsters[i], spawnLoc);
+            if (baseLevel < lairLevel) {
+                mobile = create.object(bossMonster, spawnLoc, lairLevel);
+            } else {
+                mobile = create.object(bossMonster, spawnLoc);
             }
             setObjVar(mobile, "npc_lair.target", target);
             stopFloating(mobile);
             obj_id[] enemies = getPlayerCreaturesInRange(self, 65.0f);
-            if (enemies != null && enemies.length > 0)
-            {
+            if (enemies != null && enemies.length > 0) {
                 obj_id victim = enemies[rand(0, (enemies.length - 1))];
                 startCombat(mobile, victim);
             }
@@ -786,7 +778,7 @@ public class npc_lair extends script.theme_park.poi.base
                     setObjVar(objTarget, "fltDamageModifier", 5.0f);
                 }
             }
-            messageTo(self, "handlePoiTimeOutDestruction", null, 14400f, false);
+            messageTo(self, "handlePoiTimeOutDestruction", null, 14400.0f, false);
             return SCRIPT_CONTINUE;
         }
         else 
@@ -869,13 +861,13 @@ public class npc_lair extends script.theme_park.poi.base
             float y = 0.0f;
             if (randomLoc)
             {
-                x = rand(-25f, 25f);
-                y = rand(-25f, 25f);
+                x = rand(-25.0f, 25.0f);
+                y = rand(-25.0f, 25.0f);
             }
             else 
             {
-                x = rand(-15f, 15f);
-                y = rand(-15f, 15f);
+                x = rand(-15.0f, 15.0f);
+                y = rand(-15.0f, 15.0f);
             }
             mobile = poiCreateObject(name, x, y, level);
             stopFloating(mobile);
@@ -917,7 +909,7 @@ public class npc_lair extends script.theme_park.poi.base
     public int handleNpcLairDecay(obj_id self, dictionary params) throws InterruptedException
     {
         poiComplete(POI_INCOMPLETE);
-        messageTo(self, "handlePoiTimeOutDestruction", null, 14400f, false);
+        messageTo(self, "handlePoiTimeOutDestruction", null, 14400.0f, false);
         return SCRIPT_CONTINUE;
     }
     public int handlePoiTimeOutDestruction(obj_id self, dictionary params) throws InterruptedException

@@ -21,8 +21,8 @@ public class dungeon_scientist_trigger_volume extends script.base_script
     public static final String RESCUE_TASK_01 = "mentorComm";
     public static final String RESCUE_TASK_02 = "coverSurvivors";
     public static final String RESCUE_TASK_03 = "moveToTask";
-    public static final float TRIGGER_RADIUS = 3f;
-    public static final float SPAWNER_RADIUS = 6f;
+    public static final float TRIGGER_RADIUS = 3.0f;
+    public static final float SPAWNER_RADIUS = 6.0f;
     public static final int TOTAL_SPAWNERS = 5;
     public int OnHearSpeech(obj_id self, obj_id speaker, String text) throws InterruptedException
     {
@@ -120,9 +120,8 @@ public class dungeon_scientist_trigger_volume extends script.base_script
         }
         dictionary parms = new dictionary();
         parms.put("owner", whoTriggeredMe);
-        for (int i = 0; i < survivorSpawnLocs.length; i++)
-        {
-            messageTo(survivorSpawnLocs[i], "spawnRescuedActor", parms, 1, false);
+        for (obj_id survivorSpawnLoc : survivorSpawnLocs) {
+            messageTo(survivorSpawnLoc, "spawnRescuedActor", parms, 1, false);
         }
         utils.setScriptVar(whoTriggeredMe, "survivorsRescued", true);
         CustomerServiceLog("outbreak_themepark", "dungeon_scientist_trigger_volume.OnTriggerVolumeExited() Nodes were messaged to spawn actors for Player: " + getPlayerName(whoTriggeredMe) + " (" + whoTriggeredMe + ").");

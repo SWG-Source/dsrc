@@ -45,12 +45,10 @@ public class mediator extends script.poi.base.scenario_actor
         {
             return SCRIPT_OVERRIDE;
         }
-        obj_id[] players = getPlayerCreaturesInRange(self, 80f);
-        for (int i = 0; i < players.length; i++)
-        {
-            if (isIncapacitated(players[i]) && getPosture(players[i]) != POSTURE_DEAD)
-            {
-                pclib.coupDeGrace(players[i], self);
+        obj_id[] players = getPlayerCreaturesInRange(self, 80.0f);
+        for (obj_id player : players) {
+            if (isIncapacitated(player) && getPosture(player) != POSTURE_DEAD) {
+                pclib.coupDeGrace(player, self);
                 return SCRIPT_OVERRIDE;
             }
         }
@@ -60,13 +58,11 @@ public class mediator extends script.poi.base.scenario_actor
             return SCRIPT_CONTINUE;
         }
         obj_id[] antagonists = scenario.getTeamMembers(poiMaster, "antagonist");
-        for (int i = 0; i < antagonists.length; i++)
-        {
-            if (isIncapacitated(antagonists[i]) || ai_lib.isDead(antagonists[i]))
-            {
+        for (obj_id antagonist : antagonists) {
+            if (isIncapacitated(antagonist) || ai_lib.isDead(antagonist)) {
                 continue;
             }
-            startCombat(self, antagonists[i]);
+            startCombat(self, antagonist);
             return SCRIPT_CONTINUE;
         }
         if (getPosture(self) == POSTURE_UPRIGHT)
@@ -98,10 +94,8 @@ public class mediator extends script.poi.base.scenario_actor
             return SCRIPT_CONTINUE;
         }
         obj_id[] antagonists = scenario.getTeamMembers(poiMaster, "antagonist");
-        for (int i = 0; i < antagonists.length; i++)
-        {
-            if (antagonists[i] == attacker)
-            {
+        for (obj_id antagonist : antagonists) {
+            if (antagonist == attacker) {
                 return SCRIPT_CONTINUE;
             }
         }

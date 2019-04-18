@@ -574,7 +574,7 @@ public class emperor_statue extends script.base_script
         {
             return SCRIPT_CONTINUE;
         }
-        messageTo(lambda, "takeOff", null, 90f, true);
+        messageTo(lambda, "takeOff", null, 90.0f, true);
         return SCRIPT_CONTINUE;
     }
     public int destroyParade(obj_id self, dictionary params) throws InterruptedException

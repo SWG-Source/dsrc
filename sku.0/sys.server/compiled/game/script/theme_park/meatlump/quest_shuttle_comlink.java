@@ -242,8 +242,8 @@ public class quest_shuttle_comlink extends script.base_script
             return null;
         }
         location loc = getLocation(player);
-        float treasureXdelta = rand(15f, 18f);
-        float treasureZdelta = rand(15f, 18f);
+        float treasureXdelta = rand(15.0f, 18.0f);
+        float treasureZdelta = rand(15.0f, 18.0f);
         loc.x += treasureXdelta;
         loc.z += treasureZdelta;
         loc.y = getHeightAtLocation(loc.x, loc.z);

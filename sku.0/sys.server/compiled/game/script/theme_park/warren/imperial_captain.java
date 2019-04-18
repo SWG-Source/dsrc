@@ -81,11 +81,9 @@ public class imperial_captain extends script.base_script
             return false;
         }
         int[] evCount = new int[5];
-        for (int i = 0; i < contents.length; i++)
-        {
-            if (hasObjVar(contents[i], "warren.evidence"))
-            {
-                evCount[getIntObjVar(contents[i], "warren.evidence")] = 1;
+        for (obj_id content : contents) {
+            if (hasObjVar(content, "warren.evidence")) {
+                evCount[getIntObjVar(content, "warren.evidence")] = 1;
             }
         }
         for (int i = 1; i < 5; i++)
@@ -106,12 +104,10 @@ public class imperial_captain extends script.base_script
             return false;
         }
         int[] evCount = new int[5];
-        for (int i = 0; i < contents.length; i++)
-        {
-            if (hasObjVar(contents[i], "warren.evidence"))
-            {
-                evCount[getIntObjVar(contents[i], "warren.evidence")] = 1;
-                destroyObject(contents[i]);
+        for (obj_id content : contents) {
+            if (hasObjVar(content, "warren.evidence")) {
+                evCount[getIntObjVar(content, "warren.evidence")] = 1;
+                destroyObject(content);
             }
         }
         for (int i = 1; i < 5; i++)

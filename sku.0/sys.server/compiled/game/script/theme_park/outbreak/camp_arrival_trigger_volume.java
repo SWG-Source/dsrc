@@ -12,7 +12,7 @@ public class camp_arrival_trigger_volume extends script.base_script
     public static final String SCRIPT_LOG = "outbreak_pathing";
     public static final String TRIGGER_NAME_PREFIX = "camp_arrival_trigger_";
     public static final String UPDATE_SIGNAL = "update_signal";
-    public static final float TRIGGER_RADIUS = 40f;
+    public static final float TRIGGER_RADIUS = 40.0f;
     public int OnInitialize(obj_id self) throws InterruptedException
     {
         setAttributeInterested(self, attrib.OUTBREAK_SURVIVOR);

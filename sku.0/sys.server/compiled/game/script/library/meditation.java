@@ -10,10 +10,10 @@ public class meditation extends script.base_script
     {
     }
     public static final float TIME_TICK = 5.0f;
-    public static final float DELAY_MIN = 3f;
-    public static final float DELAY_MAX = 7f;
+    public static final float DELAY_MIN = 3.0f;
+    public static final float DELAY_MAX = 7.0f;
     public static final float RAND_MODIFIER = 0.33f;
-    public static final float POWERBOOST_RAMP = 60f;
+    public static final float POWERBOOST_RAMP = 60.0f;
     public static final String MOD_MEDITATE = "meditate";
     public static final String VAR_MEDITATION_BASE = "meditation";
     public static final String VAR_POWERBOOST_ACTIVE = "meditation.powerBoost";
@@ -103,33 +103,33 @@ public class meditation extends script.base_script
     {
         if (!isIdValid(player))
         {
-            return -1f;
+            return -1.0f;
         }
         int modval = getMeditationSkillMod(player);
         if ((modval < 1) || !isMeditating(player))
         {
-            return -1f;
+            return -1.0f;
         }
-        float delay = 0f;
+        float delay = 0.0f;
         LOG("meditate", "trance: slotDot -> DOT_BLEEDING");
         delay = slowDOT(player, modval, dot.DOT_BLEEDING);
-        if (modval > 20 && delay == 0f)
+        if (modval > 20 && delay == 0.0f)
         {
             LOG("meditate", "trance: slotDot -> DOT_POISON");
             delay = slowDOT(player, modval, dot.DOT_POISON);
         }
-        if (modval > 40 && delay == 0f)
+        if (modval > 40 && delay == 0.0f)
         {
             LOG("meditate", "trance: slotDot -> DOT_DISEASE");
             delay = slowDOT(player, modval, dot.DOT_DISEASE);
         }
-        if (modval > 60 && delay == 0f)
+        if (modval > 60 && delay == 0.0f)
         {
             LOG("meditate", "trance: cureWounds...");
             delay = cureWounds(player, modval);
         }
         LOG("meditate", "trance: pre-ret delay = " + delay);
-        if (delay > 0f)
+        if (delay > 0.0f)
         {
             if (delay < DELAY_MIN)
             {
@@ -146,7 +146,7 @@ public class meditation extends script.base_script
     {
         if (!isIdValid(player))
         {
-            return 0f;
+            return 0.0f;
         }
         int totalCured = 0;
         int toCure = getDOTReductionAmount(player);
@@ -154,11 +154,11 @@ public class meditation extends script.base_script
         {
             totalCured = dot.reduceDotTypeStrength(player, dotType, toCure);
         }
-        if (totalCured < 0f)
+        if (totalCured < 0.0f)
         {
-            return 0f;
+            return 0.0f;
         }
-        return 5f;
+        return 5.0f;
     }
     public static int getDOTReductionAmount(obj_id player) throws InterruptedException
     {
@@ -167,7 +167,7 @@ public class meditation extends script.base_script
             return -1;
         }
         int dotMod = getSkillStatMod(player, "private_med_dot");
-        float ret = (float)dotMod * (1f + rand(-RAND_MODIFIER, RAND_MODIFIER));
+        float ret = dotMod * (1.0f + rand(-RAND_MODIFIER, RAND_MODIFIER));
         return Math.round(ret);
     }
     public static int getWoundReductionAmount(obj_id player) throws InterruptedException
@@ -177,22 +177,22 @@ public class meditation extends script.base_script
             return -1;
         }
         int dotMod = getSkillStatMod(player, "private_med_wound");
-        float ret = (float)dotMod * (1f + rand(-RAND_MODIFIER, RAND_MODIFIER));
+        float ret = dotMod * (1.0f + rand(-RAND_MODIFIER, RAND_MODIFIER));
         return Math.round(ret);
     }
     public static float cureWounds(obj_id player, int modval) throws InterruptedException
     {
         if (!isIdValid(player))
         {
-            return 0f;
+            return 0.0f;
         }
         dictionary toHeal = new dictionary();
         if ((toHeal == null) || (toHeal.isEmpty()))
         {
             LOG("meditate", "cureWounds: no wounds...");
-            return 0f;
+            return 0.0f;
         }
-        return 5f;
+        return 5.0f;
     }
     public static boolean forceOfWill(obj_id player, int delta) throws InterruptedException
     {
@@ -218,7 +218,7 @@ public class meditation extends script.base_script
         {
             for (int i = 0; i < 3; i++)
             {
-                addAttribModifier(player, i * 3, -200, 300, 0f, 0f);
+                addAttribModifier(player, i * 3, -200, 300, 0.0f, 0.0f);
             }
             addShockWound(player, 100);
             sendSystemMessage(player, new string_id(STF_TERASKASI, "forceofwill_marginal"));
@@ -227,7 +227,7 @@ public class meditation extends script.base_script
         {
             for (int i = 0; i < 3; i++)
             {
-                addAttribModifier(player, i * 3, -100, 300, 0f, 0f);
+                addAttribModifier(player, i * 3, -100, 300, 0.0f, 0.0f);
             }
             sendSystemMessage(player, new string_id(STF_TERASKASI, "forceofwill_normal"));
         }
@@ -268,7 +268,7 @@ public class meditation extends script.base_script
             return false;
         }
         int now = getGameTime();
-        float duration = 300f + (float)(modval) * 3 * rand(0.95f, 1.05f);
+        float duration = 300.0f + (float)(modval) * 3 * rand(0.95f, 1.05f);
         int maxMind = utils.getUnbuffedWoundedMaxAttrib(player, MIND);
         if (maxMind < 10)
         {
@@ -281,7 +281,7 @@ public class meditation extends script.base_script
             sendSystemMessage(player, SID_MIND_POOL_TOO_LOW);
             return false;
         }
-        addAttribModifier(player, MIND, -boost, POWERBOOST_RAMP, 0f, 0f);
+        addAttribModifier(player, MIND, -boost, POWERBOOST_RAMP, 0.0f, 0.0f);
         addAttribModifier(player, "meditation.powerboost.mind", MIND, boost, duration, POWERBOOST_RAMP, POWERBOOST_RAMP, false, false, true);
         addAttribModifier(player, "meditation.powerboost.health", HEALTH, boost, duration, POWERBOOST_RAMP, POWERBOOST_RAMP, false, false, false);
         addAttribModifier(player, "meditation.powerboost.action", ACTION, boost, duration, POWERBOOST_RAMP, POWERBOOST_RAMP, false, false, false);

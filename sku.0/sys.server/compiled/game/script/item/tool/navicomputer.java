@@ -208,10 +208,8 @@ public class navicomputer extends script.base_script
             return false;
         }
         obj_id[] dpadContents = getContents(datapad);
-        for (int i = 0; i < dpadContents.length; i++)
-        {
-            if (hasObjVar(dpadContents[i], "item.current"))
-            {
+        for (obj_id dpadContent : dpadContents) {
+            if (hasObjVar(dpadContent, "item.current")) {
                 return false;
             }
         }

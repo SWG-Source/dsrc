@@ -14,30 +14,23 @@ public class base_component extends script.systems.crafting.crafting_base
     public void calcAndSetPrototypeProperties(obj_id prototype, draft_schematic.attribute[] itemAttributes, dictionary craftingValuesDictionary) throws InterruptedException
     {
         super.calcAndSetPrototypeProperties(prototype, itemAttributes, craftingValuesDictionary);
-        for (int i = 0; i < itemAttributes.length; ++i)
-        {
-            if (itemAttributes[i].currentValue > itemAttributes[i].maxValue)
-            {
-                itemAttributes[i].currentValue = itemAttributes[i].maxValue;
-            }
-            else if (itemAttributes[i].currentValue < itemAttributes[i].minValue)
-            {
-                itemAttributes[i].currentValue = itemAttributes[i].minValue;
+        for (draft_schematic.attribute itemAttribute : itemAttributes) {
+            if (itemAttribute.currentValue > itemAttribute.maxValue) {
+                itemAttribute.currentValue = itemAttribute.maxValue;
+            } else if (itemAttribute.currentValue < itemAttribute.minValue) {
+                itemAttribute.currentValue = itemAttribute.minValue;
             }
         }
     }
     public void calcAndSetPrototypeProperties(obj_id prototype, draft_schematic.attribute[] itemAttributes) throws InterruptedException
     {
         debugServerConsoleMsg(null, "Beginning assembly-phase prototype property setting");
-        for (int i = 0; i < itemAttributes.length; ++i)
-        {
-            if (itemAttributes[i] == null)
-            {
+        for (draft_schematic.attribute itemAttribute : itemAttributes) {
+            if (itemAttribute == null) {
                 continue;
             }
-            if (!calcAndSetPrototypeProperty(prototype, itemAttributes[i]))
-            {
-                setObjVar(prototype, craftinglib.COMPONENT_ATTRIBUTE_OBJVAR_NAME + "." + (itemAttributes[i].name).getAsciiId(), itemAttributes[i].currentValue);
+            if (!calcAndSetPrototypeProperty(prototype, itemAttribute)) {
+                setObjVar(prototype, craftinglib.COMPONENT_ATTRIBUTE_OBJVAR_NAME + "." + (itemAttribute.name).getAsciiId(), itemAttribute.currentValue);
             }
         }
     }

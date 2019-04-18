@@ -100,7 +100,7 @@ public class performance extends script.base_script
     public static final int PERFORM_XP_INSPIRATION = 10;
     public static final int CURE_CLONING_SICKNESS_XP = 50;
     public static final float PERFORM_XP_GROUP_MOD = 0.33f;
-    public static final float INSPIRATION_BONUS = .10f;
+    public static final float INSPIRATION_BONUS = 0.10f;
     public static final String[] APPLAUSE_POSTIVE = 
     {
         "applaud",
@@ -442,11 +442,8 @@ public class performance extends script.base_script
                 obj_id[] bandMembers = getBandMembers(target);
                 if (bandMembers != null && bandMembers.length > 0)
                 {
-                    for (int i = 0; i < bandMembers.length; i++)
-                    {
-                        obj_id bandMate = bandMembers[i];
-                        if (isIdValid(bandMate))
-                        {
+                    for (obj_id bandMate : bandMembers) {
+                        if (isIdValid(bandMate)) {
                             messageTo(bandMate, "handleNewPlayerEntertainerAction", webster, 1, false);
                         }
                     }
@@ -700,14 +697,12 @@ public class performance extends script.base_script
             return 0;
         }
         int[] tracks = getIntArrayObjVar(droid, "module_data.playback.tracks");
-        for (int i = 0; i < tracks.length; i++)
-        {
-            int index = tracks[i];
+        for (int track : tracks) {
+            int index = track;
             index--;
             int instrument = dataTableGetInt(DATATABLE_PERFORMANCE, index, "instrumentAudioId");
             int match = findMatchingPerformanceIndex(leaderType, instrument);
-            if ((match != 0) && (match == tracks[i]))
-            {
+            if ((match != 0) && (match == track)) {
                 return match;
             }
         }
@@ -749,17 +744,14 @@ public class performance extends script.base_script
         }
         Vector validatedMembers = new Vector();
         validatedMembers.setSize(0);
-        for (int i = 0, j = members.length; i < j; i++)
-        {
-            if (!isIdValid(members[i]) || !exists(members[i]))
-            {
+        for (obj_id member : members) {
+            if (!isIdValid(member) || !exists(member)) {
                 continue;
             }
-            if (!isPlayer(members[i]) || getDistance(who, members[i]) > 64 || isIncapacitated(members[i]) || isDead(members[i]) || !utils.isProfession(members[i], utils.ENTERTAINER))
-            {
+            if (!isPlayer(member) || getDistance(who, member) > 64 || isIncapacitated(member) || isDead(member) || !utils.isProfession(member, utils.ENTERTAINER)) {
                 continue;
             }
-            utils.addElement(validatedMembers, members[i]);
+            utils.addElement(validatedMembers, member);
         }
         obj_id[] _validatedMembers = new obj_id[0];
         if (validatedMembers != null)
@@ -778,10 +770,8 @@ public class performance extends script.base_script
             if (members != null)
             {
                 int count = 0;
-                for (int i = 0; i < members.length; ++i)
-                {
-                    if (isPlayer(members[i]) || isHologramPerformer(members[i]) || (pet_lib.isDroidPet(members[i]) && hasObjVar(members[i], "module_data.playback")))
-                    {
+                for (obj_id member1 : members) {
+                    if (isPlayer(member1) || isHologramPerformer(member1) || (pet_lib.isDroidPet(member1) && hasObjVar(member1, "module_data.playback"))) {
                         ++count;
                     }
                 }
@@ -789,11 +779,9 @@ public class performance extends script.base_script
                 {
                     obj_id[] ret = new obj_id[count];
                     count = 0;
-                    for (int i = 0; i < members.length; ++i)
-                    {
-                        if (isPlayer(members[i]) || isHologramPerformer(members[i]) || (pet_lib.isDroidPet(members[i]) && hasObjVar(members[i], "module_data.playback")))
-                        {
-                            ret[count] = members[i];
+                    for (obj_id member : members) {
+                        if (isPlayer(member) || isHologramPerformer(member) || (pet_lib.isDroidPet(member) && hasObjVar(member, "module_data.playback"))) {
+                            ret[count] = member;
                             ++count;
                         }
                     }
@@ -906,26 +894,18 @@ public class performance extends script.base_script
         int performanceIndex = 0;
         int performanceStartTime = 0;
         obj_id[] bandMembers = getBandMembers(actor);
-        for (int i = 0; i < bandMembers.length; ++i)
-        {
-            obj_id player = bandMembers[i];
-            if (player == actor)
-            {
+        for (obj_id player : bandMembers) {
+            if (player == actor) {
                 continue;
             }
-            if (!hasScript(player, MUSIC_HEARTBEAT_SCRIPT))
-            {
+            if (!hasScript(player, MUSIC_HEARTBEAT_SCRIPT)) {
                 continue;
             }
             int memberPerformanceIndex = getPerformanceType(player);
-            if (memberPerformanceIndex != 0)
-            {
-                if (!pet_lib.isDroidPet(actor))
-                {
+            if (memberPerformanceIndex != 0) {
+                if (!pet_lib.isDroidPet(actor)) {
                     performanceIndex = findMatchingPerformanceIndex(memberPerformanceIndex, instrumentNumber);
-                }
-                else 
-                {
+                } else {
                     performanceIndex = findMatchingDroidPerformanceIndex(memberPerformanceIndex, actor);
                 }
                 performanceStartTime = getPerformanceStartTime(player);
@@ -1036,16 +1016,12 @@ public class performance extends script.base_script
         int performanceIndex = 0;
         int performanceStartTime = 0;
         obj_id[] bandMembers = getBandMembers(actor);
-        for (int i = 0; i < bandMembers.length; ++i)
-        {
-            obj_id player = bandMembers[i];
-            if (!hasScript(player, MUSIC_HEARTBEAT_SCRIPT))
-            {
+        for (obj_id player : bandMembers) {
+            if (!hasScript(player, MUSIC_HEARTBEAT_SCRIPT)) {
                 continue;
             }
             int memberPerformanceIndex = getPerformanceType(player);
-            if (memberPerformanceIndex != 0)
-            {
+            if (memberPerformanceIndex != 0) {
                 performanceIndex = findMatchingPerformanceIndex(memberPerformanceIndex, instrumentNumber);
                 performanceStartTime = getPerformanceStartTime(player);
                 activeSong = true;
@@ -1099,87 +1075,60 @@ public class performance extends script.base_script
             messageTo(actor, "handleNewPlayerEntertainerAction", webster, 1, false);
         }
         boolean bandMemberLackSkill = false;
-        for (int i = 0; i < bandMembers.length; ++i)
-        {
-            obj_id player = bandMembers[i];
-            if (player == actor)
-            {
+        for (obj_id player : bandMembers) {
+            if (player == actor) {
                 continue;
             }
-            if (!isPlayer(player) && !pet_lib.isDroidPet(player) && !isHologramPerformer(player))
-            {
+            if (!isPlayer(player) && !pet_lib.isDroidPet(player) && !isHologramPerformer(player)) {
                 continue;
             }
-            if (getPerformanceType(player) != 0)
-            {
-                if (!hasScript(actor, MUSIC_HEARTBEAT_SCRIPT) && !hasScript(actor, DANCE_HEARTBEAT_SCRIPT))
-                {
+            if (getPerformanceType(player) != 0) {
+                if (!hasScript(actor, MUSIC_HEARTBEAT_SCRIPT) && !hasScript(actor, DANCE_HEARTBEAT_SCRIPT)) {
                     stopPlaying(actor);
-                    if (hasObjVar(actor, performance.VAR_PERFORM))
-                    {
+                    if (hasObjVar(actor, performance.VAR_PERFORM)) {
                         removeObjVar(actor, performance.VAR_PERFORM);
                     }
-                }
-                else 
-                {
+                } else {
                     continue;
                 }
             }
-            if (getDistance(actor, player) > PERFORMANCE_BAND_MEMBER_RANGE)
-            {
+            if (getDistance(actor, player) > PERFORMANCE_BAND_MEMBER_RANGE) {
                 continue;
             }
             int memberInstrumentNumber = 0;
-            if (!pet_lib.isDroidPet(player))
-            {
+            if (!pet_lib.isDroidPet(player)) {
                 memberInstrumentNumber = getInstrumentAudioId(player);
-                if (memberInstrumentNumber == 0)
-                {
+                if (memberInstrumentNumber == 0) {
                     continue;
                 }
             }
             int memberPerformanceIndex = 0;
-            if (!pet_lib.isDroidPet(player))
-            {
+            if (!pet_lib.isDroidPet(player)) {
                 memberPerformanceIndex = findMatchingPerformanceIndex(performanceIndex, memberInstrumentNumber);
-            }
-            else 
-            {
+            } else {
                 memberPerformanceIndex = findMatchingDroidPerformanceIndex(performanceIndex, player);
             }
-            if (memberPerformanceIndex != 0)
-            {
-                if (!notShapechanged(actor))
-                {
+            if (memberPerformanceIndex != 0) {
+                if (!notShapechanged(actor)) {
                     continue;
                 }
-                if (!pet_lib.isDroidPet(player) && !canUseInstrument(player, memberPerformanceIndex))
-                {
+                if (!pet_lib.isDroidPet(player) && !canUseInstrument(player, memberPerformanceIndex)) {
                     performanceMessageToSelf(player, null, SID_MUSIC_LACK_SKILL_INSTRUMENT);
                     continue;
                 }
-                if (!pet_lib.isDroidPet(player))
-                {
-                    if (canPerformSong(player, memberPerformanceIndex))
-                    {
+                if (!pet_lib.isDroidPet(player)) {
+                    if (canPerformSong(player, memberPerformanceIndex)) {
                         startPlaying(player, memberPerformanceIndex, performanceStartTime, memberInstrumentNumber);
-                    }
-                    else 
-                    {
+                    } else {
                         performanceMessageToSelf(player, null, SID_MUSIC_LACK_SKILL_SONG_BAND);
                         bandMemberLackSkill = true;
                     }
-                }
-                else 
-                {
+                } else {
                     memberInstrumentNumber = getInstrumentFromPerformanceType(memberPerformanceIndex);
                     startPlaying(player, memberPerformanceIndex, performanceStartTime, memberInstrumentNumber);
                 }
-            }
-            else 
-            {
-                if (pet_lib.isDroidPet(player))
-                {
+            } else {
+                if (pet_lib.isDroidPet(player)) {
                     performanceMessageToMaster(player, null, SID_MUSIC_TRACK_NOT_AVAILABLE);
                 }
             }
@@ -1210,17 +1159,12 @@ public class performance extends script.base_script
         int performanceIndex = 0;
         int performanceStartTime = 0;
         obj_id[] bandMembers = getBandMembers(actor);
-        for (int i = 0; i < bandMembers.length; ++i)
-        {
-            obj_id player = bandMembers[i];
-            if (hasScript(player, DANCE_HEARTBEAT_SCRIPT))
-            {
+        for (obj_id player : bandMembers) {
+            if (hasScript(player, DANCE_HEARTBEAT_SCRIPT)) {
                 stopDance(player);
             }
         }
-        for (int i = 0; i < bandMembers.length; ++i)
-        {
-            obj_id player = bandMembers[i];
+        for (obj_id player : bandMembers) {
             danceName = utils.getStringScriptVar(player, VAR_CURRENT_DANCE);
             utils.removeScriptVar(player, VAR_CURRENT_DANCE);
             startDance(player, danceName);
@@ -1275,19 +1219,13 @@ public class performance extends script.base_script
             performanceMessageToSelf(actor, null, SID_MUSIC_PREPARE_STOP_BAND_SELF);
             performanceMessageToBand(actor, null, SID_MUSIC_PREPARE_STOP_BAND_MEMBERS);
             boolean bandStop = false;
-            for (int i = 0; i < bandMembers.length; ++i)
-            {
-                obj_id player = bandMembers[i];
-                if (hasScript(player, MUSIC_HEARTBEAT_SCRIPT))
-                {
+            for (obj_id player : bandMembers) {
+                if (hasScript(player, MUSIC_HEARTBEAT_SCRIPT)) {
                     specialFlourish(player, SPECIAL_FLOURISH_OUTRO);
                     dictionary params = new dictionary();
-                    if (player == actor)
-                    {
+                    if (player == actor) {
                         params.put("leader", 1);
-                    }
-                    else 
-                    {
+                    } else {
                         params.put("leader", 0);
                     }
                     setObjVar(player, VAR_PERFORM_OUTRO, 1);
@@ -1317,20 +1255,15 @@ public class performance extends script.base_script
         }
         boolean activeBandSong = false;
         obj_id[] bandMembers = getBandMembers(actor);
-        for (int i = 0; i < bandMembers.length; ++i)
-        {
-            obj_id player = bandMembers[i];
-            if (player == actor)
-            {
+        for (obj_id player : bandMembers) {
+            if (player == actor) {
                 continue;
             }
-            if (!hasScript(player, MUSIC_HEARTBEAT_SCRIPT))
-            {
+            if (!hasScript(player, MUSIC_HEARTBEAT_SCRIPT)) {
                 continue;
             }
             int memberPerformanceIndex = getPerformanceType(player);
-            if (memberPerformanceIndex != 0)
-            {
+            if (memberPerformanceIndex != 0) {
                 activeBandSong = true;
                 break;
             }
@@ -1420,58 +1353,41 @@ public class performance extends script.base_script
         setPerformanceType(actor, performanceIndex);
         queueCommand(actor, (181882275), null, "1", COMMAND_PRIORITY_IMMEDIATE);
         obj_id[] bandMembers = getBandMembers(actor);
-        for (int i = 0; i < bandMembers.length; ++i)
-        {
-            obj_id player = bandMembers[i];
-            if (player == actor)
-            {
+        for (obj_id player : bandMembers) {
+            if (player == actor) {
                 continue;
             }
-            if (!hasScript(actor, MUSIC_HEARTBEAT_SCRIPT))
-            {
+            if (!hasScript(actor, MUSIC_HEARTBEAT_SCRIPT)) {
                 continue;
             }
-            if (!pet_lib.isDroidPet(player))
-            {
+            if (!pet_lib.isDroidPet(player)) {
                 int memberInstrumentNumber = getInstrumentAudioId(player);
-                if (memberInstrumentNumber == 0)
-                {
+                if (memberInstrumentNumber == 0) {
                     continue;
                 }
                 int memberPerformanceIndex = findMatchingPerformanceIndex(performanceIndex, memberInstrumentNumber);
-                if (!notShapechanged(actor))
-                {
+                if (!notShapechanged(actor)) {
                     stopMusicNow(player);
                 }
-                if (memberPerformanceIndex != 0 && canPerformSong(player, memberPerformanceIndex))
-                {
-                    if (!hasScript(player, MUSIC_HEARTBEAT_SCRIPT))
-                    {
+                if (memberPerformanceIndex != 0 && canPerformSong(player, memberPerformanceIndex)) {
+                    if (!hasScript(player, MUSIC_HEARTBEAT_SCRIPT)) {
                         startPlaying(player, memberPerformanceIndex, 1, memberInstrumentNumber);
                     }
                     setPerformanceType(player, memberPerformanceIndex);
                     queueCommand(player, (181882275), null, "1", COMMAND_PRIORITY_IMMEDIATE);
-                }
-                else 
-                {
+                } else {
                     performanceMessageToSelf(player, null, SID_MUSIC_LACK_SKILL_SONG_BAND);
                     stopMusicNow(player);
                 }
-                if (!canUseInstrument(player, memberInstrumentNumber))
-                {
+                if (!canUseInstrument(player, memberInstrumentNumber)) {
                     performanceMessageToSelf(player, null, SID_MUSIC_LACK_SKILL_INSTRUMENT);
                     stopMusicNow(player);
                 }
-            }
-            else 
-            {
+            } else {
                 int memberPerformanceIndex = findMatchingDroidPerformanceIndex(performanceIndex, player);
-                if (memberPerformanceIndex != 0)
-                {
+                if (memberPerformanceIndex != 0) {
                     setPerformanceType(player, memberPerformanceIndex);
-                }
-                else 
-                {
+                } else {
                     performanceMessageToMaster(player, null, SID_MUSIC_TRACK_NOT_AVAILABLE);
                     stopMusicNow(player);
                 }
@@ -1605,22 +1521,18 @@ public class performance extends script.base_script
     public static void makeOthersStopWatching(obj_id actor) throws InterruptedException
     {
         obj_id[] watcherToStop = getPerformanceWatchersInRange(actor, PERFORMANCE_HEAL_RANGE);
-        for (int i = 0; i < watcherToStop.length; i++)
-        {
-            if (watcherToStop[i] != actor)
-            {
-                queueCommand(watcherToStop[i], (1716628890), null, "", COMMAND_PRIORITY_DEFAULT);
+        for (obj_id obj_id : watcherToStop) {
+            if (obj_id != actor) {
+                queueCommand(obj_id, (1716628890), null, "", COMMAND_PRIORITY_DEFAULT);
             }
         }
     }
     public static void makeOthersStopListening(obj_id actor) throws InterruptedException
     {
         obj_id[] watcherToStop = getPerformanceListenersInRange(actor, PERFORMANCE_HEAL_RANGE);
-        for (int i = 0; i < watcherToStop.length; i++)
-        {
-            if (watcherToStop[i] != actor)
-            {
-                queueCommand(watcherToStop[i], (-1025190704), null, "", COMMAND_PRIORITY_DEFAULT);
+        for (obj_id obj_id : watcherToStop) {
+            if (obj_id != actor) {
+                queueCommand(obj_id, (-1025190704), null, "", COMMAND_PRIORITY_DEFAULT);
             }
         }
     }
@@ -1676,20 +1588,15 @@ public class performance extends script.base_script
         int performanceStartTime = 0;
         int instrumentNumber = getInstrumentAudioId(actor);
         obj_id[] bandMembers = getBandMembers(actor);
-        for (int i = 0; i < bandMembers.length; ++i)
-        {
-            obj_id player = bandMembers[i];
-            if (player == actor)
-            {
+        for (obj_id player : bandMembers) {
+            if (player == actor) {
                 continue;
             }
-            if (!hasScript(player, MUSIC_HEARTBEAT_SCRIPT))
-            {
+            if (!hasScript(player, MUSIC_HEARTBEAT_SCRIPT)) {
                 continue;
             }
             int memberPerformanceIndex = getPerformanceType(player);
-            if (memberPerformanceIndex != 0)
-            {
+            if (memberPerformanceIndex != 0) {
                 performanceIndex = findMatchingPerformanceIndex(memberPerformanceIndex, instrumentNumber);
                 performanceStartTime = getPerformanceStartTime(player);
                 activeBandSong = true;
@@ -1719,16 +1626,12 @@ public class performance extends script.base_script
             dictionary params = new dictionary();
             params.put("entertainer", actor);
             params.put("perf_type", perf_type);
-            for (int i = 0; i < npcs.length; i++)
-            {
-                if (hasScript(npcs[i], "ai.ai"))
-                {
-                    if (!utils.hasScriptVar(npcs[i], "ai.listeningTo"))
-                    {
-                        messageTo(npcs[i], message, params, 0, false);
+            for (obj_id npc : npcs) {
+                if (hasScript(npc, "ai.ai")) {
+                    if (!utils.hasScriptVar(npc, "ai.listeningTo")) {
+                        messageTo(npc, message, params, 0, false);
                         count++;
-                        if (count > 4)
-                        {
+                        if (count > 4) {
                             return;
                         }
                     }
@@ -1776,12 +1679,12 @@ public class performance extends script.base_script
         }
         else if (hasScript(actor, DANCE_HEARTBEAT_SCRIPT))
         {
-            flourishCost = 1f;
+            flourishCost = 1.0f;
             entertainmentType = "dance";
         }
         else if (hasScript(actor, JUGGLE_HEARTBEAT_SCRIPT))
         {
-            flourishCost = 1f;
+            flourishCost = 1.0f;
             entertainmentType = "juggle";
         }
         if (applyPerformanceActionCost(actor, flourishCost))
@@ -1863,23 +1766,17 @@ public class performance extends script.base_script
             if (isIdValid(group))
             {
                 obj_id[] members = getGroupMemberIds(group);
-                for (int i = 0; i < members.length; ++i)
-                {
-                    if (!pet_lib.isDroidPet(members[i]))
-                    {
-                        LOG("performance_music", "My instrument is " + getInstrumentAudioId(members[i]));
-                        if (hasScript(members[i], MUSIC_HEARTBEAT_SCRIPT) && (getInstrumentAudioId(members[i]) == instrumentNum))
-                        {
-                            band_members[band_size] = members[i];
+                for (obj_id member : members) {
+                    if (!pet_lib.isDroidPet(member)) {
+                        LOG("performance_music", "My instrument is " + getInstrumentAudioId(member));
+                        if (hasScript(member, MUSIC_HEARTBEAT_SCRIPT) && (getInstrumentAudioId(member) == instrumentNum)) {
+                            band_members[band_size] = member;
                             ++band_size;
                         }
-                    }
-                    else 
-                    {
-                        int instrumentID = getInstrumentFromPerformanceType(getPerformanceType(members[i]));
-                        if (hasScript(members[i], MUSIC_HEARTBEAT_SCRIPT) && (instrumentID == instrumentNum))
-                        {
-                            band_members[band_size] = members[i];
+                    } else {
+                        int instrumentID = getInstrumentFromPerformanceType(getPerformanceType(member));
+                        if (hasScript(member, MUSIC_HEARTBEAT_SCRIPT) && (instrumentID == instrumentNum)) {
+                            band_members[band_size] = member;
                             ++band_size;
                         }
                     }
@@ -1910,11 +1807,9 @@ public class performance extends script.base_script
             if (isIdValid(group))
             {
                 obj_id[] members = getGroupMemberIds(group);
-                for (int i = 0; i < members.length; ++i)
-                {
-                    if (hasScript(members[i], heartbeat_script))
-                    {
-                        band_members[band_size] = members[i];
+                for (obj_id member : members) {
+                    if (hasScript(member, heartbeat_script)) {
+                        band_members[band_size] = member;
                         ++band_size;
                     }
                 }
@@ -2142,11 +2037,9 @@ public class performance extends script.base_script
     {
         if (people != null)
         {
-            for (int i = 0; i < people.length; ++i)
-            {
-                if (people[i] != actor)
-                {
-                    performanceMessageToPerson(people[i], actor, target, message);
+            for (obj_id person : people) {
+                if (person != actor) {
+                    performanceMessageToPerson(person, actor, target, message);
                 }
             }
         }
@@ -2161,9 +2054,8 @@ public class performance extends script.base_script
         obj_id[] members = getBandMembers(actor);
         if (members != null)
         {
-            for (int i = 0; i < members.length; ++i)
-            {
-                performanceMessageToListeners(members[i], target, message);
+            for (obj_id member : members) {
+                performanceMessageToListeners(member, target, message);
             }
         }
     }
@@ -2261,66 +2153,50 @@ public class performance extends script.base_script
         pt.stringId = new string_id("spam", "cured_clonesick");
         prose_package pa = new prose_package();
         pa.stringId = new string_id("spam", "cured_clonesick_actor");
-        for (int i = 0; i < audience.length; i++)
-        {
-            if (!isIdValid(audience[i]) || !exists(audience[i]))
-            {
+        for (obj_id obj_id1 : audience) {
+            if (!isIdValid(obj_id1) || !exists(obj_id1)) {
                 continue;
             }
-            if (checkDenyService(actor, audience[i]))
-            {
+            if (checkDenyService(actor, obj_id1)) {
                 continue;
             }
-            if (utils.hasScriptVar(audience[i], VAR_PERFORM_PAY_WAIT))
-            {
+            if (utils.hasScriptVar(obj_id1, VAR_PERFORM_PAY_WAIT)) {
                 continue;
             }
-            if (buff.hasBuff(audience[i], "cloning_sickness"))
-            {
-                buff.removeBuff(audience[i], "cloning_sickness");
-                playClientEffectObj(audience[i], "appearance/pt_heal.prt", audience[i], "");
-                if (!utils.hasScriptVar(audience[i], VAR_PERFROM_ALREADY_PAID))
-                {
-                    int charge = utils.getIntScriptVar(audience[i], performance.VAR_PERFORM_PAY_AGREE);
-                    if (charge > 0)
-                    {
+            if (buff.hasBuff(obj_id1, "cloning_sickness")) {
+                buff.removeBuff(obj_id1, "cloning_sickness");
+                playClientEffectObj(obj_id1, "appearance/pt_heal.prt", obj_id1, "");
+                if (!utils.hasScriptVar(obj_id1, VAR_PERFROM_ALREADY_PAID)) {
+                    int charge = utils.getIntScriptVar(obj_id1, performance.VAR_PERFORM_PAY_AGREE);
+                    if (charge > 0) {
                         money.systemPayout(money.ACCT_PERFORM_ESCROW, actor, charge, "handlePayment", null);
-                        utils.setScriptVar(audience[i], VAR_PERFROM_ALREADY_PAID, 1);
+                        utils.setScriptVar(obj_id1, VAR_PERFROM_ALREADY_PAID, 1);
                     }
                 }
-                if (audience[i] != actor)
-                {
-                    sendSystemMessageProse(audience[i], pt);
+                if (obj_id1 != actor) {
+                    sendSystemMessageProse(obj_id1, pt);
                 }
-                pa.target.set(audience[i]);
+                pa.target.set(obj_id1);
                 sendSystemMessageProse(actor, pa);
                 audienceMod++;
             }
-            if (buff.hasBuff(audience[i], "gcw_fatigue"))
-            {
-                if (groundquests.isQuestActive(actor, "gcw_entertain_fatigue") && factions.isSameFactionorFactionHelper(actor, audience[i]))
-                {
+            if (buff.hasBuff(obj_id1, "gcw_fatigue")) {
+                if (groundquests.isQuestActive(actor, "gcw_entertain_fatigue") && factions.isSameFactionorFactionHelper(actor, obj_id1)) {
                     pt.stringId = new string_id("spam", "cured_fatigue");
                     pa.stringId = new string_id("spam", "cured_fatigued_actor");
-                    int stackSize = (int)buff.getBuffStackCount(audience[i], "gcw_fatigue");
-                    if (stackSize <= 0)
-                    {
+                    int stackSize = (int) buff.getBuffStackCount(obj_id1, "gcw_fatigue");
+                    if (stackSize <= 0) {
                         continue;
-                    }
-                    else if (stackSize <= 5)
-                    {
-                        buff.removeBuff(audience[i], "gcw_fatigue");
-                    }
-                    else if (stackSize > 5)
-                    {
+                    } else if (stackSize <= 5) {
+                        buff.removeBuff(obj_id1, "gcw_fatigue");
+                    } else if (stackSize > 5) {
                         stackSize = stackSize - 5;
-                        buff.removeBuff(audience[i], "gcw_fatigue");
-                        buff.applyBuffWithStackCount(audience[i], "gcw_fatigue", stackSize);
+                        buff.removeBuff(obj_id1, "gcw_fatigue");
+                        buff.applyBuffWithStackCount(obj_id1, "gcw_fatigue", stackSize);
                     }
                     groundquests.sendSignal(actor, "cureFatigue");
                     obj_id cityEggId = gcw.getInvasionSequencerNearby(actor);
-                    if (isValidId(cityEggId))
-                    {
+                    if (isValidId(cityEggId)) {
                         trial.addNonInstanceFactionParticipant(actor, cityEggId);
                     }
                     prose_package gcw_fatigue_pt = new prose_package();
@@ -2328,21 +2204,18 @@ public class performance extends script.base_script
                     pt.stringId = new string_id("spam", "cured_fatigue");
                     prose_package gcw_fatigue_pa = new prose_package();
                     pa.stringId = new string_id("spam", "cured_fatigued_actor");
-                    playClientEffectObj(audience[i], "appearance/pt_heal.prt", audience[i], "");
-                    if (!utils.hasScriptVar(audience[i], VAR_PERFROM_ALREADY_PAID))
-                    {
-                        int charge = utils.getIntScriptVar(audience[i], performance.VAR_PERFORM_PAY_AGREE);
-                        if (charge > 0)
-                        {
+                    playClientEffectObj(obj_id1, "appearance/pt_heal.prt", obj_id1, "");
+                    if (!utils.hasScriptVar(obj_id1, VAR_PERFROM_ALREADY_PAID)) {
+                        int charge = utils.getIntScriptVar(obj_id1, performance.VAR_PERFORM_PAY_AGREE);
+                        if (charge > 0) {
                             money.systemPayout(money.ACCT_PERFORM_ESCROW, actor, charge, "handlePayment", null);
-                            utils.setScriptVar(audience[i], VAR_PERFROM_ALREADY_PAID, 1);
+                            utils.setScriptVar(obj_id1, VAR_PERFROM_ALREADY_PAID, 1);
                         }
                     }
-                    if (audience[i] != actor)
-                    {
-                        sendSystemMessageProse(audience[i], pt);
+                    if (obj_id1 != actor) {
+                        sendSystemMessageProse(obj_id1, pt);
                     }
-                    pa.target.set(audience[i]);
+                    pa.target.set(obj_id1);
                     sendSystemMessageProse(actor, pa);
                     audienceMod++;
                 }
@@ -2350,9 +2223,8 @@ public class performance extends script.base_script
         }
         int experience = (CURE_CLONING_SICKNESS_XP * audienceMod);
         obj_id[] band = getBandMembers(actor);
-        for (int i = 0; i < band.length; i++)
-        {
-            xp.grantSocialStyleXp(band[i], xp.ENTERTAINER, experience);
+        for (obj_id obj_id : band) {
+            xp.grantSocialStyleXp(obj_id, xp.ENTERTAINER, experience);
         }
         return true;
     }
@@ -2421,65 +2293,53 @@ public class performance extends script.base_script
         }
         float maxDuration = inspireGetMaxDuration(actor);
         int audienceMod = 0;
-        for (int i = 0; i < audience.length; i++)
-        {
-            if (audience[i] == actor)
-            {
+        for (obj_id obj_id1 : audience) {
+            if (obj_id1 == actor) {
                 continue;
             }
-            if (checkDenyService(actor, audience[i]))
-            {
+            if (checkDenyService(actor, obj_id1)) {
                 continue;
             }
-            if (utils.hasScriptVar(audience[i], VAR_PERFORM_PAY_WAIT))
-            {
+            if (utils.hasScriptVar(obj_id1, VAR_PERFORM_PAY_WAIT)) {
                 continue;
             }
             float inspirationScriptVarVal = 0.0f;
-            if (utils.hasScriptVar(audience[i], VAR_PERFORM_INSPIRATION))
-            {
-                inspirationScriptVarVal = utils.getFloatScriptVar(audience[i], VAR_PERFORM_INSPIRATION);
+            if (utils.hasScriptVar(obj_id1, VAR_PERFORM_INSPIRATION)) {
+                inspirationScriptVarVal = utils.getFloatScriptVar(obj_id1, VAR_PERFORM_INSPIRATION);
             }
-            if (inspirationScriptVarVal == maxDuration)
-            {
+            if (inspirationScriptVarVal == maxDuration) {
                 continue;
             }
-            int inspireBuffCrc = buff.getBuffOnTargetFromGroup(audience[i], "inspiration");
+            int inspireBuffCrc = buff.getBuffOnTargetFromGroup(obj_id1, "inspiration");
             float expertisePerTickBonusTime = getEnhancedSkillStatisticModifierUncapped(actor, "expertise_en_inspire_pulse_duration_increase") * 60;
             float perTickMinutesAdded = expertisePerTickBonusTime + INSPIRATION_BUFF_SEGMENT;
             int city_id = city.checkCity(actor, false);
-            if (city_id > 0 && (city.cityHasSpec(city_id, city.SF_SPEC_ENTERTAINER)))
-            {
+            if (city_id > 0 && (city.cityHasSpec(city_id, city.SF_SPEC_ENTERTAINER))) {
                 perTickMinutesAdded += 180;
             }
             inspirationScriptVarVal += perTickMinutesAdded;
-            if (inspirationScriptVarVal > maxDuration)
-            {
+            if (inspirationScriptVarVal > maxDuration) {
                 inspirationScriptVarVal = maxDuration;
-                if (!utils.hasScriptVar(audience[i], "performance.inspireMaxReached"))
-                {
-                    showFlyTextPrivate(audience[i], audience[i], new string_id("performance", "buff_maxtime"), 0.66f, colors.LIGHTPINK.getR(), colors.LIGHTPINK.getG(), colors.LIGHTPINK.getB(), true);
-                    showFlyTextPrivate(audience[i], actor, new string_id("performance", "buff_maxtime"), 0.66f, colors.LIGHTPINK.getR(), colors.LIGHTPINK.getG(), colors.LIGHTPINK.getB(), true);
-                    utils.setScriptVar(audience[i], "performance.inspireMaxReached", 1);
+                if (!utils.hasScriptVar(obj_id1, "performance.inspireMaxReached")) {
+                    showFlyTextPrivate(obj_id1, obj_id1, new string_id("performance", "buff_maxtime"), 0.66f, colors.LIGHTPINK.getR(), colors.LIGHTPINK.getG(), colors.LIGHTPINK.getB(), true);
+                    showFlyTextPrivate(obj_id1, actor, new string_id("performance", "buff_maxtime"), 0.66f, colors.LIGHTPINK.getR(), colors.LIGHTPINK.getG(), colors.LIGHTPINK.getB(), true);
+                    utils.setScriptVar(obj_id1, "performance.inspireMaxReached", 1);
                 }
-            }
-            else 
-            {
+            } else {
                 prose_package pp = new prose_package();
                 pp = prose.setStringId(pp, new string_id("spam", "buff_duration_tick_not_hardcoded"));
                 pp = prose.setTO(pp, getFormattedInspirationDuration(inspirationScriptVarVal));
-                pp.target.set(audience[i]);
-                showFlyTextPrivate(audience[i], audience[i], pp, 0.66f, colors.LIGHTPINK.getR(), colors.LIGHTPINK.getG(), colors.LIGHTPINK.getB(), true);
-                showFlyTextPrivate(audience[i], actor, pp, 0.66f, colors.LIGHTPINK.getR(), colors.LIGHTPINK.getG(), colors.LIGHTPINK.getB(), true);
+                pp.target.set(obj_id1);
+                showFlyTextPrivate(obj_id1, obj_id1, pp, 0.66f, colors.LIGHTPINK.getR(), colors.LIGHTPINK.getG(), colors.LIGHTPINK.getB(), true);
+                showFlyTextPrivate(obj_id1, actor, pp, 0.66f, colors.LIGHTPINK.getR(), colors.LIGHTPINK.getG(), colors.LIGHTPINK.getB(), true);
             }
-            utils.setScriptVar(audience[i], VAR_PERFORM_INSPIRATION, inspirationScriptVarVal);
+            utils.setScriptVar(obj_id1, VAR_PERFORM_INSPIRATION, inspirationScriptVarVal);
             audienceMod++;
         }
         int experience = (PERFORM_XP_INSPIRATION * audienceMod);
         obj_id[] band = getBandMembers(actor);
-        for (int i = 0; i < band.length; i++)
-        {
-            xp.grantSocialStyleXp(band[i], xp.ENTERTAINER, experience);
+        for (obj_id obj_id : band) {
+            xp.grantSocialStyleXp(obj_id, xp.ENTERTAINER, experience);
         }
         return true;
     }
@@ -2527,7 +2387,7 @@ public class performance extends script.base_script
     }
     public static float getPerformanceMistakeChance(obj_id actor) throws InterruptedException
     {
-        return 0f;
+        return 0.0f;
     }
     public static boolean hasInspirationInstrumentUseBuff(obj_id actor, String instrument) throws InterruptedException
     {
@@ -2669,7 +2529,7 @@ public class performance extends script.base_script
         {
             return false;
         }
-        if (req_ability.indexOf("dirge") > -1)
+        if (req_ability.contains("dirge"))
         {
             if (!utils.isProfession(actor, utils.ENTERTAINER))
             {
@@ -2795,19 +2655,15 @@ public class performance extends script.base_script
         if (isIdValid(group))
         {
             obj_id[] members = getGroupMemberIds(group);
-            for (int i = 0; i < members.length; ++i)
-            {
-                if (pet_lib.isDroidPet(members[i]) || isHologramPerformer(members[i]))
-                {
+            for (obj_id member : members) {
+                if (pet_lib.isDroidPet(member) || isHologramPerformer(member)) {
                     continue;
                 }
-                if (getDistance(actor, members[i]) > PERFORMANCE_BAND_MEMBER_RANGE)
-                {
+                if (getDistance(actor, member) > PERFORMANCE_BAND_MEMBER_RANGE) {
                     continue;
                 }
-                if (members[i] != actor && (hasScript(members[i], DANCE_HEARTBEAT_SCRIPT) || hasScript(members[i], MUSIC_HEARTBEAT_SCRIPT) || hasScript(members[i], JUGGLE_HEARTBEAT_SCRIPT)))
-                {
-                    band_members[band_size] = members[i];
+                if (member != actor && (hasScript(member, DANCE_HEARTBEAT_SCRIPT) || hasScript(member, MUSIC_HEARTBEAT_SCRIPT) || hasScript(member, JUGGLE_HEARTBEAT_SCRIPT))) {
+                    band_members[band_size] = member;
                     ++band_size;
                 }
             }
@@ -2828,7 +2684,7 @@ public class performance extends script.base_script
         setObjVar(actor, performance.VAR_PERFORM_FLOURISH_COUNT, 0);
         setObjVar(actor, performance.VAR_PERFORM_FLOURISH_TOTAL, 0);
         LOG("entertainer_xp", "Flourish Count = " + flourish_count);
-        int flourishDec = (int)((float)flourish_xp / 6.0f);
+        int flourishDec = (int)(flourish_xp / 6.0f);
         flourish_xp *= flourish_count;
         int old_flourish_xp = getIntObjVar(actor, VAR_PERFORM_FLOURISH_XP);
         if (old_flourish_xp > flourish_xp)
@@ -2847,12 +2703,12 @@ public class performance extends script.base_script
         int xp_amount = base_xp + flourish_xp;
         LOG("entertainer_xp", "XP Amount = " + xp_amount + ", (Base XP: " + base_xp + " + (Flourish XP: " + flourish_xp + "))");
         float band_mod = ((band_size - 1) / ((float)PERFORM_XP_GROUP_MAX)) * PERFORM_XP_GROUP_MOD;
-        float applause_mod = applause_count / 100f;
+        float applause_mod = applause_count / 100.0f;
         LOG("entertainer_xp", "Band Mod = " + band_mod);
         LOG("entertainer_xp", "Applaues Mod = " + applause_mod);
-        float audience_mod = (float)audience_size / 50f;
+        float audience_mod = audience_size / 50.0f;
         LOG("entertainer_xp", "Audience Mod = " + audience_mod);
-        float xp_mod = 1f + band_mod + audience_mod + applause_mod;
+        float xp_mod = 1.0f + band_mod + audience_mod + applause_mod;
         xp_amount = (int)(xp_amount * xp_mod);
         LOG("entertainer_xp", "XP Mod = " + xp_mod);
         LOG("entertainer_xp", "Total XP = " + xp_amount);
@@ -2877,15 +2733,11 @@ public class performance extends script.base_script
                 }
                 if (member_audience != null && member_audience.length > 0)
                 {
-                    for (int j = 0; j < member_audience.length; j++)
-                    {
-                        if (!utils.isElementInArray(audience, member_audience[j]))
-                        {
-                            if (isIdValid(member_audience[j]))
-                            {
-                                if (!checkDenyService(band_members[i], member_audience[j]))
-                                {
-                                    utils.addElement(audience, member_audience[j]);
+                    for (obj_id obj_id : member_audience) {
+                        if (!utils.isElementInArray(audience, obj_id)) {
+                            if (isIdValid(obj_id)) {
+                                if (!checkDenyService(band_members[i], obj_id)) {
+                                    utils.addElement(audience, obj_id);
                                 }
                             }
                         }
@@ -3392,10 +3244,9 @@ public class performance extends script.base_script
         }
         Vector dsrc = new Vector();
         Vector list = new Vector();
-        for (int i = 0; i < INSPIRATION_BUFF_ENTERTAINER.length; i++)
-        {
-            dsrc.addElement("@performance:" + INSPIRATION_BUFF_ENTERTAINER[i]);
-            list.addElement(INSPIRATION_BUFF_ENTERTAINER[i]);
+        for (String s1 : INSPIRATION_BUFF_ENTERTAINER) {
+            dsrc.addElement("@performance:" + s1);
+            list.addElement(s1);
         }
         String type = "";
         if (hasScript(self, DANCE_HEARTBEAT_SCRIPT))
@@ -3406,10 +3257,9 @@ public class performance extends script.base_script
                 sendSystemMessage(self, new string_id("performance", "insp_buff_must_watch"));
                 return;
             }
-            for (int i = 0; i < INSPIRATION_BUFF_DANCER.length; i++)
-            {
-                dsrc.addElement("@performance:" + INSPIRATION_BUFF_DANCER[i]);
-                list.addElement(INSPIRATION_BUFF_DANCER[i]);
+            for (String s : INSPIRATION_BUFF_DANCER) {
+                dsrc.addElement("@performance:" + s);
+                list.addElement(s);
             }
         }
         else if (hasScript(self, MUSIC_HEARTBEAT_SCRIPT))
@@ -3420,10 +3270,9 @@ public class performance extends script.base_script
                 sendSystemMessage(self, new string_id("performance", "insp_buff_must_listen"));
                 return;
             }
-            for (int i = 0; i < INSPIRATION_BUFF_MUSICIAN.length; i++)
-            {
-                dsrc.addElement("@performance:" + INSPIRATION_BUFF_MUSICIAN[i]);
-                list.addElement(INSPIRATION_BUFF_MUSICIAN[i]);
+            for (String s : INSPIRATION_BUFF_MUSICIAN) {
+                dsrc.addElement("@performance:" + s);
+                list.addElement(s);
             }
         }
         else 
@@ -3589,13 +3438,11 @@ public class performance extends script.base_script
             custom_var[] var_list = getAllCustomVars(actor);
             if (var_list != null && var_list.length > 0)
             {
-                for (int i = 0; i < var_list.length; i++)
-                {
-                    ranged_int_custom_var ricv = (ranged_int_custom_var)var_list[i];
+                for (custom_var custom_var : var_list) {
+                    ranged_int_custom_var ricv = (ranged_int_custom_var) custom_var;
                     String var = ricv.getVarName();
                     int value = ricv.getValue();
-                    if (value != 0)
-                    {
+                    if (value != 0) {
                         setRangedIntCustomVarValue(hologram, var, value);
                     }
                 }
@@ -3605,19 +3452,14 @@ public class performance extends script.base_script
             utils.setObjVar(hologram, "hologram_performer", 1);
             if (contents != null && contents.length > 0)
             {
-                for (int i = 0; i < contents.length; i++)
-                {
-                    if (isIdValid(contents[i]))
-                    {
-                        if (getContainerType(contents[i]) == 0)
-                        {
-                            if (getGameObjectType(contents[i]) == GOT_misc_appearance_only_invisible)
-                            {
+                for (obj_id content : contents) {
+                    if (isIdValid(content)) {
+                        if (getContainerType(content) == 0) {
+                            if (getGameObjectType(content) == GOT_misc_appearance_only_invisible) {
                                 continue;
                             }
-                            if (!(getTemplateName(contents[i])).endsWith("player.iff"))
-                            {
-                                createObject(getTemplateName(contents[i]), hologram, "");
+                            if (!(getTemplateName(content)).endsWith("player.iff")) {
+                                createObject(getTemplateName(content), hologram, "");
                             }
                         }
                     }
@@ -3627,7 +3469,7 @@ public class performance extends script.base_script
             attachScript(hologram, "systems.skills.performance.holographic_backup");
             utils.setScriptVar(hologram, "hologram_performer", 1);
             queueCommand(actor, (-2007999144), hologram, "", COMMAND_PRIORITY_DEFAULT);
-            messageTo(hologram, "handleGroupInvitation", null, 2f, false);
+            messageTo(hologram, "handleGroupInvitation", null, 2.0f, false);
             return true;
         }
         return false;

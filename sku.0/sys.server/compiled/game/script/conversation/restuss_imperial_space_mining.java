@@ -26,18 +26,14 @@ public class restuss_imperial_space_mining extends script.base_script
         obj_id currentBoxResource = null;
         String currentBoxResourceName = "";
         int currentBoxCount = 0;
-        for (int i = 0; i < boxes.length; i++)
-        {
-            currentBox = boxes[i];
+        for (obj_id box : boxes) {
+            currentBox = box;
             currentBoxResource = getResourceContainerResourceType(currentBox);
             currentBoxResourceName = getResourceName(currentBoxResource);
-            if (currentBoxResourceName.indexOf("space_metal_obsidian") > -1 || currentBoxResourceName.indexOf("Obsidian Asteroid") > -1)
-            {
+            if (currentBoxResourceName.contains("space_metal_obsidian") || currentBoxResourceName.contains("Obsidian Asteroid")) {
                 currentBoxCount = getResourceContainerQuantity(currentBox);
-                if (currentBoxCount >= 500)
-                {
-                    if (groundquests.isTaskActive(player, "restuss_imperial_space_mining_1", "returnWholding"))
-                    {
+                if (currentBoxCount >= 500) {
+                    if (groundquests.isTaskActive(player, "restuss_imperial_space_mining_1", "returnWholding")) {
                         return true;
                     }
                 }
@@ -60,18 +56,14 @@ public class restuss_imperial_space_mining extends script.base_script
         obj_id currentBoxResource = null;
         String currentBoxResourceName = "";
         int currentBoxCount = 0;
-        for (int i = 0; i < boxes.length; i++)
-        {
-            currentBox = boxes[i];
+        for (obj_id box : boxes) {
+            currentBox = box;
             currentBoxResource = getResourceContainerResourceType(currentBox);
             currentBoxResourceName = getResourceName(currentBoxResource);
-            if (currentBoxResourceName.indexOf("space_gas_organometallic") > -1 || currentBoxResourceName.indexOf("Organometallic Asteroid") > -1)
-            {
+            if (currentBoxResourceName.contains("space_gas_organometallic") || currentBoxResourceName.contains("Organometallic Asteroid")) {
                 currentBoxCount = getResourceContainerQuantity(currentBox);
-                if (currentBoxCount >= 250)
-                {
-                    if (groundquests.isTaskActive(player, "restuss_imperial_space_mining_2", "returnWholding2"))
-                    {
+                if (currentBoxCount >= 250) {
+                    if (groundquests.isTaskActive(player, "restuss_imperial_space_mining_2", "returnWholding2")) {
                         return true;
                     }
                 }
@@ -136,16 +128,13 @@ public class restuss_imperial_space_mining extends script.base_script
         obj_id currentBoxResource = null;
         String currentBoxResourceName = "";
         int currentBoxCount = 0;
-        for (int i = 0; i < boxes.length; i++)
-        {
-            currentBox = boxes[i];
+        for (obj_id box : boxes) {
+            currentBox = box;
             currentBoxResource = getResourceContainerResourceType(currentBox);
             currentBoxResourceName = getResourceName(currentBoxResource);
-            if (currentBoxResourceName.indexOf("space_metal_obsidian") > -1 || currentBoxResourceName.indexOf("Obsidian Asteroid") > -1)
-            {
+            if (currentBoxResourceName.contains("space_metal_obsidian") || currentBoxResourceName.contains("Obsidian Asteroid")) {
                 currentBoxCount = getResourceContainerQuantity(currentBox);
-                if (currentBoxCount >= 500)
-                {
+                if (currentBoxCount >= 500) {
                     removeResourceFromContainer(currentBox, currentBoxResource, 500);
                     break;
                 }
@@ -154,13 +143,12 @@ public class restuss_imperial_space_mining extends script.base_script
         groundquests.sendSignal(player, "returnedWholding");
         if (group.isGrouped(player))
         {
-            Vector members = group.getPCMembersInRange(player, 35f);
+            Vector members = group.getPCMembersInRange(player, 35.0f);
             if (members != null && members.size() > 0)
             {
                 int numInGroup = members.size();
-                for (int i = 0; i < numInGroup; i++)
-                {
-                    obj_id thisMember = ((obj_id)members.get(i));
+                for (Object member : members) {
+                    obj_id thisMember = ((obj_id) member);
                     groundquests.sendSignal(thisMember, "returnedWholding");
                 }
             }
@@ -170,7 +158,7 @@ public class restuss_imperial_space_mining extends script.base_script
         if (phase == 0)
         {
             float ratio = restuss_event.getCompletedQuestRatio(npc, "restuss_imperial_space_mining_1");
-            if (ratio > .5)
+            if (ratio > 0.5)
             {
                 restuss_event.incrimentPhase(npc);
                 return;
@@ -199,16 +187,13 @@ public class restuss_imperial_space_mining extends script.base_script
         obj_id currentBoxResource = null;
         String currentBoxResourceName = "";
         int currentBoxCount = 0;
-        for (int i = 0; i < boxes.length; i++)
-        {
-            currentBox = boxes[i];
+        for (obj_id box : boxes) {
+            currentBox = box;
             currentBoxResource = getResourceContainerResourceType(currentBox);
             currentBoxResourceName = getResourceName(currentBoxResource);
-            if (currentBoxResourceName.indexOf("space_gas_organometallic") > -1 || currentBoxResourceName.indexOf("Organometallic Asteroid") > -1)
-            {
+            if (currentBoxResourceName.contains("space_gas_organometallic") || currentBoxResourceName.contains("Organometallic Asteroid")) {
                 currentBoxCount = getResourceContainerQuantity(currentBox);
-                if (currentBoxCount >= 250)
-                {
+                if (currentBoxCount >= 250) {
                     removeResourceFromContainer(currentBox, currentBoxResource, 250);
                     break;
                 }
@@ -217,13 +202,12 @@ public class restuss_imperial_space_mining extends script.base_script
         groundquests.sendSignal(player, "returnedWholding2");
         if (group.isGrouped(player))
         {
-            Vector members = group.getPCMembersInRange(player, 35f);
+            Vector members = group.getPCMembersInRange(player, 35.0f);
             if (members != null && members.size() > 0)
             {
                 int numInGroup = members.size();
-                for (int i = 0; i < numInGroup; i++)
-                {
-                    obj_id thisMember = ((obj_id)members.get(i));
+                for (Object member : members) {
+                    obj_id thisMember = ((obj_id) member);
                     groundquests.sendSignal(thisMember, "returnedWholding2");
                 }
             }

@@ -463,7 +463,7 @@ public class permissions extends script.base_script
             {
                 int index = idx / 32;
                 int bitPos = idx % 32;
-                int bitVal = (int)Math.pow(2, bitPos);
+                int bitVal = (int) StrictMath.pow(2, bitPos);
                 if ((permissions[index] & bitVal) == bitVal)
                 {
                     return true;

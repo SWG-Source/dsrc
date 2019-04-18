@@ -54,7 +54,7 @@ public class food extends script.base_script
         {
             return SCRIPT_CONTINUE;
         }
-        float dur = 1f;
+        float dur = 1.0f;
         if (hasObjVar(self, "duration"))
         {
             dur = getFloatObjVar(self, "duration");
@@ -70,7 +70,7 @@ public class food extends script.base_script
         {
             return SCRIPT_CONTINUE;
         }
-        float eff = 1f;
+        float eff = 1.0f;
         if (hasObjVar(self, "effectiveness"))
         {
             eff = getFloatObjVar(self, "effectiveness");
@@ -99,42 +99,36 @@ public class food extends script.base_script
                         value *= eff;
                     }
                     attribs[idx] = "" + value;
-                    if (buff_name.equals("drink_ruby_bliel"))
-                    {
-                        names[idx] = "food_stimpack_roundtime";
-                        attribs[idx] = "30";
-                    }
-                    else if (buff_name.equals("drink_starshine_surprise") || buff_name.equals("dessert_cavaellin_creams"))
-                    {
-                        names[idx] = "food_incap_recovery";
-                    }
-                    else if (buff_name.equals("dish_ormachek"))
-                    {
-                        names[idx] = "food_xp_bonus";
-                    }
-                    else if (buff_name.equals("dessert_pyollian_cake"))
-                    {
-                        names[idx] = "food_assembly_bonus";
-                    }
-                    else if (buff_name.equals("dessert_gorrnar"))
-                    {
-                        names[idx] = "food_reduce_clone_wound";
-                    }
-                    else if (buff_name.equals("dessert_smugglers_delight"))
-                    {
-                        names[idx] = "food_reduce_spice_downer";
-                    }
-                    else if (buff_name.equals("drink_tssolok"))
-                    {
-                        names[idx] = "food_inc_buff_time";
-                    }
-                    else if (buff_name.equals("drink_bespin_port"))
-                    {
-                        names[idx] = "food_exp_bonus";
-                    }
-                    else 
-                    {
-                        attribs[idx] = "";
+                    switch (buff_name) {
+                        case "drink_ruby_bliel":
+                            names[idx] = "food_stimpack_roundtime";
+                            attribs[idx] = "30";
+                            break;
+                        case "drink_starshine_surprise":
+                        case "dessert_cavaellin_creams":
+                            names[idx] = "food_incap_recovery";
+                            break;
+                        case "dish_ormachek":
+                            names[idx] = "food_xp_bonus";
+                            break;
+                        case "dessert_pyollian_cake":
+                            names[idx] = "food_assembly_bonus";
+                            break;
+                        case "dessert_gorrnar":
+                            names[idx] = "food_reduce_clone_wound";
+                            break;
+                        case "dessert_smugglers_delight":
+                            names[idx] = "food_reduce_spice_downer";
+                            break;
+                        case "drink_tssolok":
+                            names[idx] = "food_inc_buff_time";
+                            break;
+                        case "drink_bespin_port":
+                            names[idx] = "food_exp_bonus";
+                            break;
+                        default:
+                            attribs[idx] = "";
+                            break;
                     }
                 }
                 else 
@@ -151,7 +145,7 @@ public class food extends script.base_script
                         attribs[idx] = "+";
                     }
                     attribs[idx] += "" + value;
-                    if (param.indexOf("percent") >= 0)
+                    if (param.contains("percent"))
                     {
                         attribs[idx] += "%";
                     }
@@ -229,8 +223,8 @@ public class food extends script.base_script
         {
             return;
         }
-        float eff = 1f;
-        float dur = 1f;
+        float eff = 1.0f;
+        float dur = 1.0f;
         if (hasObjVar(self, "effectiveness"))
         {
             eff = getFloatObjVar(self, "effectiveness");
@@ -409,10 +403,8 @@ public class food extends script.base_script
     }
     public boolean isClickyCombatNerfed(String buff_name) throws InterruptedException
     {
-        for (int nameChecker = 0; nameChecker < CLICKY_COMBAT_REMOVED_BUFFS.length; nameChecker++)
-        {
-            if (buff_name.equals(CLICKY_COMBAT_REMOVED_BUFFS[nameChecker]))
-            {
+        for (String clickyCombatRemovedBuff : CLICKY_COMBAT_REMOVED_BUFFS) {
+            if (buff_name.equals(clickyCombatRemovedBuff)) {
                 return true;
             }
         }

@@ -143,7 +143,7 @@ public class barn_beast extends script.base_script
             int experiencePercentage = 0;
             if (experienceProgress > 0)
             {
-                experiencePercentage = (int)(((float)experienceProgress / (float)experienceNeeded) * 100);
+                experiencePercentage = (int)(((float)experienceProgress / experienceNeeded) * 100);
             }
             names[idx] = "level_progress";
             attribs[idx] = "" + experiencePercentage + "%";
@@ -202,8 +202,8 @@ public class barn_beast extends script.base_script
             int minDamage = getWeaponMinDamage(beastWeapon);
             int maxDamage = getWeaponMaxDamage(beastWeapon);
             int expertiseDamageBonus = getEnhancedSkillStatisticModifierUncapped(self, "expertise_damage_all");
-            minDamage = (int)(minDamage * (1.0f + ((float)expertiseDamageBonus / 100.0f)));
-            maxDamage = (int)(maxDamage * (1.0f + ((float)expertiseDamageBonus / 100.0f)));
+            minDamage = (int)(minDamage * (1.0f + (expertiseDamageBonus / 100.0f)));
+            maxDamage = (int)(maxDamage * (1.0f + (expertiseDamageBonus / 100.0f)));
             float weaponSpeed = getWeaponAttackSpeed(beastWeapon);
             names[idx] = "damage";
             attribs[idx] = "" + minDamage + " - " + maxDamage;
@@ -225,8 +225,8 @@ public class barn_beast extends script.base_script
                 int maxDamage = getWeaponMaxDamage(defaultWeapon);
                 float weaponSpeed = getWeaponAttackSpeed(defaultWeapon);
                 int expertiseDamageBonus = getEnhancedSkillStatisticModifierUncapped(self, "expertise_damage_all");
-                minDamage = (int)(minDamage * (1.0f + ((float)expertiseDamageBonus / 100.0f)));
-                maxDamage = (int)(maxDamage * (1.0f + ((float)expertiseDamageBonus / 100.0f)));
+                minDamage = (int)(minDamage * (1.0f + (expertiseDamageBonus / 100.0f)));
+                maxDamage = (int)(maxDamage * (1.0f + (expertiseDamageBonus / 100.0f)));
                 names[idx] = "damage";
                 attribs[idx] = "" + minDamage + " - " + maxDamage;
                 idx++;
@@ -244,7 +244,7 @@ public class barn_beast extends script.base_script
             for (int i = 0; i < beast_lib.DISPLAY_NAMES.length; ++i)
             {
                 String name = beast_lib.DISPLAY_NAMES[i];
-                if (name.indexOf("_skill") < 0)
+                if (!name.contains("_skill"))
                 {
                     if (!name.equals("block_value_bonus"))
                     {

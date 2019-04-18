@@ -13,7 +13,7 @@ public class trap_thrower extends script.base_script
     public static final String RECENT_TRAP_THROWN = "thrown.recent_trap";
     public static final String THROW_DELAY_END = "thrown.delay_end";
     public static final int TRAP_DELAY = 4;
-    public static final float MAX_SHOOTING_DISTANCE = 64f;
+    public static final float MAX_SHOOTING_DISTANCE = 64.0f;
     public static final String DROID_TRAP = "droid_trap";
     public static final String TRAP_NUM = DROID_TRAP + ".trap_num";
     public static final String TEMPLATE = TRAP_NUM + ".trap_template";
@@ -192,7 +192,7 @@ public class trap_thrower extends script.base_script
             sendSystemMessage(player, SID_INSUFFICIENT_SKILL);
             return SCRIPT_CONTINUE;
         }
-        double dblTrapBonus = (skillMod * .84) + ((skillMod * .35) * (trapBonus / 100));
+        double dblTrapBonus = (skillMod * 0.84) + ((skillMod * 0.35) * (trapBonus / 100));
         int intTrapBonus = (int)dblTrapBonus;
         obj_id target = getLookAtTarget(player);
         if (getDistance(self, target) > MAX_SHOOTING_DISTANCE)
@@ -220,7 +220,7 @@ public class trap_thrower extends script.base_script
         obj_id[] objDefenders = null;
         if (hasObjVar(self, AE))
         {
-            objDefenders = pvpGetTargetsInRange(self, target, 5.f);
+            objDefenders = pvpGetTargetsInRange(self, target, 5.0f);
             area = true;
         }
         else 
@@ -229,31 +229,24 @@ public class trap_thrower extends script.base_script
             objDefenders[0] = target;
         }
         boolean exp = false;
-        for (int i = 0; i < objDefenders.length; i++)
-        {
-            obj_id tt = objDefenders[i];
-            if (!isIdValid(tt))
-            {
+        for (obj_id tt : objDefenders) {
+            if (!isIdValid(tt)) {
                 continue;
             }
             int creatureLev = ai_lib.getLevel(tt);
-            int reduction = (int)(intTrapBonus * 0.5f);
+            int reduction = (int) (intTrapBonus * 0.5f);
             int levDiff = creatureLev - ((intTrapBonus - reduction) * 2);
             int chance = 80;
-            if (levDiff > 0)
-            {
-                chance -= (int)(Math.pow(levDiff, 3.f / 2.f) * 2.2f + 5.f);
+            if (levDiff > 0) {
+                chance -= (int) (StrictMath.pow(levDiff, 3.0f / 2.0f) * 2.2f + 5.0f);
             }
             int roll = rand(1, 100);
-            if (roll < chance)
-            {
+            if (roll < chance) {
                 dictionary resultParams = new dictionary();
                 resultParams.put("target", tt);
                 resultParams.put("player", player);
                 messageTo(self, "trapHit", resultParams, 3, false);
-            }
-            else 
-            {
+            } else {
                 dictionary resultParams = new dictionary();
                 resultParams.put("target", tt);
                 resultParams.put("player", player);
@@ -292,7 +285,7 @@ public class trap_thrower extends script.base_script
         obj_id target = params.getObjId("target");
         String clientEffectTrap = getStringObjVar(self, TEMPLATE);
         clientEffectTrap = clientEffectTrap.substring(27, clientEffectTrap.length() - 4);
-        playClientEffectLoc(player, "clienteffect/combat_" + clientEffectTrap + ".cef", getLocation(target), .8f);
+        playClientEffectLoc(player, "clienteffect/combat_" + clientEffectTrap + ".cef", getLocation(target), 0.8f);
         playClientEffectLoc(player, "clienteffect/combat_special_attacker_aim.cef", getLocation(self), 1.1f);
         return SCRIPT_CONTINUE;
     }
@@ -333,7 +326,7 @@ public class trap_thrower extends script.base_script
         copyObjVar(self, controlDevice, DROID_TRAP);
         String trapName = localize(new string_id("item_n", "trap_" + getStringObjVar(self, NAME)));
         int numCharges = getIntObjVar(self, CHARGES);
-        prose_package pp = prose.getPackage(SID_TRAP_MODULE_INITIALIZE, null, trapName, null, null, null, null, null, null, null, numCharges, 0.f);
+        prose_package pp = prose.getPackage(SID_TRAP_MODULE_INITIALIZE, null, trapName, null, null, null, null, null, null, null, numCharges, 0.0f);
         sendSystemMessageProse(player, pp);
         return;
     }

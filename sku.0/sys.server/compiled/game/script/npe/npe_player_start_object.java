@@ -17,10 +17,8 @@ public class npe_player_start_object extends script.base_script
         createTriggerVolume("npePlayerMoved", 1, true);
         obj_id[] contents = getTriggerVolumeContents(self, "npePlayerMoved");
         boolean playerInside = false;
-        for (int i = 0; i < contents.length; i++)
-        {
-            if (isPlayer(contents[i]))
-            {
+        for (obj_id content : contents) {
+            if (isPlayer(content)) {
                 playerInside = true;
             }
         }

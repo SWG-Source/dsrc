@@ -11,7 +11,7 @@ public class holopet_emitter extends script.base_script
     {
     }
     public static final string_id NOT_IN_INVENTORY = new string_id("spam", "not_in_inventory");
-    public static final float HEARTBEAT = 600f;
+    public static final float HEARTBEAT = 600.0f;
     public static final String PID_NAME = "holo-pet";
     public int OnAttach(obj_id self) throws InterruptedException
     {
@@ -61,7 +61,7 @@ public class holopet_emitter extends script.base_script
         {
             return SCRIPT_CONTINUE;
         }
-        if ((getTopMostContainer(player) != getTopMostContainer(self)) || (getDistance(player, self) > 7f))
+        if ((getTopMostContainer(player) != getTopMostContainer(self)) || (getDistance(player, self) > 7.0f))
         {
             return SCRIPT_CONTINUE;
         }
@@ -93,7 +93,7 @@ public class holopet_emitter extends script.base_script
         {
             return SCRIPT_CONTINUE;
         }
-        if (!utils.isNestedWithin(self, player) && getDistance(player, self) > 7f)
+        if (!utils.isNestedWithin(self, player) && getDistance(player, self) > 7.0f)
         {
             sendSystemMessage(player, new string_id("publish_gift/holopet", "too_far"));
             return SCRIPT_CONTINUE;
@@ -256,7 +256,7 @@ public class holopet_emitter extends script.base_script
         for (int i = 0; i < 50; i++)
         {
             newLoc = (location)myLoc.clone();
-            newLoc = utils.getRandomAwayLocation(newLoc, 1f, 1.5f);
+            newLoc = utils.getRandomAwayLocation(newLoc, 1.0f, 1.5f);
             if (isValidInteriorLocation(newLoc))
             {
                 break;
@@ -298,7 +298,7 @@ public class holopet_emitter extends script.base_script
             final float collisionRadius = getObjectCollisionRadius(pet);
             final float minDelay = Math.min(Math.max(8.0f, collisionRadius * 2.0f), 16.0f);
             final float maxDelay = Math.min(Math.max(8.0f, collisionRadius * 4.0f), 16.0f);
-            loiterLocation(pet, getLocation(self), 1f, 6.0f, minDelay, maxDelay);
+            loiterLocation(pet, getLocation(self), 1.0f, 6.0f, minDelay, maxDelay);
             setObjVar(pet, "ai.defaultCalmBehavior", ai_lib.BEHAVIOR_LOITER);
             setObjVar(self, "holopet_active", pet);
             setObjVar(self, "unmoveable", 1);
@@ -341,90 +341,78 @@ public class holopet_emitter extends script.base_script
         float scale = 1.0f;
         float speed = 1.01f;
         int hologramQuality = HOLOGRAM_TYPE1_QUALITY3;
-        if (type.equals("rancor"))
-        {
-            template = "object/mobile/hologram/rancor.iff";
-            name = new string_id("publish_gift/holopet", "rancor_name");
-            scale = 0.1f;
-        }
-        else if (type.equals("quenker"))
-        {
-            template = "object/mobile/hologram/quenker.iff";
-            name = new string_id("publish_gift/holopet", "quenker_name");
-            scale = 0.5f;
-        }
-        else if (type.equals("veermok"))
-        {
-            template = "object/mobile/hologram/veermok.iff";
-            name = new string_id("publish_gift/holopet", "veermok_name");
-            scale = 0.4f;
-        }
-        else if (type.equals("slicehound"))
-        {
-            template = "object/mobile/hologram/corellian_slice_hound.iff";
-            name = new string_id("publish_gift/holopet", "slice_hound_name");
-            scale = 0.5f;
-        }
-        else if (type.equals("pekopeko"))
-        {
-            template = "object/mobile/hologram/peko_peko.iff";
-            name = new string_id("publish_gift/holopet", "peko_peko_name");
-            scale = 0.2f;
-            speed = 7f;
-        }
-        else if (type.equals("squall"))
-        {
-            template = "object/mobile/hologram/squall.iff";
-            name = new string_id("publish_gift/holopet", "squall_name");
-            scale = 1.0f;
-        }
-        else if (type.equals("jax"))
-        {
-            template = "object/mobile/hologram/bearded_jax.iff";
-            name = new string_id("publish_gift/holopet", "jax_name");
-            scale = 1.0f;
-        }
-        else if (type.equals("ewok"))
-        {
-            template = "object/mobile/hologram/ewok.iff";
-            name = new string_id("publish_gift/holopet", "ewok_name");
-            scale = 0.5f;
-        }
-        else if (type.equals("jawa"))
-        {
-            template = "object/mobile/hologram/jawa.iff";
-            name = new string_id("publish_gift/holopet", "jawa_name");
-            scale = 0.8f;
-        }
-        else if (type.equals("atat"))
-        {
-            template = "object/mobile/hologram/atat.iff";
-            name = new string_id("publish_gift/holopet", "atat_name");
-            scale = 0.04f;
-        }
-        else if (type.equals("cle004"))
-        {
-            template = "object/mobile/hologram/cle004.iff";
-            name = new string_id("publish_gift/holopet", "cle004_name");
-            scale = 0.4f;
-        }
-        else if (type.equals("ins444"))
-        {
-            template = "object/mobile/hologram/ins444.iff";
-            name = new string_id("publish_gift/holopet", "ins444_name");
-            scale = 0.6f;
-        }
-        else if (type.equals("hoth_probe_droid"))
-        {
-            template = "object/mobile/hologram/probe_droid.iff";
-            name = new string_id("publish_gift/holopet", "probe_droid_name");
-            scale = 0.2f;
-        }
-        else if (type.equals("hoth_tauntaun"))
-        {
-            template = "object/mobile/hologram/tauntaun.iff";
-            name = new string_id("publish_gift/holopet", "tauntaun_name");
-            scale = 0.3f;
+        switch (type) {
+            case "rancor":
+                template = "object/mobile/hologram/rancor.iff";
+                name = new string_id("publish_gift/holopet", "rancor_name");
+                scale = 0.1f;
+                break;
+            case "quenker":
+                template = "object/mobile/hologram/quenker.iff";
+                name = new string_id("publish_gift/holopet", "quenker_name");
+                scale = 0.5f;
+                break;
+            case "veermok":
+                template = "object/mobile/hologram/veermok.iff";
+                name = new string_id("publish_gift/holopet", "veermok_name");
+                scale = 0.4f;
+                break;
+            case "slicehound":
+                template = "object/mobile/hologram/corellian_slice_hound.iff";
+                name = new string_id("publish_gift/holopet", "slice_hound_name");
+                scale = 0.5f;
+                break;
+            case "pekopeko":
+                template = "object/mobile/hologram/peko_peko.iff";
+                name = new string_id("publish_gift/holopet", "peko_peko_name");
+                scale = 0.2f;
+                speed = 7.0f;
+                break;
+            case "squall":
+                template = "object/mobile/hologram/squall.iff";
+                name = new string_id("publish_gift/holopet", "squall_name");
+                scale = 1.0f;
+                break;
+            case "jax":
+                template = "object/mobile/hologram/bearded_jax.iff";
+                name = new string_id("publish_gift/holopet", "jax_name");
+                scale = 1.0f;
+                break;
+            case "ewok":
+                template = "object/mobile/hologram/ewok.iff";
+                name = new string_id("publish_gift/holopet", "ewok_name");
+                scale = 0.5f;
+                break;
+            case "jawa":
+                template = "object/mobile/hologram/jawa.iff";
+                name = new string_id("publish_gift/holopet", "jawa_name");
+                scale = 0.8f;
+                break;
+            case "atat":
+                template = "object/mobile/hologram/atat.iff";
+                name = new string_id("publish_gift/holopet", "atat_name");
+                scale = 0.04f;
+                break;
+            case "cle004":
+                template = "object/mobile/hologram/cle004.iff";
+                name = new string_id("publish_gift/holopet", "cle004_name");
+                scale = 0.4f;
+                break;
+            case "ins444":
+                template = "object/mobile/hologram/ins444.iff";
+                name = new string_id("publish_gift/holopet", "ins444_name");
+                scale = 0.6f;
+                break;
+            case "hoth_probe_droid":
+                template = "object/mobile/hologram/probe_droid.iff";
+                name = new string_id("publish_gift/holopet", "probe_droid_name");
+                scale = 0.2f;
+                break;
+            case "hoth_tauntaun":
+                template = "object/mobile/hologram/tauntaun.iff";
+                name = new string_id("publish_gift/holopet", "tauntaun_name");
+                scale = 0.3f;
+                break;
         }
         dictionary vetDataDict = new dictionary();
         vetDataDict.put("template", template);
@@ -587,14 +575,10 @@ public class holopet_emitter extends script.base_script
                 tempName = localize(new string_id(parse[0], parse[1]));
             }
             String[] splitName = split(tempName, ' ');
-            for (int z = 0; z < splitName.length; z++)
-            {
-                if (!splitName[z].startsWith("Holo-"))
-                {
-                    sortedType += splitName[z];
-                }
-                else 
-                {
+            for (String s : splitName) {
+                if (!s.startsWith("Holo-")) {
+                    sortedType += s;
+                } else {
                     break;
                 }
             }
@@ -646,7 +630,7 @@ public class holopet_emitter extends script.base_script
         int pid = sui.listbox(self, player, prompt, sui.OK_CANCEL, title, cube_names, "handleLoadDataCube", false, false);
         if (pid > 0)
         {
-            sui.setAssociateRange(player, pid, self, 10f);
+            sui.setAssociateRange(player, pid, self, 10.0f);
             showSUIPage(pid);
             sui.setPid(player, pid, PID_NAME);
             utils.setScriptVar(player, "data_cubes", final_data_cubes);

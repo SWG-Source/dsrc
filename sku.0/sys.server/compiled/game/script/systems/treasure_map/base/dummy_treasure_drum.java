@@ -60,13 +60,11 @@ public class dummy_treasure_drum extends script.base_script
         else 
         {
             sendSystemMessage(player, SID_KILL_GUARDS, null);
-            for (int i = 0; i < guards.length; i++)
-            {
-                if ((isIdNull(guards[i])) || !exists(guards[i]) || isDead(guards[i]))
-                {
+            for (obj_id guard : guards) {
+                if ((isIdNull(guard)) || !exists(guard) || isDead(guard)) {
                     continue;
                 }
-                messageTo(guards[i], "attackThief", null, 0, false);
+                messageTo(guard, "attackThief", null, 0, false);
             }
         }
         return SCRIPT_CONTINUE;
@@ -137,7 +135,7 @@ public class dummy_treasure_drum extends script.base_script
                 removeObjVar(fake_chest, "treasureMapWaypoint");
             }
         }
-        playClientEffectLoc(self, "clienteffect/lair_damage_light.cef", getLocation(self), 1f);
+        playClientEffectLoc(self, "clienteffect/lair_damage_light.cef", getLocation(self), 1.0f);
         destroyObject(fake_chest);
         return SCRIPT_CONTINUE;
     }
@@ -198,9 +196,8 @@ public class dummy_treasure_drum extends script.base_script
         if (guards != null && guards.size() > 0)
         {
             setObjVar(fake_chest, "guards", guards);
-            for (int i = 0; i < guards.size(); i++)
-            {
-                CustomerServiceLog("treasureMap", "Player: " + player + " " + getName(player) + " has spawned boss mob level: " + ((obj_id)guards.get(i)) + " at: " + getLocation(((obj_id)guards.get(i))) + ". [ spawnTreasureGuards() ]");
+            for (Object guard : guards) {
+                CustomerServiceLog("treasureMap", "Player: " + player + " " + getName(player) + " has spawned boss mob level: " + ((obj_id) guard) + " at: " + getLocation(((obj_id) guard)) + ". [ spawnTreasureGuards() ]");
             }
         }
         return SCRIPT_CONTINUE;
@@ -221,13 +218,11 @@ public class dummy_treasure_drum extends script.base_script
             messageTo(fake_chest, "setupChest", null, 0, false);
             return SCRIPT_CONTINUE;
         }
-        for (int i = 0; i < guards.length; i++)
-        {
-            if ((isIdNull(guards[i])) || !exists(guards[i]) || isDead(guards[i]))
-            {
+        for (obj_id guard : guards) {
+            if ((isIdNull(guard)) || !exists(guard) || isDead(guard)) {
                 continue;
             }
-            utils.addElement(latestGuardList, guards[i]);
+            utils.addElement(latestGuardList, guard);
         }
         obj_id[] newGuardArray = new obj_id[latestGuardList.size()];
         if (newGuardArray == null || newGuardArray.length == 0)

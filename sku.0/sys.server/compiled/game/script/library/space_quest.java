@@ -90,10 +90,8 @@ public class space_quest extends script.base_script
         if (isIdValid(datapad))
         {
             obj_id[] dpobjs = getContents(datapad);
-            for (int i = 0; i < dpobjs.length; i++)
-            {
-                if (hasObjVar(dpobjs[i], QUEST_NAME))
-                {
+            for (obj_id dpobj : dpobjs) {
+                if (hasObjVar(dpobj, QUEST_NAME)) {
                     return true;
                 }
             }
@@ -118,14 +116,11 @@ public class space_quest extends script.base_script
         if (isIdValid(datapad))
         {
             obj_id[] dpobjs = getContents(datapad);
-            for (int i = 0; i < dpobjs.length; i++)
-            {
-                if (hasObjVar(dpobjs[i], QUEST_TYPE))
-                {
-                    String tname = getStringObjVar(dpobjs[i], QUEST_TYPE);
-                    if (questType.equals(tname))
-                    {
-                        return dpobjs[i];
+            for (obj_id dpobj : dpobjs) {
+                if (hasObjVar(dpobj, QUEST_TYPE)) {
+                    String tname = getStringObjVar(dpobj, QUEST_TYPE);
+                    if (questType.equals(tname)) {
+                        return dpobj;
                     }
                 }
             }
@@ -150,15 +145,12 @@ public class space_quest extends script.base_script
         if (isIdValid(datapad))
         {
             obj_id[] dpobjs = getContents(datapad);
-            for (int i = 0; i < dpobjs.length; i++)
-            {
-                if (hasObjVar(dpobjs[i], QUEST_NAME))
-                {
-                    String qname = getStringObjVar(dpobjs[i], QUEST_NAME);
-                    String tname = getStringObjVar(dpobjs[i], QUEST_TYPE);
-                    if (questName.equals(qname) && questType.equals(tname))
-                    {
-                        return dpobjs[i];
+            for (obj_id dpobj : dpobjs) {
+                if (hasObjVar(dpobj, QUEST_NAME)) {
+                    String qname = getStringObjVar(dpobj, QUEST_NAME);
+                    String tname = getStringObjVar(dpobj, QUEST_TYPE);
+                    if (questName.equals(qname) && questType.equals(tname)) {
+                        return dpobj;
                     }
                 }
             }
@@ -263,13 +255,11 @@ public class space_quest extends script.base_script
             obj_id[] members = space_utils.getSpaceGroupMemberIds(gid);
             if (members != null && members.length >= 0)
             {
-                for (int i = 0; i < members.length; i++)
-                {
-                    if (members[i] != player)
-                    {
-                        sendSystemMessage(members[i], GROUP_QUEST_RECEIVED);
+                for (obj_id member : members) {
+                    if (member != player) {
+                        sendSystemMessage(member, GROUP_QUEST_RECEIVED);
                     }
-                    utils.setScriptVar(members[i], "group_space_quest." + questType + "." + questName, 1);
+                    utils.setScriptVar(member, "group_space_quest." + questType + "." + questName, 1);
                 }
             }
         }
@@ -293,10 +283,8 @@ public class space_quest extends script.base_script
             obj_id[] members = space_utils.getSpaceGroupMemberIds(gid);
             if (members != null && members.length >= 0)
             {
-                for (int i = 0; i < members.length; i++)
-                {
-                    if (members[i] == player)
-                    {
+                for (obj_id member : members) {
+                    if (member == player) {
                         return isOnGroupQuest(player, questType, questName);
                     }
                 }
@@ -315,27 +303,19 @@ public class space_quest extends script.base_script
             obj_id[] members = space_utils.getSpaceGroupMemberIds(gid);
             if (members != null && members.length >= 0)
             {
-                for (int i = 0; i < members.length; i++)
-                {
-                    if (isOnGroupQuest(members[i], questType, questName))
-                    {
-                        if (members[i] != owner)
-                        {
-                            if (flag == QUEST_FAILED)
-                            {
-                                sendSystemMessage(members[i], GROUP_QUEST_FAILED);
-                            }
-                            else if (flag == QUEST_WON)
-                            {
-                                sendSystemMessage(members[i], GROUP_QUEST_WON);
-                            }
-                            else if (flag == QUEST_ABORTED)
-                            {
-                                sendSystemMessage(members[i], GROUP_QUEST_ABORTED);
+                for (obj_id member : members) {
+                    if (isOnGroupQuest(member, questType, questName)) {
+                        if (member != owner) {
+                            if (flag == QUEST_FAILED) {
+                                sendSystemMessage(member, GROUP_QUEST_FAILED);
+                            } else if (flag == QUEST_WON) {
+                                sendSystemMessage(member, GROUP_QUEST_WON);
+                            } else if (flag == QUEST_ABORTED) {
+                                sendSystemMessage(member, GROUP_QUEST_ABORTED);
                             }
                         }
-                        _setQuestFlag(members[i], questType, questName, flag);
-                        utils.removeScriptVar(members[i], "group_space_quest." + questType + "." + questName);
+                        _setQuestFlag(member, questType, questName, flag);
+                        utils.removeScriptVar(member, "group_space_quest." + questType + "." + questName);
                     }
                 }
             }
@@ -853,29 +833,26 @@ public class space_quest extends script.base_script
         }
         setMissionDescription(missionObj, new string_id("spacequest/" + questType + "/" + questName, "title_d"));
         setMissionTitle(missionObj, new string_id("space/quest", questType));
-        if (questType.equals("space_battle") || questType.equals("space_mining_destroy"))
-        {
-            setMissionType(missionObj, questType);
-        }
-        else if (questType.equals("assassinate"))
-        {
-            setMissionType(missionObj, "space_assassination");
-        }
-        else if (questType.equals("inspect"))
-        {
-            setMissionType(missionObj, "space_inspection");
-        }
-        else if (questType.equals("destroy_surpriseattack"))
-        {
-            setMissionType(missionObj, "space_surprise_attack");
-        }
-        else if (questType.equals("delivery_no_pickup"))
-        {
-            setMissionType(missionObj, "space_delivery");
-        }
-        else 
-        {
-            setMissionType(missionObj, "space_" + questType);
+        switch (questType) {
+            case "space_battle":
+            case "space_mining_destroy":
+                setMissionType(missionObj, questType);
+                break;
+            case "assassinate":
+                setMissionType(missionObj, "space_assassination");
+                break;
+            case "inspect":
+                setMissionType(missionObj, "space_inspection");
+                break;
+            case "destroy_surpriseattack":
+                setMissionType(missionObj, "space_surprise_attack");
+                break;
+            case "delivery_no_pickup":
+                setMissionType(missionObj, "space_delivery");
+                break;
+            default:
+                setMissionType(missionObj, "space_" + questType);
+                break;
         }
         int autoReward = questInfo.getInt("autoReward");
         if (autoReward > 0)
@@ -933,10 +910,8 @@ public class space_quest extends script.base_script
         if (isIdValid(datapad))
         {
             obj_id[] dpobjs = getContents(datapad);
-            for (int i = 0; i < dpobjs.length; i++)
-            {
-                if (hasObjVar(dpobjs[i], QUEST_DUTY))
-                {
+            for (obj_id dpobj : dpobjs) {
+                if (hasObjVar(dpobj, QUEST_DUTY)) {
                     return true;
                 }
             }
@@ -1037,10 +1012,8 @@ public class space_quest extends script.base_script
             return;
         }
         int k = 0;
-        for (int i = 0; i < array.length; i++)
-        {
-            if (!array[i].equals(""))
-            {
+        for (String s : array) {
+            if (!s.equals("")) {
                 k++;
             }
         }
@@ -1062,10 +1035,8 @@ public class space_quest extends script.base_script
             return;
         }
         int k = 0;
-        for (int i = 0; i < array.length; i++)
-        {
-            if (array[i] != -1)
-            {
+        for (int i1 : array) {
+            if (i1 != -1) {
                 k++;
             }
         }
@@ -1100,22 +1071,16 @@ public class space_quest extends script.base_script
         {
             return false;
         }
-        for (int i = 0; i < shipControlDevices.length; i++)
-        {
-            obj_id ship = space_transition.getShipFromShipControlDevice(shipControlDevices[i]);
-            if (!isIdValid(ship))
-            {
+        for (obj_id shipControlDevice : shipControlDevices) {
+            obj_id ship = space_transition.getShipFromShipControlDevice(shipControlDevice);
+            if (!isIdValid(ship)) {
                 return false;
             }
-            if (hasCertificationsForItem(player, ship))
-            {
+            if (hasCertificationsForItem(player, ship)) {
                 String template = getTemplateName(ship);
-                if (template.endsWith("player_sorosuub_space_yacht.iff"))
-                {
+                if (template.endsWith("player_sorosuub_space_yacht.iff")) {
                     continue;
-                }
-                else 
-                {
+                } else {
                     return true;
                 }
             }
@@ -1133,34 +1098,22 @@ public class space_quest extends script.base_script
         {
             return false;
         }
-        for (int i = 0; i < shipControlDevices.length; i++)
-        {
-            obj_id ship = space_transition.getShipFromShipControlDevice(shipControlDevices[i]);
-            if (!isIdValid(ship))
-            {
+        for (obj_id shipControlDevice : shipControlDevices) {
+            obj_id ship = space_transition.getShipFromShipControlDevice(shipControlDevice);
+            if (!isIdValid(ship)) {
                 return false;
             }
-            if (hasCertificationsForItem(player, ship))
-            {
+            if (hasCertificationsForItem(player, ship)) {
                 String template = getTemplateName(ship);
-                if (template.endsWith("player_basic_tiefighter.iff"))
-                {
+                if (template.endsWith("player_basic_tiefighter.iff")) {
                     continue;
-                }
-                else if (template.endsWith("player_basic_z95.iff"))
-                {
+                } else if (template.endsWith("player_basic_z95.iff")) {
                     continue;
-                }
-                else if (template.endsWith("player_basic_hutt_light.iff"))
-                {
+                } else if (template.endsWith("player_basic_hutt_light.iff")) {
                     continue;
-                }
-                else if (template.endsWith("player_sorosuub_space_yacht.iff"))
-                {
+                } else if (template.endsWith("player_sorosuub_space_yacht.iff")) {
                     continue;
-                }
-                else 
-                {
+                } else {
                     return true;
                 }
             }
@@ -1188,20 +1141,19 @@ public class space_quest extends script.base_script
         }
         String pcd = null;
         String ship = null;
-        if (faction.equals("imperial"))
-        {
-            pcd = "object/intangible/ship/tiefighter_pcd.iff";
-            ship = "object/ship/player/player_prototype_tiefighter.iff";
-        }
-        else if (faction.equals("rebel"))
-        {
-            pcd = "object/intangible/ship/z95_pcd.iff";
-            ship = "object/ship/player/player_prototype_z95.iff";
-        }
-        else if (faction.equals("neutral"))
-        {
-            pcd = "object/intangible/ship/hutt_light_s01_pcd.iff";
-            ship = "object/ship/player/player_prototype_hutt_light.iff";
+        switch (faction) {
+            case "imperial":
+                pcd = "object/intangible/ship/tiefighter_pcd.iff";
+                ship = "object/ship/player/player_prototype_tiefighter.iff";
+                break;
+            case "rebel":
+                pcd = "object/intangible/ship/z95_pcd.iff";
+                ship = "object/ship/player/player_prototype_z95.iff";
+                break;
+            case "neutral":
+                pcd = "object/intangible/ship/hutt_light_s01_pcd.iff";
+                ship = "object/ship/player/player_prototype_hutt_light.iff";
+                break;
         }
         obj_id opcd = createObject(pcd, datapad, "");
         if (!isIdValid(opcd))
@@ -1259,14 +1211,12 @@ public class space_quest extends script.base_script
             obj_id[] members = space_utils.getSpaceGroupMemberIds(gid);
             if (members != null)
             {
-                for (int i = 0; i < members.length; i++)
-                {
-                    if (members[i] == player)
-                    {
+                for (obj_id member : members) {
+                    if (member == player) {
                         continue;
                     }
                     prose_package pp = prose.getPackage(mid, s1, getName(player));
-                    sendQuestSystemMessage(members[i], pp);
+                    sendQuestSystemMessage(member, pp);
                 }
             }
         }
@@ -1279,13 +1229,11 @@ public class space_quest extends script.base_script
             obj_id[] members = space_utils.getSpaceGroupMemberIds(gid);
             if (members != null)
             {
-                for (int i = 0; i < members.length; i++)
-                {
-                    if (members[i] == player)
-                    {
+                for (obj_id member : members) {
+                    if (member == player) {
                         continue;
                     }
-                    sendQuestSystemMessage(members[i], pp);
+                    sendQuestSystemMessage(member, pp);
                 }
             }
         }
@@ -1298,13 +1246,11 @@ public class space_quest extends script.base_script
             obj_id[] members = space_utils.getSpaceGroupMemberIds(gid);
             if (members != null)
             {
-                for (int i = 0; i < members.length; i++)
-                {
-                    if (members[i] == player)
-                    {
+                for (obj_id member : members) {
+                    if (member == player) {
                         continue;
                     }
-                    sendQuestSystemMessage(members[i], mid);
+                    sendQuestSystemMessage(member, mid);
                 }
             }
         }
@@ -1373,11 +1319,9 @@ public class space_quest extends script.base_script
     }
     public static void _tauntShips(obj_id ship, obj_id[] targets, prose_package pp) throws InterruptedException
     {
-        for (int i = 0; i < targets.length; i++)
-        {
-            if (isIdValid(targets[i]) && isIdValid(ship))
-            {
-                space_utils.tauntShip(targets[i], ship, pp, true, true, false, false);
+        for (obj_id target : targets) {
+            if (isIdValid(target) && isIdValid(ship)) {
+                space_utils.tauntShip(target, ship, pp, true, true, false, false);
             }
         }
     }
@@ -1387,11 +1331,9 @@ public class space_quest extends script.base_script
         if (isIdValid(datapad))
         {
             obj_id[] dpobjs = getContents(datapad);
-            for (int i = 0; i < dpobjs.length; i++)
-            {
-                if (hasObjVar(dpobjs[i], space_quest.QUEST_NAME))
-                {
-                    space_utils.notifyObject(dpobjs[i], msg, params);
+            for (obj_id dpobj : dpobjs) {
+                if (hasObjVar(dpobj, space_quest.QUEST_NAME)) {
+                    space_utils.notifyObject(dpobj, msg, params);
                 }
             }
         }
@@ -1402,16 +1344,12 @@ public class space_quest extends script.base_script
         if (isIdValid(datapad))
         {
             obj_id[] dpobjs = getContents(datapad);
-            for (int i = 0; i < dpobjs.length; i++)
-            {
-                if (hasObjVar(dpobjs[i], QUEST_NAME))
-                {
-                    String type = getStringObjVar(dpobjs[i], QUEST_TYPE);
-                    if (type.equals("assassinate") || type.equals("recovery"))
-                    {
-                        if (isQuestInProgress(dpobjs[i]))
-                        {
-                            recoveryCleanUpShips(dpobjs[i]);
+            for (obj_id dpobj : dpobjs) {
+                if (hasObjVar(dpobj, QUEST_NAME)) {
+                    String type = getStringObjVar(dpobj, QUEST_TYPE);
+                    if (type.equals("assassinate") || type.equals("recovery")) {
+                        if (isQuestInProgress(dpobj)) {
+                            recoveryCleanUpShips(dpobj);
                         }
                     }
                 }
@@ -1431,11 +1369,9 @@ public class space_quest extends script.base_script
         obj_id[] escorts = getObjIdArrayObjVar(quest, "escorts");
         if (escorts != null)
         {
-            for (int i = 0; i < escorts.length; i++)
-            {
-                if (isIdValid(escorts[i]) && exists(escorts[i]))
-                {
-                    destroyObjectHyperspace(escorts[i]);
+            for (obj_id escort : escorts) {
+                if (isIdValid(escort) && exists(escort)) {
+                    destroyObjectHyperspace(escort);
                 }
             }
         }
@@ -1451,12 +1387,10 @@ public class space_quest extends script.base_script
                 debugServerConsoleMsg(questManager, "Quest Manager: Warning! Zone " + getCurrentSceneName() + " has not been initialized properly, but has been queried for a quest!");
                 return null;
             }
-            for (int i = 0; i < navs.length; ++i)
-            {
-                String curNavName = getStringObjVar(navs[i], "nav_name");
-                if (curNavName != null && curNavName.equals(navName))
-                {
-                    return navs[i];
+            for (obj_id nav : navs) {
+                String curNavName = getStringObjVar(nav, "nav_name");
+                if (curNavName != null && curNavName.equals(navName)) {
+                    return nav;
                 }
             }
         }

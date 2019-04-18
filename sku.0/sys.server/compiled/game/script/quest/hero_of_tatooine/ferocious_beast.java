@@ -104,11 +104,9 @@ public class ferocious_beast extends script.base_script
             {
                 return SCRIPT_CONTINUE;
             }
-            for (int i = 0; i < members.length; i++)
-            {
-                if (isIdValid(members[i]))
-                {
-                    sendSystemMessage(members[i], NOTICE_OBJECT);
+            for (obj_id member : members) {
+                if (isIdValid(member)) {
+                    sendSystemMessage(member, NOTICE_OBJECT);
                 }
             }
         }

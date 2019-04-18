@@ -51,7 +51,7 @@ public class terminal_core_overload extends script.base_script
         String planet = here.area;
         location corePoint = new location(-90.0f, 7.98f, -50.0f, planet, powercore);
         playClientEffectLoc(player, "clienteffect/ep3_avatar_core_overload.cef", corePoint, 7.98f);
-        messageTo(self, "handlePowerCoreReplay", null, 60f, false);
+        messageTo(self, "handlePowerCoreReplay", null, 60.0f, false);
         return;
     }
     public int handlePowerCoreReplay(obj_id self, dictionary params) throws InterruptedException
@@ -59,9 +59,8 @@ public class terminal_core_overload extends script.base_script
         obj_id[] players = player_structure.getPlayersInBuilding(getTopMostContainer(self));
         if (players != null && players.length > 0)
         {
-            for (int i = 0; i < players.length; i++)
-            {
-                startCoreOverload(players[i], self);
+            for (obj_id player : players) {
+                startCoreOverload(player, self);
                 return SCRIPT_CONTINUE;
             }
         }

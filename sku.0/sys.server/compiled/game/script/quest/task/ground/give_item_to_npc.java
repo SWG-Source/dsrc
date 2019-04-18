@@ -53,17 +53,12 @@ public class give_item_to_npc extends script.base_script
         if (itemToGive != null && itemToGive.length() > 0)
         {
             String[] itemsNeeded = split(itemToGive, ',');
-            for (int i = 0; i < itemsNeeded.length; ++i)
-            {
-                if (itemsNeeded[i].equals(itemName))
-                {
-                    if (ai_lib.isInCombat(giver))
-                    {
+            for (String s : itemsNeeded) {
+                if (s.equals(itemName)) {
+                    if (ai_lib.isInCombat(giver)) {
                         sendQuestSystemMessage(giver, noGiveDuringCombat);
                         return SCRIPT_CONTINUE;
-                    }
-                    else 
-                    {
+                    } else {
                         dictionary webster = new dictionary();
                         webster.put("questName", questName);
                         webster.put("taskName", taskName);

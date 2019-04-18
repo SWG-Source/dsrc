@@ -9,6 +9,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.RandomAccessFile;
+import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.Hashtable;
@@ -53,19 +54,17 @@ public class script_class_loader extends ClassLoader
 		{
 			try
 			{
-				myObject = myClass.newInstance();
+				myObject = myClass.getDeclaredConstructor().newInstance();
 				if (myObject == null)
 				{
 					System.err.println("WARNING: Java Error creating object for class " + name);
 				}
 			}
-			catch ( InstantiationException err )
+			catch ( InstantiationException | IllegalAccessException err )
 			{
 				System.err.println("WARNING: Java Error creating class instance " + name + " : " + err);
-			}
-			catch ( IllegalAccessException err )
-  			{
-				System.err.println("WARNING: Java Error creating class instance " + name + " : " + err);
+			} catch (NoSuchMethodException | InvocationTargetException e) {
+				e.printStackTrace();
 			}
 		}
 		else
@@ -84,7 +83,7 @@ public class script_class_loader extends ClassLoader
 		if (test != null)
 			return (script_class_loader)test;
 
-		if (name.indexOf("script.") != 0)
+		if (!name.startsWith("script."))
 		{
 			ClassNotFoundException err =  new ClassNotFoundException("Class " + name + " does not start with 'script.'");
 			err.printStackTrace();
@@ -210,9 +209,10 @@ public class script_class_loader extends ClassLoader
     {
 		// filter out classes that will be loaded by the default loader
 		int nameLength = name.length();
-		if ((nameLength > 5 && name.substring(0, 5).compareTo("java.") == 0) ||
-			(nameLength > 4 && name.substring(0, 4).compareTo("sun.") == 0) ||
-			(nameLength > 10 && name.substring(0, 10).compareTo("intuitive.") == 0) ||
+		if ((nameLength > 5 && name.startsWith("java.")) ||
+			(nameLength > 4 && name.startsWith("sun.")) ||
+			(nameLength > 10 && name.startsWith("intuitive.")) ||
+				(nameLength > 4 && name.startsWith("jdk.")) ||
 			defaultLoad.contains(name))
 		{
 			Class cls = super.loadClass(name, resolve);

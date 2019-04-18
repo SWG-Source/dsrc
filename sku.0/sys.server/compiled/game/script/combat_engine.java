@@ -802,7 +802,7 @@ public class combat_engine
 		else if (attackVal < stepDir) stepDir = -1.0f;
 
 		float toHitChance = combat_consts.baseToHit;
-		int maxStep = (int)Math.ceil((combat_consts.baseToHit - combat_consts.minToHit)/combat_consts.toHitStep);
+		int maxStep = (int) 6.0;
 		for (int i = 1; i < maxStep; i++)
 		{
 			if ((attackVal * stepDir) > i)
@@ -1058,8 +1058,8 @@ public class combat_engine
 					float dist = 0.5f + (attackVal / combat_consts.damageScale);
 					//damage = random.distributedRand(weapon.minDamage, weapon.maxDamage, dist);
 					// TEMP HACK - Test with fixed damage results based on attackval
-					if (dist < 0f) dist = 0f;
-					if (dist > 1f) dist = 1f;
+					if (dist < 0.0f) dist = 0.0f;
+					if (dist > 1.0f) dist = 1.0f;
 					damage = (int)(weapon.minDamage + ((weapon.maxDamage - weapon.minDamage) * dist));
 				}
 				break;

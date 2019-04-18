@@ -32,30 +32,25 @@ public class outdoorsman extends script.base_script
         }
         boolean found = false;
         int[] hasResource = getIntArrayObjVar(target, corpse.VAR_HAS_RESOURCE);
-        if (params.equals("meat"))
-        {
-            if (hasResource[corpse.CCR_MEAT] > 0)
-            {
+        switch (params) {
+            case "meat":
+                if (hasResource[corpse.CCR_MEAT] > 0) {
+                    found = true;
+                }
+                break;
+            case "hide":
+                if (hasResource[corpse.CCR_HIDE] > 0) {
+                    found = true;
+                }
+                break;
+            case "bone":
+                if (hasResource[corpse.CCR_BONE] > 0) {
+                    found = true;
+                }
+                break;
+            case "":
                 found = true;
-            }
-        }
-        else if (params.equals("hide"))
-        {
-            if (hasResource[corpse.CCR_HIDE] > 0)
-            {
-                found = true;
-            }
-        }
-        else if (params.equals("bone"))
-        {
-            if (hasResource[corpse.CCR_BONE] > 0)
-            {
-                found = true;
-            }
-        }
-        else if (params.equals(""))
-        {
-            found = true;
+                break;
         }
         if (!found)
         {
@@ -65,7 +60,7 @@ public class outdoorsman extends script.base_script
         dictionary outparams = new dictionary();
         outparams.put("player", self);
         outparams.put("args", params);
-        messageTo(target, "harvestCorpse", outparams, 0.f, false);
+        messageTo(target, "harvestCorpse", outparams, 0.0f, false);
         return SCRIPT_CONTINUE;
     }
     public int cmdHarvestCorpseFail(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException

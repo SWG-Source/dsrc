@@ -9,14 +9,14 @@ public class camping extends script.base_script
     }
     public static final float CAMP_SIZE[] = 
     {
-        6.f,
-        8.f,
-        10.f,
-        13.f,
-        15.f,
-        20.f
+            6.0f,
+            8.0f,
+            10.0f,
+            13.0f,
+            15.0f,
+            20.0f
     };
-    public static final float MAX_SIZE = 14.f;
+    public static final float MAX_SIZE = 14.0f;
     public static final int NUM_MARKER = 6;
     public static final float HEARTBEAT_CREATION = 1.0f;
     public static final float HEARTBEAT_MAINTAIN = 30.0f;
@@ -240,9 +240,8 @@ public class camping extends script.base_script
         }
         else 
         {
-            for (int i = 0; i < players.length; i++)
-            {
-                clearCurrentCamp(players[i]);
+            for (obj_id player : players) {
+                clearCurrentCamp(player);
             }
         }
         int xpGranted = getIntObjVar(master, VAR_CAMP_XP);
@@ -319,16 +318,12 @@ public class camping extends script.base_script
         }
         else 
         {
-            for (int i = 0; i < objs.length; i++)
-            {
-                obj_id item = objs[i];
-                if (hasObjVar(item, VAR_OWNER))
-                {
+            for (obj_id item : objs) {
+                if (hasObjVar(item, VAR_OWNER)) {
                     sendSystemMessage(creator, SID_ERROR_CAMP_TOO_CLOSE);
                     return true;
                 }
-                if (player_structure.isBuilding(item))
-                {
+                if (player_structure.isBuilding(item)) {
                     sendSystemMessage(creator, SID_ERROR_BUILDING_TOO_CLOSE);
                     return true;
                 }
@@ -387,16 +382,13 @@ public class camping extends script.base_script
             return true;
         }
         int numKids = children.length;
-        for (int x = 0; x < numKids; x++)
-        {
-            obj_id thisChild = children[x];
-            if (hasScript(thisChild, "systems.camping.camp_controlpanel"))
-            {
+        for (obj_id thisChild : children) {
+            if (hasScript(thisChild, "systems.camping.camp_controlpanel")) {
                 setName(thisChild, SID_ABANDONED_CAMP);
             }
         }
         clearCampOwner(master);
-        messageTo(master, "handleNuke", null, 300f, false);
+        messageTo(master, "handleNuke", null, 300.0f, false);
         return setStatus(master, STATUS_ABANDONED);
     }
     public static int getStatus(obj_id master) throws InterruptedException
@@ -577,7 +569,7 @@ public class camping extends script.base_script
         obj_id[] nodeObjects = new obj_id[numNodes];
         int arrayIdx = 0;
         obj_var_list ovl = getObjVarList(deed, "modules");
-        float lifetime = 0f;
+        float lifetime = 0.0f;
         lifetime += ovl.getFloatObjVar("lifetime");
         int recruitersPlaced = 0;
         if (ovl != null)
@@ -597,54 +589,44 @@ public class camping extends script.base_script
                             location nodeLoc = getAdvancedCampNodeLocation(camp, tempLoc, nodeCount);
                             int nodeYaw = getAdvancedCampNodeYaw(camp, nodeCount);
                             String module_template = "";
-                            if (modules[i].equals("shuttle_beacon"))
-                            {
-                                module_template = "object/building/poi/player_camp_shuttle_beacon.iff";
-                            }
-                            else if (modules[i].equals("cloning_tube"))
-                            {
-                                module_template = "object/building/poi/player_camp_clone_tube.iff";
-                            }
-                            else if (modules[i].equals("entertainer"))
-                            {
-                                module_template = "object/building/poi/player_camp_entertainment_area.iff";
-                            }
-                            else if (modules[i].equals("junk_dealer"))
-                            {
-                                module_template = "object/building/poi/player_camp_junk_dealer.iff";
-                            }
-                            else if (modules[i].equals("clothing_station"))
-                            {
-                                module_template = "object/building/poi/player_camp_crafting_clothing.iff";
-                            }
-                            else if (modules[i].equals("food_station"))
-                            {
-                                module_template = "object/building/poi/player_camp_crafting_food.iff";
-                            }
-                            else if (modules[i].equals("ship_station"))
-                            {
-                                module_template = "object/building/poi/player_camp_crafting_space.iff";
-                            }
-                            else if (modules[i].equals("structure_station"))
-                            {
-                                module_template = "object/building/poi/player_camp_crafting_structure.iff";
-                            }
-                            else if (modules[i].equals("weapon_station"))
-                            {
-                                module_template = "object/building/poi/player_camp_crafting_weapon.iff";
-                            }
-                            else if (modules[i].equals("imperial"))
-                            {
-                                module_template = "object/building/poi/player_camp_imperial_recruiter.iff";
-                            }
-                            else if (modules[i].equals("rebel"))
-                            {
-                                module_template = "object/building/poi/player_camp_rebel_recruiter.iff";
-                            }
-                            else if (modules[i].equals("extra_life"))
-                            {
-                                module_template = "object/static/structure/corellia/corl_power_transformer_s01.iff";
-                                lifetime += ovl.getFloatObjVar("extra_life");
+                            switch (modules[i]) {
+                                case "shuttle_beacon":
+                                    module_template = "object/building/poi/player_camp_shuttle_beacon.iff";
+                                    break;
+                                case "cloning_tube":
+                                    module_template = "object/building/poi/player_camp_clone_tube.iff";
+                                    break;
+                                case "entertainer":
+                                    module_template = "object/building/poi/player_camp_entertainment_area.iff";
+                                    break;
+                                case "junk_dealer":
+                                    module_template = "object/building/poi/player_camp_junk_dealer.iff";
+                                    break;
+                                case "clothing_station":
+                                    module_template = "object/building/poi/player_camp_crafting_clothing.iff";
+                                    break;
+                                case "food_station":
+                                    module_template = "object/building/poi/player_camp_crafting_food.iff";
+                                    break;
+                                case "ship_station":
+                                    module_template = "object/building/poi/player_camp_crafting_space.iff";
+                                    break;
+                                case "structure_station":
+                                    module_template = "object/building/poi/player_camp_crafting_structure.iff";
+                                    break;
+                                case "weapon_station":
+                                    module_template = "object/building/poi/player_camp_crafting_weapon.iff";
+                                    break;
+                                case "imperial":
+                                    module_template = "object/building/poi/player_camp_imperial_recruiter.iff";
+                                    break;
+                                case "rebel":
+                                    module_template = "object/building/poi/player_camp_rebel_recruiter.iff";
+                                    break;
+                                case "extra_life":
+                                    module_template = "object/static/structure/corellia/corl_power_transformer_s01.iff";
+                                    lifetime += ovl.getFloatObjVar("extra_life");
+                                    break;
                             }
                             if (!module_template.equals(""))
                             {
@@ -680,7 +662,7 @@ public class camping extends script.base_script
         setObjVar(camp, "modules.ids", nodeObjects);
         setObjVar(camp, VAR_LIFETIME, lifetime);
         setObjVar(camp, VAR_CREATION_TIME, getCalendarTime());
-        messageTo(camp, "handleControlTerminalLocation", null, 10f, false);
+        messageTo(camp, "handleControlTerminalLocation", null, 10.0f, false);
         messageTo(camp, "handleCampDecay", null, lifetime, false);
     }
     public static float getAdvancedCampRadius(obj_id camp) throws InterruptedException
@@ -717,13 +699,10 @@ public class camping extends script.base_script
         {
             return null;
         }
-        for (int i = 0; i < objects.length; i++)
-        {
-            if (hasScript(objects[i], "item.camp.camp_advanced"))
-            {
-                if (isInTriggerVolume(objects[i], "campsite", player))
-                {
-                    return objects[i];
+        for (obj_id object : objects) {
+            if (hasScript(object, "item.camp.camp_advanced")) {
+                if (isInTriggerVolume(object, "campsite", player)) {
+                    return object;
                 }
             }
         }

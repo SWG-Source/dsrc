@@ -36,7 +36,7 @@ public class loader extends script.base_script
     {
         permissionsMakePublic(self);
         setObjVar(self, "playersWithAlignedEnemyFlagsAllowed", 1);
-        messageTo(self, "handleDelayedRefundChecker", null, 10f, true);
+        messageTo(self, "handleDelayedRefundChecker", null, 10.0f, true);
         hq.removeCovertDetector(self);
         setCWData(self);
         return SCRIPT_CONTINUE;
@@ -135,7 +135,7 @@ public class loader extends script.base_script
             params.put("locs", locs);
         }
         messageTo(self, "handleHqExplosions", params, rand(0.1f, 1.0f), false);
-        messageTo(self, "handleHqDetonation", params, rand(0.1f, 1f), true);
+        messageTo(self, "handleHqDetonation", params, rand(0.1f, 1.0f), true);
         return SCRIPT_CONTINUE;
     }
     public int handleHqExplosions(obj_id self, dictionary params) throws InterruptedException

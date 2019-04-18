@@ -29,11 +29,10 @@ public class death_target extends script.base_script
                     return SCRIPT_CONTINUE;
                 }
                 boolean prizeAwarded = false;
-                for (int i = 0; i < numPlayers; i++)
-                {
-                    obj_id player = (obj_id) players.get(i);
+                for (Object player1 : players) {
+                    obj_id player = (obj_id) player1;
                     messageTo(player, "youWin", null, 1, false);
-                    if(!prizeAwarded) {
+                    if (!prizeAwarded) {
                         // the ITV should be a 12.5% chance to be awarded.
                         int prize = rand(0, 7);
                         if (prize == 4) {
@@ -68,11 +67,8 @@ public class death_target extends script.base_script
         {
             return false;
         }
-        for (int i = 0; i < numInGroup; i++)
-        {
-            obj_id thisMember = members[i];
-            if (hasObjVar(thisMember, objvarName))
-            {
+        for (obj_id thisMember : members) {
+            if (hasObjVar(thisMember, objvarName)) {
                 return true;
             }
         }

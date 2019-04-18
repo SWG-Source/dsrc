@@ -36,7 +36,7 @@ public class combat_stress_test extends script.base_script
     {
         if (strText.equals("startCombat"))
         {
-            obj_id[] objTargets = getPlayerCreaturesInRange(getLocation(self), 200f);
+            obj_id[] objTargets = getPlayerCreaturesInRange(getLocation(self), 200.0f);
             int intI = 0;
             while (intI < objTargets.length)
             {

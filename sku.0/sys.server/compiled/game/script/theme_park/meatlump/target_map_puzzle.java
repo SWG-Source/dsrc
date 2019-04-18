@@ -510,19 +510,18 @@ public class target_map_puzzle extends script.base_script
             blog("createMapText - failed script var validation");
             return SCRIPT_CONTINUE;
         }
-        String textToBeSolved = utils.getStringScriptVar(player, TEXT_TO_BE_SOLVED + "_" + self);
+        String textToBeSolved = utils.getStringScriptVar(player, TEXT_TO_BE_SOLVED);
         String correctPhrase = "";
-        if (textToBeSolved.equals(TEXT_TARGET + "_" + self))
-        {
-            correctPhrase = utils.getStringScriptVar(player, TARGET + "_" + self);
-        }
-        else if (textToBeSolved.equals(TEXT_LOCATION + "_" + self))
-        {
-            correctPhrase = utils.getStringScriptVar(player, TRAIL + "_" + self);
-        }
-        else if (textToBeSolved.equals(TEXT_PLANET + "_" + self))
-        {
-            correctPhrase = utils.getStringScriptVar(player, PLANET + "_" + self);
+        switch (textToBeSolved) {
+            case TEXT_TARGET:
+                correctPhrase = utils.getStringScriptVar(player, TARGET + "_" + self);
+                break;
+            case TEXT_LOCATION:
+                correctPhrase = utils.getStringScriptVar(player, TRAIL + "_" + self);
+                break;
+            case TEXT_PLANET:
+                correctPhrase = utils.getStringScriptVar(player, PLANET + "_" + self);
+                break;
         }
         playerGuess = toLower(playerGuess);
         correctPhrase = toLower(correctPhrase);
@@ -677,21 +676,15 @@ public class target_map_puzzle extends script.base_script
             return false;
         }
         String listOfChars = "";
-        for (int t = 0; t < targetChar.length; t++)
-        {
-            if (targetChar[t] == ' ')
-            {
+        for (char c : targetChar) {
+            if (c == ' ') {
                 listOfChars += " ";
                 continue;
             }
-            for (int i = 0; i < copiedArray[0].length; i++)
-            {
-                if (targetChar[t] != copiedArray[0][i])
-                {
+            for (int i = 0; i < copiedArray[0].length; i++) {
+                if (c != copiedArray[0][i]) {
                     continue;
-                }
-                else 
-                {
+                } else {
                     listOfChars += "" + copiedArray[1][i];
                 }
             }

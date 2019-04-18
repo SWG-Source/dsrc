@@ -115,41 +115,28 @@ public class smuggler extends script.base_script
         {
             Vector junk = new Vector();
             junk.setSize(0);
-            for (int i = 0; i < contents.length; i++)
-            {
-                if (!validateItemsBeingSold(player, contents[i]))
-                {
+            for (obj_id content : contents) {
+                if (!validateItemsBeingSold(player, content)) {
                     continue;
                 }
-                if (!getFlaggedNoSale && hasObjVar(contents[i], JUNK_DEALKER_NO_SALE_FLAG))
-                {
+                if (!getFlaggedNoSale && hasObjVar(content, JUNK_DEALKER_NO_SALE_FLAG)) {
                     continue;
                 }
-                if (hasObjVar(contents[i], "noTrade") || utils.isEquipped(contents[i]))
-                {
+                if (hasObjVar(content, "noTrade") || utils.isEquipped(content)) {
                     continue;
                 }
-                if (hasObjVar(contents[i], "junkDealer.intPrice"))
-                {
-                    junk = utils.addElement(junk, contents[i]);
-                }
-                else if (static_item.isStaticItem(contents[i]))
-                {
-                    if (static_item.getStaticObjectValue(getStaticItemName(contents[i])) > 0)
-                    {
-                        junk = utils.addElement(junk, contents[i]);
+                if (hasObjVar(content, "junkDealer.intPrice")) {
+                    junk = utils.addElement(junk, content);
+                } else if (static_item.isStaticItem(content)) {
+                    if (static_item.getStaticObjectValue(getStaticItemName(content)) > 0) {
+                        junk = utils.addElement(junk, content);
                     }
-                }
-                else 
-                {
-                    if (!isCrafted(contents[i]))
-                    {
-                        String template = getTemplateName(contents[i]);
-                        if ((template != null) && (!template.equals("")))
-                        {
-                            if (dataTableGetInt(TBL, template, "price") > 0)
-                            {
-                                junk = utils.addElement(junk, contents[i]);
+                } else {
+                    if (!isCrafted(content)) {
+                        String template = getTemplateName(content);
+                        if ((template != null) && (!template.equals(""))) {
+                            if (dataTableGetInt(TBL, template, "price") > 0) {
+                                junk = utils.addElement(junk, content);
                             }
                         }
                     }
@@ -189,7 +176,7 @@ public class smuggler extends script.base_script
             if (showCommWindow && fence)
             {
                 prose_package ppfence = prose.getPackage(PROSE_FENCE_COMM[rand(0, PROSE_FENCE_COMM.length - 1)]);
-                commPlayers(player, strSpecies, strSound, 7f, player, ppfence);
+                commPlayers(player, strSpecies, strSound, 7.0f, player, ppfence);
             }
             float cashMultiplier = 1.0f;
             if (fence)
@@ -255,7 +242,7 @@ public class smuggler extends script.base_script
             if (fence)
             {
                 prose_package ppfence = prose.getPackage(PROSE_FENCE_COMM_NOTHING);
-                commPlayers(player, strSpecies, strSound, 7f, player, ppfence);
+                commPlayers(player, strSpecies, strSound, 7.0f, player, ppfence);
             }
             else 
             {
@@ -359,7 +346,7 @@ public class smuggler extends script.base_script
                     int smugglerCut = (int)getSkillStatisticModifier(master, "expertise_junk_dealer_cut");
                     if (smugglerCut > 0)
                     {
-                        price = (int)((float)price * (float)smugglerCut * 0.01f);
+                        price = (int)((float)price * smugglerCut * 0.01f);
                         money.systemPayout(money.ACCT_RELIC_DEALER, master, price, "handleSoldJunk", junkParams);
                         CustomerServiceLog("Junk_Dealer: ", "smuggler.sellJunkItem() - Player (" + playerName + " OID: " + player + ") sold item (" + itemName + " OID: " + item + ") for (" + price + ")credits, at (" + realTime + ")");
                         int totalProfits = utils.getIntScriptVar(salesman, "totalProfits");
@@ -480,14 +467,10 @@ public class smuggler extends script.base_script
     {
         location here = getLocation(playerSmuggler);
         obj_id[] objects = getObjectsInRange(here, 25);
-        for (int i = 0; i < objects.length; i++)
-        {
-            if (hasObjVar(objects[i], "quest.owner"))
-            {
-                if (playerSmuggler == getObjIdObjVar(objects[i], "quest.owner"))
-                {
-                    if (utils.hasScriptVar(objects[i], "contrabandCheck"))
-                    {
+        for (obj_id object : objects) {
+            if (hasObjVar(object, "quest.owner")) {
+                if (playerSmuggler == getObjIdObjVar(object, "quest.owner")) {
+                    if (utils.hasScriptVar(object, "contrabandCheck")) {
                         return true;
                     }
                 }
@@ -499,15 +482,11 @@ public class smuggler extends script.base_script
     {
         location here = getLocation(playerSmuggler);
         obj_id[] objects = getObjectsInRange(here, 25);
-        for (int i = 0; i < objects.length; i++)
-        {
-            if (hasObjVar(objects[i], "quest.owner"))
-            {
-                if (playerSmuggler == getObjIdObjVar(objects[i], "quest.owner"))
-                {
-                    if (utils.hasScriptVar(objects[i], "contrabandCheck"))
-                    {
-                        utils.setScriptVar(objects[i], "slyLie", 1);
+        for (obj_id object : objects) {
+            if (hasObjVar(object, "quest.owner")) {
+                if (playerSmuggler == getObjIdObjVar(object, "quest.owner")) {
+                    if (utils.hasScriptVar(object, "contrabandCheck")) {
+                        utils.setScriptVar(object, "slyLie", 1);
                         return true;
                     }
                 }
@@ -593,13 +572,10 @@ public class smuggler extends script.base_script
         obj_id[] contents = getInventoryAndEquipment(player);
         if (contents != null && contents.length > 0)
         {
-            for (int i = 0; i < contents.length; i++)
-            {
-                if (static_item.isStaticItem(contents[i]))
-                {
-                    String itemName = getStaticItemName(contents[i]);
-                    if (itemName.startsWith(contrabandName))
-                    {
+            for (obj_id content : contents) {
+                if (static_item.isStaticItem(content)) {
+                    String itemName = getStaticItemName(content);
+                    if (itemName.startsWith(contrabandName)) {
                         return true;
                     }
                 }
@@ -613,17 +589,13 @@ public class smuggler extends script.base_script
         obj_id[] contents = getInventoryAndEquipment(player);
         if (contents != null && contents.length > 0)
         {
-            for (int i = 0; i < contents.length; i++)
-            {
-                if (static_item.isStaticItem(contents[i]))
-                {
-                    String itemName = getStaticItemName(contents[i]);
-                    if (itemName.startsWith(contrabandName))
-                    {
+            for (obj_id content : contents) {
+                if (static_item.isStaticItem(content)) {
+                    String itemName = getStaticItemName(content);
+                    if (itemName.startsWith(contrabandName)) {
                         obj_id[] contrabandToCheck = utils.getAllStaticItemsInPlayerInventory(player, itemName);
                         int contrabandCount = utils.countOfStackedItemsInArray(contrabandToCheck);
-                        if (contrabandCount >= 5)
-                        {
+                        if (contrabandCount >= 5) {
                             return true;
                         }
                     }
@@ -663,24 +635,17 @@ public class smuggler extends script.base_script
         obj_id[] contents = getInventoryAndEquipment(player);
         if (contents != null && contents.length > 0)
         {
-            for (int i = 0; i < contents.length; i++)
-            {
-                if (static_item.isStaticItem(contents[i]))
-                {
-                    String itemName = getStaticItemName(contents[i]);
-                    if (itemName.startsWith(contrabandName))
-                    {
+            for (obj_id content : contents) {
+                if (static_item.isStaticItem(content)) {
+                    String itemName = getStaticItemName(content);
+                    if (itemName.startsWith(contrabandName)) {
                         obj_id[] contrabandToCheck = utils.getAllStaticItemsInPlayerInventory(player, itemName);
                         int contrabandCount = utils.countOfStackedItemsInArray(contrabandToCheck);
-                        if (contrabandCount >= 5)
-                        {
+                        if (contrabandCount >= 5) {
                             int contrabandTier = getIllicitContrabandTier(itemName);
-                            if (contrabandTier == smugglerTier)
-                            {
+                            if (contrabandTier == smugglerTier) {
                                 return itemName;
-                            }
-                            else 
-                            {
+                            } else {
                                 contrabandFound = itemName;
                             }
                         }
@@ -696,20 +661,15 @@ public class smuggler extends script.base_script
         obj_id[] contents = getInventoryAndEquipment(player);
         if (contents != null && contents.length > 0)
         {
-            for (int i = 0; i < contents.length; i++)
-            {
-                if (static_item.isStaticItem(contents[i]))
-                {
-                    String itemName = getStaticItemName(contents[i]);
-                    if (itemName.startsWith(contrabandName))
-                    {
+            for (obj_id content : contents) {
+                if (static_item.isStaticItem(content)) {
+                    String itemName = getStaticItemName(content);
+                    if (itemName.startsWith(contrabandName)) {
                         obj_id[] contrabandToCheck = utils.getAllStaticItemsInPlayerInventory(player, itemName);
                         int contrabandCount = utils.countOfStackedItemsInArray(contrabandToCheck);
-                        if (contrabandCount >= 5)
-                        {
+                        if (contrabandCount >= 5) {
                             int contrabandTier = getIllicitContrabandTier(itemName);
-                            if (contrabandTier == brokerTier)
-                            {
+                            if (contrabandTier == brokerTier) {
                                 return true;
                             }
                         }
@@ -725,20 +685,15 @@ public class smuggler extends script.base_script
         obj_id[] contents = getInventoryAndEquipment(player);
         if (contents != null && contents.length > 0)
         {
-            for (int i = 0; i < contents.length; i++)
-            {
-                if (static_item.isStaticItem(contents[i]))
-                {
-                    String itemName = getStaticItemName(contents[i]);
-                    if (itemName.startsWith(contrabandName))
-                    {
+            for (obj_id content : contents) {
+                if (static_item.isStaticItem(content)) {
+                    String itemName = getStaticItemName(content);
+                    if (itemName.startsWith(contrabandName)) {
                         obj_id[] contrabandToCheck = utils.getAllStaticItemsInPlayerInventory(player, itemName);
                         int contrabandCount = utils.countOfStackedItemsInArray(contrabandToCheck);
-                        if (contrabandCount >= 5)
-                        {
+                        if (contrabandCount >= 5) {
                             int contrabandTier = getIllicitContrabandTier(itemName);
-                            if (contrabandTier == brokerTier)
-                            {
+                            if (contrabandTier == brokerTier) {
                                 return itemName;
                             }
                         }
@@ -754,17 +709,13 @@ public class smuggler extends script.base_script
         obj_id[] contents = getInventoryAndEquipment(player);
         if (contents != null && contents.length > 0)
         {
-            for (int i = 0; i < contents.length; i++)
-            {
-                if (static_item.isStaticItem(contents[i]))
-                {
-                    String itemName = getStaticItemName(contents[i]);
-                    if (itemName.startsWith(contrabandName))
-                    {
+            for (obj_id content : contents) {
+                if (static_item.isStaticItem(content)) {
+                    String itemName = getStaticItemName(content);
+                    if (itemName.startsWith(contrabandName)) {
                         obj_id[] contrabandToCheck = utils.getAllStaticItemsInPlayerInventory(player, itemName);
                         int contrabandCount = utils.countOfStackedItemsInArray(contrabandToCheck);
-                        if (contrabandCount >= 5)
-                        {
+                        if (contrabandCount >= 5) {
                             return (getIllicitContrabandTier(itemName));
                         }
                     }
@@ -924,9 +875,8 @@ public class smuggler extends script.base_script
                     d.put("bounty", current_bounty);
                     if (hunters != null && hunters.length > 0)
                     {
-                        for (int i = 0; i < hunters.length; i++)
-                        {
-                            messageTo(hunters[i], "handleBountyMissionIncomplete", d, 0.0f, true);
+                        for (obj_id hunter : hunters) {
+                            messageTo(hunter, "handleBountyMissionIncomplete", d, 0.0f, true);
                         }
                     }
                     removeAllJediBounties(self);
@@ -1202,18 +1152,14 @@ public class smuggler extends script.base_script
         obj_id[] objContents = utils.getContents(datapad, true);
         if (objContents != null && objContents.length > 0)
         {
-            for (int i = 0; i < objContents.length; i++)
-            {
-                if (isIdValid(objContents[i]))
-                {
-                    String template = getTemplateName(objContents[i]);
-                    if (template != null && template.length() > 0)
-                    {
-                        if (template.equals(BUY_BACK_CONTROL_DEVICE_TEMPLATE))
-                        {
-                            CustomerServiceLog("Junk_Dealer: ", "smuggler.createBuyBackControlDeviceOnPlayer() - Player (OID: " + player + ") had an already valid buy back controller device that somehow got removed!: " + objContents[i]);
-                            setBuyBackContainerObjVar(player, objContents[i]);
-                            return objContents[i];
+            for (obj_id objContent : objContents) {
+                if (isIdValid(objContent)) {
+                    String template = getTemplateName(objContent);
+                    if (template != null && template.length() > 0) {
+                        if (template.equals(BUY_BACK_CONTROL_DEVICE_TEMPLATE)) {
+                            CustomerServiceLog("Junk_Dealer: ", "smuggler.createBuyBackControlDeviceOnPlayer() - Player (OID: " + player + ") had an already valid buy back controller device that somehow got removed!: " + objContent);
+                            setBuyBackContainerObjVar(player, objContent);
+                            return objContent;
                         }
                     }
                 }

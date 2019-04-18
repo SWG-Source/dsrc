@@ -31,14 +31,11 @@ public class reactor_core_container extends script.base_script
             return;
         }
         int coreCount = 0;
-        for (int i = 0; i < contents.length; i++)
-        {
-            if (hasObjVar(contents[i], "warren.reactorControlRod"))
-            {
+        for (obj_id content : contents) {
+            if (hasObjVar(content, "warren.reactorControlRod")) {
                 coreCount++;
             }
-            if (coreCount > 1)
-            {
+            if (coreCount > 1) {
                 shutDownCore(self, bldg);
                 return;
             }
@@ -53,22 +50,17 @@ public class reactor_core_container extends script.base_script
             return;
         }
         int coreCount = 0;
-        for (int i = 0; i < contents.length; i++)
-        {
-            if (hasObjVar(contents[i], "warren.reactorControlRod"))
-            {
-                moveCoreRodFromPlayerToContainer(contents[i], self);
+        for (obj_id content : contents) {
+            if (hasObjVar(content, "warren.reactorControlRod")) {
+                moveCoreRodFromPlayerToContainer(content, self);
                 sendSystemMessage(player, new string_id(SYSTEM_MESSAGES, "insert_rod"));
                 doAnimationAction(player, "manipulate_low");
                 coreCount++;
             }
-            if (coreCount > 1)
-            {
+            if (coreCount > 1) {
                 shutDownCore(self, bldg);
                 return;
-            }
-            else if (coreCount > 0)
-            {
+            } else if (coreCount > 0) {
                 checkForReactorShutDown(self);
             }
         }
@@ -86,9 +78,8 @@ public class reactor_core_container extends script.base_script
         {
             return;
         }
-        for (int i = 0; i < contents.length; i++)
-        {
-            destroyObject(contents[i]);
+        for (obj_id content : contents) {
+            destroyObject(content);
         }
     }
     public int handleReactivateCore(obj_id self, dictionary params) throws InterruptedException

@@ -37,8 +37,8 @@ public class suin_chalo extends script.base_script
     }
     public int OnCreatureDamaged(obj_id self, obj_id attacker, obj_id weapon, int[] damage) throws InterruptedException
     {
-        float max = (float)getMaxHealth(self);
-        float current = (float)getHealth(self);
+        float max = getMaxHealth(self);
+        float current = getHealth(self);
         float ratio = current / max;
         if (ratio <= 0.9f)
         {
@@ -99,9 +99,8 @@ public class suin_chalo extends script.base_script
         utils.setScriptVar(creature, "aspect", aspects[idx]);
         trial.setParent(trial.getTop(self), creature, false);
         obj_id[] hateList = getHateList(self);
-        for (int i = 0; i < hateList.length; i++)
-        {
-            setHate(creature, hateList[i], 1.0f);
+        for (obj_id obj_id : hateList) {
+            setHate(creature, obj_id, 1.0f);
         }
     }
     public int OnIncapacitated(obj_id self, obj_id killer) throws InterruptedException
@@ -121,9 +120,8 @@ public class suin_chalo extends script.base_script
         {
             return SCRIPT_CONTINUE;
         }
-        for (int i = 0; i < players.length; i++)
-        {
-            addHate(self, players[i], 1);
+        for (obj_id player : players) {
+            addHate(self, player, 1);
         }
         return SCRIPT_CONTINUE;
     }

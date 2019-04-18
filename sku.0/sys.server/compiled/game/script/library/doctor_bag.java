@@ -39,11 +39,9 @@ public class doctor_bag extends script.base_script
         {
             return null;
         }
-        for (int i = 0; i < contents.length; i++)
-        {
-            if (isDoctorBag(contents[i]))
-            {
-                return contents[i];
+        for (obj_id content : contents) {
+            if (isDoctorBag(content)) {
+                return content;
             }
         }
         return null;

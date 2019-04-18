@@ -11,14 +11,14 @@ public class attacker_wave extends script.base_script
     }
     public int OnAttach(obj_id self) throws InterruptedException
     {
-        messageTo(self, "handleAttackerCleanUp", null, 120f, false);
+        messageTo(self, "handleAttackerCleanUp", null, 120.0f, false);
         return SCRIPT_CONTINUE;
     }
     public int handleAttackerCleanUp(obj_id self, dictionary params) throws InterruptedException
     {
         if (ai_lib.isInCombat(self))
         {
-            messageTo(self, "handleAttackerCleanUp", null, 120f, false);
+            messageTo(self, "handleAttackerCleanUp", null, 120.0f, false);
             return SCRIPT_CONTINUE;
         }
         destroyObject(self);

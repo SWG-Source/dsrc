@@ -51,7 +51,7 @@ public class sample extends script.base_script
         location loc = getLocation(npc);
         if (loc != null)
         {
-            playClientEffectLoc(player, "clienteffect/entertainer_color_lights_level_3.cef", loc, 0.f);
+            playClientEffectLoc(player, "clienteffect/entertainer_color_lights_level_3.cef", loc, 0.0f);
         }
     }
     public void sample_action_shakeFist(obj_id player, obj_id npc) throws InterruptedException

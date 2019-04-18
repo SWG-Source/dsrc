@@ -82,17 +82,15 @@ public class pet_med extends script.base_script
         }
         else 
         {
-            for (int i = 0; i < am.length; i++)
-            {
-                int attrib = am[i].getAttribute();
-                int val = am[i].getValue();
-                float atk = am[i].getAttack();
-                float dcy = am[i].getDecay();
+            for (attrib_mod attrib_mod : am) {
+                int attrib = attrib_mod.getAttribute();
+                int val = attrib_mod.getValue();
+                float atk = attrib_mod.getAttack();
+                float dcy = attrib_mod.getDecay();
                 names[idx] = "examine_heal_damage_" + consumable.STAT_NAME[attrib];
                 attribs[idx] = Integer.toString(val);
                 idx++;
-                if (idx >= names.length)
-                {
+                if (idx >= names.length) {
                     return SCRIPT_CONTINUE;
                 }
             }

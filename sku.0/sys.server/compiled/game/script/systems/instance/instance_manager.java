@@ -206,10 +206,9 @@ public class instance_manager extends script.base_script
             boolean godPresent = false;
             if (players != null && players.length > 0)
             {
-                for (int i = 0; i < players.length; i++)
-                {
-                    godPresent |= isGod(players[i]);
-                    godPresent |= hasObjVar(players[i], "testingHoth");
+                for (obj_id player : players) {
+                    godPresent |= isGod(player);
+                    godPresent |= hasObjVar(player, "testingHoth");
                 }
             }
             int lastCheck = utils.getIntScriptVar(self, "failed_min_player_check");

@@ -26,7 +26,7 @@ public class heat_trap_dot extends script.base_script
             detachScript(self, "theme_park.dungeon.mustafar_trials.decrepit_droid_factory.heat_trap_dot");
         }
         String template = getTemplateName(top);
-        if (template.indexOf("decrepit") < 0)
+        if (!template.contains("decrepit"))
         {
             detachScript(self, "theme_park.dungeon.mustafar_trials.decrepit_droid_factory.heat_trap_dot");
         }

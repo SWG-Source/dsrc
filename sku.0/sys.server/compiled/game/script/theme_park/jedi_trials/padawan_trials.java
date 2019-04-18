@@ -508,119 +508,97 @@ public class padawan_trials extends script.base_script
         int trialNum = getIntObjVar(self, jedi_trials.JEDI_TRIALS_TRIALNUMBER_OBJVAR);
         int datatableRow = questList[trialNum];
         String trialName = dataTableGetString(jedi_trials.PADAWAN_TRIALS_DATATABLE, datatableRow, "trialName");
-        if (locationName.equals(LOC_NAME_BEGIN_NPC))
-        {
-            if (!trialName.equals("pannaqa"))
-            {
-                location beginLoc = getLocationObjVar(self, jedi_trials.PADAWAN_TARGET_LOC_OBJVAR);
-                String beginSpawnType = dataTableGetString(jedi_trials.PADAWAN_TRIALS_DATATABLE, datatableRow, "trialNpc");
-                if (beginSpawnType == null || beginSpawnType.equals("null") || beginSpawnType.equals(""))
-                {
-                    beginSpawnType = "commoner";
-                }
-                obj_id beginTrialNpc = create.staticObject(beginSpawnType, beginLoc);
-                if (isIdValid(beginTrialNpc))
-                {
-                    setInvulnerable(beginTrialNpc, true);
-                    setCreatureStatic(beginTrialNpc, true);
-                    String beginTrialNpcName = dataTableGetString(jedi_trials.PADAWAN_TRIALS_DATATABLE, datatableRow, "trialNpcName");
-                    if (beginTrialNpcName != null && !beginTrialNpcName.equals("null") && !beginTrialNpcName.equals(""))
-                    {
-                        setName(beginTrialNpc, beginTrialNpcName);
+        switch (locationName) {
+            case LOC_NAME_BEGIN_NPC:
+                if (!trialName.equals("pannaqa")) {
+                    location beginLoc = getLocationObjVar(self, jedi_trials.PADAWAN_TARGET_LOC_OBJVAR);
+                    String beginSpawnType = dataTableGetString(jedi_trials.PADAWAN_TRIALS_DATATABLE, datatableRow, "trialNpc");
+                    if (beginSpawnType == null || beginSpawnType.equals("null") || beginSpawnType.equals("")) {
+                        beginSpawnType = "commoner";
                     }
-                    String beginScriptName = TRIAL_SCRIPT_PREFIX + trialName + "_01";
-                    setObjVar(beginTrialNpc, jedi_trials.PADAWAN_TRIAL_PLAYER_OBJVAR, self);
-                    setObjVar(self, jedi_trials.PADAWAN_TRIAL_NPC_OBJVAR, beginTrialNpc);
-                    attachScript(beginTrialNpc, beginScriptName);
-                    attachScript(beginTrialNpc, TRIAL_NPC_SCRIPT);
-                }
-            }
-        }
-        else if (locationName.equals(LOC_NAME_SECOND_LOC))
-        {
-            location secondTargetLoc = getLocationObjVar(self, jedi_trials.PADAWAN_SECOND_LOC_OBJVAR);
-            String secondSpawnType = dataTableGetString(jedi_trials.PADAWAN_TRIALS_DATATABLE, datatableRow, "trialTarget");
-            if (secondSpawnType.endsWith(".iff"))
-            {
-                obj_id skeleton = createObject(secondSpawnType, secondTargetLoc);
-                setObjVar(skeleton, jedi_trials.PADAWAN_TRIAL_PLAYER_OBJVAR, self);
-                setObjVar(self, jedi_trials.PADAWAN_TRIAL_NPC_OBJVAR, skeleton);
-                attachScript(skeleton, "theme_park.jedi_trials.padawan_trials_search");
-                setName(skeleton, "The remains of Josef Thelcar");
-            }
-            else 
-            {
-                int isVulnerable = dataTableGetInt(jedi_trials.PADAWAN_TRIALS_DATATABLE, datatableRow, "trialTargetVulnerable");
-                obj_id secondTrialNpc = null;
-                if (isVulnerable > 0)
-                {
-                    secondTrialNpc = create.object(secondSpawnType, secondTargetLoc);
-                }
-                else 
-                {
-                    secondTrialNpc = create.staticObject(secondSpawnType, secondTargetLoc);
-                }
-                if (isIdValid(secondTrialNpc))
-                {
-                    if (isVulnerable > 0)
-                    {
-                        ai_lib.setDefaultCalmBehavior(secondTrialNpc, ai_lib.BEHAVIOR_SENTINEL);
-                        pvpSetAlignedFaction(secondTrialNpc, (221551254));
-                        pvpMakeDeclared(secondTrialNpc);
-                        setObjVar(secondTrialNpc, "ai.faction.nonAggro", true);
+                    obj_id beginTrialNpc = create.staticObject(beginSpawnType, beginLoc);
+                    if (isIdValid(beginTrialNpc)) {
+                        setInvulnerable(beginTrialNpc, true);
+                        setCreatureStatic(beginTrialNpc, true);
+                        String beginTrialNpcName = dataTableGetString(jedi_trials.PADAWAN_TRIALS_DATATABLE, datatableRow, "trialNpcName");
+                        if (beginTrialNpcName != null && !beginTrialNpcName.equals("null") && !beginTrialNpcName.equals("")) {
+                            setName(beginTrialNpc, beginTrialNpcName);
+                        }
+                        String beginScriptName = TRIAL_SCRIPT_PREFIX + trialName + "_01";
+                        setObjVar(beginTrialNpc, jedi_trials.PADAWAN_TRIAL_PLAYER_OBJVAR, self);
+                        setObjVar(self, jedi_trials.PADAWAN_TRIAL_NPC_OBJVAR, beginTrialNpc);
+                        attachScript(beginTrialNpc, beginScriptName);
+                        attachScript(beginTrialNpc, TRIAL_NPC_SCRIPT);
                     }
-                    else 
-                    {
-                        setInvulnerable(secondTrialNpc, true);
-                        setCreatureStatic(secondTrialNpc, true);
+                }
+                break;
+            case LOC_NAME_SECOND_LOC:
+                location secondTargetLoc = getLocationObjVar(self, jedi_trials.PADAWAN_SECOND_LOC_OBJVAR);
+                String secondSpawnType = dataTableGetString(jedi_trials.PADAWAN_TRIALS_DATATABLE, datatableRow, "trialTarget");
+                if (secondSpawnType.endsWith(".iff")) {
+                    obj_id skeleton = createObject(secondSpawnType, secondTargetLoc);
+                    setObjVar(skeleton, jedi_trials.PADAWAN_TRIAL_PLAYER_OBJVAR, self);
+                    setObjVar(self, jedi_trials.PADAWAN_TRIAL_NPC_OBJVAR, skeleton);
+                    attachScript(skeleton, "theme_park.jedi_trials.padawan_trials_search");
+                    setName(skeleton, "The remains of Josef Thelcar");
+                } else {
+                    int isVulnerable = dataTableGetInt(jedi_trials.PADAWAN_TRIALS_DATATABLE, datatableRow, "trialTargetVulnerable");
+                    obj_id secondTrialNpc = null;
+                    if (isVulnerable > 0) {
+                        secondTrialNpc = create.object(secondSpawnType, secondTargetLoc);
+                    } else {
+                        secondTrialNpc = create.staticObject(secondSpawnType, secondTargetLoc);
                     }
-                    String secondScriptName = TRIAL_SCRIPT_PREFIX + trialName + "_02";
-                    setObjVar(secondTrialNpc, jedi_trials.PADAWAN_TRIAL_PLAYER_OBJVAR, self);
-                    setObjVar(self, jedi_trials.PADAWAN_TRIAL_NPC_OBJVAR, secondTrialNpc);
-                    attachScript(secondTrialNpc, secondScriptName);
-                    attachScript(secondTrialNpc, TRIAL_NPC_SCRIPT);
-                    if (trialName.equals("spice_mom"))
-                    {
-                        setName(secondTrialNpc, "Evif Sulp");
-                    }
-                    if (utils.hasScriptVar(self, jedi_trials.SECOND_LOC_OBJECT_OBJID_OBJVAR))
-                    {
-                        obj_id secondLocObject = utils.getObjIdScriptVar(self, jedi_trials.SECOND_LOC_OBJECT_OBJID_OBJVAR);
-                        if (isIdValid(secondLocObject))
-                        {
-                            locations.destroyLocationObject(secondLocObject);
+                    if (isIdValid(secondTrialNpc)) {
+                        if (isVulnerable > 0) {
+                            ai_lib.setDefaultCalmBehavior(secondTrialNpc, ai_lib.BEHAVIOR_SENTINEL);
+                            pvpSetAlignedFaction(secondTrialNpc, (221551254));
+                            pvpMakeDeclared(secondTrialNpc);
+                            setObjVar(secondTrialNpc, "ai.faction.nonAggro", true);
+                        } else {
+                            setInvulnerable(secondTrialNpc, true);
+                            setCreatureStatic(secondTrialNpc, true);
+                        }
+                        String secondScriptName = TRIAL_SCRIPT_PREFIX + trialName + "_02";
+                        setObjVar(secondTrialNpc, jedi_trials.PADAWAN_TRIAL_PLAYER_OBJVAR, self);
+                        setObjVar(self, jedi_trials.PADAWAN_TRIAL_NPC_OBJVAR, secondTrialNpc);
+                        attachScript(secondTrialNpc, secondScriptName);
+                        attachScript(secondTrialNpc, TRIAL_NPC_SCRIPT);
+                        if (trialName.equals("spice_mom")) {
+                            setName(secondTrialNpc, "Evif Sulp");
+                        }
+                        if (utils.hasScriptVar(self, jedi_trials.SECOND_LOC_OBJECT_OBJID_OBJVAR)) {
+                            obj_id secondLocObject = utils.getObjIdScriptVar(self, jedi_trials.SECOND_LOC_OBJECT_OBJID_OBJVAR);
+                            if (isIdValid(secondLocObject)) {
+                                locations.destroyLocationObject(secondLocObject);
+                            }
                         }
                     }
                 }
-            }
-        }
-        else if (locationName.equals(LOC_NAME_THIRD_LOC))
-        {
-            location thirdTargetLoc = getLocationObjVar(self, jedi_trials.PADAWAN_THIRD_LOC_OBJVAR);
-            String thirdSpawnType = dataTableGetString(jedi_trials.PADAWAN_TRIALS_DATATABLE, datatableRow, "trialTarget");
-            obj_id thirdTrialNpc = create.staticObject(thirdSpawnType, thirdTargetLoc);
-            if (isIdValid(thirdTrialNpc))
-            {
-                setInvulnerable(thirdTrialNpc, true);
-                setCreatureStatic(thirdTrialNpc, true);
-                String thirdScriptName = TRIAL_SCRIPT_PREFIX + trialName + "_03";
-                setObjVar(thirdTrialNpc, jedi_trials.PADAWAN_TRIAL_PLAYER_OBJVAR, self);
-                setObjVar(self, jedi_trials.PADAWAN_TRIAL_NPC_OBJVAR, thirdTrialNpc);
-                attachScript(thirdTrialNpc, thirdScriptName);
-                attachScript(thirdTrialNpc, TRIAL_NPC_SCRIPT);
-                if (trialName.equals("pannaqa"))
-                {
-                    setName(thirdTrialNpc, "Shendo");
-                }
-                if (utils.hasScriptVar(self, jedi_trials.THIRD_LOC_OBJECT_OBJID_OBJVAR))
-                {
-                    obj_id thirdLocObject = utils.getObjIdScriptVar(self, jedi_trials.THIRD_LOC_OBJECT_OBJID_OBJVAR);
-                    if (isIdValid(thirdLocObject))
-                    {
-                        locations.destroyLocationObject(thirdLocObject);
+                break;
+            case LOC_NAME_THIRD_LOC:
+                location thirdTargetLoc = getLocationObjVar(self, jedi_trials.PADAWAN_THIRD_LOC_OBJVAR);
+                String thirdSpawnType = dataTableGetString(jedi_trials.PADAWAN_TRIALS_DATATABLE, datatableRow, "trialTarget");
+                obj_id thirdTrialNpc = create.staticObject(thirdSpawnType, thirdTargetLoc);
+                if (isIdValid(thirdTrialNpc)) {
+                    setInvulnerable(thirdTrialNpc, true);
+                    setCreatureStatic(thirdTrialNpc, true);
+                    String thirdScriptName = TRIAL_SCRIPT_PREFIX + trialName + "_03";
+                    setObjVar(thirdTrialNpc, jedi_trials.PADAWAN_TRIAL_PLAYER_OBJVAR, self);
+                    setObjVar(self, jedi_trials.PADAWAN_TRIAL_NPC_OBJVAR, thirdTrialNpc);
+                    attachScript(thirdTrialNpc, thirdScriptName);
+                    attachScript(thirdTrialNpc, TRIAL_NPC_SCRIPT);
+                    if (trialName.equals("pannaqa")) {
+                        setName(thirdTrialNpc, "Shendo");
+                    }
+                    if (utils.hasScriptVar(self, jedi_trials.THIRD_LOC_OBJECT_OBJID_OBJVAR)) {
+                        obj_id thirdLocObject = utils.getObjIdScriptVar(self, jedi_trials.THIRD_LOC_OBJECT_OBJID_OBJVAR);
+                        if (isIdValid(thirdLocObject)) {
+                            locations.destroyLocationObject(thirdLocObject);
+                        }
                     }
                 }
-            }
+                break;
         }
         return SCRIPT_CONTINUE;
     }
@@ -1004,7 +982,7 @@ public class padawan_trials extends script.base_script
                 _rows = new int[rows.size()];
                 for (int _i = 0; _i < rows.size(); ++_i)
                 {
-                    _rows[_i] = ((Integer)rows.get(_i)).intValue();
+                    _rows[_i] = (Integer) rows.get(_i);
                 }
             }
             return _rows;
@@ -1023,7 +1001,7 @@ public class padawan_trials extends script.base_script
             _rows = new int[rows.size()];
             for (int _i = 0; _i < rows.size(); ++_i)
             {
-                _rows[_i] = ((Integer)rows.get(_i)).intValue();
+                _rows[_i] = (Integer) rows.get(_i);
             }
         }
         return _rows;

@@ -25,12 +25,10 @@ public class tatooine_imperial_trainer_2 extends script.base_script
         {
             return false;
         }
-        for (int i = 0; i < items.length; i++)
-        {
-            String name = getTemplateName(items[i]);
-            if (name.equals("object/tangible/space/mission_objects/transfer_auth.iff"))
-            {
-                utils.setScriptVar(player, "auth", items[i]);
+        for (obj_id item : items) {
+            String name = getTemplateName(item);
+            if (name.equals("object/tangible/space/mission_objects/transfer_auth.iff")) {
+                utils.setScriptVar(player, "auth", item);
                 return true;
             }
         }
@@ -181,10 +179,8 @@ public class tatooine_imperial_trainer_2 extends script.base_script
             "pilot_imperial_navy_droid_02"
         };
         int j = 0;
-        for (int i = 0; i < skills.length; i++)
-        {
-            if (hasSkill(player, skills[i]))
-            {
+        for (String skill : skills) {
+            if (hasSkill(player, skill)) {
                 j++;
             }
         }
@@ -345,12 +341,10 @@ public class tatooine_imperial_trainer_2 extends script.base_script
         {
             return;
         }
-        for (int i = 0; i < items.length; i++)
-        {
-            String name = getTemplateName(items[i]);
-            if (name.equals("object/tangible/space/mission_objects/transfer_auth.iff"))
-            {
-                obj_id transferauth = items[i];
+        for (obj_id item : items) {
+            String name = getTemplateName(item);
+            if (name.equals("object/tangible/space/mission_objects/transfer_auth.iff")) {
+                obj_id transferauth = item;
                 destroyObject(transferauth);
             }
         }

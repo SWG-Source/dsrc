@@ -239,7 +239,7 @@ public class weed_quest_object extends script.base_script
                 String sound = "sound/sys_comm_rebel_male.snd";
                 prose_package pp = new prose_package();
                 prose.setStringId(pp, new string_id("theme_park_nym/messages", "extra_credit_weeds"));
-                commPlayers(player, npc, sound, 10f, player, pp);
+                commPlayers(player, npc, sound, 10.0f, player, pp);
                 utils.setScriptVar(player, "commPlayerWeeds", true);
             }
             money.bankTo(money.ACCT_NEW_PLAYER_QUESTS, player, CASH_AMOUNT);

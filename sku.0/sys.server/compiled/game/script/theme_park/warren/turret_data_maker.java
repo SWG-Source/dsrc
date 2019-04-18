@@ -56,11 +56,9 @@ public class turret_data_maker extends script.base_script
         obj_id[] contents = getContents(self);
         if (contents != null)
         {
-            for (int i = 0; i < contents.length; i++)
-            {
-                if (hasObjVar(contents[i], "warren.turretData"))
-                {
-                    removeObjVar(contents[i], "warren.turretCodeSequence");
+            for (obj_id content : contents) {
+                if (hasObjVar(content, "warren.turretData")) {
+                    removeObjVar(content, "warren.turretCodeSequence");
                     return SCRIPT_CONTINUE;
                 }
             }

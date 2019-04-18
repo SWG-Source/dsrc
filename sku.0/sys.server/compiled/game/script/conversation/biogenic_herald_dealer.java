@@ -19,11 +19,9 @@ public class biogenic_herald_dealer extends script.base_script
     {
         location loc;
         obj_id[] waypoints = getWaypointsInDatapad(player);
-        for (int x = 0; x < waypoints.length; x++)
-        {
-            loc = getWaypointLocation(waypoints[x]);
-            if (loc.x == -6488f && loc.z == -417f)
-            {
+        for (obj_id waypoint : waypoints) {
+            loc = getWaypointLocation(waypoint);
+            if (loc.x == -6488.0f && loc.z == -417.0f) {
                 return true;
             }
         }

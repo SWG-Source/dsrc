@@ -13,7 +13,7 @@ public class obiwan_launch_instance_object extends script.base_script
     public static final string_id SID_EJECT = new string_id(mustafar.STF_OBI_MSGS, "obiwan_finale_eject");
     public static final string_id SID_LEAVE_YOUR_GROUP = new string_id(mustafar.STF_OBI_MSGS, "obi_leave_your_group");
     public static final String TRIGGER_VOLUME_OBI = "obiwan_interest_volume";
-    public static final float OBI_INTEREST_RADIUS = 8f;
+    public static final float OBI_INTEREST_RADIUS = 8.0f;
     public static final string_id SID_UNABLE_TO_FIND_DUNGEON = new string_id("dungeon/space_dungeon", "unable_to_find_dungeon");
     public static final string_id SID_NO_TICKET = new string_id("dungeon/space_dungeon", "no_ticket");
     public static final string_id SID_REQUEST_TRAVEL = new string_id("dungeon/space_dungeon", "request_travel");
@@ -192,13 +192,10 @@ public class obiwan_launch_instance_object extends script.base_script
         else 
         {
             obj_id[] denizens = getTriggerVolumeContents(self, TRIGGER_VOLUME_OBI);
-            for (int i = 0; i < denizens.length; i++)
-            {
-                if (isPlayer(denizens[i]) && !isIncapacitated(denizens[i]))
-                {
-                    if (mustafar.canCallObiwan(denizens[i], self))
-                    {
-                        spawnObi(denizens[i], self);
+            for (obj_id denizen : denizens) {
+                if (isPlayer(denizen) && !isIncapacitated(denizen)) {
+                    if (mustafar.canCallObiwan(denizen, self)) {
+                        spawnObi(denizen, self);
                         return;
                     }
                 }

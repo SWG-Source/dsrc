@@ -32,9 +32,8 @@ public class event_four_guard extends script.base_script
             doLogging("nukeSelf", "No valid targets in blast radius");
             return SCRIPT_CONTINUE;
         }
-        for (int i = 0; i < targets.length; i++)
-        {
-            damage(targets[i], DAMAGE_ELEMENTAL_HEAT, HIT_LOCATION_BODY, 2000);
+        for (obj_id target : targets) {
+            damage(target, DAMAGE_ELEMENTAL_HEAT, HIT_LOCATION_BODY, 2000);
         }
         return SCRIPT_CONTINUE;
     }

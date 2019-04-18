@@ -25,24 +25,16 @@ public class mtp_instance_controller extends script.base_script
             obj_id[] cellList = getContents(self);
             if (cellList != null && cellList.length > 0)
             {
-                for (int i = 0; i < cellList.length; i++)
-                {
-                    obj_id cell = cellList[i];
-                    if ((getTemplateName(cell)).equals(structure.TEMPLATE_CELL))
-                    {
+                for (obj_id cell : cellList) {
+                    if ((getTemplateName(cell)).equals(structure.TEMPLATE_CELL)) {
                         obj_id[] cellContents = getContents(cell);
-                        if (cellContents != null && cellContents.length > 0)
-                        {
-                            for (int j = 0; j < cellContents.length; j++)
-                            {
-                                obj_id thing = cellContents[j];
-                                if (isMob(thing) && !isPlayer(thing) && !isInvulnerable(thing))
-                                {
+                        if (cellContents != null && cellContents.length > 0) {
+                            for (obj_id thing : cellContents) {
+                                if (isMob(thing) && !isPlayer(thing) && !isInvulnerable(thing)) {
                                     setObjVar(thing, create.INITIALIZE_CREATURE_DO_NOT_SCALE_OBJVAR, true);
                                     String spawnName = getCreatureName(thing);
                                     dictionary creatureDict = utils.dataTableGetRow(create.CREATURE_TABLE, spawnName);
-                                    if (creatureDict != null)
-                                    {
+                                    if (creatureDict != null) {
                                         create.initializeCreature(thing, spawnName, creatureDict, playerCombatLevel);
                                         ai_lib.setDefaultCalmBehavior(thing, ai_lib.BEHAVIOR_LOITER);
                                         messageTo(thing, "mtpInstanceLevelChanged", null, 0.5f, false);

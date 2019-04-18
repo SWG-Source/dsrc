@@ -158,7 +158,7 @@ public class combat_ship_player extends script.base_script
             else if (getObjectInSlot(container, POB_SHIP_OPERATIONS_SLOT_NAME) == self)
             {
                 space_transition.revokeDroidCommands(self);
-                vector pos = ((getTransform_o2p(container)).move_l(new vector(0.f, 0.f, -1.f))).getPosition_p();
+                vector pos = ((getTransform_o2p(container)).move_l(new vector(0.0f, 0.0f, -1.0f))).getPosition_p();
                 location dest = new location(pos.x, pos.y, pos.z, getCurrentSceneName(), getLocation(container).cell);
                 setLocation(self, dest);
             }
@@ -303,7 +303,7 @@ public class combat_ship_player extends script.base_script
                 }
             }
         }
-        if (strText.indexOf("create pcd ") > -1)
+        if (strText.contains("create pcd "))
         {
             if (canCreateShip(self))
             {
@@ -343,23 +343,16 @@ public class combat_ship_player extends script.base_script
             obj_id[] shipControlDevices = space_transition.findShipControlDevicesForPlayer(self);
             if (shipControlDevices != null && shipControlDevices.length > 0)
             {
-                for (int i = 0; i < shipControlDevices.length; ++i)
-                {
-                    obj_id ship = space_transition.getShipFromShipControlDevice(shipControlDevices[i]);
-                    if (isIdValid(ship))
-                    {
-                        if (!hasCertificationsForItem(self, ship))
-                        {
+                for (obj_id shipControlDevice : shipControlDevices) {
+                    obj_id ship = space_transition.getShipFromShipControlDevice(shipControlDevice);
+                    if (isIdValid(ship)) {
+                        if (!hasCertificationsForItem(self, ship)) {
                             sendSystemMessageTestingOnly(self, "Warning: You do NOT have the appropriate certification for ship " + ship + "! BAH.");
-                        }
-                        else 
-                        {
+                        } else {
                             sendSystemMessageTestingOnly(self, "Warning: You DO have the appropriate certification for ship " + ship + ". YEAH!");
                         }
-                    }
-                    else 
-                    {
-                        sendSystemMessageTestingOnly(self, "Error: Ship control device " + shipControlDevices[i] + " has no ship, so cannot check certifications.");
+                    } else {
+                        sendSystemMessageTestingOnly(self, "Error: Ship control device " + shipControlDevice + " has no ship, so cannot check certifications.");
                     }
                 }
             }
@@ -610,11 +603,9 @@ public class combat_ship_player extends script.base_script
                     return SCRIPT_CONTINUE;
                 }
                 Vector passengers = space_transition.getContainedPlayers(objShip);
-                for (Iterator it = passengers.iterator(); it.hasNext(); )
-                {
-                    obj_id passenger = (obj_id)it.next();
-                    if (!features.hasEpisode3Expansion(passenger))
-                    {
+                for (Object passenger1 : passengers) {
+                    obj_id passenger = (obj_id) passenger1;
+                    if (!features.hasEpisode3Expansion(passenger)) {
                         string_id strSpam = new string_id("space/space_interaction", "no_ep3_passengers");
                         sendSystemMessage(self, strSpam);
                         return SCRIPT_CONTINUE;
@@ -668,14 +659,14 @@ public class combat_ship_player extends script.base_script
         sendSystemMessage(self, strSpam);
         strSpam = new string_id("space/space_interaction", "hyperspace_route_calculation_1");
         dctParams.put("strSpam", strSpam);
-        float fltDelay = (float)intDelay;
-        messageTo(self, "doHyperspaceMessaging", dctParams, fltDelay * .25f, false);
+        float fltDelay = intDelay;
+        messageTo(self, "doHyperspaceMessaging", dctParams, fltDelay * 0.25f, false);
         strSpam = new string_id("space/space_interaction", "hyperspace_route_calculation_2");
         dctParams.put("strSpam", strSpam);
-        messageTo(self, "doHyperspaceMessaging", dctParams, fltDelay * .50f, false);
+        messageTo(self, "doHyperspaceMessaging", dctParams, fltDelay * 0.50f, false);
         strSpam = new string_id("space/space_interaction", "hyperspace_route_calculation_3");
         dctParams.put("strSpam", strSpam);
-        messageTo(self, "doHyperspaceMessaging", dctParams, fltDelay * .75f, false);
+        messageTo(self, "doHyperspaceMessaging", dctParams, fltDelay * 0.75f, false);
         dctParams.put("strPoint", strParams[0]);
         dctParams.put("intCloseWings", 1);
         dctParams.put("intSound", 1);
@@ -725,9 +716,8 @@ public class combat_ship_player extends script.base_script
             Vector objGunners = space_utils.getGunnersInShip(objShip);
             if (objGunners != null)
             {
-                for (int intI = 0; intI < objGunners.size(); intI++)
-                {
-                    playMusic(((obj_id)objGunners.get(intI)), "sound/ship_hyperspace_countdown.snd");
+                for (Object objGunner : objGunners) {
+                    playMusic(((obj_id) objGunner), "sound/ship_hyperspace_countdown.snd");
                 }
             }
             obj_id objOfficer = space_utils.getOperationsOfficer(objShip);
@@ -1563,17 +1553,13 @@ public class combat_ship_player extends script.base_script
             ship_chassis_slot_type.SCST_weapon_6,
             ship_chassis_slot_type.SCST_weapon_7
         };
-        for (int intI = 0; intI < WEAPON_SLOTS.length; intI++)
-        {
-            if (isShipSlotInstalled(ship, WEAPON_SLOTS[intI]))
-            {
-                if ((fltGeneralEfficiency != 0) && (fltEnergyEfficiency != 0))
-                {
-                    if (space_combat.isEfficiencyModified(WEAPON_SLOTS[intI], ship))
-                    {
-                        space_combat.setEfficiencyModifier(WEAPON_SLOTS[intI], ship, 1.0f, 1.0f);
+        for (int weapon_slot : WEAPON_SLOTS) {
+            if (isShipSlotInstalled(ship, weapon_slot)) {
+                if ((fltGeneralEfficiency != 0) && (fltEnergyEfficiency != 0)) {
+                    if (space_combat.isEfficiencyModified(weapon_slot, ship)) {
+                        space_combat.setEfficiencyModifier(weapon_slot, ship, 1.0f, 1.0f);
                     }
-                    space_combat.setEfficiencyModifier(WEAPON_SLOTS[intI], ship, fltGeneralEfficiency, fltEnergyEfficiency);
+                    space_combat.setEfficiencyModifier(weapon_slot, ship, fltGeneralEfficiency, fltEnergyEfficiency);
                 }
             }
         }
@@ -1773,7 +1759,7 @@ public class combat_ship_player extends script.base_script
         }
         String cefPlayBackHardpoint = space_combat.targetHardpointForCefPlayback(ship);
         playClientEffectObj(self, "clienteffect/space_command/emergency_power_on.cef", ship, cefPlayBackHardpoint);
-        float emergencyPowerTime = (rand(5.0f, (float)(CMD_VAMPIRIC_REPAIR_DELAY)));
+        float emergencyPowerTime = (rand(5.0f, (CMD_VAMPIRIC_REPAIR_DELAY)));
         return SCRIPT_CONTINUE;
     }
     public int cmdVampiricRepairOther(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException
@@ -1818,7 +1804,7 @@ public class combat_ship_player extends script.base_script
         }
         String cefPlayBackHardpoint = space_combat.targetHardpointForCefPlayback(ship);
         playClientEffectObj(self, "clienteffect/space_command/emergency_power_on.cef", ship, "");
-        float emergencyPowerTime = (rand(5.0f, (float)(CMD_VAMPIRIC_REPAIR_DELAY)));
+        float emergencyPowerTime = (rand(5.0f, (CMD_VAMPIRIC_REPAIR_DELAY)));
         return SCRIPT_CONTINUE;
     }
     public int cmdLightBomberStrike(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException
@@ -1955,17 +1941,14 @@ public class combat_ship_player extends script.base_script
         {
             int bomberSquadId = utils.getIntLocalVar(self, "cmd.bmb.bmbrSquadId");
             obj_id[] bomberSquaddyList = ship_ai.squadGetUnitList(bomberSquadId);
-            for (int i = 0; i < bomberSquaddyList.length; i++)
-            {
-                int escortSquadId = utils.getIntLocalVar(bomberSquaddyList[i], "escortSquadId");
+            for (obj_id obj_id1 : bomberSquaddyList) {
+                int escortSquadId = utils.getIntLocalVar(obj_id1, "escortSquadId");
                 currentTotalEscortFighters += ship_ai.squadGetSize(escortSquadId);
                 obj_id[] escortSquaddyList = ship_ai.squadGetUnitList(escortSquadId);
-                for (int j = 0; j < escortSquaddyList.length; j++)
-                {
-                    if (escortSquaddyList[j] == deadFighterId)
-                    {
-                        int oldEscortUnitCount = utils.getIntLocalVar(bomberSquaddyList[i], "crrntEscrtSqdSz");
-                        utils.setLocalVar(bomberSquaddyList[i], "crrntEscrtSqdSz", --oldEscortUnitCount);
+                for (obj_id obj_id : escortSquaddyList) {
+                    if (obj_id == deadFighterId) {
+                        int oldEscortUnitCount = utils.getIntLocalVar(obj_id1, "crrntEscrtSqdSz");
+                        utils.setLocalVar(obj_id1, "crrntEscrtSqdSz", --oldEscortUnitCount);
                     }
                 }
             }
@@ -2731,9 +2714,9 @@ public class combat_ship_player extends script.base_script
     private String getBattleTimeString(int secondsUntilNextBattle){
         String timeString = secondsUntilNextBattle + " seconds";
         if(secondsUntilNextBattle > 59){
-            int seconds = new Double(secondsUntilNextBattle % 60).intValue();
-            int minutes = new Double((secondsUntilNextBattle / 60) % 60).intValue();
-            int hours = new Double(Math.floor(secondsUntilNextBattle / 60 / 60)).intValue();
+            int seconds = Double.valueOf(secondsUntilNextBattle % 60).intValue();
+            int minutes = Double.valueOf((secondsUntilNextBattle / 60) % 60).intValue();
+            int hours = Double.valueOf(Math.floor(secondsUntilNextBattle / 60 / 60)).intValue();
             timeString = hours > 0 ? hours + " hours" : "";
             if(minutes > 0 && seconds > 0){
                 timeString += ", ";
@@ -2741,8 +2724,8 @@ public class combat_ship_player extends script.base_script
             else if(minutes > 0 && seconds == 0){
                 timeString += " and ";
             }
-            timeString += (minutes > 0 ? new Double(minutes).intValue() + " minutes" : "");
-            timeString += (seconds > 0 ? " and " + new Double(seconds).intValue() +  " seconds" : "");
+            timeString += (minutes > 0 ? Double.valueOf(minutes).intValue() + " minutes" : "");
+            timeString += (seconds > 0 ? " and " + Double.valueOf(seconds).intValue() +  " seconds" : "");
         }
         return timeString + ".";
     }

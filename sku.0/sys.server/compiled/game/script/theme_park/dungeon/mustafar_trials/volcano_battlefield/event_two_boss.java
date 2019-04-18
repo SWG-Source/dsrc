@@ -61,9 +61,8 @@ public class event_two_boss extends script.base_script
             doLogging("clearAllAdds", "There are no objects in range");
             return;
         }
-        for (int i = 0; i < objects.length; i++)
-        {
-            trial.cleanupNpc(objects[i]);
+        for (obj_id object : objects) {
+            trial.cleanupNpc(object);
         }
     }
     public void respawnAdds(obj_id self) throws InterruptedException
@@ -155,32 +154,28 @@ public class event_two_boss extends script.base_script
             return SCRIPT_CONTINUE;
         }
         playClientEffectObj(self, trial.PRT_VOLCANO_WAVE_EXE, self, "root");
-        for (int i = 0; i < targets.length; i++)
-        {
-            if (targets[i] == getTarget(self))
-            {
+        for (obj_id target : targets) {
+            if (target == getTarget(self)) {
                 int tankDamage = 2000;
                 prose_package pp = new prose_package();
                 pp.stringId = new string_id("cbt_spam", "blast_wave_hit");
                 pp.actor.set(self);
-                pp.target.set(targets[i]);
+                pp.target.set(target);
                 pp.digitInteger = tankDamage;
-                combat.sendCombatSpamMessageProse(targets[i], self, pp, true, true, false, COMBAT_RESULT_HIT);
-                dot.applyDotEffect(targets[i], self, dot.DOT_FIRE, "blast_wave_dot", HEALTH, -1, tankDamage / 10, 60, true, null);
-                damage(targets[i], DAMAGE_ELEMENTAL_HEAT, HIT_LOCATION_BODY, tankDamage);
-            }
-            else 
-            {
-                float distance = getDistance(self, targets[i]);
+                combat.sendCombatSpamMessageProse(target, self, pp, true, true, false, COMBAT_RESULT_HIT);
+                dot.applyDotEffect(target, self, dot.DOT_FIRE, "blast_wave_dot", HEALTH, -1, tankDamage / 10, 60, true, null);
+                damage(target, DAMAGE_ELEMENTAL_HEAT, HIT_LOCATION_BODY, tankDamage);
+            } else {
+                float distance = getDistance(self, target);
                 int damage = Math.round(30000.0f / distance);
                 prose_package pp = new prose_package();
                 pp.stringId = new string_id("cbt_spam", "blast_wave_hit");
                 pp.actor.set(self);
-                pp.target.set(targets[i]);
+                pp.target.set(target);
                 pp.digitInteger = damage;
-                combat.sendCombatSpamMessageProse(targets[i], self, pp, true, true, false, COMBAT_RESULT_HIT);
-                dot.applyDotEffect(targets[i], self, dot.DOT_FIRE, "blast_wave_dot", HEALTH, -1, damage / 10, 300, true, null);
-                damage(targets[i], DAMAGE_ELEMENTAL_HEAT, HIT_LOCATION_BODY, damage);
+                combat.sendCombatSpamMessageProse(target, self, pp, true, true, false, COMBAT_RESULT_HIT);
+                dot.applyDotEffect(target, self, dot.DOT_FIRE, "blast_wave_dot", HEALTH, -1, damage / 10, 300, true, null);
+                damage(target, DAMAGE_ELEMENTAL_HEAT, HIT_LOCATION_BODY, damage);
             }
         }
         cycleNextAE(self);
@@ -209,22 +204,20 @@ public class event_two_boss extends script.base_script
             return SCRIPT_CONTINUE;
         }
         playClientEffectLoc(self, trial.PRT_VOLCANO_AIR_EXE, getLocation(self), 4.0f);
-        for (int i = 0; i < targets.length; i++)
-        {
-            float distance = getDistance(self, targets[i]);
+        for (obj_id target : targets) {
+            float distance = getDistance(self, target);
             float modDistance = (distance / 20.0f);
-            if (modDistance == 0.0)
-            {
+            if (modDistance == 0.0) {
                 modDistance = 0.1f;
             }
-            int damage = (int)(modDistance * 3000.0f);
+            int damage = (int) (modDistance * 3000.0f);
             prose_package pp = new prose_package();
             pp.stringId = new string_id("cbt_spam", "airburst_hit");
             pp.actor.set(self);
-            pp.target.set(targets[i]);
+            pp.target.set(target);
             pp.digitInteger = damage;
-            combat.sendCombatSpamMessageProse(targets[i], self, pp, true, true, false, COMBAT_RESULT_HIT);
-            damage(targets[i], DAMAGE_ELEMENTAL_ELECTRICAL, HIT_LOCATION_BODY, damage);
+            combat.sendCombatSpamMessageProse(target, self, pp, true, true, false, COMBAT_RESULT_HIT);
+            damage(target, DAMAGE_ELEMENTAL_ELECTRICAL, HIT_LOCATION_BODY, damage);
         }
         cycleNextAE(self);
         return SCRIPT_CONTINUE;
@@ -253,27 +246,23 @@ public class event_two_boss extends script.base_script
             return SCRIPT_CONTINUE;
         }
         playClientEffectObj(self, trial.PRT_VOLCANO_CONE_EXE, self, "muzzle");
-        for (int i = 0; i < targetsInCone.length; i++)
-        {
-            if (targetsInCone[i] == target)
-            {
+        for (obj_id obj_id : targetsInCone) {
+            if (obj_id == target) {
                 prose_package pp = new prose_package();
                 pp.stringId = new string_id("cbt_spam", "blast_cone_hit");
                 pp.actor.set(self);
-                pp.target.set(targetsInCone[i]);
+                pp.target.set(obj_id);
                 pp.digitInteger = 2500;
-                combat.sendCombatSpamMessageProse(targetsInCone[i], self, pp, true, true, false, COMBAT_RESULT_HIT);
-                damage(targetsInCone[i], DAMAGE_ELEMENTAL_COLD, HIT_LOCATION_BODY, 2500);
-            }
-            else 
-            {
+                combat.sendCombatSpamMessageProse(obj_id, self, pp, true, true, false, COMBAT_RESULT_HIT);
+                damage(obj_id, DAMAGE_ELEMENTAL_COLD, HIT_LOCATION_BODY, 2500);
+            } else {
                 prose_package pp = new prose_package();
                 pp.stringId = new string_id("cbt_spam", "blast_cone_hit");
                 pp.actor.set(self);
-                pp.target.set(targetsInCone[i]);
+                pp.target.set(obj_id);
                 pp.digitInteger = 3400;
-                combat.sendCombatSpamMessageProse(targetsInCone[i], self, pp, true, true, false, COMBAT_RESULT_HIT);
-                damage(targetsInCone[i], DAMAGE_ELEMENTAL_COLD, HIT_LOCATION_BODY, 8500);
+                combat.sendCombatSpamMessageProse(obj_id, self, pp, true, true, false, COMBAT_RESULT_HIT);
+                damage(obj_id, DAMAGE_ELEMENTAL_COLD, HIT_LOCATION_BODY, 8500);
             }
         }
         cycleNextAE(self);

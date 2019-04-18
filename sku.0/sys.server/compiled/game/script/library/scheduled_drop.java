@@ -262,7 +262,7 @@ public class scheduled_drop extends script.base_script
                 percentOfCount = 0.01f;
             }
         }
-        return (int)((float)promotionCount * percentOfCount);
+        return (int)(promotionCount * percentOfCount);
     }
     public static int getLastClusterUpdateTime() throws InterruptedException
     {

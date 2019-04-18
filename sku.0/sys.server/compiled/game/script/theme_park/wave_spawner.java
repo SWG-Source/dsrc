@@ -65,11 +65,9 @@ public class wave_spawner extends script.base_script
         {
             return;
         }
-        for (int i = 0; i < objects.length; i++)
-        {
-            if (objects[i] != self && !isPlayer(objects[i]))
-            {
-                trial.cleanupObject(objects[i]);
+        for (obj_id object : objects) {
+            if (object != self && !isPlayer(object)) {
+                trial.cleanupObject(object);
             }
         }
     }
@@ -91,11 +89,9 @@ public class wave_spawner extends script.base_script
         boolean moreStages = false;
         int nextStage = (int)Float.POSITIVE_INFINITY;
         float timeToNext = 0;
-        for (int i = 0; i < allStages.length; i++)
-        {
-            if (allStages[i] > stage && allStages[i] < nextStage)
-            {
-                nextStage = allStages[i];
+        for (int allStage : allStages) {
+            if (allStage > stage && allStage < nextStage) {
+                nextStage = allStage;
                 timeToNext = nextStage - stage;
                 moreStages = true;
             }
@@ -216,7 +212,7 @@ public class wave_spawner extends script.base_script
                 setSpawnObjVar(newObject, spawnObjVar);
                 copyObjVar(controller, newObject, DATA_TABLE);
                 attachSpawnScripts(newObject, spawnScript, objType);
-                if (object.indexOf("patrol_waypoint.iff") > -1)
+                if (object.contains("patrol_waypoint.iff"))
                 {
                     addToWaypointData(controller, newObject);
                 }
@@ -278,9 +274,8 @@ public class wave_spawner extends script.base_script
             return;
         }
         String[] scripts = split(spawnScripts, ';');
-        for (int q = 0; q < scripts.length; q++)
-        {
-            attachScript(subject, scripts[q]);
+        for (String script : scripts) {
+            attachScript(subject, script);
         }
     }
     public void setSpawnObjVar(obj_id newObject, String objvarString) throws InterruptedException
@@ -294,32 +289,26 @@ public class wave_spawner extends script.base_script
         {
             return;
         }
-        for (int i = 0; i < parse.length; i++)
-        {
-            String[] typeDataSplit = split(parse[i], ':');
+        for (String s : parse) {
+            String[] typeDataSplit = split(s, ':');
             String type = typeDataSplit[0];
             String data = typeDataSplit[1];
             String[] nameValueSplit = split(data, '=');
             String name = nameValueSplit[0];
             String value = nameValueSplit[1];
-            if (type.equals("int"))
-            {
+            if (type.equals("int")) {
                 setObjVar(newObject, name, utils.stringToInt(value));
             }
-            if (type.equals("float"))
-            {
+            if (type.equals("float")) {
                 setObjVar(newObject, name, utils.stringToFloat(value));
             }
-            if (type.equals("string"))
-            {
+            if (type.equals("string")) {
                 setObjVar(newObject, name, value);
             }
-            if (type.equals("boolean") && (value.equals("true") || value.equals("1")))
-            {
+            if (type.equals("boolean") && (value.equals("true") || value.equals("1"))) {
                 setObjVar(newObject, name, true);
             }
-            if (type.equals("boolean") && (value.equals("false") || value.equals("0")))
-            {
+            if (type.equals("boolean") && (value.equals("false") || value.equals("0"))) {
                 setObjVar(newObject, name, false);
             }
         }
@@ -416,9 +405,8 @@ public class wave_spawner extends script.base_script
         {
             return;
         }
-        for (int r = 0; r < players.length; r++)
-        {
-            playMusic(players[r], parse[1]);
+        for (obj_id player : players) {
+            playMusic(player, parse[1]);
         }
     }
     public void doLogging(String section, String message) throws InterruptedException

@@ -91,7 +91,7 @@ public class minder extends script.base_script
         {
             utils.addElement(randomAdd, SK_BOSS);
         }
-        int result = ((Integer)randomAdd.get(rand(0, randomAdd.size() - 1))).intValue();
+        int result = (Integer) randomAdd.get(rand(0, randomAdd.size() - 1));
         dictionary dict = trial.getSessionDict(trial.getTop(self));
         switch (result)
         {

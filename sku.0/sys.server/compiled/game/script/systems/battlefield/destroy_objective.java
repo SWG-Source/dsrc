@@ -57,8 +57,8 @@ public class destroy_objective extends script.base_script
         }
         int hitpoints = getHitpoints(self);
         int max_hitpoints = getMaxHitpoints(self);
-        float percent_hp = (float)hitpoints / (float)max_hitpoints;
-        if (percent_hp < .5)
+        float percent_hp = (float)hitpoints / max_hitpoints;
+        if (percent_hp < 0.5)
         {
             if (warning_level == 0)
             {
@@ -66,7 +66,7 @@ public class destroy_objective extends script.base_script
                 setObjVar(self, VAR_WARNING_LEVEL, 1);
             }
         }
-        if (percent_hp < .25)
+        if (percent_hp < 0.25)
         {
             if (warning_level == 1)
             {
@@ -74,7 +74,7 @@ public class destroy_objective extends script.base_script
                 setObjVar(self, VAR_WARNING_LEVEL, 2);
             }
         }
-        if (percent_hp < .1)
+        if (percent_hp < 0.1)
         {
             if (warning_level == 2)
             {

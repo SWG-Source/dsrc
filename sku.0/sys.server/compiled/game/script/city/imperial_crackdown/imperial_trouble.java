@@ -166,7 +166,7 @@ public class imperial_trouble extends script.base_script
         }
         chat.chat(self, new string_id(CONVO, "rebel_cowards_" + getFactionName(self)));
         obj_id foyer = getCellId(getTopMostContainer(self), "foyer1");
-        location impLoc = new location(47.02f, .1f, -2.93f, getLocation(self).area, foyer);
+        location impLoc = new location(47.02f, 0.1f, -2.93f, getLocation(self).area, foyer);
         ai_lib.aiPathTo(self, impLoc);
         addLocationTarget("done", impLoc, 1);
         messageTo(self, "handleBadLeaving", null, 60, false);

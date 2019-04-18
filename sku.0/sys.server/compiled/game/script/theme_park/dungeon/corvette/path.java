@@ -19,12 +19,9 @@ public class path extends script.base_script
     {
         String[] allCells = getCellNames(building);
         int numberOfCells = allCells.length;
-        for (int i = 0; i < numberOfCells; i++)
-        {
-            String cellName = allCells[i];
+        for (String cellName : allCells) {
             obj_id thisCell = getCellId(building, cellName);
-            if (thisCell == cell)
-            {
+            if (thisCell == cell) {
                 return cellName;
             }
         }

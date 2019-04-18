@@ -70,10 +70,8 @@ public class scavenger_droid extends script.base_script
             String itemName = getName(item);
             if (itemTemplateList != null || itemTemplateList.length != 0)
             {
-                for (int i = 0; i < itemTemplateList.length; i++)
-                {
-                    if (itemTemplateList[i].equals(itemTemplate))
-                    {
+                for (String s : itemTemplateList) {
+                    if (s.equals(itemTemplate)) {
                         sendSystemMessage(player, new string_id("event_perk", "scavenger_already_added"));
                         return SCRIPT_CONTINUE;
                     }
@@ -393,9 +391,8 @@ public class scavenger_droid extends script.base_script
         obj_id[] objPlayers = getPlayerCreaturesInRange(self, 256.0f);
         if (objPlayers != null && objPlayers.length > 0)
         {
-            for (int i = 0; i < objPlayers.length; i++)
-            {
-                sendSystemMessage(objPlayers[i], new string_id("event_perk", messageId));
+            for (obj_id objPlayer : objPlayers) {
+                sendSystemMessage(objPlayer, new string_id("event_perk", messageId));
             }
         }
     }

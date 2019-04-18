@@ -93,7 +93,7 @@ public class area_badge extends script.base_script
                 String badgeRangeStr = st.nextToken();
                 String badgeNumberStr = st.nextToken();
                 badgeNumber = utils.stringToInt(badgeNumberStr);
-                badgeRange = (float) utils.stringToInt(badgeRangeStr);
+                badgeRange = utils.stringToInt(badgeRangeStr);
                 if (badgeRange > 256 || badgeRange < 1)
                 {
                     sendSystemMessage(self, "Error: Specify a range between 1 and 256.", null);

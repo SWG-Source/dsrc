@@ -86,163 +86,141 @@ public class death_watch_death extends script.base_script
         }
         String creatureName = ai_lib.getCreatureName(self);
         String realName = getEncodedName(self);
-        if (creatureName.equals("mand_bunker_dthwatch_gold"))
-        {
-            int x = rand(1, 1000);
-            if (x < 2500)
-            {
-                String myLoot = "object/tangible/loot/dungeon/death_watch_bunker/jetpack_stabilizer.iff";
-                createObject(myLoot, corpseInventory, "");
-                CustomerServiceLog("DEATH WATCH BUNKER:", "LOOT CREATED: " + realName + " created object in inventory " + myLoot);
-                return;
-            }
-        }
-        else if (creatureName.equals("mand_bunker_dthwatch_silver"))
-        {
-            int x = rand(1, 1000);
-            if (x < 35)
-            {
-                String[] items = dataTableGetStringColumnNoDefaults(TBL_DEATH_LOOT, "dthwatch_lvl2");
-                int lootItems = items.length - 1;
-                int y = rand(0, lootItems);
-                String myLoot = dataTableGetString(TBL_DEATH_LOOT, y, "dthwatch_lvl2");
-                if (myLoot == null)
-                {
+        switch (creatureName) {
+            case "mand_bunker_dthwatch_gold": {
+                int x = rand(1, 1000);
+                if (x < 2500) {
+                    String myLoot = "object/tangible/loot/dungeon/death_watch_bunker/jetpack_stabilizer.iff";
+                    createObject(myLoot, corpseInventory, "");
+                    CustomerServiceLog("DEATH WATCH BUNKER:", "LOOT CREATED: " + realName + " created object in inventory " + myLoot);
                     return;
                 }
-                if (myLoot.equals("object/tangible/loot/dungeon/death_watch_bunker/pistol_de10_barrel.iff"))
-                {
-                    createObject(myLoot, corpseInventory, "");
-                    CustomerServiceLog("DEATH WATCH BUNKER:", "LOOT CREATED: " + realName + " created object in inventory " + myLoot);
-                }
-                else 
-                {
-                    createObject(myLoot, corpseInventory, "");
-                    CustomerServiceLog("DEATH WATCH BUNKER:", "LOOT CREATED: " + realName + " created object in inventory " + myLoot);
-                }
-                return;
+                break;
             }
-        }
-        else if (creatureName.equals("mand_bunker_dthwatch_grey") || creatureName.equals("mand_bunker_dthwatch_red"))
-        {
-            int x = rand(1, 1000);
-            if (x < 25)
-            {
-                String[] items = dataTableGetStringColumnNoDefaults(TBL_DEATH_LOOT, "dthwatch_lvl1");
-                int lootItems = items.length - 1;
-                int y = rand(0, lootItems);
-                String myLoot = dataTableGetString(TBL_DEATH_LOOT, y, "dthwatch_lvl1");
-                if (myLoot == null)
-                {
+            case "mand_bunker_dthwatch_silver": {
+                int x = rand(1, 1000);
+                if (x < 35) {
+                    String[] items = dataTableGetStringColumnNoDefaults(TBL_DEATH_LOOT, "dthwatch_lvl2");
+                    int lootItems = items.length - 1;
+                    int y = rand(0, lootItems);
+                    String myLoot = dataTableGetString(TBL_DEATH_LOOT, y, "dthwatch_lvl2");
+                    if (myLoot == null) {
+                        return;
+                    }
+                    if (myLoot.equals("object/tangible/loot/dungeon/death_watch_bunker/pistol_de10_barrel.iff")) {
+                        createObject(myLoot, corpseInventory, "");
+                        CustomerServiceLog("DEATH WATCH BUNKER:", "LOOT CREATED: " + realName + " created object in inventory " + myLoot);
+                    } else {
+                        createObject(myLoot, corpseInventory, "");
+                        CustomerServiceLog("DEATH WATCH BUNKER:", "LOOT CREATED: " + realName + " created object in inventory " + myLoot);
+                    }
                     return;
                 }
-                if (myLoot.equals("object/tangible/loot/dungeon/death_watch_bunker/pistol_de10_barrel.iff"))
-                {
-                    createObject(myLoot, corpseInventory, "");
-                    CustomerServiceLog("DEATH WATCH BUNKER:", "LOOT CREATED: " + realName + " created object in inventory " + myLoot);
-                }
-                else 
-                {
-                    createObject(myLoot, corpseInventory, "");
-                    CustomerServiceLog("DEATH WATCH BUNKER:", "LOOT CREATED: " + realName + " created object in inventory " + myLoot);
-                }
-                return;
+                break;
             }
-        }
-        else if (creatureName.equals("death_watch_miner"))
-        {
-            int x = rand(1, 1000);
-            if (x < 250)
-            {
-                String[] items = dataTableGetStringColumnNoDefaults(TBL_DEATH_LOOT, "dthwatch_miner");
-                int lootItems = items.length - 1;
-                int y = rand(0, lootItems);
-                String myLoot = dataTableGetString(TBL_DEATH_LOOT, y, "dthwatch_miner");
-                if (myLoot == null)
-                {
+            case "mand_bunker_dthwatch_grey":
+            case "mand_bunker_dthwatch_red": {
+                int x = rand(1, 1000);
+                if (x < 25) {
+                    String[] items = dataTableGetStringColumnNoDefaults(TBL_DEATH_LOOT, "dthwatch_lvl1");
+                    int lootItems = items.length - 1;
+                    int y = rand(0, lootItems);
+                    String myLoot = dataTableGetString(TBL_DEATH_LOOT, y, "dthwatch_lvl1");
+                    if (myLoot == null) {
+                        return;
+                    }
+                    if (myLoot.equals("object/tangible/loot/dungeon/death_watch_bunker/pistol_de10_barrel.iff")) {
+                        createObject(myLoot, corpseInventory, "");
+                        CustomerServiceLog("DEATH WATCH BUNKER:", "LOOT CREATED: " + realName + " created object in inventory " + myLoot);
+                    } else {
+                        createObject(myLoot, corpseInventory, "");
+                        CustomerServiceLog("DEATH WATCH BUNKER:", "LOOT CREATED: " + realName + " created object in inventory " + myLoot);
+                    }
                     return;
                 }
-                createObject(myLoot, corpseInventory, "");
-                CustomerServiceLog("DEATH WATCH BUNKER:", "LOOT CREATED: " + realName + " created object in inventory " + myLoot);
-                return;
+                break;
             }
-        }
-        else if (creatureName.equals("mand_bunker_blksun_henchman_int") || creatureName.equals("mand_bunker_blksun_thug_int") || creatureName.equals("mand_bunker_blksun_guard_int"))
-        {
-            int x = rand(1, 1000);
-            if (x < 25)
-            {
-                String[] items = dataTableGetStringColumnNoDefaults(TBL_DEATH_LOOT, "blksun_interior");
-                int lootItems = items.length - 1;
-                int y = rand(0, lootItems);
-                String myLoot = dataTableGetString(TBL_DEATH_LOOT, y, "blksun_interior");
-                if (myLoot == null)
-                {
+            case "death_watch_miner": {
+                int x = rand(1, 1000);
+                if (x < 250) {
+                    String[] items = dataTableGetStringColumnNoDefaults(TBL_DEATH_LOOT, "dthwatch_miner");
+                    int lootItems = items.length - 1;
+                    int y = rand(0, lootItems);
+                    String myLoot = dataTableGetString(TBL_DEATH_LOOT, y, "dthwatch_miner");
+                    if (myLoot == null) {
+                        return;
+                    }
+                    createObject(myLoot, corpseInventory, "");
+                    CustomerServiceLog("DEATH WATCH BUNKER:", "LOOT CREATED: " + realName + " created object in inventory " + myLoot);
                     return;
                 }
-                if (myLoot.equals("object/tangible/loot/dungeon/death_watch_bunker/pistol_de10_barrel.iff"))
-                {
-                    createObject(myLoot, corpseInventory, "");
-                    CustomerServiceLog("DEATH WATCH BUNKER:", "LOOT CREATED: " + realName + " created object in inventory " + myLoot);
-                }
-                else 
-                {
-                    createObject(myLoot, corpseInventory, "");
-                    CustomerServiceLog("DEATH WATCH BUNKER:", "LOOT CREATED: " + realName + " created object in inventory " + myLoot);
-                }
-                return;
+                break;
             }
-        }
-        else if (creatureName.equals("mand_bunker_blksun_assassin_int"))
-        {
-            int x = rand(1, 1000);
-            if (x < 45)
-            {
-                String[] items = dataTableGetStringColumnNoDefaults(TBL_DEATH_LOOT, "blksun_interior");
-                int lootItems = items.length - 1;
-                int y = rand(0, lootItems);
-                String myLoot = dataTableGetString(TBL_DEATH_LOOT, y, "blksun_interior");
-                if (myLoot == null)
-                {
+            case "mand_bunker_blksun_henchman_int":
+            case "mand_bunker_blksun_thug_int":
+            case "mand_bunker_blksun_guard_int": {
+                int x = rand(1, 1000);
+                if (x < 25) {
+                    String[] items = dataTableGetStringColumnNoDefaults(TBL_DEATH_LOOT, "blksun_interior");
+                    int lootItems = items.length - 1;
+                    int y = rand(0, lootItems);
+                    String myLoot = dataTableGetString(TBL_DEATH_LOOT, y, "blksun_interior");
+                    if (myLoot == null) {
+                        return;
+                    }
+                    if (myLoot.equals("object/tangible/loot/dungeon/death_watch_bunker/pistol_de10_barrel.iff")) {
+                        createObject(myLoot, corpseInventory, "");
+                        CustomerServiceLog("DEATH WATCH BUNKER:", "LOOT CREATED: " + realName + " created object in inventory " + myLoot);
+                    } else {
+                        createObject(myLoot, corpseInventory, "");
+                        CustomerServiceLog("DEATH WATCH BUNKER:", "LOOT CREATED: " + realName + " created object in inventory " + myLoot);
+                    }
                     return;
                 }
-                if (myLoot.equals("object/tangible/loot/dungeon/death_watch_bunker/pistol_de10_barrel.iff"))
-                {
-                    createObject(myLoot, corpseInventory, "");
-                    CustomerServiceLog("DEATH WATCH BUNKER:", "LOOT CREATED: " + realName + " created object in inventory " + myLoot);
-                }
-                else 
-                {
-                    createObject(myLoot, corpseInventory, "");
-                    CustomerServiceLog("DEATH WATCH BUNKER:", "LOOT CREATED: " + realName + " created object in inventory " + myLoot);
-                }
-                return;
+                break;
             }
-        }
-        else if (creatureName.equals("death_watch_quenker") || creatureName.equals("blastromech"))
-        {
-            return;
-        }
-        else if (creatureName.equals("mand_bunker_battle_dorid") || creatureName.equals("mand_bunker_super_battle_droid"))
-        {
-            return;
-        }
-        else 
-        {
-            int x = rand(1, 1000);
-            if (x < 25)
-            {
-                String[] items = dataTableGetStringColumnNoDefaults(TBL_DEATH_LOOT, "dthwatch_civilian");
-                int lootItems = items.length - 1;
-                int y = rand(0, lootItems);
-                String myLoot = dataTableGetString(TBL_DEATH_LOOT, y, "dthwatch_civilian");
-                if (myLoot == null)
-                {
+            case "mand_bunker_blksun_assassin_int": {
+                int x = rand(1, 1000);
+                if (x < 45) {
+                    String[] items = dataTableGetStringColumnNoDefaults(TBL_DEATH_LOOT, "blksun_interior");
+                    int lootItems = items.length - 1;
+                    int y = rand(0, lootItems);
+                    String myLoot = dataTableGetString(TBL_DEATH_LOOT, y, "blksun_interior");
+                    if (myLoot == null) {
+                        return;
+                    }
+                    if (myLoot.equals("object/tangible/loot/dungeon/death_watch_bunker/pistol_de10_barrel.iff")) {
+                        createObject(myLoot, corpseInventory, "");
+                        CustomerServiceLog("DEATH WATCH BUNKER:", "LOOT CREATED: " + realName + " created object in inventory " + myLoot);
+                    } else {
+                        createObject(myLoot, corpseInventory, "");
+                        CustomerServiceLog("DEATH WATCH BUNKER:", "LOOT CREATED: " + realName + " created object in inventory " + myLoot);
+                    }
                     return;
                 }
-                createObject(myLoot, corpseInventory, "");
-                CustomerServiceLog("DEATH WATCH BUNKER:", "LOOT CREATED: " + realName + " created object in inventory " + myLoot);
+                break;
+            }
+            case "death_watch_quenker":
+            case "blastromech":
                 return;
+            case "mand_bunker_battle_dorid":
+            case "mand_bunker_super_battle_droid":
+                return;
+            default: {
+                int x = rand(1, 1000);
+                if (x < 25) {
+                    String[] items = dataTableGetStringColumnNoDefaults(TBL_DEATH_LOOT, "dthwatch_civilian");
+                    int lootItems = items.length - 1;
+                    int y = rand(0, lootItems);
+                    String myLoot = dataTableGetString(TBL_DEATH_LOOT, y, "dthwatch_civilian");
+                    if (myLoot == null) {
+                        return;
+                    }
+                    createObject(myLoot, corpseInventory, "");
+                    CustomerServiceLog("DEATH WATCH BUNKER:", "LOOT CREATED: " + realName + " created object in inventory " + myLoot);
+                    return;
+                }
+                break;
             }
         }
         return;

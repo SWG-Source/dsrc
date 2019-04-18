@@ -85,7 +85,7 @@ public class obiwan_quest_monitor extends script.base_script
             {
                 if (mustafar.canCallObiwan(self))
                 {
-                    messageTo(self, "callObiWanNow", null, 5f, false);
+                    messageTo(self, "callObiWanNow", null, 5.0f, false);
                 }
                 else 
                 {
@@ -113,7 +113,7 @@ public class obiwan_quest_monitor extends script.base_script
         {
             if (mustafar.canCallObiwan(self))
             {
-                messageTo(self, "callObiWanNow", null, 5f, false);
+                messageTo(self, "callObiWanNow", null, 5.0f, false);
             }
             else 
             {
@@ -128,7 +128,7 @@ public class obiwan_quest_monitor extends script.base_script
     public int OnSomeTaskCompleted(obj_id self, int questCrc, int taskId) throws InterruptedException
     {
         location currentLoc = getLocation(self);
-        obj_id obiwanObject = getFirstObjectWithObjVar(currentLoc, 100f, "mustafar_obiwan");
+        obj_id obiwanObject = getFirstObjectWithObjVar(currentLoc, 100.0f, "mustafar_obiwan");
         if (isIdValid(obiwanObject))
         {
             messageTo(obiwanObject, "despawnObiwanDelay", null, 10, false);

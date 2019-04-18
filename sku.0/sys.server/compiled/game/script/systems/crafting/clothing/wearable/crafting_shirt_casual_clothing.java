@@ -92,18 +92,16 @@ public class crafting_shirt_casual_clothing extends script.systems.crafting.clot
         if (skills != null)
         {
             int[] mods = getEnhancedSkillStatisticModifiers(player, skills);
-            for (int i = 0; i < mods.length; ++i)
-            {
-                playerCustomizationMod += mods[i];
+            for (int mod : mods) {
+                playerCustomizationMod += mod;
             }
         }
         if (playerCustomizationMod > 255)
         {
             playerCustomizationMod = 255;
         }
-        for (int i = 0; i < customizations.length; ++i)
-        {
-            customizations[i].maxValue = (int)(playerCustomizationMod);
+        for (draft_schematic.custom customization : customizations) {
+            customization.maxValue = (int) (playerCustomizationMod);
         }
         if (customizations.length > 0 && playerCustomizationMod < 101)
         {

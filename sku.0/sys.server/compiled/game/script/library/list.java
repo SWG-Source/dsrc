@@ -29,12 +29,12 @@ public class list extends script.base_script
             boolean validInstance = false;
             if (pivot instanceof Integer)
             {
-                partition = partitionIntArray(left, right, (((Integer)pivot)).intValue(), listArray);
+                partition = partitionIntArray(left, right, (Integer) pivot, listArray);
                 validInstance = true;
             }
             else if (pivot instanceof Float)
             {
-                partition = partitionFloatArray(left, right, (((Float)pivot)).floatValue(), listArray);
+                partition = partitionFloatArray(left, right, (Float) pivot, listArray);
                 validInstance = true;
             }
             if (validInstance)

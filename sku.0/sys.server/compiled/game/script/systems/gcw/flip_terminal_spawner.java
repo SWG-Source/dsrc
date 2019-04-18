@@ -81,7 +81,7 @@ public class flip_terminal_spawner extends script.base_script
                 spawnTerminal(self, "rebel");
             }
         }
-        messageTo(self, "checkTerminal", null, 3600.f, false);
+        messageTo(self, "checkTerminal", null, 3600.0f, false);
         return SCRIPT_CONTINUE;
     }
     public void spawnTerminal(obj_id self, String faction) throws InterruptedException

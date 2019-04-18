@@ -36,7 +36,7 @@ public class remote extends script.base_script
                 location loc = getLocation(self);
                 if (loc != null)
                 {
-                    playClientEffectLoc(player, "clienteffect/trap_electric_01.cef", loc, 0.f);
+                    playClientEffectLoc(player, "clienteffect/trap_electric_01.cef", loc, 0.0f);
                 }
             }
             if (genState == 0)

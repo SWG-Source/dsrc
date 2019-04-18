@@ -90,9 +90,8 @@ public class fs_outpost_master extends script.base_script
         {
             existingDroids = utils.getResizeableObjIdBatchObjVar(self, fs_counterstrike.OBJVAR_CAMP_DROIDS);
         }
-        for (int x = 0; x < existingDroids.size(); x++)
-        {
-            messageTo((obj_id)existingDroids.get(x), "msgSilentSelfDestruct", null, 0.0f, false);
+        for (Object existingDroid : existingDroids) {
+            messageTo((obj_id) existingDroid, "msgSilentSelfDestruct", null, 0.0f, false);
         }
         fs_counterstrike.resetCamp(self, false);
         destroyObject(self);

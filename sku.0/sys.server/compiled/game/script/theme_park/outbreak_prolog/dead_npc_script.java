@@ -78,56 +78,45 @@ public class dead_npc_script extends script.base_script
             return SCRIPT_CONTINUE;
         }
         CustomerServiceLog("outbreak_themepark", "dead_npc_script.OnObjectMenuSelect() menuObjVar: " + menuObjVar);
-        if (menuObjVar.equals("content_biologist_01"))
-        {
-            if (!groundquests.isTaskActive(player, "quest_03_investigate_biolab", "getDataDisk"))
-            {
-                sendSystemMessage(player, SID_THIS_NOT_FOR_YOU);
+        switch (menuObjVar) {
+            case "content_biologist_01":
+                if (!groundquests.isTaskActive(player, "quest_03_investigate_biolab", "getDataDisk")) {
+                    sendSystemMessage(player, SID_THIS_NOT_FOR_YOU);
+                    return SCRIPT_CONTINUE;
+                }
+                groundquests.sendSignal(player, "playerFoundDataDisk");
                 return SCRIPT_CONTINUE;
-            }
-            groundquests.sendSignal(player, "playerFoundDataDisk");
-            return SCRIPT_CONTINUE;
-        }
-        else if (menuObjVar.equals(OUTBREAK_KEY_SEARCH))
-        {
-            CustomerServiceLog("outbreak_themepark", "dead_npc_script.OnObjectMenuSelect() Key menu selected by Player: " + player);
-            int questNumber = getIntObjVar(self, KEY_QUEST_INT_OBJVAR);
-            if (questNumber < 1)
-            {
-                CustomerServiceLog("outbreak_themepark", "dead_npc_script.OnObjectMenuSelect() Quest Integer not found. Designer error for player: " + player);
-                sendSystemMessage(player, SID_YOU_FIND_NOTHING);
+            case OUTBREAK_KEY_SEARCH:
+                CustomerServiceLog("outbreak_themepark", "dead_npc_script.OnObjectMenuSelect() Key menu selected by Player: " + player);
+                int questNumber = getIntObjVar(self, KEY_QUEST_INT_OBJVAR);
+                if (questNumber < 1) {
+                    CustomerServiceLog("outbreak_themepark", "dead_npc_script.OnObjectMenuSelect() Quest Integer not found. Designer error for player: " + player);
+                    sendSystemMessage(player, SID_YOU_FIND_NOTHING);
+                    return SCRIPT_CONTINUE;
+                } else if (!groundquests.isQuestActive(player, IMPERIAL_KEY_QUEST + questNumber) && !groundquests.isQuestActive(player, REBEL_KEY_QUEST + questNumber) && !groundquests.isQuestActive(player, NEUTRAL_KEY_QUEST + questNumber)) {
+                    CustomerServiceLog("outbreak_themepark", "dead_npc_script.OnObjectMenuSelect() Quest Integer found: " + questNumber + ". Player: " + player + " didn't have proper quest.");
+                    sendSystemMessage(player, SID_YOU_FIND_NOTHING);
+                    return SCRIPT_CONTINUE;
+                }
+                CustomerServiceLog("outbreak_themepark", "dead_npc_script.OnObjectMenuSelect() Quest Integer found: " + questNumber + ". Player: " + player + " has quest and the quest is being updated with signal to player.");
+                groundquests.sendSignal(player, FOUND_KEY_SIGNAL);
+                spawnEnemy(self, player, getLocation(self));
                 return SCRIPT_CONTINUE;
-            }
-            else if (!groundquests.isQuestActive(player, IMPERIAL_KEY_QUEST + questNumber) && !groundquests.isQuestActive(player, REBEL_KEY_QUEST + questNumber) && !groundquests.isQuestActive(player, NEUTRAL_KEY_QUEST + questNumber))
-            {
-                CustomerServiceLog("outbreak_themepark", "dead_npc_script.OnObjectMenuSelect() Quest Integer found: " + questNumber + ". Player: " + player + " didn't have proper quest.");
-                sendSystemMessage(player, SID_YOU_FIND_NOTHING);
+            case OUTBREAK_VIRUS_SEARCH:
+                CustomerServiceLog("outbreak_themepark", "dead_npc_script.OnObjectMenuSelect() virus menu selected by Player: " + player);
+                int signalNumber = getIntObjVar(self, SIGNAL_INT_OBJVAR);
+                if (signalNumber < 1) {
+                    CustomerServiceLog("outbreak_themepark", "dead_npc_script.OnObjectMenuSelect() Signal Integer not found. Designer error for player: " + player);
+                    sendSystemMessage(player, SID_YOU_FIND_NOTHING);
+                    return SCRIPT_CONTINUE;
+                } else if (!groundquests.isTaskActive(player, NEUTRAL_SEARCH_QUEST, "waitForTasks") && !groundquests.isTaskActive(player, IMPERIAL_SEARCH_QUEST, "waitForTasks") && !groundquests.isTaskActive(player, REBEL_SEARCH_QUEST, "waitForTasks")) {
+                    CustomerServiceLog("outbreak_themepark", "dead_npc_script.OnObjectMenuSelect() Quest not found for Player: " + player);
+                    sendSystemMessage(player, SID_YOU_FIND_NOTHING);
+                    return SCRIPT_CONTINUE;
+                }
+                CustomerServiceLog("outbreak_themepark", "dead_npc_script.OnObjectMenuSelect() Quest task found for Player: " + player);
+                groundquests.sendSignal(player, OUTBREAK_VIRUS_SEARCH + "_" + signalNumber);
                 return SCRIPT_CONTINUE;
-            }
-            CustomerServiceLog("outbreak_themepark", "dead_npc_script.OnObjectMenuSelect() Quest Integer found: " + questNumber + ". Player: " + player + " has quest and the quest is being updated with signal to player.");
-            groundquests.sendSignal(player, FOUND_KEY_SIGNAL);
-            spawnEnemy(self, player, getLocation(self));
-            return SCRIPT_CONTINUE;
-        }
-        else if (menuObjVar.equals(OUTBREAK_VIRUS_SEARCH))
-        {
-            CustomerServiceLog("outbreak_themepark", "dead_npc_script.OnObjectMenuSelect() virus menu selected by Player: " + player);
-            int signalNumber = getIntObjVar(self, SIGNAL_INT_OBJVAR);
-            if (signalNumber < 1)
-            {
-                CustomerServiceLog("outbreak_themepark", "dead_npc_script.OnObjectMenuSelect() Signal Integer not found. Designer error for player: " + player);
-                sendSystemMessage(player, SID_YOU_FIND_NOTHING);
-                return SCRIPT_CONTINUE;
-            }
-            else if (!groundquests.isTaskActive(player, NEUTRAL_SEARCH_QUEST, "waitForTasks") && !groundquests.isTaskActive(player, IMPERIAL_SEARCH_QUEST, "waitForTasks") && !groundquests.isTaskActive(player, REBEL_SEARCH_QUEST, "waitForTasks"))
-            {
-                CustomerServiceLog("outbreak_themepark", "dead_npc_script.OnObjectMenuSelect() Quest not found for Player: " + player);
-                sendSystemMessage(player, SID_YOU_FIND_NOTHING);
-                return SCRIPT_CONTINUE;
-            }
-            CustomerServiceLog("outbreak_themepark", "dead_npc_script.OnObjectMenuSelect() Quest task found for Player: " + player);
-            groundquests.sendSignal(player, OUTBREAK_VIRUS_SEARCH + "_" + signalNumber);
-            return SCRIPT_CONTINUE;
         }
         sendSystemMessage(player, SID_YOU_FIND_NOTHING);
         return SCRIPT_CONTINUE;

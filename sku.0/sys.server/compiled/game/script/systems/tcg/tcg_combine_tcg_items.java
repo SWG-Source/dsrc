@@ -97,11 +97,9 @@ public class tcg_combine_tcg_items extends script.base_script
         }
         Vector combinableObjects = new Vector();
         combinableObjects.setSize(0);
-        for (int i = 0; i < allPossibleMatches.length; i++)
-        {
-            if (hasObjVar(allPossibleMatches[i], COMBINE) && (getStringObjVar(allPossibleMatches[i], COMBINE)).startsWith("true"))
-            {
-                utils.addElement(combinableObjects, allPossibleMatches[i]);
+        for (obj_id allPossibleMatch : allPossibleMatches) {
+            if (hasObjVar(allPossibleMatch, COMBINE) && (getStringObjVar(allPossibleMatch, COMBINE)).startsWith("true")) {
+                utils.addElement(combinableObjects, allPossibleMatch);
             }
         }
         if (combinableObjects.size() < 4)
@@ -128,47 +126,35 @@ public class tcg_combine_tcg_items extends script.base_script
         boolean bluePrintFound = false;
         Vector toBeCombinedList = new Vector();
         toBeCombinedList.setSize(0);
-        for (int j = 0; j < combinableObjects.length; j++)
-        {
-            if (!jangoFound && (getTemplateName(combinableObjects[j])).equals("object/tangible/tcg/series3/combine_object_jango_fett_memorial_statue.iff"))
-            {
-                utils.addElement(toBeCombinedList, combinableObjects[j]);
-                if (owner != utils.getContainingPlayer(combinableObjects[j]))
-                {
+        for (obj_id combinableObject : combinableObjects) {
+            if (!jangoFound && (getTemplateName(combinableObject)).equals("object/tangible/tcg/series3/combine_object_jango_fett_memorial_statue.iff")) {
+                utils.addElement(toBeCombinedList, combinableObject);
+                if (owner != utils.getContainingPlayer(combinableObject)) {
                     break;
                 }
                 jangoFound = true;
-                CustomerServiceLog("tcg", "Jet Pack Combination - Player: " + owner + " " + getPlayerName(owner) + " has Jango Fett object (" + combinableObjects[j] + ")in inventory");
-            }
-            else if (!bobaFound && (getTemplateName(combinableObjects[j])).equals("object/tangible/tcg/series3/combine_object_boba_fett_statue.iff"))
-            {
-                utils.addElement(toBeCombinedList, combinableObjects[j]);
-                if (owner != utils.getContainingPlayer(combinableObjects[j]))
-                {
+                CustomerServiceLog("tcg", "Jet Pack Combination - Player: " + owner + " " + getPlayerName(owner) + " has Jango Fett object (" + combinableObject + ")in inventory");
+            } else if (!bobaFound && (getTemplateName(combinableObject)).equals("object/tangible/tcg/series3/combine_object_boba_fett_statue.iff")) {
+                utils.addElement(toBeCombinedList, combinableObject);
+                if (owner != utils.getContainingPlayer(combinableObject)) {
                     break;
                 }
                 bobaFound = true;
-                CustomerServiceLog("tcg", "Jet Pack Combination - Player: " + owner + " " + getPlayerName(owner) + " has Boba Fett object (" + combinableObjects[j] + ")in inventory");
-            }
-            else if (!bannerFound && (getTemplateName(combinableObjects[j])).equals("object/tangible/tcg/series3/combine_object_mandalorian_skull_banner.iff"))
-            {
-                utils.addElement(toBeCombinedList, combinableObjects[j]);
-                if (owner != utils.getContainingPlayer(combinableObjects[j]))
-                {
+                CustomerServiceLog("tcg", "Jet Pack Combination - Player: " + owner + " " + getPlayerName(owner) + " has Boba Fett object (" + combinableObject + ")in inventory");
+            } else if (!bannerFound && (getTemplateName(combinableObject)).equals("object/tangible/tcg/series3/combine_object_mandalorian_skull_banner.iff")) {
+                utils.addElement(toBeCombinedList, combinableObject);
+                if (owner != utils.getContainingPlayer(combinableObject)) {
                     break;
                 }
                 bannerFound = true;
-                CustomerServiceLog("tcg", "Jet Pack Combination - Player: " + owner + " " + getPlayerName(owner) + " has Madalorian Banner object (" + combinableObjects[j] + ")in inventory");
-            }
-            else if (!bluePrintFound && (getTemplateName(combinableObjects[j])).equals("object/tangible/tcg/series3/combine_object_merr_sonn_jt12_jetpack_blueprints.iff"))
-            {
-                utils.addElement(toBeCombinedList, combinableObjects[j]);
-                if (owner != utils.getContainingPlayer(combinableObjects[j]))
-                {
+                CustomerServiceLog("tcg", "Jet Pack Combination - Player: " + owner + " " + getPlayerName(owner) + " has Madalorian Banner object (" + combinableObject + ")in inventory");
+            } else if (!bluePrintFound && (getTemplateName(combinableObject)).equals("object/tangible/tcg/series3/combine_object_merr_sonn_jt12_jetpack_blueprints.iff")) {
+                utils.addElement(toBeCombinedList, combinableObject);
+                if (owner != utils.getContainingPlayer(combinableObject)) {
                     break;
                 }
                 bluePrintFound = true;
-                CustomerServiceLog("tcg", "Jet Pack Combination - Player: " + owner + " " + getPlayerName(owner) + " has Merr-Sonn Blueprint object (" + combinableObjects[j] + ")in inventory");
+                CustomerServiceLog("tcg", "Jet Pack Combination - Player: " + owner + " " + getPlayerName(owner) + " has Merr-Sonn Blueprint object (" + combinableObject + ")in inventory");
             }
         }
         if (toBeCombinedList.size() < 4)
@@ -203,21 +189,17 @@ public class tcg_combine_tcg_items extends script.base_script
             return false;
         }
         int checkSum = 0;
-        for (int i = 0; i < combinableList.length; i++)
-        {
-            if (!isValidId(combinableList[i]) || !exists(combinableList[i]))
-            {
-                CustomerServiceLog("tcg", "Jet Pack Combination ERROR - Object (" + combinableList[i] + ") No longer exists for combine process. Possible attempt to exploit involving Player: " + owner + " " + getPlayerName(owner) + ".");
+        for (obj_id obj_id1 : combinableList) {
+            if (!isValidId(obj_id1) || !exists(obj_id1)) {
+                CustomerServiceLog("tcg", "Jet Pack Combination ERROR - Object (" + obj_id1 + ") No longer exists for combine process. Possible attempt to exploit involving Player: " + owner + " " + getPlayerName(owner) + ".");
                 continue;
             }
-            if (owner != utils.getContainingPlayer(combinableList[i]))
-            {
-                CustomerServiceLog("tcg", "Jet Pack Combination ERROR - Object (" + combinableList[i] + ") No longer exists in player inventory for the combine process. Possible attempt to exploit involving Player: " + owner + " " + getPlayerName(owner) + ".");
+            if (owner != utils.getContainingPlayer(obj_id1)) {
+                CustomerServiceLog("tcg", "Jet Pack Combination ERROR - Object (" + obj_id1 + ") No longer exists in player inventory for the combine process. Possible attempt to exploit involving Player: " + owner + " " + getPlayerName(owner) + ".");
                 continue;
             }
-            if (!hasObjVar(combinableList[i], COMBINE) && (getStringObjVar(combinableList[i], COMBINE)).startsWith("true"))
-            {
-                CustomerServiceLog("tcg", "Jet Pack Combination ERROR - Object (" + combinableList[i] + ") No longer has objvar allowing combination process. Possible attempt to exploit involving Player: " + owner + " " + getPlayerName(owner) + ".");
+            if (!hasObjVar(obj_id1, COMBINE) && (getStringObjVar(obj_id1, COMBINE)).startsWith("true")) {
+                CustomerServiceLog("tcg", "Jet Pack Combination ERROR - Object (" + obj_id1 + ") No longer has objvar allowing combination process. Possible attempt to exploit involving Player: " + owner + " " + getPlayerName(owner) + ".");
                 continue;
             }
             checkSum++;
@@ -240,15 +222,13 @@ public class tcg_combine_tcg_items extends script.base_script
             return false;
         }
         CustomerServiceLog("tcg", "Jet Pack Combination Success - Jet Pack Deed creation success. Deed Object: (" + deed + ") in player inventory: " + playerInv + " for Player: " + owner + " " + getPlayerName(owner) + ".");
-        for (int j = 0; j < combinableList.length; j++)
-        {
-            if (!isValidId(combinableList[j]) || !exists(combinableList[j]))
-            {
-                CustomerServiceLog("tcg", "Jet Pack Combination ERROR - Combine object: " + combinableList[j] + " could not be found for update. This object was last owned by Player: " + owner + " " + getPlayerName(owner) + " and needed to be updated to avoid reuse in the combination process.");
+        for (obj_id obj_id : combinableList) {
+            if (!isValidId(obj_id) || !exists(obj_id)) {
+                CustomerServiceLog("tcg", "Jet Pack Combination ERROR - Combine object: " + obj_id + " could not be found for update. This object was last owned by Player: " + owner + " " + getPlayerName(owner) + " and needed to be updated to avoid reuse in the combination process.");
                 continue;
             }
-            setObjVar(combinableList[j], COMBINE, "false");
-            CustomerServiceLog("tcg", "Jet Pack Combination - Combine object: " + combinableList[j] + " was successfully updated to remove objvar. This object should no longer allow for combination functionality. Object owned by Player: " + owner + " " + getPlayerName(owner) + ".");
+            setObjVar(obj_id, COMBINE, "false");
+            CustomerServiceLog("tcg", "Jet Pack Combination - Combine object: " + obj_id + " was successfully updated to remove objvar. This object should no longer allow for combination functionality. Object owned by Player: " + owner + " " + getPlayerName(owner) + ".");
         }
         CustomerServiceLog("tcg", "Jet Pack Combination SUCCESS - All objects combined for Player: " + owner + " " + getPlayerName(owner) + ". Deed object: " + deed + " created in player inventory, objects used in process should be updated.");
         return true;

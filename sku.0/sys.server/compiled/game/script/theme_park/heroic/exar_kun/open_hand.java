@@ -75,11 +75,9 @@ public class open_hand extends script.base_script
             return null;
         }
         String cultist = getCultistString(getSelf());
-        for (int i = 0; i < allSpawn.length; i++)
-        {
-            if ((getStringObjVar(allSpawn[i], "spawn_id")).equals(cultist))
-            {
-                return allSpawn[i];
+        for (obj_id obj_id : allSpawn) {
+            if ((getStringObjVar(obj_id, "spawn_id")).equals(cultist)) {
+                return obj_id;
             }
         }
         return null;
@@ -119,7 +117,7 @@ public class open_hand extends script.base_script
             buff.applyBuff(self, sacBuff);
         }
         int healingReduction = getEnhancedSkillStatisticModifierUncapped(self, "expertise_healing_reduction");
-        float redux = (float)healingReduction / ((float)healingReduction + 75.0f);
+        float redux = healingReduction / (healingReduction + 75.0f);
         int toHeal = (int)(125000.0f - (125000.0f * redux));
         toHeal = toHeal < 1 ? 1 : toHeal;
         healing.healDamage(self, HEALTH, toHeal);
@@ -193,11 +191,10 @@ public class open_hand extends script.base_script
     public int OnCreatureDamaged(obj_id self, obj_id attacker, obj_id weapon, int[] damage) throws InterruptedException
     {
         int total = 0;
-        for (int i = 0; i < damage.length; i++)
-        {
-            total += damage[i];
+        for (int i1 : damage) {
+            total += i1;
         }
-        int split = Math.round((float)total / 5.0f);
+        int split = Math.round(total / 5.0f);
         prose_package pp = new prose_package();
         pp.stringId = new string_id("cbt_spam", "kun_open_share_pain");
         pp.actor.set(self);

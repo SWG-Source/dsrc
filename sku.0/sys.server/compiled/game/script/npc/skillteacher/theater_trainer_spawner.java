@@ -34,7 +34,7 @@ public class theater_trainer_spawner extends script.base_script
         obj_id entrance = getCellId(self, "entrance");
         location storytellerVendorLoc = new location(6.6f, 0.6f, -3.5f, "tatooine", entrance);
         obj_id storytellerVendor = create.object("storyteller_vendor", storytellerVendorLoc);
-        create.addDestroyMessage(storytellerVendor, "storytellerVendorDied", 10f, self);
+        create.addDestroyMessage(storytellerVendor, "storytellerVendorDied", 10.0f, self);
         String name = getName(storytellerVendor);
         setCreatureStatic(storytellerVendor, true);
         setInvulnerable(storytellerVendor, true);
@@ -48,7 +48,7 @@ public class theater_trainer_spawner extends script.base_script
         int danceYaw = -94;
         obj_id danceMission = create.object("noble", danceMissionLoc);
         String name = getName(danceMission);
-        create.addDestroyMessage(danceMission, "danceMissionDied", 10f, self);
+        create.addDestroyMessage(danceMission, "danceMissionDied", 10.0f, self);
         String[] strTest = new String[1];
         strTest[0] = "mission.objDancerMission";
         setObjVar(danceMission, "mission.strMissionTypes", strTest);
@@ -67,7 +67,7 @@ public class theater_trainer_spawner extends script.base_script
         int musicYaw = -138;
         obj_id musicMission = create.object("noble", musicMissionLoc);
         String name = getName(musicMission);
-        create.addDestroyMessage(musicMission, "musicMissionDied", 10f, self);
+        create.addDestroyMessage(musicMission, "musicMissionDied", 10.0f, self);
         String[] strTest = new String[1];
         strTest[0] = "mission.objMusicianMission";
         setObjVar(musicMission, "mission.strMissionTypes", strTest);
@@ -85,7 +85,7 @@ public class theater_trainer_spawner extends script.base_script
         location entertainerloc = new location(26.99f, 2.13f, 75.21f, "tatooine", greenroom);
         obj_id entertainer = create.object("trainer_entertainer", entertainerloc);
         String name = getName(entertainer);
-        create.addDestroyMessage(entertainer, "entertainerDied", 10f, self);
+        create.addDestroyMessage(entertainer, "entertainerDied", 10.0f, self);
         setCreatureStatic(entertainer, true);
         setInvulnerable(entertainer, true);
         return;
@@ -99,7 +99,7 @@ public class theater_trainer_spawner extends script.base_script
         obj_id greenroom = getCellId(self, "backstage");
         location dancerloc = new location(18.78f, 2.13f, 54.98f, "tatooine", greenroom);
         obj_id dancer = create.object("trainer_dancer", dancerloc);
-        create.addDestroyMessage(dancer, "dancerDied", 10f, self);
+        create.addDestroyMessage(dancer, "dancerDied", 10.0f, self);
         String name = getName(dancer);
         setCreatureStatic(dancer, true);
         setInvulnerable(dancer, true);
@@ -114,7 +114,7 @@ public class theater_trainer_spawner extends script.base_script
         obj_id greenroom = getCellId(self, "side_backstage");
         location musicianloc = new location(28.89f, 2.13f, 55.83f, "tatooine", greenroom);
         obj_id musician = create.object("trainer_musician", musicianloc);
-        create.addDestroyMessage(musician, "musicianDied", 10f, self);
+        create.addDestroyMessage(musician, "musicianDied", 10.0f, self);
         String name = getName(musician);
         setCreatureStatic(musician, true);
         setInvulnerable(musician, true);
@@ -129,7 +129,7 @@ public class theater_trainer_spawner extends script.base_script
         obj_id greenroom = getCellId(self, "greenroom");
         location imagedesignerloc = new location(-22, 2, 74, "tatooine", greenroom);
         obj_id imagedesigner = create.object("trainer_imagedesigner", imagedesignerloc);
-        create.addDestroyMessage(imagedesigner, "imagedesignerDied", 10f, self);
+        create.addDestroyMessage(imagedesigner, "imagedesignerDied", 10.0f, self);
         String name = getName(imagedesigner);
         setCreatureStatic(imagedesigner, true);
         setInvulnerable(imagedesigner, true);
@@ -140,7 +140,7 @@ public class theater_trainer_spawner extends script.base_script
         obj_id greenroom = getCellId(self, "backstage");
         location managerloc = new location(21.99f, 2.13f, 64.05f, "tatooine", greenroom);
         obj_id manager = create.object("quest_crowd_pleaser_theater_manager", managerloc);
-        create.addDestroyMessage(manager, "managerDied", 10f, self);
+        create.addDestroyMessage(manager, "managerDied", 10.0f, self);
         String name = getName(manager);
         setCreatureStatic(manager, true);
         setInvulnerable(manager, true);
@@ -156,7 +156,7 @@ public class theater_trainer_spawner extends script.base_script
         obj_id greenroom = getCellId(self, "backstage");
         location managerloc = new location(28.65f, 2.13f, 74.16f, "tatooine", greenroom);
         obj_id manager = create.object("trainer_dancer", managerloc);
-        create.addDestroyMessage(manager, "choreographerDied", 10f, self);
+        create.addDestroyMessage(manager, "choreographerDied", 10.0f, self);
         detachScript(manager, "npc.skillteacher.skillteacher");
         attachScript(manager, "npc.skillteacher.dance_advancement_trainer");
         String name = getName(manager);

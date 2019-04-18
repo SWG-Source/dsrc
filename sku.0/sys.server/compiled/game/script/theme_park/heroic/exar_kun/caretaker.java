@@ -29,9 +29,8 @@ public class caretaker extends script.base_script
             messageTo(trial.getTop(self), "triggerFired", dict, 1.0f, false);
             return SCRIPT_CONTINUE;
         }
-        for (int i = 0; i < players.length; i++)
-        {
-            startCombat(self, players[i]);
+        for (obj_id player : players) {
+            startCombat(self, player);
         }
         buff.applyBuff(self, "caretaker_shield_reflect", 7200.0f);
         messageTo(self, "lightning", trial.getSessionDict(self, "lightning"), 10.0f, false);
@@ -153,23 +152,18 @@ public class caretaker extends script.base_script
         obj_id guard2 = null;
         obj_id guard3 = null;
         obj_id guard4 = null;
-        for (int i = 0; i < allNpc.length; i++)
-        {
-            if ((getStringObjVar(allNpc[i], "spawn_id")).equals("ct_guard_2"))
-            {
-                guard1 = allNpc[i];
+        for (obj_id obj_id : allNpc) {
+            if ((getStringObjVar(obj_id, "spawn_id")).equals("ct_guard_2")) {
+                guard1 = obj_id;
             }
-            if ((getStringObjVar(allNpc[i], "spawn_id")).equals("ct_guard_1"))
-            {
-                guard2 = allNpc[i];
+            if ((getStringObjVar(obj_id, "spawn_id")).equals("ct_guard_1")) {
+                guard2 = obj_id;
             }
-            if ((getStringObjVar(allNpc[i], "spawn_id")).equals("ct_guard_3"))
-            {
-                guard3 = allNpc[i];
+            if ((getStringObjVar(obj_id, "spawn_id")).equals("ct_guard_3")) {
+                guard3 = obj_id;
             }
-            if ((getStringObjVar(allNpc[i], "spawn_id")).equals("ct_guard_4"))
-            {
-                guard4 = allNpc[i];
+            if ((getStringObjVar(obj_id, "spawn_id")).equals("ct_guard_4")) {
+                guard4 = obj_id;
             }
         }
         if ((isIdValid(guard1) && exists(guard1) && !isDead(guard1)) || (isIdValid(guard2) && exists(guard2) && !isDead(guard2)))

@@ -133,13 +133,11 @@ public class player_beastmaster extends script.base_script
             obj_id[] masterAttackers = getWhoIsTargetingMe(self);
             if (masterAttackers != null)
             {
-                for (int i = 0; i < masterAttackers.length; i++)
-                {
-                    if (pvpCanAttack(beast, target))
-                    {
-                        startCombat(beast, masterAttackers[i]);
-                        addHate(beast, masterAttackers[i], 0.0f);
-                        utils.setScriptVar(beast, "ai.combat.target", masterAttackers[i]);
+                for (obj_id masterAttacker : masterAttackers) {
+                    if (pvpCanAttack(beast, target)) {
+                        startCombat(beast, masterAttacker);
+                        addHate(beast, masterAttacker, 0.0f);
+                        utils.setScriptVar(beast, "ai.combat.target", masterAttacker);
                         return SCRIPT_CONTINUE;
                     }
                 }
@@ -685,12 +683,12 @@ public class player_beastmaster extends script.base_script
         if (!isIdValid(beast) || !exists(beast))
         {
             sendSystemMessage(self, new string_id("spam", "no_beast_out"));
-            setCommandTimerValue(self, TIMER_COOLDOWN, 0f);
+            setCommandTimerValue(self, TIMER_COOLDOWN, 0.0f);
             return SCRIPT_OVERRIDE;
         }
         if (isDead(beast))
         {
-            setCommandTimerValue(self, TIMER_COOLDOWN, 0f);
+            setCommandTimerValue(self, TIMER_COOLDOWN, 0.0f);
             sendSystemMessage(self, new string_id("spam", "pet_beyond_healing"));
             return SCRIPT_OVERRIDE;
         }
@@ -703,12 +701,12 @@ public class player_beastmaster extends script.base_script
         if (!isIdValid(beast) || !exists(beast))
         {
             sendSystemMessage(self, new string_id("spam", "no_beast_out"));
-            setCommandTimerValue(self, TIMER_COOLDOWN, 0f);
+            setCommandTimerValue(self, TIMER_COOLDOWN, 0.0f);
             return SCRIPT_OVERRIDE;
         }
         if (isDead(beast))
         {
-            setCommandTimerValue(self, TIMER_COOLDOWN, 0f);
+            setCommandTimerValue(self, TIMER_COOLDOWN, 0.0f);
             sendSystemMessage(self, new string_id("spam", "pet_beyond_healing"));
             return SCRIPT_OVERRIDE;
         }
@@ -721,12 +719,12 @@ public class player_beastmaster extends script.base_script
         if (!isIdValid(beast) || !exists(beast))
         {
             sendSystemMessage(self, new string_id("spam", "no_beast_out"));
-            setCommandTimerValue(self, TIMER_COOLDOWN, 0f);
+            setCommandTimerValue(self, TIMER_COOLDOWN, 0.0f);
             return SCRIPT_OVERRIDE;
         }
         if (isDead(beast))
         {
-            setCommandTimerValue(self, TIMER_COOLDOWN, 0f);
+            setCommandTimerValue(self, TIMER_COOLDOWN, 0.0f);
             sendSystemMessage(self, new string_id("spam", "pet_beyond_healing"));
             return SCRIPT_OVERRIDE;
         }
@@ -739,12 +737,12 @@ public class player_beastmaster extends script.base_script
         if (!isIdValid(beast) || !exists(beast))
         {
             sendSystemMessage(self, new string_id("spam", "no_beast_out"));
-            setCommandTimerValue(self, TIMER_COOLDOWN, 0f);
+            setCommandTimerValue(self, TIMER_COOLDOWN, 0.0f);
             return SCRIPT_OVERRIDE;
         }
         if (isDead(beast))
         {
-            setCommandTimerValue(self, TIMER_COOLDOWN, 0f);
+            setCommandTimerValue(self, TIMER_COOLDOWN, 0.0f);
             sendSystemMessage(self, new string_id("spam", "pet_beyond_healing"));
             return SCRIPT_OVERRIDE;
         }
@@ -757,12 +755,12 @@ public class player_beastmaster extends script.base_script
         if (!isIdValid(beast) || !exists(beast))
         {
             sendSystemMessage(self, new string_id("spam", "no_beast_out"));
-            setCommandTimerValue(self, TIMER_COOLDOWN, 0f);
+            setCommandTimerValue(self, TIMER_COOLDOWN, 0.0f);
             return SCRIPT_OVERRIDE;
         }
         if (isDead(beast))
         {
-            setCommandTimerValue(self, TIMER_COOLDOWN, 0f);
+            setCommandTimerValue(self, TIMER_COOLDOWN, 0.0f);
             sendSystemMessage(self, new string_id("spam", "pet_beyond_healing"));
             return SCRIPT_OVERRIDE;
         }
@@ -775,12 +773,12 @@ public class player_beastmaster extends script.base_script
         if (!isIdValid(beast) || !exists(beast))
         {
             sendSystemMessage(self, new string_id("spam", "no_beast_out"));
-            setCommandTimerValue(self, TIMER_COOLDOWN, 0f);
+            setCommandTimerValue(self, TIMER_COOLDOWN, 0.0f);
             return SCRIPT_OVERRIDE;
         }
         if (isDead(beast))
         {
-            setCommandTimerValue(self, TIMER_COOLDOWN, 0f);
+            setCommandTimerValue(self, TIMER_COOLDOWN, 0.0f);
             sendSystemMessage(self, new string_id("spam", "pet_beyond_healing"));
             return SCRIPT_OVERRIDE;
         }
@@ -1051,11 +1049,9 @@ public class player_beastmaster extends script.base_script
         int[] buffs = buff.getAllBuffs(target);
         if (buffs != null && buffs.length > 0)
         {
-            for (int i = 0; i < buffs.length; i++)
-            {
-                String name = buff.getBuffNameFromCrc(buffs[i]);
-                if (beast_lib.makeAbilityLearnSkillCheck(self, name))
-                {
+            for (int b : buffs) {
+                String name = buff.getBuffNameFromCrc(b);
+                if (beast_lib.makeAbilityLearnSkillCheck(self, name)) {
                     beast_lib.playerLearnBeastMasterSkill(self, name);
                 }
             }

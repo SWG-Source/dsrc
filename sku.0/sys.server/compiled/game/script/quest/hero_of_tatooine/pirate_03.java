@@ -19,7 +19,7 @@ public class pirate_03 extends script.base_script
         setInvulnerable(self, true);
         setName(self, "");
         setName(self, localize(NPC_NAME));
-        messageTo(self, "action01", null, 1f, false);
+        messageTo(self, "action01", null, 1.0f, false);
         return SCRIPT_CONTINUE;
     }
     public int OnArrivedAtLocation(obj_id self, String name) throws InterruptedException
@@ -30,7 +30,7 @@ public class pirate_03 extends script.base_script
             obj_id statue = getObjIdObjVar(building, "statue02");
             destroyObject(statue);
             setObjVar(self, "statueReached", 1);
-            messageTo(self, "action02", null, 3f, false);
+            messageTo(self, "action02", null, 3.0f, false);
             chat.chat(self, "I got me a statue. Teehee!");
         }
         if (name.equals("door") && !hasObjVar(self, "doorReached"))

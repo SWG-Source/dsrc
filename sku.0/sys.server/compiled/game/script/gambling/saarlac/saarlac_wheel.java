@@ -786,7 +786,7 @@ public class saarlac_wheel extends script.gambling.base.wheel
                         sendSystemMessage(player, SID_BET_JABBA_POOL_EMPTY);
                         return -1;
                     }
-                    if ((float)amt * PAYOUTS[8] > jabba_pool)
+                    if (amt * PAYOUTS[8] > jabba_pool)
                     {
                         int max_bet = (int)(jabba_pool / PAYOUTS[8]);
                         if (max_bet < 1)
@@ -805,7 +805,7 @@ public class saarlac_wheel extends script.gambling.base.wheel
                         sendSystemMessage(player, SID_BET_OASIS_POOL_EMPTY);
                         return -1;
                     }
-                    if ((float)amt * PAYOUTS[11] > oasis_pool)
+                    if (amt * PAYOUTS[11] > oasis_pool)
                     {
                         int max_bet = (int)(oasis_pool / PAYOUTS[11]);
                         if (max_bet < 1)
@@ -824,7 +824,7 @@ public class saarlac_wheel extends script.gambling.base.wheel
                         sendSystemMessage(player, SID_BET_SAARLAC_POOL_EMPTY);
                         return -1;
                     }
-                    if ((float)amt * PAYOUTS[14] > saarlac_pool)
+                    if (amt * PAYOUTS[14] > saarlac_pool)
                     {
                         int max_bet = (int)(saarlac_pool / PAYOUTS[14]);
                         if (max_bet < 1)
@@ -921,7 +921,7 @@ public class saarlac_wheel extends script.gambling.base.wheel
         setObjVar(table, VAR_MONEY_IN, money_in);
         dictionary d = new dictionary();
         d.put("player", player);
-        messageTo(table, "handleRequestUpdatedUI", d, 0f, false);
+        messageTo(table, "handleRequestUpdatedUI", d, 0.0f, false);
         return true;
     }
     private boolean resolveSpin(obj_id table, int wheel_index) throws InterruptedException
@@ -1150,7 +1150,7 @@ public class saarlac_wheel extends script.gambling.base.wheel
                 obj_id player = player_ids[player_index];
                 dictionary d = new dictionary();
                 d.put("player", player);
-                messageTo(table, "handleRequestUpdatedUI", d, 0f, false);
+                messageTo(table, "handleRequestUpdatedUI", d, 0.0f, false);
             }
             return true;
         }
@@ -1359,26 +1359,26 @@ public class saarlac_wheel extends script.gambling.base.wheel
                 sendTableMessage(table, pp, player);
                 if (bet_index == 6 || bet_index == 7)
                 {
-                    adjustOasisPool(table, (int)(amt * .1));
-                    pp = prose.getPackage(SID_BET_PUSH_TO_OASIS_SELF, bet_name, (int)(amt * .1));
+                    adjustOasisPool(table, (int)(amt * 0.1));
+                    pp = prose.getPackage(SID_BET_PUSH_TO_OASIS_SELF, bet_name, (int)(amt * 0.1));
                     sendSystemMessageProse(player, pp);
-                    pp = prose.getPackage(SID_BET_PUSH_TO_OASIS_SELF, player, null, bet_name, (int)(amt * .1));
+                    pp = prose.getPackage(SID_BET_PUSH_TO_OASIS_SELF, player, null, bet_name, (int)(amt * 0.1));
                     sendTableMessage(table, pp, player);
                 }
                 if (bet_index == 9 || bet_index == 10)
                 {
-                    adjustJabbaPool(table, (int)(amt * .1));
-                    pp = prose.getPackage(SID_BET_PUSH_TO_JABBA_SELF, bet_name, (int)(amt * .1));
+                    adjustJabbaPool(table, (int)(amt * 0.1));
+                    pp = prose.getPackage(SID_BET_PUSH_TO_JABBA_SELF, bet_name, (int)(amt * 0.1));
                     sendSystemMessageProse(player, pp);
-                    pp = prose.getPackage(SID_BET_PUSH_TO_JABBA_SELF, player, null, bet_name, (int)(amt * .1));
+                    pp = prose.getPackage(SID_BET_PUSH_TO_JABBA_SELF, player, null, bet_name, (int)(amt * 0.1));
                     sendTableMessage(table, pp, player);
                 }
                 if (bet_index == 14)
                 {
-                    adjustSaarlacPool(table, (int)(amt * .5));
-                    pp = prose.getPackage(SID_BET_PUSH_TO_PIT_SELF, bet_name, (int)(amt * .5));
+                    adjustSaarlacPool(table, (int)(amt * 0.5));
+                    pp = prose.getPackage(SID_BET_PUSH_TO_PIT_SELF, bet_name, (int)(amt * 0.5));
                     sendSystemMessageProse(player, pp);
-                    pp = prose.getPackage(SID_BET_PUSH_TO_PIT_OTHER, player, null, bet_name, (int)(amt * .5));
+                    pp = prose.getPackage(SID_BET_PUSH_TO_PIT_OTHER, player, null, bet_name, (int)(amt * 0.5));
                     sendTableMessage(table, pp, player);
                 }
                 removeBet(table, bet_index, player_index);
@@ -1460,23 +1460,23 @@ public class saarlac_wheel extends script.gambling.base.wheel
                     sendTableMessage(table, pp, player);
                     dictionary d = new dictionary();
                     d.put("player", player);
-                    messageTo(table, "handleRequestUpdatedUI", d, 0f, false);
+                    messageTo(table, "handleRequestUpdatedUI", d, 0.0f, false);
                 }
                 else 
                 {
                     loseBet(table, bet_index, player);
-                    float saarlac_mult = .20f;
+                    float saarlac_mult = 0.20f;
                     float jabba_mult = 0.0f;
                     float oasis_mult = 0.0f;
                     if (hasBetBeenPlaced(table, 6) || hasBetBeenPlaced(table, 7))
                     {
-                        saarlac_mult = saarlac_mult - .09f;
-                        jabba_mult = .09f;
+                        saarlac_mult = saarlac_mult - 0.09f;
+                        jabba_mult = 0.09f;
                     }
                     if (hasBetBeenPlaced(table, 9) || hasBetBeenPlaced(table, 10))
                     {
-                        saarlac_mult = saarlac_mult - .09f;
-                        oasis_mult = .09f;
+                        saarlac_mult = saarlac_mult - 0.09f;
+                        oasis_mult = 0.09f;
                     }
                     int saarlac_pool_adjust = (int)(amt * saarlac_mult);
                     if (saarlac_pool_adjust > 0)
@@ -1631,7 +1631,7 @@ public class saarlac_wheel extends script.gambling.base.wheel
         }
         dictionary d = new dictionary();
         d.put("stamp", stampTime);
-        messageTo(self, "handleBetTimer", d, 30f, false);
+        messageTo(self, "handleBetTimer", d, 30.0f, false);
     }
     public void stopWheelGame(obj_id self) throws InterruptedException
     {

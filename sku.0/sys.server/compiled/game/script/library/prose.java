@@ -203,11 +203,11 @@ public class prose extends script.base_script
     }
     public static prose_package getPackage(string_id sid, string_id other) throws InterruptedException
     {
-        return getPackage(sid, other, 0, 0f);
+        return getPackage(sid, other, 0, 0.0f);
     }
     public static prose_package getPackage(string_id sid, string_id other, int di) throws InterruptedException
     {
-        return getPackage(sid, other, di, 0f);
+        return getPackage(sid, other, di, 0.0f);
     }
     public static prose_package getPackage(string_id sid, string_id other, float df) throws InterruptedException
     {
@@ -250,11 +250,11 @@ public class prose extends script.base_script
     }
     public static prose_package getPackage(string_id sid, String other) throws InterruptedException
     {
-        return getPackage(sid, other, 0, 0f);
+        return getPackage(sid, other, 0, 0.0f);
     }
     public static prose_package getPackage(string_id sid, String other, int di) throws InterruptedException
     {
-        return getPackage(sid, other, di, 0f);
+        return getPackage(sid, other, di, 0.0f);
     }
     public static prose_package getPackage(string_id sid, String other, float df) throws InterruptedException
     {
@@ -270,7 +270,7 @@ public class prose extends script.base_script
     }
     public static prose_package getPackage(string_id sid, int di) throws InterruptedException
     {
-        return getPackage(sid, di, 0f);
+        return getPackage(sid, di, 0.0f);
     }
     public static prose_package getPackage(string_id sid, float df) throws InterruptedException
     {

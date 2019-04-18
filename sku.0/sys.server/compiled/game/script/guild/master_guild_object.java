@@ -233,11 +233,9 @@ public class master_guild_object extends script.base_script
     public void handleGuildUpdate(int guildId) throws InterruptedException
     {
         obj_id[] memberIds = guildGetMemberIds(guildId);
-        for (int i = 0; i < memberIds.length; ++i)
-        {
-            if (!playerExists(memberIds[i]))
-            {
-                guildRemoveMember(guildId, memberIds[i]);
+        for (obj_id memberId : memberIds) {
+            if (!playerExists(memberId)) {
+                guildRemoveMember(guildId, memberId);
             }
         }
         memberIds = guild.getMemberIds(guildId, false, true);

@@ -66,7 +66,7 @@ public class teidson_test extends script.base_script
         {
             obj_id target = getTarget(self);
             float yaw = getYaw(target);
-            setYaw(target, yaw + 5f);
+            setYaw(target, yaw + 5.0f);
         }
         if (strCommands[0].equalsIgnoreCase("increment"))
         {
@@ -199,9 +199,8 @@ public class teidson_test extends script.base_script
                 sendSystemMessageTestingOnly(self, "No regions here.");
                 return SCRIPT_CONTINUE;
             }
-            for (int i = 0, j = regions.length; i < j; i++)
-            {
-                sendSystemMessageTestingOnly(self, "Region: " + regions[i].getName());
+            for (region region : regions) {
+                sendSystemMessageTestingOnly(self, "Region: " + region.getName());
             }
         }
         if (strCommands[0].equalsIgnoreCase("top"))
@@ -288,17 +287,14 @@ public class teidson_test extends script.base_script
         {
             obj_id inv = utils.getInventoryContainer(self);
             obj_id[] contents = getContents(inv);
-            for (int i = 0, j = contents.length; i < j; i++)
-            {
-                if (!isIdValid(contents[i]))
-                {
+            for (obj_id content : contents) {
+                if (!isIdValid(content)) {
                     continue;
                 }
-                String temp = "" + contents[i];
+                String temp = "" + content;
                 int k = Integer.parseInt(temp);
-                if (k > 11000000)
-                {
-                    destroyObject(contents[i]);
+                if (k > 11000000) {
+                    destroyObject(content);
                 }
             }
         }
@@ -328,11 +324,9 @@ public class teidson_test extends script.base_script
         {
             sendSystemMessageTestingOnly(self, "Cleaning up encounters....");
             obj_id[] objectsInRange = getObjectsInRange(getLocation(self), 200.0f);
-            for (int i = 0; i < objectsInRange.length; i++)
-            {
-                if (hasObjVar(objectsInRange[i], "grievous_encounter.active"))
-                {
-                    obj_id powerCell = objectsInRange[i];
+            for (obj_id obj_id : objectsInRange) {
+                if (hasObjVar(obj_id, "grievous_encounter.active")) {
+                    obj_id powerCell = obj_id;
                     destroyObject(powerCell);
                 }
             }
@@ -400,9 +394,8 @@ public class teidson_test extends script.base_script
             obj_id objPlayerShip = getPilotedShip(self);
             obj_id objs[] = getShipCargoHoldContentsResourceTypes(objPlayerShip);
             int amounts[] = getShipCargoHoldContentsAmounts(objPlayerShip);
-            for (int i = 0; i < objs.length; i++)
-            {
-                setShipCargoHoldContent(objPlayerShip, objs[i], 0);
+            for (obj_id obj : objs) {
+                setShipCargoHoldContent(objPlayerShip, obj, 0);
             }
         }
         if (strCommands[0].equals("cargoCheck"))
@@ -447,9 +440,8 @@ public class teidson_test extends script.base_script
             obj_id[] objTestObjects = getObjectsInRange(self, 1000);
             if (objTestObjects != null)
             {
-                for (int intI = 0; intI < objTestObjects.length; intI++)
-                {
-                    destroyObject(objTestObjects[intI]);
+                for (obj_id objTestObject : objTestObjects) {
+                    destroyObject(objTestObject);
                 }
             }
             return SCRIPT_CONTINUE;
@@ -466,12 +458,10 @@ public class teidson_test extends script.base_script
             obj_id objCell = objCells[rand(0, objCells.length)];
             if (strCommands.length == 2)
             {
-                for (int i = 0; i < objCells.length; i++)
-                {
-                    String cellName = getCellName(objCells[i]);
-                    if (cellName.equals(strCommands[1]))
-                    {
-                        objCell = objCells[i];
+                for (obj_id objCell1 : objCells) {
+                    String cellName = getCellName(objCell1);
+                    if (cellName.equals(strCommands[1])) {
+                        objCell = objCell1;
                     }
                 }
             }
@@ -496,7 +486,7 @@ public class teidson_test extends script.base_script
         if (strCommands[0].equals("makeTutorial"))
         {
             location locTest = getLocation(self);
-            locTest.z = locTest.z + 250f;
+            locTest.z = locTest.z + 250.0f;
             obj_id[] objTestObjects = getAllObjectsWithTemplate(getLocation(self), 320000, "object/building/general/npe_hangar_1.iff");
             obj_id objStation = null;
             if ((objTestObjects == null) || (objTestObjects.length == 0))
@@ -516,7 +506,7 @@ public class teidson_test extends script.base_script
             }
             obj_id objCell = objCells[0];
             location locDestination = getGoodLocation(objStation, "hanger");
-            locDestination.x = -.5f;
+            locDestination.x = -0.5f;
             locDestination.y = -3;
             locDestination.z = -72.2f;
             setLocation(self, locDestination);
@@ -564,19 +554,15 @@ public class teidson_test extends script.base_script
         if (strCommands[0].equals("shipinfo"))
         {
             obj_id[] scds = callable.getDatapadCallablesByType(self, callable.CALLABLE_TYPE_SHIP);
-            for (int i = 0; i < scds.length; i++)
-            {
-                if (isIdValid(scds[i]))
-                {
-                    obj_id[] controlDeviceContents = getContents(scds[i]);
+            for (obj_id scd : scds) {
+                if (isIdValid(scd)) {
+                    obj_id[] controlDeviceContents = getContents(scd);
                     LOG("shipcontents", "Ship: " + controlDeviceContents[0]);
-                    if (isIdValid(controlDeviceContents[0]))
-                    {
+                    if (isIdValid(controlDeviceContents[0])) {
                         int[] intRawSlots = getShipChassisSlots(controlDeviceContents[0]);
-                        LOG("shipcontents", "Ship Control Device: " + getName(scds[i]) + " first content: " + getName(controlDeviceContents[0]) + " slots: " + intRawSlots.length + " chassisType: " + getShipChassisType(controlDeviceContents[0]));
-                        for (int j = 0; j < intRawSlots.length; j++)
-                        {
-                            LOG("shipcontents", "" + getName(controlDeviceContents[0]) + " Slot: " + space_crafting.getShipComponentStringType(intRawSlots[j]));
+                        LOG("shipcontents", "Ship Control Device: " + getName(scd) + " first content: " + getName(controlDeviceContents[0]) + " slots: " + intRawSlots.length + " chassisType: " + getShipChassisType(controlDeviceContents[0]));
+                        for (int intRawSlot : intRawSlots) {
+                            LOG("shipcontents", "" + getName(controlDeviceContents[0]) + " Slot: " + space_crafting.getShipComponentStringType(intRawSlot));
                         }
                     }
                 }
@@ -780,9 +766,9 @@ public class teidson_test extends script.base_script
         {
             debugSpeakMsg(self, "Unsticking self.");
             location x = getLocation(self);
-            x.x += -1;
-            x.y += -1;
-            x.z += -1;
+            x.x -= 1;
+            x.y -= 1;
+            x.z -= 1;
             setLocation(self, x);
         }
         if (strCommands[0].equals("getShipId"))
@@ -829,23 +815,19 @@ public class teidson_test extends script.base_script
                 debugSpeakMsg(self, "Now doing " + strTables[intM]);
                 String strFileName = "datatables/ship/components/" + strTables[intM] + ".iff";
                 String[] strTemplates = dataTableGetStringColumn(strFileName, "strType");
-                for (int intI = 0; intI < strTemplates.length; intI++)
-                {
+                for (String strTemplate : strTemplates) {
                     dictionary dctRow = new dictionary(2);
                     String created = "";
                     obj_id objTest = null;
-                    try
-                    {
-                        objTest = createObject(strTemplates[intI], getLocation(self));
+                    try {
+                        objTest = createObject(strTemplate, getLocation(self));
                         created = "yes";
-                    }
-                    catch(Throwable err)
-                    {
+                    } catch (Throwable err) {
                         LOG("space_error", "OBJECT " + strTemplates[intM] + " in " + strFileName + " does not create!!!");
                         created = "no";
                     }
                     destroyObject(objTest);
-                    dctRow.put("objectTemplate", strTemplates[intI]);
+                    dctRow.put("objectTemplate", strTemplate);
                     dctRow.put("didItCreate", created);
                     datatable.serverDataTableAddRow(strDataTable, dctRow);
                 }

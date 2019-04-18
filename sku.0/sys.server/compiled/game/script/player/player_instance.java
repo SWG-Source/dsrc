@@ -357,13 +357,11 @@ public class player_instance extends script.base_script
             {
                 obj_id[] players = getGroupMemberIds(groupId);
                 CustomerServiceLog("instance-" + instance_name, "GROUP LIST");
-                for (int i = 0; i < players.length; i++)
-                {
-                    if (players[i] == self)
-                    {
+                for (obj_id player : players) {
+                    if (player == self) {
                         continue;
                     }
-                    CustomerServiceLog("instance-" + instance_name, "Member: " + getPlayerName(players[i]));
+                    CustomerServiceLog("instance-" + instance_name, "Member: " + getPlayerName(player));
                 }
             }
         }
@@ -379,13 +377,11 @@ public class player_instance extends script.base_script
             {
                 obj_id[] players = getGroupMemberIds(groupId);
                 CustomerServiceLog("instance-" + instance_name, "GROUP LIST");
-                for (int i = 0; i < players.length; i++)
-                {
-                    if (players[i] == self)
-                    {
+                for (obj_id player : players) {
+                    if (player == self) {
                         continue;
                     }
-                    CustomerServiceLog("instance-" + instance_name, "Member: " + getPlayerName(players[i]));
+                    CustomerServiceLog("instance-" + instance_name, "Member: " + getPlayerName(player));
                 }
             }
         }
@@ -489,17 +485,14 @@ public class player_instance extends script.base_script
                 addSUIDataItem(pid, sui.LISTBOX_DATASOURCE, "" + idx);
                 setSUIProperty(pid, sui.LISTBOX_DATASOURCE + "." + idx, sui.PROP_TEXT, "Group Members In Range");
                 idx++;
-                for (int i = 0; i < members.length; i++)
-                {
-                    if (!isIdValid(members[i]) || !exists(members[i]))
-                    {
+                for (obj_id member : members) {
+                    if (!isIdValid(member) || !exists(member)) {
                         continue;
                     }
-                    if (!isPlayer(members[i]) || members[i] == self)
-                    {
+                    if (!isPlayer(member) || member == self) {
                         continue;
                     }
-                    String playerName = getPlayerFullName(members[i]);
+                    String playerName = getPlayerFullName(member);
                     prose_package namePackage = new prose_package();
                     namePackage.stringId = new string_id("instance", "gold_text");
                     namePackage.actor.set(playerName);
@@ -507,30 +500,24 @@ public class player_instance extends script.base_script
                     addSUIDataItem(pid, sui.LISTBOX_DATASOURCE, "" + idx);
                     setSUIProperty(pid, sui.LISTBOX_DATASOURCE + "." + idx, sui.PROP_TEXT, playerName);
                     idx++;
-                    dictionary[] groupMemberInstanceData = instance.getAllLockoutData(members[i]);
-                    if (groupMemberInstanceData == null || groupMemberInstanceData.length == 0)
-                    {
+                    dictionary[] groupMemberInstanceData = instance.getAllLockoutData(member);
+                    if (groupMemberInstanceData == null || groupMemberInstanceData.length == 0) {
                         addSUIDataItem(pid, sui.LISTBOX_DATASOURCE, "" + idx);
                         setSUIProperty(pid, sui.LISTBOX_DATASOURCE + "." + idx, sui.PROP_TEXT, "No Instance Data");
                         idx++;
-                    }
-                    else 
-                    {
-                        for (int q = 0; q < groupMemberInstanceData.length; q++)
-                        {
-                            if (groupMemberInstanceData[q] == null)
-                            {
+                    } else {
+                        for (dictionary groupMemberInstanceDatum : groupMemberInstanceData) {
+                            if (groupMemberInstanceDatum == null) {
                                 continue;
                             }
-                            int time = groupMemberInstanceData[q].getInt("time");
-                            obj_id instance_id = groupMemberInstanceData[q].getObjId("instance_id");
-                            obj_id owner = groupMemberInstanceData[q].getObjId("owner");
-                            String instance_name = groupMemberInstanceData[q].getString("instance_name");
-                            int startTime = groupMemberInstanceData[q].getInt("start_time");
+                            int time = groupMemberInstanceDatum.getInt("time");
+                            obj_id instance_id = groupMemberInstanceDatum.getObjId("instance_id");
+                            obj_id owner = groupMemberInstanceDatum.getObjId("owner");
+                            String instance_name = groupMemberInstanceDatum.getString("instance_name");
+                            int startTime = groupMemberInstanceDatum.getInt("start_time");
                             int timeToClose = startTime + instance.getInstanceDuration(instance_name) - getGameTime();
                             String xxTimeToClose = getCalendarTimeStringLocal(getCalendarTime() + timeToClose);
-                            if (timeToClose < 0)
-                            {
+                            if (timeToClose < 0) {
                                 timeToClose = 0;
                             }
                             String raidId = getRaidId("" + startTime, "" + instance_id, "" + owner);
@@ -538,12 +525,9 @@ public class player_instance extends script.base_script
                             boolean bClose = false;
                             boolean bMatch = false;
                             String passedId = getPassedId(listId, instance_name);
-                            if (!passedId.equals("") && raidId.equals(passedId))
-                            {
+                            if (!passedId.equals("") && raidId.equals(passedId)) {
                                 bMatch = true;
-                            }
-                            else 
-                            {
+                            } else {
                                 bMatch = false;
                             }
                             int timeDifference = time - getCalendarTime();
@@ -551,31 +535,24 @@ public class player_instance extends script.base_script
                             String xxTimeString = getCalendarTimeStringLocal(getCalendarTime() + timeDifference);
                             prose_package statusProse = new prose_package();
                             String closeString = "";
-                            if (timeToClose == 0)
-                            {
+                            if (timeToClose == 0) {
                                 bClose = true;
                                 closeString = "Instance Closed";
-                            }
-                            else 
-                            {
+                            } else {
                                 bClose = false;
                                 closeString = utils.formatTimeVerbose(timeToClose);
                             }
                             prose_package pp = new prose_package();
-                            if (bClose && bMatch)
-                            {
+                            if (bClose && bMatch) {
                                 pp.stringId = new string_id("instance", "close_same");
                             }
-                            if (bClose && !bMatch)
-                            {
+                            if (bClose && !bMatch) {
                                 pp.stringId = new string_id("instance", "close_different");
                             }
-                            if (!bClose && bMatch)
-                            {
+                            if (!bClose && bMatch) {
                                 pp.stringId = new string_id("instance", "open_same");
                             }
-                            if (!bClose && !bMatch)
-                            {
+                            if (!bClose && !bMatch) {
                                 pp.stringId = new string_id("instance", "open_different");
                             }
                             String instanceName = "@" + new string_id("instance", instance_name);
@@ -613,17 +590,14 @@ public class player_instance extends script.base_script
             obj_id[] members = getGroupMemberIds(groupId);
             if (members != null || members.length > 0)
             {
-                for (int i = 0; i < members.length; i++)
-                {
-                    if (!isIdValid(members[i]) || !exists(members[i]))
-                    {
+                for (obj_id member : members) {
+                    if (!isIdValid(member) || !exists(member)) {
                         continue;
                     }
-                    if (!isPlayer(members[i]) || members[i] == self)
-                    {
+                    if (!isPlayer(member) || member == self) {
                         continue;
                     }
-                    concatenatedAtrocity += getUnflaggedInstancesString(members[i]);
+                    concatenatedAtrocity += getUnflaggedInstancesString(member);
                     concatenatedAtrocity += "\n";
                 }
             }
@@ -679,17 +653,14 @@ public class player_instance extends script.base_script
         {
             return "";
         }
-        for (int i = 0; i < listId.size(); i++)
-        {
-            if (((String)listId.get(i)).equals(""))
-            {
+        for (Object o : listId) {
+            if (((String) o).equals("")) {
                 continue;
             }
-            String[] parse = split(((String)listId.get(i)), '-');
+            String[] parse = split(((String) o), '-');
             String passedName = parse[0];
             String passedId = parse[1];
-            if (passedName.equals(instance_name))
-            {
+            if (passedName.equals(instance_name)) {
                 return passedId;
             }
         }
@@ -723,7 +694,7 @@ public class player_instance extends script.base_script
         float multiplier = utils.stringToFloat(getConfigSetting("GameServer", "heroicTokenBonus"));
         if (multiplier > 1)
         {
-            count = (int)((float)count * (float)multiplier);
+            count = (int)(count * (float)multiplier);
         }
         if (tokenIndex < 0 || tokenIndex >= trial.HEROIC_TOKENS.length)
         {

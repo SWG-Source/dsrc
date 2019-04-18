@@ -130,7 +130,7 @@ public class droid_bomb extends script.base_script
         }
         float min_dam = pet_lib.DETONATION_DROID_MIN_DAMAGE * bomb_level;
         float max_dam = pet_lib.DETONATION_DROID_MAX_DAMAGE * bomb_level;
-        int radius = 20 + (int)(.3f * bomb_level);
+        int radius = 20 + (int)(0.3f * bomb_level);
         obj_id pet_control = callable.getCallableCD(droid);
         if (!isIdValid(pet_control))
         {
@@ -143,71 +143,65 @@ public class droid_bomb extends script.base_script
         if (targets != null)
         {
             prose_package pp = new prose_package();
-            for (int i = 0; i < targets.length; i++)
-            {
-                int[] hit_loc = 
-                {
-                    HIT_LOCATION_HEAD,
-                    HIT_LOCATION_BODY,
-                    HIT_LOCATION_BODY,
-                    HIT_LOCATION_R_ARM,
-                    HIT_LOCATION_L_ARM,
-                    HIT_LOCATION_R_LEG,
-                    HIT_LOCATION_L_LEG
-                };
-                if (isPlayer(targets[i]))
-                {
-                    float level = getLevel(targets[i]);
-                    float mult = level / 90f;
+            for (obj_id target : targets) {
+                int[] hit_loc =
+                        {
+                                HIT_LOCATION_HEAD,
+                                HIT_LOCATION_BODY,
+                                HIT_LOCATION_BODY,
+                                HIT_LOCATION_R_ARM,
+                                HIT_LOCATION_L_ARM,
+                                HIT_LOCATION_R_LEG,
+                                HIT_LOCATION_L_LEG
+                        };
+                if (isPlayer(target)) {
+                    float level = getLevel(target);
+                    float mult = level / 90.0f;
                     min_dam *= mult;
                     max_dam *= mult;
                 }
-                int final_damage = rand((int)min_dam, (int)max_dam);
+                int final_damage = rand((int) min_dam, (int) max_dam);
                 weapon_data weaponData = new weapon_data();
                 hit_result hitData = new hit_result();
                 weaponData.id = getDefaultWeapon(droid);
                 weaponData.weaponName = getNameStringId(droid);
-                weaponData.minDamage = (int)min_dam;
-                weaponData.maxDamage = (int)max_dam;
+                weaponData.minDamage = (int) min_dam;
+                weaponData.maxDamage = (int) max_dam;
                 weaponData.weaponType = WEAPON_TYPE_UNARMED;
                 weaponData.attackType = ATTACK_TYPE_MELEE;
                 weaponData.damageType = DAMAGE_KINETIC;
                 weaponData.elementalType = DAMAGE_ELEMENTAL_HEAT;
                 weaponData.elementalValue = final_damage / 10;
-                weaponData.attackSpeed = 1f;
-                weaponData.woundChance = 10f;
+                weaponData.attackSpeed = 1.0f;
+                weaponData.woundChance = 10.0f;
                 hitData.success = true;
                 hitData.damage = final_damage;
                 hitData.damageType = DAMAGE_KINETIC;
                 hitData.elementalDamage = final_damage / 10;
                 hitData.elementalDamageType = DAMAGE_ELEMENTAL_HEAT;
-                hitData.blockedDamage = combat.applyArmorProtection(droid, targets[i], weaponData, hitData, 0f);
-                addHate(master, targets[i], 0.0f);
-                addHate(targets[i], master, final_damage);
-                doDamage(droid, targets[i], weaponData.id, hitData);
-                combat.assignDamageCredit(master, targets[i], weaponData, hitData.damage);
+                hitData.blockedDamage = combat.applyArmorProtection(droid, target, weaponData, hitData, 0.0f);
+                addHate(master, target, 0.0f);
+                addHate(target, master, final_damage);
+                doDamage(droid, target, weaponData.id, hitData);
+                combat.assignDamageCredit(master, target, weaponData, hitData.damage);
                 pp.stringId = new string_id(STF_FILE, "hit_by_detonation_master");
                 pp.actor.set(master);
-                pp.target.set(targets[i]);
+                pp.target.set(target);
                 pp.digitInteger = final_damage;
                 combat.sendCombatSpamMessageProse(master, pp);
-                if (isPlayer(targets[i]))
-                {
-                    pvpAttackPerformed(master, targets[i]);
+                if (isPlayer(target)) {
+                    pvpAttackPerformed(master, target);
                     pp.stringId = new string_id(STF_FILE, "hit_by_detonation");
-                    pp.actor.set(targets[i]);
-                    pp.target.set((String)null);
+                    pp.actor.set(target);
+                    pp.target.set((String) null);
                     pp.digitInteger = final_damage;
-                    combat.sendCombatSpamMessageProse(targets[i], pp);
-                }
-                else 
-                {
-                    xp.updateCombatXpList(targets[i], master, xp.PERMISSIONS_ONLY, final_damage);
-                    if (!ai_lib.isInCombat(targets[i]))
-                    {
+                    combat.sendCombatSpamMessageProse(target, pp);
+                } else {
+                    xp.updateCombatXpList(target, master, xp.PERMISSIONS_ONLY, final_damage);
+                    if (!ai_lib.isInCombat(target)) {
                         dictionary d = new dictionary();
                         d.put("attacker", master);
-                        messageTo(targets[i], "handleDefenderCombatAction", d, 0.0f, true);
+                        messageTo(target, "handleDefenderCombatAction", d, 0.0f, true);
                     }
                 }
             }

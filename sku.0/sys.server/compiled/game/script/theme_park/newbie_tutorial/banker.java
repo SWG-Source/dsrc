@@ -70,66 +70,68 @@ public class banker extends script.theme_park.newbie_tutorial.tutorial_base
     public int OnNpcConversationResponse(obj_id self, String convo, obj_id player, string_id response) throws InterruptedException
     {
         npcRemoveConversationResponse(player, response);
-        if ((response.getAsciiId()).equals("banker_1_reply_1"))
-        {
-            string_id message = new string_id(NEWBIE_CONVO, "banker_2_start");
-            npcSpeak(player, message);
-            doAnimationAction(self, "explain");
-            npcAddConversationResponse(player, new string_id(NEWBIE_CONVO, "banker_2_reply_1"));
-        }
-        else if ((response.getAsciiId()).equals("banker_2_reply_1"))
-        {
-            string_id message = new string_id(NEWBIE_CONVO, "banker_2_more");
-            npcSpeak(player, message);
-            doAnimationAction(self, "shake_head_no");
-            npcAddConversationResponse(player, new string_id(NEWBIE_CONVO, "banker_2_reply_2"));
-        }
-        else if ((response.getAsciiId()).equals("banker_2_reply_2"))
-        {
-            string_id message = new string_id(NEWBIE_CONVO, "banker_2_explain");
-            npcSpeak(player, message);
-            doAnimationAction(self, "point_left");
-            npcAddConversationResponse(player, new string_id(NEWBIE_CONVO, "banker_2_reply_3"));
-        }
-        else if ((response.getAsciiId()).equals("banker_2_reply_3"))
-        {
-            string_id message = new string_id(NEWBIE_CONVO, "banker_2_explain_2");
-            doAnimationAction(self, "face_wink");
-            npcSpeak(player, message);
-        }
-        else if ((response.getAsciiId()).equals("banker_1_reply_2"))
-        {
-            string_id message = new string_id(NEWBIE_CONVO, "banker_2_explain_terminals");
-            npcSpeak(player, message);
-            doAnimationAction(self, "look_left");
-            npcAddConversationResponse(player, new string_id(NEWBIE_CONVO, "banker_1_reply_3"));
-        }
-        else if ((response.getAsciiId()).equals("banker_1_reply_3"))
-        {
-            string_id message = new string_id(NEWBIE_CONVO, "banker_2_explain_bank");
-            npcSpeak(player, message);
-            doAnimationAction(self, "face_innocent");
-            npcAddConversationResponse(player, new string_id(NEWBIE_CONVO, "banker_bank_reply_1"));
-        }
-        else if ((response.getAsciiId()).equals("banker_bank_reply_1"))
-        {
-            string_id message = new string_id(NEWBIE_CONVO, "banker_2_more_bank");
-            npcSpeak(player, message);
-            doAnimationAction(self, "whisper");
-            npcAddConversationResponse(player, new string_id(NEWBIE_CONVO, "banker_2_bank_question"));
-        }
-        else if ((response.getAsciiId()).equals("banker_2_bank_question"))
-        {
-            string_id message = new string_id(NEWBIE_CONVO, "banker_2_bank_answer");
-            npcSpeak(player, message);
-            doAnimationAction(self, "face_eye_roll");
-            npcAddConversationResponse(player, new string_id(NEWBIE_CONVO, "banker_bank_question_2"));
-        }
-        else if ((response.getAsciiId()).equals("banker_bank_question_2"))
-        {
-            string_id message = new string_id(NEWBIE_CONVO, "banker_bank_answer_2");
-            npcSpeak(player, message);
-            doAnimationAction(self, "wave_finger_warning");
+        switch ((response.getAsciiId())) {
+            case "banker_1_reply_1": {
+                string_id message = new string_id(NEWBIE_CONVO, "banker_2_start");
+                npcSpeak(player, message);
+                doAnimationAction(self, "explain");
+                npcAddConversationResponse(player, new string_id(NEWBIE_CONVO, "banker_2_reply_1"));
+                break;
+            }
+            case "banker_2_reply_1": {
+                string_id message = new string_id(NEWBIE_CONVO, "banker_2_more");
+                npcSpeak(player, message);
+                doAnimationAction(self, "shake_head_no");
+                npcAddConversationResponse(player, new string_id(NEWBIE_CONVO, "banker_2_reply_2"));
+                break;
+            }
+            case "banker_2_reply_2": {
+                string_id message = new string_id(NEWBIE_CONVO, "banker_2_explain");
+                npcSpeak(player, message);
+                doAnimationAction(self, "point_left");
+                npcAddConversationResponse(player, new string_id(NEWBIE_CONVO, "banker_2_reply_3"));
+                break;
+            }
+            case "banker_2_reply_3": {
+                string_id message = new string_id(NEWBIE_CONVO, "banker_2_explain_2");
+                doAnimationAction(self, "face_wink");
+                npcSpeak(player, message);
+                break;
+            }
+            case "banker_1_reply_2": {
+                string_id message = new string_id(NEWBIE_CONVO, "banker_2_explain_terminals");
+                npcSpeak(player, message);
+                doAnimationAction(self, "look_left");
+                npcAddConversationResponse(player, new string_id(NEWBIE_CONVO, "banker_1_reply_3"));
+                break;
+            }
+            case "banker_1_reply_3": {
+                string_id message = new string_id(NEWBIE_CONVO, "banker_2_explain_bank");
+                npcSpeak(player, message);
+                doAnimationAction(self, "face_innocent");
+                npcAddConversationResponse(player, new string_id(NEWBIE_CONVO, "banker_bank_reply_1"));
+                break;
+            }
+            case "banker_bank_reply_1": {
+                string_id message = new string_id(NEWBIE_CONVO, "banker_2_more_bank");
+                npcSpeak(player, message);
+                doAnimationAction(self, "whisper");
+                npcAddConversationResponse(player, new string_id(NEWBIE_CONVO, "banker_2_bank_question"));
+                break;
+            }
+            case "banker_2_bank_question": {
+                string_id message = new string_id(NEWBIE_CONVO, "banker_2_bank_answer");
+                npcSpeak(player, message);
+                doAnimationAction(self, "face_eye_roll");
+                npcAddConversationResponse(player, new string_id(NEWBIE_CONVO, "banker_bank_question_2"));
+                break;
+            }
+            case "banker_bank_question_2": {
+                string_id message = new string_id(NEWBIE_CONVO, "banker_bank_answer_2");
+                npcSpeak(player, message);
+                doAnimationAction(self, "wave_finger_warning");
+                break;
+            }
         }
         return SCRIPT_CONTINUE;
     }

@@ -54,16 +54,13 @@ public class krix extends script.base_script
             return SCRIPT_CONTINUE;
         }
         obj_id mainTarget = trial.getClosestValidTarget(self, players);
-        for (int i = 0; i < players.length; i++)
-        {
-            startCombat(self, players[i]);
-            if (guards != null && guards.length > 0)
-            {
-                for (int q = 0; q < guards.length; q++)
-                {
-                    startCombat(guards[q], players[i]);
-                    setHate(guards[q], players[i], rand(10, 1000));
-                    startCombat(self, players[i]);
+        for (obj_id player : players) {
+            startCombat(self, player);
+            if (guards != null && guards.length > 0) {
+                for (obj_id guard : guards) {
+                    startCombat(guard, player);
+                    setHate(guard, player, rand(10, 1000));
+                    startCombat(self, player);
                 }
             }
         }
@@ -79,13 +76,10 @@ public class krix extends script.base_script
         }
         Vector guards = new Vector();
         guards.setSize(0);
-        for (int i = 0; i < allSpawn.length; i++)
-        {
-            if ((getStringObjVar(allSpawn[i], "spawn_id")).equals("sd_gren"))
-            {
-                if (!isDead(allSpawn[i]))
-                {
-                    guards.add(allSpawn[i]);
+        for (obj_id obj_id : allSpawn) {
+            if ((getStringObjVar(obj_id, "spawn_id")).equals("sd_gren")) {
+                if (!isDead(obj_id)) {
+                    guards.add(obj_id);
                 }
             }
         }
@@ -144,27 +138,20 @@ public class krix extends script.base_script
             return SCRIPT_CONTINUE;
         }
         obj_id focus = players[rand(0, players.length - 1)];
-        for (int q = 0; q < players.length; q++)
-        {
-            if (isDead(players[q]) || isIncapacitated(players[q]))
-            {
+        for (obj_id player : players) {
+            if (isDead(player) || isIncapacitated(player)) {
                 continue;
             }
-            for (int f = 0; f < guards.length; f++)
-            {
-                if (isDead(guards[f]))
-                {
+            for (obj_id guard : guards) {
+                if (isDead(guard)) {
                     continue;
                 }
-                messageTo(guards[f], "resetHate", null, 5.0f, false);
-                if (players[q] == focus)
-                {
-                    utils.setScriptVar(guards[f], "focus", focus);
-                    setHate(guards[f], players[q], 10000.0f);
-                }
-                else 
-                {
-                    setHate(guards[f], players[q], 1.0f);
+                messageTo(guard, "resetHate", null, 5.0f, false);
+                if (player == focus) {
+                    utils.setScriptVar(guard, "focus", focus);
+                    setHate(guard, player, 10000.0f);
+                } else {
+                    setHate(guard, player, 1.0f);
                 }
             }
         }
@@ -200,13 +187,11 @@ public class krix extends script.base_script
         obj_id[] hateList = getHateList(self);
         Vector validTargets = new Vector();
         validTargets.setSize(0);
-        for (int i = 0; i < hateList.length; i++)
-        {
-            if (!isIdValid(hateList[i]) || !exists(hateList[i]) || isDead(hateList[i]) || !canSee(self, hateList[i]))
-            {
+        for (obj_id obj_id : hateList) {
+            if (!isIdValid(obj_id) || !exists(obj_id) || isDead(obj_id) || !canSee(self, obj_id)) {
                 continue;
             }
-            validTargets.add(hateList[i]);
+            validTargets.add(obj_id);
         }
         obj_id target = ((obj_id)validTargets.get(rand(0, validTargets.size() - 1)));
         location tarLoc = getLocation(target);
@@ -218,8 +203,8 @@ public class krix extends script.base_script
     }
     public int OnCreatureDamaged(obj_id self, obj_id attacker, obj_id weapon, int[] damage) throws InterruptedException
     {
-        float max = (float)getMaxHealth(self);
-        float current = (float)getHealth(self);
+        float max = getMaxHealth(self);
+        float current = getHealth(self);
         float ratio = current / max;
         int healthTrigger = getHealthTrigger(self, ratio);
         if (healthTrigger == -1)
@@ -259,9 +244,8 @@ public class krix extends script.base_script
             messageTo(trial.getTop(self), "triggerFired", dict, 0.0f, false);
             return;
         }
-        for (int i = 0; i < players.length; i++)
-        {
-            startCombat(self, players[i]);
+        for (obj_id player : players) {
+            startCombat(self, player);
         }
     }
 }

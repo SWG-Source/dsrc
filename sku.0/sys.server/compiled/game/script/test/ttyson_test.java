@@ -715,33 +715,23 @@ public class ttyson_test extends script.base.remote_object_requester
         {
             LOG("newbie", "no items");
         }
-        for (int i = 0; i < items.length; i++)
-        {
-            LOG("newbie", "NEWBIE STARTING EQUIP MAKING: " + items[i]);
+        for (String item : items) {
+            LOG("newbie", "NEWBIE STARTING EQUIP MAKING: " + item);
             obj_id newItem = null;
-            if (items[i].startsWith("object/weapon/"))
-            {
-                newItem = weapons.createWeapon(items[i], bank, 0.75f);
-            }
-            else if (items[i].startsWith("object/tangible/medicine"))
-            {
+            if (item.startsWith("object/weapon/")) {
+                newItem = weapons.createWeapon(item, bank, 0.75f);
+            } else if (item.startsWith("object/tangible/medicine")) {
                 newItem = createObject("object/tangible/medicine/instant_stimpack/stimpack_noob.iff", bank, "");
-                if (isIdValid(newItem))
-                {
+                if (isIdValid(newItem)) {
                     setCount(newItem, 5);
                     setObjVar(newItem, "healing.power", 250);
                 }
+            } else {
+                newItem = createObject(item, bank, "");
             }
-            else 
-            {
-                newItem = createObject(items[i], bank, "");
-            }
-            if (!isIdValid(newItem))
-            {
-                LOG("newbie", "BAD: could not create newbie equipment item " + items[i]);
-            }
-            else 
-            {
+            if (!isIdValid(newItem)) {
+                LOG("newbie", "BAD: could not create newbie equipment item " + item);
+            } else {
                 pclib.autoInsureItem(newItem);
             }
         }

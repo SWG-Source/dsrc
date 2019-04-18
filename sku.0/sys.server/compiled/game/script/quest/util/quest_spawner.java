@@ -195,9 +195,8 @@ public class quest_spawner extends script.base_script
             return false;
         }
         int total_weight = 0;
-        for (int i = 0; i < weight.length; i++)
-        {
-            total_weight = total_weight + weight[i];
+        for (int i1 : weight) {
+            total_weight = total_weight + i1;
         }
         if (total_weight < 1)
         {

@@ -112,15 +112,15 @@ public class terminal_structure extends script.base_script
             if (player_structure.isCivic(structure))
             {
                 blog("terminal_structure::OnObjectMenuRequest - I am civic");
-                if (template.indexOf("cloning_") > -1)
+                if (template.contains("cloning_"))
                 {
                     mi.addSubMenu(management_root, menu_info_types.SET_NAME, new string_id());
                 }
-                if (template.indexOf("garden_") > -1)
+                if (template.contains("garden_"))
                 {
                     mi.addSubMenu(management_root, menu_info_types.SET_NAME, new string_id());
                 }
-                if (!(template.indexOf("cityhall_") > -1))
+                if (!(template.contains("cityhall_")))
                 {
                     return SCRIPT_CONTINUE;
                 }
@@ -132,7 +132,7 @@ public class terminal_structure extends script.base_script
                 permissions_root = mi.addRootMenu(menu_info_types.SERVER_TERMINAL_PERMISSIONS, SID_TERMINAL_PERMISSIONS);
                 mi.addSubMenu(permissions_root, menu_info_types.SERVER_TERMINAL_PERMISSIONS_ADMIN, SID_TERMINAL_PERMISSIONS_ADMIN);
             }
-            if ((template.indexOf("cityhall_") > -1))
+            if ((template.contains("cityhall_")))
             {
                 return SCRIPT_CONTINUE;
             }
@@ -316,15 +316,15 @@ public class terminal_structure extends script.base_script
         String template = getTemplateName(structure);
         if (player_structure.isCivic(structure))
         {
-            if (template.indexOf("cloning_") > -1 && item == menu_info_types.SET_NAME)
+            if (template.contains("cloning_") && item == menu_info_types.SET_NAME)
             {
                 queueCommand(player, (-1016613791), null, "", COMMAND_PRIORITY_DEFAULT);
             }
-            if (template.indexOf("garden_") > -1 && item == menu_info_types.SET_NAME)
+            if (template.contains("garden_") && item == menu_info_types.SET_NAME)
             {
                 queueCommand(player, (-1016613791), null, "", COMMAND_PRIORITY_DEFAULT);
             }
-            if (!(template.indexOf("cityhall_") > -1) && (item != menu_info_types.SERVER_TERMINAL_MANAGEMENT_DESTROY))
+            if (!(template.contains("cityhall_")) && (item != menu_info_types.SERVER_TERMINAL_MANAGEMENT_DESTROY))
             {
                 return SCRIPT_CONTINUE;
             }

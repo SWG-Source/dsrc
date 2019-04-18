@@ -79,7 +79,7 @@ public class objective_terminal_uplink extends script.faction_perk.hq.objective_
                 sendSystemMessageTestingOnly(player, "You begin scanning for baseline carrier signals...");
                 dictionary d = new dictionary();
                 d.put("player", player);
-                messageTo(self, "handleStartDelay", d, 3f, false);
+                messageTo(self, "handleStartDelay", d, 3.0f, false);
             }
         }
         return SCRIPT_CONTINUE;
@@ -99,7 +99,7 @@ public class objective_terminal_uplink extends script.faction_perk.hq.objective_
             sendSystemMessageTestingOnly(player, "You cannot jam the uplink if you are not even in the same room!");
             return;
         }
-        if (getDistance(here, there) > 15f)
+        if (getDistance(here, there) > 15.0f)
         {
             sendSystemMessageTestingOnly(player, "You are too far away from the uplink to continue jamming!");
             return;
@@ -142,20 +142,18 @@ public class objective_terminal_uplink extends script.faction_perk.hq.objective_
         prompt += " that you wish to search.";
         Vector entries = new Vector();
         entries.setSize(0);
-        for (int i = 0; i < opt.size(); i++)
-        {
+        for (Object o : opt) {
             String entry = "";
-            switch (stage)
-            {
+            switch (stage) {
                 case STAGE_FREQ:
-                entry = "Channel #";
-                break;
+                    entry = "Channel #";
+                    break;
                 case STAGE_BAND:
                 default:
-                entry = "Band #";
-                break;
+                    entry = "Band #";
+                    break;
             }
-            entry += Integer.toString(((Integer)opt.get(i)).intValue() + 1);
+            entry += Integer.toString((Integer) o + 1);
             entries = utils.addElement(entries, entry);
         }
         int pid = sui.listbox(self, player, prompt, sui.OK_CANCEL, title, entries, "handleJammingGame");
@@ -210,11 +208,11 @@ public class objective_terminal_uplink extends script.faction_perk.hq.objective_
             correct = freq / 10;
             break;
         }
-        float delay = 5f;
+        float delay = 5.0f;
         String text = null;
-        if (correct == ((Integer)opt.get(idx)).intValue())
+        if (correct == (Integer) opt.get(idx))
         {
-            delay = 1f;
+            delay = 1.0f;
             switch (stage)
             {
                 case STAGE_FREQ:
@@ -224,14 +222,14 @@ public class objective_terminal_uplink extends script.faction_perk.hq.objective_
                 d.put("player", player);
                 int cyclemod = getSkillStatMod(player, "droid_find_chance");
                 cyclemod *= rand(0.67f, 1.33f);
-                float cyclemultiplier = (100f - cyclemod) / 100f;
-                int cycleCount = Math.round(10f * cyclemultiplier);
+                float cyclemultiplier = (100.0f - cyclemod) / 100.0f;
+                int cycleCount = Math.round(10.0f * cyclemultiplier);
                 if (cycleCount < 0)
                 {
                     cycleCount = 0;
                 }
                 d.put("cnt", cycleCount);
-                messageTo(self, "handleJammingInProgress", d, 3f, false);
+                messageTo(self, "handleJammingInProgress", d, 3.0f, false);
                 return SCRIPT_CONTINUE;
                 case STAGE_BAND:
                 default:
@@ -253,7 +251,7 @@ public class objective_terminal_uplink extends script.faction_perk.hq.objective_
             {
                 if (findmod > roll)
                 {
-                    if (correct > ((Integer)opt.get(idx)).intValue())
+                    if (correct > (Integer) opt.get(idx))
                     {
                         text = "You feel like you need to search higher...";
                     }
@@ -264,7 +262,7 @@ public class objective_terminal_uplink extends script.faction_perk.hq.objective_
                 }
                 else 
                 {
-                    if (correct > ((Integer)opt.get(idx)).intValue())
+                    if (correct > (Integer) opt.get(idx))
                     {
                         text = "You feel like you need to search lower...";
                     }
@@ -274,16 +272,16 @@ public class objective_terminal_uplink extends script.faction_perk.hq.objective_
                     }
                 }
                 int speedmod = getSkillStatMod(player, "droid_find_speed");
-                float multiplier = (100 - speedmod) / 100f;
+                float multiplier = (100 - speedmod) / 100.0f;
                 delay *= multiplier;
             }
             utils.removeElementAt(opt, idx);
         }
         utils.setScriptVar(self, scriptvar_opt, opt);
         utils.setScriptVar(self, scriptvar_stage, stage);
-        if (delay < 1f)
+        if (delay < 1.0f)
         {
-            delay = 1f;
+            delay = 1.0f;
         }
         dictionary d = new dictionary();
         d.put("player", player);
@@ -347,7 +345,7 @@ public class objective_terminal_uplink extends script.faction_perk.hq.objective_
         {
             sendSystemMessageTestingOnly(player, "Jamming in progress...");
             params.put("cnt", cnt);
-            float delay = 3f * rand(-2f, 2f);
+            float delay = 3.0f * rand(-2.0f, 2.0f);
             messageTo(self, "handleJammingInProgress", params, delay, false);
         }
         return SCRIPT_CONTINUE;

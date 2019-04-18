@@ -120,10 +120,8 @@ public class mirla extends script.base_script
         {
             return false;
         }
-        for (int i = 0; i < contents.length; i++)
-        {
-            if ((getTemplateName(contents[i])).equals("object/tangible/mission/quest_item/warren_farewell_letter.iff"))
-            {
+        for (obj_id content : contents) {
+            if ((getTemplateName(content)).equals("object/tangible/mission/quest_item/warren_farewell_letter.iff")) {
                 return true;
             }
         }
@@ -137,11 +135,9 @@ public class mirla extends script.base_script
         {
             return false;
         }
-        for (int i = 0; i < contents.length; i++)
-        {
-            if ((getTemplateName(contents[i])).equals("object/tangible/mission/quest_item/warren_farewell_letter.iff"))
-            {
-                destroyObject(contents[i]);
+        for (obj_id content : contents) {
+            if ((getTemplateName(content)).equals("object/tangible/mission/quest_item/warren_farewell_letter.iff")) {
+                destroyObject(content);
                 return true;
             }
         }

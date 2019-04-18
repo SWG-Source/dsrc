@@ -133,8 +133,8 @@ public class master_droid_engineer extends script.base_script
     }
     public void verifyHealth(obj_id self) throws InterruptedException
     {
-        float max = (float)getMaxHealth(self);
-        float current = (float)getHealth(self);
+        float max = getMaxHealth(self);
+        float current = getHealth(self);
         float ratio = current / max;
         if (ratio <= RAT_STAGE_1)
         {
@@ -176,10 +176,9 @@ public class master_droid_engineer extends script.base_script
             {
                 return;
             }
-            for (int i = 0; i < rau.length; i++)
-            {
-                utils.setScriptVar(rau[i], trial.WORKING_ASSEMBLY_STAGE, value);
-                messageTo(rau[i], "triggerEvent", trial.getSessionDict(trial.getTop(self), "mde_control"), 0, false);
+            for (obj_id obj_id : rau) {
+                utils.setScriptVar(obj_id, trial.WORKING_ASSEMBLY_STAGE, value);
+                messageTo(obj_id, "triggerEvent", trial.getSessionDict(trial.getTop(self), "mde_control"), 0, false);
             }
             setObjVar(self, stage, true);
         }

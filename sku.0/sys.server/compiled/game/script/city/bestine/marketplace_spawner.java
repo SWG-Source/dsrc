@@ -56,7 +56,7 @@ public class marketplace_spawner extends script.base_script
                 int merchant03Chance = rand(1, 5);
                 if (merchant03Chance == 2)
                 {
-                    obj_id merchant03 = createMerchant(self, "artisan", new location(-1126f, 0.0f, -3673.42f, "tatooine", null), -110, new string_id(STF, "merchant03"));
+                    obj_id merchant03 = createMerchant(self, "artisan", new location(-1126.0f, 0.0f, -3673.42f, "tatooine", null), -110, new string_id(STF, "merchant03"));
                     attachScript(merchant03, "conversation.bestine_stone_merchant");
                 }
                 createMerchant(self, "scientist", new location(-1115.29f, 0.0f, -3709.47f, "tatooine", null), 7, new string_id(STF, "merchant04"));

@@ -104,11 +104,9 @@ public class player_community_crafting extends script.base_script
         int[] schematics = getIntArrayObjVar(self, community_crafting.OBJVAR_COMMUNITY_CRAFTING_PLAYER_SCHEMATICS);
         if (schematics != null)
         {
-            for (int i = 0; i < schematics.length; ++i)
-            {
-                if (schematics[i] != 0)
-                {
-                    revokeSchematic(self, schematics[i]);
+            for (int schematic : schematics) {
+                if (schematic != 0) {
+                    revokeSchematic(self, schematic);
                 }
             }
         }

@@ -71,10 +71,8 @@ public class veteran_rewards extends script.base_script
             if (onetimes != null)
             {
                 boolean hasSoro = false;
-                for (int i = 0; i < onetimes.length; ++i)
-                {
-                    if (onetimes[i] == (884375002))
-                    {
+                for (int onetime : onetimes) {
+                    if (onetime == (884375002)) {
                         hasSoro = true;
                     }
                 }
@@ -622,10 +620,9 @@ public class veteran_rewards extends script.base_script
             choices.addElement("I am ready to transfer now.");
             String announcement = "This character is eligible for a Free Character Transfer to one of the following designated galaxy servers:";
             announcement += "\n\n";
-            for (int i = 0; i < freeCtsClusters.length; ++i)
-            {
+            for (String freeCtsCluster : freeCtsClusters) {
                 announcement += "\t";
-                announcement += freeCtsClusters[i];
+                announcement += freeCtsCluster;
                 announcement += "\n";
             }
             announcement += "\n";
@@ -774,9 +771,8 @@ public class veteran_rewards extends script.base_script
             return;
         }
         Vector choices = new Vector();
-        for (int i = 0; i < freeCtsClusters.length; ++i)
-        {
-            choices.addElement(freeCtsClusters[i]);
+        for (String freeCtsCluster : freeCtsClusters) {
+            choices.addElement(freeCtsCluster);
         }
         String announcement = "";
         if ((messageHeader != null) && (messageHeader.length() > 0))
@@ -1126,9 +1122,8 @@ public class veteran_rewards extends script.base_script
             return;
         }
         Vector choices = new Vector();
-        for (int i = 0; i < ctsDestinationClusters.length; ++i)
-        {
-            choices.addElement(ctsDestinationClusters[i]);
+        for (String ctsDestinationCluster : ctsDestinationClusters) {
+            choices.addElement(ctsDestinationCluster);
         }
         String announcement = "";
         if ((messageHeader != null) && (messageHeader.length() > 0))

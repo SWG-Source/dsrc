@@ -72,15 +72,15 @@ public class ep3_wookiee_slave extends script.base_script
     }
     public void ep3_wookiee_slave_action_speak_SHORT(obj_id player, obj_id npc) throws InterruptedException
     {
-        playClientEffectLoc(player, "clienteffect/voc_npc_cnv_rodian_short.cef", getLocation(npc), 0f);
+        playClientEffectLoc(player, "clienteffect/voc_npc_cnv_rodian_short.cef", getLocation(npc), 0.0f);
     }
     public void ep3_wookiee_slave_action_speak_MEDIUM(obj_id player, obj_id npc) throws InterruptedException
     {
-        playClientEffectLoc(player, "clienteffect/voc_npc_cnv_rodian_medium.cef", getLocation(npc), 0f);
+        playClientEffectLoc(player, "clienteffect/voc_npc_cnv_rodian_medium.cef", getLocation(npc), 0.0f);
     }
     public void ep3_wookiee_slave_action_speak_LONG(obj_id player, obj_id npc) throws InterruptedException
     {
-        playClientEffectLoc(player, "clienteffect/voc_npc_cnv_rodian_long.cef", getLocation(npc), 0f);
+        playClientEffectLoc(player, "clienteffect/voc_npc_cnv_rodian_long.cef", getLocation(npc), 0.0f);
     }
     public void ep3_wookiee_slave_action_giveQuestThree(obj_id player, obj_id npc) throws InterruptedException
     {

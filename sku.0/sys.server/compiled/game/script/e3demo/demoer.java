@@ -302,25 +302,25 @@ public class demoer extends script.base_script
             sendSystemMessageTestingOnly(self, "Setup Ground Demo 1");
             messageTo(self, "cleanoutBuilding", dctParams, 15, false);
             obj_id[] decor = new obj_id[13];
-            location crawler1loc = new location(2527, .66f, 4624);
+            location crawler1loc = new location(2527, 0.66f, 4624);
             obj_id crawler1 = createObject("object/static/vehicle/static_sandcrawler.iff", crawler1loc);
             decor[0] = crawler1;
-            location crawler2loc = new location(2529, .86f, 4672);
+            location crawler2loc = new location(2529, 0.86f, 4672);
             obj_id crawler2 = createObject("object/static/vehicle/static_sandcrawler.iff", crawler2loc);
             decor[1] = crawler2;
-            location jawa1loc = new location(2540, .70f, 4624);
+            location jawa1loc = new location(2540, 0.70f, 4624);
             obj_id jawa1 = createObject("object/static/creature/tatooine_jawa.iff", jawa1loc);
             decor[2] = jawa1;
-            location jawa2loc = new location(2543, .71f, 4624);
+            location jawa2loc = new location(2543, 0.71f, 4624);
             obj_id jawa2 = createObject("object/static/creature/tatooine_jawa.iff", jawa2loc);
             decor[3] = jawa2;
-            location jawa3loc = new location(2543, .75f, 4627);
+            location jawa3loc = new location(2543, 0.75f, 4627);
             obj_id jawa3 = createObject("object/static/creature/tatooine_jawa.iff", jawa3loc);
             decor[4] = jawa3;
-            location jawa4loc = new location(2540, .74f, 4626);
+            location jawa4loc = new location(2540, 0.74f, 4626);
             obj_id jawa4 = createObject("object/static/creature/tatooine_jawa.iff", jawa4loc);
             decor[5] = jawa4;
-            location r2loc = new location(2542, .73f, 4625);
+            location r2loc = new location(2542, 0.73f, 4625);
             obj_id r2 = createObject("object/static/creature/droids_r2.iff", r2loc);
             decor[6] = r2;
             location poiLoc = new location(2551, 1.94f, 4662);
@@ -344,27 +344,26 @@ public class demoer extends script.base_script
             setYaw(gamor2, 0);
             decor[10] = gamor2;
             obj_id cell = getCellId(palace1, "foyer");
-            location bomarr1loc = new location(-6.4f, .2f, 119.8f, "thm_tato_jabbas_palace", cell);
+            location bomarr1loc = new location(-6.4f, 0.2f, 119.8f, "thm_tato_jabbas_palace", cell);
             obj_id bomarr1 = create.object("bomarr_monk", bomarr1loc);
             setInvulnerable(bomarr1, true);
             ai_lib.setDefaultCalmBehavior(bomarr1, ai_lib.BEHAVIOR_SENTINEL);
             setYaw(bomarr1, 11);
             decor[11] = bomarr1;
-            location bomarr2loc = new location(6.0f, .2f, 130.8f, "thm_tato_jabbas_palace", cell);
+            location bomarr2loc = new location(6.0f, 0.2f, 130.8f, "thm_tato_jabbas_palace", cell);
             obj_id bomarr2 = create.object("bomarr_monk", bomarr2loc);
             setInvulnerable(bomarr2, true);
             ai_lib.setDefaultCalmBehavior(bomarr2, ai_lib.BEHAVIOR_SENTINEL);
             setYaw(bomarr2, -14);
             decor[11] = bomarr2;
-            for (int intI = 0; intI < decor.length; intI++)
-            {
-                setObjVar(decor[intI], "intGroundDemo1", 1);
+            for (obj_id obj_id : decor) {
+                setObjVar(obj_id, "intGroundDemo1", 1);
             }
             setObjVar(self, "decor", decor);
         }
         if (strCommands[0].equalsIgnoreCase("setupGroundDemo2"))
         {
-            location jabbaPalace = new location(-2480, .25f, -5109);
+            location jabbaPalace = new location(-2480, 0.25f, -5109);
             obj_id palace2 = createObject("object/building/tatooine/palace_tatooine_jabba.iff", jabbaPalace);
             setObjVar(self, "palace2", palace2);
             dictionary dctParams = new dictionary();
@@ -421,21 +420,20 @@ public class demoer extends script.base_script
             setYaw(gamor2, 0);
             decor[10] = gamor2;
             obj_id cell = getCellId(palace2, "foyer");
-            location bomarr1loc = new location(-6.4f, .2f, 119.8f, "thm_tato_jabbas_palace", cell);
+            location bomarr1loc = new location(-6.4f, 0.2f, 119.8f, "thm_tato_jabbas_palace", cell);
             obj_id bomarr1 = create.object("bomarr_monk", bomarr1loc);
             setInvulnerable(bomarr1, true);
             ai_lib.setDefaultCalmBehavior(bomarr1, ai_lib.BEHAVIOR_SENTINEL);
             setYaw(bomarr1, 11);
             decor[11] = bomarr1;
-            location bomarr2loc = new location(6.0f, .2f, 130.8f, "thm_tato_jabbas_palace", cell);
+            location bomarr2loc = new location(6.0f, 0.2f, 130.8f, "thm_tato_jabbas_palace", cell);
             obj_id bomarr2 = create.object("bomarr_monk", bomarr2loc);
             setInvulnerable(bomarr2, true);
             ai_lib.setDefaultCalmBehavior(bomarr2, ai_lib.BEHAVIOR_SENTINEL);
             setYaw(bomarr2, -14);
             decor[11] = bomarr2;
-            for (int intI = 0; intI < decor.length; intI++)
-            {
-                setObjVar(decor[intI], "intGroundDemo2", 1);
+            for (obj_id obj_id : decor) {
+                setObjVar(obj_id, "intGroundDemo2", 1);
             }
             setObjVar(self, "decor", decor);
         }
@@ -445,22 +443,20 @@ public class demoer extends script.base_script
             obj_id[] objTestObjects = getObjectsInRange(jabbaPalace, 1000);
             if (objTestObjects != null)
             {
-                for (int intI = 0; intI < objTestObjects.length; intI++)
-                {
-                    destroyObject(objTestObjects[intI]);
+                for (obj_id objTestObject : objTestObjects) {
+                    destroyObject(objTestObject);
                 }
             }
             return SCRIPT_CONTINUE;
         }
         if (strCommands[0].equalsIgnoreCase("cleanupGroundDemo2"))
         {
-            location jabbaPalace = new location(-2480, .25f, -5109);
+            location jabbaPalace = new location(-2480, 0.25f, -5109);
             obj_id[] objTestObjects = getObjectsInRange(jabbaPalace, 1000);
             if (objTestObjects != null)
             {
-                for (int intI = 0; intI < objTestObjects.length; intI++)
-                {
-                    destroyObject(objTestObjects[intI]);
+                for (obj_id objTestObject : objTestObjects) {
+                    destroyObject(objTestObject);
                 }
             }
             return SCRIPT_CONTINUE;
@@ -500,11 +496,9 @@ public class demoer extends script.base_script
             obj_id palace1 = getObjIdObjVar(self, "palace1");
             destroyObject(palace1);
             obj_id[] decor = getObjIdArrayObjVar(self, "decor");
-            for (int i = 0; i < decor.length; i++)
-            {
-                if (isIdValid(decor[i]))
-                {
-                    destroyObject(decor[i]);
+            for (obj_id obj_id : decor) {
+                if (isIdValid(obj_id)) {
+                    destroyObject(obj_id);
                 }
             }
         }
@@ -513,11 +507,9 @@ public class demoer extends script.base_script
             obj_id palace2 = getObjIdObjVar(self, "palace2");
             destroyObject(palace2);
             obj_id[] decor = getObjIdArrayObjVar(self, "decor");
-            for (int i = 0; i < decor.length; i++)
-            {
-                if (isIdValid(decor[i]))
-                {
-                    destroyObject(decor[i]);
+            for (obj_id obj_id : decor) {
+                if (isIdValid(obj_id)) {
+                    destroyObject(obj_id);
                 }
             }
         }
@@ -626,7 +618,7 @@ public class demoer extends script.base_script
             float maxToHit = toHitChance + (toHitChance * bio_engineer.CREATURE_MAX_TO_HIT_MOD);
             setObjVar(object, "creature_attribs.toHitChance", toHitChance);
             obj_id creatureWeapon = getCurrentWeapon(object);
-            float wpnSpeed = (float)creatureDict.getInt("attackSpeed");
+            float wpnSpeed = creatureDict.getInt("attackSpeed");
             float minWpnSpeed = wpnSpeed + (wpnSpeed * bio_engineer.CREATURE_MIN_WEAPON_SPEED_MOD);
             float maxWpnSpeed = wpnSpeed + (wpnSpeed * bio_engineer.CREATURE_MAX_WEAPON_SPEED_MOD);
             setObjVar(object, "creature_attribs.attackSpeed", wpnSpeed);
@@ -650,9 +642,8 @@ public class demoer extends script.base_script
     }
     public void grantAllSkills(obj_id objPlayer, String[] strSkillList) throws InterruptedException
     {
-        for (int intI = 0; intI < strSkillList.length; intI++)
-        {
-            grantSkill(objPlayer, strSkillList[intI]);
+        for (String s : strSkillList) {
+            grantSkill(objPlayer, s);
         }
     }
     public void createBantha(obj_id self) throws InterruptedException
@@ -726,12 +717,10 @@ public class demoer extends script.base_script
     public void createInInventory(obj_id objPlayer, String[] strItems) throws InterruptedException
     {
         obj_id objInventory = utils.getInventoryContainer(objPlayer);
-        for (int intI = 0; intI < strItems.length; intI++)
-        {
-            obj_id objTest = createObjectOverloaded(strItems[intI], objInventory);
-            if (!isIdValid(objTest))
-            {
-                sendSystemMessageTestingOnly(objPlayer, "Item of template " + strItems[intI] + " is Incorret!");
+        for (String strItem : strItems) {
+            obj_id objTest = createObjectOverloaded(strItem, objInventory);
+            if (!isIdValid(objTest)) {
+                sendSystemMessageTestingOnly(objPlayer, "Item of template " + strItem + " is Incorret!");
             }
         }
         return;
@@ -820,14 +809,12 @@ public class demoer extends script.base_script
         obj_id[] objContents = getContents(objBuilding);
         if (objContents != null)
         {
-            for (int intI = 0; intI < objContents.length; intI++)
-            {
-                String strTemplate = getTemplateName(objContents[intI]);
+            for (obj_id objContent : objContents) {
+                String strTemplate = getTemplateName(objContent);
                 int intIndex = strTemplate.indexOf("cell.iff");
                 LOG("test", "intIndex is " + intIndex);
-                if (intIndex == -1)
-                {
-                    destroyObject(objContents[intI]);
+                if (intIndex == -1) {
+                    destroyObject(objContent);
                 }
             }
         }
@@ -835,15 +822,12 @@ public class demoer extends script.base_script
     }
     public void detachScriptList(String[] strScriptList, obj_id objObject) throws InterruptedException
     {
-        for (int intJ = 0; intJ < strScriptList.length; intJ++)
-        {
-            String script = strScriptList[intJ];
-            if (script.indexOf("script.") > -1)
-            {
+        for (String s : strScriptList) {
+            String script = s;
+            if (script.contains("script.")) {
                 script = script.substring(7);
             }
-            if (!script.equals(""))
-            {
+            if (!script.equals("")) {
                 detachScript(objObject, script);
             }
         }
@@ -878,7 +862,7 @@ public class demoer extends script.base_script
         }
         for (int i = 0; i < groupMembersToWarp.size(); ++i)
         {
-            space_transition.setLaunchInfo(((obj_id)groupMembersToWarp.get(i)), ship, ((Integer)groupMemberStartIndex.get(i)).intValue(), groundLoc);
+            space_transition.setLaunchInfo(((obj_id)groupMembersToWarp.get(i)), ship, (Integer) groupMemberStartIndex.get(i), groundLoc);
             warpPlayer(((obj_id)groupMembersToWarp.get(i)), warpLocation.area, warpLocation.x, warpLocation.y, warpLocation.z, null, warpLocation.x, warpLocation.y, warpLocation.z);
         }
     }

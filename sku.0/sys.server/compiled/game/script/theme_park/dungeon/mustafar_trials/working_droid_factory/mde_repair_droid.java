@@ -87,16 +87,12 @@ public class mde_repair_droid extends script.base_script
         obj_id[] objects = trial.getAllObjectsInDungeon(self);
         Vector corpses = new Vector();
         corpses.setSize(0);
-        for (int i = 0; i < objects.length; i++)
-        {
-            String template = getTemplateName(objects[i]);
-            if (template.indexOf(ASSASSIN_TEMPLATE) > -1 || template.indexOf(COMBAT_TEMPLATE) > -1)
-            {
-                if (!utils.hasScriptVar(objects[i], "taken") && !utils.hasScriptVar(objects[i], trial.WORKING_MDE_REVIVED))
-                {
-                    if (isDead(objects[i]))
-                    {
-                        utils.addElement(corpses, objects[i]);
+        for (obj_id object : objects) {
+            String template = getTemplateName(object);
+            if (template.contains(ASSASSIN_TEMPLATE) || template.contains(COMBAT_TEMPLATE)) {
+                if (!utils.hasScriptVar(object, "taken") && !utils.hasScriptVar(object, trial.WORKING_MDE_REVIVED)) {
+                    if (isDead(object)) {
+                        utils.addElement(corpses, object);
                     }
                 }
             }
@@ -125,14 +121,14 @@ public class mde_repair_droid extends script.base_script
         location rezLoc = getLocation(corpse);
         playClientEffectLoc(corpse, trial.PRT_WORKING_REPAIR_REZ, rezLoc, 0.4f);
         String template = getTemplateName(corpse);
-        if (template.indexOf(ASSASSIN_TEMPLATE) > -1)
+        if (template.contains(ASSASSIN_TEMPLATE))
         {
             obj_id newAssassin = create.object(ASSASSIN_RESPAWN, rezLoc);
             utils.setScriptVar(newAssassin, trial.WORKING_MDE_REVIVED, true);
             attachScript(newAssassin, "theme_park.dungeon.mustafar_trials.working_droid_factory.mde_assassin_droid");
             utils.setScriptVar(newAssassin, trial.WORKING_MDE_MOB, true);
         }
-        if (template.indexOf(COMBAT_TEMPLATE) > -1)
+        if (template.contains(COMBAT_TEMPLATE))
         {
             obj_id newCombat = create.object(COMBAT_RESPAWN, rezLoc);
             utils.setScriptVar(newCombat, trial.WORKING_MDE_REVIVED, true);

@@ -116,22 +116,17 @@ public class wait_for_signal extends script.quest.task.ground.base_task
                 else 
                 {
                     String[] signalNames = split(signalName, ',');
-                    for (int k = 0; k < signalNames.length; k++)
-                    {
-                        if (signalNames[k].equals(signalReceived))
-                        {
-                            groundquests.questOutputDebugInfo(self, questCrc, taskId, taskType, "questSignal", "Signal " + signalNames[k] + " received.");
+                    for (String signalName1 : signalNames) {
+                        if (signalName1.equals(signalReceived)) {
+                            groundquests.questOutputDebugInfo(self, questCrc, taskId, taskType, "questSignal", "Signal " + signalName1 + " received.");
                             String signalObjvar = baseObjVar + dot + signalReceived + dot + "count";
                             int signalsMaximum = groundquests.getTaskIntDataEntry(questCrc, taskId, dataTableColumnNumRequired);
                             int signalsCompleted = getIntObjVar(self, signalObjvar) + 1;
                             setObjVar(self, signalObjvar, signalsCompleted);
-                            if (signalsMaximum > 1 && signalsCompleted < signalsMaximum)
-                            {
+                            if (signalsMaximum > 1 && signalsCompleted < signalsMaximum) {
                                 questSetQuestTaskCounter(self, questGetQuestName(questCrc), taskId, "quest/groundquests:signals_counter", signalsCompleted, signalsMaximum);
                                 play2dNonLoopingSound(self, groundquests.MUSIC_QUEST_INCREMENT_COUNTER);
-                            }
-                            else 
-                            {
+                            } else {
                                 questCompleteTask(questCrc, taskId, self);
                             }
                         }
@@ -221,15 +216,10 @@ public class wait_for_signal extends script.quest.task.ground.base_task
                 String questCrcString = (String)keys.nextElement();
                 int questCrc = utils.stringToInt(questCrcString);
                 int[] tasksForCurrentQuest = tasks.getIntArray(questCrcString);
-                for (int i = 0; i < tasksForCurrentQuest.length; ++i)
-                {
-                    int taskId = tasksForCurrentQuest[i];
-                    if (create)
-                    {
+                for (int taskId : tasksForCurrentQuest) {
+                    if (create) {
                         createMarker(player, questCrc, taskId);
-                    }
-                    else 
-                    {
+                    } else {
                         destroyMarker(player, questCrc, taskId);
                     }
                 }

@@ -16,46 +16,43 @@ public class test_message_to extends script.base_script
             return SCRIPT_CONTINUE;
         }
         boolean handled = true;
-        if (text.equals("startmessagetest"))
-        {
-            obj_id target = getLookAtTarget(self);
-            if (isIdValid(target))
-            {
-                if (!target.hasScript("debug.test_message_to"))
-                {
-                    attachScript(target, "debug.test_message_to");
+        switch (text) {
+            case "startmessagetest": {
+                obj_id target = getLookAtTarget(self);
+                if (isIdValid(target)) {
+                    if (!target.hasScript("debug.test_message_to")) {
+                        attachScript(target, "debug.test_message_to");
+                    }
+                } else {
+                    target = self;
                 }
+                deltadictionary scriptVars = self.getScriptVars();
+                scriptVars.put("messagetestcount", 0);
+                scriptVars.put("messagetestspam", false);
+                runTest(self, target, 1);
+                break;
             }
-            else 
-            {
-                target = self;
+            case "stopmessagetest": {
+                deltadictionary scriptVars = self.getScriptVars();
+                scriptVars.remove("messagetestcount");
+                scriptVars.remove("messagetesttest");
+                scriptVars.remove("messagetestspam");
+                break;
             }
-            deltadictionary scriptVars = self.getScriptVars();
-            scriptVars.put("messagetestcount", 0);
-            scriptVars.put("messagetestspam", false);
-            runTest(self, target, 1);
-        }
-        else if (text.equals("stopmessagetest"))
-        {
-            deltadictionary scriptVars = self.getScriptVars();
-            scriptVars.remove("messagetestcount");
-            scriptVars.remove("messagetesttest");
-            scriptVars.remove("messagetestspam");
-        }
-        else if (text.equals("messagetestinfo"))
-        {
-            deltadictionary scriptVars = self.getScriptVars();
-            debugServerConsoleMsg(null, "messagetest count = " + scriptVars.getInt("messagetestcount") + ", current test = " + scriptVars.getInt("messagetesttest"));
-        }
-        else if (text.equals("messagetestspam"))
-        {
-            deltadictionary scriptVars = self.getScriptVars();
-            boolean spam = scriptVars.getBoolean("messagetestspam");
-            scriptVars.put("messagetestspam", !spam);
-        }
-        else 
-        {
-            handled = false;
+            case "messagetestinfo": {
+                deltadictionary scriptVars = self.getScriptVars();
+                debugServerConsoleMsg(null, "messagetest count = " + scriptVars.getInt("messagetestcount") + ", current test = " + scriptVars.getInt("messagetesttest"));
+                break;
+            }
+            case "messagetestspam": {
+                deltadictionary scriptVars = self.getScriptVars();
+                boolean spam = scriptVars.getBoolean("messagetestspam");
+                scriptVars.put("messagetestspam", !spam);
+                break;
+            }
+            default:
+                handled = false;
+                break;
         }
         if (handled)
         {

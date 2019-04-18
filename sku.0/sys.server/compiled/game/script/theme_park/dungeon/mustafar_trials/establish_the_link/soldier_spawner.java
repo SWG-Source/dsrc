@@ -34,11 +34,9 @@ public class soldier_spawner extends script.base_script
         }
         Vector waypoints = new Vector();
         waypoints.setSize(0);
-        for (int i = 0; i < contents.length; i++)
-        {
-            if (utils.hasScriptVar(contents[i], trial.WP_NAME))
-            {
-                utils.addElement(waypoints, getLocation(contents[i]));
+        for (obj_id content : contents) {
+            if (utils.hasScriptVar(content, trial.WP_NAME)) {
+                utils.addElement(waypoints, getLocation(content));
             }
         }
         if (waypoints == null)

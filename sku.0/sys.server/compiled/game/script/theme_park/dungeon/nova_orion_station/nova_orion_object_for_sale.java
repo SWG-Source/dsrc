@@ -112,17 +112,12 @@ public class nova_orion_object_for_sale extends script.base_script
         int resourcesInInventory = 0;
         if (resourceCost > 0)
         {
-            for (int i = 0; i < inventoryContents.length; i++)
-            {
-                obj_id inventoryObject = inventoryContents[i];
+            for (obj_id inventoryObject : inventoryContents) {
                 String itemName = getStaticItemName(inventoryObject);
-                if (itemName != null && !itemName.equals(""))
-                {
-                    if (itemName.equals(township.MIDLITHE_CRYSTAL))
-                    {
+                if (itemName != null && !itemName.equals("")) {
+                    if (itemName.equals(township.MIDLITHE_CRYSTAL)) {
                         int amountInResourceStack = getCount(inventoryObject);
-                        if (amountInResourceStack > 0)
-                        {
+                        if (amountInResourceStack > 0) {
                             resourcesInInventory = resourcesInInventory + amountInResourceStack;
                         }
                     }
@@ -162,26 +157,18 @@ public class nova_orion_object_for_sale extends script.base_script
         if (resourceCost > 0)
         {
             int remainingResourceCost = resourceCost;
-            for (int i = 0; i < inventoryContents.length; i++)
-            {
-                if (remainingResourceCost > 0)
-                {
-                    obj_id inventoryObject = inventoryContents[i];
+            for (obj_id inventoryContent : inventoryContents) {
+                if (remainingResourceCost > 0) {
+                    obj_id inventoryObject = inventoryContent;
                     String itemName = getStaticItemName(inventoryObject);
-                    if (itemName != null && !itemName.equals(""))
-                    {
-                        if (itemName.equals(township.MIDLITHE_CRYSTAL))
-                        {
+                    if (itemName != null && !itemName.equals("")) {
+                        if (itemName.equals(township.MIDLITHE_CRYSTAL)) {
                             int numInStack = getCount(inventoryObject);
-                            if (numInStack > 0)
-                            {
-                                if (numInStack > remainingResourceCost)
-                                {
+                            if (numInStack > 0) {
+                                if (numInStack > remainingResourceCost) {
                                     setCount(inventoryObject, numInStack - remainingResourceCost);
                                     remainingResourceCost = 0;
-                                }
-                                else 
-                                {
+                                } else {
                                     remainingResourceCost = remainingResourceCost - numInStack;
                                     destroyObject(inventoryObject);
                                 }

@@ -42,70 +42,58 @@ public class fs_reflex2_player extends script.base_script
         {
             return SCRIPT_CONTINUE;
         }
-        if (questName.equals("fs_reflex_fetch_quest_01"))
-        {
-            setObjVar(self, IN_PROGRESS_OBJVAR, 1);
-        }
-        else if (questName.equals("fs_reflex_fetch_quest_02"))
-        {
-            obj_id crate = createObjectInInventoryAllowOverload("object/tangible/item/quest/force_sensitive/fs_reflex_supply_crate.iff", self);
-            if (isIdValid(crate))
-            {
-                setObjVar(crate, "player", self);
-                sendSystemMessage(self, MSG_GOT_CRATE);
-                quests.complete("fs_reflex_fetch_quest_02", self, true);
-            }
-        }
-        else if (questName.equals("fs_reflex_fetch_quest_03"))
-        {
-            location loc = new location(5284.0f, 0, -4222.0f, "dathomir");
-            addLocationTarget(questName, loc, 15.0f);
-            String wp_objvar = "quest." + questName + ".waypoint";
-            obj_id wp = createWaypointInDatapad(self, loc);
-            String summary = quests.getDataEntry(questName, "JOURNAL_ENTRY_SUMMARY");
-            if (summary != null && summary.length() > 0)
-            {
-                setWaypointName(wp, summary);
-            }
-            else 
-            {
-                setWaypointName(wp, "missing task summary for " + questName);
-            }
-            setWaypointColor(wp, "yellow");
-            setWaypointActive(wp, true);
-            setObjVar(self, wp_objvar, wp);
-        }
-        else if (questName.equals("fs_reflex_fetch_quest_04"))
-        {
-            int rescued = 0;
-            if (hasObjVar(self, RESCUED_OBJVAR))
-            {
-                rescued = getIntObjVar(self, RESCUED_OBJVAR);
-            }
-            rescued++;
-            if (rescued >= 6)
-            {
-                finishQuest(self, questName);
-            }
-            else 
-            {
-                setObjVar(self, RESCUED_OBJVAR, rescued);
-                continueQuest(self, questName, rescued);
-            }
-        }
-        else if (questName.equals("fs_reflex_fetch_quest_05"))
-        {
-            sendSystemMessage(self, MSG_QUEST_FAILED);
-            removeObjVar(self, IN_PROGRESS_OBJVAR);
-            setObjVar(self, FAILED_OBJVAR, 1);
-            resetQuest(self);
-        }
-        else if (questName.equals("fs_reflex_fetch_quest_06"))
-        {
-            sendSystemMessage(self, MSG_QUEST_ERROR_ABORTED);
-            removeObjVar(self, IN_PROGRESS_OBJVAR);
-            setObjVar(self, ABORTED_OBJVAR, 1);
-            resetQuest(self);
+        switch (questName) {
+            case "fs_reflex_fetch_quest_01":
+                setObjVar(self, IN_PROGRESS_OBJVAR, 1);
+                break;
+            case "fs_reflex_fetch_quest_02":
+                obj_id crate = createObjectInInventoryAllowOverload("object/tangible/item/quest/force_sensitive/fs_reflex_supply_crate.iff", self);
+                if (isIdValid(crate)) {
+                    setObjVar(crate, "player", self);
+                    sendSystemMessage(self, MSG_GOT_CRATE);
+                    quests.complete("fs_reflex_fetch_quest_02", self, true);
+                }
+                break;
+            case "fs_reflex_fetch_quest_03":
+                location loc = new location(5284.0f, 0, -4222.0f, "dathomir");
+                addLocationTarget(questName, loc, 15.0f);
+                String wp_objvar = "quest." + questName + ".waypoint";
+                obj_id wp = createWaypointInDatapad(self, loc);
+                String summary = quests.getDataEntry(questName, "JOURNAL_ENTRY_SUMMARY");
+                if (summary != null && summary.length() > 0) {
+                    setWaypointName(wp, summary);
+                } else {
+                    setWaypointName(wp, "missing task summary for " + questName);
+                }
+                setWaypointColor(wp, "yellow");
+                setWaypointActive(wp, true);
+                setObjVar(self, wp_objvar, wp);
+                break;
+            case "fs_reflex_fetch_quest_04":
+                int rescued = 0;
+                if (hasObjVar(self, RESCUED_OBJVAR)) {
+                    rescued = getIntObjVar(self, RESCUED_OBJVAR);
+                }
+                rescued++;
+                if (rescued >= 6) {
+                    finishQuest(self, questName);
+                } else {
+                    setObjVar(self, RESCUED_OBJVAR, rescued);
+                    continueQuest(self, questName, rescued);
+                }
+                break;
+            case "fs_reflex_fetch_quest_05":
+                sendSystemMessage(self, MSG_QUEST_FAILED);
+                removeObjVar(self, IN_PROGRESS_OBJVAR);
+                setObjVar(self, FAILED_OBJVAR, 1);
+                resetQuest(self);
+                break;
+            case "fs_reflex_fetch_quest_06":
+                sendSystemMessage(self, MSG_QUEST_ERROR_ABORTED);
+                removeObjVar(self, IN_PROGRESS_OBJVAR);
+                setObjVar(self, ABORTED_OBJVAR, 1);
+                resetQuest(self);
+                break;
         }
         return SCRIPT_CONTINUE;
     }

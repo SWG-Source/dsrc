@@ -268,17 +268,17 @@ public class mission_bounty extends script.systems.missions.base.mission_dynamic
         fltBaseTrackSpeed = fltBaseTrackSpeed + rand(60, 180);
         LOG("missions", "base2 find speed is " + fltBaseFindSpeed);
         LOG("missions", "base2 track speed is " + fltBaseTrackSpeed);
-        float fltTrackSpeed = (float)(intTrackSpeed);
-        float fltFindSpeed = (float)(intFindSpeed);
-        fltTrackSpeed = 1f - (fltTrackSpeed / 100);
-        fltFindSpeed = 1f - (fltFindSpeed / 100);
+        float fltTrackSpeed = (intTrackSpeed);
+        float fltFindSpeed = (intFindSpeed);
+        fltTrackSpeed = 1.0f - (fltTrackSpeed / 100);
+        fltFindSpeed = 1.0f - (fltFindSpeed / 100);
         if (fltTrackSpeed <= 0)
         {
-            fltTrackSpeed = .01f;
+            fltTrackSpeed = 0.01f;
         }
         if (fltFindSpeed <= 0)
         {
-            fltFindSpeed = .01f;
+            fltFindSpeed = 0.01f;
         }
         fltTrackSpeed = fltBaseTrackSpeed * fltTrackSpeed;
         fltFindSpeed = fltBaseFindSpeed * fltFindSpeed;

@@ -17,7 +17,7 @@ public class random_player_target extends script.base_script
             return;
         }
         obj_id target = null;
-        obj_id[] targets = getPlayerCreaturesInRange(getLocation(self), 64f);
+        obj_id[] targets = getPlayerCreaturesInRange(getLocation(self), 64.0f);
         if (targets == null || targets.length <= 0)
         {
             return;

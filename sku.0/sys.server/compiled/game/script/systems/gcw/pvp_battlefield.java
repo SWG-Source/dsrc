@@ -111,10 +111,8 @@ public class pvp_battlefield extends script.base_script
         }
         if (element_name_list != null && element_name_list.length > 0 && data != null && data.length > 0)
         {
-            for (int i = 0, j = data.length; i < j; i++)
-            {
-                if (data[i].getObjId("battlefield") == self)
-                {
+            for (dictionary datum : data) {
+                if (datum.getObjId("battlefield") == self) {
                     blog(self, "pvp_battlefield OnClusterWideDataResponse Battlefield: " + battlefieldName + " already exists in data");
                     releaseClusterWideDataLock(manage_name, lock_key);
                     return SCRIPT_CONTINUE;
@@ -513,20 +511,15 @@ public class pvp_battlefield extends script.base_script
             if (terminals != null && terminals.size() > 0)
             {
                 blog(controller, "terminals: " + terminals.size());
-                for (int i = 0, j = terminals.size(); i < j; i++)
-                {
-                    if (!isIdValid(((obj_id)terminals.get(i))) || !exists(((obj_id)terminals.get(i))))
-                    {
+                for (Object terminal : terminals) {
+                    if (!isIdValid(((obj_id) terminal)) || !exists(((obj_id) terminal))) {
                         continue;
                     }
-                    int faction = utils.getIntScriptVar(((obj_id)terminals.get(i)), "battlefield.terminal_faction");
-                    if (faction == factions.FACTION_FLAG_REBEL)
-                    {
-                        rebelTerminalMitigation += utils.getIntScriptVar(((obj_id)terminals.get(i)), "battlefield.terminal_mitigation");
-                    }
-                    else if (faction == factions.FACTION_FLAG_IMPERIAL)
-                    {
-                        imperialTerminalMitigation += utils.getIntScriptVar(((obj_id)terminals.get(i)), "battlefield.terminal_mitigation");
+                    int faction = utils.getIntScriptVar(((obj_id) terminal), "battlefield.terminal_faction");
+                    if (faction == factions.FACTION_FLAG_REBEL) {
+                        rebelTerminalMitigation += utils.getIntScriptVar(((obj_id) terminal), "battlefield.terminal_mitigation");
+                    } else if (faction == factions.FACTION_FLAG_IMPERIAL) {
+                        imperialTerminalMitigation += utils.getIntScriptVar(((obj_id) terminal), "battlefield.terminal_mitigation");
                     }
                 }
             }
@@ -719,33 +712,26 @@ public class pvp_battlefield extends script.base_script
         }
         Vector membersInRegion = new Vector();
         membersInRegion.setSize(0);
-        for (int i = 0, j = activeTeam.size(); i < j; i++)
-        {
-            if (((String)activeTeam.get(i)) == null || ((String)activeTeam.get(i)).length() < 1)
-            {
+        for (Object o : activeTeam) {
+            if (((String) o) == null || ((String) o).length() < 1) {
                 continue;
             }
-            String[] memberInfo = split(((String)activeTeam.get(i)), '^');
-            if (memberInfo == null || memberInfo.length < 1)
-            {
+            String[] memberInfo = split(((String) o), '^');
+            if (memberInfo == null || memberInfo.length < 1) {
                 continue;
             }
             obj_id player = utils.stringToObjId(memberInfo[0]);
-            if (!isIdValid(player) || !exists(player) || isIncapacitated(player) || isDead(player))
-            {
+            if (!isIdValid(player) || !exists(player) || isIncapacitated(player) || isDead(player)) {
                 continue;
             }
             region[] regionList = getRegionsAtPoint(getLocation(player));
-            if (regionList == null || regionList.length < 1)
-            {
+            if (regionList == null || regionList.length < 1) {
                 continue;
             }
             boolean regionFound = false;
-            for (int k = 0, l = regionList.length; k < l && !regionFound; k++)
-            {
+            for (int k = 0, l = regionList.length; k < l && !regionFound; k++) {
                 String regionName = regionList[k].getName();
-                if (regionName != null && regionName.startsWith("pvp_battlefield"))
-                {
+                if (regionName != null && regionName.startsWith("pvp_battlefield")) {
                     utils.addElement(membersInRegion, player);
                     regionFound = true;
                 }
@@ -852,13 +838,11 @@ public class pvp_battlefield extends script.base_script
         {
             return;
         }
-        for (int i = 0, j = recordList.size(); i < j; i++)
-        {
-            if (((obj_id)recordList.get(i)) == player)
-            {
+        for (Object o : recordList) {
+            if (((obj_id) o) == player) {
                 continue;
             }
-            utils.addElement(newRecordList, ((obj_id)recordList.get(i)));
+            utils.addElement(newRecordList, ((obj_id) o));
         }
         if (newRecordList != null && newRecordList.size() > 0)
         {
@@ -931,23 +915,19 @@ public class pvp_battlefield extends script.base_script
         }
         location rebelLoc = utils.getLocationScriptVar(controller, "rebelKickOutLocation");
         location imperialLoc = utils.getLocationScriptVar(controller, "imperialKickOutLocation");
-        for (int i = 0, j = activePlayers.size(); i < j; i++)
-        {
-            if (isIdValid(((obj_id)activePlayers.get(i))))
-            {
+        for (Object activePlayer : activePlayers) {
+            if (isIdValid(((obj_id) activePlayer))) {
                 String battlefieldName = getStringObjVar(controller, "battlefieldName");
                 dictionary params = new dictionary();
                 params.put("battlefieldName", battlefieldName);
-                if (exists(((obj_id)activePlayers.get(i))))
-                {
-                    params.put("warpLocation", (factions.isRebel(((obj_id)activePlayers.get(i))) ? rebelLoc : imperialLoc));
+                if (exists(((obj_id) activePlayer))) {
+                    params.put("warpLocation", (factions.isRebel(((obj_id) activePlayer)) ? rebelLoc : imperialLoc));
                 }
                 Vector terminals = pvp.bfTerminalsGetRegistered(controller);
-                if (terminals != null && terminals.size() > 0)
-                {
+                if (terminals != null && terminals.size() > 0) {
                     params.put("terminals", terminals);
                 }
-                messageTo(((obj_id)activePlayers.get(i)), "receiveBattlefieldOver", params, 0.0f, false);
+                messageTo(((obj_id) activePlayer), "receiveBattlefieldOver", params, 0.0f, false);
             }
         }
     }
@@ -963,14 +943,12 @@ public class pvp_battlefield extends script.base_script
         {
             activePlayers = utils.getResizeableObjIdBatchScriptVar(controller, BATTLEFIELD_ACTIVE_PLAYERS);
         }
-        for (int i = 0, j = activePlayers.size(); i < j; i++)
-        {
-            if (isIdValid(((obj_id)activePlayers.get(i))))
-            {
+        for (Object activePlayer : activePlayers) {
+            if (isIdValid(((obj_id) activePlayer))) {
                 String battlefieldName = getStringObjVar(controller, "battlefieldName");
                 dictionary params = new dictionary();
                 params.put("battlefieldName", battlefieldName);
-                messageTo(((obj_id)activePlayers.get(i)), "receiveBattlefieldRefusePlayers", params, 0.0f, false);
+                messageTo(((obj_id) activePlayer), "receiveBattlefieldRefusePlayers", params, 0.0f, false);
             }
         }
     }
@@ -1066,11 +1044,9 @@ public class pvp_battlefield extends script.base_script
                 return;
             }
             rebels = utils.getResizeableObjIdBatchScriptVar(controller, BATTLEFIELD_POTENTIAL_REBEL_PLAYERS);
-            for (int i = 0, j = rebels.size(); i < j; i++)
-            {
-                if (((obj_id)rebels.get(i)) != player)
-                {
-                    utils.addElement(newRebels, ((obj_id)rebels.get(i)));
+            for (Object rebel : rebels) {
+                if (((obj_id) rebel) != player) {
+                    utils.addElement(newRebels, ((obj_id) rebel));
                 }
             }
             utils.setBatchScriptVar(controller, BATTLEFIELD_POTENTIAL_REBEL_PLAYERS, newRebels);
@@ -1082,11 +1058,9 @@ public class pvp_battlefield extends script.base_script
                 return;
             }
             imperials = utils.getResizeableObjIdBatchScriptVar(controller, BATTLEFIELD_POTENTIAL_IMPERIAL_PLAYERS);
-            for (int i = 0, j = imperials.size(); i < j; i++)
-            {
-                if (((obj_id)imperials.get(i)) != player)
-                {
-                    utils.addElement(newImperials, ((obj_id)imperials.get(i)));
+            for (Object imperial : imperials) {
+                if (((obj_id) imperial) != player) {
+                    utils.addElement(newImperials, ((obj_id) imperial));
                 }
             }
             utils.setBatchScriptVar(controller, BATTLEFIELD_POTENTIAL_IMPERIAL_PLAYERS, newImperials);
@@ -1112,24 +1086,20 @@ public class pvp_battlefield extends script.base_script
         }
         if (rebels != null && rebels.size() > 0 && clearQueue)
         {
-            for (int i = 0, j = rebels.size(); i < j; i++)
-            {
-                if (!isIdValid(((obj_id)rebels.get(i))))
-                {
+            for (Object rebel : rebels) {
+                if (!isIdValid(((obj_id) rebel))) {
                     continue;
                 }
-                bfQueueRemovePlayer(controller, ((obj_id)rebels.get(i)), factions.FACTION_FLAG_REBEL);
+                bfQueueRemovePlayer(controller, ((obj_id) rebel), factions.FACTION_FLAG_REBEL);
             }
         }
         if (imperials != null && imperials.size() > 0 && clearQueue)
         {
-            for (int i = 0, j = imperials.size(); i < j; i++)
-            {
-                if (!isIdValid(((obj_id)imperials.get(i))))
-                {
+            for (Object imperial : imperials) {
+                if (!isIdValid(((obj_id) imperial))) {
                     continue;
                 }
-                bfQueueRemovePlayer(controller, ((obj_id)imperials.get(i)), factions.FACTION_FLAG_IMPERIAL);
+                bfQueueRemovePlayer(controller, ((obj_id) imperial), factions.FACTION_FLAG_IMPERIAL);
             }
         }
         utils.removeBatchScriptVar(controller, BATTLEFIELD_POTENTIAL_REBEL_PLAYERS);
@@ -1180,14 +1150,12 @@ public class pvp_battlefield extends script.base_script
             if (loc != null)
             {
                 params.put("warpInLocation", loc);
-                for (int i = 0, j = rebels.size(); i < j; i++)
-                {
-                    if (!isIdValid(((obj_id)rebels.get(i))) || utils.isElementInArray(invitedRebels, ((obj_id)rebels.get(i))))
-                    {
+                for (Object rebel : rebels) {
+                    if (!isIdValid(((obj_id) rebel)) || utils.isElementInArray(invitedRebels, ((obj_id) rebel))) {
                         continue;
                     }
-                    messageTo(((obj_id)rebels.get(i)), "receiveBattlefieldInvitation", params, 1.0f, false);
-                    utils.addElement(invitedRebels, ((obj_id)rebels.get(i)));
+                    messageTo(((obj_id) rebel), "receiveBattlefieldInvitation", params, 1.0f, false);
+                    utils.addElement(invitedRebels, ((obj_id) rebel));
                 }
             }
         }
@@ -1198,14 +1166,12 @@ public class pvp_battlefield extends script.base_script
             if (loc != null)
             {
                 params.put("warpInLocation", loc);
-                for (int i = 0, j = imperials.size(); i < j; i++)
-                {
-                    if (!isIdValid(((obj_id)imperials.get(i))) || utils.isElementInArray(invitedImperials, ((obj_id)imperials.get(i))))
-                    {
+                for (Object imperial : imperials) {
+                    if (!isIdValid(((obj_id) imperial)) || utils.isElementInArray(invitedImperials, ((obj_id) imperial))) {
                         continue;
                     }
-                    messageTo(((obj_id)imperials.get(i)), "receiveBattlefieldInvitation", params, 1.0f, false);
-                    utils.addElement(invitedImperials, ((obj_id)imperials.get(i)));
+                    messageTo(((obj_id) imperial), "receiveBattlefieldInvitation", params, 1.0f, false);
+                    utils.addElement(invitedImperials, ((obj_id) imperial));
                 }
             }
         }
@@ -1240,9 +1206,8 @@ public class pvp_battlefield extends script.base_script
             utils.removeBatchScriptVar(controller, factionScriptVar);
             String newEntry = "" + player + "^" + getCalendarTime();
             utils.addElement(newRecordList, newEntry);
-            for (int i = 0, j = recordList.size(); i < j; i++)
-            {
-                utils.addElement(newRecordList, ((String)recordList.get(i)));
+            for (Object o : recordList) {
+                utils.addElement(newRecordList, ((String) o));
             }
             utils.setBatchScriptVar(controller, factionScriptVar, newRecordList);
             blog(controller, "addPlayerToQueueList newEntry: " + newEntry);
@@ -1366,34 +1331,28 @@ public class pvp_battlefield extends script.base_script
         dictionary params = new dictionary();
         String battlefieldName = getStringObjVar(controller, "battlefieldName");
         params.put("battlefieldName", battlefieldName);
-        for (int i = 0, j = members.length; i < j; i++)
-        {
-            if (!isIdValid(members[i]))
-            {
+        for (obj_id member : members) {
+            if (!isIdValid(member)) {
                 continue;
             }
             boolean skipPlayer = false;
-            if (recordList != null && recordList.size() > 0)
-            {
-                String playerData = getPlayerDataFromList(members[i], recordList);
-                if (playerData != null)
-                {
+            if (recordList != null && recordList.size() > 0) {
+                String playerData = getPlayerDataFromList(member, recordList);
+                if (playerData != null) {
                     blog(controller, "bfQueueAddGroup oldEntry: " + playerData);
                     String[] splitData = split(playerData, '^');
-                    if (splitData != null && splitData.length > 0)
-                    {
+                    if (splitData != null && splitData.length > 0) {
                         skipPlayer = true;
                     }
                 }
             }
-            if (!skipPlayer)
-            {
-                String newEntry = "" + members[i] + "^" + getCalendarTime();
+            if (!skipPlayer) {
+                String newEntry = "" + member + "^" + getCalendarTime();
                 utils.addElement(recordList, newEntry);
                 blog(controller, "bfQueueAddGroup newEntry: " + newEntry);
             }
             params.put("controller", controller);
-            messageTo(members[i], "receiveBattlefieldQueueAcceptance", params, 1.0f, false);
+            messageTo(member, "receiveBattlefieldQueueAcceptance", params, 1.0f, false);
         }
         utils.setBatchScriptVar(controller, factionScriptVar, recordList);
     }
@@ -1472,31 +1431,25 @@ public class pvp_battlefield extends script.base_script
         int currentIndex = 0;
         Vector groupList = new Vector();
         groupList.setSize(0);
-        for (int i = 0, j = recordList.size(); i < j; i++)
-        {
-            if (((String)recordList.get(i)) == null || ((String)recordList.get(i)).length() < 1)
-            {
+        for (Object o : recordList) {
+            if (((String) o) == null || ((String) o).length() < 1) {
                 continue;
             }
-            playerInfo = split(((String)recordList.get(i)), '^');
-            if (playerInfo == null || playerInfo.length < 2)
-            {
+            playerInfo = split(((String) o), '^');
+            if (playerInfo == null || playerInfo.length < 2) {
                 continue;
             }
             currentGroup = utils.stringToObjId(playerInfo[1]);
-            if (lastGroup != currentGroup)
-            {
+            if (lastGroup != currentGroup) {
                 currentIndex++;
-                if (currentIndex > groupIndex)
-                {
+                if (currentIndex > groupIndex) {
                     return groupList;
                 }
             }
             lastGroup = currentGroup;
-            if (currentIndex == groupIndex)
-            {
-                blog(controller, "bfQueueGetGroupNum currentIndex: " + currentIndex + " groupIndex: " + groupIndex + " for " + ((String)recordList.get(i)));
-                utils.addElement(groupList, ((String)recordList.get(i)));
+            if (currentIndex == groupIndex) {
+                blog(controller, "bfQueueGetGroupNum currentIndex: " + currentIndex + " groupIndex: " + groupIndex + " for " + ((String) o));
+                utils.addElement(groupList, ((String) o));
             }
         }
         return groupList;
@@ -1643,20 +1596,17 @@ public class pvp_battlefield extends script.base_script
         obj_id[] members = params.getObjIdArray("members");
         if (members != null && members.length > 0)
         {
-            for (int i = 0, j = members.length; i < j; i++)
-            {
-                if (!isIdValid(members[i]))
-                {
+            for (obj_id member : members) {
+                if (!isIdValid(member)) {
                     continue;
                 }
-                bfQueueRemovePlayer(self, members[i], faction);
+                bfQueueRemovePlayer(self, member, faction);
                 params.put("battlefieldController", self);
                 String battlefieldName = getStringObjVar(self, "battlefieldName");
-                if (battlefieldName != null || battlefieldName.length() > 0)
-                {
+                if (battlefieldName != null || battlefieldName.length() > 0) {
                     params.put("battlefieldName", battlefieldName);
                 }
-                messageTo(members[i], "receiveBattlefieldQueueRemoval", params, 1.0f, false);
+                messageTo(member, "receiveBattlefieldQueueRemoval", params, 1.0f, false);
             }
             return SCRIPT_CONTINUE;
         }
@@ -1718,13 +1668,11 @@ public class pvp_battlefield extends script.base_script
         {
             params.put("battlefieldName", battlefieldName);
         }
-        for (int i = 0, j = members.length; i < j; i++)
-        {
-            if (!isIdValid(members[i]))
-            {
+        for (obj_id member : members) {
+            if (!isIdValid(member)) {
                 continue;
             }
-            messageTo(members[i], "receiveBattlefieldQueueRemoval", params, 1.0f, false);
+            messageTo(member, "receiveBattlefieldQueueRemoval", params, 1.0f, false);
         }
         return SCRIPT_CONTINUE;
     }
@@ -1741,9 +1689,8 @@ public class pvp_battlefield extends script.base_script
         String[] nameInfo = split(name, '^');
         if (nameInfo.length > 1)
         {
-            for (int i = 0, j = nameInfo.length; i < j; i++)
-            {
-                name += nameInfo[i];
+            for (String s : nameInfo) {
+                name += s;
             }
         }
         bfActiveAddPlayer(self, player, name, faction);
@@ -1860,16 +1807,13 @@ public class pvp_battlefield extends script.base_script
         }
         obj_id furthestTerminal = null;
         float furthestDistance = 0.0f;
-        for (int i = 0, j = terminals.size(); i < j; i++)
-        {
-            if (!isIdValid(((obj_id)terminals.get(i))) || !exists(((obj_id)terminals.get(i))))
-            {
+        for (Object terminal : terminals) {
+            if (!isIdValid(((obj_id) terminal)) || !exists(((obj_id) terminal))) {
                 continue;
             }
-            float terminalDistance = getDistance(player, ((obj_id)terminals.get(i)));
-            if (furthestDistance < terminalDistance)
-            {
-                furthestTerminal = ((obj_id)terminals.get(i));
+            float terminalDistance = getDistance(player, ((obj_id) terminal));
+            if (furthestDistance < terminalDistance) {
+                furthestTerminal = ((obj_id) terminal);
                 furthestDistance = terminalDistance;
             }
         }
@@ -1910,12 +1854,10 @@ public class pvp_battlefield extends script.base_script
             return 0;
         }
         int factionCount = 0;
-        for (int i = 0; i < recordList.size(); i++)
-        {
-            String[] parse = split(((String)recordList.get(i)), '^');
+        for (Object o : recordList) {
+            String[] parse = split(((String) o), '^');
             String faction = parse[1];
-            if (faction.equals(passedFaction))
-            {
+            if (faction.equals(passedFaction)) {
                 factionCount++;
             }
         }
@@ -1928,9 +1870,8 @@ public class pvp_battlefield extends script.base_script
             return 0;
         }
         int deathCount = 0;
-        for (int i = 0; i < recordList.size(); i++)
-        {
-            String[] parse = split(((String)recordList.get(i)), '^');
+        for (Object o : recordList) {
+            String[] parse = split(((String) o), '^');
             int playerDeath = utils.stringToInt(parse[3]);
             deathCount += playerDeath;
         }

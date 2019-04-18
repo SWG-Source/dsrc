@@ -15,7 +15,7 @@ public class handoff_to_tatooine extends script.base_script
     public int OnLogin(obj_id self) throws InterruptedException
     {
         location origin = getLocation(self);
-        location fighting = new location(3521f, 0.0f, -4821f, origin.area);
+        location fighting = new location(3521.0f, 0.0f, -4821.0f, origin.area);
         location crafty = new location(3309.0f, 6.0f, -4785.0f, origin.area);
         String profession = getSkillTemplate(self);
         int crafter = profession.indexOf("trader");

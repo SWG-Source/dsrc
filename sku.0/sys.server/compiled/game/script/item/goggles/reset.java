@@ -31,15 +31,12 @@ public class reset extends script.base_script
             {
                 obj_id[] allItems = utils.getAllItemsInBankAndInventory(self);
                 obj_id inventory = getObjectInSlot(self, "inventory");
-                for (int i = 0; i < COLLECTOR_EDITION_ITEMS.length; i++)
-                {
-                    if (checkItems(allItems, COLLECTOR_EDITION_ITEMS[i]))
-                    {
+                for (String collectorEditionItem : COLLECTOR_EDITION_ITEMS) {
+                    if (checkItems(allItems, collectorEditionItem)) {
                         continue;
                     }
-                    obj_id newItem = createObject(COLLECTOR_EDITION_ITEMS[i], inventory, "");
-                    if (!isIdValid(newItem))
-                    {
+                    obj_id newItem = createObject(collectorEditionItem, inventory, "");
+                    if (!isIdValid(newItem)) {
                         createFailed = true;
                     }
                 }
@@ -48,15 +45,12 @@ public class reset extends script.base_script
             {
                 obj_id[] allItems = utils.getAllItemsInBankAndInventory(self);
                 obj_id inventory = getObjectInSlot(self, "inventory");
-                for (int i = 0; i < JP_COLLECTOR_EDITION_ITEMS.length; i++)
-                {
-                    if (checkItems(allItems, JP_COLLECTOR_EDITION_ITEMS[i]))
-                    {
+                for (String jpCollectorEditionItem : JP_COLLECTOR_EDITION_ITEMS) {
+                    if (checkItems(allItems, jpCollectorEditionItem)) {
                         continue;
                     }
-                    obj_id newItem = createObject(JP_COLLECTOR_EDITION_ITEMS[i], inventory, "");
-                    if (!isIdValid(newItem))
-                    {
+                    obj_id newItem = createObject(jpCollectorEditionItem, inventory, "");
+                    if (!isIdValid(newItem)) {
                         createFailed = true;
                     }
                 }
@@ -74,11 +68,9 @@ public class reset extends script.base_script
     }
     public boolean checkItems(obj_id[] itemList, String template) throws InterruptedException
     {
-        for (int i = 0; i < itemList.length; i++)
-        {
-            String itemTemplate = getTemplateName(itemList[i]);
-            if (itemTemplate.equals(template))
-            {
+        for (obj_id obj_id : itemList) {
+            String itemTemplate = getTemplateName(obj_id);
+            if (itemTemplate.equals(template)) {
                 return true;
             }
         }

@@ -175,9 +175,8 @@ public class engine extends script.base_script
                         {
                             return;
                         }
-                        for (int i = 0; i < numPlayers; i++)
-                        {
-                            messageTo(((obj_id)players.get(i)), "youWin", null, 1, false);
+                        for (Object player1 : players) {
+                            messageTo(((obj_id) player1), "youWin", null, 1, false);
                             setObjVar(self, "destroyed", 1);
                         }
                     }

@@ -35,7 +35,7 @@ public class tcg_bespin_lights extends script.base_script
                 || !exists(structure)
                 || (!player_structure.isBuilding(structure) && !isPlayer(structure))
                 || (player != owner && !player_structure.isAdmin(structure, player))
-                || (getTopMostContainer(player) != getTopMostContainer(self)) || (getDistance(player, self) > 7f)) {
+                || (getTopMostContainer(player) != getTopMostContainer(self)) || (getDistance(player, self) > 7.0f)) {
             return SCRIPT_CONTINUE;
         }
         mi.addRootMenu(menu_info_types.ITEM_USE, new string_id("tcg", (isOn(self) ? "turn_off" : "turn_on")));

@@ -24,13 +24,9 @@ public class tierce_house_block extends script.base_script
             {
                 obj_id[] groupMembers = getGroupMemberIds(groupObj);
                 int numGroupMembers = groupMembers.length;
-                for (int f = 0; f < numGroupMembers; f++)
-                {
-                    obj_id groupie = groupMembers[f];
-                    if (isIdValid(groupie))
-                    {
-                        if (groundquests.isTaskActive(item, "c_story1_4a", "talktolando") || groundquests.isTaskActive(item, "c_story1_4a", "chooseimp"))
-                        {
+                for (obj_id groupie : groupMembers) {
+                    if (isIdValid(groupie)) {
+                        if (groundquests.isTaskActive(item, "c_story1_4a", "talktolando") || groundquests.isTaskActive(item, "c_story1_4a", "chooseimp")) {
                             return SCRIPT_CONTINUE;
                         }
                     }

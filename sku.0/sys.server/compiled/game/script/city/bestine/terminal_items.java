@@ -24,7 +24,7 @@ public class terminal_items extends script.base_script
         if (volumeName.equals(GET_QUEST_ITEM_VOLUME_NAME))
         {
             String template = getStringObjVar(self, "disk");
-            if ((template != null) && (!template.equals("")) && template.indexOf("history") > -1 && isPlayer(breacher) && canSearch(self, breacher))
+            if ((template != null) && (!template.equals("")) && template.contains("history") && isPlayer(breacher) && canSearch(self, breacher))
             {
                 if (hasObjVar(breacher, "bestine.searched"))
                 {
@@ -56,7 +56,7 @@ public class terminal_items extends script.base_script
     public int OnObjectMenuRequest(obj_id self, obj_id player, menu_info mi) throws InterruptedException
     {
         String template = getStringObjVar(self, "disk");
-        if(template != null && template.indexOf("history") >= 0){
+        if(template != null && template.contains("history")){
             return SCRIPT_CONTINUE;
         }
         if (canSearch(self, player))

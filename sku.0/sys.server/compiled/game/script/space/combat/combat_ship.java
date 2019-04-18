@@ -10,8 +10,8 @@ public class combat_ship extends script.base_script
     public combat_ship()
     {
     }
-    public static final float BROKEN_COMPONENT_DEFAULT_MASS = 50000f;
-    public static final float SPACE_YACHT_COMPONENT_DEFAULT_MASS = 0f;
+    public static final float BROKEN_COMPONENT_DEFAULT_MASS = 50000.0f;
+    public static final float SPACE_YACHT_COMPONENT_DEFAULT_MASS = 0.0f;
     public static final string_id SID_TARGET_DISABLED = new string_id("space/quest", "target_disabled2");
     public static final int DROID_VOCALIZE_REACT_CHANCE = 2;
     public static final int SHIP_DAMAGED_SKILLMOD_PENALTY_TIME = 10;
@@ -47,7 +47,7 @@ public class combat_ship extends script.base_script
     }
     public int OnShipHitByLightning(obj_id self, int frontBack, float damage) throws InterruptedException
     {
-        if (damage > 0.f)
+        if (damage > 0.0f)
         {
             notifyShipDamage(self, null, damage);
         }
@@ -56,7 +56,7 @@ public class combat_ship extends script.base_script
     }
     public int OnShipHitByEnvironment(obj_id self, int frontBack, float damage) throws InterruptedException
     {
-        if (damage > 0.f)
+        if (damage > 0.0f)
         {
             notifyShipDamage(self, null, damage);
         }
@@ -101,10 +101,8 @@ public class combat_ship extends script.base_script
                     obj_id[] groupMembers = space_utils.getSpaceGroupMemberIds(group_id);
                     if (groupMembers != null)
                     {
-                        for (int i = 0; i < groupMembers.length; i++)
-                        {
-                            if (objAttacker == space_transition.getContainingShip(groupMembers[i]))
-                            {
+                        for (obj_id groupMember : groupMembers) {
+                            if (objAttacker == space_transition.getContainingShip(groupMember)) {
                                 absorb = false;
                                 break;
                             }
@@ -124,9 +122,8 @@ public class combat_ship extends script.base_script
                     }
                     else 
                     {
-                        for (int i = 0; i < gunners.size(); i++)
-                        {
-                            playClientEffectObj(((obj_id)gunners.get(i)), NO_DAMAGE_WARN, ((obj_id)gunners.get(i)), "");
+                        for (Object gunner : gunners) {
+                            playClientEffectObj(((obj_id) gunner), NO_DAMAGE_WARN, ((obj_id) gunner), "");
                         }
                     }
                     return SCRIPT_CONTINUE;
@@ -168,7 +165,7 @@ public class combat_ship extends script.base_script
         transform defenderTransform_w = getTransform_o2w(self);
         vector hitDirection_o = defenderTransform_w.rotateTranslate_p2l(attackerTransform_w.getPosition_p());
         int intSide = 0;
-        if (hitDirection_o.z < 0.f)
+        if (hitDirection_o.z < 0.0f)
         {
             intSide = 1;
         }
@@ -200,7 +197,7 @@ public class combat_ship extends script.base_script
                 }
             }
         }
-        if (fltDamage > 0.f)
+        if (fltDamage > 0.0f)
         {
             notifyShipDamage(self, objAttacker, fltDamage);
             ship_ai.unitAddDamageTaken(self, objAttacker, fltDamage);
@@ -218,7 +215,7 @@ public class combat_ship extends script.base_script
         {
             if (bossShip && !utils.hasScriptVar(self, "shieldDepleted"))
             {
-                messageTo(self, "shieldDepleted", null, 0f, false);
+                messageTo(self, "shieldDepleted", null, 0.0f, false);
             }
             fltRemainingDamage = space_combat.doArmorDamage(objAttacker, self, intWeaponSlot, fltRemainingDamage, intSide);
             if (fltRemainingDamage > 0)
@@ -229,7 +226,7 @@ public class combat_ship extends script.base_script
                 }
                 if (bossShip && !utils.hasScriptVar(self, "armorDepleted"))
                 {
-                    messageTo(self, "armorDepleted", null, 0f, false);
+                    messageTo(self, "armorDepleted", null, 0.0f, false);
                 }
                 fltRemainingDamage = space_combat.doComponentDamage(objAttacker, self, intWeaponSlot, intTargetedComponent, fltRemainingDamage, intSide);
                 if (fltRemainingDamage > 0)
@@ -306,9 +303,8 @@ public class combat_ship extends script.base_script
         Vector objPlayers = space_transition.getContainedPlayers(self, null);
         if (objPlayers != null)
         {
-            for (int intI = 0; intI < objPlayers.size(); intI++)
-            {
-                space_combat.strikeBomberCleanup(((obj_id)objPlayers.get(intI)));
+            for (Object objPlayer : objPlayers) {
+                space_combat.strikeBomberCleanup(((obj_id) objPlayer));
             }
         }
         space_combat.killSpacePlayer(self);
@@ -327,29 +323,22 @@ public class combat_ship extends script.base_script
         setCondition(self, CONDITION_ON);
         String strChassisType = getShipChassisType(self);
         int[] intSlots = space_crafting.getShipInstalledSlots(self);
-        for (int intI = 0; intI < intSlots.length; intI++)
-        {
-            int currentSlotComponentType = ship_chassis_slot_type.getComponentTypeForSlot(intSlots[intI]);
-            if (currentSlotComponentType != ship_component_type.SCT_modification)
-            {
-                float currentComponentMass = getShipComponentMass(self, intSlots[intI]);
-                if (strChassisType.equals("player_sorosuub_space_yacht"))
-                {
-                    if (currentComponentMass != 0)
-                    {
-                        setShipComponentMass(self, intSlots[intI], SPACE_YACHT_COMPONENT_DEFAULT_MASS);
+        for (int intSlot : intSlots) {
+            int currentSlotComponentType = ship_chassis_slot_type.getComponentTypeForSlot(intSlot);
+            if (currentSlotComponentType != ship_component_type.SCT_modification) {
+                float currentComponentMass = getShipComponentMass(self, intSlot);
+                if (strChassisType.equals("player_sorosuub_space_yacht")) {
+                    if (currentComponentMass != 0) {
+                        setShipComponentMass(self, intSlot, SPACE_YACHT_COMPONENT_DEFAULT_MASS);
                     }
-                }
-                else if (currentComponentMass == 0)
-                {
-                    setShipComponentMass(self, intSlots[intI], BROKEN_COMPONENT_DEFAULT_MASS);
+                } else if (currentComponentMass == 0) {
+                    setShipComponentMass(self, intSlot, BROKEN_COMPONENT_DEFAULT_MASS);
                 }
             }
-            if (intSlots[intI] == space_crafting.ENGINE)
-            {
+            if (intSlot == space_crafting.ENGINE) {
                 space_crafting.setupChassisDifferentiation(self);
             }
-            space_combat.recalculateEfficiency(intSlots[intI], self);
+            space_combat.recalculateEfficiency(intSlot, self);
         }
         return SCRIPT_CONTINUE;
     }
@@ -364,11 +353,9 @@ public class combat_ship extends script.base_script
         {
             dictionary outparams = new dictionary();
             outparams.put("object", self);
-            for (int i = 0; i < notifylist.length; i++)
-            {
-                if (exists(notifylist[i]) && (notifylist[i].isLoaded()))
-                {
-                    space_utils.notifyObject(notifylist[i], "shipDestroyed", outparams);
+            for (obj_id obj_id : notifylist) {
+                if (exists(obj_id) && (obj_id.isLoaded())) {
+                    space_utils.notifyObject(obj_id, "shipDestroyed", outparams);
                 }
             }
         }
@@ -415,9 +402,8 @@ public class combat_ship extends script.base_script
             return SCRIPT_CONTINUE;
         }
         Vector objOfficers = space_utils.getShipOfficers(self);
-        for (int intI = 0; intI < objOfficers.size(); intI++)
-        {
-            space_utils.notifyObject(((obj_id)objOfficers.get(intI)), "targetDestroyed", params);
+        for (Object objOfficer : objOfficers) {
+            space_utils.notifyObject(((obj_id) objOfficer), "targetDestroyed", params);
         }
         return SCRIPT_CONTINUE;
     }
@@ -429,9 +415,8 @@ public class combat_ship extends script.base_script
             return SCRIPT_CONTINUE;
         }
         Vector objOfficers = space_utils.getShipOfficers(self);
-        for (int intI = 0; intI < objOfficers.size(); intI++)
-        {
-            space_utils.notifyObject(((obj_id)objOfficers.get(intI)), "targetDisabled", params);
+        for (Object objOfficer : objOfficers) {
+            space_utils.notifyObject(((obj_id) objOfficer), "targetDisabled", params);
             space_utils.sendSystemMessageShip(self, SID_TARGET_DISABLED, true, true, true, false);
         }
         return SCRIPT_CONTINUE;
@@ -460,7 +445,7 @@ public class combat_ship extends script.base_script
                     {
                         CustomerServiceLog("space_death", "%TU " + objAttacker + " is EJECTING!", getOwner(objAttacker));
                         utils.removeLocalVar(self, "intEjecting");
-                        float fltDamage = getShipMaximumChassisHitPoints(self) * .20f;
+                        float fltDamage = getShipMaximumChassisHitPoints(self) * 0.20f;
                         space_combat.doChassisDamage(objAttacker, self, 1, fltDamage);
                         obj_id objDefenderPilot = getPilotId(self);
                         if (!isIdValid(objDefenderPilot))
@@ -667,7 +652,7 @@ public class combat_ship extends script.base_script
             detachScript(self, "space.ai.space_ai");
             dictionary outparams = new dictionary();
             outparams.put("attacker", objAttacker);
-            messageTo(self, "selfDestruct", outparams, 120.f + rand() * 60.f, false);
+            messageTo(self, "selfDestruct", outparams, 120.0f + rand() * 60.0f, false);
             if (!hasObjVar(self, "objMissionOwner"))
             {
                 setObjVar(self, "objMissionOwner", getPilotId(objAttacker));
@@ -680,7 +665,7 @@ public class combat_ship extends script.base_script
         removeObjVar(self, "objMissionOwner");
         if (utils.hasScriptVar(self, "being_docked"))
         {
-            messageTo(self, "selfDestruct", params, 30.f, false);
+            messageTo(self, "selfDestruct", params, 30.0f, false);
             return SCRIPT_CONTINUE;
         }
         setObjVar(self, "selfDestruct", 1);
@@ -992,10 +977,9 @@ public class combat_ship extends script.base_script
                 string_id strSpam = new string_id("space/space_pilot_command", "sub_system_restart");
                 space_utils.sendSystemMessageShip(self, strSpam, true, false, true, true);
             }
-            for (int i = 0; i < stunnedComponents.size(); i++)
-            {
-                space_utils.setComponentDisabled(self, ((Integer)stunnedComponents.get(i)).intValue(), false);
-                space_combat.recalculateEfficiency(((Integer)stunnedComponents.get(i)).intValue(), self);
+            for (Object stunnedComponent : stunnedComponents) {
+                space_utils.setComponentDisabled(self, (Integer) stunnedComponent, false);
+                space_combat.recalculateEfficiency((Integer) stunnedComponent, self);
             }
             return SCRIPT_CONTINUE;
         }

@@ -148,10 +148,8 @@ public class control_audition extends script.base_script
             return SCRIPT_CONTINUE;
         }
         boolean plyNotFound = true;
-        for (int i = 0; i < contents.length; i++)
-        {
-            if (contents[i] == player)
-            {
+        for (obj_id content : contents) {
+            if (content == player) {
                 plyNotFound = false;
             }
         }
@@ -419,21 +417,17 @@ public class control_audition extends script.base_script
         judges[0] = create.staticObject("quest_crowd_pleaser_judge", judge1_loc);
         judges[1] = create.staticObject("quest_crowd_pleaser_judge", judge2_loc);
         judges[2] = create.staticObject("quest_crowd_pleaser_judge", judge3_loc);
-        for (int i = 0; i < furniture.length; i++)
-        {
-            if (isIdValid(furniture[i]))
-            {
-                setYaw(furniture[i], 0);
+        for (obj_id obj_id : furniture) {
+            if (isIdValid(obj_id)) {
+                setYaw(obj_id, 0);
             }
         }
-        for (int i = 0; i < judges.length; i++)
-        {
-            if (isIdValid(judges[i]))
-            {
-                setYaw(judges[i], 0);
-                setInvulnerable(judges[i], true);
-                setCreatureStatic(judges[i], true);
-                setAnimationMood(judges[i], "npc_sitting_chair");
+        for (obj_id judge : judges) {
+            if (isIdValid(judge)) {
+                setYaw(judge, 0);
+                setInvulnerable(judge, true);
+                setCreatureStatic(judge, true);
+                setAnimationMood(judge, "npc_sitting_chair");
             }
         }
         utils.setScriptVar(self, JUDGES_OBJVAR, judges);
@@ -445,21 +439,17 @@ public class control_audition extends script.base_script
         obj_id[] judges = utils.getObjIdArrayScriptVar(self, JUDGES_OBJVAR);
         if (judges != null && judges.length > 0)
         {
-            for (int i = 0; i < judges.length; i++)
-            {
-                if (isIdValid(judges[i]) && exists(judges[i]))
-                {
-                    destroyObject(judges[i]);
+            for (obj_id judge : judges) {
+                if (isIdValid(judge) && exists(judge)) {
+                    destroyObject(judge);
                 }
             }
         }
         if (furniture != null && furniture.length > 0)
         {
-            for (int i = 0; i < furniture.length; i++)
-            {
-                if (isIdValid(furniture[i]) && exists(furniture[i]))
-                {
-                    destroyObject(furniture[i]);
+            for (obj_id obj_id : furniture) {
+                if (isIdValid(obj_id) && exists(obj_id)) {
+                    destroyObject(obj_id);
                 }
             }
         }

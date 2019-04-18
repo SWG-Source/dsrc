@@ -76,18 +76,14 @@ public class crafted extends script.item.comestible.comestible
                 {
                     return SCRIPT_CONTINUE;
                 }
-                for (int i = 0; i < numMods; i++)
-                {
-                    int attrib = am[i].getAttribute();
+                for (attrib_mod attrib_mod : am) {
+                    int attrib = attrib_mod.getAttribute();
                     int val = Integer.MIN_VALUE;
-                    int duration = (int)(am[i].getDuration());
+                    int duration = (int) (attrib_mod.getDuration());
                     String sVal = "";
-                    if (val > 0)
-                    {
+                    if (val > 0) {
                         sVal = "+" + val;
-                    }
-                    else if (val < 0)
-                    {
+                    } else if (val < 0) {
                         sVal = "" + val;
                     }
                     int minutes = duration / 60;
@@ -96,8 +92,7 @@ public class crafted extends script.item.comestible.comestible
                     attribs[n] = sVal + "% for " + minutes + "m " + seconds + "s";
                     LOG("examine", n + ": " + names[n] + " -> " + attribs[n]);
                     n++;
-                    if (n > names.length)
-                    {
+                    if (n > names.length) {
                         return SCRIPT_CONTINUE;
                     }
                 }

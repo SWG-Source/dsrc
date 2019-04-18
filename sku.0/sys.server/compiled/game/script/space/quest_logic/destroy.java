@@ -8,6 +8,8 @@ import script.library.utils;
 import script.obj_id;
 import script.string_id;
 
+import java.util.StringTokenizer;
+
 public class destroy extends script.base_script
 {
     public destroy()
@@ -66,7 +68,7 @@ public class destroy extends script.base_script
         {
             dictionary outparams = new dictionary();
             outparams.put("player", player);
-            messageTo(self, "initializedQuestPlayer", outparams, 1.f, false);
+            messageTo(self, "initializedQuestPlayer", outparams, 1.0f, false);
         }
         return SCRIPT_CONTINUE;
     }
@@ -147,7 +149,7 @@ public class destroy extends script.base_script
         {
             dictionary outparams = new dictionary();
             outparams.put("added", added);
-            messageTo(self, "notifyTargetWaypoints", outparams, 1.f, false);
+            messageTo(self, "notifyTargetWaypoints", outparams, 1.0f, false);
         }
         return SCRIPT_CONTINUE;
     }
@@ -194,67 +196,49 @@ public class destroy extends script.base_script
         String spawnerName = params.getString("strSpawnerName");
         obj_id destroyed = params.getObjId("ship");
         obj_id player = utils.getContainingPlayer(self);
-        for (int j = 0; j < shipTypes.length; j++)
-        {
-            String shipType = shipTypes[j];
-            if (shipType.equals(killType))
-            {
-                if (hasObjVar(self, "killTrack"))
-                {
+        for (String shipType : shipTypes) {
+            if (shipType.equals(killType)) {
+                if (hasObjVar(self, "killTrack")) {
                     obj_id[] track = getObjIdArrayObjVar(self, "killTrack");
-                    if (track != null)
-                    {
-                        for (int i = 0; i < track.length; i++)
-                        {
-                            if (track[i] == destroyed)
-                            {
+                    if (track != null) {
+                        for (obj_id obj_id : track) {
+                            if (obj_id == destroyed) {
                                 return SCRIPT_CONTINUE;
                             }
                         }
                     }
                 }
                 int spawnsForWaypointsOnly = getIntObjVar(self, "spawnsForWaypointsOnly");
-                if ((spawnsForWaypointsOnly == 0) && hasObjVar(self, "validSpawns"))
-                {
+                if ((spawnsForWaypointsOnly == 0) && hasObjVar(self, "validSpawns")) {
                     String[] spawns = getStringArrayObjVar(self, "validSpawns");
-                    if (spawns != null)
-                    {
+                    if (spawns != null) {
                         boolean match = false;
-                        for (int i = 0; i < spawns.length; i++)
-                        {
-                            java.util.StringTokenizer st = new java.util.StringTokenizer(spawns[i], ":");
+                        for (String spawn : spawns) {
+                            StringTokenizer st = new StringTokenizer(spawn, ":");
                             String scene = st.nextToken();
                             String point = st.nextToken();
-                            if ((spawnerName != null) && spawnerName.equals(point))
-                            {
+                            if ((spawnerName != null) && spawnerName.equals(point)) {
                                 match = true;
                                 break;
                             }
                         }
-                        if (!match)
-                        {
+                        if (!match) {
                             return SCRIPT_CONTINUE;
                         }
-                    }
-                    else 
-                    {
+                    } else {
                         return SCRIPT_CONTINUE;
                     }
                 }
                 obj_id[] killTrack = null;
-                if (hasObjVar(self, "killTrack"))
-                {
+                if (hasObjVar(self, "killTrack")) {
                     killTrack = getObjIdArrayObjVar(self, "killTrack");
                     obj_id[] newKillTrack = new obj_id[killTrack.length + 1];
-                    for (int i = 0; i < killTrack.length; i++)
-                    {
+                    for (int i = 0; i < killTrack.length; i++) {
                         newKillTrack[i] = killTrack[i];
                     }
                     newKillTrack[killTrack.length] = destroyed;
                     setObjVar(self, "killTrack", newKillTrack);
-                }
-                else 
-                {
+                } else {
                     killTrack = new obj_id[1];
                     killTrack[0] = destroyed;
                     setObjVar(self, "killTrack", killTrack);
@@ -267,16 +251,12 @@ public class destroy extends script.base_script
                 String questName = getStringObjVar(self, space_quest.QUEST_NAME);
                 String questType = getStringObjVar(self, space_quest.QUEST_TYPE);
                 questSetQuestTaskCounter(player, "spacequest/" + questType + "/" + questName, 1, "quest/groundquests:destroy_counter", maxCount - killCount, maxCount);
-                if (checkSpecialEvent(self, player, killCount))
-                {
+                if (checkSpecialEvent(self, player, killCount)) {
                     return SCRIPT_CONTINUE;
                 }
-                if (killCount <= 0)
-                {
+                if (killCount <= 0) {
                     questCompleted(self);
-                }
-                else 
-                {
+                } else {
                     space_quest.showQuestUpdate(self, SID_REMAINDER_UPDATE, killCount);
                 }
                 return SCRIPT_CONTINUE;
@@ -331,11 +311,9 @@ public class destroy extends script.base_script
         obj_id[] waypoints = getObjIdArrayObjVar(self, "target_waypoints");
         if (waypoints != null)
         {
-            for (int i = 0; i < waypoints.length; i++)
-            {
-                if (isIdValid(waypoints[i]))
-                {
-                    destroyWaypointInDatapad(waypoints[i], player);
+            for (obj_id waypoint : waypoints) {
+                if (isIdValid(waypoint)) {
+                    destroyWaypointInDatapad(waypoint, player);
                 }
             }
         }

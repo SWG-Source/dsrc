@@ -90,17 +90,16 @@ public class armor_wookiee extends script.base_script
         }
         else 
         {
-            if (templatename.equals("object/tangible/wearables/armor/kashyyykian_hunting/armor_kashyyykian_hunting_chest_plate.iff"))
-            {
-                armorPieces = WOOKIEE_ASSAULT;
-            }
-            else if (templatename.equals("object/tangible/wearables/armor/kashyyykian_black_mtn/armor_kashyyykian_black_mtn_chest_plate.iff"))
-            {
-                armorPieces = WOOKIEE_BATTLE;
-            }
-            else if (templatename.equals("object/tangible/wearables/armor/kashyyykian_ceremonial/armor_kashyyykian_ceremonial_chest_plate.iff"))
-            {
-                armorPieces = WOOKIEE_RECON;
+            switch (templatename) {
+                case "object/tangible/wearables/armor/kashyyykian_hunting/armor_kashyyykian_hunting_chest_plate.iff":
+                    armorPieces = WOOKIEE_ASSAULT;
+                    break;
+                case "object/tangible/wearables/armor/kashyyykian_black_mtn/armor_kashyyykian_black_mtn_chest_plate.iff":
+                    armorPieces = WOOKIEE_BATTLE;
+                    break;
+                case "object/tangible/wearables/armor/kashyyykian_ceremonial/armor_kashyyykian_ceremonial_chest_plate.iff":
+                    armorPieces = WOOKIEE_RECON;
+                    break;
             }
             if (armorPieces.length < 3)
             {

@@ -14,7 +14,7 @@ public class rryatt_rroot_spawner extends script.base_script
     {
     }
     public static final String triggerName = "triggerVolumeSpawnRroot";
-    public static final float triggerRange = 100f;
+    public static final float triggerRange = 100.0f;
     public static final String rrootSpawned = "spawned.rrootSpawned";
     public static final String rrootId = "spawned.rrootId";
     public static final String rrootOwner = "spawned.rrootOwner";

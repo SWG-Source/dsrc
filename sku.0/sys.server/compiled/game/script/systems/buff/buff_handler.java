@@ -40,29 +40,25 @@ public class buff_handler extends script.base_script
     {
         int attribute = ATTRIB_ERROR;
         LOG("expertise", "attribAddBuffHandler effectName: " + effectName + " subtype: " + subtype + " value: " + value);
-        if (subtype.equals("health"))
-        {
-            attribute = HEALTH;
-        }
-        else if (subtype.equals("constitution"))
-        {
-            attribute = CONSTITUTION;
-        }
-        else if (subtype.equals("action"))
-        {
-            attribute = ACTION;
-        }
-        else if (subtype.equals("stamina"))
-        {
-            attribute = STAMINA;
-        }
-        else if (subtype.equals("mind"))
-        {
-            attribute = MIND;
-        }
-        else if (subtype.equals("willpower"))
-        {
-            attribute = WILLPOWER;
+        switch (subtype) {
+            case "health":
+                attribute = HEALTH;
+                break;
+            case "constitution":
+                attribute = CONSTITUTION;
+                break;
+            case "action":
+                attribute = ACTION;
+                break;
+            case "stamina":
+                attribute = STAMINA;
+                break;
+            case "mind":
+                attribute = MIND;
+                break;
+            case "willpower":
+                attribute = WILLPOWER;
+                break;
         }
         if (attribute == ATTRIB_ERROR)
         {
@@ -89,29 +85,25 @@ public class buff_handler extends script.base_script
     public int attribPercentAddBuffHandler(obj_id self, String effectName, String subtype, float duration, float value, String buffName, obj_id caster) throws InterruptedException
     {
         int attribute = ATTRIB_ERROR;
-        if (subtype.equals("health"))
-        {
-            attribute = HEALTH;
-        }
-        else if (subtype.equals("constitution"))
-        {
-            attribute = CONSTITUTION;
-        }
-        else if (subtype.equals("action"))
-        {
-            attribute = ACTION;
-        }
-        else if (subtype.equals("stamina"))
-        {
-            attribute = STAMINA;
-        }
-        else if (subtype.equals("mind"))
-        {
-            attribute = MIND;
-        }
-        else if (subtype.equals("willpower"))
-        {
-            attribute = WILLPOWER;
+        switch (subtype) {
+            case "health":
+                attribute = HEALTH;
+                break;
+            case "constitution":
+                attribute = CONSTITUTION;
+                break;
+            case "action":
+                attribute = ACTION;
+                break;
+            case "stamina":
+                attribute = STAMINA;
+                break;
+            case "mind":
+                attribute = MIND;
+                break;
+            case "willpower":
+                attribute = WILLPOWER;
+                break;
         }
         if (attribute == ATTRIB_ERROR)
         {
@@ -122,7 +114,7 @@ public class buff_handler extends script.base_script
         value = 100.0f + value;
         value /= 100.0f;
         int maxAttrib = getUnmodifiedMaxAttrib(self, attribute);
-        float newAttrib = (float)maxAttrib * value;
+        float newAttrib = maxAttrib * value;
         int delta = (int)newAttrib - maxAttrib;
         attrib_mod am = new attrib_mod(effectName, attribute, delta, duration, ATTACK_RATE_DEPRICATED, DECAY_RATE_DEPRICATED, true, false, false);
         addAttribModifier(self, am);
@@ -206,7 +198,7 @@ public class buff_handler extends script.base_script
         if (subtype.equals("player") && isPlayer(self))
         {
             float baseMod = getSkillStatisticModifier(self, "expertise_innate_protection");
-            baseMod += (float)armorScriptVarValue;
+            baseMod += armorScriptVarValue;
             baseMod += getEnhancedSkillStatisticModifierUncapped(self, "expertise_innate_protection_all");
             float modIncrease = baseMod * (value / 100.0f);
             addSkillModModifier(self, effectName, "expertise_innate_protection_all", (int)modIncrease, duration, false, false);
@@ -255,11 +247,11 @@ public class buff_handler extends script.base_script
         addSkillModModifier(self, effectName, subtype, (int)modIncrease, duration, false, false);
         if ((subtype.startsWith("constitution")) || (subtype.startsWith("stamina")))
         {
-            messageTo(self, "recalcPools", null, .25f, false);
+            messageTo(self, "recalcPools", null, 0.25f, false);
         }
         else if (subtype.startsWith("expertise_innate_protection_"))
         {
-            messageTo(self, "recalcArmor", null, .25f, false);
+            messageTo(self, "recalcArmor", null, 0.25f, false);
         }
         trial.bumpSession(self, "displayDefensiveMods");
         messageTo(self, "setDisplayOnlyDefensiveMods", trial.getSessionDict(self, "displayDefensiveMods"), 5, false);
@@ -276,11 +268,11 @@ public class buff_handler extends script.base_script
         combat.removeCombatBuffEffect(self, effectName);
         if ((subtype.startsWith("constitution")) || (subtype.startsWith("stamina")))
         {
-            messageTo(self, "recalcPools", null, .25f, false);
+            messageTo(self, "recalcPools", null, 0.25f, false);
         }
         else if (subtype.startsWith("expertise_innate_protection_"))
         {
-            messageTo(self, "recalcArmor", null, .25f, false);
+            messageTo(self, "recalcArmor", null, 0.25f, false);
         }
         trial.bumpSession(self, "displayDefensiveMods");
         messageTo(self, "setDisplayOnlyDefensiveMods", trial.getSessionDict(self, "displayDefensiveMods"), 5, false);
@@ -348,17 +340,14 @@ public class buff_handler extends script.base_script
         if (subtype != null && !subtype.equals(""))
         {
             String[] buffsToApply = split(subtype, ',');
-            for (int i = 0; i < buffsToApply.length; ++i)
-            {
-                buff.applyBuff(self, caster, buffsToApply[i]);
+            for (String s : buffsToApply) {
+                buff.applyBuff(self, caster, s);
             }
             return SCRIPT_CONTINUE;
         }
-        for (int i = 0; i < buffs.length; i++)
-        {
-            String thisBuffName = buff.getBuffNameFromCrc(buffs[i]);
-            if (thisBuffName.startsWith("exclusive_proxy_"))
-            {
+        for (int b : buffs) {
+            String thisBuffName = buff.getBuffNameFromCrc(b);
+            if (thisBuffName.startsWith("exclusive_proxy_")) {
                 String actualBuff = thisBuffName.substring(16, thisBuffName.length());
                 buff.applyBuff(self, self, actualBuff);
             }
@@ -372,40 +361,31 @@ public class buff_handler extends script.base_script
     public int excludeSelfAddBuffHandler(obj_id self, String effectName, String subtype, float duration, float value, String buffName, obj_id caster) throws InterruptedException
     {
         int[] buffs = buff.getAllBuffs(self);
-        for (int i = 0; i < buffs.length; i++)
-        {
-            String thisBuffName = buff.getBuffNameFromCrc(buffs[i]);
+        for (int b : buffs) {
+            String thisBuffName = buff.getBuffNameFromCrc(b);
             String actualBuff = "";
-            if (thisBuffName.startsWith("exclude_self_"))
-            {
+            if (thisBuffName.startsWith("exclude_self_")) {
                 actualBuff = thisBuffName.substring(13, thisBuffName.length());
-            }
-            else 
-            {
+            } else {
                 continue;
             }
             obj_id gid = getGroupObject(self);
-            if (isIdValid(gid))
-            {
+            if (isIdValid(gid)) {
                 obj_id[] groupMembers = getGroupMemberIds(gid);
-                for (int j = 0; j < groupMembers.length; j++)
-                {
-                    float dist = getDistance(groupMembers[j], self);
-                    if (dist > buff.GROUP_BUFF_DISTANCE)
-                    {
+                for (obj_id groupMember : groupMembers) {
+                    float dist = getDistance(groupMember, self);
+                    if (dist > buff.GROUP_BUFF_DISTANCE) {
                         continue;
                     }
-                    if (!pvpCanHelp(self, groupMembers[j]))
-                    {
+                    if (!pvpCanHelp(self, groupMember)) {
                         prose_package pp = new prose_package();
                         pp.stringId = new string_id("spam", "group_buff_fail_pvp");
-                        pp.target.set(groupMembers[j]);
+                        pp.target.set(groupMember);
                         sendSystemMessageProse(self, pp);
                         continue;
                     }
-                    if (groupMembers[j] != self)
-                    {
-                        buff.applyBuff(groupMembers[j], self, actualBuff);
+                    if (groupMember != self) {
+                        buff.applyBuff(groupMember, self, actualBuff);
                     }
                 }
             }
@@ -757,8 +737,8 @@ public class buff_handler extends script.base_script
         {
             int critMod = (int)getSkillStatisticModifier(self, "expertise_focus_critical_buff_line");
             utils.setScriptVar(self, "expertise_stance_critical", critMod);
-            float stanceStaminaBonus = (float)getSkillStatisticModifier(self, "expertise_focus_stamina");
-            float stanceSrengthBonus = (float)getSkillStatisticModifier(self, "expertise_focus_strength");
+            float stanceStaminaBonus = getSkillStatisticModifier(self, "expertise_focus_stamina");
+            float stanceSrengthBonus = getSkillStatisticModifier(self, "expertise_focus_strength");
             if (stanceStaminaBonus > 0)
             {
                 skillAddBuffHandler(self, "focusStamina", "stamina_modified", duration, stanceStaminaBonus, "", null);
@@ -887,14 +867,12 @@ public class buff_handler extends script.base_script
         };
         String randomDance = danceList[rand(0, danceList.length - 1)];
         performance.effect(self, performance.PERFORMANCE_EFFECT_DANCE_FLOOR, 1);
-        obj_id[] everyone = getPlayerCreaturesInRange(getLocation(self), 20.f);
-        for (int i = 0; i < everyone.length; i++)
-        {
-            if (!combat.isInCombat(everyone[i]))
-            {
-                utils.setScriptVar(everyone[i], "event.dance_party", 1);
-                performance.startDance(everyone[i], randomDance);
-                performance.changeDance(everyone[i], randomDance);
+        obj_id[] everyone = getPlayerCreaturesInRange(getLocation(self), 20.0f);
+        for (obj_id obj_id : everyone) {
+            if (!combat.isInCombat(obj_id)) {
+                utils.setScriptVar(obj_id, "event.dance_party", 1);
+                performance.startDance(obj_id, randomDance);
+                performance.changeDance(obj_id, randomDance);
             }
         }
         return SCRIPT_CONTINUE;
@@ -1116,10 +1094,8 @@ public class buff_handler extends script.base_script
         boolean snared = false;
         if (modifiers != null)
         {
-            for (int i = 0; i < modifiers.length; i++)
-            {
-                if (movement.getType(modifiers[i]) == movement.MT_SNARE)
-                {
+            for (String modifier : modifiers) {
+                if (movement.getType(modifier) == movement.MT_SNARE) {
                     snared = true;
                 }
             }
@@ -1140,7 +1116,7 @@ public class buff_handler extends script.base_script
     public int commandoSnareBonusRemoveBuffHandler(obj_id self, String effectName, String subtype, float duration, float value, String buffName, obj_id caster) throws InterruptedException
     {
         removeAttribOrSkillModModifier(self, "commandoInnateArmorBonus");
-        messageTo(self, "recalcArmor", null, .25f, false);
+        messageTo(self, "recalcArmor", null, 0.25f, false);
         return SCRIPT_CONTINUE;
     }
     public int commandoFlashBangAddBuffHandler(obj_id self, String effectName, String subtype, float duration, float value, String buffName, obj_id caster) throws InterruptedException
@@ -1305,210 +1281,155 @@ public class buff_handler extends script.base_script
     {
         String prefixBuilder = "";
         int wholeValue = (int)value;
-        if (subtype.equals("dot_immunity"))
-        {
-            if (wholeValue == IMMUNITY_TO_POISON)
-            {
-                buff.performBuffDotImmunity(self, buff.DOT_POISON);
-                if (dot.removeDotsOfType(self, dot.DOT_POISON))
-                {
-                    string_id cureDotMsg = new string_id("spam", "cure_dot");
-                    messageDetrimentalRemoved(self, "poisoned", cureDotMsg);
+        switch (subtype) {
+            case "dot_immunity":
+                if (wholeValue == IMMUNITY_TO_POISON) {
+                    buff.performBuffDotImmunity(self, buff.DOT_POISON);
+                    if (dot.removeDotsOfType(self, dot.DOT_POISON)) {
+                        string_id cureDotMsg = new string_id("spam", "cure_dot");
+                        messageDetrimentalRemoved(self, "poisoned", cureDotMsg);
+                    }
+                    prefixBuilder = "dot.poison";
+                } else if (wholeValue == IMMUNITY_TO_DISEASE) {
+                    buff.performBuffDotImmunity(self, buff.DOT_DISEASE);
+                    if (dot.removeDotsOfType(self, dot.DOT_DISEASE)) {
+                        string_id cureDotMsg = new string_id("spam", "cure_dot");
+                        messageDetrimentalRemoved(self, "diseased", cureDotMsg);
+                    }
+                    prefixBuilder = "dot.disease";
+                } else if (wholeValue == IMMUNITY_TO_FIRE) {
+                    buff.performBuffDotImmunity(self, buff.DOT_FIRE);
+                    if (dot.removeDotsOfType(self, dot.DOT_FIRE)) {
+                        string_id cureDotMsg = new string_id("spam", "cure_dot");
+                        messageDetrimentalRemoved(self, "on fire", cureDotMsg);
+                    }
+                    prefixBuilder = "dot.fire";
+                } else if (wholeValue == IMMUNITY_TO_BLEEDING) {
+                    buff.performBuffDotImmunity(self, buff.DOT_BLEEDING);
+                    if (dot.removeDotsOfType(self, dot.DOT_BLEEDING)) {
+                        string_id cureDotMsg = new string_id("spam", "cure_dot");
+                        messageDetrimentalRemoved(self, "bleeding", cureDotMsg);
+                    }
+                    prefixBuilder = "dot.bleeding";
+                } else if (wholeValue == IMMUNITY_TO_ACID) {
+                    buff.performBuffDotImmunity(self, buff.DOT_ACID);
+                    if (dot.removeDotsOfType(self, dot.DOT_ACID)) {
+                        string_id cureDotMsg = new string_id("spam", "cure_dot");
+                        messageDetrimentalRemoved(self, "acid splattered", cureDotMsg);
+                    }
+                    prefixBuilder = "dot.acid";
+                } else if (wholeValue == IMMUNITY_TO_ENERGY) {
+                    buff.performBuffDotImmunity(self, buff.DOT_ENERGY);
+                    if (dot.removeDotsOfType(self, dot.DOT_ENERGY)) {
+                        string_id cureDotMsg = new string_id("spam", "cure_dot");
+                        messageDetrimentalRemoved(self, "electrified", cureDotMsg);
+                    }
+                    prefixBuilder = "dot.energy";
+                } else if (wholeValue == IMMUNITY_TO_ALL_DOTS) {
+                    buff.performBuffDotImmunity(self, "all");
+                    if (dot.removeDotsOfType(self, dot.DOT_POISON)) {
+                        string_id cureDotMsg = new string_id("spam", "cure_dot");
+                        messageDetrimentalRemoved(self, "poisoned", cureDotMsg);
+                    }
+                    if (dot.removeDotsOfType(self, dot.DOT_DISEASE)) {
+                        string_id cureDotMsg = new string_id("spam", "cure_dot");
+                        messageDetrimentalRemoved(self, "diseased", cureDotMsg);
+                    }
+                    if (dot.removeDotsOfType(self, dot.DOT_FIRE)) {
+                        string_id cureDotMsg = new string_id("spam", "cure_dot");
+                        messageDetrimentalRemoved(self, "on fire", cureDotMsg);
+                    }
+                    if (dot.removeDotsOfType(self, dot.DOT_BLEEDING)) {
+                        string_id cureDotMsg = new string_id("spam", "cure_dot");
+                        messageDetrimentalRemoved(self, "bleeding", cureDotMsg);
+                    }
+                    if (dot.removeDotsOfType(self, dot.DOT_ACID)) {
+                        string_id cureDotMsg = new string_id("spam", "cure_dot");
+                        messageDetrimentalRemoved(self, "acid splattered", cureDotMsg);
+                    }
+                    if (dot.removeDotsOfType(self, dot.DOT_ENERGY)) {
+                        string_id cureDotMsg = new string_id("spam", "cure_dot");
+                        messageDetrimentalRemoved(self, "electrified", cureDotMsg);
+                    }
+                    prefixBuilder = "dot.all";
+                } else {
+                    return SCRIPT_OVERRIDE;
                 }
-                prefixBuilder = "dot.poison";
-            }
-            else if (wholeValue == IMMUNITY_TO_DISEASE)
-            {
-                buff.performBuffDotImmunity(self, buff.DOT_DISEASE);
-                if (dot.removeDotsOfType(self, dot.DOT_DISEASE))
-                {
-                    string_id cureDotMsg = new string_id("spam", "cure_dot");
-                    messageDetrimentalRemoved(self, "diseased", cureDotMsg);
+                break;
+            case "movement_immunity":
+                if (wholeValue == movement.MT_SNARE) {
+                    if (removeAllModifiersOfType(self, movement.MT_SNARE)) {
+                        string_id cureMovementMsg = new string_id("spam", "cure_dot");
+                        messageDetrimentalRemoved(self, "snared", cureMovementMsg);
+                    }
+                    prefixBuilder = "movement.snare";
+                } else if (wholeValue == movement.MT_ROOT) {
+                    if (removeAllModifiersOfType(self, movement.MT_ROOT)) {
+                        string_id cureMovementMsg = new string_id("spam", "cure_dot");
+                        messageDetrimentalRemoved(self, "rooted", cureMovementMsg);
+                    }
+                    prefixBuilder = "movement.root";
+                } else if (wholeValue == movement.MT_ALL) {
+                    removeAllModifiersOfType(self, movement.MT_SNARE);
+                    removeAllModifiersOfType(self, movement.MT_ROOT);
+                } else {
+                    return SCRIPT_OVERRIDE;
                 }
-                prefixBuilder = "dot.disease";
-            }
-            else if (wholeValue == IMMUNITY_TO_FIRE)
-            {
-                buff.performBuffDotImmunity(self, buff.DOT_FIRE);
-                if (dot.removeDotsOfType(self, dot.DOT_FIRE))
-                {
-                    string_id cureDotMsg = new string_id("spam", "cure_dot");
-                    messageDetrimentalRemoved(self, "on fire", cureDotMsg);
+                break;
+            case "state_immunity":
+                if (wholeValue == buff.STATE_STUNNED) {
+                    if (buff.removeAllBuffsOfStateType(self, buff.STATE_STUNNED)) {
+                        string_id cureStateMsg = new string_id("spam", "cure_dot");
+                        messageDetrimentalRemoved(self, "stunned", cureStateMsg);
+                    }
+                    prefixBuilder = "state.stun";
+                } else {
+                    return SCRIPT_OVERRIDE;
                 }
-                prefixBuilder = "dot.fire";
-            }
-            else if (wholeValue == IMMUNITY_TO_BLEEDING)
-            {
-                buff.performBuffDotImmunity(self, buff.DOT_BLEEDING);
-                if (dot.removeDotsOfType(self, dot.DOT_BLEEDING))
-                {
-                    string_id cureDotMsg = new string_id("spam", "cure_dot");
-                    messageDetrimentalRemoved(self, "bleeding", cureDotMsg);
-                }
-                prefixBuilder = "dot.bleeding";
-            }
-            else if (wholeValue == IMMUNITY_TO_ACID)
-            {
-                buff.performBuffDotImmunity(self, buff.DOT_ACID);
-                if (dot.removeDotsOfType(self, dot.DOT_ACID))
-                {
-                    string_id cureDotMsg = new string_id("spam", "cure_dot");
-                    messageDetrimentalRemoved(self, "acid splattered", cureDotMsg);
-                }
-                prefixBuilder = "dot.acid";
-            }
-            else if (wholeValue == IMMUNITY_TO_ENERGY)
-            {
-                buff.performBuffDotImmunity(self, buff.DOT_ENERGY);
-                if (dot.removeDotsOfType(self, dot.DOT_ENERGY))
-                {
-                    string_id cureDotMsg = new string_id("spam", "cure_dot");
-                    messageDetrimentalRemoved(self, "electrified", cureDotMsg);
-                }
-                prefixBuilder = "dot.energy";
-            }
-            else if (wholeValue == IMMUNITY_TO_ALL_DOTS)
-            {
-                buff.performBuffDotImmunity(self, "all");
-                if (dot.removeDotsOfType(self, dot.DOT_POISON))
-                {
-                    string_id cureDotMsg = new string_id("spam", "cure_dot");
-                    messageDetrimentalRemoved(self, "poisoned", cureDotMsg);
-                }
-                if (dot.removeDotsOfType(self, dot.DOT_DISEASE))
-                {
-                    string_id cureDotMsg = new string_id("spam", "cure_dot");
-                    messageDetrimentalRemoved(self, "diseased", cureDotMsg);
-                }
-                if (dot.removeDotsOfType(self, dot.DOT_FIRE))
-                {
-                    string_id cureDotMsg = new string_id("spam", "cure_dot");
-                    messageDetrimentalRemoved(self, "on fire", cureDotMsg);
-                }
-                if (dot.removeDotsOfType(self, dot.DOT_BLEEDING))
-                {
-                    string_id cureDotMsg = new string_id("spam", "cure_dot");
-                    messageDetrimentalRemoved(self, "bleeding", cureDotMsg);
-                }
-                if (dot.removeDotsOfType(self, dot.DOT_ACID))
-                {
-                    string_id cureDotMsg = new string_id("spam", "cure_dot");
-                    messageDetrimentalRemoved(self, "acid splattered", cureDotMsg);
-                }
-                if (dot.removeDotsOfType(self, dot.DOT_ENERGY))
-                {
-                    string_id cureDotMsg = new string_id("spam", "cure_dot");
-                    messageDetrimentalRemoved(self, "electrified", cureDotMsg);
-                }
-                prefixBuilder = "dot.all";
-            }
-            else 
-            {
-                return SCRIPT_OVERRIDE;
-            }
-        }
-        else if (subtype.equals("movement_immunity"))
-        {
-            if (wholeValue == movement.MT_SNARE)
-            {
-                if (removeAllModifiersOfType(self, movement.MT_SNARE))
-                {
-                    string_id cureMovementMsg = new string_id("spam", "cure_dot");
-                    messageDetrimentalRemoved(self, "snared", cureMovementMsg);
-                }
-                prefixBuilder = "movement.snare";
-            }
-            else if (wholeValue == movement.MT_ROOT)
-            {
-                if (removeAllModifiersOfType(self, movement.MT_ROOT))
-                {
-                    string_id cureMovementMsg = new string_id("spam", "cure_dot");
-                    messageDetrimentalRemoved(self, "rooted", cureMovementMsg);
-                }
-                prefixBuilder = "movement.root";
-            }
-            else if (wholeValue == movement.MT_ALL)
-            {
-                removeAllModifiersOfType(self, movement.MT_SNARE);
-                removeAllModifiersOfType(self, movement.MT_ROOT);
-            }
-            else 
-            {
-                return SCRIPT_OVERRIDE;
-            }
-        }
-        else if (subtype.equals("state_immunity"))
-        {
-            if (wholeValue == buff.STATE_STUNNED)
-            {
-                if (buff.removeAllBuffsOfStateType(self, buff.STATE_STUNNED))
-                {
-                    string_id cureStateMsg = new string_id("spam", "cure_dot");
-                    messageDetrimentalRemoved(self, "stunned", cureStateMsg);
-                }
-                prefixBuilder = "state.stun";
-            }
-            else 
-            {
-                return SCRIPT_OVERRIDE;
-            }
-        }
-        else if (subtype.equals("debuff_purge"))
-        {
-            int numToPurge = wholeValue;
-            int[] allBuffs = buff.getAllBuffs(self);
-            for (int i = 0; i < allBuffs.length; i++)
-            {
-                String curBuff = buff.getBuffNameFromCrc(allBuffs[i]);
-                if (numToPurge < 1)
-                {
-                    return SCRIPT_CONTINUE;
-                }
-                if (buff.isDebuff(curBuff) && !buff.isDotIconOnlyBuff(curBuff) && buff.canBeDispelled(curBuff) && !buff.isBuffDot(curBuff))
-                {
-                    long stack = buff.getBuffStackCount(self, curBuff);
-                    if (stack > 1 && numToPurge > 1)
-                    {
-                        if (stack > numToPurge)
-                        {
-                            buff.decrementBuffStack(self, curBuff, numToPurge);
-                            return SCRIPT_CONTINUE;
-                        }
-                        else 
-                        {
+                break;
+            case "debuff_purge": {
+                int numToPurge = wholeValue;
+                int[] allBuffs = buff.getAllBuffs(self);
+                for (int allBuff : allBuffs) {
+                    String curBuff = buff.getBuffNameFromCrc(allBuff);
+                    if (numToPurge < 1) {
+                        return SCRIPT_CONTINUE;
+                    }
+                    if (buff.isDebuff(curBuff) && !buff.isDotIconOnlyBuff(curBuff) && buff.canBeDispelled(curBuff) && !buff.isBuffDot(curBuff)) {
+                        long stack = buff.getBuffStackCount(self, curBuff);
+                        if (stack > 1 && numToPurge > 1) {
+                            if (stack > numToPurge) {
+                                buff.decrementBuffStack(self, curBuff, numToPurge);
+                                return SCRIPT_CONTINUE;
+                            } else {
+                                buff.removeBuff(self, curBuff);
+                                numToPurge -= stack;
+                            }
+                        } else {
                             buff.removeBuff(self, curBuff);
-                            numToPurge -= stack;
+                            numToPurge--;
                         }
                     }
-                    else 
-                    {
+                }
+                break;
+            }
+            case "buff_purge": {
+                int numToPurge = wholeValue;
+                int[] allBuffs = buff.getAllBuffs(self);
+                for (int allBuff : allBuffs) {
+                    String curBuff = buff.getBuffNameFromCrc(allBuff);
+                    if (numToPurge < 1) {
+                        return SCRIPT_CONTINUE;
+                    }
+                    if (!buff.isDebuff(curBuff) && !buff.isDotIconOnlyBuff(curBuff) && buff.canBeDispelled(curBuff)) {
                         buff.removeBuff(self, curBuff);
                         numToPurge--;
                     }
                 }
+                break;
             }
-        }
-        else if (subtype.equals("buff_purge"))
-        {
-            int numToPurge = wholeValue;
-            int[] allBuffs = buff.getAllBuffs(self);
-            for (int i = 0; i < allBuffs.length; i++)
-            {
-                String curBuff = buff.getBuffNameFromCrc(allBuffs[i]);
-                if (numToPurge < 1)
-                {
-                    return SCRIPT_CONTINUE;
-                }
-                if (!buff.isDebuff(curBuff) && !buff.isDotIconOnlyBuff(curBuff) && buff.canBeDispelled(curBuff))
-                {
-                    buff.removeBuff(self, curBuff);
-                    numToPurge--;
-                }
-            }
-        }
-        else 
-        {
-            return SCRIPT_OVERRIDE;
+            default:
+                return SCRIPT_OVERRIDE;
         }
         if (!prefixBuilder.equals(""))
         {
@@ -1630,62 +1551,40 @@ public class buff_handler extends script.base_script
     {
         String prefixBuilder = "";
         int wholeValue = (int)value;
-        if (subtype.equals("dot_immunity"))
-        {
-            if (wholeValue == IMMUNITY_TO_POISON)
-            {
-                prefixBuilder = "dot.poison";
-            }
-            else if (wholeValue == IMMUNITY_TO_FIRE)
-            {
-                prefixBuilder = "dot.fire";
-            }
-            else if (wholeValue == IMMUNITY_TO_DISEASE)
-            {
-                prefixBuilder = "dot.disease";
-            }
-            else if (wholeValue == IMMUNITY_TO_BLEEDING)
-            {
-                prefixBuilder = "dot.bleeding";
-            }
-            else if (wholeValue == IMMUNITY_TO_ALL_DOTS)
-            {
-                prefixBuilder = "dot.all";
-            }
-            else 
-            {
+        switch (subtype) {
+            case "dot_immunity":
+                if (wholeValue == IMMUNITY_TO_POISON) {
+                    prefixBuilder = "dot.poison";
+                } else if (wholeValue == IMMUNITY_TO_FIRE) {
+                    prefixBuilder = "dot.fire";
+                } else if (wholeValue == IMMUNITY_TO_DISEASE) {
+                    prefixBuilder = "dot.disease";
+                } else if (wholeValue == IMMUNITY_TO_BLEEDING) {
+                    prefixBuilder = "dot.bleeding";
+                } else if (wholeValue == IMMUNITY_TO_ALL_DOTS) {
+                    prefixBuilder = "dot.all";
+                } else {
+                    return SCRIPT_OVERRIDE;
+                }
+                break;
+            case "movement_immunity":
+                if (wholeValue == movement.MT_SNARE) {
+                    prefixBuilder = "movement.snare";
+                } else if (wholeValue == movement.MT_ROOT) {
+                    prefixBuilder = "movement.root";
+                } else {
+                    return SCRIPT_OVERRIDE;
+                }
+                break;
+            case "state_immunity":
+                if (wholeValue == buff.STATE_STUNNED) {
+                    prefixBuilder = "state.stun";
+                } else {
+                    return SCRIPT_OVERRIDE;
+                }
+                break;
+            default:
                 return SCRIPT_OVERRIDE;
-            }
-        }
-        else if (subtype.equals("movement_immunity"))
-        {
-            if (wholeValue == movement.MT_SNARE)
-            {
-                prefixBuilder = "movement.snare";
-            }
-            else if (wholeValue == movement.MT_ROOT)
-            {
-                prefixBuilder = "movement.root";
-            }
-            else 
-            {
-                return SCRIPT_OVERRIDE;
-            }
-        }
-        else if (subtype.equals("state_immunity"))
-        {
-            if (wholeValue == buff.STATE_STUNNED)
-            {
-                prefixBuilder = "state.stun";
-            }
-            else 
-            {
-                return SCRIPT_OVERRIDE;
-            }
-        }
-        else 
-        {
-            return SCRIPT_OVERRIDE;
         }
         if (!prefixBuilder.equals(""))
         {
@@ -1903,197 +1802,157 @@ public class buff_handler extends script.base_script
                 {
                     buffValue = (buffValue * 0.2f);
                 }
-                if (category.equals("attributes") || category.equals("resistances") || category.equals("combat"))
-                {
-                    if (category.equals("attributes"))
-                    {
-                        float attribModifier = 0.0f;
-                        if (isIdValid(bufferId) && exists(bufferId))
-                        {
-                            attribModifier = (float)(getEnhancedSkillStatisticModifierUncapped(bufferId, "expertise_en_inspire_attrib_increase") / 100.0f);
-                        }
-                        if (internalDecay == true)
-                        {
-                            if (utils.hasScriptVar(self, "decayAttribMod"))
-                            {
-                                attribModifier = utils.getFloatScriptVar(self, "decayAttribMod");
-                                
-                                CustomerServiceLog("SuspectedCheaterChannel: ", "Using stored attribMod: " + attribModifier);
+                switch (category) {
+                    case "attributes":
+                    case "resistances":
+                    case "combat":
+                        switch (category) {
+                            case "attributes":
+                                float attribModifier = 0.0f;
+                                if (isIdValid(bufferId) && exists(bufferId)) {
+                                    attribModifier = (float) (getEnhancedSkillStatisticModifierUncapped(bufferId, "expertise_en_inspire_attrib_increase") / 100.0f);
+                                }
+                                if (internalDecay == true) {
+                                    if (utils.hasScriptVar(self, "decayAttribMod")) {
+                                        attribModifier = utils.getFloatScriptVar(self, "decayAttribMod");
 
-                            }
-                        }
-                        else 
-                        {
-                            
-                            CustomerServiceLog("SuspectedCheaterChannel: ", "Storing attribMod: " + attribModifier);
+                                        CustomerServiceLog("SuspectedCheaterChannel: ", "Using stored attribMod: " + attribModifier);
 
-                            utils.setScriptVar(self, "decayAttribMod", attribModifier);
+                                    }
+                                } else {
+
+                                    CustomerServiceLog("SuspectedCheaterChannel: ", "Storing attribMod: " + attribModifier);
+
+                                    utils.setScriptVar(self, "decayAttribMod", attribModifier);
+                                }
+                                buffValue *= 1.0f + attribModifier;
+                                break;
+                            case "resistances":
+                                float resistModifier = 0.0f;
+                                if (isIdValid(bufferId) && exists(bufferId)) {
+                                    resistModifier = (float) (getEnhancedSkillStatisticModifierUncapped(bufferId, "expertise_en_inspire_resist_increase") / 100.0f);
+                                }
+                                if (internalDecay == true) {
+                                    if (utils.hasScriptVar(self, "decayResistMod")) {
+                                        resistModifier = utils.getFloatScriptVar(self, "decayResistMod");
+                                    }
+                                } else {
+                                    utils.setScriptVar(self, "decayResistMod", resistModifier);
+                                }
+                                buffValue *= 1.0f + resistModifier;
+                                break;
+                            case "combat":
+                                float combatModifier = 0.0f;
+                                if (isIdValid(bufferId) && exists(bufferId)) {
+                                    combatModifier = getEnhancedSkillStatisticModifierUncapped(bufferId, "expertise_en_combat_buff_increase");
+                                }
+                                if (internalDecay == true) {
+                                    if (utils.hasScriptVar(self, "decayCombatMod")) {
+                                        combatModifier = utils.getFloatScriptVar(self, "decayCombatMod");
+                                    }
+                                } else {
+                                    utils.setScriptVar(self, "decayCombatMod", combatModifier);
+                                }
+                                buffValue += combatModifier;
+                                break;
                         }
-                        buffValue *= 1.0f + attribModifier;
-                    }
-                    else if (category.equals("resistances"))
-                    {
-                        float resistModifier = 0.0f;
-                        if (isIdValid(bufferId) && exists(bufferId))
-                        {
-                            resistModifier = (float)(getEnhancedSkillStatisticModifierUncapped(bufferId, "expertise_en_inspire_resist_increase") / 100.0f);
-                        }
-                        if (internalDecay == true)
-                        {
-                            if (utils.hasScriptVar(self, "decayResistMod"))
-                            {
-                                resistModifier = utils.getFloatScriptVar(self, "decayResistMod");
-                            }
-                        }
-                        else 
-                        {
-                            utils.setScriptVar(self, "decayResistMod", resistModifier);
-                        }
-                        buffValue *= 1.0f + resistModifier;
-                    }
-                    else if (category.equals("combat"))
-                    {
-                        float combatModifier = 0.0f;
-                        if (isIdValid(bufferId) && exists(bufferId))
-                        {
-                            combatModifier = getEnhancedSkillStatisticModifierUncapped(bufferId, "expertise_en_combat_buff_increase");
-                        }
-                        if (internalDecay == true)
-                        {
-                            if (utils.hasScriptVar(self, "decayCombatMod"))
-                            {
-                                combatModifier = utils.getFloatScriptVar(self, "decayCombatMod");
-                            }
-                        }
-                        else 
-                        {
-                            utils.setScriptVar(self, "decayCombatMod", combatModifier);
-                        }
-                        buffValue += combatModifier;
-                    }
-                    
-                    
+
+
                     {
                         CustomerServiceLog("SuspectedCheaterChannel: ", "Adding Stat Modifier: " + "buildabuff_" + effect + " Value = " + buffValue + " Duration = " + duration);
                     }
 
-                    addSkillModModifier(self, "buildabuff_" + effect, effect, (int)buffValue, duration, false, true);
-                    if ((effect.startsWith("constitution")) || (effect.startsWith("stamina")))
-                    {
-                        messageTo(self, "recalcPools", null, .25f, false);
+                    addSkillModModifier(self, "buildabuff_" + effect, effect, (int) buffValue, duration, false, true);
+                    if ((effect.startsWith("constitution")) || (effect.startsWith("stamina"))) {
+                        messageTo(self, "recalcPools", null, 0.25f, false);
+                    } else if (effect.startsWith("expertise_innate_protection_")) {
+                        messageTo(self, "recalcArmor", null, 0.25f, false);
                     }
-                    else if (effect.startsWith("expertise_innate_protection_"))
-                    {
-                        messageTo(self, "recalcArmor", null, .25f, false);
-                    }
-                }
-                else if (category.equals("trade"))
-                {
-                    float tradeModifier = 0.0f;
-                    if (isIdValid(bufferId) && exists(bufferId))
-                    {
-                        tradeModifier = (float)(getEnhancedSkillStatisticModifierUncapped(bufferId, "expertise_en_inspire_trader_increase") / 100.0f);
-                    }
-                    if (internalDecay == true)
-                    {
-                        if (utils.hasScriptVar(self, "decayTradeMod"))
-                        {
-                            tradeModifier = utils.getFloatScriptVar(self, "decayTradeMod");
+                    break;
+                    case "trade":
+                        float tradeModifier = 0.0f;
+                        if (isIdValid(bufferId) && exists(bufferId)) {
+                            tradeModifier = (float) (getEnhancedSkillStatisticModifierUncapped(bufferId, "expertise_en_inspire_trader_increase") / 100.0f);
                         }
-                    }
-                    else 
-                    {
-                        utils.setScriptVar(self, "decayTradeMod", tradeModifier);
-                    }
-                    buffValue *= 1.0f + tradeModifier;
-                    String[] xpArray = 
-                    {
-                        "crafting",
-                        "combat_general",
-                        "entertainer",
-                        "space_combat_general"
-                    };
-                    utils.setScriptVar(self, "buff.xpBonus.types", xpArray);
-                    utils.setScriptVar(self, "buff.xpBonus.value", buffValue / 100);
-                    
-                    
-                    {
-                        CustomerServiceLog("SuspectedCheaterChannel: ", "Adding Stat Modifier: " + "buildabuff_" + effect + " Value = " + buffValue + " Duration = " + duration);
-                    }
-
-                    addSkillModModifier(self, "buildabuff_" + effect, effect, (int)buffValue, duration, false, true);
-                }
-                else if (category.equals("misc"))
-                {
-                    if (effect.equals("movement_speed"))
-                    {
-                        if (value == 0)
-                        {
-                            value = 1;
-                        }
-                        if (movement.hasMovementModifier(self, "buildabuff_movement_speed"))
-                        {
-                            movement.removeMovementModifier(self, "buildabuff_movement_speed", false);
-                        }
-                        movement.applyMovementModifier(self, "buildabuff_movement_speed", buffValue);
-                    }
-                    else if (effect.equals("reactive_second_chance"))
-                    {
-                        int playerLevel = getLevel(self);
-                        float reactiveModifier = 0.0f;
-                        if (isIdValid(bufferId) && exists(bufferId))
-                        {
-                            reactiveModifier = getEnhancedSkillStatisticModifierUncapped(bufferId, "expertise_en_inspire_proc_chance_increase");
-                        }
-                        if (internalDecay == true)
-                        {
-                            if (utils.hasScriptVar(self, "decayReactiveMod"))
-                            {
-                                reactiveModifier = utils.getFloatScriptVar(self, "decayReactiveMod");
+                        if (internalDecay == true) {
+                            if (utils.hasScriptVar(self, "decayTradeMod")) {
+                                tradeModifier = utils.getFloatScriptVar(self, "decayTradeMod");
                             }
+                        } else {
+                            utils.setScriptVar(self, "decayTradeMod", tradeModifier);
                         }
-                        else 
-                        {
-                            utils.setScriptVar(self, "decayReactiveMod", reactiveModifier);
-                        }
-                        buffValue += reactiveModifier;
-                        if (playerLevel > 69)
-                        {
-                            addSkillModModifier(self, "expertise_buildabuff_heal_3_reac", "expertise_buildabuff_heal_3_reac", (int)buffValue, duration, false, true);
-                        }
-                        else if (playerLevel > 39 && playerLevel < 70)
-                        {
-                            addSkillModModifier(self, "expertise_buildabuff_heal_2_reac", "expertise_buildabuff_heal_2_reac", (int)buffValue, duration, false, true);
-                        }
-                        else 
-                        {
-                            addSkillModModifier(self, "expertise_buildabuff_heal_1_reac", "expertise_buildabuff_heal_1_reac", (int)buffValue, duration, false, true);
-                        }
-                        messageTo(self, "cacheExpertiseProcReacList", null, 2, false);
-                    }
-                    else if (effect.equals("flush_with_success"))
-                    {
-                        String[] xpArray = 
-                        {
-                            "crafting",
-                            "combat_general",
-                            "entertainer",
-                            "space_combat_general",
-                            "chronicles"
-                        };
+                        buffValue *= 1.0f + tradeModifier;
+                        String[] xpArray =
+                                {
+                                        "crafting",
+                                        "combat_general",
+                                        "entertainer",
+                                        "space_combat_general"
+                                };
                         utils.setScriptVar(self, "buff.xpBonus.types", xpArray);
-                        utils.setScriptVar(self, "buff.xpBonus.value", buffValue / 100.0f);
-                    }
-                    else 
-                    {
-                        
-                        
-                        {
-                            CustomerServiceLog("SuspectedCheaterChannel: ", "Adding Stat Modifier: " + "buildabuff_" + effect + " Value = " + buffValue + " Duration = " + duration);
-                        }
+                        utils.setScriptVar(self, "buff.xpBonus.value", buffValue / 100);
 
-                        addSkillModModifier(self, "buildabuff_" + effect, effect, (int)buffValue, duration, false, true);
+
+                    {
+                        CustomerServiceLog("SuspectedCheaterChannel: ", "Adding Stat Modifier: " + "buildabuff_" + effect + " Value = " + buffValue + " Duration = " + duration);
                     }
+
+                    addSkillModModifier(self, "buildabuff_" + effect, effect, (int) buffValue, duration, false, true);
+                    break;
+                    case "misc":
+                        switch (effect) {
+                            case "movement_speed":
+                                if (value == 0) {
+                                    value = 1;
+                                }
+                                if (movement.hasMovementModifier(self, "buildabuff_movement_speed")) {
+                                    movement.removeMovementModifier(self, "buildabuff_movement_speed", false);
+                                }
+                                movement.applyMovementModifier(self, "buildabuff_movement_speed", buffValue);
+                                break;
+                            case "reactive_second_chance":
+                                int playerLevel = getLevel(self);
+                                float reactiveModifier = 0.0f;
+                                if (isIdValid(bufferId) && exists(bufferId)) {
+                                    reactiveModifier = getEnhancedSkillStatisticModifierUncapped(bufferId, "expertise_en_inspire_proc_chance_increase");
+                                }
+                                if (internalDecay == true) {
+                                    if (utils.hasScriptVar(self, "decayReactiveMod")) {
+                                        reactiveModifier = utils.getFloatScriptVar(self, "decayReactiveMod");
+                                    }
+                                } else {
+                                    utils.setScriptVar(self, "decayReactiveMod", reactiveModifier);
+                                }
+                                buffValue += reactiveModifier;
+                                if (playerLevel > 69) {
+                                    addSkillModModifier(self, "expertise_buildabuff_heal_3_reac", "expertise_buildabuff_heal_3_reac", (int) buffValue, duration, false, true);
+                                } else if (playerLevel > 39 && playerLevel < 70) {
+                                    addSkillModModifier(self, "expertise_buildabuff_heal_2_reac", "expertise_buildabuff_heal_2_reac", (int) buffValue, duration, false, true);
+                                } else {
+                                    addSkillModModifier(self, "expertise_buildabuff_heal_1_reac", "expertise_buildabuff_heal_1_reac", (int) buffValue, duration, false, true);
+                                }
+                                messageTo(self, "cacheExpertiseProcReacList", null, 2, false);
+                                break;
+                            case "flush_with_success":
+                                String[] xpa =
+                                        {
+                                                "crafting",
+                                                "combat_general",
+                                                "entertainer",
+                                                "space_combat_general",
+                                                "chronicles"
+                                        };
+                                utils.setScriptVar(self, "buff.xpBonus.types", xpa);
+                                utils.setScriptVar(self, "buff.xpBonus.value", buffValue / 100.0f);
+                                break;
+                            default: {
+                                CustomerServiceLog("SuspectedCheaterChannel: ", "Adding Stat Modifier: " + "buildabuff_" + effect + " Value = " + buffValue + " Duration = " + duration);
+                            }
+
+                            addSkillModModifier(self, "buildabuff_" + effect, effect, (int) buffValue, duration, false, true);
+                            break;
+                        }
+                        break;
                 }
             }
             if (!buff.hasBuff(self, "col_ent_invis_buff_tracker"))
@@ -2116,11 +1975,9 @@ public class buff_handler extends script.base_script
     public int buildabuffRemoveBuffHandler(obj_id self, String effectName, String subtype, float duration, float value, String buffName, obj_id caster) throws InterruptedException
     {
         String[] baseModList = dataTableGetStringColumn(DATATABLE_BUFF_BUILDER, "AFFECTS");
-        for (int i = 0; i < baseModList.length; i++)
-        {
-            if (hasSkillModModifier(self, "buildabuff_" + baseModList[i]))
-            {
-                removeAttribOrSkillModModifier(self, "buildabuff_" + baseModList[i]);
+        for (String s : baseModList) {
+            if (hasSkillModModifier(self, "buildabuff_" + s)) {
+                removeAttribOrSkillModModifier(self, "buildabuff_" + s);
             }
         }
         if (hasSkillModModifier(self, "expertise_buildabuff_heal_1_reac"))
@@ -2136,7 +1993,7 @@ public class buff_handler extends script.base_script
             removeAttribOrSkillModModifier(self, "expertise_buildabuff_heal_3_reac");
         }
         messageTo(self, "recalcPools", null, 1, false);
-        messageTo(self, "recalcArmor", null, .25f, false);
+        messageTo(self, "recalcArmor", null, 0.25f, false);
         messageTo(self, "cacheExpertiseProcReacList", null, 2, false);
         utils.removeScriptVar(self, "performance.buildabuff.modNames");
         utils.removeScriptVar(self, "performance.buildabuff.modValues");
@@ -2251,7 +2108,7 @@ public class buff_handler extends script.base_script
         {
             if (group.isGrouped(player))
             {
-                Vector party = group.getPCMembersInRange(player, 32f);
+                Vector party = group.getPCMembersInRange(player, 32.0f);
                 Vector channelToMembers = new Vector();
                 if (party != null)
                 {
@@ -2368,7 +2225,7 @@ public class buff_handler extends script.base_script
         data.put("buffName", "sp_action_regen");
         data.put("ticks", duration);
         data.put("currentTick", 0);
-        messageTo(self, "actionRegenBuff", data, 1f, false);
+        messageTo(self, "actionRegenBuff", data, 1.0f, false);
         return SCRIPT_CONTINUE;
     }
     public int actionRegenRemoveBuffHandler(obj_id self, String effectName, String subtype, float duration, float value, String buffName, obj_id caster) throws InterruptedException
@@ -2394,7 +2251,7 @@ public class buff_handler extends script.base_script
         if (currentTick < ticks)
         {
             params.put("currentTick", ++currentTick);
-            messageTo(self, "actionRegenBuff", params, 1f, false);
+            messageTo(self, "actionRegenBuff", params, 1.0f, false);
         }
         return SCRIPT_CONTINUE;
     }
@@ -2460,18 +2317,15 @@ public class buff_handler extends script.base_script
                 debugSpeakMsg(self, "Command list was null or empty");
                 return SCRIPT_CONTINUE;
             }
-            for (int i = 0; i < commandList.length; i++)
-            {
-                combat_data cd = combat_engine.getCombatData(commandList[i]);
-                if (cd == null)
-                {
+            for (String s : commandList) {
+                combat_data cd = combat_engine.getCombatData(s);
+                if (cd == null) {
                     continue;
                 }
                 String cooldownGroup = cd.cooldownGroup;
                 int groupCrc = getStringCrc(cooldownGroup);
                 float coolDownLeft = getCooldownTimeLeft(self, groupCrc);
-                if (coolDownLeft < value)
-                {
+                if (coolDownLeft < value) {
                     sendCooldownGroupTimingOnly(self, groupCrc, value);
                 }
             }
@@ -2486,7 +2340,7 @@ public class buff_handler extends script.base_script
     {
         String type = "heat";
         boolean exclusive = false;
-        if (subType.indexOf("exclusive") > -1)
+        if (subType.contains("exclusive"))
         {
             exclusive = true;
         }
@@ -2686,47 +2540,39 @@ public class buff_handler extends script.base_script
         if (addedMembers != null && addedMembers.length > 0)
         {
             data.put("isAdding", true);
-            for (int i = 0; i < addedMembers.length; i++)
-            {
-                if (addedMembers[i] == self)
-                {
-                    for (int j = 0; j < groupMembers.length; j++)
-                    {
-                        if (groupMembers[j] == self)
-                        {
+            for (obj_id addedMember : addedMembers) {
+                if (addedMember == self) {
+                    for (obj_id groupMember : groupMembers) {
+                        if (groupMember == self) {
                             continue;
                         }
-                        messageTo(groupMembers[j], "setGroupBuffs", data, 0f, false);
-                        if(hasTriggerVolume(self, "group_buff_breach"))
-                            addTriggerVolumeEventSource("group_buff_breach", groupMembers[j]);
+                        messageTo(groupMember, "setGroupBuffs", data, 0.0f, false);
+                        if (hasTriggerVolume(self, "group_buff_breach"))
+                            addTriggerVolumeEventSource("group_buff_breach", groupMember);
                     }
                     continue;
                 }
-                messageTo(addedMembers[i], "setGroupBuffs", data, 0f, false);
-                if(hasTriggerVolume(self, "group_buff_breach"))
-                    addTriggerVolumeEventSource("group_buff_breach", addedMembers[i]);
+                messageTo(addedMember, "setGroupBuffs", data, 0.0f, false);
+                if (hasTriggerVolume(self, "group_buff_breach"))
+                    addTriggerVolumeEventSource("group_buff_breach", addedMember);
             }
         }
         if (removedMembers != null && removedMembers.length > 0)
         {
             data.put("isAdding", false);
-            for (int i = 0; i < removedMembers.length; i++)
-            {
-                if (removedMembers[i] == self)
-                {
-                    for (int j = 0; j < groupMembers.length; j++)
-                    {
-                        if (groupMembers[j] == self)
-                        {
+            for (obj_id removedMember : removedMembers) {
+                if (removedMember == self) {
+                    for (obj_id groupMember : groupMembers) {
+                        if (groupMember == self) {
                             continue;
                         }
-                        messageTo(groupMembers[j], "setGroupBuffs", data, 0f, false);
-                        removeTriggerVolumeEventSource("group_buff_breach", groupMembers[j]);
+                        messageTo(groupMember, "setGroupBuffs", data, 0.0f, false);
+                        removeTriggerVolumeEventSource("group_buff_breach", groupMember);
                     }
                     continue;
                 }
-                messageTo(removedMembers[i], "setGroupBuffs", data, 0f, false);
-                removeTriggerVolumeEventSource("group_buff_breach", removedMembers[i]);
+                messageTo(removedMember, "setGroupBuffs", data, 0.0f, false);
+                removeTriggerVolumeEventSource("group_buff_breach", removedMember);
             }
         }
         return SCRIPT_CONTINUE;
@@ -2801,15 +2647,12 @@ public class buff_handler extends script.base_script
             obj_id[] buffAi = getCreaturesInRange(getLocation(self), 45.0f);
             if (buffAi != null && buffAi.length > 0)
             {
-                for (int i = 0; i < buffAi.length; i++)
-                {
-                    if (!isMob(buffAi[i]) && !isPlayer(buffAi[i]) || isDead(buffAi[i]))
-                    {
+                for (obj_id obj_id : buffAi) {
+                    if (!isMob(obj_id) && !isPlayer(obj_id) || isDead(obj_id)) {
                         continue;
                     }
-                    if (factions.shareSocialGroup(self, buffAi[i]) || factions.isInFriendlyFaction(self, buffAi[i]))
-                    {
-                        buff.applyBuff(buffAi[i], self, effectName, duration, value);
+                    if (factions.shareSocialGroup(self, obj_id) || factions.isInFriendlyFaction(self, obj_id)) {
+                        buff.applyBuff(obj_id, self, effectName, duration, value);
                     }
                 }
             }
@@ -2834,16 +2677,14 @@ public class buff_handler extends script.base_script
             return SCRIPT_CONTINUE;
         }
         String group2 = buff.getStringGroupTwo(effectName);
-        if (group2 != null && !group2.equals("") && group2.indexOf("aura") > -1)
+        if (group2 != null && !group2.equals("") && group2.contains("aura"))
         {
             group2 = group2.substring(0, (group2.lastIndexOf("_")));
             int[] group2Buffs = buff.getGroup2BuffsOnTarget(self, group2);
             int auraCount = 0;
-            for (int i = 0; i < group2Buffs.length; ++i)
-            {
-                float tempDuration = buff.getBuffTimeRemaining(self, group2Buffs[i]);
-                if (tempDuration == -1)
-                {
+            for (int group2Buff : group2Buffs) {
+                float tempDuration = buff.getBuffTimeRemaining(self, group2Buff);
+                if (tempDuration == -1) {
                     ++auraCount;
                 }
             }
@@ -2870,17 +2711,14 @@ public class buff_handler extends script.base_script
         data.put("strList", buff.getGroupBuffStrength(self, buffList));
         data.put("isAdding", true);
         obj_id[] groupMembers = getGroupMemberIds(gid);
-        for (int i = 0; i < groupMembers.length; i++)
-        {
-            if (groupMembers[i] == self)
-            {
+        for (obj_id groupMember : groupMembers) {
+            if (groupMember == self) {
                 continue;
             }
-            if (newTriggerVolume)
-            {
-                addTriggerVolumeEventSource("group_buff_breach", groupMembers[i]);
+            if (newTriggerVolume) {
+                addTriggerVolumeEventSource("group_buff_breach", groupMember);
             }
-            messageTo(groupMembers[i], "setGroupBuffs", data, 0f, false);
+            messageTo(groupMember, "setGroupBuffs", data, 0.0f, false);
         }
         return SCRIPT_CONTINUE;
     }
@@ -2913,17 +2751,14 @@ public class buff_handler extends script.base_script
         data.put("buffList", buffList);
         data.put("isAdding", false);
         obj_id[] groupMembers = getGroupMemberIds(gid);
-        for (int i = 0; i < groupMembers.length; i++)
-        {
-            if (groupMembers[i] == self)
-            {
+        for (obj_id groupMember : groupMembers) {
+            if (groupMember == self) {
                 continue;
             }
-            if (lastGroupBuff)
-            {
-                removeTriggerVolumeEventSource("group_buff_breach", groupMembers[i]);
+            if (lastGroupBuff) {
+                removeTriggerVolumeEventSource("group_buff_breach", groupMember);
             }
-            messageTo(groupMembers[i], "setGroupBuffs", data, 0f, false);
+            messageTo(groupMember, "setGroupBuffs", data, 0.0f, false);
         }
         if (lastGroupBuff)
         {
@@ -2978,9 +2813,8 @@ public class buff_handler extends script.base_script
                 return SCRIPT_CONTINUE;
             }
             int[] buffList = buff.getOwnedGroupBuffs(self);
-            for (int i = 0; i < groupMembers.length; ++i)
-            {
-                buff.removeGroupBuffEffect(groupMembers[i], buffList);
+            for (obj_id groupMember : groupMembers) {
+                buff.removeGroupBuffEffect(groupMember, buffList);
             }
         }
         return SCRIPT_CONTINUE;
@@ -3043,14 +2877,11 @@ public class buff_handler extends script.base_script
             return false;
         }
         boolean removed = false;
-        for (int i = 0; i < mods.length; i++)
-        {
-            if (movement.getType(mods[i]) == type)
-            {
-                if (utils.hasScriptVar(target, movement.MOVEMENT_OBJVAR + "." + mods[i] + ".time") && buff.canBeDispelled(mods[i]))
-                {
-                    utils.removeScriptVarTree(target, movement.MOVEMENT_OBJVAR + "." + mods[i]);
-                    combat.removeCombatMovementModifierEffect(target, mods[i]);
+        for (String mod : mods) {
+            if (movement.getType(mod) == type) {
+                if (utils.hasScriptVar(target, movement.MOVEMENT_OBJVAR + "." + mod + ".time") && buff.canBeDispelled(mod)) {
+                    utils.removeScriptVarTree(target, movement.MOVEMENT_OBJVAR + "." + mod);
+                    combat.removeCombatMovementModifierEffect(target, mod);
                     removed = true;
                 }
             }
@@ -3081,29 +2912,25 @@ public class buff_handler extends script.base_script
     public int getAttributeType(String subtype) throws InterruptedException
     {
         int attribute = 0;
-        if (subtype.equals("health"))
-        {
-            attribute = HEALTH;
-        }
-        else if (subtype.equals("constitution"))
-        {
-            attribute = CONSTITUTION;
-        }
-        else if (subtype.equals("action"))
-        {
-            attribute = ACTION;
-        }
-        else if (subtype.equals("stamina"))
-        {
-            attribute = STAMINA;
-        }
-        else if (subtype.equals("mind"))
-        {
-            attribute = MIND;
-        }
-        else if (subtype.equals("willpower"))
-        {
-            attribute = WILLPOWER;
+        switch (subtype) {
+            case "health":
+                attribute = HEALTH;
+                break;
+            case "constitution":
+                attribute = CONSTITUTION;
+                break;
+            case "action":
+                attribute = ACTION;
+                break;
+            case "stamina":
+                attribute = STAMINA;
+                break;
+            case "mind":
+                attribute = MIND;
+                break;
+            case "willpower":
+                attribute = WILLPOWER;
+                break;
         }
         return attribute;
     }
@@ -3255,12 +3082,10 @@ public class buff_handler extends script.base_script
         }
         obj_id topAction = null;
         int currentAction = 0;
-        for (int i = 0; i < players.length; i++)
-        {
-            int thisPlayer = getAction(players[i]);
-            if (thisPlayer > currentAction)
-            {
-                topAction = players[i];
+        for (obj_id player : players) {
+            int thisPlayer = getAction(player);
+            if (thisPlayer > currentAction) {
+                topAction = player;
             }
         }
         if (!isIdValid(topAction))
@@ -3726,7 +3551,7 @@ public class buff_handler extends script.base_script
     }
     public int supression_handlerAddBuffHandler(obj_id self, String effectName, String subytype, float duration, float value, String buffName, obj_id caster) throws InterruptedException
     {
-        float improvedSpeed = (float)getEnhancedSkillStatisticModifierUncapped(caster, "expertise_supression_speed");
+        float improvedSpeed = getEnhancedSkillStatisticModifierUncapped(caster, "expertise_supression_speed");
         int level = Math.round(improvedSpeed / 10.0f);
         buff.applyBuff(self, caster, "co_supressing_fire_" + level);
         return SCRIPT_CONTINUE;
@@ -3740,7 +3565,7 @@ public class buff_handler extends script.base_script
         float snareResist = 0.0f;
         if (isMob(self) && !isPlayer(self))
         {
-            snareResist = (float)getEnhancedSkillStatisticModifierUncapped(self, "movement_resist_snare");
+            snareResist = getEnhancedSkillStatisticModifierUncapped(self, "movement_resist_snare");
         }
         snareResist = 1.0f - (snareResist / 100.0f);
         snareResist = snareResist < 0.0f ? 0.0f : snareResist;
@@ -4209,11 +4034,8 @@ public class buff_handler extends script.base_script
         obj_id[] otherPlayers = trial.getValidTargetsInRadiusIgnoreLOS(self, 8.0f);
         if (otherPlayers != null && otherPlayers.length > 0)
         {
-            for (int i = 0; i < otherPlayers.length; i++)
-            {
-                obj_id nextPlayer = otherPlayers[i];
-                if (isIdValid(nextPlayer) && nextPlayer != self)
-                {
+            for (obj_id nextPlayer : otherPlayers) {
+                if (isIdValid(nextPlayer) && nextPlayer != self) {
                     buff.applyBuff(nextPlayer, caster, "wampa_boss_ice_throw");
                     sendSystemMessage(nextPlayer, new string_id("dungeon_strings", "wampa_boss_ice_throw"));
                 }
@@ -4232,11 +4054,8 @@ public class buff_handler extends script.base_script
         obj_id[] otherPlayers = trial.getValidTargetsInRadiusIgnoreLOS(self, 8.0f);
         if (otherPlayers != null && otherPlayers.length > 0)
         {
-            for (int i = 0; i < otherPlayers.length; i++)
-            {
-                obj_id nextPlayer = otherPlayers[i];
-                if (isIdValid(nextPlayer) && nextPlayer != self)
-                {
+            for (obj_id nextPlayer : otherPlayers) {
+                if (isIdValid(nextPlayer) && nextPlayer != self) {
                     buff.applyBuff(nextPlayer, caster, "wampa_boss_tauntaun_throw");
                     sendSystemMessage(nextPlayer, new string_id("dungeon_strings", "wampa_boss_tauntaun_throw"));
                 }
@@ -4250,11 +4069,8 @@ public class buff_handler extends script.base_script
         obj_id[] playersInArea = getPlayerCreaturesInRange(target, 250.0f);
         if (playersInArea != null && playersInArea.length > 0)
         {
-            for (int i = 0; i < playersInArea.length; i++)
-            {
-                obj_id player = playersInArea[i];
-                if (isIdValid(player) && exists(player))
-                {
+            for (obj_id player : playersInArea) {
+                if (isIdValid(player) && exists(player)) {
                     string_id message = new string_id("dungeon_strings", messageId);
                     prose_package pp = prose.getPackage(message, target, target);
                     prose.setTO(pp, targetName);

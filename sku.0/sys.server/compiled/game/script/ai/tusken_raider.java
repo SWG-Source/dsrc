@@ -321,7 +321,7 @@ public class tusken_raider extends script.base_script
             if ((isFollowedBy == null || isFollowedBy == npc) && isNpcCreature(npc))
             {
                 setMovementWalk(npc);
-                follow(npc, target, 2f, 5f);
+                follow(npc, target, 2.0f, 5.0f);
                 setObjVar(target, "ai.isFollowedBy", npc);
                 setObjVar(npc, "ai.isFollowing", target);
             }

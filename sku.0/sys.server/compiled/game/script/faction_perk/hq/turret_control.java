@@ -37,7 +37,7 @@ public class turret_control extends script.terminal.base.base_terminal
         {
             utils.removeScriptVar(self, "sui.in_use");
         }
-        messageTo(self, "handleSetControl", null, 5f, false);
+        messageTo(self, "handleSetControl", null, 5.0f, false);
         return super.OnInitialize(self);
     }
     public int OnTriggerVolumeExited(obj_id self, String volName, obj_id who) throws InterruptedException
@@ -158,7 +158,7 @@ public class turret_control extends script.terminal.base.base_terminal
         {
             dictionary params = new dictionary();
             params.put("player", player);
-            messageTo(self, "handleTurretAssignment", params, 1f, false);
+            messageTo(self, "handleTurretAssignment", params, 1.0f, false);
         }
         return SCRIPT_CONTINUE;
     }

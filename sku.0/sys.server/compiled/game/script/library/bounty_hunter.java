@@ -44,7 +44,7 @@ public class bounty_hunter extends script.base_script
     public static final int BOUNTY_PAYOUT_AMOUNT_MAXIMUM = 2000;
     public static final boolean BOUNTY_DO_FREQUENCY_ADJUSTER = false;
     public static final int BOUNTY_FREQUENCY = 60;
-    public static final float BOUNTY_PAYOUT_ADJUSTER = 0f;
+    public static final float BOUNTY_PAYOUT_ADJUSTER = 0.0f;
     public static final float BOUNTY_COLLECT_TIME_LIMIT = 600.0f;
     public static final boolean BOUNTY_DO_LEVEL_ADJUSTER = true;
     public static final int BOUNTY_FLOOD_CONTROL_DELAY = 60;
@@ -246,9 +246,8 @@ public class bounty_hunter extends script.base_script
             if (weights != null && weights.length > 0)
             {
                 int total = 0;
-                for (int i = 0; i < weights.length; i++)
-                {
-                    total += weights[i];
+                for (int weight : weights) {
+                    total += weight;
                 }
                 if (total < 1)
                 {
@@ -396,11 +395,9 @@ public class bounty_hunter extends script.base_script
         obj_id[] hunters = getJediBounties(target);
         if (hunters != null && hunters.length > 0)
         {
-            for (int i = 0; i < hunters.length; i++)
-            {
-                if (hunters[i] != hunter)
-                {
-                    messageTo(hunters[i], "handleBountyMissionIncomplete", d, 0.0f, true);
+            for (obj_id hunter1 : hunters) {
+                if (hunter1 != hunter) {
+                    messageTo(hunter1, "handleBountyMissionIncomplete", d, 0.0f, true);
                 }
             }
         }
@@ -447,25 +444,18 @@ public class bounty_hunter extends script.base_script
             obj_id[] missionList = getMissionObjects(player);
             if (missionList != null)
             {
-                for (int i = 0; i < missionList.length; i++)
-                {
-                    String type = getMissionType(missionList[i]);
-                    if (type.equals("bounty"))
-                    {
-                        if (isIdValid(target))
-                        {
-                            if (hasObjVar(missionList[i], "objTarget"))
-                            {
-                                obj_id missionTarget = getObjIdObjVar(missionList[i], "objTarget");
-                                if (missionTarget == target)
-                                {
-                                    return missionList[i];
+                for (obj_id obj_id : missionList) {
+                    String type = getMissionType(obj_id);
+                    if (type.equals("bounty")) {
+                        if (isIdValid(target)) {
+                            if (hasObjVar(obj_id, "objTarget")) {
+                                obj_id missionTarget = getObjIdObjVar(obj_id, "objTarget");
+                                if (missionTarget == target) {
+                                    return obj_id;
                                 }
                             }
-                        }
-                        else 
-                        {
-                            lastMissionId = missionList[i];
+                        } else {
+                            lastMissionId = obj_id;
                         }
                     }
                 }
@@ -488,7 +478,7 @@ public class bounty_hunter extends script.base_script
             Integer Imax = Integer.getInteger(Smax);
             if (Imax != null)
             {
-                maxHunters = Imax.intValue();
+                maxHunters = Imax;
             }
         }
         if (numHunters >= maxHunters)
@@ -499,7 +489,7 @@ public class bounty_hunter extends script.base_script
     }
     public static float getBountyFactionPointAdjustment(obj_id hunter, obj_id target) throws InterruptedException
     {
-        float pvpRating = (float)pvp.getCurrentPvPRating(target);
+        float pvpRating = pvp.getCurrentPvPRating(target);
         float points = 0.0f;
         if ((pvpGetAlignedFaction(hunter) != 0) && (pvpGetAlignedFaction(hunter) == pvpGetAlignedFaction(target)))
         {

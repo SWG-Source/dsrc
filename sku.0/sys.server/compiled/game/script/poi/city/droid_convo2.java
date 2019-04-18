@@ -33,7 +33,7 @@ public class droid_convo2 extends script.base_script
     }
     public void spawnGuy(obj_id baseObject) throws InterruptedException
     {
-        obj_id guy1 = create.themeParkObject(getRandomGuy(), 1f, 0f, "handleDeadGuy", 0f);
+        obj_id guy1 = create.themeParkObject(getRandomGuy(), 1.0f, 0.0f, "handleDeadGuy", 0.0f);
         if (isIdValid(guy1))
         {
             setObjVar(baseObject, "guy1", guy1);
@@ -51,7 +51,7 @@ public class droid_convo2 extends script.base_script
         droids[1] = "r3";
         droids[2] = "r4";
         droids[3] = "r5";
-        obj_id droid = create.themeParkObject(droids[rand(0, 3)], 2f, 1f, "handleDeadDroid", 0f);
+        obj_id droid = create.themeParkObject(droids[rand(0, 3)], 2.0f, 1.0f, "handleDeadDroid", 0.0f);
         if (isIdValid(droid))
         {
             setObjVar(baseObject, "droidSpawn", droid);

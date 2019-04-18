@@ -25,10 +25,9 @@ public class combat_ship_boardable extends script.base_script
         LOG("space", "Type is " + strFileName);
         String[] strMobs = dataTableGetStringColumn(strFileName, "strMobsToSpawn");
         String[] strBossesToSpawn = dataTableGetStringColumn(strFileName, "strBossesToSpawn");
-        for (int intI = 0; intI < strBossesToSpawn.length; intI++)
-        {
+        for (String s : strBossesToSpawn) {
             location locSpawnLocation = getLocationFromLocationListRandom(self, "locBossSpawners", 1.5f);
-            obj_id objMob = create.object(strBossesToSpawn[intI], locSpawnLocation);
+            obj_id objMob = create.object(s, locSpawnLocation);
         }
         utils.setLocalVar(self, "strMobs", strMobs);
         messageTo(self, "delayedSpawn", null, 1, false);

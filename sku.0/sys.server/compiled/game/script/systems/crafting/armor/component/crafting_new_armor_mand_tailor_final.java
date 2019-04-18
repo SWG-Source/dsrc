@@ -76,9 +76,8 @@ public class crafting_new_armor_mand_tailor_final extends script.systems.craftin
         if (skills != null)
         {
             int[] mods = getEnhancedSkillStatisticModifiers(player, skills);
-            for (int i = 0; i < mods.length; ++i)
-            {
-                playerCustomizationMod += mods[i];
+            for (int mod : mods) {
+                playerCustomizationMod += mod;
             }
         }
         playerCustomizationMod = 255;
@@ -94,7 +93,7 @@ public class crafting_new_armor_mand_tailor_final extends script.systems.craftin
             {
                 customizations[i] = null;
             }
-            else if ((customizations[i].name).indexOf("index_color_0") >= 0 && customizations[i].maxValue == 1)
+            else if ((customizations[i].name).contains("index_color_0") && customizations[i].maxValue == 1)
             {
                 customizations[i] = null;
             }

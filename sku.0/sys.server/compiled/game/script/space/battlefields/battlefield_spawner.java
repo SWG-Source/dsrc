@@ -58,9 +58,8 @@ public class battlefield_spawner extends script.base_script
         if ((trPath == null) || (trPath.length == 0))
         {
         }
-        for (int intI = 0; intI < trPath.length; intI++)
-        {
-            location locFoo = space_utils.getLocationFromTransform(trPath[intI]);
+        for (transform transform : trPath) {
+            location locFoo = space_utils.getLocationFromTransform(transform);
         }
         transform trTest = trPath[trPath.length - 1];
         location locTest = utils.getLocationFromTransform(trTest);
@@ -108,9 +107,8 @@ public class battlefield_spawner extends script.base_script
                         }
                     }
                 }
-                for (int intI = 0; intI < trPatrolPoints.size(); intI++)
-                {
-                    location locTest = space_utils.getLocationFromTransform(((transform)trPatrolPoints.get(intI)));
+                for (Object trPatrolPoint : trPatrolPoints) {
+                    location locTest = space_utils.getLocationFromTransform(((transform) trPatrolPoint));
                 }
                 utils.setLocalVar(self, "trPath" + strPaths[intM], trPatrolPoints);
             }

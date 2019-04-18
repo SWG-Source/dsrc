@@ -321,9 +321,8 @@ public class jhaskell_test extends script.base_script
                         return SCRIPT_CONTINUE;
                     }
                     obj_id[] structures = cityGetStructureIds(city_id);
-                    for (int i = 0; i < structures.length; i++)
-                    {
-                        sendSystemMessage(self, "Found: " + getName(structures[i]), null);
+                    for (obj_id structure1 : structures) {
+                        sendSystemMessage(self, "Found: " + getName(structure1), null);
                     }
                     sendSystemMessage(self, "getTrainerCount: " + city.getTrainerCount(city_id), null);
                     sendSystemMessage(self, "getMaxTrainerCount: " + city.getMaxTrainerCount(city_id), null);
@@ -635,7 +634,7 @@ public class jhaskell_test extends script.base_script
                         return SCRIPT_CONTINUE;
                     }
                     sendSystemMessageTestingOnly(self, "Attempting to player sound: " + sound + " on greeter: " + greeter);
-                    if (!playClientEffectLoc(greeter, sound, loc, 0.f))
+                    if (!playClientEffectLoc(greeter, sound, loc, 0.0f))
                     {
                         sendSystemMessageTestingOnly(self, "The sound could not be played per the game system.");
                         return SCRIPT_CONTINUE;
@@ -668,9 +667,8 @@ public class jhaskell_test extends script.base_script
                 {
                     String data = "";
                     int iteration = TCG_EXPANSION.length;
-                    for (int i = 0; i < iteration; i++)
-                    {
-                        dictionary itemData = dataTableGetRow(static_item.MASTER_ITEM_TABLE, TCG_EXPANSION[i]);
+                    for (String s : TCG_EXPANSION) {
+                        dictionary itemData = dataTableGetRow(static_item.MASTER_ITEM_TABLE, s);
                         data += itemData.getString("template_name");
                         data += "\n\r";
                     }
@@ -688,9 +686,8 @@ public class jhaskell_test extends script.base_script
                         sendSystemMessage(self, vendor_lib.SID_INVENTORY_FULL_GENERIC);
                         return SCRIPT_CONTINUE;
                     }
-                    for (int i = 0; i < TCG_EXPANSION.length; i++)
-                    {
-                        static_item.createNewItemFunction(TCG_EXPANSION[i], pInv);
+                    for (String s : TCG_EXPANSION) {
+                        static_item.createNewItemFunction(s, pInv);
                     }
                 }
                 else if (priCommand.equalsIgnoreCase("get_tcg_launch_items"))
@@ -705,9 +702,8 @@ public class jhaskell_test extends script.base_script
                         sendSystemMessage(self, vendor_lib.SID_INVENTORY_FULL_GENERIC);
                         return SCRIPT_CONTINUE;
                     }
-                    for (int i = 0; i < TCG_LAUNCH.length; i++)
-                    {
-                        static_item.createNewItemFunction(TCG_LAUNCH[i], pInv);
+                    for (String tcgLaunch : TCG_LAUNCH) {
+                        static_item.createNewItemFunction(tcgLaunch, pInv);
                     }
                 }
                 else if (priCommand.equalsIgnoreCase("play_client_test"))
@@ -740,7 +736,7 @@ public class jhaskell_test extends script.base_script
                 }
                 else if (priCommand.equalsIgnoreCase("play_2d") && !secCommand.equals(""))
                 {
-                    if (secCommand == null || secCommand.equals("") || !secCommand.startsWith("sound/") || secCommand.indexOf(".snd") < 0)
+                    if (secCommand == null || secCommand.equals("") || !secCommand.startsWith("sound/") || !secCommand.contains(".snd"))
                     {
                         sendSystemMessageTestingOnly(self, "Sound Invalid. Valid sound: sound/utinni.snd");
                         return SCRIPT_CONTINUE;
@@ -895,7 +891,7 @@ public class jhaskell_test extends script.base_script
                     {
                         return SCRIPT_CONTINUE;
                     }
-                    if (sarlaccObjTemplate.indexOf("mini_s02.iff") < 0)
+                    if (!sarlaccObjTemplate.contains("mini_s02.iff"))
                     {
                         return SCRIPT_CONTINUE;
                     }
@@ -905,78 +901,50 @@ public class jhaskell_test extends script.base_script
                 else if (priCommand.equalsIgnoreCase("get_player_housing_lots"))
                 {
                     String data = "";
-                    for (int i = 0; i < ALL_PLAYER_HOUSING.length; i++)
-                    {
+                    for (String s : ALL_PLAYER_HOUSING) {
                         String lotStr = "";
-                        int lot = getAdjustedLotCount(ALL_PLAYER_HOUSING[i]);
-                        if (lot == -99)
-                        {
+                        int lot = getAdjustedLotCount(s);
+                        if (lot == -99) {
                             lotStr = "Lot count set to 1 because of error";
-                        }
-                        else if (lot == -1)
-                        {
+                        } else if (lot == -1) {
                             lotStr = "template error";
-                        }
-                        else if (lot == -2)
-                        {
+                        } else if (lot == -2) {
                             lotStr = "footprint template error";
-                        }
-                        else if (lot == -3)
-                        {
+                        } else if (lot == -3) {
                             lotStr = "index error";
-                        }
-                        else if (lot > 0)
-                        {
+                        } else if (lot > 0) {
                             lotStr = "" + lot;
-                        }
-                        else if (lot == 0)
-                        {
+                        } else if (lot == 0) {
                             lotStr = "none";
-                        }
-                        else if (lot == -69)
-                        {
+                        } else if (lot == -69) {
                             lotStr = "Exempt";
                         }
-                        data += ALL_PLAYER_HOUSING[i] + "\t" + lotStr + "\n";
+                        data += s + "\t" + lotStr + "\n";
                     }
                     saveTextOnClient(self, "playerHousingLots.txt", data);
                 }
                 else if (priCommand.equalsIgnoreCase("get_player_city_lots"))
                 {
                     String data = "";
-                    for (int i = 0; i < ALL_PLAYER_CITY_STRUCTURES.length; i++)
-                    {
+                    for (String allPlayerCityStructure : ALL_PLAYER_CITY_STRUCTURES) {
                         String lotStr = "";
-                        int lot = getAdjustedLotCount(ALL_PLAYER_CITY_STRUCTURES[i]);
-                        if (lot == -99)
-                        {
+                        int lot = getAdjustedLotCount(allPlayerCityStructure);
+                        if (lot == -99) {
                             lotStr = "Lot count set to 1 because of error";
-                        }
-                        else if (lot == -1)
-                        {
+                        } else if (lot == -1) {
                             lotStr = "template error";
-                        }
-                        else if (lot == -2)
-                        {
+                        } else if (lot == -2) {
                             lotStr = "footprint template error";
-                        }
-                        else if (lot == -3)
-                        {
+                        } else if (lot == -3) {
                             lotStr = "index error";
-                        }
-                        else if (lot > 0)
-                        {
+                        } else if (lot > 0) {
                             lotStr = "" + lot;
-                        }
-                        else if (lot == 0)
-                        {
+                        } else if (lot == 0) {
                             lotStr = "none";
-                        }
-                        else if (lot == -69)
-                        {
+                        } else if (lot == -69) {
                             lotStr = "Exempt";
                         }
-                        data += ALL_PLAYER_CITY_STRUCTURES[i] + "\t" + lotStr + "\n";
+                        data += allPlayerCityStructure + "\t" + lotStr + "\n";
                     }
                     saveTextOnClient(self, "cityStructureLots.txt", data);
                 }
@@ -1742,9 +1710,8 @@ public class jhaskell_test extends script.base_script
                     }
                     else
                     {
-                        for (int i = 0; i < myList.length; i++)
-                        {
-                            sendSystemMessageTestingOnly(self, "found: " + myList[i]);
+                        for (obj_id obj_id : myList) {
+                            sendSystemMessageTestingOnly(self, "found: " + obj_id);
                         }
                         sendSystemMessageTestingOnly(self, "done");
                     }
@@ -2096,7 +2063,7 @@ public class jhaskell_test extends script.base_script
                 }
                 else if (priCommand.equalsIgnoreCase("nym_warp_roof"))
                 {
-                    warpPlayer(self, "lok", 477.0f, 33.0f, 4785.0f, null, 0f, 0f, 0f);
+                    warpPlayer(self, "lok", 477.0f, 33.0f, 4785.0f, null, 0.0f, 0.0f, 0.0f);
                 }
                 else if (priCommand.equalsIgnoreCase("nym_prisoner_quest"))
                 {
@@ -2251,7 +2218,7 @@ public class jhaskell_test extends script.base_script
         }
         for (int i = 0; i < arrayOfAllTrianerTemplates.length; i++)
         {
-            location poiLocation = utils.getRandomAwayLocation(poiStartLocation, 5.f, 10.f);
+            location poiLocation = utils.getRandomAwayLocation(poiStartLocation, 5.0f, 10.0f);
             obj_id poi = createObject(arrayOfAllTrianerTemplates[i], poiLocation);
             if (isValidId(poi) && exists(poi))
             {
@@ -2269,13 +2236,10 @@ public class jhaskell_test extends script.base_script
     public boolean destroyCitySkillTrainers(obj_id self, int city_id) throws InterruptedException
     {
         obj_id[] structures = cityGetStructureIds(city_id);
-        for (int i = 0; i < structures.length; i++)
-        {
-            if (structures[i].isLoaded())
-            {
-                if (!city.isNormalStructure(city_id, structures[i]))
-                {
-                    destroyObject(structures[i]);
+        for (obj_id structure : structures) {
+            if (structure.isLoaded()) {
+                if (!city.isNormalStructure(city_id, structure)) {
+                    destroyObject(structure);
                 }
             }
         }
@@ -2413,17 +2377,12 @@ public class jhaskell_test extends script.base_script
         {
             return null;
         }
-        for (int i = 0; i < objects.length; i++)
-        {
-            if (hasScript(objects[i], "item.camp.camp_advanced"))
-            {
+        for (obj_id object : objects) {
+            if (hasScript(object, "item.camp.camp_advanced")) {
                 sendSystemMessageTestingOnly(player, "found script.");
-                if (isInTriggerVolume(objects[i], "campsite", player))
-                {
-                    return objects[i];
-                }
-                else
-                {
+                if (isInTriggerVolume(object, "campsite", player)) {
+                    return object;
+                } else {
                     sendSystemMessageTestingOnly(player, "no objects found.");
                 }
             }

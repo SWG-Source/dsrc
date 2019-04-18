@@ -20,11 +20,9 @@ public class locked extends script.base_script
             return SCRIPT_CONTINUE;
         }
         int numInList = permList.size();
-        for (int i = 0; i < numInList; i++)
-        {
-            obj_id thisPlayer = ((obj_id)permList.get(i));
-            if (isIdValid(thisPlayer))
-            {
+        for (Object o : permList) {
+            obj_id thisPlayer = ((obj_id) o);
+            if (isIdValid(thisPlayer)) {
                 String fname = getFirstName(thisPlayer);
                 permissionsAddAllowed(self, fname);
             }
@@ -40,11 +38,9 @@ public class locked extends script.base_script
             return SCRIPT_CONTINUE;
         }
         int numInList = permList.size();
-        for (int i = 0; i < numInList; i++)
-        {
-            obj_id thisPlayer = ((obj_id)permList.get(i));
-            if (isIdValid(thisPlayer))
-            {
+        for (Object o : permList) {
+            obj_id thisPlayer = ((obj_id) o);
+            if (isIdValid(thisPlayer)) {
                 String fname = getFirstName(thisPlayer);
                 permissionsAddAllowed(self, fname);
             }

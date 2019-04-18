@@ -30,9 +30,8 @@ public class ct_executioner extends script.base_script
     public int handleDelayedExecute(obj_id self, dictionary params) throws InterruptedException
     {
         obj_id[] prisoner = trial.getObjectsInDungeonWithScript(trial.getTop(self), "theme_park.heroic.exar_kun.ct_prisoner");
-        for (int i = 0; i < prisoner.length; i++)
-        {
-            kill(prisoner[i]);
+        for (obj_id obj_id : prisoner) {
+            kill(obj_id);
         }
         messageTo(self, "cleanup", null, 5.0f, false);
         chat.chat(self, "Where is your god now!");
@@ -49,8 +48,8 @@ public class ct_executioner extends script.base_script
         {
             return SCRIPT_CONTINUE;
         }
-        float max = (float)getMaxHealth(self);
-        float current = (float)getHealth(self);
+        float max = getMaxHealth(self);
+        float current = getHealth(self);
         float ratio = current / max;
         if (ratio <= 0.2)
         {

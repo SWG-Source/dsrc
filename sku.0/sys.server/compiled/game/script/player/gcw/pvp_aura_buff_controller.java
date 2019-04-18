@@ -63,35 +63,28 @@ public class pvp_aura_buff_controller extends script.base_script
         }
         else 
         {
-            for (int i = 0; i < players.length; i++)
-            {
-                if (!isPlayer(players[i]) && !isMob(players[i]) || isDead(players[i]))
-                {
+            for (obj_id player : players) {
+                if (!isPlayer(player) && !isMob(player) || isDead(player)) {
                     continue;
                 }
-                switch (faction)
-                {
+                switch (faction) {
                     case 0:
-                    if (factions.isRebel(players[i]))
-                    {
-                        if (!stealth.hasInvisibleBuff(players[i]))
-                        {
-                            utils.addElement(filteredPlayers, players[i]);
+                        if (factions.isRebel(player)) {
+                            if (!stealth.hasInvisibleBuff(player)) {
+                                utils.addElement(filteredPlayers, player);
+                            }
+                            break;
                         }
                         break;
-                    }
-                    break;
                     case 1:
-                    if (factions.isImperial(players[i]))
-                    {
-                        if (!stealth.hasInvisibleBuff(players[i]))
-                        {
-                            utils.addElement(filteredPlayers, players[i]);
+                        if (factions.isImperial(player)) {
+                            if (!stealth.hasInvisibleBuff(player)) {
+                                utils.addElement(filteredPlayers, player);
+                            }
                         }
-                    }
-                    break;
+                        break;
                     default:
-                    break;
+                        break;
                 }
             }
         }

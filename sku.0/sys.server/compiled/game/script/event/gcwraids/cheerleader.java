@@ -151,7 +151,7 @@ public class cheerleader extends script.base_script
     {
         obj_id celeb = getObjIdObjVar(self, "event.gcwraids.celeb");
         location there = getLocation(self);
-        there.z += -25;
+        there.z -= 25;
         String celebType = getCreatureName(celeb);
         ai_lib.aiPathTo(celeb, there);
         if (celebType.equals("darth_vader"))

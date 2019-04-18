@@ -29,7 +29,7 @@ public class chief extends script.base_script
     }
     public int OnHearSpeech(obj_id self, obj_id speaker, String text) throws InterruptedException
     {
-        if (utils.getDistance2D(self, speaker) > 10f)
+        if (utils.getDistance2D(self, speaker) > 10.0f)
         {
             return SCRIPT_CONTINUE;
         }

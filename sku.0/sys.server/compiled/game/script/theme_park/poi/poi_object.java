@@ -370,10 +370,8 @@ public class poi_object extends script.theme_park.poi.base
         int intPlayers = 0;
         if (objContents != null && objContents.length > 0)
         {
-            for (int intI = 0; intI < objContents.length; intI++)
-            {
-                if (isPlayer(objContents[intI]))
-                {
+            for (obj_id objContent : objContents) {
+                if (isPlayer(objContent)) {
                     intPlayers++;
                 }
             }

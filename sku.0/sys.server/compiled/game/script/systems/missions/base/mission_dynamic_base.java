@@ -10,7 +10,7 @@ public class mission_dynamic_base extends script.systems.missions.base.mission_b
     public mission_dynamic_base()
     {
     }
-    public static final float MIN_DESTROY_DISTANCE = 350f;
+    public static final float MIN_DESTROY_DISTANCE = 350.0f;
     public static final int FACTION_DELIVER_REWARD_VALUE = 150;
     public static final int FACTION_REWARD_VALUE = 100;
     public static final int INFORMANT_EASY = 1;
@@ -38,17 +38,17 @@ public class mission_dynamic_base extends script.systems.missions.base.mission_b
         "moncal",
         "twilek"
     };
-    public static final float DELIVER_DIFFICULTY_MODIFIER = .5f;
-    public static final float FETCH_DIFFICULTY_MODIFIER = .5f;
-    public static final float ESCORT_DIFFICULTY_MODIFIER = .5f;
-    public static final float MULTI_PLANET_MODIFIER = 4f;
-    public static final float RANGE_MODIFIER = 25f;
-    public static final float MIN_DESTRUCTION_DISTANCE = 0f;
-    public static final float MAX_DESTRUCTION_DISTANCE = 4000f;
+    public static final float DELIVER_DIFFICULTY_MODIFIER = 0.5f;
+    public static final float FETCH_DIFFICULTY_MODIFIER = 0.5f;
+    public static final float ESCORT_DIFFICULTY_MODIFIER = 0.5f;
+    public static final float MULTI_PLANET_MODIFIER = 4.0f;
+    public static final float RANGE_MODIFIER = 25.0f;
+    public static final float MIN_DESTRUCTION_DISTANCE = 0.0f;
+    public static final float MAX_DESTRUCTION_DISTANCE = 4000.0f;
     public static final int LOCATION_CHECKS = 10;
-    public static final float DEFAULT_OBJECTIVE_SIZE = 30f;
-    public static final float PLAYER_INTEREST_RANGE = 200f;
-    public static final float ITEM_CHECK_RANGE = 25f;
+    public static final float DEFAULT_OBJECTIVE_SIZE = 30.0f;
+    public static final float PLAYER_INTEREST_RANGE = 200.0f;
+    public static final float ITEM_CHECK_RANGE = 25.0f;
     public static final float MIN_REWARD_VARIANCE = -10;
     public static final float MAX_REWARD_VARIANCE = 10;
     public static final String SUCCESS_MESSAGE_TYPE = "s";
@@ -115,8 +115,8 @@ public class mission_dynamic_base extends script.systems.missions.base.mission_b
         "mission.objDeliverMission",
         "mission.objReconMission"
     };
-    public static final float MIN_RECON_DISTANCE = 0f;
-    public static final float MAX_RECON_DISTANCE = 5000f;
+    public static final float MIN_RECON_DISTANCE = 0.0f;
+    public static final float MAX_RECON_DISTANCE = 5000.0f;
     public static final float RECON_EASY_DISTANCE = 1000;
     public static final float RECON_MEDIUM_DISTANCE = 2000;
     public static final float RECON_HARD_DISTANCE = 5000;
@@ -215,9 +215,8 @@ public class mission_dynamic_base extends script.systems.missions.base.mission_b
         if (!isIdValid(objMissionData))
         {
             obj_id[] objContents = utils.getContents(objContainer);
-            for (int intI = 0; intI < objContents.length; intI++)
-            {
-                destroyObject(objContents[intI]);
+            for (obj_id objContent : objContents) {
+                destroyObject(objContent);
             }
             return null;
         }
@@ -579,8 +578,8 @@ public class mission_dynamic_base extends script.systems.missions.base.mission_b
             location[] locExtents = getRegionExtent(rgnMissionRegion);
             location locLowerLeft = locExtents[0];
             location locUpperRight = locExtents[1];
-            float minimum = -8192f + 512f;
-            float maximum = 8192f - 512f;
+            float minimum = -8192.0f + 512.0f;
+            float maximum = 8192.0f - 512.0f;
             if (locLowerLeft.x < minimum)
             {
                 locLowerLeft.x = minimum;
@@ -805,32 +804,32 @@ public class mission_dynamic_base extends script.systems.missions.base.mission_b
         while (jediList.size() > 0)
         {
             intRoll = rand(0, jediList.size() - 1);
-            if (!isIdValid(((obj_id)jediList.get(intRoll))) || !boolOnline[(((Integer)(jediIdx.get(intRoll)))).intValue()])
+            if (!isIdValid(((obj_id)jediList.get(intRoll))) || !boolOnline[(Integer) (jediIdx.get(intRoll))])
             {
                 jediList = utils.removeElementAt(jediList, intRoll);
                 jediIdx = utils.removeElementAt(jediIdx, intRoll);
             }
-            else if ((((obj_id)jediList.get(intRoll)) == bountyHunterId) || ((intFaction != 0) && (jediFaction[(((Integer)(jediIdx.get(intRoll)))).intValue()] != intFaction)))
+            else if ((((obj_id)jediList.get(intRoll)) == bountyHunterId) || ((intFaction != 0) && (jediFaction[(Integer) (jediIdx.get(intRoll))] != intFaction)))
             {
                 jediList = utils.removeElementAt(jediList, intRoll);
                 jediIdx = utils.removeElementAt(jediIdx, intRoll);
             }
-            else if (flag == missions.BOUNTY_FLAG_SMUGGLER && ((smugglerFlags == null) || (smugglerFlags.length < ((((Integer)(jediIdx.get(intRoll)))).intValue() + 1)) || (smugglerFlags[(((Integer)(jediIdx.get(intRoll)))).intValue()] != 1)))
+            else if (flag == missions.BOUNTY_FLAG_SMUGGLER && ((smugglerFlags == null) || (smugglerFlags.length < ((Integer) (jediIdx.get(intRoll)) + 1)) || (smugglerFlags[(Integer) (jediIdx.get(intRoll))] != 1)))
             {
                 jediList = utils.removeElementAt(jediList, intRoll);
                 jediIdx = utils.removeElementAt(jediIdx, intRoll);
             }
-            else if (jediPlanet[(((Integer)(jediIdx.get(intRoll)))).intValue()].equals(bountyHunterLocation.area))
+            else if (jediPlanet[(Integer) (jediIdx.get(intRoll))].equals(bountyHunterLocation.area))
             {
                 SamePlanetObjId[SamePlanetCounter] = ((obj_id)jediList.get(intRoll));
-                SamePlanetInt[SamePlanetCounter] = ((Integer)jediIdx.get(intRoll)).intValue();
+                SamePlanetInt[SamePlanetCounter] = (Integer) jediIdx.get(intRoll);
                 ++SamePlanetCounter;
                 jediList = utils.removeElementAt(jediList, intRoll);
                 jediIdx = utils.removeElementAt(jediIdx, intRoll);
             }
             else 
             {
-                intRoll = ((Integer)jediIdx.get(intRoll)).intValue();
+                intRoll = (Integer) jediIdx.get(intRoll);
                 String[] strNames = dctJediInfo.getStringArray("name");
                 strTargetName = strNames[intRoll];
                 int[] bountyValue = dctJediInfo.getIntArray("bountyValue");
@@ -1461,7 +1460,7 @@ public class mission_dynamic_base extends script.systems.missions.base.mission_b
         if (okRows.size() > 0)
         {
             int randRow = rand(0, (okRows.size() - 1));
-            randRow = ((Integer)okRows.get(randRow)).intValue();
+            randRow = (Integer) okRows.get(randRow);
             row = dataTableGetRow(strFileName, randRow);
             String strRewardFileName = "datatables/missions/destroy/destroy_rewards.iff";
             int minReward = dataTableGetInt(strRewardFileName, intDifficulty, "intMinReward");
@@ -1621,26 +1620,22 @@ public class mission_dynamic_base extends script.systems.missions.base.mission_b
                 strIdFileName = strIdFileName + "_" + strTargetType;
                 location locMissionStartLocation = getMissionStartLocation(objMissionData);
                 String strPlanet = locMissionStartLocation.area;
-                if (strPlanet.equals("tatooine"))
-                {
-                    if (!boolNPC)
-                    {
-                        strIdFileName = strIdFileName + "_tatooine";
-                    }
-                }
-                else if (strPlanet.equals("naboo"))
-                {
-                    if (!boolNPC)
-                    {
-                        strIdFileName = strIdFileName + "_naboo";
-                    }
-                }
-                else if (strPlanet.equals("corellia"))
-                {
-                    if (!boolNPC)
-                    {
-                        strIdFileName = strIdFileName + "_corellia";
-                    }
+                switch (strPlanet) {
+                    case "tatooine":
+                        if (!boolNPC) {
+                            strIdFileName = strIdFileName + "_tatooine";
+                        }
+                        break;
+                    case "naboo":
+                        if (!boolNPC) {
+                            strIdFileName = strIdFileName + "_naboo";
+                        }
+                        break;
+                    case "corellia":
+                        if (!boolNPC) {
+                            strIdFileName = strIdFileName + "_corellia";
+                        }
+                        break;
                 }
             }
         }
@@ -1656,11 +1651,11 @@ public class mission_dynamic_base extends script.systems.missions.base.mission_b
             }
             else if (!strNumberOfEntries.equals(""))
             {
-                Integer intTest = new Integer(0);
+                Integer intTest = 0;
                 boolean boolError = false;
                 try
                 {
-                    intTest = new Integer(strNumberOfEntries);
+                    intTest = Integer.valueOf(strNumberOfEntries);
                 }
                 catch(NumberFormatException err)
                 {
@@ -1668,7 +1663,7 @@ public class mission_dynamic_base extends script.systems.missions.base.mission_b
                 }
                 if (!boolError)
                 {
-                    intStringQuantity = intTest.intValue();
+                    intStringQuantity = intTest;
                     if (intStringQuantity < 0)
                     {
                         intStringQuantity = 1;
@@ -1723,21 +1718,19 @@ public class mission_dynamic_base extends script.systems.missions.base.mission_b
             strDescription = "m" + intStringId + "o" + flagChar;
 
             String strTest = getMissionType(objMissionData);
-            if (strTest.equals("survey"))
-            {
-                strDescription = "m" + intStringId + "o";
-            }
-            else if (strTest.equals("crafting"))
-            {
-                strDescription = "m" + intStringId + "d" + flagChar;
-            }
-            else if (strTest.equals("dancer"))
-            {
-                strDescription = "m" + intStringId + "o";
-            }
-            else if (strTest.equals("musician"))
-            {
-                strDescription = "m" + intStringId + "o";
+            switch (strTest) {
+                case "survey":
+                    strDescription = "m" + intStringId + "o";
+                    break;
+                case "crafting":
+                    strDescription = "m" + intStringId + "d" + flagChar;
+                    break;
+                case "dancer":
+                    strDescription = "m" + intStringId + "o";
+                    break;
+                case "musician":
+                    strDescription = "m" + intStringId + "o";
+                    break;
             }
         }
         else 
@@ -1949,41 +1942,34 @@ public class mission_dynamic_base extends script.systems.missions.base.mission_b
         }
         else 
         {
-            if (strSpecies.equals("bothan"))
-            {
-                strTemplate = "object/creature/player/bothan_male.iff";
-            }
-            else if (strSpecies.equals("moncal"))
-            {
-                strTemplate = "object/creature/player/moncal_male.iff";
-            }
-            else if (strSpecies.equals("wookiee"))
-            {
-                strTemplate = "object/creature/player/wookiee_male.iff";
-            }
-            else if (strSpecies.equals("trandoshan"))
-            {
-                strTemplate = "object/creature/player/trandoshan_male.iff";
-            }
-            else if (strSpecies.equals("twilek"))
-            {
-                strTemplate = "object/creature/player/twilek_male.iff";
-            }
-            else if (strSpecies.equals("human"))
-            {
-                strTemplate = "object/creature/player/human_male.iff";
-            }
-            else if (strSpecies.equals("zabrak"))
-            {
-                strTemplate = "object/creature/player/zabrak_male.iff";
-            }
-            else if (strSpecies.equals("rodian"))
-            {
-                strTemplate = "object/creature/player/rodian_male.iff";
-            }
-            else 
-            {
-                strTemplate = "object/creature/player/human_male.iff";
+            switch (strSpecies) {
+                case "bothan":
+                    strTemplate = "object/creature/player/bothan_male.iff";
+                    break;
+                case "moncal":
+                    strTemplate = "object/creature/player/moncal_male.iff";
+                    break;
+                case "wookiee":
+                    strTemplate = "object/creature/player/wookiee_male.iff";
+                    break;
+                case "trandoshan":
+                    strTemplate = "object/creature/player/trandoshan_male.iff";
+                    break;
+                case "twilek":
+                    strTemplate = "object/creature/player/twilek_male.iff";
+                    break;
+                case "human":
+                    strTemplate = "object/creature/player/human_male.iff";
+                    break;
+                case "zabrak":
+                    strTemplate = "object/creature/player/zabrak_male.iff";
+                    break;
+                case "rodian":
+                    strTemplate = "object/creature/player/rodian_male.iff";
+                    break;
+                default:
+                    strTemplate = "object/creature/player/human_male.iff";
+                    break;
             }
         }
         String strName = generateRandomName(strTemplate);
@@ -2157,91 +2143,69 @@ public class mission_dynamic_base extends script.systems.missions.base.mission_b
             if (!hasObjVar(objNPC, strMissionTypes[intI]))
             {
                 String strMissionType = strMissionTypes[intI];
-                if (strMissionType.equals("mission.objReconMission"))
-                {
-                    objMissionData = createReconMission(objMissionData, objNPC, locCurrentLocation, intDifficulty, strPlanet, "");
-                }
-                else if (strMissionType.equals("mission.objHuntingMission"))
-                {
-                    objMissionData = createHuntingMission(objMissionData, objNPC, intDifficulty, "");
-                }
-                else if (strMissionType.equals("mission.objDestroyMission"))
-                {
-                    boolean boolDeclaredOnly = false;
-                    if (!strFaction.equals(""))
-                    {
-                        if (hasObjVar(objNPC, "mission.intDeclaredOnly"))
-                        {
-                            boolDeclaredOnly = true;
-                            strFaction = strFaction + "_military";
+                switch (strMissionType) {
+                    case "mission.objReconMission":
+                        objMissionData = createReconMission(objMissionData, objNPC, locCurrentLocation, intDifficulty, strPlanet, "");
+                        break;
+                    case "mission.objHuntingMission":
+                        objMissionData = createHuntingMission(objMissionData, objNPC, intDifficulty, "");
+                        break;
+                    case "mission.objDestroyMission":
+                        boolean boolDeclaredOnly = false;
+                        if (!strFaction.equals("")) {
+                            if (hasObjVar(objNPC, "mission.intDeclaredOnly")) {
+                                boolDeclaredOnly = true;
+                                strFaction = strFaction + "_military";
+                            } else {
+                                strFaction = strFaction + "_non_military";
+                            }
                         }
-                        else 
-                        {
-                            strFaction = strFaction + "_non_military";
+                        objMissionData = createDestructionMissionDataFromLocation(objMissionData, objCreator, locCurrentLocation, intDifficulty, strPlanet, strFaction, 1.0f);
+                        if (isIdValid(objMissionData)) {
+                            if (boolDeclaredOnly) {
+                                setObjVar(objMissionData, "boolDeclaredOnly", true);
+                            }
+                            if (!hasObjVar(objNPC, "mission.intPersistent")) {
+                                reContextualizationTerminalToNPCMission(objMissionData, objNPC);
+                            }
+                            if (hasObjVar(objNPC, "mission.strNPCName")) {
+                                objMissionData = dynamicDestroyToThemePark(objMissionData, objNPC);
+                            }
                         }
-                    }
-                    objMissionData = createDestructionMissionDataFromLocation(objMissionData, objCreator, locCurrentLocation, intDifficulty, strPlanet, strFaction, 1.0f);
-                    if (isIdValid(objMissionData))
-                    {
-                        if (boolDeclaredOnly)
-                        {
-                            setObjVar(objMissionData, "boolDeclaredOnly", true);
+                        break;
+                    case "mission.objDeliverMission":
+                        objMissionData = createDeliverMissionFromLocation(objMissionData, objCreator, locCurrentLocation, intDifficulty, strPlanet, strFaction, 1.0f);
+                        if (isIdValid(objMissionData)) {
+                            if (!hasObjVar(objNPC, "mission.intPersistent")) {
+                                reContextualizationTerminalToNPCMission(objMissionData, objNPC);
+                            }
+                            if (hasObjVar(objNPC, "mission.strNPCName")) {
+                                objMissionData = dynamicDeliverToThemePark(objMissionData, objNPC);
+                            }
                         }
-                        if (!hasObjVar(objNPC, "mission.intPersistent"))
-                        {
-                            reContextualizationTerminalToNPCMission(objMissionData, objNPC);
+                        break;
+                    case "mission.objEscortMission":
+                        objMissionData = createEscortToCreatorMission(objMissionData, objNPC, locCurrentLocation, intDifficulty, strPlanet, strFaction);
+                        if (isIdValid(objMissionData)) {
+                            if (hasObjVar(objNPC, "mission.strNPCName")) {
+                                objMissionData = dynamicEscortToCreatorToThemePark(objMissionData, objNPC);
+                            }
                         }
-                        if (hasObjVar(objNPC, "mission.strNPCName"))
-                        {
-                            objMissionData = dynamicDestroyToThemePark(objMissionData, objNPC);
-                        }
-                    }
-                }
-                else if (strMissionType.equals("mission.objDeliverMission"))
-                {
-                    objMissionData = createDeliverMissionFromLocation(objMissionData, objCreator, locCurrentLocation, intDifficulty, strPlanet, strFaction, 1.0f);
-                    if (isIdValid(objMissionData))
-                    {
-                        if (!hasObjVar(objNPC, "mission.intPersistent"))
-                        {
-                            reContextualizationTerminalToNPCMission(objMissionData, objNPC);
-                        }
-                        if (hasObjVar(objNPC, "mission.strNPCName"))
-                        {
-                            objMissionData = dynamicDeliverToThemePark(objMissionData, objNPC);
-                        }
-                    }
-                }
-                else if (strMissionType.equals("mission.objEscortMission"))
-                {
-                    objMissionData = createEscortToCreatorMission(objMissionData, objNPC, locCurrentLocation, intDifficulty, strPlanet, strFaction);
-                    if (isIdValid(objMissionData))
-                    {
-                        if (hasObjVar(objNPC, "mission.strNPCName"))
-                        {
-                            objMissionData = dynamicEscortToCreatorToThemePark(objMissionData, objNPC);
-                        }
-                    }
-                }
-                else if (strMissionType.equals("mission.objDancerMission"))
-                {
-                    objMissionData = createDancerMission(objMissionData, objNPC, 0, strFaction);
-                }
-                else if (strMissionType.equals("mission.objMusicianMission"))
-                {
-                    objMissionData = createMusicianMission(objMissionData, objNPC, 0, strFaction);
-                }
-                else if (strMissionType.equals("mission.objSurveyMission"))
-                {
-                    objMissionData = createSurveyMission(objMissionData, objNPC, intDifficulty, strFaction);
-                }
-                else if (strMissionType.equals("mission.objCraftingMission"))
-                {
-                    objMissionData = createCraftingMission(objMissionData, objNPC, locCurrentLocation, intDifficulty, strFaction);
-                }
-                else 
-                {
-                    return null;
+                        break;
+                    case "mission.objDancerMission":
+                        objMissionData = createDancerMission(objMissionData, objNPC, 0, strFaction);
+                        break;
+                    case "mission.objMusicianMission":
+                        objMissionData = createMusicianMission(objMissionData, objNPC, 0, strFaction);
+                        break;
+                    case "mission.objSurveyMission":
+                        objMissionData = createSurveyMission(objMissionData, objNPC, intDifficulty, strFaction);
+                        break;
+                    case "mission.objCraftingMission":
+                        objMissionData = createCraftingMission(objMissionData, objNPC, locCurrentLocation, intDifficulty, strFaction);
+                        break;
+                    default:
+                        return null;
                 }
                 if (!isIdValid(objMissionData))
                 {
@@ -2890,7 +2854,7 @@ public class mission_dynamic_base extends script.systems.missions.base.mission_b
         {
             fltDistance = maxRangeReward;
         }
-        float fltRewardPercentage = (fltDistance - minRangeReward) / (float)(maxRangeReward - minRangeReward);
+        float fltRewardPercentage = (fltDistance - minRangeReward) / (maxRangeReward - minRangeReward);
         int intRewardDifference = intMaxReward - intMinReward;
         int intReward = intMinReward + (int)(intRewardDifference * fltRewardPercentage);
         return intReward;
@@ -3426,11 +3390,11 @@ public class mission_dynamic_base extends script.systems.missions.base.mission_b
             }
             else if (!strNumberOfEntries.equals(""))
             {
-                Integer intTest = new Integer(0);
+                Integer intTest = 0;
                 boolean boolError = false;
                 try
                 {
-                    intTest = new Integer(strNumberOfEntries);
+                    intTest = Integer.valueOf(strNumberOfEntries);
                 }
                 catch(NumberFormatException err)
                 {
@@ -3438,7 +3402,7 @@ public class mission_dynamic_base extends script.systems.missions.base.mission_b
                 }
                 if (!boolError)
                 {
-                    intStringQuantity = intTest.intValue();
+                    intStringQuantity = intTest;
                     if (intStringQuantity < 0)
                     {
                         intStringQuantity = 1;
@@ -3693,10 +3657,8 @@ public class mission_dynamic_base extends script.systems.missions.base.mission_b
         {
             return false;
         }
-        for (int intI = 0; intI < CITIES_WITH_STARPORTS.length; intI++)
-        {
-            if (strName.equals(CITIES_WITH_STARPORTS[intI]))
-            {
+        for (String citiesWithStarport : CITIES_WITH_STARPORTS) {
+            if (strName.equals(citiesWithStarport)) {
                 return true;
             }
         }
@@ -3714,12 +3676,10 @@ public class mission_dynamic_base extends script.systems.missions.base.mission_b
             obj_id[] objMissionArray = getMissionObjects(objPlayer);
             if (objMissionArray != null)
             {
-                for (int intI = 0; intI < objMissionArray.length; intI++)
-                {
-                    String strType = getMissionType(objMissionArray[intI]);
-                    if (strType.equals("bounty"))
-                    {
-                        return objMissionArray[intI];
+                for (obj_id obj_id : objMissionArray) {
+                    String strType = getMissionType(obj_id);
+                    if (strType.equals("bounty")) {
+                        return obj_id;
                     }
                 }
             }
@@ -3738,12 +3698,10 @@ public class mission_dynamic_base extends script.systems.missions.base.mission_b
         {
             return false;
         }
-        for (int intI = 0; intI < objContents.length; intI++)
-        {
-            String strItemTemplate = getTemplateName(objContents[intI]);
-            if (strItemTemplate.equals(strTemplate))
-            {
-                destroyObject(objContents[intI]);
+        for (obj_id objContent : objContents) {
+            String strItemTemplate = getTemplateName(objContent);
+            if (strItemTemplate.equals(strTemplate)) {
+                destroyObject(objContent);
                 return true;
             }
         }
@@ -3913,12 +3871,10 @@ public class mission_dynamic_base extends script.systems.missions.base.mission_b
             obj_id[] objMissionArray = getMissionObjects(objPlayer);
             if (objMissionArray != null)
             {
-                for (int intI = 0; intI < objMissionArray.length; intI++)
-                {
-                    String strType = getMissionType(objMissionArray[intI]);
-                    if (strType.equals("assassin"))
-                    {
-                        return objMissionArray[intI];
+                for (obj_id obj_id : objMissionArray) {
+                    String strType = getMissionType(obj_id);
+                    if (strType.equals("assassin")) {
+                        return obj_id;
                     }
                 }
             }

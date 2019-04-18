@@ -45,7 +45,7 @@ public class owner extends script.base_script
         }
         if (returnHandler != null && !returnHandler.equals("") && doSend)
         {
-            messageTo(self, returnHandler, params, 0f, false);
+            messageTo(self, returnHandler, params, 0.0f, false);
         }
         return SCRIPT_CONTINUE;
     }

@@ -98,13 +98,12 @@ final public class menu_info implements Serializable
 	{
 		final Vector vector = new Vector ();
 
-		for (Iterator it = m_vector.iterator (); it.hasNext (); )
-		{
-			final menu_info_data data = (menu_info_data) it.next ();
+        for (Object o : m_vector) {
+            final menu_info_data data = (menu_info_data) o;
 
-			if (data.getParentId () == parent)
-				vector.add (data);
-		}
+            if (data.getParentId() == parent)
+                vector.add(data);
+        }
 
 		final Object[] array = vector.toArray ();
 		final menu_info_data[] blob = new menu_info_data [array.length];
@@ -121,12 +120,11 @@ final public class menu_info implements Serializable
 
 	public menu_info_data getMenuItemById (int id)
 	{
-		for (Iterator it = m_vector.iterator (); it.hasNext (); )
-		{
-			final menu_info_data data = (menu_info_data) it.next ();
-			if (data.getId () == id)
-				return data;
-		}
+        for (Object o : m_vector) {
+            final menu_info_data data = (menu_info_data) o;
+            if (data.getId() == id)
+                return data;
+        }
 
 		return null;
 	}
@@ -141,12 +139,11 @@ final public class menu_info implements Serializable
 
 	public menu_info_data getMenuItemByType (int type)
 	{
-		for (Iterator it = m_vector.iterator (); it.hasNext (); )
-		{
-			final menu_info_data data = (menu_info_data) it.next ();
-			if (data.getType () == type)
-				return data;
-		}
+        for (Object o : m_vector) {
+            final menu_info_data data = (menu_info_data) o;
+            if (data.getType() == type)
+                return data;
+        }
 
 		return null;
 	}
@@ -165,16 +162,15 @@ final public class menu_info implements Serializable
 
 	public menu_info_data getMenuItem (int type, int parentId)
 	{
-		for (Iterator it = m_vector.iterator (); it.hasNext (); )
-		{
-			final menu_info_data data = (menu_info_data) it.next ();
+        for (Object o : m_vector) {
+            final menu_info_data data = (menu_info_data) o;
 
-			if (data.getParentId () != parentId)
-				continue;
+            if (data.getParentId() != parentId)
+                continue;
 
-			if (data.getType () == type)
-				return data;
-		}
+            if (data.getType() == type)
+                return data;
+        }
 
 		return null;
 	}
@@ -207,7 +203,7 @@ final public class menu_info implements Serializable
 
 	private void debugDump ()
 	{
-		StringBuffer sbuf = new StringBuffer ();
+		StringBuilder sbuf = new StringBuilder();
 
 		int index = 0;
 
@@ -277,21 +273,17 @@ final public class menu_info implements Serializable
 		m_vector.clear ();
 		m_nextId = 1;
 
-		for (int i = 0; i < info_data.length; ++i)
-		{
-			final menu_info_data data = info_data [i];
+        for (final menu_info_data data : info_data) {
+            if (!validateData(data, true)) {
+                System.out.println("setMenuItemsInternal failed for " + data.toString());
+                m_vector.clear();
+                m_nextId = 1;
+                return false;
+            }
 
-			if (!validateData (data, true))
-			{
-				System.out.println ("setMenuItemsInternal failed for " + data.toString ());
-				m_vector.clear ();
-				m_nextId = 1;
-				return false;
-			}
-
-			m_vector.add (data);
-			m_nextId = java.lang.Math.max (m_nextId, data.getId () + 1);
-		}
+            m_vector.add(data);
+            m_nextId = Math.max(m_nextId, data.getId() + 1);
+        }
 
 		return true;
 	}

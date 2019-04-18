@@ -12,7 +12,7 @@ public class townperson extends script.base_script
     }
     public static final String ALERT_VOLUME_NAME = "alertTriggerVolume";
     public static final String SOCIAL_VOLUME = "npc_socialization";
-    public static final float SOCIAL_RANGE = 15f;
+    public static final float SOCIAL_RANGE = 15.0f;
     public static final String ACTION_ALERT = "alert";
     public static final String ACTION_THREATEN = "threaten";
     public static final int CONVO_LENGTH = 300;
@@ -274,7 +274,7 @@ public class townperson extends script.base_script
         {
             return SCRIPT_OVERRIDE;
         }
-        addToMentalStateToward(self, attacker, FEAR, 100f);
+        addToMentalStateToward(self, attacker, FEAR, 100.0f);
         return SCRIPT_OVERRIDE;
     }
     public int OnEnteredCombat(obj_id self) throws InterruptedException

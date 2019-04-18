@@ -1,12 +1,6 @@
 package script.working.jfreeman;
 
-import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
+import script.obj_id;
 
 public class followtest extends script.base_script
 {
@@ -23,7 +17,7 @@ public class followtest extends script.base_script
         if (isPlayer(speaker) && text.equals("follow me"))
         {
             debugSpeakMsg(self, "following " + getName(speaker));
-            follow(self, speaker, 1f, 5f);
+            follow(self, speaker, 1.0f, 5.0f);
         }
         return SCRIPT_CONTINUE;
     }

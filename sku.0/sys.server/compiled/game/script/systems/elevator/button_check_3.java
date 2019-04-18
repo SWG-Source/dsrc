@@ -44,7 +44,7 @@ public class button_check_3 extends script.base_script
                 destroyObject(elevator);
                 obj_id elevatorCell = getCellId(home, "elevator03");
                 location here = getLocation(home);
-                here.x = .5f;
+                here.x = 0.5f;
                 here.y = 9.01f;
                 here.z = -21.44f;
                 here.cell = elevatorCell;
@@ -56,7 +56,7 @@ public class button_check_3 extends script.base_script
         {
             obj_id elevatorCell = getCellId(home, "elevator03");
             location here = getLocation(home);
-            here.x = .5f;
+            here.x = 0.5f;
             here.y = 9.01f;
             here.z = -21.44f;
             here.cell = elevatorCell;
@@ -71,8 +71,8 @@ public class button_check_3 extends script.base_script
                 destroyObject(elevator2);
                 obj_id elevatorCell = getCellId(home, "elevator03");
                 location here = getLocation(home);
-                here.x = .5f;
-                here.y = .01f;
+                here.x = 0.5f;
+                here.y = 0.01f;
                 here.z = -21.44f;
                 here.cell = elevatorCell;
                 obj_id elevatorTerminalB = createObject("object/tangible/terminal/terminal_elevator_up.iff", here);
@@ -83,8 +83,8 @@ public class button_check_3 extends script.base_script
         {
             obj_id elevatorCell = getCellId(home, "elevator03");
             location here = getLocation(home);
-            here.x = .5f;
-            here.y = .01f;
+            here.x = 0.5f;
+            here.y = 0.01f;
             here.z = -21.44f;
             here.cell = elevatorCell;
             obj_id elevatorTerminalB = createObject("object/tangible/terminal/terminal_elevator_up.iff", here);

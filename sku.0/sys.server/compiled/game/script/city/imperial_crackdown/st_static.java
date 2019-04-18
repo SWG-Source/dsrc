@@ -176,7 +176,7 @@ public class st_static extends script.base_script
             {
                 setObjVar(self, "ai.persistantFollowing", player);
                 setMovementRun(self);
-                follow(self, player, 8f, 10f);
+                follow(self, player, 8.0f, 10.0f);
                 messageTo(self, "stopPersuit", null, 30, false);
             }
         }

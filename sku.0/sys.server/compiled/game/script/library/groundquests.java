@@ -298,11 +298,8 @@ public class groundquests extends script.base_script
                 String questCrcString = (String)keys.nextElement();
                 int questCrc = utils.stringToInt(questCrcString);
                 int[] tasksForCurrentQuest = tasks.getIntArray(questCrcString);
-                for (int i = 0; i < tasksForCurrentQuest.length; ++i)
-                {
-                    int taskId = tasksForCurrentQuest[i];
-                    if (isValidTaskId(taskId))
-                    {
+                for (int taskId : tasksForCurrentQuest) {
+                    if (isValidTaskId(taskId)) {
                         questFailTask(questCrc, taskId, player);
                     }
                 }
@@ -377,13 +374,11 @@ public class groundquests extends script.base_script
         {
             return;
         }
-        for (int i = 0; i < players.length; i++)
-        {
-            if (!isIdValid(players[i]) || !exists(players[i]))
-            {
+        for (obj_id player : players) {
+            if (!isIdValid(player) || !exists(player)) {
                 continue;
             }
-            requestGrantQuest(players[i], questName);
+            requestGrantQuest(player, questName);
         }
     }
     public static void requestGrantQuest(int questCrc, obj_id player, obj_id npc) throws InterruptedException
@@ -457,11 +452,9 @@ public class groundquests extends script.base_script
         region[] regions = getRegionsAtPoint(here);
         if (regions != null)
         {
-            for (int k = 0; k < regions.length; k++)
-            {
-                String regionWeAreIn = regions[k].getName();
-                if (regionWeAreIn.equals(requiredRegion))
-                {
+            for (region region : regions) {
+                String regionWeAreIn = region.getName();
+                if (regionWeAreIn.equals(requiredRegion)) {
                     return true;
                 }
             }
@@ -480,11 +473,9 @@ public class groundquests extends script.base_script
         {
             return;
         }
-        for (int i = 0; i < players.length; i++)
-        {
-            if (isIdValid(players[i]) && exists(players[i]))
-            {
-                sendSignal(players[i], signalName);
+        for (obj_id player : players) {
+            if (isIdValid(player) && exists(player)) {
+                sendSignal(player, signalName);
             }
         }
     }
@@ -494,11 +485,9 @@ public class groundquests extends script.base_script
         {
             return;
         }
-        for (int i = 0; i < signalNames.length; ++i)
-        {
-            if (signalNames[i] != null && signalNames[i].length() > 0)
-            {
-                sendSignal(player, signalNames[i]);
+        for (String signalName : signalNames) {
+            if (signalName != null && signalName.length() > 0) {
+                sendSignal(player, signalName);
             }
         }
     }
@@ -553,15 +542,12 @@ public class groundquests extends script.base_script
         {
             return;
         }
-        for (int i = 0; i < players.length; i++)
-        {
-            if (!isIdValid(players[i]) || !exists(players[i]))
-            {
+        for (obj_id player : players) {
+            if (!isIdValid(player) || !exists(player)) {
                 continue;
             }
-            if (isQuestActiveOrComplete(players[i], questName))
-            {
-                clearQuest(players[i], questName);
+            if (isQuestActiveOrComplete(player, questName)) {
+                clearQuest(player, questName);
             }
         }
     }
@@ -1227,7 +1213,7 @@ public class groundquests extends script.base_script
                         if (inclusiveItemData.containsKey("scripts"))
                         {
                             String inclusiveItemScriptList = inclusiveItemData.getString("scripts");
-                            if (inclusiveItemScriptList != null && inclusiveItemScriptList.length() > 0 && inclusiveItemScriptList.indexOf("autostack") > -1)
+                            if (inclusiveItemScriptList != null && inclusiveItemScriptList.length() > 0 && inclusiveItemScriptList.contains("autostack"))
                             {
                                 giveInclusiveItemInventoryMessage = false;
                             }
@@ -1257,7 +1243,7 @@ public class groundquests extends script.base_script
                     if (exclusiveItemData.containsKey("scripts"))
                     {
                         String exclusiveItemScriptList = exclusiveItemData.getString("scripts");
-                        if (exclusiveItemScriptList != null && exclusiveItemScriptList.length() > 0 && exclusiveItemScriptList.indexOf("autostack") > -1)
+                        if (exclusiveItemScriptList != null && exclusiveItemScriptList.length() > 0 && exclusiveItemScriptList.contains("autostack"))
                         {
                             giveExclusiveItemInventoryMessage = false;
                         }
@@ -1301,23 +1287,16 @@ public class groundquests extends script.base_script
                 String questCrcString = (String)keys.nextElement();
                 int questCrc = utils.stringToInt(questCrcString);
                 int[] tasksForCurrentQuest = tasks.getIntArray(questCrcString);
-                for (int i = 0; i < tasksForCurrentQuest.length; ++i)
-                {
-                    int taskId = tasksForCurrentQuest[i];
+                for (int taskId : tasksForCurrentQuest) {
                     String baseObjVar = groundquests.getBaseObjVar(player, taskType, questGetQuestName(questCrc), taskId);
                     String retrieveTemplateName = groundquests.getTaskStringDataEntry(questCrc, taskId, "SERVER_TEMPLATE");
-                    if (retrieveTemplateName != null && itemTemplateName != null && itemTemplateName.equals(retrieveTemplateName))
-                    {
+                    if (retrieveTemplateName != null && itemTemplateName != null && itemTemplateName.equals(retrieveTemplateName)) {
                         needed = true;
                         String objvarRetrievedFull = baseObjVar + dot + "retrieved_items";
-                        if (hasObjVar(player, objvarRetrievedFull))
-                        {
+                        if (hasObjVar(player, objvarRetrievedFull)) {
                             obj_id[] itemsAlreadyRetrieved = getObjIdArrayObjVar(player, objvarRetrievedFull);
-                            for (int j = 0; j < itemsAlreadyRetrieved.length; ++j)
-                            {
-                                obj_id itemAlredyRetrieved = itemsAlreadyRetrieved[j];
-                                if (item == itemAlredyRetrieved)
-                                {
+                            for (obj_id itemAlredyRetrieved : itemsAlreadyRetrieved) {
+                                if (item == itemAlredyRetrieved) {
                                     needed = false;
                                 }
                             }
@@ -1346,24 +1325,17 @@ public class groundquests extends script.base_script
                 String questCrcString = (String)keys.nextElement();
                 int questCrc = utils.stringToInt(questCrcString);
                 int[] tasksForCurrentQuest = tasks.getIntArray(questCrcString);
-                for (int i = 0; i < tasksForCurrentQuest.length; ++i)
-                {
-                    int taskId = tasksForCurrentQuest[i];
+                for (int taskId : tasksForCurrentQuest) {
                     String baseObjVar = groundquests.getBaseObjVar(player, taskType, questGetQuestName(questCrc), taskId);
                     String retrieveTemplateName = groundquests.getTaskStringDataEntry(questCrc, taskId, "SERVER_TEMPLATE");
-                    if (retrieveTemplateName != null && itemTemplateName.equals(retrieveTemplateName))
-                    {
+                    if (retrieveTemplateName != null && itemTemplateName.equals(retrieveTemplateName)) {
                         String tempMenuText = groundquests.getTaskStringDataEntry(questCrc, taskId, "RETRIEVE_MENU_TEXT");
-                        if (tempMenuText != null && tempMenuText.length() > 0)
-                        {
-                            if (!menuTextSet)
-                            {
+                        if (tempMenuText != null && tempMenuText.length() > 0) {
+                            if (!menuTextSet) {
                                 menuText = tempMenuText;
                                 groundquests.questOutputDebugInfo(player, questCrc, taskId, taskType, "getRetrieveMenuText", "Menu text is [" + menuText + "]");
                                 menuTextSet = true;
-                            }
-                            else 
-                            {
+                            } else {
                                 groundquests.questOutputDebugInfo(player, questCrc, taskId, taskType, "getRetrieveMenuText", "Item used for multiple quests! Resetting menu to default. [" + itemTemplateName + "]");
                                 menuText = null;
                             }
@@ -1391,16 +1363,12 @@ public class groundquests extends script.base_script
                 String questCrcString = (String)keys.nextElement();
                 int questCrc = utils.stringToInt(questCrcString);
                 int[] tasksForCurrentQuest = tasks.getIntArray(questCrcString);
-                for (int i = 0; i < tasksForCurrentQuest.length; ++i)
-                {
-                    int taskId = tasksForCurrentQuest[i];
+                for (int taskId : tasksForCurrentQuest) {
                     String baseObjVar = groundquests.getBaseObjVar(player, taskType, questGetQuestName(questCrc), taskId);
                     String retrieveTemplateName = groundquests.getTaskStringDataEntry(questCrc, taskId, "SERVER_TEMPLATE");
-                    if (retrieveTemplateName != null && itemTemplateName.equals(retrieveTemplateName))
-                    {
+                    if (retrieveTemplateName != null && itemTemplateName.equals(retrieveTemplateName)) {
                         countdownTime = groundquests.getTaskIntDataEntry(questCrc, taskId, "COUNTDOWN_TIMER");
-                        if (countdownTime < 0)
-                        {
+                        if (countdownTime < 0) {
                             countdownTime = 0;
                         }
                     }
@@ -1579,14 +1547,11 @@ public class groundquests extends script.base_script
         {
             String[] scriptNames = scriptList.getAllObjVarNames();
             int numScripts = scriptNames.length;
-            for (int i = 0; i < numScripts; ++i)
-            {
-                obj_var oneScript = scriptList.getObjVar(scriptNames[i]);
-                if (oneScript.getIntData() > 0)
-                {
-                    if (!self.hasScript(scriptNames[i]))
-                    {
-                        attachScript(self, scriptNames[i]);
+            for (String scriptName : scriptNames) {
+                obj_var oneScript = scriptList.getObjVar(scriptName);
+                if (oneScript.getIntData() > 0) {
+                    if (!self.hasScript(scriptName)) {
+                        attachScript(self, scriptName);
                     }
                 }
             }
@@ -1674,7 +1639,7 @@ public class groundquests extends script.base_script
         {
             return getFloatObjVar(player, baseObjVar + dot + timeObjVar);
         }
-        return -1.f;
+        return -1.0f;
     }
     public static boolean isTimeRemainingBeforeCompletion(obj_id player, int questCrc, int taskId) throws InterruptedException
     {
@@ -1721,13 +1686,9 @@ public class groundquests extends script.base_script
         obj_id[] groupies = getGroupMembersInRange(questObj, player, range);
         if (groupies != null && groupies.length > 0)
         {
-            for (int i = 0; i < groupies.length; i++)
-            {
-                obj_id groupMember = groupies[i];
-                if (isIdValid(groupMember))
-                {
-                    if (questIsTaskActive(questCrc, taskId, groupMember))
-                    {
+            for (obj_id groupMember : groupies) {
+                if (isIdValid(groupMember)) {
+                    if (questIsTaskActive(questCrc, taskId, groupMember)) {
                         questCompleteTask(questCrc, taskId, groupMember);
                         result = true;
                     }
@@ -1753,14 +1714,10 @@ public class groundquests extends script.base_script
         if (groupies != null && groupies.length > 0)
         {
             location controllerLoc = getWorldLocation(questObj);
-            for (int i = 0; i < groupies.length; i++)
-            {
-                obj_id groupMember = groupies[i];
-                if (isIdValid(groupMember) && groupMember.isLoaded() && isPlayer(groupMember))
-                {
+            for (obj_id groupMember : groupies) {
+                if (isIdValid(groupMember) && groupMember.isLoaded() && isPlayer(groupMember)) {
                     location groupieLoc = getWorldLocation(groupMember);
-                    if (getDistance(controllerLoc, groupieLoc) <= range)
-                    {
+                    if (getDistance(controllerLoc, groupieLoc) <= range) {
                         utils.addElement(groupMembersInRange, groupMember);
                     }
                 }

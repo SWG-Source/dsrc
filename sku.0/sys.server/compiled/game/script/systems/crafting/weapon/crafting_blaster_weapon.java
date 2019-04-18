@@ -135,20 +135,20 @@ public class crafting_blaster_weapon extends script.systems.crafting.weapon.craf
             messageTo(self, "verifyCraftedVersion", null, 0.1f, false);
         }
         String templateName = getTemplateName(self);
-        if (templateName != null && templateName.indexOf("factory_crate") >= 0)
+        if (templateName != null && templateName.contains("factory_crate"))
         {
             String schematicName = getDraftSchematic(self);
             if (schematicName != null)
             {
-                if (schematicName.indexOf("/pistol_flechette_fwg5.iff") >= 0)
+                if (schematicName.contains("/pistol_flechette_fwg5.iff"))
                 {
                     fixCrate(self, "powerhandler", 3);
                 }
-                else if (schematicName.indexOf("/pistol_scatter.iff") >= 0)
+                else if (schematicName.contains("/pistol_scatter.iff"))
                 {
                     fixCrate(self, "cartridge_feed_unit", 4);
                 }
-                else if (schematicName.indexOf("/pistol_launcher.iff") >= 0)
+                else if (schematicName.contains("/pistol_launcher.iff"))
                 {
                     fixCrate(self, "powerhandler", 3);
                 }

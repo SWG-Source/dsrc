@@ -98,11 +98,9 @@ public class spawn_generation_tool extends script.base_script
                 {
                     attachScript(masterObject, MASTER_SPAWN_SCRIPT);
                     setObjVar(player, MASTER_SPAWN_OBJECT, masterObject);
-                    for (int i = 0; i < objectList.length; i++)
-                    {
-                        if (objectList[i] != objectList[idx])
-                        {
-                            trial.cleanupNpc(objectList[i]);
+                    for (obj_id obj_id : objectList) {
+                        if (obj_id != objectList[idx]) {
+                            trial.cleanupNpc(obj_id);
                         }
                     }
                 }
@@ -335,30 +333,23 @@ public class spawn_generation_tool extends script.base_script
         objectsWithScript.setSize(0);
         Vector objectsWithoutScript = new Vector();
         objectsWithoutScript.setSize(0);
-        for (int i = 0; i < allObjects.length; i++)
-        {
-            if (!isPlayer(allObjects[i]) && !isMob(allObjects[i]))
-            {
-                if (hasScript(allObjects[i], MASTER_SPAWN_SCRIPT))
-                {
-                    utils.addElement(objectsWithScript, allObjects[i]);
-                }
-                else 
-                {
-                    utils.addElement(objectsWithoutScript, allObjects[i]);
+        for (obj_id allObject : allObjects) {
+            if (!isPlayer(allObject) && !isMob(allObject)) {
+                if (hasScript(allObject, MASTER_SPAWN_SCRIPT)) {
+                    utils.addElement(objectsWithScript, allObject);
+                } else {
+                    utils.addElement(objectsWithoutScript, allObject);
                 }
             }
         }
         obj_id[] completeList = new obj_id[objectsWithScript.size() + objectsWithoutScript.size()];
         int r = 0;
-        for (int k = 0; k < objectsWithScript.size(); k++)
-        {
-            completeList[r] = ((obj_id)objectsWithScript.get(k));
+        for (Object o1 : objectsWithScript) {
+            completeList[r] = ((obj_id) o1);
             r++;
         }
-        for (int i = 0; i < objectsWithoutScript.size(); i++)
-        {
-            completeList[r] = ((obj_id)objectsWithoutScript.get(i));
+        for (Object o : objectsWithoutScript) {
+            completeList[r] = ((obj_id) o);
             r++;
         }
         return completeList;

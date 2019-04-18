@@ -17,11 +17,9 @@ public class senate_controller extends script.base_script
     {
         String[] senateRooms = getCellNames(senate);
         obj_id cellId = null;
-        for (int i = 0; i < senateRooms.length; i++)
-        {
-            cellId = getCellId(senate, senateRooms[i]);
-            if (!isIdValid(cellId))
-            {
+        for (String senateRoom : senateRooms) {
+            cellId = getCellId(senate, senateRoom);
+            if (!isIdValid(cellId)) {
                 continue;
             }
             permissionsMakePublic(cellId);
@@ -31,11 +29,9 @@ public class senate_controller extends script.base_script
     {
         String[] enclaveRooms = getCellNames(enclave);
         obj_id cellId = null;
-        for (int i = 0; i < enclaveRooms.length; i++)
-        {
-            cellId = getCellId(enclave, enclaveRooms[i]);
-            if (!isIdValid(cellId))
-            {
+        for (String enclaveRoom : enclaveRooms) {
+            cellId = getCellId(enclave, enclaveRoom);
+            if (!isIdValid(cellId)) {
                 continue;
             }
             attachScript(cellId, "systems.city.senate_cell");

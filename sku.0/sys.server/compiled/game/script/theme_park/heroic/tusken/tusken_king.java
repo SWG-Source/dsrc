@@ -28,29 +28,23 @@ public class tusken_king extends script.base_script
         obj_id[] allObj = getNPCsInRange(getLocation(self), 150.0f);
         Vector allies = new Vector();
         allies.setSize(0);
-        for (int i = 0; i < allObj.length; i++)
-        {
-            if (isDead(allObj[i]))
-            {
+        for (obj_id obj_id : allObj) {
+            if (isDead(obj_id)) {
                 continue;
             }
-            if (factions.getFaction(allObj[i]) == null || factions.getFaction(allObj[i]) == "")
-            {
+            if (factions.getFaction(obj_id) == null || factions.getFaction(obj_id) == "") {
                 continue;
             }
-            if (!(factions.getFaction(allObj[i])).equals("heroic_tusken"))
-            {
+            if (!(factions.getFaction(obj_id)).equals("heroic_tusken")) {
                 continue;
             }
-            if (!isIdValid(getLocation(self).cell) && isIdValid(getLocation(allObj[i]).cell))
-            {
+            if (!isIdValid(getLocation(self).cell) && isIdValid(getLocation(obj_id).cell)) {
                 continue;
             }
-            if (isIdValid(getLocation(self).cell) && isIdValid(getLocation(allObj[i]).cell) && getLocation(self).cell != getLocation(allObj[i]).cell)
-            {
+            if (isIdValid(getLocation(self).cell) && isIdValid(getLocation(obj_id).cell) && getLocation(self).cell != getLocation(obj_id).cell) {
                 continue;
             }
-            allies.add(allObj[i]);
+            allies.add(obj_id);
         }
         ai_lib.establishSharedHealth(allies);
         obj_id[] someList = new obj_id[0];

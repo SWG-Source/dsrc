@@ -115,7 +115,7 @@ public class modifiable_float extends Number implements Comparable
 	 */
 	public String toString()
 	{
-		return (new Float(m_data)).toString();
+		return Float.valueOf(m_data).toString();
 	}	// toString
 
 	/**
@@ -136,12 +136,7 @@ public class modifiable_float extends Number implements Comparable
 	 */
 	public int compareTo(modifiable_float src)
 	{
-		if (m_data > src.m_data)
-			return 1;
-		else if (m_data < src.m_data)
-			return -1;
-		else
-			return 0;
+        return Float.compare(m_data, src.m_data);
 	}	// compareTo(modifiable_float)
 
 	/**

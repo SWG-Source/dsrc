@@ -23,7 +23,7 @@ public class camp_defense_spawner extends script.base_script
     public static final String NUMBER_ENEMIES_VAR = "numberOfEnemies";
     public static final String LEVEL_ENEMIES_VAR = "maxLevelOfEnemies";
     public static final String ENEMY_LIST = "enemyList";
-    public static final float SEARCH_RADIUS = 300f;
+    public static final float SEARCH_RADIUS = 300.0f;
     public static final String CREATURE_TABLE = "datatables/mob/creatures.iff";
     public int OnInitialize(obj_id self) throws InterruptedException
     {
@@ -265,13 +265,11 @@ public class camp_defense_spawner extends script.base_script
         CustomerServiceLog("outbreak_themepark", "camp_defense_spawner.findPathNodes() pathNodeList.length: " + pathNodeList.length);
         Vector nodePtLocs = new Vector();
         nodePtLocs.setSize(0);
-        for (int i = 0; i < pathNodeList.length; i++)
-        {
-            if (!(getStringObjVar(pathNodeList[i], PATHNODE_OBJVAR)).equals(questName))
-            {
+        for (obj_id obj_id : pathNodeList) {
+            if (!(getStringObjVar(obj_id, PATHNODE_OBJVAR)).equals(questName)) {
                 continue;
             }
-            utils.addElement(nodePtLocs, getLocation(pathNodeList[i]));
+            utils.addElement(nodePtLocs, getLocation(obj_id));
         }
         CustomerServiceLog("outbreak_themepark", "camp_defense_spawner.findPathNodes() nodePtLocs.length: " + nodePtLocs.size());
         if (nodePtLocs == null || nodePtLocs.size() <= 0)

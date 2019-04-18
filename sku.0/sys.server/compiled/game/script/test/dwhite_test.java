@@ -64,7 +64,7 @@ public class dwhite_test extends script.base_script
         {
             obj_id target = self;
             int dam = -(getAttrib(target, HEALTH) + 50);
-            addAttribModifier(target, HEALTH, dam, 0f, 0f, MOD_POOL);
+            addAttribModifier(target, HEALTH, dam, 0.0f, 0.0f, MOD_POOL);
             if (getPosture(target) != POSTURE_DEAD)
             {
                 setPosture(target, POSTURE_DEAD);
@@ -194,7 +194,7 @@ public class dwhite_test extends script.base_script
             java.util.StringTokenizer st = new java.util.StringTokenizer(text);
             String arg = st.nextToken();
             String oidString = st.nextToken();
-            Long temp = new Long(Long.parseLong(oidString));
+            Long temp = Long.parseLong(oidString);
             obj_id goggle = obj_id.getObjId(temp.longValue());
             boolean validGoggles = true;
             obj_id owner = getOwner(goggle);
@@ -251,7 +251,7 @@ public class dwhite_test extends script.base_script
             java.util.StringTokenizer st = new java.util.StringTokenizer(text);
             String arg = st.nextToken();
             String oidString = st.nextToken();
-            Long temp = new Long(Long.parseLong(oidString));
+            Long temp = Long.parseLong(oidString);
             obj_id saber = obj_id.getObjId(temp.longValue());
             int minDmg = getWeaponMinDamage(saber);
             int maxDmg = getWeaponMaxDamage(saber);
@@ -265,7 +265,7 @@ public class dwhite_test extends script.base_script
             java.util.StringTokenizer st = new java.util.StringTokenizer(text);
             String arg = st.nextToken();
             String oidString = st.nextToken();
-            Long temp = new Long(Long.parseLong(oidString));
+            Long temp = Long.parseLong(oidString);
             obj_id item = obj_id.getObjId(temp.longValue());
             dictionary data = new dictionary();
             data.put("amount", 100);
@@ -277,7 +277,7 @@ public class dwhite_test extends script.base_script
             java.util.StringTokenizer st = new java.util.StringTokenizer(text);
             String arg = st.nextToken();
             String oidString = st.nextToken();
-            Long temp = new Long(Long.parseLong(oidString));
+            Long temp = Long.parseLong(oidString);
             obj_id item = obj_id.getObjId(temp.longValue());
             int hp = getHitpoints(item);
             if (hp > 0)
@@ -467,7 +467,7 @@ public class dwhite_test extends script.base_script
     {
         final int levelMin = 60;
         final int levelMax = 280;
-        float rank = (float)(level - levelMin) / (float)(levelMax - levelMin);
+        float rank = (float)(level - levelMin) / (levelMax - levelMin);
         float mid = min + ((max - min) * rank);
         if (mid < min)
         {
@@ -488,7 +488,7 @@ public class dwhite_test extends script.base_script
     {
         final int levelMin = 60;
         final int levelMax = 280;
-        float rank = (float)(level - levelMin) / (float)(levelMax - levelMin);
+        float rank = (float)(level - levelMin) / (levelMax - levelMin);
         float mid = min + ((max - min) * rank);
         if (mid < min)
         {
@@ -512,9 +512,8 @@ public class dwhite_test extends script.base_script
     public void checkCreatures() throws InterruptedException
     {
         String[] creatureList = dataTableGetStringColumn(create.CREATURE_TABLE, "creatureName");
-        for (int i = 0; i < creatureList.length; i++)
-        {
-            dictionary creatureDict = dataTableGetRow(create.CREATURE_TABLE, creatureList[i]);
+        for (String s : creatureList) {
+            dictionary creatureDict = dataTableGetRow(create.CREATURE_TABLE, s);
             int level = creatureDict.getInt("BaseLevel");
             int statLevel = creatureDict.getInt("StatLevelModifier");
             int dmgLevel = creatureDict.getInt("Damagelevelmodifier");
@@ -524,17 +523,14 @@ public class dwhite_test extends script.base_script
             int newArmorLevel = bio_engineer.calcArmorLevel(creatureDict);
             int oldToHitLevel = bio_engineer.calcOldToHitLevel(creatureDict);
             int oldArmorLevel = bio_engineer.calcOldArmorLevel(creatureDict);
-            int newLevel = (int)((((newStatLevel * 2) + (newDmgLevel * 2) + (newToHitLevel * 2) + (newArmorLevel * 4)) / 10) + 0.5f);
-            int newLevelOldArmor = (int)((((newStatLevel * 2) + (newDmgLevel * 2) + (newToHitLevel * 2) + (oldArmorLevel * 4)) / 10) + 0.5f);
+            int newLevel = (int) ((((newStatLevel * 2) + (newDmgLevel * 2) + (newToHitLevel * 2) + (newArmorLevel * 4)) / 10) + 0.5f);
+            int newLevelOldArmor = (int) ((((newStatLevel * 2) + (newDmgLevel * 2) + (newToHitLevel * 2) + (oldArmorLevel * 4)) / 10) + 0.5f);
             int levelDiff = newLevel - level;
             String output = "";
-            if (levelDiff > 5 || levelDiff < -5)
-            {
-                output = "**\t" + creatureList[i] + " - \t";
-            }
-            else 
-            {
-                output = "\t" + creatureList[i] + " - \t";
+            if (levelDiff > 5 || levelDiff < -5) {
+                output = "**\t" + s + " - \t";
+            } else {
+                output = "\t" + s + " - \t";
             }
             output += "newLevel(newArmor) = " + newLevel + "; \t";
             output += "newLevel(oldArmor) = " + newLevelOldArmor + "; \t";

@@ -47,7 +47,7 @@ public class gcw_demoralized_soldier extends script.base_script
     }
     public void gcw_demoralized_soldier_action_notConvinced(obj_id player, obj_id npc) throws InterruptedException
     {
-        messageTo(npc, "notConvinced", null, 0f, false);
+        messageTo(npc, "notConvinced", null, 0.0f, false);
     }
     public int gcw_demoralized_soldier_handleBranch1(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {

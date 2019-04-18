@@ -43,7 +43,7 @@ public class e3_hangar_worker_3 extends script.base_script
     public void pathToLocationThree(obj_id self) throws InterruptedException
     {
         location destLoc = new location(getLocation(self));
-        destLoc.x = -15f;
+        destLoc.x = -15.0f;
         destLoc.y = 206.5f;
         destLoc.z = 288.1f;
         setObjVar(self, "intIndex", 3);

@@ -120,14 +120,11 @@ public class ep3_clone_relics_clone_trooper_mort extends script.base_script
             "armor_clone_trooper_imperial_s01_bicep_l.iff",
             "armor_clone_trooper_imperial_s01_belt.iff"
         };
-        for (int j = 0; j < ARMOR_SET_IMPERIAL.length; ++j)
-        {
-            String armorTemplate = "object/tangible/wearables/armor/clone_trooper/" + ARMOR_SET_IMPERIAL[j];
+        for (String s : ARMOR_SET_IMPERIAL) {
+            String armorTemplate = "object/tangible/wearables/armor/clone_trooper/" + s;
             obj_id armorItem = createObjectInInventoryAllowOverload(armorTemplate, player);
-            if (isIdValid(armorItem))
-            {
-                if (!isGameObjectTypeOf(armorItem, GOT_armor_foot) && !isGameObjectTypeOf(armorItem, GOT_armor_hand))
-                {
+            if (isIdValid(armorItem)) {
+                if (!isGameObjectTypeOf(armorItem, GOT_armor_foot) && !isGameObjectTypeOf(armorItem, GOT_armor_hand)) {
                     armor.setArmorDataPercent(armorItem, 2, 1, 0.94f, 0.95f);
                 }
             }
@@ -161,14 +158,11 @@ public class ep3_clone_relics_clone_trooper_mort extends script.base_script
             "armor_clone_trooper_rebel_s01_bicep_l.iff",
             "armor_clone_trooper_rebel_s01_belt.iff"
         };
-        for (int j = 0; j < ARMOR_SET_REBEL.length; ++j)
-        {
-            String armorTemplate = "object/tangible/wearables/armor/clone_trooper/" + ARMOR_SET_REBEL[j];
+        for (String s : ARMOR_SET_REBEL) {
+            String armorTemplate = "object/tangible/wearables/armor/clone_trooper/" + s;
             obj_id armorItem = createObjectInInventoryAllowOverload(armorTemplate, player);
-            if (isIdValid(armorItem))
-            {
-                if (!isGameObjectTypeOf(armorItem, GOT_armor_foot) && !isGameObjectTypeOf(armorItem, GOT_armor_hand))
-                {
+            if (isIdValid(armorItem)) {
+                if (!isGameObjectTypeOf(armorItem, GOT_armor_foot) && !isGameObjectTypeOf(armorItem, GOT_armor_hand)) {
                     armor.setArmorDataPercent(armorItem, 2, 1, 0.94f, 0.95f);
                 }
             }
@@ -190,14 +184,11 @@ public class ep3_clone_relics_clone_trooper_mort extends script.base_script
             "armor_clone_trooper_neutral_s01_bicep_l.iff",
             "armor_clone_trooper_neutral_s01_belt.iff"
         };
-        for (int j = 0; j < ARMOR_SET_NEUTRAL.length; ++j)
-        {
-            String armorTemplate = "object/tangible/wearables/armor/clone_trooper/" + ARMOR_SET_NEUTRAL[j];
+        for (String s : ARMOR_SET_NEUTRAL) {
+            String armorTemplate = "object/tangible/wearables/armor/clone_trooper/" + s;
             obj_id armorItem = createObjectInInventoryAllowOverload(armorTemplate, player);
-            if (isIdValid(armorItem))
-            {
-                if (!isGameObjectTypeOf(armorItem, GOT_armor_foot) && !isGameObjectTypeOf(armorItem, GOT_armor_hand))
-                {
+            if (isIdValid(armorItem)) {
+                if (!isGameObjectTypeOf(armorItem, GOT_armor_foot) && !isGameObjectTypeOf(armorItem, GOT_armor_hand)) {
                     armor.setArmorDataPercent(armorItem, 2, 1, 0.94f, 0.95f);
                 }
             }

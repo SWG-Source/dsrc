@@ -129,7 +129,7 @@ public class newbie_hall extends script.theme_park.newbie_tutorial.tutorial_base
         setCondition(greeter, CONDITION_CONVERSABLE);
         setName(greeter, "");
         setName(greeter, IMPERIAL_NAME);
-        setYaw(greeter, -89f);
+        setYaw(greeter, -89.0f);
         attachScript(greeter, GREETER_SCRIPT);
         setObjVar(bldg, GREETER, greeter);
         spawnLoc.x = ROOM1_GREETER_LOC_X;
@@ -641,7 +641,7 @@ public class newbie_hall extends script.theme_park.newbie_tutorial.tutorial_base
         setObjVar(bldg, TRAVEL_NPC, newNpc);
         setName(newNpc, "");
         setName(newNpc, QUARTERMASTER_NAME);
-        setYaw(newNpc, 92f);
+        setYaw(newNpc, 92.0f);
         setCondition(newNpc, CONDITION_SPACE_INTERESTING);
     }
     public void spawnPilotNpc(obj_id bldg) throws InterruptedException

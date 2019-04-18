@@ -84,7 +84,7 @@ public class cantina_controller extends script.base_script
         {
             utils.removeScriptVar(self, "bhcelebs.beingDestroyed");
         }
-        obj_id bossk = create.object("bossk", new location(43.8f, .1f, 0.5f, getLocation(self).area, getCellId(self, "foyer1")));
+        obj_id bossk = create.object("bossk", new location(43.8f, 0.1f, 0.5f, getLocation(self).area, getCellId(self, "foyer1")));
         if (isIdValid(bossk))
         {
             setInvulnerable(bossk, true);

@@ -77,24 +77,20 @@ public class banner_buff_manager extends script.base_script
         }
         else 
         {
-            for (int i = 0; i < players.length; i++)
-            {
-                switch (faction)
-                {
+            for (obj_id player : players) {
+                switch (faction) {
                     case 0:
-                    if (factions.isRebel(players[i]))
-                    {
-                        utils.addElement(filteredPlayers, players[i]);
-                    }
-                    break;
+                        if (factions.isRebel(player)) {
+                            utils.addElement(filteredPlayers, player);
+                        }
+                        break;
                     case 1:
-                    if (factions.isImperial(players[i]))
-                    {
-                        utils.addElement(filteredPlayers, players[i]);
-                    }
-                    break;
+                        if (factions.isImperial(player)) {
+                            utils.addElement(filteredPlayers, player);
+                        }
+                        break;
                     default:
-                    break;
+                        break;
                 }
             }
         }

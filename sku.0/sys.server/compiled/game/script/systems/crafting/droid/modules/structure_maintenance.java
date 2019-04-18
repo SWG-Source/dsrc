@@ -398,7 +398,7 @@ public class structure_maintenance extends script.base_script
                 String listEntry = "";
                 listEntry += ((String)maintListNames.get(i));
                 listEntry += " \\#.\\>450";
-                listEntry += "+" + ((Integer)maintListAmounts.get(i)).intValue();
+                listEntry += "+" + (Integer) maintListAmounts.get(i);
                 listEntry += "\\>000\n";
                 maintList += listEntry;
             }
@@ -428,10 +428,8 @@ public class structure_maintenance extends script.base_script
         {
             return false;
         }
-        for (int i = 0; i < maintListIds.size(); i++)
-        {
-            if (((obj_id)maintListIds.get(i)) == structure)
-            {
+        for (Object maintListId : maintListIds) {
+            if (((obj_id) maintListId) == structure) {
                 return true;
             }
         }
@@ -564,7 +562,7 @@ public class structure_maintenance extends script.base_script
                 return SCRIPT_CONTINUE;
             }
             Vector maintListAmounts = utils.getResizeableIntArrayScriptVar(self, "maintList.amount");
-            maintListAmounts.set(maintListAmounts.size() - 1, new Integer(amount));
+            maintListAmounts.set(maintListAmounts.size() - 1, amount);
             utils.setScriptVar(self, "maintList.amount", maintListAmounts);
             if (!validateMaintenanceCost(player, amount))
             {
@@ -722,7 +720,7 @@ public class structure_maintenance extends script.base_script
         for (int i = 0; i < maintListIds.size(); i++)
         {
             runTime += getMaintRunTime(player, ((obj_id)maintListIds.get(i)), ((location)maintListLocs.get(i)));
-            money.pay(player, ((obj_id)maintListIds.get(i)), ((Integer)maintListAmounts.get(i)).intValue(), "handlePayment", null);
+            money.pay(player, ((obj_id)maintListIds.get(i)), (Integer) maintListAmounts.get(i), "handlePayment", null);
         }
         int travelCost = utils.getIntScriptVar(self, "totalTravelCost");
         money.pay(player, money.ACCT_TRAVEL, travelCost, "handlePayment", null, false);

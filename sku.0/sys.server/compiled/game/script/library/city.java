@@ -134,15 +134,12 @@ public class city extends script.base_script
     public static int canBuildCityHere(obj_id player, location loc) throws InterruptedException
     {
         int[] all_cities = getAllCityIds();
-        for (int i = 0; i < all_cities.length; i++)
-        {
-            location other_loc = cityGetLocation(all_cities[i]);
-            if (other_loc.area.equals(loc.area))
-            {
+        for (int all_city : all_cities) {
+            location other_loc = cityGetLocation(all_city);
+            if (other_loc.area.equals(loc.area)) {
                 float dist = utils.getDistance2D(loc, other_loc);
-                if (dist < 1100)
-                {
-                    return all_cities[i];
+                if (dist < 1100) {
+                    return all_city;
                 }
             }
         }
@@ -180,10 +177,8 @@ public class city extends script.base_script
         {
             return false;
         }
-        for (int i = 0; i < city_structures.length; i++)
-        {
-            if (city_structures[i] == structure)
-            {
+        for (obj_id city_structure : city_structures) {
+            if (city_structure == structure) {
                 return true;
             }
         }
@@ -192,11 +187,9 @@ public class city extends script.base_script
     public static boolean isAMayor(obj_id player) throws InterruptedException
     {
         int[] cities = getAllCityIds();
-        for (int i = 0; i < cities.length; i++)
-        {
-            obj_id mayor = cityGetLeader(cities[i]);
-            if (mayor == player)
-            {
+        for (int city : cities) {
+            obj_id mayor = cityGetLeader(city);
+            if (mayor == player) {
                 return true;
             }
         }
@@ -216,10 +209,8 @@ public class city extends script.base_script
         int rad = cityGetRadius(city_id);
         int[] radList = dataTableGetIntColumn(city.RANK_TABLE, city.RANK_RADIUS);
         int rank = 0;
-        for (int i = 0; i < radList.length; i++)
-        {
-            if (rad >= radList[i])
-            {
+        for (int i1 : radList) {
+            if (rad >= i1) {
                 rank++;
             }
         }
@@ -254,7 +245,7 @@ public class city extends script.base_script
             if (city_reg)
             {
                 flags |= SF_PM_REGISTER;
-                messageTo(structure, "cityMapRegister", null, 0.f, false);
+                messageTo(structure, "cityMapRegister", null, 0.0f, false);
             }
             int cost = player_structure.getStructureCityCost(structure);
             if (cost > 0)
@@ -472,10 +463,8 @@ public class city extends script.base_script
         {
             return false;
         }
-        for (int i = 0; i < citizens.length; i++)
-        {
-            if (citizens[i] == player)
-            {
+        for (obj_id citizen : citizens) {
+            if (citizen == player) {
                 return true;
             }
         }
@@ -492,10 +481,8 @@ public class city extends script.base_script
         {
             return false;
         }
-        for (int i = 0; i < citizens.length; i++)
-        {
-            if ((citizens[i] == player) && hasMilitiaFlag(player, city_id))
-            {
+        for (obj_id citizen : citizens) {
+            if ((citizen == player) && hasMilitiaFlag(player, city_id)) {
                 return true;
             }
         }
@@ -714,19 +701,15 @@ public class city extends script.base_script
         {
             return true;
         }
-        for (int i = 0; i < city_ids.length; i++)
-        {
-            String city_name = cityGetName(city_ids[i]);
-            if (city_name.equals(newName))
-            {
+        for (int city_id : city_ids) {
+            String city_name = cityGetName(city_id);
+            if (city_name.equals(newName)) {
                 return false;
             }
         }
         String lowerNewName = newName.toLowerCase();
-        for (int i = 0; i < RESERVED_CITY_NAMES.length; i++)
-        {
-            if (lowerNewName.indexOf(RESERVED_CITY_NAMES[i]) >= 0)
-            {
+        for (String reservedCityName : RESERVED_CITY_NAMES) {
+            if (lowerNewName.contains(reservedCityName)) {
                 return false;
             }
         }
@@ -743,10 +726,8 @@ public class city extends script.base_script
         {
             return false;
         }
-        for (int i = 0; i < bannedIds.length; i++)
-        {
-            if (bannedIds[i] == city_id)
-            {
+        for (int bannedId : bannedIds) {
+            if (bannedId == city_id) {
                 return true;
             }
         }
@@ -769,10 +750,8 @@ public class city extends script.base_script
             return false;
         }
         int found = 0;
-        for (int i = 0; i < banCities.length; i++)
-        {
-            if (banCities[i] == city_id)
-            {
+        for (int banCity1 : banCities) {
+            if (banCity1 == city_id) {
                 found = 1;
                 break;
             }
@@ -789,11 +768,9 @@ public class city extends script.base_script
         {
             int j = 0;
             int[] newBanCities = new int[banCities.length - 1];
-            for (int i = 0; i < banCities.length; i++)
-            {
-                if (banCities[i] != city_id)
-                {
-                    newBanCities[j] = banCities[i];
+            for (int banCity : banCities) {
+                if (banCity != city_id) {
+                    newBanCities[j] = banCity;
                     j++;
                 }
             }
@@ -921,19 +898,17 @@ public class city extends script.base_script
             return;
         }
         obj_id[] structures = cityGetStructureIds(city_id);
-        for (int i = 0; i < structures.length; i++)
-        {
-            if (!isNormalStructure(city_id, structures[i]))
-            {
+        for (obj_id structure : structures) {
+            if (!isNormalStructure(city_id, structure)) {
                 continue;
             }
-            int flags = cityGetStructureType(city_id, structures[i]);
+            int flags = cityGetStructureType(city_id, structure);
             flags |= city.SF_PM_REGISTER;
-            setStructureType(city_id, structures[i], flags);
+            setStructureType(city_id, structure, flags);
             String city_name = cityGetName(city_id);
             obj_id city_hall = cityGetCityHall(city_id);
             CustomerServiceLog("player_city", "Registered city on planetary map.  City: " + city_name + " (" + city_id + "/" + city_hall + ")");
-            messageTo(structures[i], "cityMapRegister", null, 0.f, false);
+            messageTo(structure, "cityMapRegister", null, 0.0f, false);
         }
     }
     public static void unregisterCity(int city_id) throws InterruptedException
@@ -943,19 +918,17 @@ public class city extends script.base_script
             return;
         }
         obj_id[] structures = cityGetStructureIds(city_id);
-        for (int i = 0; i < structures.length; i++)
-        {
-            if (!isNormalStructure(city_id, structures[i]))
-            {
+        for (obj_id structure : structures) {
+            if (!isNormalStructure(city_id, structure)) {
                 continue;
             }
-            int flags = cityGetStructureType(city_id, structures[i]);
+            int flags = cityGetStructureType(city_id, structure);
             flags = flags & ~city.SF_PM_REGISTER;
-            setStructureType(city_id, structures[i], flags);
+            setStructureType(city_id, structure, flags);
             String city_name = cityGetName(city_id);
             obj_id city_hall = cityGetCityHall(city_id);
             CustomerServiceLog("player_city", "Unregistered city from planetary map.  City: " + city_name + " (" + city_id + "/" + city_hall + ")");
-            messageTo(structures[i], "cityMapUnregister", null, 0.f, false);
+            messageTo(structure, "cityMapUnregister", null, 0.0f, false);
         }
     }
     public static void updateRegistrationScript(int city_id, obj_id structure) throws InterruptedException
@@ -1216,10 +1189,8 @@ public class city extends script.base_script
     {
         int count = 0;
         obj_id[] structures = cityGetStructureIds(city_id);
-        for (int i = 0; i < structures.length; i++)
-        {
-            if (isPayStructure(city_id, structures[i]) && isNormalStructure(city_id, structures[i]))
-            {
+        for (obj_id structure : structures) {
+            if (isPayStructure(city_id, structure) && isNormalStructure(city_id, structure)) {
                 count++;
             }
         }
@@ -1245,11 +1216,9 @@ public class city extends script.base_script
     {
         int count = 0;
         obj_id[] structures = cityGetStructureIds(city_id);
-        for (int i = 0; i < structures.length; i++)
-        {
-            int flags = cityGetStructureType(city_id, structures[i]);
-            if (0 != (flags & SF_MISSION_TERMINAL))
-            {
+        for (obj_id structure : structures) {
+            int flags = cityGetStructureType(city_id, structure);
+            if (0 != (flags & SF_MISSION_TERMINAL)) {
                 count++;
             }
         }
@@ -1297,11 +1266,9 @@ public class city extends script.base_script
     {
         int count = 0;
         obj_id[] structures = cityGetStructureIds(city_id);
-        for (int i = 0; i < structures.length; i++)
-        {
-            int flags = cityGetStructureType(city_id, structures[i]);
-            if (0 != (flags & SF_SKILL_TRAINER))
-            {
+        for (obj_id structure : structures) {
+            int flags = cityGetStructureType(city_id, structure);
+            if (0 != (flags & SF_SKILL_TRAINER)) {
                 count++;
             }
         }
@@ -1348,11 +1315,9 @@ public class city extends script.base_script
     {
         int count = 0;
         obj_id[] structures = cityGetStructureIds(city_id);
-        for (int i = 0; i < structures.length; i++)
-        {
-            int flags = cityGetStructureType(city_id, structures[i]);
-            if (0 != (flags & SF_DECORATION))
-            {
+        for (obj_id structure : structures) {
+            int flags = cityGetStructureType(city_id, structure);
+            if (0 != (flags & SF_DECORATION)) {
                 count++;
             }
         }
@@ -1648,20 +1613,15 @@ public class city extends script.base_script
             CustomerServiceLog("player_city_transfer", "New Mayor Structure Transfer Failed! (" + new_mayor + ") " + cityGetCitizenName(city_id, new_mayor) + " of City (" + city_id + ") " + cityGetName(city_id) + " array was null or empty.");
             return;
         }
-        for (int i = 0; i < structures.length; i++)
-        {
-            if (city.isNormalStructure(city_id, structures[i]))
-            {
-                if (!messageTo(structures[i], "setNewMayor", outparams, 5.0f, true))
-                {
-                    CustomerServiceLog("player_city_transfer", "City Civic Structure Transfer - MessageTo Failed: Structure(" + structures[i] + ") should be owned by Mayor(" + new_mayor + ") " + cityGetCitizenName(city_id, new_mayor) + ".");
+        for (obj_id structure : structures) {
+            if (city.isNormalStructure(city_id, structure)) {
+                if (!messageTo(structure, "setNewMayor", outparams, 5.0f, true)) {
+                    CustomerServiceLog("player_city_transfer", "City Civic Structure Transfer - MessageTo Failed: Structure(" + structure + ") should be owned by Mayor(" + new_mayor + ") " + cityGetCitizenName(city_id, new_mayor) + ".");
                 }
             }
-            if (city.isDecoration(city_id, structures[i]))
-            {
-                if (!messageTo(structures[i], "setNewMayor", outparams, 5.0f, true))
-                {
-                    CustomerServiceLog("player_city_transfer", "City Decoration Transfer - MessageTo Failed: Structure(" + structures[i] + ") should be owned by Mayor(" + new_mayor + ") " + cityGetCitizenName(city_id, new_mayor) + ".");
+            if (city.isDecoration(city_id, structure)) {
+                if (!messageTo(structure, "setNewMayor", outparams, 5.0f, true)) {
+                    CustomerServiceLog("player_city_transfer", "City Decoration Transfer - MessageTo Failed: Structure(" + structure + ") should be owned by Mayor(" + new_mayor + ") " + cityGetCitizenName(city_id, new_mayor) + ".");
                 }
             }
         }
@@ -1674,11 +1634,9 @@ public class city extends script.base_script
             obj_id[] cellList = getContents(building);
             if (cellList != null && cellList.length > 0)
             {
-                for (int i = 0; i < cellList.length; i++)
-                {
-                    if ((getTemplateName(cellList[i])).equals(structure.TEMPLATE_CELL))
-                    {
-                        checkItemsForNoTradeTransfer(cellList[i], buildingOwner, city_id);
+                for (obj_id obj_id : cellList) {
+                    if ((getTemplateName(obj_id)).equals(structure.TEMPLATE_CELL)) {
+                        checkItemsForNoTradeTransfer(obj_id, buildingOwner, city_id);
                     }
                 }
             }
@@ -1703,45 +1661,33 @@ public class city extends script.base_script
         obj_id[] cellContents = getContents(container);
         if (cellContents != null && cellContents.length > 0)
         {
-            for (int j = 0; j < cellContents.length; j++)
-            {
-                obj_id object = cellContents[j];
-                if (isIdValid(object))
-                {
+            for (obj_id object : cellContents) {
+                if (isIdValid(object)) {
                     boolean isValidPlayerOwnedObject = true;
                     obj_id objectOwner = getOwner(object);
-                    if (player != objectOwner)
-                    {
-                        if (hasScript(object, "item.special.nomove"))
-                        {
+                    if (player != objectOwner) {
+                        if (hasScript(object, "item.special.nomove")) {
                             CustomerServiceLog("player_city_transfer", "Mayoral NoTrade Item Transfer - (" + object + ") " + getEncodedName(object) + " is NOT OWNED BY (" + player + ") " + cityGetCitizenName(city_id, player) + "(the ousted mayor) But was inside the City Hall/Cloning Center at the time of transfer of City: " + cityGetName(city_id) + ". Item is actually owned by (" + objectOwner + ") " + getEncodedName(objectOwner) + ".");
                             isValidPlayerOwnedObject = false;
                         }
                     }
-                    if (!isObjectPersisted(object))
-                    {
+                    if (!isObjectPersisted(object)) {
                         isValidPlayerOwnedObject = false;
                     }
-                    if (isPlayer(object))
-                    {
+                    if (isPlayer(object)) {
                         isValidPlayerOwnedObject = false;
                     }
-                    if (isMob(object))
-                    {
+                    if (isMob(object)) {
                         isValidPlayerOwnedObject = false;
                     }
-                    if (hasCondition(object, CONDITION_VENDOR))
-                    {
+                    if (hasCondition(object, CONDITION_VENDOR)) {
                         isValidPlayerOwnedObject = false;
                     }
-                    if (isValidPlayerOwnedObject)
-                    {
-                        if (getContainerType(object) != 0 && getGameObjectType(object) != GOT_misc_factory_crate && !hasScript(object, "item.special.nomove"))
-                        {
+                    if (isValidPlayerOwnedObject) {
+                        if (getContainerType(object) != 0 && getGameObjectType(object) != GOT_misc_factory_crate && !hasScript(object, "item.special.nomove")) {
                             checkItemsForNoTradeTransfer(object, player, city_id);
                         }
-                        if (hasScript(object, "item.special.nomove"))
-                        {
+                        if (hasScript(object, "item.special.nomove")) {
                             CustomerServiceLog("player_city_transfer", "Mayoral NoTrade Item Transfer - NoTrade Item(" + object + ") " + getEncodedName(object) + " moved to ousted Mayor's(" + player + ") " + cityGetCitizenName(city_id, player) + " Inventory.  The item was located in a CityHall or Cloning Center when the City: (" + cityGetName(city_id) + ")" + cityGetName(city_id) + " transferred.");
                             moveToOfflinePlayerInventoryAndUnload(object, player);
                         }
@@ -1876,14 +1822,10 @@ public class city extends script.base_script
         {
             return 0;
         }
-        for (int i = 0; i < citizens.length; i++)
-        {
-            if (!hasMayorProtectionFlag(citizens[i], city_id))
-            {
+        for (obj_id citizen : citizens) {
+            if (!hasMayorProtectionFlag(citizen, city_id)) {
                 continue;
-            }
-            else 
-            {
+            } else {
                 tracker++;
             }
         }
@@ -1928,15 +1870,11 @@ public class city extends script.base_script
             CustomerServiceLog("player_city", "Attempting to remove Safe House Citizen(s) - but City does not Citizens(citizen array was null): CityID:" + city_id);
             return null;
         }
-        for (int i = 0; i < citizens.length; i++)
-        {
-            if (!hasMayorProtectionFlag(citizens[i], city_id))
-            {
+        for (obj_id citizen : citizens) {
+            if (!hasMayorProtectionFlag(citizen, city_id)) {
                 continue;
-            }
-            else 
-            {
-                utils.addElement(safeHouseCitizens, citizens[i]);
+            } else {
+                utils.addElement(safeHouseCitizens, citizen);
             }
         }
         obj_id[] returnArray = utils.toStaticObjIdArray(safeHouseCitizens);

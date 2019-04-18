@@ -78,17 +78,14 @@ public class at_at extends script.base_script
             messageTo(self, "findTarget", null, rand(2.0f, 4.0f), false);
             return SCRIPT_CONTINUE;
         }
-        for (int i = 0; i < allTar.length; i++)
-        {
-            if (allTar[i] == self)
-            {
+        for (obj_id obj_id : allTar) {
+            if (obj_id == self) {
                 continue;
             }
-            if (!pvpCanAttack(self, allTar[i]))
-            {
+            if (!pvpCanAttack(self, obj_id)) {
                 continue;
             }
-            validTargets.add(allTar[i]);
+            validTargets.add(obj_id);
         }
         if (validTargets == null || validTargets.size() == 0)
         {
@@ -174,17 +171,14 @@ public class at_at extends script.base_script
             messageTo(self, "findVehicleTarget", null, 1.0f, false);
             return SCRIPT_CONTINUE;
         }
-        for (int i = 0; i < allTar.length; i++)
-        {
-            if (isPlayer(allTar[i]) && pvpCanAttack(self, allTar[i]) && getState(allTar[i], STATE_RIDING_MOUNT) == 1)
-            {
+        for (obj_id obj_id : allTar) {
+            if (isPlayer(obj_id) && pvpCanAttack(self, obj_id) && getState(obj_id, STATE_RIDING_MOUNT) == 1) {
                 LOG("maggie", "Player Found - Added and Exited");
-                validTargets.add(allTar[i]);
+                validTargets.add(obj_id);
                 break;
             }
-            if (ai_lib.isVehicle(allTar[i]) && allTar[i] != self && pvpCanAttack(self, allTar[i]) && !isDead(allTar[i]))
-            {
-                validTargets.add(allTar[i]);
+            if (ai_lib.isVehicle(obj_id) && obj_id != self && pvpCanAttack(self, obj_id) && !isDead(obj_id)) {
+                validTargets.add(obj_id);
             }
         }
         if (validTargets == null || validTargets.size() == 0)

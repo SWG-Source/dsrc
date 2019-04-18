@@ -43,25 +43,20 @@ public class crafting_structure extends script.base_script
         {
             return false;
         }
-        for (int i = 0; i < allCells.length; i++)
-        {
-            if (specificCell != null && !specificCell.equals(allCells[i]))
-            {
+        for (String allCell : allCells) {
+            if (specificCell != null && !specificCell.equals(allCell)) {
                 continue;
             }
-            if (specificCell != null && specificCell.equals(allCells[i]))
-            {
-                obj_id singleCellStation = createObjectInCell(INVISIBLE_CRAFTING_STATION_TEMPLATE, building, allCells[i]);
-                if (!isValidId(singleCellStation) || !exists(singleCellStation))
-                {
+            if (specificCell != null && specificCell.equals(allCell)) {
+                obj_id singleCellStation = createObjectInCell(INVISIBLE_CRAFTING_STATION_TEMPLATE, building, allCell);
+                if (!isValidId(singleCellStation) || !exists(singleCellStation)) {
                     return false;
                 }
                 setObjVar(singleCellStation, OBJVAR_CRAFTING_TYPE, craftingBuff);
                 break;
             }
-            obj_id allCellsStation = createObjectInCell(INVISIBLE_CRAFTING_STATION_TEMPLATE, building, allCells[i]);
-            if (!isValidId(allCellsStation) || !exists(allCellsStation))
-            {
+            obj_id allCellsStation = createObjectInCell(INVISIBLE_CRAFTING_STATION_TEMPLATE, building, allCell);
+            if (!isValidId(allCellsStation) || !exists(allCellsStation)) {
                 return false;
             }
             setObjVar(allCellsStation, OBJVAR_CRAFTING_TYPE, craftingBuff);

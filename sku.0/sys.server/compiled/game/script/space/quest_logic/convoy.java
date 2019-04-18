@@ -84,7 +84,7 @@ public class convoy extends script.space.quest_logic.escort
         {
             dictionary outparams = new dictionary();
             outparams.put("player", player);
-            messageTo(self, "initializedQuestPlayer", outparams, 1.f, false);
+            messageTo(self, "initializedQuestPlayer", outparams, 1.0f, false);
         }
         int questid = questGetQuestId("spacequest/" + questType + "/" + questName);
         if (questid != 0)
@@ -170,7 +170,7 @@ public class convoy extends script.space.quest_logic.escort
             prose_package pp = prose.getPackage(hello, 0);
             space_quest.groupTaunt(convoy[0], player, pp);
             setObjVar(self, "convoy_arrived", 1);
-            messageTo(self, "startConvoyPathing", null, 300.f, false);
+            messageTo(self, "startConvoyPathing", null, 300.0f, false);
             return SCRIPT_OVERRIDE;
         }
         String[] convoyShips = getStringArrayObjVar(self, "escortShipTypes");
@@ -244,18 +244,16 @@ public class convoy extends script.space.quest_logic.escort
         int squad = ship_ai.squadCreateSquadId();
         transform[] translist = getEscortTransforms(self);
         obj_id[] convoy = getObjIdArrayObjVar(self, "convoy");
-        for (int i = 0; i < convoy.length; i++)
-        {
-            if (!isIdValid(convoy[i]) || !exists(convoy[i]))
-            {
+        for (obj_id obj_id : convoy) {
+            if (!isIdValid(obj_id) || !exists(obj_id)) {
                 continue;
             }
-            ship_ai.unitSetSquadId(convoy[i], squad);
+            ship_ai.unitSetSquadId(obj_id, squad);
             dictionary outparams = new dictionary();
             outparams.put("quest", self);
             outparams.put("loc", getLocationObjVar(self, "last_loc"));
             outparams.put("player", player);
-            messageTo(convoy[i], "registerDestination", outparams, 1.f, false);
+            messageTo(obj_id, "registerDestination", outparams, 1.0f, false);
         }
         setObjVar(self, "underway", 1);
         ship_ai.squadSetFormation(squad, ship_ai.FORMATION_DELTA);
@@ -277,11 +275,9 @@ public class convoy extends script.space.quest_logic.escort
         obj_id[] convoy = getObjIdArrayObjVar(self, "convoy");
         if (convoy != null)
         {
-            for (int i = 0; i < convoy.length; i++)
-            {
-                if (isIdValid(convoy[i]) && exists(convoy[i]))
-                {
-                    destroyObjectHyperspace(convoy[i]);
+            for (obj_id obj_id : convoy) {
+                if (isIdValid(obj_id) && exists(obj_id)) {
+                    destroyObjectHyperspace(obj_id);
                 }
             }
         }
@@ -315,7 +311,7 @@ public class convoy extends script.space.quest_logic.escort
         {
             int originalConvoySize = getIntObjVar(self, "originalConvoySize");
             int numKilled = originalConvoySize - numArrived;
-            float percentSurvived = (int)((numArrived / (float)originalConvoySize) * 100.f);
+            float percentSurvived = (int)((numArrived / (float)originalConvoySize) * 100.0f);
             int arrivalReward = getIntObjVar(self, "arrivalReward");
             int reward = arrivalReward * numArrived;
             prose_package pp = prose.getPackage(SID_CONVOY_SURVIVED, reward, percentSurvived);
@@ -333,11 +329,9 @@ public class convoy extends script.space.quest_logic.escort
                 obj_id[] members = space_utils.getSpaceGroupMemberIds(gid);
                 if (members != null && members.length >= 0)
                 {
-                    for (int i = 0; i < members.length; i++)
-                    {
-                        if (space_quest.isOnGroupQuest(members[i], questType, questName))
-                        {
-                            money.bankTo(money.ACCT_SPACE_QUEST_REWARD, members[i], reward);
+                    for (obj_id member : members) {
+                        if (space_quest.isOnGroupQuest(member, questType, questName)) {
+                            money.bankTo(money.ACCT_SPACE_QUEST_REWARD, member, reward);
                         }
                     }
                 }
@@ -365,24 +359,20 @@ public class convoy extends script.space.quest_logic.escort
         string_id lostShip = new string_id("spacequest/" + questType + "/" + questName, "convoy_ship_lost");
         dutyUpdate(self, lostShip);
         obj_id[] convoy = getObjIdArrayObjVar(self, "convoy");
-        for (int i = 0; i < convoy.length; i++)
-        {
-            if (!isIdValid(convoy[i]) || !exists(convoy[i]))
-            {
+        for (obj_id obj_id1 : convoy) {
+            if (!isIdValid(obj_id1) || !exists(obj_id1)) {
                 continue;
             }
             string_id panic = new string_id("spacequest/" + questType + "/" + questName, "panic_destroyed_" + rand(1, 5));
             prose_package pp = prose.getPackage(panic, 0);
-            space_quest.groupTaunt(convoy[i], player, pp);
+            space_quest.groupTaunt(obj_id1, player, pp);
             break;
         }
         obj_id[] newConvoy = new obj_id[convoy.length - 1];
         int j = 0;
-        for (int i = 0; i < convoy.length; i++)
-        {
-            if (convoy[i] != ship)
-            {
-                newConvoy[j] = convoy[i];
+        for (obj_id obj_id : convoy) {
+            if (obj_id != ship) {
+                newConvoy[j] = obj_id;
                 j++;
             }
         }
@@ -467,22 +457,22 @@ public class convoy extends script.space.quest_logic.escort
             transform gloc = getTransform_o2w(ship);
             if (!behind)
             {
-                float dist = rand(1000.f, 1200.f);
+                float dist = rand(1000.0f, 1200.0f);
                 vector n = ((gloc.getLocalFrameK_p()).normalize()).multiply(dist);
                 gloc = gloc.move_p(n);
                 gloc = gloc.yaw_l(3.14f);
-                vector vi = ((gloc.getLocalFrameI_p()).normalize()).multiply(rand(-500.f, 500.f));
-                vector vj = ((gloc.getLocalFrameJ_p()).normalize()).multiply(rand(-500.f, 500.f));
+                vector vi = ((gloc.getLocalFrameI_p()).normalize()).multiply(rand(-500.0f, 500.0f));
+                vector vj = ((gloc.getLocalFrameJ_p()).normalize()).multiply(rand(-500.0f, 500.0f));
                 vector vd = vi.add(vj);
                 gloc = gloc.move_p(vd);
             }
             else 
             {
-                float dist = rand(500.f, 750.f) * -1.f;
+                float dist = rand(500.0f, 750.0f) * -1.0f;
                 vector n = ((gloc.getLocalFrameK_p()).normalize()).multiply(dist);
                 gloc = gloc.move_p(n);
-                vector vi = ((gloc.getLocalFrameI_p()).normalize()).multiply(rand(-200.f, 200.f));
-                vector vj = ((gloc.getLocalFrameJ_p()).normalize()).multiply(rand(-200.f, 200.f));
+                vector vi = ((gloc.getLocalFrameI_p()).normalize()).multiply(rand(-200.0f, 200.0f));
+                vector vj = ((gloc.getLocalFrameJ_p()).normalize()).multiply(rand(-200.0f, 200.0f));
                 vector vd = vi.add(vj);
                 gloc = gloc.move_p(vd);
             }
@@ -491,7 +481,7 @@ public class convoy extends script.space.quest_logic.escort
             if (hasObjVar(newship, "hateModifier"))
             {
                 int hateMod = getIntObjVar(newship, "hateModifier");
-                fltHateMod = (float)(hateMod);
+                fltHateMod = (hateMod);
                 if (fltHateMod <= 0)
                 {
                     fltHateMod = 500.0f;
@@ -505,15 +495,12 @@ public class convoy extends script.space.quest_logic.escort
             attachScript(newship, "space.quest_logic.dynamic_ship");
             attachScript(newship, "space.quest_logic.destroyduty_ship");
             targets[i] = newship;
-            for (int x = 0; x < convoy.length; x++)
-            {
-                if (!isIdValid(convoy[x]) || !exists(convoy[x]))
-                {
+            for (obj_id obj_id : convoy) {
+                if (!isIdValid(obj_id) || !exists(obj_id)) {
                     continue;
                 }
-                if (convoy[x] != ship)
-                {
-                    ship_ai.unitIncreaseHate(newship, convoy[x], 100.f, 10.0f, 20);
+                if (obj_id != ship) {
+                    ship_ai.unitIncreaseHate(newship, obj_id, 100.0f, 10.0f, 20);
                 }
             }
             ship_ai.unitIncreaseHate(newship, ship, fltHateMod, 10.0f, 20);

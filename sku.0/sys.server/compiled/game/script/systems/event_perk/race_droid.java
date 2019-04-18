@@ -194,7 +194,7 @@ public class race_droid extends script.base_script
                 location loc = getLocation(self);
                 if (loc != null)
                 {
-                    playClientEffectLoc(player, "clienteffect/droid_effect_confetti.cef", loc, 0.f);
+                    playClientEffectLoc(player, "clienteffect/droid_effect_confetti.cef", loc, 0.0f);
                 }
             }
         }

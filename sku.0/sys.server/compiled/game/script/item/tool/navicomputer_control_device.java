@@ -143,16 +143,13 @@ public class navicomputer_control_device extends script.base_script
             {
                 return SCRIPT_CONTINUE;
             }
-            for (int i = 0; i < loadedDroidCommands.length; i++)
-            {
-                if (hasObjVar(loadedDroidCommands[i], "strDroidCommand"))
-                {
-                    String programName = getStringObjVar(loadedDroidCommands[i], "strDroidCommand");
+            for (obj_id loadedDroidCommand : loadedDroidCommands) {
+                if (hasObjVar(loadedDroidCommand, "strDroidCommand")) {
+                    String programName = getStringObjVar(loadedDroidCommand, "strDroidCommand");
                     names[idx] = "droid_program";
                     attribs[idx] = utils.packStringId(new string_id("space/droid_commands", programName));
                     idx++;
-                    if (idx >= names.length)
-                    {
+                    if (idx >= names.length) {
                         return SCRIPT_CONTINUE;
                     }
                 }

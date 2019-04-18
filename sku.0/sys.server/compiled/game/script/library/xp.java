@@ -112,10 +112,10 @@ public class xp extends script.base_script
     public static final String VAR_COMBAT_TIMESTAMP = VAR_CREDIT_FOR_KILLS + ".timestamp";
     public static final int MAX_PLAYERS = 30;
     public static final int MAX_DISTANCE = 190;
-    public static final double PRIM_KILL_PERCENT = .2;
-    public static final double PERCENT_ADJUSTER = .0;
-    public static final double PLAYER_RATIO_ADJUST = .1;
-    public static final float COMBAT_XP_EXCHANGE = .10f;
+    public static final double PRIM_KILL_PERCENT = 0.2;
+    public static final double PERCENT_ADJUSTER = 0.0;
+    public static final double PLAYER_RATIO_ADJUST = 0.1;
+    public static final float COMBAT_XP_EXCHANGE = 0.10f;
     public static final float MAX_NPC_DAMAGE_PERCENT = 0.65f;
     public static final float PERCENT_DAMAGE_BAR_BASE = 0.00f;
     public static final float GROUP_XP_BONUS = 0.35f;
@@ -284,7 +284,7 @@ public class xp extends script.base_script
         if (utils.hasScriptVar(target, "buff.dish_ormachek.value"))
         {
             float xp_mod = utils.getFloatScriptVar(target, "buff.dish_ormachek.value");
-            float f_mod = 1f + (xp_mod / 100f);
+            float f_mod = 1.0f + (xp_mod / 100.0f);
             int dur = 20;
             if (utils.hasScriptVar(target, "buff.dish_ormachek.duration"))
             {
@@ -305,7 +305,7 @@ public class xp extends script.base_script
     }
     public static int applyGroupXpModifier(obj_id target, int amt) throws InterruptedException
     {
-        float mod = 1f;
+        float mod = 1.0f;
         int modAmt = amt;
         if (amt > 0)
         {
@@ -327,7 +327,7 @@ public class xp extends script.base_script
         if (amt > 0)
         {
             float mod = getInspirationBuffXpModifier(target, xp_type);
-            float modAmt = (float)amt * mod;
+            float modAmt = amt * mod;
             return Math.round(modAmt);
         }
         else 
@@ -337,7 +337,7 @@ public class xp extends script.base_script
     }
     public static float getGroupXpModifier(obj_id target, int activeGroupSize) throws InterruptedException
     {
-        float bonusMod = 1f;
+        float bonusMod = 1.0f;
         float groupXPBonus = GROUP_XP_BONUS;
         if (activeGroupSize > 1)
         {
@@ -349,7 +349,7 @@ public class xp extends script.base_script
     {
         if (!isIdValid(target) || xp_type == null || xp_type.equals(""))
         {
-            return 1f;
+            return 1.0f;
         }
         int species = getSpecies(target);
         String[] xpMods = dataTableGetStringColumn(TBL_SPECIES_XP, species);
@@ -362,17 +362,17 @@ public class xp extends script.base_script
                     if ((s != null) && (s.length == 2)) {
                         int val = utils.stringToInt(s[1]);
                         if (val != -1) {
-                            return (100f + val) / 100f;
+                            return (100.0f + val) / 100.0f;
                         }
                     }
                 }
             }
         }
-        return 1f;
+        return 1.0f;
     }
     public static float getInspirationBuffXpModifier(obj_id target, String xp_type) throws InterruptedException
     {
-        float mod = 1f;
+        float mod = 1.0f;
         if (utils.hasScriptVar(target, "buff.xpBonus.types"))
         {
             String[] xpList = utils.getStringArrayScriptVar(target, "buff.xpBonus.types");
@@ -491,7 +491,7 @@ public class xp extends script.base_script
         {
             xp = getIntObjVar(npc, "combat.intCombatXP");
         }
-        float bonus = 0f;
+        float bonus = 0.0f;
         if (aiIsKiller(npc) || aiIsAggressive(npc) || aiIsAssist(npc))
         {
             bonus += 0.05f;
@@ -499,7 +499,7 @@ public class xp extends script.base_script
         xp += (int)(xp * bonus);
         if (levelDiff < 0)
         {
-            float maxLevelDiff = 10f;
+            float maxLevelDiff = 10.0f;
             if (level > 20)
             {
                 maxLevelDiff += (level - 20) / 6;
@@ -982,7 +982,7 @@ public class xp extends script.base_script
         }
         Vector ret = new Vector();
         ret.setSize(0);
-        double damageTally = (double)getIntObjVar(target, VAR_TOP_DAMAGE);
+        double damageTally = getIntObjVar(target, VAR_TOP_DAMAGE);
         if (damageTally < 0)
         {
             debugServerConsoleMsg(target, "xp::grantCombatXp: damageTally(" + damageTally + ") < 0!! WTF happened in combat?");
@@ -1103,14 +1103,14 @@ public class xp extends script.base_script
                             grantCombatStyleXp(master, COMBAT_GENERAL, xpTotal);
                             displayXpFlyText(master, master, xpTotal);
                             displayXpMsg(master, null, xpTotal);
-                            double percentDamage = ((double)dam / damageTally) + PERCENT_ADJUSTER;
+                            double percentDamage = (dam / damageTally) + PERCENT_ADJUSTER;
                             factions.grantCombatFaction(master, target, percentDamage);
                         }
                     }
                 }
                 else if (utils.isObjIdInArray(killList, killer))
                 {
-                    double percentDamage = ((double)dam / damageTally) + PERCENT_ADJUSTER;
+                    double percentDamage = (dam / damageTally) + PERCENT_ADJUSTER;
                     if (getDistance(killer, target) < MAX_DISTANCE)
                     {
                         grantCombatXpPerAttackType(killer, target, xpTotal);
@@ -1172,7 +1172,7 @@ public class xp extends script.base_script
         int totalXpGranted = 0;
         for (String xpType : xpTypes) {
             int val = utils.getIntScriptVar(target, xpListBasePath + "." + xpType);
-            float xpPercent = ((float) (val) / (float) (tally));
+            float xpPercent = ((float) (val) / (tally));
             int intNewTotal = totalXp;
             if (xpType.equals(RAW_COMBAT)) {
                 intNewTotal = (int) (intNewTotal * xpPercent);
@@ -1364,7 +1364,7 @@ public class xp extends script.base_script
         int xpCap = getExperienceCap(player, xpType);
         if (currentXp < xpCap)
         {
-            float grpMod = 1f;
+            float grpMod = 1.0f;
             if (utils.hasScriptVar(player, "combat.xp.groupBonus"))
             {
                 grpMod = utils.getFloatScriptVar(player, "combat.xp.groupBonus");
@@ -1718,7 +1718,7 @@ public class xp extends script.base_script
     }
     public static prose_package getXpProsePackage(String xpType, int xpAmt) throws InterruptedException
     {
-        return getXpProsePackage(xpType, xpAmt, 1f, 1f);
+        return getXpProsePackage(xpType, xpAmt, 1.0f, 1.0f);
     }
     public static prose_package getXpProsePackage(String xpType, int xpAmt, float grpMod, float inspMod) throws InterruptedException
     {
@@ -1727,8 +1727,8 @@ public class xp extends script.base_script
         prose.setTO(pp, sid_xp);
         float grpBonus = (grpMod * 100) - 100;
         float inspBonus = (inspMod * 100) - 100;
-        String grpBonusString = ((new Integer(Math.round(grpBonus)))).toString();
-        String inspBonusString = ((new Integer(Math.round(inspBonus)))).toString();
+        String grpBonusString = Integer.valueOf(Math.round(grpBonus)).toString();
+        String inspBonusString = Integer.valueOf(Math.round(inspBonus)).toString();
         prose.setDI(pp, Math.abs(xpAmt));
         if (xpAmt >= 0)
         {
@@ -2023,7 +2023,7 @@ public class xp extends script.base_script
     public static float repeatCollectionXpModifier(obj_id player, long repeatSlotValue) throws InterruptedException
     {
         float repeatMultiplier;
-        float adjustedRepeatSlotValue = (float)repeatSlotValue / 10.0f;
+        float adjustedRepeatSlotValue = repeatSlotValue / 10.0f;
         repeatMultiplier = 1.0f - adjustedRepeatSlotValue;
         if (repeatMultiplier < 0.1f)
         {

@@ -103,8 +103,8 @@ public class patrol extends script.base_script
                         float x = startLoc.x + offsetx;
                         float z = startLoc.z + offsetz;
                         location loc = new location();
-                        loc.x = x + (radius * (float)Math.cos(theta));
-                        loc.z = z + (radius * (float)Math.sin(theta));
+                        loc.x = x + (radius * (float) StrictMath.cos(theta));
+                        loc.z = z + (radius * (float) StrictMath.sin(theta));
                         loc.area = planetName;
                         if (DEBUGGING)
                         {

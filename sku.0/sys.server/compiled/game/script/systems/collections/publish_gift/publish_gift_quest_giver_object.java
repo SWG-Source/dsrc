@@ -196,8 +196,8 @@ public class publish_gift_quest_giver_object extends script.base_script
             return false;
         }
         location loc = getLocation(player);
-        float treasureXdelta = rand(15f, 18f);
-        float treasureZdelta = rand(15f, 18f);
+        float treasureXdelta = rand(15.0f, 18.0f);
+        float treasureZdelta = rand(15.0f, 18.0f);
         location landingLoc = loc;
         landingLoc.x += treasureXdelta;
         landingLoc.z += treasureZdelta;

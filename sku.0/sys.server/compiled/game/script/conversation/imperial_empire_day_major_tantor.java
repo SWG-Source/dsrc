@@ -243,16 +243,14 @@ public class imperial_empire_day_major_tantor extends script.base_script
         if (imperial_empire_day_major_tantor_condition_hasCompletedPropagandaCollection(player, npc) && imperial_empire_day_major_tantor_condition_hasCompletedRecruitmentCollection(player, npc))
         {
             String[] recruitingSlotsInCollection = getAllCollectionSlotsInCollection(holiday.IMPERIAL_RECRUITING_COLLECTION);
-            for (int i = 0; i < recruitingSlotsInCollection.length; i++)
-            {
-                long collectionSlotValue = getCollectionSlotValue(player, recruitingSlotsInCollection[i]) * -1;
-                modifyCollectionSlotValue(player, recruitingSlotsInCollection[i], collectionSlotValue);
+            for (String s1 : recruitingSlotsInCollection) {
+                long collectionSlotValue = getCollectionSlotValue(player, s1) * -1;
+                modifyCollectionSlotValue(player, s1, collectionSlotValue);
             }
             String[] slotsInCollection = getAllCollectionSlotsInCollection(holiday.IMPERIAL_ANTIPROP_COLLECTION);
-            for (int i = 0; i < slotsInCollection.length; i++)
-            {
-                long collectionSlotValue = getCollectionSlotValue(player, slotsInCollection[i]) * -1;
-                modifyCollectionSlotValue(player, slotsInCollection[i], collectionSlotValue);
+            for (String s : slotsInCollection) {
+                long collectionSlotValue = getCollectionSlotValue(player, s) * -1;
+                modifyCollectionSlotValue(player, s, collectionSlotValue);
             }
             imperial_empire_day_major_tantor_action_setPropagandaCollectionStarterSlot(player, npc);
             imperial_empire_day_major_tantor_action_setRecruitmentCollectionStarterSlot(player, npc);

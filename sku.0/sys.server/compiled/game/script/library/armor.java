@@ -506,9 +506,9 @@ public class armor extends script.base_script
                 if (hasCommand(player, certName + j))
                 {
                     certPenalties[i] -= ARMOR_CERTIFICATION_REDUCTIONS[armorCategory][i][j - 1];
-                    if (certPenalties[i] < 0f)
+                    if (certPenalties[i] < 0.0f)
                     {
-                        certPenalties[i] = 0f;
+                        certPenalties[i] = 0.0f;
                     }
                     break;
                 }
@@ -803,7 +803,7 @@ public class armor extends script.base_script
                     minProtection = dataTableGetInt(DATATABLE_ARMOR, armorRow, DATATABLE_MIN_GEN_PROT_COL);
                     maxProtection = dataTableGetInt(DATATABLE_ARMOR, armorRow, DATATABLE_MAX_GEN_PROT_COL);
                     if (maxProtection != minProtection && minProtection != 0) {
-                        value += ((float) minProtection) / ((float) (maxProtection - minProtection));
+                        value += ((float) minProtection) / (maxProtection - minProtection);
                     }
                     debugServerConsoleMsg(null, "Armor scaling general protection from resource value " + itemAttribute.currentValue + ", component value " + componentValue + " to " + value);
                 } else {
@@ -820,7 +820,7 @@ public class armor extends script.base_script
                     minCondition = dataTableGetInt(DATATABLE_ARMOR, armorRow, DATATABLE_MIN_CONDITION_COL);
                     maxCondition = dataTableGetInt(DATATABLE_ARMOR, armorRow, DATATABLE_MAX_CONDITION_COL);
                     if (maxCondition != minCondition && minCondition != 0) {
-                        value += ((float) minCondition) / ((float) (maxCondition - minCondition));
+                        value += ((float) minCondition) / (maxCondition - minCondition);
                     }
                     debugServerConsoleMsg(null, "Armor scaling condition from resource value " + itemAttribute.currentValue + ", component value " + componentValue + " to " + value);
                 } else {
@@ -1435,7 +1435,7 @@ public class armor extends script.base_script
                 {
                     if (hasObjVar(objArmor, "armor.fake_armor." + DATATABLE_SPECIAL_PROTECTIONS[i]))
                     {
-                        fltSpecialProt = (float) getIntObjVar(objArmor, "armor.fake_armor." + DATATABLE_SPECIAL_PROTECTIONS[i]);
+                        fltSpecialProt = getIntObjVar(objArmor, "armor.fake_armor." + DATATABLE_SPECIAL_PROTECTIONS[i]);
                         if (fltSpecialProt != 0)
                         {
                             fltSpecialProts[i] += fltWeight * fltSpecialProt;
@@ -1477,7 +1477,7 @@ public class armor extends script.base_script
             {
                 LOG("armor.recalculateArmorForPlayer ", "checking is armor of obj_id:  " + objArmor);
                 dictionary dctSpecialProtections = getArmorSpecialProtections(objArmor);
-                fltArmorGeneralProtection = (float) utils.getIntScriptVar(objArmor, armor.SCRIPTVAR_CACHED_GENERAL_PROTECTION);
+                fltArmorGeneralProtection = utils.getIntScriptVar(objArmor, armor.SCRIPTVAR_CACHED_GENERAL_PROTECTION);
                 fltReduction = combat.getArmorDecayPercentage(objArmor);
                 fltArmorGeneralProtection = fltArmorGeneralProtection * fltReduction;
                 if (dctSpecialProtections != null)

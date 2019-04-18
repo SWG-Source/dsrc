@@ -41,16 +41,16 @@ public class palace_path extends script.base_script
         obj_id hall5 = getCellId(bldg, "hall5");
         obj_id hall8 = getCellId(bldg, "hall8");
         obj_id droid = getCellId(bldg, "droidtorture");
-        location guard1 = new location(7.68f, .2f, 130.84f, "tatooine", foyer);
+        location guard1 = new location(7.68f, 0.2f, 130.84f, "tatooine", foyer);
         location guard2 = new location(-22.22f, 10.76f, 64.30f, "tatooine", spawn1);
         location guard3 = new location(-24.89f, 6.6f, 90.77f, "tatooine", bibspawn);
-        location guard4 = new location(-8.01f, .2f, 130.97f, "tatooine", foyer);
-        location guard6 = new location(-50.89f, .2f, 82.37f, "tatooine", hall5);
-        location guard7 = new location(-19.74f, .2f, 82.23f, "tatooine", stairs4);
-        location guard8 = new location(-23.73f, .82f, 76.52f, "tatooine", stairs4);
+        location guard4 = new location(-8.01f, 0.2f, 130.97f, "tatooine", foyer);
+        location guard6 = new location(-50.89f, 0.2f, 82.37f, "tatooine", hall5);
+        location guard7 = new location(-19.74f, 0.2f, 82.23f, "tatooine", stairs4);
+        location guard8 = new location(-23.73f, 0.82f, 76.52f, "tatooine", stairs4);
         location guard9 = new location(-32.17f, 3, 55.89f, "tatooine", hall8);
         location guard10 = new location(-23.78f, 3.6f, 53.73f, "tatooine", throneroom);
-        location guard11 = new location(11.75f, .2f, -3.62f, "tatooine", garage2);
+        location guard11 = new location(11.75f, 0.2f, -3.62f, "tatooine", garage2);
         location guard12 = new location(14.12f, 5.55f, 66.95f, "tatooine", stairs2);
         location guard13 = new location(-28.84f, 8.89f, 17.1f, "tatooine", spawn2);
         location bmonk1 = new location(-8.94f, 3, 55.95f, "tatooine", hall4);
@@ -59,8 +59,8 @@ public class palace_path extends script.base_script
         location bmonk5 = new location(5.8f, 5.8f, 60.53f, "tatooine", hall2);
         location droid1 = new location(27.42f, 0.2f, 90.02f, "tatooine", droid);
         location droid4 = new location(8.97f, 0.2f, 88.26f, "tatooine", droid);
-        location droid6 = new location(38f, .2f, -5.53f, "tatooine", garage);
-        location random2 = new location(-7.9f, 3f, 59.61f, "tatooine", hall4);
+        location droid6 = new location(38.0f, 0.2f, -5.53f, "tatooine", garage);
+        location random2 = new location(-7.9f, 3.0f, 59.61f, "tatooine", hall4);
         if (hasScript(self, "theme_park.tatooine.jabbaspawner.gamguard1"))
         {
             ai_lib.aiPathTo(self, guard1);

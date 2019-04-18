@@ -60,12 +60,10 @@ public class locations extends script.base_script
         }
         region rgnSmallestRegion = rgnRegions[0];
         float fltExtents = 1000000000;
-        for (int intI = 0; intI < rgnRegions.length; intI++)
-        {
-            float fltRegionExtents = getRegionExtents(rgnRegions[intI]);
-            if (fltRegionExtents < fltExtents)
-            {
-                rgnSmallestRegion = rgnRegions[intI];
+        for (region rgnRegion : rgnRegions) {
+            float fltRegionExtents = getRegionExtents(rgnRegion);
+            if (fltRegionExtents < fltExtents) {
+                rgnSmallestRegion = rgnRegion;
                 fltExtents = fltRegionExtents;
             }
         }
@@ -216,13 +214,10 @@ public class locations extends script.base_script
         LOG("locations", "length is " + rgnCities.length);
         if (rgnCities.length < 3)
         {
-            for (int intI = 0; intI < PLANETS.length; intI++)
-            {
-                String strTestString = PLANETS[intI];
+            for (String strTestString : PLANETS) {
                 LOG("locations", "strTestString is " + strTestString);
                 LOG("locations", "strPlanet is " + strPlanet);
-                if (!strTestString.equals(strPlanet))
-                {
+                if (!strTestString.equals(strPlanet)) {
                     strPlanets = utils.addElement(strPlanets, strTestString);
                 }
             }
@@ -716,11 +711,9 @@ public class locations extends script.base_script
             }
         }
         int minDifficulty = 90;
-        for (int i = 0; i < rgnRegionsAtPoint.length; i++)
-        {
-            int regionMinDifficulty = rgnRegionsAtPoint[i].getMinDifficultyType();
-            if (minDifficulty > regionMinDifficulty)
-            {
+        for (region region : rgnRegionsAtPoint) {
+            int regionMinDifficulty = region.getMinDifficultyType();
+            if (minDifficulty > regionMinDifficulty) {
                 minDifficulty = regionMinDifficulty;
             }
         }
@@ -778,11 +771,9 @@ public class locations extends script.base_script
             return 0;
         }
         int minDifficulty = Integer.MAX_VALUE;
-        for (int i = 0; i < rgnRegionList.length; i++)
-        {
-            int regionMinDifficulty = rgnRegionList[i].getMinDifficultyType();
-            if (minDifficulty > regionMinDifficulty)
-            {
+        for (region region : rgnRegionList) {
+            int regionMinDifficulty = region.getMinDifficultyType();
+            if (minDifficulty > regionMinDifficulty) {
                 minDifficulty = regionMinDifficulty;
             }
         }
@@ -796,11 +787,9 @@ public class locations extends script.base_script
             return Integer.MAX_VALUE;
         }
         int maxDifficulty = Integer.MIN_VALUE;
-        for (int i = 0; i < rgnRegionList.length; i++)
-        {
-            int regionMaxDifficulty = rgnRegionList[i].getMaxDifficultyType();
-            if (maxDifficulty < regionMaxDifficulty)
-            {
+        for (region region : rgnRegionList) {
+            int regionMaxDifficulty = region.getMaxDifficultyType();
+            if (maxDifficulty < regionMaxDifficulty) {
                 maxDifficulty = regionMaxDifficulty;
             }
         }
@@ -851,7 +840,7 @@ public class locations extends script.base_script
         String buildout_table = "datatables/buildout/areas_" + loc.area + ".iff";
         float locX = loc.x;
         float locZ = loc.z;
-        if (loc.area.indexOf("space_npe_falcon") >= 0 || !dataTableOpen(buildout_table))
+        if (loc.area.contains("space_npe_falcon") || !dataTableOpen(buildout_table))
         {
             return NO_AREA;
         }
@@ -889,7 +878,7 @@ public class locations extends script.base_script
         String buildout_table = "datatables/buildout/areas_" + loc.area + ".iff";
         float locX = loc.x;
         float locZ = loc.z;
-        if (loc.area.indexOf("space_npe_falcon") >= 0 || !dataTableOpen(buildout_table))
+        if (loc.area.contains("space_npe_falcon") || !dataTableOpen(buildout_table))
         {
             return -1;
         }
@@ -917,14 +906,11 @@ public class locations extends script.base_script
         {
             return false;
         }
-        for (int i = 0; i < regionList.length; i++)
-        {
-            if (regionList[i] == null || (regionList[i].getName()).length() <= 0)
-            {
+        for (region region : regionList) {
+            if (region == null || (region.getName()).length() <= 0) {
                 continue;
             }
-            if (regionName.equals(regionList[i].getName()))
-            {
+            if (regionName.equals(region.getName())) {
                 return true;
             }
         }

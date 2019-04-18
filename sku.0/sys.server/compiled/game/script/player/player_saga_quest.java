@@ -391,13 +391,10 @@ public class player_saga_quest extends script.base_script
                     if ((rewardItems != null && rewardItems.length > 0))
                     {
                         utils.setScriptVar(oldRecipe, "chronicles.allowRewardsReclaimed", true);
-                        for (int i = 0; i < rewardItems.length; i++)
-                        {
-                            obj_id rewardItem = rewardItems[i];
+                        for (obj_id rewardItem : rewardItems) {
                             putInOverloaded(rewardItem, playerInventory);
                             String template = getTemplateName(rewardItem);
-                            if (template.equals(pgc_quests.PGC_CASH_ITEM_TEMPLATE))
-                            {
+                            if (template.equals(pgc_quests.PGC_CASH_ITEM_TEMPLATE)) {
                                 int cash = getIntObjVar(rewardItem, "loot.cashAmount");
                                 money.bankTo("pgc_player_donated_credits", self, cash);
                                 destroyObject(rewardItem);
@@ -653,147 +650,129 @@ public class player_saga_quest extends script.base_script
                 for (int j = 4; j < parse.length; j++)
                 {
                     String data = parse[j];
-                    if (taskType.equals(pgc_quests.SAGA_DESTROY_MULTIPLE))
-                    {
-                        involvesCombat = true;
-                        switch (j)
-                        {
-                            case 4:
-                            break;
-                            case 5:
-                            taskCounterMax = utils.stringToInt(data);
-                            setObjVar(questHolocron, baseObjVar + "count", taskCounterMax);
-                            recipeTaskData += "~" + taskCounterMax;
-                            int taskDifficulty = pgc_quests.getTaskDifficultySetting(relicCategoryData);
-                            taskWeightArray[i] = pgc_quests.getDestroyTaskWeight(taskLevel, taskDifficulty, taskCounterMax);
-                            break;
-                        }
-                    }
-                    else if (taskType.equals(pgc_quests.SAGA_DESTROY_MULTIPLE_LOOT))
-                    {
-                        involvesCombat = true;
-                        switch (j)
-                        {
-                            case 4:
-                            break;
-                            case 5:
-                            taskCounterMax = utils.stringToInt(data);
-                            setObjVar(questHolocron, baseObjVar + "count", taskCounterMax);
-                            recipeTaskData += "~" + taskCounterMax;
-                            break;
-                            case 6:
-                            setObjVar(questHolocron, baseObjVar + "message", pgc_quests.useFilteredQuestText(data));
-                            recipeTaskData += "~" + data;
-                            break;
-                            case 7:
-                            dropRate = utils.stringToInt(data);
-                            setObjVar(questHolocron, baseObjVar + "drop_rate", dropRate);
-                            recipeTaskData += "~" + dropRate;
-                            break;
-                        }
-                        if (taskCounterMax > -1 && dropRate > -1)
-                        {
-                            int taskDifficulty = pgc_quests.getTaskDifficultySetting(relicCategoryData);
-                            taskWeightArray[i] = pgc_quests.getDestroyLootTaskWeight(taskLevel, taskDifficulty, taskCounterMax, dropRate);
-                        }
-                    }
-                    else if (taskType.equals(pgc_quests.SAGA_PERFORM))
-                    {
-                        involvesEntertaining = true;
-                        taskWeightArray[i] = pgc_quests.getPerformTaskWeight(taskLevel);
-                        switch (j)
-                        {
-                            case 4:
-                            break;
-                            case 5:
-                            break;
-                        }
-                    }
-                    else if (taskType.equals(pgc_quests.SAGA_CRAFT_ITEM))
-                    {
-                        involvesCrafting = true;
-                        switch (j)
-                        {
-                            case 4:
-                            break;
-                            case 5:
-                            taskCounterMax = utils.stringToInt(data);
-                            setObjVar(questHolocron, baseObjVar + "count", taskCounterMax);
-                            recipeTaskData += "~" + taskCounterMax;
-                            taskWeightArray[i] = pgc_quests.getCraftingTaskWeight(taskLevel, taskCounterMax);
-                            break;
-                        }
-                    }
-                    else if (taskType.equals(pgc_quests.SAGA_COMM_MESSAGE))
-                    {
-                        taskWeightArray[i] = pgc_quests.getCommTaskWeight(taskLevel);
-                        switch (j)
-                        {
-                            case 4:
-                            break;
-                            case 5:
-                            String voiceOver = pgc_quests.getStringRelicData("voice_over", relicCategoryData);
-                            if (voiceOver == null || voiceOver.length() <= 0 || voiceOver.equals("none"))
-                            {
-                                setObjVar(questHolocron, baseObjVar + "message", pgc_quests.useFilteredQuestText(data));
-                                recipeTaskData += "~" + data;
+                    switch (taskType) {
+                        case pgc_quests.SAGA_DESTROY_MULTIPLE:
+                            involvesCombat = true;
+                            switch (j) {
+                                case 4:
+                                    break;
+                                case 5:
+                                    taskCounterMax = utils.stringToInt(data);
+                                    setObjVar(questHolocron, baseObjVar + "count", taskCounterMax);
+                                    recipeTaskData += "~" + taskCounterMax;
+                                    int taskDifficulty = pgc_quests.getTaskDifficultySetting(relicCategoryData);
+                                    taskWeightArray[i] = pgc_quests.getDestroyTaskWeight(taskLevel, taskDifficulty, taskCounterMax);
+                                    break;
                             }
                             break;
-                        }
-                    }
-                    else if (taskType.equals(pgc_quests.SAGA_GOTO_LOCATION))
-                    {
-                        taskWeightArray[i] = pgc_quests.getGoToTaskWeight(taskLevel);
-                        switch (j)
-                        {
-                            case 4:
-                            if (relicName.equals(pgc_quests.PGC_RELIC_SLOT_GOTO_GENERIC_LOC))
-                            {
-                                String[] gotoParse = split(data, ':');
-                                if (gotoParse.length == 5)
-                                {
-                                    float x = utils.stringToFloat(gotoParse[0]);
-                                    float y = utils.stringToFloat(gotoParse[1]);
-                                    float z = utils.stringToFloat(gotoParse[2]);
-                                    String planet = gotoParse[3];
-                                    String waypointName = gotoParse[4];
-                                    waypointLoc = new location(x, y, z, planet);
-                                    setObjVar(questHolocron, baseObjVar + "waypoint", waypointLoc);
-                                    setObjVar(questHolocron, baseObjVar + "waypointName", waypointName);
-                                    recipeTaskData += "~waypoint:" + planet + "," + x + "," + y + "," + z + ",none," + waypointName;
-                                }
+                        case pgc_quests.SAGA_DESTROY_MULTIPLE_LOOT:
+                            involvesCombat = true;
+                            switch (j) {
+                                case 4:
+                                    break;
+                                case 5:
+                                    taskCounterMax = utils.stringToInt(data);
+                                    setObjVar(questHolocron, baseObjVar + "count", taskCounterMax);
+                                    recipeTaskData += "~" + taskCounterMax;
+                                    break;
+                                case 6:
+                                    setObjVar(questHolocron, baseObjVar + "message", pgc_quests.useFilteredQuestText(data));
+                                    recipeTaskData += "~" + data;
+                                    break;
+                                case 7:
+                                    dropRate = utils.stringToInt(data);
+                                    setObjVar(questHolocron, baseObjVar + "drop_rate", dropRate);
+                                    recipeTaskData += "~" + dropRate;
+                                    break;
+                            }
+                            if (taskCounterMax > -1 && dropRate > -1) {
+                                int taskDifficulty = pgc_quests.getTaskDifficultySetting(relicCategoryData);
+                                taskWeightArray[i] = pgc_quests.getDestroyLootTaskWeight(taskLevel, taskDifficulty, taskCounterMax, dropRate);
                             }
                             break;
-                        }
-                    }
-                    else if (taskType.equals(pgc_quests.SAGA_RETRIEVE_ITEM))
-                    {
-                        switch (j)
-                        {
-                            case 4:
+                        case pgc_quests.SAGA_PERFORM:
+                            involvesEntertaining = true;
+                            taskWeightArray[i] = pgc_quests.getPerformTaskWeight(taskLevel);
+                            switch (j) {
+                                case 4:
+                                    break;
+                                case 5:
+                                    break;
+                            }
                             break;
-                            case 5:
-                            taskCounterMax = utils.stringToInt(data);
-                            setObjVar(questHolocron, baseObjVar + "count", taskCounterMax);
-                            recipeTaskData += "~" + taskCounterMax;
-                            taskWeightArray[i] = pgc_quests.getRetrieveTaskWeight(taskLevel, taskCounterMax);
+                        case pgc_quests.SAGA_CRAFT_ITEM:
+                            involvesCrafting = true;
+                            switch (j) {
+                                case 4:
+                                    break;
+                                case 5:
+                                    taskCounterMax = utils.stringToInt(data);
+                                    setObjVar(questHolocron, baseObjVar + "count", taskCounterMax);
+                                    recipeTaskData += "~" + taskCounterMax;
+                                    taskWeightArray[i] = pgc_quests.getCraftingTaskWeight(taskLevel, taskCounterMax);
+                                    break;
+                            }
                             break;
-                        }
-                    }
-                    else if (taskType.equals(pgc_quests.SAGA_PVP_OBJECTIVE))
-                    {
-                        involvesPvp = true;
-                        switch (j)
-                        {
-                            case 4:
-                            taskCounterMax = utils.stringToInt(data);
-                            setObjVar(questHolocron, baseObjVar + "count", taskCounterMax);
-                            recipeTaskData += "~" + taskCounterMax;
-                            taskWeightArray[i] = pgc_quests.getPvpTaskWeight(taskLevel, taskCounterMax);
+                        case pgc_quests.SAGA_COMM_MESSAGE:
+                            taskWeightArray[i] = pgc_quests.getCommTaskWeight(taskLevel);
+                            switch (j) {
+                                case 4:
+                                    break;
+                                case 5:
+                                    String voiceOver = pgc_quests.getStringRelicData("voice_over", relicCategoryData);
+                                    if (voiceOver == null || voiceOver.length() <= 0 || voiceOver.equals("none")) {
+                                        setObjVar(questHolocron, baseObjVar + "message", pgc_quests.useFilteredQuestText(data));
+                                        recipeTaskData += "~" + data;
+                                    }
+                                    break;
+                            }
                             break;
-                            case 5:
+                        case pgc_quests.SAGA_GOTO_LOCATION:
+                            taskWeightArray[i] = pgc_quests.getGoToTaskWeight(taskLevel);
+                            switch (j) {
+                                case 4:
+                                    if (relicName.equals(pgc_quests.PGC_RELIC_SLOT_GOTO_GENERIC_LOC)) {
+                                        String[] gotoParse = split(data, ':');
+                                        if (gotoParse.length == 5) {
+                                            float x = utils.stringToFloat(gotoParse[0]);
+                                            float y = utils.stringToFloat(gotoParse[1]);
+                                            float z = utils.stringToFloat(gotoParse[2]);
+                                            String planet = gotoParse[3];
+                                            String waypointName = gotoParse[4];
+                                            waypointLoc = new location(x, y, z, planet);
+                                            setObjVar(questHolocron, baseObjVar + "waypoint", waypointLoc);
+                                            setObjVar(questHolocron, baseObjVar + "waypointName", waypointName);
+                                            recipeTaskData += "~waypoint:" + planet + "," + x + "," + y + "," + z + ",none," + waypointName;
+                                        }
+                                    }
+                                    break;
+                            }
                             break;
-                        }
+                        case pgc_quests.SAGA_RETRIEVE_ITEM:
+                            switch (j) {
+                                case 4:
+                                    break;
+                                case 5:
+                                    taskCounterMax = utils.stringToInt(data);
+                                    setObjVar(questHolocron, baseObjVar + "count", taskCounterMax);
+                                    recipeTaskData += "~" + taskCounterMax;
+                                    taskWeightArray[i] = pgc_quests.getRetrieveTaskWeight(taskLevel, taskCounterMax);
+                                    break;
+                            }
+                            break;
+                        case pgc_quests.SAGA_PVP_OBJECTIVE:
+                            involvesPvp = true;
+                            switch (j) {
+                                case 4:
+                                    taskCounterMax = utils.stringToInt(data);
+                                    setObjVar(questHolocron, baseObjVar + "count", taskCounterMax);
+                                    recipeTaskData += "~" + taskCounterMax;
+                                    taskWeightArray[i] = pgc_quests.getPvpTaskWeight(taskLevel, taskCounterMax);
+                                    break;
+                                case 5:
+                                    break;
+                            }
+                            break;
                     }
                 }
                 addPlayerQuestTask(questHolocron, taskTitle, taskDescription, taskCounterMax, waypointLoc);
@@ -1021,26 +1000,18 @@ public class player_saga_quest extends script.base_script
         obj_id[] activeHolocrons = pgc_quests.getActivateQuestHolocrons(self);
         if (activeHolocrons != null && activeHolocrons.length > 0)
         {
-            for (int i = 0; i < activeHolocrons.length; i++)
-            {
-                obj_id questHolocron = activeHolocrons[i];
-                if (isIdValid(questHolocron))
-                {
+            for (obj_id questHolocron : activeHolocrons) {
+                if (isIdValid(questHolocron)) {
                     String phaseObjVarString = pgc_quests.getActivePhaseObjVarString(questHolocron);
-                    for (int j = 0; j < pgc_quests.PGC_QUEST_MAX_NUM_TASKS_PER_PHASE; j++)
-                    {
+                    for (int j = 0; j < pgc_quests.PGC_QUEST_MAX_NUM_TASKS_PER_PHASE; j++) {
                         String taskObjVarString = pgc_quests.getTaskObjVarString(j);
                         String baseObjVar = pgc_quests.getPgcBaseObjVar(phaseObjVarString, taskObjVarString);
-                        if (hasObjVar(questHolocron, baseObjVar))
-                        {
+                        if (hasObjVar(questHolocron, baseObjVar)) {
                             String waypointActiveObjVar = baseObjVar + ".waypointActive";
-                            if (hasObjVar(questHolocron, waypointActiveObjVar))
-                            {
+                            if (hasObjVar(questHolocron, waypointActiveObjVar)) {
                                 pgc_quests.activatePlayerQuestWaypointFromHolocron(questHolocron, baseObjVar);
                             }
-                        }
-                        else 
-                        {
+                        } else {
                             break;
                         }
                     }
@@ -1054,16 +1025,11 @@ public class player_saga_quest extends script.base_script
         obj_id[] activeHolocrons = pgc_quests.getActivateQuestHolocrons(self);
         if (activeHolocrons != null && activeHolocrons.length > 0)
         {
-            for (int i = 0; i < activeHolocrons.length; i++)
-            {
-                obj_id questHolocron = activeHolocrons[i];
-                if (isIdValid(questHolocron))
-                {
+            for (obj_id questHolocron : activeHolocrons) {
+                if (isIdValid(questHolocron)) {
                     String phase = pgc_quests.getActivePhaseObjVarString(questHolocron);
-                    for (int j = 0; j < pgc_quests.CREDIT_FOR_KILL_TASKS.length; j++)
-                    {
-                        if (pgc_quests.phaseHasActiveTaskOfType(questHolocron, pgc_quests.CREDIT_FOR_KILL_TASKS[j], phase))
-                        {
+                    for (int j = 0; j < pgc_quests.CREDIT_FOR_KILL_TASKS.length; j++) {
+                        if (pgc_quests.phaseHasActiveTaskOfType(questHolocron, pgc_quests.CREDIT_FOR_KILL_TASKS[j], phase)) {
                             messageTo(questHolocron, "receiveCreditForKill", params, 0.0f, false);
                             break;
                         }
@@ -1078,14 +1044,10 @@ public class player_saga_quest extends script.base_script
         obj_id[] activeHolocrons = pgc_quests.getActivateQuestHolocrons(self);
         if (activeHolocrons != null && activeHolocrons.length > 0)
         {
-            for (int i = 0; i < activeHolocrons.length; i++)
-            {
-                obj_id questHolocron = activeHolocrons[i];
-                if (isIdValid(questHolocron))
-                {
+            for (obj_id questHolocron : activeHolocrons) {
+                if (isIdValid(questHolocron)) {
                     String phase = pgc_quests.getActivePhaseObjVarString(questHolocron);
-                    if (pgc_quests.phaseHasActiveTaskOfType(questHolocron, pgc_quests.SAGA_PVP_OBJECTIVE, phase))
-                    {
+                    if (pgc_quests.phaseHasActiveTaskOfType(questHolocron, pgc_quests.SAGA_PVP_OBJECTIVE, phase)) {
                         messageTo(questHolocron, "recivedGcwCreditForKill", params, 0.0f, false);
                         break;
                     }
@@ -1099,14 +1061,10 @@ public class player_saga_quest extends script.base_script
         obj_id[] activeHolocrons = pgc_quests.getActivateQuestHolocrons(self);
         if (activeHolocrons != null && activeHolocrons.length > 0)
         {
-            for (int i = 0; i < activeHolocrons.length; i++)
-            {
-                obj_id questHolocron = activeHolocrons[i];
-                if (isIdValid(questHolocron))
-                {
+            for (obj_id questHolocron : activeHolocrons) {
+                if (isIdValid(questHolocron)) {
                     String phase = pgc_quests.getActivePhaseObjVarString(questHolocron);
-                    if (pgc_quests.phaseHasActiveTaskOfType(questHolocron, pgc_quests.SAGA_PERFORM, phase))
-                    {
+                    if (pgc_quests.phaseHasActiveTaskOfType(questHolocron, pgc_quests.SAGA_PERFORM, phase)) {
                         messageTo(questHolocron, "startPerform", params, 0.0f, false);
                     }
                 }
@@ -1119,14 +1077,10 @@ public class player_saga_quest extends script.base_script
         obj_id[] activeHolocrons = pgc_quests.getActivateQuestHolocrons(self);
         if (activeHolocrons != null && activeHolocrons.length > 0)
         {
-            for (int i = 0; i < activeHolocrons.length; i++)
-            {
-                obj_id questHolocron = activeHolocrons[i];
-                if (isIdValid(questHolocron))
-                {
+            for (obj_id questHolocron : activeHolocrons) {
+                if (isIdValid(questHolocron)) {
                     String phase = pgc_quests.getActivePhaseObjVarString(questHolocron);
-                    if (pgc_quests.phaseHasActiveTaskOfType(questHolocron, pgc_quests.SAGA_PERFORM, phase))
-                    {
+                    if (pgc_quests.phaseHasActiveTaskOfType(questHolocron, pgc_quests.SAGA_PERFORM, phase)) {
                         messageTo(questHolocron, "stopPerform", params, 0.0f, false);
                     }
                 }
@@ -1139,14 +1093,10 @@ public class player_saga_quest extends script.base_script
         obj_id[] activeHolocrons = pgc_quests.getActivateQuestHolocrons(self);
         if (activeHolocrons != null && activeHolocrons.length > 0)
         {
-            for (int i = 0; i < activeHolocrons.length; i++)
-            {
-                obj_id questHolocron = activeHolocrons[i];
-                if (isIdValid(questHolocron))
-                {
+            for (obj_id questHolocron : activeHolocrons) {
+                if (isIdValid(questHolocron)) {
                     String phase = pgc_quests.getActivePhaseObjVarString(questHolocron);
-                    if (pgc_quests.phaseHasActiveTaskOfType(questHolocron, pgc_quests.SAGA_CRAFT_ITEM, phase))
-                    {
+                    if (pgc_quests.phaseHasActiveTaskOfType(questHolocron, pgc_quests.SAGA_CRAFT_ITEM, phase)) {
                         dictionary webster = new dictionary();
                         webster.put("prototypeObject", prototypeObject);
                         messageTo(questHolocron, "OnCraftedPrototype", webster, 0.0f, false);
@@ -1169,14 +1119,10 @@ public class player_saga_quest extends script.base_script
         obj_id[] activeHolocrons = pgc_quests.getActivateQuestHolocrons(self);
         if (activeHolocrons != null && activeHolocrons.length > 0)
         {
-            for (int i = 0; i < activeHolocrons.length; i++)
-            {
-                obj_id questHolocron = activeHolocrons[i];
-                if (isIdValid(questHolocron))
-                {
+            for (obj_id questHolocron : activeHolocrons) {
+                if (isIdValid(questHolocron)) {
                     String phase = pgc_quests.getActivePhaseObjVarString(questHolocron);
-                    if (pgc_quests.phaseHasActiveTaskOfType(questHolocron, pgc_quests.SAGA_GOTO_LOCATION, phase))
-                    {
+                    if (pgc_quests.phaseHasActiveTaskOfType(questHolocron, pgc_quests.SAGA_GOTO_LOCATION, phase)) {
                         dictionary webster = new dictionary();
                         webster.put("locationName", locationName);
                         messageTo(questHolocron, "pqOnArrivedAtLocation", webster, 0.0f, false);

@@ -51,9 +51,8 @@ public class station_heroic_star_destroyer_hangar extends script.base_script
                 buff.applyBuff(players, "sm_smuggled_01");
             }
         }
-        for (int q = 0; q < players.length; q++)
-        {
-            collection.pilotSmuggleTimeCheck(pilot, players[q], ship, strChassisType);
+        for (obj_id player1 : players) {
+            collection.pilotSmuggleTimeCheck(pilot, player1, ship, strChassisType);
         }
         boolean[] groupResults = instance.requestInstancePobGroup(players, "heroic_star_destroyer");
     }

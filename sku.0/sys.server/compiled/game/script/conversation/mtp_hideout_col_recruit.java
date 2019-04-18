@@ -78,7 +78,7 @@ public class mtp_hideout_col_recruit extends script.base_script
             }
             long numberFinished = getCollectionSlotValue(player, "meatlump_recruiter_01");
             long remainingSlots = maxSlotValue - numberFinished;
-            long numberToCreate = remainingSlots - (long)itemCount;
+            long numberToCreate = remainingSlots - itemCount;
             if (numberToCreate > 0)
             {
                 obj_id books = static_item.createNewItemFunction("col_meatlump_recruit_manual_02_01", pInv);

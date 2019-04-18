@@ -51,7 +51,7 @@ public class combat_ship_capital extends script.space.combat.combat_space_base
 
         vector hitDirection_o = defenderTransform_w.rotateTranslate_p2l(attackerTransform_w.getPosition_p());
         int intSide = 0;
-        if (hitDirection_o.z < 0.f)
+        if (hitDirection_o.z < 0.0f)
         {
             intSide = 1;
         }
@@ -77,11 +77,11 @@ public class combat_ship_capital extends script.space.combat.combat_space_base
         }
         if (!isShipSlotTargetable(self, intTargetedComponent) && space_utils.isPlayerControlledShip(objAttacker))
         {
-            ship_ai.unitAddDamageTaken(self, objAttacker, .05f);
+            ship_ai.unitAddDamageTaken(self, objAttacker, 0.05f);
             return SCRIPT_CONTINUE;
         }
         ship_ai.unitAddDamageTaken(self, objAttacker, fltDamage);
-        if (fltDamage > 0f)
+        if (fltDamage > 0.0f)
         {
             notifyShipDamage(self, objAttacker, fltDamage);
         }
@@ -126,9 +126,8 @@ public class combat_ship_capital extends script.space.combat.combat_space_base
     public void setupCapitalShipComponents(obj_id objShip) throws InterruptedException
     {
         int[] intSlots = space_crafting.getShipInstalledSlots(objShip);
-        for (int intI = 0; intI < intSlots.length; intI++)
-        {
-            setShipSlotTargetable(objShip, intSlots[intI], false);
+        for (int intSlot : intSlots) {
+            setShipSlotTargetable(objShip, intSlot, false);
         }
         String strCapitalShipType = getStringObjVar(objShip, "strCapitalShipType");
 	    if ((strCapitalShipType == null) || (strCapitalShipType.equals("")) || strCapitalShipType.equals("null"))
@@ -166,7 +165,7 @@ public class combat_ship_capital extends script.space.combat.combat_space_base
                 LOG("space","---- Component DISABLED on ship (" + objShip + ":" + getName(objShip) + ") in slot " + intSlot + " by " + getName(attacker) + " - notifying ship ----");
             space_utils.notifyObject(objShip, "componentDisabled", dctParams);
         }
-        else if (fltPercentage < 1f)
+        else if (fltPercentage < 1.0f)
         {
             LOG("space","---- Component Damaged (" + damage + ") on ship (" + objShip + ":" + getName(objShip) + ") in slot: " + intSlot + " by " + getName(attacker) + " - integrity at: " + ((minHp/maxHp) * 100) + "% ----");
             space_utils.notifyObject(objShip, "componentDamageUpdate", dctParams);
@@ -187,7 +186,7 @@ public class combat_ship_capital extends script.space.combat.combat_space_base
         LOG("space","Ship (" + getName(self) + " has " + dpcSize + " component(s) remaining this phase:");
 
         for(int i = 0; i < dpcSize; i++){
-            int slot = ((Integer) intDamagePhaseComponents.get(i)).intValue();
+            int slot = (Integer) intDamagePhaseComponents.get(i);
             LOG("space","-- Component in slot " + slot + ": " + getShipComponentName(self, slot) + " has " + getShipComponentHitpointsCurrent(self, slot) + "/" + getShipComponentHitpointsMaximum(self, slot) + " hitpoints.");
             // remove component from being tracked for this phase if it's disabled - also checks for other disabled components.
             if(isShipComponentDisabled(self, slot)){
@@ -199,14 +198,13 @@ public class combat_ship_capital extends script.space.combat.combat_space_base
 
         // statements and for loop just for debugging.
         LOG("space","---- This ships (" + self + ":" + getName(self) + ") components and durabilities are as follows:");
-        for(int j = 0; j < shipSlots.length; j++){
-            int shipSlot = shipSlots[j];
-            if(isShipSlotInstalled(self, shipSlot)){
+        for (int shipSlot : shipSlots) {
+            if (isShipSlotInstalled(self, shipSlot)) {
                 float minHp = getShipComponentHitpointsCurrent(self, shipSlot);
                 float maxHp = getShipComponentHitpointsMaximum(self, shipSlot);
-                float integrity =  (minHp/maxHp) * 100;
-                LOG("space","---- SLOT " + shipSlot + ": " + getShipComponentName(self, shipSlot) + " HP: "
-                        +  minHp + "/" + maxHp + " Integrity: " + integrity + "%"
+                float integrity = (minHp / maxHp) * 100;
+                LOG("space", "---- SLOT " + shipSlot + ": " + getShipComponentName(self, shipSlot) + " HP: "
+                        + minHp + "/" + maxHp + " Integrity: " + integrity + "%"
                 );
             }
         }
@@ -251,8 +249,8 @@ public class combat_ship_capital extends script.space.combat.combat_space_base
                 return;
             }
             LOG("space","============= Could not add components!! ==============");
-            for(int i = 0; i < strNewComponents.length; i++){
-                LOG("space","== Component (" + strNewComponents[i] + ") with name length " + strNewComponents[i].length() + " could not be added.");
+            for (String strNewComponent : strNewComponents) {
+                LOG("space", "== Component (" + strNewComponent + ") with name length " + strNewComponent.length() + " could not be added.");
             }
             LOG("space","============= Assuming error and granting pilot rewards!! ==============");
         }
@@ -268,9 +266,8 @@ public class combat_ship_capital extends script.space.combat.combat_space_base
         {
             dictionary outparams = new dictionary();
             outparams.put("object", self);
-            for (int i = 0; i < notifylist.length; i++)
-            {
-                space_utils.notifyObject(notifylist[i], "shipDestroyed", outparams);
+            for (obj_id obj_id : notifylist) {
+                space_utils.notifyObject(obj_id, "shipDestroyed", outparams);
             }
         }
         obj_id objPilot = getPilotId(self);
@@ -461,7 +458,7 @@ public class combat_ship_capital extends script.space.combat.combat_space_base
             detachScript(self, "space.ai.space_ai");
             dictionary outparams = new dictionary();
             outparams.put("attacker", objAttacker);
-            messageTo(self, "selfDestruct", outparams, 12000.f + rand() * 60.f, false);
+            messageTo(self, "selfDestruct", outparams, 12000.0f + rand() * 60.0f, false);
         }
         return SCRIPT_CONTINUE;
     }

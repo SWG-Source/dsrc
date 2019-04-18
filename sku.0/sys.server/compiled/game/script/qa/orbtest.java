@@ -62,7 +62,7 @@ public class orbtest extends script.base_script
         spawnLoc.x += 2;
         obj_id critter = create.object("meatlump_cretin", spawnLoc);
         params.put("critter", critter);
-        messageTo(self, "handleKillCritter", params, .5f, false);
+        messageTo(self, "handleKillCritter", params, 0.5f, false);
         return SCRIPT_CONTINUE;
     }
     public int handleKillCritter(obj_id self, dictionary params) throws InterruptedException
@@ -70,7 +70,7 @@ public class orbtest extends script.base_script
         sendSystemMessageTestingOnly(self, "killing mob");
         obj_id critter = params.getObjId("critter");
         setHealth(critter, 0);
-        messageTo(self, "handleCreateLoot", params, .5f, false);
+        messageTo(self, "handleCreateLoot", params, 0.5f, false);
         return SCRIPT_CONTINUE;
     }
     public int handleCreateLoot(obj_id self, dictionary params) throws InterruptedException

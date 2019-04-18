@@ -28,11 +28,9 @@ public class player_exploration extends script.base_script
         }
         int[] intExplorerBadges = dataTableGetIntColumn("datatables/badge/exploration_badges.iff", "intIndex");
         int intExplBadgeCount = 0;
-        for (int intI = 0; intI < intExplorerBadges.length; intI++)
-        {
-            badgeName = getCollectionSlotName(intExplorerBadges[intI]);
-            if ((badgeName != null) && (badgeName.length() > 0) && badge.hasBadge(self, badgeName))
-            {
+        for (int intExplorerBadge : intExplorerBadges) {
+            badgeName = getCollectionSlotName(intExplorerBadge);
+            if ((badgeName != null) && (badgeName.length() > 0) && badge.hasBadge(self, badgeName)) {
                 intExplBadgeCount = intExplBadgeCount + 1;
             }
         }

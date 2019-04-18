@@ -22,23 +22,20 @@ public class newbie_medicine extends script.base_script
         String template = getTemplateName(self);
         String attribute = "";
         int charges = 1;
-        if (template.equals("object/tangible/medicine/newbie_medpack_damage.iff"))
-        {
-            charges = 5;
-            attribute = "damage";
-        }
-        else if (template.equals("object/tangible/medicine/newbie_medpack_wound_action.iff"))
-        {
-            attribute = "action";
-        }
-        else if (template.equals("object/tangible/medicine/newbie_medpack_wound_health.iff"))
-        {
-            attribute = "health";
-        }
-        else 
-        {
-            LOG("LOG_CHANNEL", "newbie_medicine::OnAttach -- illegal template for " + self);
-            return SCRIPT_CONTINUE;
+        switch (template) {
+            case "object/tangible/medicine/newbie_medpack_damage.iff":
+                charges = 5;
+                attribute = "damage";
+                break;
+            case "object/tangible/medicine/newbie_medpack_wound_action.iff":
+                attribute = "action";
+                break;
+            case "object/tangible/medicine/newbie_medpack_wound_health.iff":
+                attribute = "health";
+                break;
+            default:
+                LOG("LOG_CHANNEL", "newbie_medicine::OnAttach -- illegal template for " + self);
+                return SCRIPT_CONTINUE;
         }
         LOG("LOG_CHANNEL", "attribute ->" + attribute);
         Vector am = new Vector();

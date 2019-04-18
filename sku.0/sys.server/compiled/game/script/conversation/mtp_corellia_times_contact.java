@@ -159,9 +159,8 @@ public class mtp_corellia_times_contact extends script.base_script
             "meatlump_weapon_activation_01",
             "meatlump_food_activation_01"
         };
-        for (int b = 0; b < activationStringList.length; b++)
-        {
-            modifyCollectionSlotValue(player, activationStringList[b], 1);
+        for (String s : activationStringList) {
+            modifyCollectionSlotValue(player, s, 1);
         }
     }
     public void mtp_corellia_times_contact_action_removeMeatlumpCollections(obj_id player, obj_id npc) throws InterruptedException
@@ -175,9 +174,8 @@ public class mtp_corellia_times_contact extends script.base_script
             "col_meatlump_weapon_sabotage_01",
             "col_meatlump_food_sabotage_01"
         };
-        for (int a = 0; a < collectionStringList.length; a++)
-        {
-            collection.removeCompletedCollection(player, collectionStringList[a]);
+        for (String s : collectionStringList) {
+            collection.removeCompletedCollection(player, s);
         }
     }
     public void mtp_corellia_times_contact_action_completeCollectionQuest(obj_id player, obj_id npc) throws InterruptedException

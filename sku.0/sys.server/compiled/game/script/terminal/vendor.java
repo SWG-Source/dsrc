@@ -100,7 +100,7 @@ public class vendor extends script.terminal.base.base_terminal
         obj_id topContainer = getTopMostContainer(self);
         playerMessage.put("topContainer", topContainer);
         playerMessage.put("topContainerLocation", getLocation(topContainer));
-        messageTo(owner, "handleVendorDestroy", playerMessage, 0.f, true);
+        messageTo(owner, "handleVendorDestroy", playerMessage, 0.0f, true);
         return SCRIPT_CONTINUE;
     }
     public void registerVendorOnMap(obj_id self) throws InterruptedException

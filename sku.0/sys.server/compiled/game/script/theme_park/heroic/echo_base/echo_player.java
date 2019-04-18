@@ -83,12 +83,10 @@ public class echo_player extends script.base_script
         pvpMakeDeclared(self);
         if (waypoints != null && waypoints.length > 0)
         {
-            for (int i = 0; i < waypoints.length; i++)
-            {
-                location wpLoc = getWaypointLocation(waypoints[i]);
-                if (wpLoc.area.equals("adventure2"))
-                {
-                    destroyWaypointInDatapad(waypoints[i], self);
+            for (obj_id waypoint : waypoints) {
+                location wpLoc = getWaypointLocation(waypoint);
+                if (wpLoc.area.equals("adventure2")) {
+                    destroyWaypointInDatapad(waypoint, self);
                 }
             }
         }
@@ -123,12 +121,10 @@ public class echo_player extends script.base_script
         obj_id[] waypoints = getWaypointsInDatapad(self);
         if (waypoints != null && waypoints.length > 0)
         {
-            for (int i = 0; i < waypoints.length; i++)
-            {
-                location wpLoc = getWaypointLocation(waypoints[i]);
-                if (wpLoc.area.equals("adventure2"))
-                {
-                    destroyWaypointInDatapad(waypoints[i], self);
+            for (obj_id waypoint : waypoints) {
+                location wpLoc = getWaypointLocation(waypoint);
+                if (wpLoc.area.equals("adventure2")) {
+                    destroyWaypointInDatapad(waypoint, self);
                 }
             }
         }
@@ -159,10 +155,8 @@ public class echo_player extends script.base_script
         if (here.area.equals("adventure2"))
         {
             boolean questFound = false;
-            for (int i = 0; i < QUEST_TO_CLEAR.length; ++i)
-            {
-                if (groundquests.isQuestActive(self, QUEST_TO_CLEAR[i]))
-                {
+            for (String s : QUEST_TO_CLEAR) {
+                if (groundquests.isQuestActive(self, s)) {
                     questFound = true;
                 }
             }
@@ -205,11 +199,9 @@ public class echo_player extends script.base_script
         {
             return SCRIPT_CONTINUE;
         }
-        for (int i = 0; i < allObj.length; i++)
-        {
-            if (hasScript(allObj[i], "theme_park.heroic.echo_base.echo_quest_tracker"))
-            {
-                quest_manager = allObj[i];
+        for (obj_id obj_id : allObj) {
+            if (hasScript(obj_id, "theme_park.heroic.echo_base.echo_quest_tracker")) {
+                quest_manager = obj_id;
                 break;
             }
         }
@@ -222,11 +214,9 @@ public class echo_player extends script.base_script
     }
     public void clearCurrentEchoQuest(obj_id self) throws InterruptedException
     {
-        for (int i = 0; i < QUEST_TO_CLEAR.length; ++i)
-        {
-            if (groundquests.isQuestActive(self, QUEST_TO_CLEAR[i]))
-            {
-                groundquests.clearQuest(self, QUEST_TO_CLEAR[i]);
+        for (String s : QUEST_TO_CLEAR) {
+            if (groundquests.isQuestActive(self, s)) {
+                groundquests.clearQuest(self, s);
             }
         }
     }

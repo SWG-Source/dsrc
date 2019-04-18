@@ -110,7 +110,7 @@ public class player_teaching extends script.base_script
         }
         dictionary xp_cost = getSkillPrerequisiteExperience(selected_skill);
         LOG("LOG_CHANNEL", "xp_cost ->" + xp_cost);
-        StringBuffer sb = new StringBuffer();
+        StringBuilder sb = new StringBuilder();
         java.util.Enumeration e = xp_cost.keys();
         while (e.hasMoreElements())
         {
@@ -271,14 +271,11 @@ public class player_teaching extends script.base_script
         }
         Vector valid_skills = new Vector();
         valid_skills.setSize(0);
-        for (int i = 0; i < qual_skills.length; i++)
-        {
-            int idx = utils.getElementPositionInArray(teacher_skills, qual_skills[i]);
-            if (idx != -1)
-            {
-                if ((qual_skills[i].indexOf("novice")) == -1 && (qual_skills[i].indexOf("force_sensitive")) == -1)
-                {
-                    valid_skills = utils.addElement(valid_skills, qual_skills[i]);
+        for (String qual_skill : qual_skills) {
+            int idx = utils.getElementPositionInArray(teacher_skills, qual_skill);
+            if (idx != -1) {
+                if (!qual_skill.contains("novice") && !qual_skill.contains("force_sensitive")) {
+                    valid_skills = utils.addElement(valid_skills, qual_skill);
                 }
             }
         }

@@ -114,11 +114,9 @@ public class qa_cube extends script.base_script
         checkInventory(player);
         boolean hasCube = false;
         obj_id[] invAndEquip = getInventoryAndEquipment(player);
-        for (int i = 0; i < invAndEquip.length; i++)
-        {
-            String templateName = getTemplateName(invAndEquip[i]);
-            if (templateName.equals("object/tangible/container/loot/som_cube.iff"))
-            {
+        for (obj_id obj_id : invAndEquip) {
+            String templateName = getTemplateName(obj_id);
+            if (templateName.equals("object/tangible/container/loot/som_cube.iff")) {
                 hasCube = true;
             }
         }

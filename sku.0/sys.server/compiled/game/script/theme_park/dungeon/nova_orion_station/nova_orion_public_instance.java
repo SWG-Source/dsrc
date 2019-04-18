@@ -53,14 +53,11 @@ public class nova_orion_public_instance extends script.base_script
         Vector players_ret = new Vector();
         if (players != null && players.length > 0)
         {
-            for (int i = 0; i < players.length; i++)
-            {
-                if (isIdValid(players[i]) && utils.hasScriptVar(players[i], VAR_STATION_INSTANCE_ID))
-                {
-                    obj_id station = utils.getObjIdScriptVar(players[i], VAR_STATION_INSTANCE_ID);
-                    if (isIdValid(station) && station == self)
-                    {
-                        players_ret.add(players[i]);
+            for (obj_id player : players) {
+                if (isIdValid(player) && utils.hasScriptVar(player, VAR_STATION_INSTANCE_ID)) {
+                    obj_id station = utils.getObjIdScriptVar(player, VAR_STATION_INSTANCE_ID);
+                    if (isIdValid(station) && station == self) {
+                        players_ret.add(player);
                     }
                 }
             }

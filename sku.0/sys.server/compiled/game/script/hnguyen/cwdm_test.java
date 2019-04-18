@@ -149,9 +149,8 @@ public class cwdm_test extends script.base_script
                     else 
                     {
                         sendSystemMessageTestingOnly(self, ship + " has " + contents.length + " contents");
-                        for (int i = 0; i < contents.length; ++i)
-                        {
-                            sendSystemMessageTestingOnly(self, "" + contents[i]);
+                        for (obj_id content : contents) {
+                            sendSystemMessageTestingOnly(self, "" + content);
                         }
                     }
                 }
@@ -261,9 +260,8 @@ public class cwdm_test extends script.base_script
             obj_id[] old_waypoints = getWaypointsInDatapad(self);
             if (old_waypoints != null && old_waypoints.length > 0)
             {
-                for (int i = 0; i < old_waypoints.length; ++i)
-                {
-                    destroyWaypointInDatapad(old_waypoints[i], self);
+                for (obj_id old_waypoint : old_waypoints) {
+                    destroyWaypointInDatapad(old_waypoint, self);
                 }
             }
             obj_id[] existingItems = getInventoryAndEquipment(self);
@@ -281,9 +279,8 @@ public class cwdm_test extends script.base_script
             }
             obj_id playerDatapad = utils.getPlayerDatapad(self);
             obj_id datapadObjects[] = getContents(playerDatapad);
-            for (int oldDatapad = 0; oldDatapad < datapadObjects.length; ++oldDatapad)
-            {
-                destroyObject(datapadObjects[oldDatapad]);
+            for (obj_id datapadObject : datapadObjects) {
+                destroyObject(datapadObject);
             }
         }
         else if (strText.startsWith("getResourceCtsData "))
@@ -1571,9 +1568,8 @@ public class cwdm_test extends script.base_script
                 }
                 else 
                 {
-                    for (int i = 0; i < slotNames.length; ++i)
-                    {
-                        sendSystemMessageTestingOnly(self, slotNames[i]);
+                    for (String slotName : slotNames) {
+                        sendSystemMessageTestingOnly(self, slotName);
                     }
                 }
             }
@@ -1594,9 +1590,8 @@ public class cwdm_test extends script.base_script
                 }
                 else 
                 {
-                    for (int i = 0; i < slotNames.length; ++i)
-                    {
-                        sendSystemMessageTestingOnly(self, slotNames[i]);
+                    for (String slotName : slotNames) {
+                        sendSystemMessageTestingOnly(self, slotName);
                     }
                 }
             }
@@ -1617,9 +1612,8 @@ public class cwdm_test extends script.base_script
                 }
                 else 
                 {
-                    for (int i = 0; i < collectionNames.length; ++i)
-                    {
-                        sendSystemMessageTestingOnly(self, collectionNames[i]);
+                    for (String collectionName : collectionNames) {
+                        sendSystemMessageTestingOnly(self, collectionName);
                     }
                 }
             }
@@ -1640,9 +1634,8 @@ public class cwdm_test extends script.base_script
                 }
                 else 
                 {
-                    for (int i = 0; i < slotNames.length; ++i)
-                    {
-                        sendSystemMessageTestingOnly(self, slotNames[i]);
+                    for (String slotName : slotNames) {
+                        sendSystemMessageTestingOnly(self, slotName);
                     }
                 }
             }
@@ -1663,9 +1656,8 @@ public class cwdm_test extends script.base_script
                 }
                 else 
                 {
-                    for (int i = 0; i < collectionNames.length; ++i)
-                    {
-                        sendSystemMessageTestingOnly(self, collectionNames[i]);
+                    for (String collectionName : collectionNames) {
+                        sendSystemMessageTestingOnly(self, collectionName);
                     }
                 }
             }
@@ -1686,9 +1678,8 @@ public class cwdm_test extends script.base_script
                 }
                 else 
                 {
-                    for (int i = 0; i < pageNames.length; ++i)
-                    {
-                        sendSystemMessageTestingOnly(self, pageNames[i]);
+                    for (String pageName : pageNames) {
+                        sendSystemMessageTestingOnly(self, pageName);
                     }
                 }
             }
@@ -1708,9 +1699,8 @@ public class cwdm_test extends script.base_script
                 }
                 else 
                 {
-                    for (int i = 0; i < bookNames.length; ++i)
-                    {
-                        sendSystemMessageTestingOnly(self, bookNames[i]);
+                    for (String bookName : bookNames) {
+                        sendSystemMessageTestingOnly(self, bookName);
                     }
                 }
             }
@@ -1782,9 +1772,8 @@ public class cwdm_test extends script.base_script
                 }
                 else 
                 {
-                    for (int i = 0; i < category.length; ++i)
-                    {
-                        sendSystemMessageTestingOnly(self, category[i]);
+                    for (String s : category) {
+                        sendSystemMessageTestingOnly(self, s);
                     }
                 }
             }
@@ -1804,9 +1793,8 @@ public class cwdm_test extends script.base_script
                 }
                 else 
                 {
-                    for (int i = 0; i < prereqs.length; ++i)
-                    {
-                        sendSystemMessageTestingOnly(self, prereqs[i]);
+                    for (String prereq : prereqs) {
+                        sendSystemMessageTestingOnly(self, prereq);
                     }
                 }
             }
@@ -1836,9 +1824,8 @@ public class cwdm_test extends script.base_script
                 }
                 else 
                 {
-                    for (int i = 0; i < slotNames.length; ++i)
-                    {
-                        sendSystemMessageTestingOnly(self, slotNames[i]);
+                    for (String slotName : slotNames) {
+                        sendSystemMessageTestingOnly(self, slotName);
                     }
                 }
             }
@@ -1858,9 +1845,8 @@ public class cwdm_test extends script.base_script
                 }
                 else 
                 {
-                    for (int i = 0; i < slotNames.length; ++i)
-                    {
-                        sendSystemMessageTestingOnly(self, slotNames[i]);
+                    for (String slotName : slotNames) {
+                        sendSystemMessageTestingOnly(self, slotName);
                     }
                 }
             }
@@ -1880,9 +1866,8 @@ public class cwdm_test extends script.base_script
                 }
                 else 
                 {
-                    for (int i = 0; i < collectionNames.length; ++i)
-                    {
-                        sendSystemMessageTestingOnly(self, collectionNames[i]);
+                    for (String collectionName : collectionNames) {
+                        sendSystemMessageTestingOnly(self, collectionName);
                     }
                 }
             }
@@ -1902,9 +1887,8 @@ public class cwdm_test extends script.base_script
                 }
                 else 
                 {
-                    for (int i = 0; i < slotNames.length; ++i)
-                    {
-                        sendSystemMessageTestingOnly(self, slotNames[i]);
+                    for (String slotName : slotNames) {
+                        sendSystemMessageTestingOnly(self, slotName);
                     }
                 }
             }
@@ -1924,9 +1908,8 @@ public class cwdm_test extends script.base_script
                 }
                 else 
                 {
-                    for (int i = 0; i < collectionNames.length; ++i)
-                    {
-                        sendSystemMessageTestingOnly(self, collectionNames[i]);
+                    for (String collectionName : collectionNames) {
+                        sendSystemMessageTestingOnly(self, collectionName);
                     }
                 }
             }
@@ -1946,9 +1929,8 @@ public class cwdm_test extends script.base_script
                 }
                 else 
                 {
-                    for (int i = 0; i < pageNames.length; ++i)
-                    {
-                        sendSystemMessageTestingOnly(self, pageNames[i]);
+                    for (String pageName : pageNames) {
+                        sendSystemMessageTestingOnly(self, pageName);
                     }
                 }
             }
@@ -1963,9 +1945,8 @@ public class cwdm_test extends script.base_script
             }
             else 
             {
-                for (int i = 0; i < bookNames.length; ++i)
-                {
-                    sendSystemMessageTestingOnly(self, bookNames[i]);
+                for (String bookName : bookNames) {
+                    sendSystemMessageTestingOnly(self, bookName);
                 }
             }
         }
@@ -1984,9 +1965,8 @@ public class cwdm_test extends script.base_script
                 }
                 else 
                 {
-                    for (int i = 0; i < slotNames.length; ++i)
-                    {
-                        sendSystemMessageTestingOnly(self, slotNames[i]);
+                    for (String slotName : slotNames) {
+                        sendSystemMessageTestingOnly(self, slotName);
                     }
                 }
             }
@@ -2007,9 +1987,8 @@ public class cwdm_test extends script.base_script
                 }
                 else 
                 {
-                    for (int i = 0; i < slotNames.length; ++i)
-                    {
-                        sendSystemMessageTestingOnly(self, slotNames[i]);
+                    for (String slotName : slotNames) {
+                        sendSystemMessageTestingOnly(self, slotName);
                     }
                 }
             }
@@ -2030,9 +2009,8 @@ public class cwdm_test extends script.base_script
                 }
                 else 
                 {
-                    for (int i = 0; i < slotNames.length; ++i)
-                    {
-                        sendSystemMessageTestingOnly(self, slotNames[i]);
+                    for (String slotName : slotNames) {
+                        sendSystemMessageTestingOnly(self, slotName);
                     }
                 }
             }
@@ -2053,9 +2031,8 @@ public class cwdm_test extends script.base_script
                 }
                 else 
                 {
-                    for (int i = 0; i < slotNames.length; ++i)
-                    {
-                        sendSystemMessageTestingOnly(self, slotNames[i]);
+                    for (String slotName : slotNames) {
+                        sendSystemMessageTestingOnly(self, slotName);
                     }
                 }
             }
@@ -2075,9 +2052,8 @@ public class cwdm_test extends script.base_script
                 }
                 else 
                 {
-                    for (int i = 0; i < categoryNames.length; ++i)
-                    {
-                        sendSystemMessageTestingOnly(self, categoryNames[i]);
+                    for (String categoryName : categoryNames) {
+                        sendSystemMessageTestingOnly(self, categoryName);
                     }
                 }
             }
@@ -2097,9 +2073,8 @@ public class cwdm_test extends script.base_script
                 }
                 else 
                 {
-                    for (int i = 0; i < categoryNames.length; ++i)
-                    {
-                        sendSystemMessageTestingOnly(self, categoryNames[i]);
+                    for (String categoryName : categoryNames) {
+                        sendSystemMessageTestingOnly(self, categoryName);
                     }
                 }
             }
@@ -2119,9 +2094,8 @@ public class cwdm_test extends script.base_script
                 }
                 else 
                 {
-                    for (int i = 0; i < categoryNames.length; ++i)
-                    {
-                        sendSystemMessageTestingOnly(self, categoryNames[i]);
+                    for (String categoryName : categoryNames) {
+                        sendSystemMessageTestingOnly(self, categoryName);
                     }
                 }
             }
@@ -2136,9 +2110,8 @@ public class cwdm_test extends script.base_script
             }
             else 
             {
-                for (int i = 0; i < categoryNames.length; ++i)
-                {
-                    sendSystemMessageTestingOnly(self, categoryNames[i]);
+                for (String categoryName : categoryNames) {
+                    sendSystemMessageTestingOnly(self, categoryName);
                 }
             }
         }
@@ -2561,33 +2534,28 @@ public class cwdm_test extends script.base_script
                 int minute = utils.stringToInt(st.nextToken());
                 int second = utils.stringToInt(st.nextToken());
                 int intDayOfWeek = -1;
-                if (dayOfWeek.equals("sun"))
-                {
-                    intDayOfWeek = DAY_OF_WEEK_SUN;
-                }
-                else if (dayOfWeek.equals("mon"))
-                {
-                    intDayOfWeek = DAY_OF_WEEK_MON;
-                }
-                else if (dayOfWeek.equals("tue"))
-                {
-                    intDayOfWeek = DAY_OF_WEEK_TUE;
-                }
-                else if (dayOfWeek.equals("wed"))
-                {
-                    intDayOfWeek = DAY_OF_WEEK_WED;
-                }
-                else if (dayOfWeek.equals("thu"))
-                {
-                    intDayOfWeek = DAY_OF_WEEK_THU;
-                }
-                else if (dayOfWeek.equals("fri"))
-                {
-                    intDayOfWeek = DAY_OF_WEEK_FRI;
-                }
-                else if (dayOfWeek.equals("sat"))
-                {
-                    intDayOfWeek = DAY_OF_WEEK_SAT;
+                switch (dayOfWeek) {
+                    case "sun":
+                        intDayOfWeek = DAY_OF_WEEK_SUN;
+                        break;
+                    case "mon":
+                        intDayOfWeek = DAY_OF_WEEK_MON;
+                        break;
+                    case "tue":
+                        intDayOfWeek = DAY_OF_WEEK_TUE;
+                        break;
+                    case "wed":
+                        intDayOfWeek = DAY_OF_WEEK_WED;
+                        break;
+                    case "thu":
+                        intDayOfWeek = DAY_OF_WEEK_THU;
+                        break;
+                    case "fri":
+                        intDayOfWeek = DAY_OF_WEEK_FRI;
+                        break;
+                    case "sat":
+                        intDayOfWeek = DAY_OF_WEEK_SAT;
+                        break;
                 }
                 if ((intDayOfWeek < DAY_OF_WEEK_SUN) || (intDayOfWeek > DAY_OF_WEEK_SAT))
                 {
@@ -2765,16 +2733,15 @@ public class cwdm_test extends script.base_script
                 if ((regions != null) && (regions.length > 0))
                 {
                     String strOutput = "";
-                    for (int i = 0; i < regions.length; ++i)
-                    {
+                    for (region region : regions) {
                         strOutput += "region (";
-                        strOutput += regions[i];
+                        strOutput += region;
                         strOutput += ",";
                         strOutput += planetName;
                         strOutput += ",";
-                        strOutput += regions[i].getName();
+                        strOutput += region.getName();
                         strOutput += ",notify=";
-                        strOutput += isNotifyRegion(regions[i]);
+                        strOutput += isNotifyRegion(region);
                         strOutput += ")\r\n";
                     }
                     saveTextOnClient(self, planetName + "_regions.txt", strOutput);
@@ -2883,9 +2850,8 @@ public class cwdm_test extends script.base_script
                 obj_id[] listeners = getMessageListeners(messageName);
                 if (listeners != null && listeners.length > 0)
                 {
-                    for (int i = 0; i < listeners.length; ++i)
-                    {
-                        sendSystemMessageTestingOnly(self, "" + listeners[i]);
+                    for (obj_id listener : listeners) {
+                        sendSystemMessageTestingOnly(self, "" + listener);
                     }
                 }
             }
@@ -2935,9 +2901,8 @@ public class cwdm_test extends script.base_script
                 }
                 else 
                 {
-                    for (int i = 0; i < enemies_A_to_B.length; ++i)
-                    {
-                        sendSystemMessageTestingOnly(self, "guild " + intGuildId + " has declared war on guild " + enemies_A_to_B[i] + " (" + guildGetName(enemies_A_to_B[i]) + "," + guildGetAbbrev(enemies_A_to_B[i]) + ")");
+                    for (int i1 : enemies_A_to_B) {
+                        sendSystemMessageTestingOnly(self, "guild " + intGuildId + " has declared war on guild " + i1 + " (" + guildGetName(i1) + "," + guildGetAbbrev(i1) + ")");
                     }
                 }
             }
@@ -2957,9 +2922,8 @@ public class cwdm_test extends script.base_script
                 }
                 else 
                 {
-                    for (int i = 0; i < enemies_B_to_A.length; ++i)
-                    {
-                        sendSystemMessageTestingOnly(self, "guild " + enemies_B_to_A[i] + " (" + guildGetName(enemies_B_to_A[i]) + "," + guildGetAbbrev(enemies_B_to_A[i]) + ") has declared war on guild " + intGuildId);
+                    for (int i1 : enemies_B_to_A) {
+                        sendSystemMessageTestingOnly(self, "guild " + i1 + " (" + guildGetName(i1) + "," + guildGetAbbrev(i1) + ") has declared war on guild " + intGuildId);
                     }
                 }
             }
@@ -3013,7 +2977,7 @@ public class cwdm_test extends script.base_script
             boolOnline = utils.addElement(boolOnline, false);
             for (int iHuy = 0; iHuy < objJedis.size(); ++iHuy)
             {
-                if (((Boolean)boolOnline.get(iHuy)).booleanValue())
+                if ((Boolean) boolOnline.get(iHuy))
                 {
                     LOG("***TBLAIR***", "jedi " + ((obj_id)objJedis.get(iHuy)) + " is online");
                 }
@@ -3037,16 +3001,16 @@ public class cwdm_test extends script.base_script
                 while (jediList.size() > 0)
                 {
                     intRoll = rand(0, jediList.size() - 1);
-                    if (!isIdValid(((obj_id)jediList.get(intRoll))) || !((Boolean)boolOnline.get((((Integer)(jediIdx.get(intRoll)))).intValue())).booleanValue())
+                    if (!isIdValid(((obj_id)jediList.get(intRoll))) || !(Boolean) boolOnline.get((Integer) (jediIdx.get(intRoll))))
                     {
                         jediList = utils.removeElementAt(jediList, intRoll);
                         jediIdx = utils.removeElementAt(jediIdx, intRoll);
                     }
                     else 
                     {
-                        intRoll = ((Integer)jediIdx.get(intRoll)).intValue();
+                        intRoll = (Integer) jediIdx.get(intRoll);
                         obj_id objTarget = ((obj_id)objJedis.get(intRoll));
-                        boolean online = ((Boolean)boolOnline.get(intRoll)).booleanValue();
+                        boolean online = (Boolean) boolOnline.get(intRoll);
                         if (!online)
                         {
                             LOG("***TBLAIR***", "WRONG MATCH!!!! " + objTarget);
@@ -3431,12 +3395,12 @@ public class cwdm_test extends script.base_script
         {
             float base_complexity = 10.0f;
             int assembly_mod = getSkillStatMod(self, "general_assembly");
-            float complexity = base_complexity * (1f - (0.15f * assembly_mod / 100f));
+            float complexity = base_complexity * (1.0f - (0.15f * assembly_mod / 100.0f));
             sendSystemMessageTestingOnly(self, "assembly_mod=" + assembly_mod + " complexity=" + complexity);
             int elite_mod = getSkillStatMod(self, "weapon_assembly");
             if (elite_mod > 0)
             {
-                complexity -= base_complexity * (0.35f * elite_mod / 100f);
+                complexity -= base_complexity * (0.35f * elite_mod / 100.0f);
             }
             sendSystemMessageTestingOnly(self, "elite_mod=" + elite_mod + " complexity=" + complexity);
         }
@@ -3601,14 +3565,14 @@ public class cwdm_test extends script.base_script
             d.put("targetName", "Weaponsmith");
             d.put("actor", self);
             d.put("actorName", "vendortest");
-            messageTo(target, "huyTestPersistedMessageTo", d, 1f, true);
+            messageTo(target, "huyTestPersistedMessageTo", d, 1.0f, true);
         }
         else if (strText.equals("start_messageto_test_persisted2"))
         {
             obj_id target = obj_id.getObjId(7600674);
             dictionary d = new dictionary();
             d.put("amt", 100);
-            messageTo(target, "huyTestPersistedMessageTo2", d, 1f, true);
+            messageTo(target, "huyTestPersistedMessageTo2", d, 1.0f, true);
         }
         else if (strText.equals("start_xp_test"))
         {
@@ -3658,7 +3622,7 @@ public class cwdm_test extends script.base_script
             dictionary dict = new dictionary();
             dict.put("bool true", true);
             dict.put("bool false", false);
-            dict.put("float 77.77", new Float(77.77));
+            dict.put("float 77.77", Float.valueOf(77.77f));
             dict.put("objid", self);
             dict.put("int 7777", 7777);
             dict.put("string 77777", "77777");

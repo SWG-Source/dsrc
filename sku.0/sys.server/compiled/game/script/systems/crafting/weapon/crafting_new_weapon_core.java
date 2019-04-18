@@ -19,23 +19,17 @@ public class crafting_new_weapon_core extends script.systems.crafting.crafting_b
     public void calcAndSetPrototypeProperties(obj_id prototype, draft_schematic.attribute[] itemAttributes) throws InterruptedException
     {
         obj_id self = getSelf();
-        for (int i = 0; i < itemAttributes.length; ++i)
-        {
-            if (itemAttributes[i] == null)
-            {
+        for (draft_schematic.attribute itemAttribute : itemAttributes) {
+            if (itemAttribute == null) {
                 continue;
             }
-            if (!calcAndSetPrototypeProperty(prototype, itemAttributes[i]))
-            {
-                if (itemAttributes[i].currentValue < itemAttributes[i].minValue)
-                {
-                    itemAttributes[i].currentValue = itemAttributes[i].minValue;
+            if (!calcAndSetPrototypeProperty(prototype, itemAttribute)) {
+                if (itemAttribute.currentValue < itemAttribute.minValue) {
+                    itemAttribute.currentValue = itemAttribute.minValue;
+                } else if (itemAttribute.currentValue > itemAttribute.maxValue) {
+                    itemAttribute.currentValue = itemAttribute.maxValue;
                 }
-                else if (itemAttributes[i].currentValue > itemAttributes[i].maxValue)
-                {
-                    itemAttributes[i].currentValue = itemAttributes[i].maxValue;
-                }
-                setObjVar(prototype, craftinglib.COMPONENT_ATTRIBUTE_OBJVAR_NAME + "." + (itemAttributes[i].name).getAsciiId(), itemAttributes[i].currentValue);
+                setObjVar(prototype, craftinglib.COMPONENT_ATTRIBUTE_OBJVAR_NAME + "." + (itemAttribute.name).getAsciiId(), itemAttribute.currentValue);
                 setObjVar(prototype, weapons.OBJVAR_NEW_WP_COMPONENT, true);
                 weapons.setComponentObjVars(prototype, itemAttributes);
             }

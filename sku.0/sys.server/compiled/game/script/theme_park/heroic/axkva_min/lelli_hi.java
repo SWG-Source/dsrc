@@ -57,9 +57,8 @@ public class lelli_hi extends script.base_script
         {
             return SCRIPT_CONTINUE;
         }
-        for (int i = 0; i < players.length; i++)
-        {
-            addHate(self, players[i], 1);
+        for (obj_id player : players) {
+            addHate(self, player, 1);
         }
         return SCRIPT_CONTINUE;
     }

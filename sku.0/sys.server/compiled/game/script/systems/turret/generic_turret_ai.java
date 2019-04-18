@@ -222,11 +222,8 @@ public class generic_turret_ai extends script.systems.combat.combat_base_old
             return SCRIPT_CONTINUE;
         }
         int numAtt = attackers.length;
-        for (int i = 0; i < numAtt; i++)
-        {
-            obj_id attacker = attackers[i];
-            if (turret.canGenericTurretAttackTarget(attacker))
-            {
+        for (obj_id attacker : attackers) {
+            if (turret.canGenericTurretAttackTarget(attacker)) {
                 turret.addTarget(self, attacker);
             }
         }
@@ -250,11 +247,9 @@ public class generic_turret_ai extends script.systems.combat.combat_base_old
         if (targets.length == 0)
         {
             targets = good_targets;
-            for (int i = 0; i < targets.length; i++)
-            {
-                if (isIncapacitated(targets[i]) && !isDead(targets[i]) && getDistance(self, targets[i]) <= turret.TURRET_RANGE && !pet_lib.isPet(targets[i]))
-                {
-                    pclib.coupDeGrace(targets[i], self);
+            for (obj_id target : targets) {
+                if (isIncapacitated(target) && !isDead(target) && getDistance(self, target) <= turret.TURRET_RANGE && !pet_lib.isPet(target)) {
+                    pclib.coupDeGrace(target, self);
                 }
             }
             return obj_id.NULL_ID;
@@ -273,16 +268,12 @@ public class generic_turret_ai extends script.systems.combat.combat_base_old
                 ovs = list.quickSort(0, ovs.length - 1, ovs);
                 if ((ovs != null) && (ovs.length > 0))
                 {
-                    for (int i = 0; i < ovs.length; i++)
-                    {
-                        String ovName = ovs[i].getName();
+                    for (obj_var ov : ovs) {
+                        String ovName = ov.getName();
                         obj_id tmp = utils.stringToObjId(ovName);
-                        if (isIdValid(tmp))
-                        {
-                            if (utils.getElementPositionInArray(targets, tmp) > -1)
-                            {
-                                if (canSee(self, tmp))
-                                {
+                        if (isIdValid(tmp)) {
+                            if (utils.getElementPositionInArray(targets, tmp) > -1) {
+                                if (canSee(self, tmp)) {
                                     return tmp;
                                 }
                             }
@@ -307,11 +298,9 @@ public class generic_turret_ai extends script.systems.combat.combat_base_old
         }
         Vector toRemove = new Vector();
         toRemove.setSize(0);
-        for (int i = 0; i < old_targets.length; i++)
-        {
-            if (!turret.canGenericTurretAttackTarget(old_targets[i]) || getDistance(self, old_targets[i]) > turret.TURRET_RANGE)
-            {
-                toRemove = utils.addElement(toRemove, old_targets[i]);
+        for (obj_id old_target : old_targets) {
+            if (!turret.canGenericTurretAttackTarget(old_target) || getDistance(self, old_target) > turret.TURRET_RANGE) {
+                toRemove = utils.addElement(toRemove, old_target);
             }
         }
         if (toRemove != null && toRemove.size() > 0)
@@ -336,11 +325,9 @@ public class generic_turret_ai extends script.systems.combat.combat_base_old
         }
         Vector newTargets = new Vector();
         newTargets.setSize(0);
-        for (int i = 0; i < targets.length; i++)
-        {
-            if (!ai_lib.isAiDead(targets[i]) && getDistance(self, targets[i]) <= turret.TURRET_RANGE)
-            {
-                newTargets = utils.addElement(newTargets, targets[i]);
+        for (obj_id target : targets) {
+            if (!ai_lib.isAiDead(target) && getDistance(self, target) <= turret.TURRET_RANGE) {
+                newTargets = utils.addElement(newTargets, target);
             }
         }
         obj_id[] _newTargets = new obj_id[0];
@@ -356,12 +343,11 @@ public class generic_turret_ai extends script.systems.combat.combat_base_old
         obj_id[] enemies = getWhoIsTargetingMe(turretid);
         if (enemies != null)
         {
-            for (int i = 0; i < enemies.length; i++)
-            {
-                queueClearCommandsFromGroup(enemies[i], (-506878646));
-                queueClearCommandsFromGroup(enemies[i], (-1170591580));
-                queueClearCommandsFromGroup(enemies[i], (391413347));
-                setTarget(enemies[i], null);
+            for (obj_id enemy : enemies) {
+                queueClearCommandsFromGroup(enemy, (-506878646));
+                queueClearCommandsFromGroup(enemy, (-1170591580));
+                queueClearCommandsFromGroup(enemy, (391413347));
+                setTarget(enemy, null);
             }
         }
         location death = getLocation(turretid);
@@ -376,7 +362,7 @@ public class generic_turret_ai extends script.systems.combat.combat_base_old
             turret.deactivateTurret(turretid);
             messageTo(turretid, "handleDestroyTurret", null, 2, false);
         }
-        messageTo(turretid, "handleDestroyTurret", null, 10f, false);
+        messageTo(turretid, "handleDestroyTurret", null, 10.0f, false);
     }
     public float doAttack() throws InterruptedException
     {
@@ -405,11 +391,11 @@ public class generic_turret_ai extends script.systems.combat.combat_base_old
             }
             else if (tmptarget == self)
             {
-                return 1f;
+                return 1.0f;
             }
             else if (tmptarget == target)
             {
-                return 2f;
+                return 2.0f;
             }
             target = tmptarget;
             turret.engageTarget(self, target);
@@ -545,7 +531,7 @@ public class generic_turret_ai extends script.systems.combat.combat_base_old
             return SCRIPT_CONTINUE;
         }
         float delay = doAttack();
-        if (delay > 0f)
+        if (delay > 0.0f)
         {
             messageTo(self, "handleTurretAttack", null, delay, false);
         }

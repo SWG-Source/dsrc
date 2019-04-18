@@ -88,13 +88,11 @@ public class vehicle_control_device extends script.base_script
             return SCRIPT_CONTINUE;
         }
         String tcgPcd = "";
-        for (int i = 0; i < TCG_VEHICLE_UPDATE_LIST.length; i++)
-        {
-            if (!TCG_VEHICLE_UPDATE_LIST[i].startsWith(templateName))
-            {
+        for (String s : TCG_VEHICLE_UPDATE_LIST) {
+            if (!s.startsWith(templateName)) {
                 continue;
             }
-            tcgPcd = TCG_VEHICLE_UPDATE_LIST[i];
+            tcgPcd = s;
             break;
         }
         if (tcgPcd == null || tcgPcd.equals(""))
@@ -722,7 +720,7 @@ public class vehicle_control_device extends script.base_script
             }
             setObjVar(petControlDevice, "pet.uses_left", uses);
         }
-        messageTo(pet, "handleVehicleDecay", null, 5f, false);
+        messageTo(pet, "handleVehicleDecay", null, 5.0f, false);
         vehicle.initializeVehicle(pet, player);
         dictionary web = new dictionary();
         web.put("player", player);
@@ -743,20 +741,17 @@ public class vehicle_control_device extends script.base_script
         {
             return;
         }
-        for (int i = 0; i < ricv.length; i++)
-        {
-            if (ricv[i].isPalColor())
-            {
-                pcv = utils.addElement(pcv, (palcolor_custom_var)ricv[i]);
+        for (ranged_int_custom_var ranged_int_custom_var : ricv) {
+            if (ranged_int_custom_var.isPalColor()) {
+                pcv = utils.addElement(pcv, (palcolor_custom_var) ranged_int_custom_var);
             }
         }
         if (pcv == null || pcv.size() == 0)
         {
             return;
         }
-        for (int j = 0; j < pcv.size(); j++)
-        {
-            color old_color = ((palcolor_custom_var)pcv.get(j)).getSelectedColor();
+        for (Object o : pcv) {
+            color old_color = ((palcolor_custom_var) o).getSelectedColor();
             int old_r = old_color.getR();
             int old_g = old_color.getG();
             int old_b = old_color.getB();
@@ -765,12 +760,12 @@ public class vehicle_control_device extends script.base_script
             float d_g = (255 - old_g) * percent;
             float d_b = (255 - old_b) * percent;
             float d_a = (255 - old_a) * percent;
-            int new_r = old_r + (int)d_r;
-            int new_g = old_g + (int)d_g;
-            int new_b = old_b + (int)d_b;
-            int new_a = old_a + (int)d_a;
+            int new_r = old_r + (int) d_r;
+            int new_g = old_g + (int) d_g;
+            int new_b = old_b + (int) d_b;
+            int new_a = old_a + (int) d_a;
             color new_color = new color(new_r, new_g, new_b, new_a);
-            ((palcolor_custom_var)pcv.get(j)).setToClosestColor(new_color);
+            ((palcolor_custom_var) o).setToClosestColor(new_color);
         }
     }
     public int handleRemoveCurrentVehicle(obj_id self, dictionary params) throws InterruptedException

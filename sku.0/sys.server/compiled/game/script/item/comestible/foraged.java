@@ -38,26 +38,21 @@ public class foraged extends script.item.comestible.comestible
             {
                 return SCRIPT_CONTINUE;
             }
-            for (int i = 0; i < numMods; i++)
-            {
-                int attrib = am[i].getAttribute();
-                int val = am[i].getValue();
+            for (attrib_mod attrib_mod : am) {
+                int attrib = attrib_mod.getAttribute();
+                int val = attrib_mod.getValue();
                 int newVal = Integer.MIN_VALUE;
-                int duration = (int)(am[i].getDuration());
+                int duration = (int) (attrib_mod.getDuration());
                 String sVal = "";
-                if (newVal > 0)
-                {
+                if (newVal > 0) {
                     sVal = "+" + newVal;
-                }
-                else if (newVal < 0)
-                {
+                } else if (newVal < 0) {
                     sVal = "" + newVal;
                 }
                 names[n] = toLower(consumable.STAT_NAME[attrib]);
                 attribs[n] = sVal + "%, " + duration + "s";
                 n++;
-                if (n > names.length)
-                {
+                if (n > names.length) {
                     return SCRIPT_CONTINUE;
                 }
             }

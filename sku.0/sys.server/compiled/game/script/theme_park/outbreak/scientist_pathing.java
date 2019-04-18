@@ -89,11 +89,9 @@ public class scientist_pathing extends script.base_script
         if (npcTargets != null && npcTargets.length > 0)
         {
             CustomerServiceLog("outbreak_themepark", "beast_pathing.blowUp() Valid NPCs in radius.");
-            for (int a = 0; a < npcTargets.length; a++)
-            {
-                if ((factions.getFaction(npcTargets[a])).equals("afflicted"))
-                {
-                    setPosture(npcTargets[a], POSTURE_INCAPACITATED);
+            for (obj_id npcTarget : npcTargets) {
+                if ((factions.getFaction(npcTarget)).equals("afflicted")) {
+                    setPosture(npcTarget, POSTURE_INCAPACITATED);
                 }
             }
         }
@@ -147,14 +145,12 @@ public class scientist_pathing extends script.base_script
             return SCRIPT_CONTINUE;
         }
         location[] wayPtLocs = new location[wayPointList.length];
-        for (int i = 0; i < wayPointList.length; i++)
-        {
-            int orderNumber = getIntObjVar(wayPointList[i], STORMTROOPER_RETREAT) - 1;
-            if (orderNumber < 0)
-            {
+        for (obj_id obj_id : wayPointList) {
+            int orderNumber = getIntObjVar(obj_id, STORMTROOPER_RETREAT) - 1;
+            if (orderNumber < 0) {
                 continue;
             }
-            wayPtLocs[orderNumber] = getLocation(wayPointList[i]);
+            wayPtLocs[orderNumber] = getLocation(obj_id);
         }
         if (wayPtLocs == null || wayPtLocs.length <= 0)
         {

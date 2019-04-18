@@ -18,85 +18,66 @@ public class crafting_camp_base extends script.systems.crafting.crafting_base
     public void calcAndSetPrototypeProperties(obj_id prototype, draft_schematic.attribute[] itemAttributes) throws InterruptedException
     {
         debugServerConsoleMsg(null, "Beginning assembly-phase prototype property setting");
-        for (int i = 0; i < itemAttributes.length; ++i)
-        {
-            if (itemAttributes[i] == null)
-            {
+        for (draft_schematic.attribute itemAttribute : itemAttributes) {
+            if (itemAttribute == null) {
                 continue;
             }
-            if (!calcAndSetPrototypeProperty(prototype, itemAttributes[i]))
-            {
-                if (itemAttributes[i].currentValue == 0.0f)
-                {
+            if (!calcAndSetPrototypeProperty(prototype, itemAttribute)) {
+                if (itemAttribute.currentValue == 0.0f) {
                     continue;
                 }
-                if (((itemAttributes[i].name).getAsciiId()).equals("lifetime"))
-                {
-                    setObjVar(prototype, "modules.lifetime", itemAttributes[i].currentValue);
-                }
-                else if (((itemAttributes[i].name).getAsciiId()).equals("shuttle_beacon"))
-                {
-                    setObjVar(prototype, "modules.shuttle_beacon", itemAttributes[i].currentValue);
-                }
-                else if (((itemAttributes[i].name).getAsciiId()).equals("cloning_tube"))
-                {
-                    setObjVar(prototype, "modules.cloning_tube", itemAttributes[i].currentValue);
-                }
-                else if (((itemAttributes[i].name).getAsciiId()).equals("entertainer"))
-                {
-                    setObjVar(prototype, "modules.entertainer", itemAttributes[i].currentValue);
-                }
-                else if (((itemAttributes[i].name).getAsciiId()).equals("junk_dealer"))
-                {
-                    setObjVar(prototype, "modules.junk_dealer", itemAttributes[i].currentValue);
-                }
-                else if (((itemAttributes[i].name).getAsciiId()).equals("clothing_station"))
-                {
-                    setObjVar(prototype, "modules.clothing_station", itemAttributes[i].currentValue);
-                }
-                else if (((itemAttributes[i].name).getAsciiId()).equals("weapon_station"))
-                {
-                    setObjVar(prototype, "modules.weapon_station", itemAttributes[i].currentValue);
-                }
-                else if (((itemAttributes[i].name).getAsciiId()).equals("structure_station"))
-                {
-                    setObjVar(prototype, "modules.structure_station", itemAttributes[i].currentValue);
-                }
-                else if (((itemAttributes[i].name).getAsciiId()).equals("ship_station"))
-                {
-                    setObjVar(prototype, "modules.ship_station", itemAttributes[i].currentValue);
-                }
-                else if (((itemAttributes[i].name).getAsciiId()).equals("food_station"))
-                {
-                    setObjVar(prototype, "modules.food_station", itemAttributes[i].currentValue);
-                }
-                else if (((itemAttributes[i].name).getAsciiId()).equals("xp_bonus"))
-                {
-                    setObjVar(prototype, "modules.xp_bonus", itemAttributes[i].currentValue);
-                }
-                else if (((itemAttributes[i].name).getAsciiId()).equals("rebel"))
-                {
-                    setObjVar(prototype, "modules.rebel", itemAttributes[i].currentValue);
-                }
-                else if (((itemAttributes[i].name).getAsciiId()).equals("imperial"))
-                {
-                    setObjVar(prototype, "modules.imperial", itemAttributes[i].currentValue);
-                }
-                else if (((itemAttributes[i].name).getAsciiId()).equals("extra_life"))
-                {
-                    setObjVar(prototype, "modules.extra_life", itemAttributes[i].currentValue);
-                }
-                else if (((itemAttributes[i].name).getAsciiId()).equals("holonet"))
-                {
-                    setObjVar(prototype, "modules.holonet", itemAttributes[i].currentValue);
-                }
-                else if (((itemAttributes[i].name).getAsciiId()).equals("vehicle_repair"))
-                {
-                    setObjVar(prototype, "modules.vehicle_repair", itemAttributes[i].currentValue);
-                }
-                else 
-                {
-                    setObjVar(prototype, craftinglib.COMPONENT_ATTRIBUTE_OBJVAR_NAME + "." + (itemAttributes[i].name).getAsciiId(), itemAttributes[i].currentValue);
+                switch (((itemAttribute.name).getAsciiId())) {
+                    case "lifetime":
+                        setObjVar(prototype, "modules.lifetime", itemAttribute.currentValue);
+                        break;
+                    case "shuttle_beacon":
+                        setObjVar(prototype, "modules.shuttle_beacon", itemAttribute.currentValue);
+                        break;
+                    case "cloning_tube":
+                        setObjVar(prototype, "modules.cloning_tube", itemAttribute.currentValue);
+                        break;
+                    case "entertainer":
+                        setObjVar(prototype, "modules.entertainer", itemAttribute.currentValue);
+                        break;
+                    case "junk_dealer":
+                        setObjVar(prototype, "modules.junk_dealer", itemAttribute.currentValue);
+                        break;
+                    case "clothing_station":
+                        setObjVar(prototype, "modules.clothing_station", itemAttribute.currentValue);
+                        break;
+                    case "weapon_station":
+                        setObjVar(prototype, "modules.weapon_station", itemAttribute.currentValue);
+                        break;
+                    case "structure_station":
+                        setObjVar(prototype, "modules.structure_station", itemAttribute.currentValue);
+                        break;
+                    case "ship_station":
+                        setObjVar(prototype, "modules.ship_station", itemAttribute.currentValue);
+                        break;
+                    case "food_station":
+                        setObjVar(prototype, "modules.food_station", itemAttribute.currentValue);
+                        break;
+                    case "xp_bonus":
+                        setObjVar(prototype, "modules.xp_bonus", itemAttribute.currentValue);
+                        break;
+                    case "rebel":
+                        setObjVar(prototype, "modules.rebel", itemAttribute.currentValue);
+                        break;
+                    case "imperial":
+                        setObjVar(prototype, "modules.imperial", itemAttribute.currentValue);
+                        break;
+                    case "extra_life":
+                        setObjVar(prototype, "modules.extra_life", itemAttribute.currentValue);
+                        break;
+                    case "holonet":
+                        setObjVar(prototype, "modules.holonet", itemAttribute.currentValue);
+                        break;
+                    case "vehicle_repair":
+                        setObjVar(prototype, "modules.vehicle_repair", itemAttribute.currentValue);
+                        break;
+                    default:
+                        setObjVar(prototype, craftinglib.COMPONENT_ATTRIBUTE_OBJVAR_NAME + "." + (itemAttribute.name).getAsciiId(), itemAttribute.currentValue);
+                        break;
                 }
             }
         }

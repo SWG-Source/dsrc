@@ -167,11 +167,9 @@ public class mining_cave extends script.base_script
         if (script != null && script.length() > 0)
         {
             String[] scripts = split(script, ',');
-            for (int j = 0; j < scripts.length; j++)
-            {
-                if (!hasScript(objectCreated, scripts[j]))
-                {
-                    attachScript(objectCreated, scripts[j]);
+            for (String script1 : scripts) {
+                if (!hasScript(objectCreated, script1)) {
+                    attachScript(objectCreated, script1);
                 }
             }
         }

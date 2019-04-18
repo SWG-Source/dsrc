@@ -81,7 +81,7 @@ public class kachirho_takook_recorder extends script.base_script
                 utils.setScriptVar(self, "blinking", 1);
                 dictionary light = new dictionary();
                 light.put("lightParticle", blinkLight);
-                messageTo(self, "handleReset", light, 15f, false);
+                messageTo(self, "handleReset", light, 15.0f, false);
             }
         }
         return SCRIPT_CONTINUE;

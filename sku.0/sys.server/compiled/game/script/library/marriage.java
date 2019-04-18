@@ -10,8 +10,8 @@ public class marriage extends script.base_script
     public marriage()
     {
     }
-    public static final float PROPOSAL_RANGE = 5f;
-    public static final float PROPOSAL_TIME = 120f;
+    public static final float PROPOSAL_RANGE = 5.0f;
+    public static final float PROPOSAL_TIME = 120.0f;
     public static final String SCRIPT_RING_BASE = "item.ring.base";
     public static final String SCRIPT_RING_UNITY = "item.ring.wedding";
     public static final String SCRIPT_UNITY = "player.unity";

@@ -17,9 +17,9 @@ public class tcg_vwing_deed extends script.base_script
     public static final string_id MNU_CREATE_VEHICLE = new string_id("sui", "create_vehicle");
     public static final string_id SID_ALREADY_HAVE_VEHICLE = new string_id("sui", "have_ship");
     public static final String SHIP_PCD = "vwing";
-    public static final float SHIP_HP = 3000f;
-    public static final float SHIP_CURRENT_HP = 3000f;
-    public static final float SHIP_MASS = 100000f;
+    public static final float SHIP_HP = 3000.0f;
+    public static final float SHIP_CURRENT_HP = 3000.0f;
+    public static final float SHIP_MASS = 100000.0f;
     public int OnGetAttributes(obj_id self, obj_id player, String[] names, String[] attribs) throws InterruptedException
     {
         int idx = utils.getValidAttributeIndex(names);

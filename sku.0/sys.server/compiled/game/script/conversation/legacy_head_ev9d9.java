@@ -88,13 +88,10 @@ public class legacy_head_ev9d9 extends script.base_script
     {
         boolean legacy_head_ev9d9_condition_hasHead = false;
         obj_id[] playerStuff = getInventoryAndEquipment(player);
-        for (int i = 0; i < playerStuff.length; i++)
-        {
-            String templateName = getTemplateName(playerStuff[i]);
-            if (templateName != null)
-            {
-                if (templateName.equals("object/tangible/loot/simple_kit/legacy_droid_head.iff"))
-                {
+        for (obj_id obj_id : playerStuff) {
+            String templateName = getTemplateName(obj_id);
+            if (templateName != null) {
+                if (templateName.equals("object/tangible/loot/simple_kit/legacy_droid_head.iff")) {
                     legacy_head_ev9d9_condition_hasHead = true;
                 }
             }
@@ -248,21 +245,16 @@ public class legacy_head_ev9d9 extends script.base_script
         Vector boltsResizable = new Vector();
         boltsResizable.setSize(0);
         obj_id[] playerStuff = getInventoryAndEquipment(player);
-        for (int i = 0; i < playerStuff.length; i++)
-        {
-            String templateName = getTemplateName(playerStuff[i]);
-            if (templateName != null)
-            {
-                if (templateName.equals("object/tangible/quest/legacy_head_pain1.iff"))
-                {
+        for (obj_id obj_id : playerStuff) {
+            String templateName = getTemplateName(obj_id);
+            if (templateName != null) {
+                if (templateName.equals("object/tangible/quest/legacy_head_pain1.iff")) {
                     hasBolt_1 = true;
                 }
-                if (templateName.equals("object/tangible/quest/legacy_head_pain2.iff"))
-                {
+                if (templateName.equals("object/tangible/quest/legacy_head_pain2.iff")) {
                     hasBolt_2 = true;
                 }
-                if (templateName.equals("object/tangible/quest/legacy_head_pain3.iff"))
-                {
+                if (templateName.equals("object/tangible/quest/legacy_head_pain3.iff")) {
                     hasBolt_3 = true;
                 }
             }

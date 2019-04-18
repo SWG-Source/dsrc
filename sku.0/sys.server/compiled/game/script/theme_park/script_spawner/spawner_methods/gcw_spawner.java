@@ -28,7 +28,7 @@ public class gcw_spawner extends script.base_script
         {
             LOG("gcw_region", "OnHearSpeech gcw_spawner");
             messageTo(self, "updateGCWInfo", null, 1.0f, false);
-            messageTo(self, "beginSetup", null, 2.f, false);
+            messageTo(self, "beginSetup", null, 2.0f, false);
         }
         return SCRIPT_CONTINUE;
     }
@@ -336,11 +336,9 @@ public class gcw_spawner extends script.base_script
         {
             return SCRIPT_CONTINUE;
         }
-        for (int i = 0, j = spawned.length; i < j; i++)
-        {
-            if (isIdValid(spawned[i]) && exists(spawned[i]))
-            {
-                destroyObject(spawned[i]);
+        for (obj_id obj_id : spawned) {
+            if (isIdValid(obj_id) && exists(obj_id)) {
+                destroyObject(obj_id);
             }
         }
         messageTo(self, "beginSpawn", null, 1, false);

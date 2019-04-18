@@ -121,7 +121,7 @@ public class objective_terminal_uplink extends script.faction_perk.hq.objective_
                 sendSystemMessage(player, BEGIN_SCANNING);
                 dictionary d = new dictionary();
                 d.put("player", player);
-                messageTo(self, "handleStartDelay", d, 3f, false);
+                messageTo(self, "handleStartDelay", d, 3.0f, false);
             }
         }
         return SCRIPT_CONTINUE;
@@ -138,7 +138,7 @@ public class objective_terminal_uplink extends script.faction_perk.hq.objective_
             sendSystemMessage(player, JAM_NOT_IN_ROOM);
             return;
         }
-        if (getDistance(getLocation(self), getLocation(player)) > 15f)
+        if (getDistance(getLocation(self), getLocation(player)) > 15.0f)
         {
             sendSystemMessage(player, JAM_TOO_FAR);
             return;
@@ -249,11 +249,11 @@ public class objective_terminal_uplink extends script.faction_perk.hq.objective_
         if(stage == STAGE_FREQ){
             correct = freq % 10;
         }
-        float delay = 5f;
+        float delay = 5.0f;
         string_id text = null;
         if (correct == (Integer) opt.get(idx))
         {
-            delay = 1f;
+            delay = 1.0f;
             switch (stage)
             {
                 case STAGE_FREQ:
@@ -263,14 +263,14 @@ public class objective_terminal_uplink extends script.faction_perk.hq.objective_
                     dictionary d = new dictionary();
                     d.put("player", player);
                     int cyclemod = getSkillStatMod(player, "droid_find_chance");
-                    float cyclemultiplier = (100f - (cyclemod * (1 + rand(-0.33f, 0.33f)))) / 100f;
+                    float cyclemultiplier = (100.0f - (cyclemod * (1 + rand(-0.33f, 0.33f)))) / 100.0f;
                     int cycleCount = Math.round(6 * cyclemultiplier);
                     if (cycleCount < 0)
                     {
                         cycleCount = 0;
                     }
                     d.put("cnt", cycleCount);
-                    messageTo(self, "handleJammingInProgress", d, 3f, false);
+                    messageTo(self, "handleJammingInProgress", d, 3.0f, false);
                     return SCRIPT_CONTINUE;
                 case STAGE_BAND:
                 default:
@@ -314,7 +314,7 @@ public class objective_terminal_uplink extends script.faction_perk.hq.objective_
                     }
                 }
                 int speedmod = getSkillStatMod(player, "droid_find_speed");
-                float multiplier = (100 - speedmod) / 100f;
+                float multiplier = (100 - speedmod) / 100.0f;
                 delay *= multiplier;
             }
             utils.removeElementAt(opt, idx);
@@ -322,9 +322,9 @@ public class objective_terminal_uplink extends script.faction_perk.hq.objective_
         }
         utils.setScriptVar(self, scriptvar_opt, opt);
         utils.setScriptVar(self, scriptvar_stage, stage);
-        if (delay < 1f)
+        if (delay < 1.0f)
         {
-            delay = 1f;
+            delay = 1.0f;
         }
         dictionary d = new dictionary();
         d.put("player", player);
@@ -389,7 +389,7 @@ public class objective_terminal_uplink extends script.faction_perk.hq.objective_
         {
             sendSystemMessage(player, JAMMING_IN_PROGRESS);
             params.put("cnt", cnt);
-            float delay = 3f + rand(-1, 1);
+            float delay = 3.0f + rand(-1, 1);
             messageTo(self, "handleJammingInProgress", params, delay, false);
         }
         return SCRIPT_CONTINUE;

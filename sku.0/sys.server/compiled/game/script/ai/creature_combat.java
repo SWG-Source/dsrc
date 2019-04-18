@@ -13,7 +13,7 @@ public class creature_combat extends script.systems.combat.combat_base
     }
     public static final float MIN_MOVEMENT_DURING_COMBAT = 0.015f;
     public static final float MAX_MOVEMENT_DURING_COMBAT = 0.05f;
-    public static final float TOO_CLOSE_DISTANCE = 3f;
+    public static final float TOO_CLOSE_DISTANCE = 3.0f;
     public void clog(String text) throws InterruptedException
     {
         if (text != null)
@@ -76,7 +76,7 @@ public class creature_combat extends script.systems.combat.combat_base
             }
             if (expertiseRegen > 0)
             {
-                actionRegen += (int)((float)actionRegen * ((float)expertiseRegen / 100.0f));
+                actionRegen += (int)(actionRegen * (expertiseRegen / 100.0f));
             }
             setRegenRate(self, ACTION, actionRegen);
         }
@@ -121,8 +121,8 @@ public class creature_combat extends script.systems.combat.combat_base
             }
             if (expertiseRegen > 0)
             {
-                actionRegen += (int)((float)actionRegen * ((float)expertiseRegen / 100.0f));
-                healthRegen += (int)((float)healthRegen * ((float)expertiseRegen / 100.0f));
+                actionRegen += (int)(actionRegen * (expertiseRegen / 100.0f));
+                healthRegen += (int)(healthRegen * (expertiseRegen / 100.0f));
             }
             setRegenRate(self, HEALTH, healthRegen);
             setRegenRate(self, ACTION, actionRegen);
@@ -313,11 +313,9 @@ public class creature_combat extends script.systems.combat.combat_base
             {
                 Vector goodIds = new Vector();
                 goodIds.setSize(0);
-                for (int i = 0; i < haters.length; ++i)
-                {
-                    if (isIdValid(haters[i]) && exists(haters[i]))
-                    {
-                        utils.addElement(goodIds, haters[i]);
+                for (obj_id hater : haters) {
+                    if (isIdValid(hater) && exists(hater)) {
+                        utils.addElement(goodIds, hater);
                     }
                 }
                 if (goodIds != null & goodIds.size() > 0)
@@ -460,24 +458,19 @@ public class creature_combat extends script.systems.combat.combat_base
         }
         float topHate = 0.0f;
         primaryTarget = null;
-        for (int i = 0; i < hateList.length; i++)
-        {
-            if (!isIdValid(hateList[i]) || !exists(primaryTarget))
-            {
+        for (obj_id obj_id : hateList) {
+            if (!isIdValid(obj_id) || !exists(primaryTarget)) {
                 continue;
             }
-            if (isDead(hateList[i]) || stealth.hasInvisibleBuff(hateList[i]))
-            {
-                removeHateTarget(self, hateList[i]);
+            if (isDead(obj_id) || stealth.hasInvisibleBuff(obj_id)) {
+                removeHateTarget(self, obj_id);
                 continue;
             }
-            if (hasObjVar(self, "noPursue") && !combat.cachedCanSee(self, hateList[i]))
-            {
+            if (hasObjVar(self, "noPursue") && !combat.cachedCanSee(self, obj_id)) {
                 continue;
             }
-            if (getHate(self, hateList[i]) > topHate)
-            {
-                primaryTarget = hateList[i];
+            if (getHate(self, obj_id) > topHate) {
+                primaryTarget = obj_id;
             }
         }
         return primaryTarget;
@@ -514,7 +507,7 @@ public class creature_combat extends script.systems.combat.combat_base
         {
             if ((distanceToTarget < TOO_CLOSE_DISTANCE) && isPlayer(target))
             {
-                ai_combat_movement.aiEvade(target, self, weaponRange, 1f, 1f);
+                ai_combat_movement.aiEvade(target, self, weaponRange, 1.0f, 1.0f);
                 return;
             }
             else if (!ai_combat_movement.aiIsFleeing(self))
@@ -849,7 +842,7 @@ public class creature_combat extends script.systems.combat.combat_base
         }
         if (isIdValid(myLair) && isInWorld(myLair) && exists(myLair))
         {
-            if (getDistance(npc, myLair) < 40f)
+            if (getDistance(npc, myLair) < 40.0f)
             {
                 return true;
             }
@@ -869,7 +862,7 @@ public class creature_combat extends script.systems.combat.combat_base
         if (range > 2.0f)
         {
             setObjVar(npc, "ai.pathingToKill", target);
-            ai_lib.pathNear(npc, getLocation(target), 2f);
+            ai_lib.pathNear(npc, getLocation(target), 2.0f);
             return;
         }
         String skeleton = dataTableGetString("datatables/ai/species.iff", ai_lib.aiGetSpecies(npc), "Skeleton");
@@ -1108,11 +1101,9 @@ public class creature_combat extends script.systems.combat.combat_base
         {
             return SCRIPT_CONTINUE;
         }
-        for (int i = 0; i < players.length; i++)
-        {
-            if (isIdValid(players[i]) && exists(players[i]) && players[i] != self)
-            {
-                startCombat(self, players[i]);
+        for (obj_id player : players) {
+            if (isIdValid(player) && exists(player) && player != self) {
+                startCombat(self, player);
                 return SCRIPT_CONTINUE;
             }
         }
@@ -1157,10 +1148,9 @@ public class creature_combat extends script.systems.combat.combat_base
         {
             return SCRIPT_CONTINUE;
         }
-        for (int i = 0; i < myHateList.length; i++)
-        {
-            removeHateTarget(self, myHateList[i]);
-            removeHateTarget(myHateList[i], self);
+        for (obj_id obj_id : myHateList) {
+            removeHateTarget(self, obj_id);
+            removeHateTarget(obj_id, self);
         }
         return SCRIPT_CONTINUE;
     }

@@ -32,23 +32,18 @@ public class ct_prisoner extends script.base_script
         obj_id guard2 = null;
         obj_id guard3 = null;
         obj_id guard4 = null;
-        for (int i = 0; i < allNpc.length; i++)
-        {
-            if ((getStringObjVar(allNpc[i], "spawn_id")).equals("ct_guard_1"))
-            {
-                guard1 = allNpc[i];
+        for (obj_id obj_id : allNpc) {
+            if ((getStringObjVar(obj_id, "spawn_id")).equals("ct_guard_1")) {
+                guard1 = obj_id;
             }
-            if ((getStringObjVar(allNpc[i], "spawn_id")).equals("ct_guard_2"))
-            {
-                guard2 = allNpc[i];
+            if ((getStringObjVar(obj_id, "spawn_id")).equals("ct_guard_2")) {
+                guard2 = obj_id;
             }
-            if ((getStringObjVar(allNpc[i], "spawn_id")).equals("ct_guard_3"))
-            {
-                guard3 = allNpc[i];
+            if ((getStringObjVar(obj_id, "spawn_id")).equals("ct_guard_3")) {
+                guard3 = obj_id;
             }
-            if ((getStringObjVar(allNpc[i], "spawn_id")).equals("ct_guard_4"))
-            {
-                guard4 = allNpc[i];
+            if ((getStringObjVar(obj_id, "spawn_id")).equals("ct_guard_4")) {
+                guard4 = obj_id;
             }
         }
         if (isIdValid(guard1) && exists(guard1) && !isDead(guard1))

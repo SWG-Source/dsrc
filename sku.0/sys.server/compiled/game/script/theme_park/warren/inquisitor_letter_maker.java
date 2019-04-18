@@ -56,10 +56,8 @@ public class inquisitor_letter_maker extends script.base_script
         obj_id[] contents = getContents(self);
         if (contents != null)
         {
-            for (int i = 0; i < contents.length; i++)
-            {
-                if (hasObjVar(contents[i], "warren.inquisitor_letter"))
-                {
+            for (obj_id content : contents) {
+                if (hasObjVar(content, "warren.inquisitor_letter")) {
                     return SCRIPT_CONTINUE;
                 }
             }

@@ -14,22 +14,22 @@ public class piracy extends script.base_script
         {
             return SCRIPT_CONTINUE;
         }
-        messageTo(self, "cleanupPiracyEvent", null, 3600.f, false);
+        messageTo(self, "cleanupPiracyEvent", null, 3600.0f, false);
         if (!hasObjVar(self, "warmUpTimer"))
         {
             int warmUpTimer = rand(6, 8);
             setObjVar(self, "warmUpTimer", warmUpTimer);
         }
         int timer = getIntObjVar(self, "warmUpTimer");
-        playClientEffectLoc(self, "appearance/pt_space_interdiction_burst.prt", getLocation(self), 0f);
+        playClientEffectLoc(self, "appearance/pt_space_interdiction_burst.prt", getLocation(self), 0.0f);
         if (timer > 0)
         {
             timer--;
-            messageTo(self, "startBeacon", null, 2.f, false);
+            messageTo(self, "startBeacon", null, 2.0f, false);
             setObjVar(self, "warmUpTimer", timer);
             return SCRIPT_CONTINUE;
         }
-        messageTo(self, "startPiracyEvent", null, 2.f, false);
+        messageTo(self, "startPiracyEvent", null, 2.0f, false);
         return SCRIPT_CONTINUE;
     }
     public int startPiracyEvent(obj_id self, dictionary params) throws InterruptedException
@@ -145,17 +145,17 @@ public class piracy extends script.base_script
         setObjVar(targetShip, "objMissionOwner", player);
         setObjVar(targetShip, "piracyEventOwner", player);
         float maxspeed = getShipEngineSpeedMaximum(targetShip);
-        if (maxspeed < 15.f)
+        if (maxspeed < 15.0f)
         {
-            setShipEngineSpeedMaximum(targetShip, 15.f + rand() * 10.f);
+            setShipEngineSpeedMaximum(targetShip, 15.0f + rand() * 10.0f);
         }
-        else if (maxspeed > 25.f)
+        else if (maxspeed > 25.0f)
         {
-            setShipEngineSpeedMaximum(targetShip, 23.f + rand() * 5.f);
+            setShipEngineSpeedMaximum(targetShip, 23.0f + rand() * 5.0f);
         }
-        messageTo(self, "updateTargetWaypoint", null, 1.f, false);
-        messageTo(self, "startMovement", null, 3.f, false);
-        messageTo(self, "eventTimer", null, 1.f, false);
+        messageTo(self, "updateTargetWaypoint", null, 1.0f, false);
+        messageTo(self, "startMovement", null, 3.0f, false);
+        messageTo(self, "eventTimer", null, 1.0f, false);
         return;
     }
     public void warpInEscortShips(obj_id self, String[] escortShips) throws InterruptedException
@@ -212,7 +212,7 @@ public class piracy extends script.base_script
         {
             ship_ai.squadSetLeader(escortSquad, squadList[0]);
         }
-        ship_ai.squadFollow(escortSquad, targetShip, new vector(0, 0, -25.0f), 100.f);
+        ship_ai.squadFollow(escortSquad, targetShip, new vector(0, 0, -25.0f), 100.0f);
         ship_ai.squadSetGuardTarget(escortSquad, targetSquad);
         ship_ai.squadSetAttackOrders(escortSquad, ship_ai.ATTACK_ORDERS_RETURN_FIRE);
         ship_ai.squadSetFormation(escortSquad, 5);
@@ -220,12 +220,12 @@ public class piracy extends script.base_script
     }
     public int startMovement(obj_id self, dictionary params) throws InterruptedException
     {
-        location o = new location(0.f, 0.f, 0.f);
+        location o = new location(0.0f, 0.0f, 0.0f);
         transform randomTransform = space_quest.getRandomPositionInSphere(transform.identity, 4000, 6000);
         obj_id targetShip = getObjIdObjVar(self, "targetShip");
         if (!exists(targetShip) || !isIdValid(targetShip))
         {
-            messageTo(self, "cleanupPiracyEvent", null, 3.f, false);
+            messageTo(self, "cleanupPiracyEvent", null, 3.0f, false);
             return SCRIPT_CONTINUE;
         }
         vector v = randomTransform.getPosition_p();
@@ -233,7 +233,7 @@ public class piracy extends script.base_script
         float dist = getDistance(loc, o);
         if (dist >= 7500)
         {
-            messageTo(self, "startMovement", null, 0.f, false);
+            messageTo(self, "startMovement", null, 0.0f, false);
             return SCRIPT_CONTINUE;
         }
         ship_ai.unitMoveTo(targetShip, randomTransform);
@@ -247,7 +247,7 @@ public class piracy extends script.base_script
         location loc = getLocation(targetShip);
         if (!exists(player) || !isIdValid(player))
         {
-            messageTo(self, "cleanupPiracyEvent", null, 0.f, false);
+            messageTo(self, "cleanupPiracyEvent", null, 0.0f, false);
             return SCRIPT_CONTINUE;
         }
         if (!exists(targetShip) || !isIdValid(targetShip))
@@ -272,7 +272,7 @@ public class piracy extends script.base_script
             setObjVar(self, "spacepiracy.waypoint", waypoint);
         }
         sendSystemMessage(player, "updating waypoint", null);
-        messageTo(self, "updateTargetWaypoint", null, 30.f, false);
+        messageTo(self, "updateTargetWaypoint", null, 30.0f, false);
         return SCRIPT_CONTINUE;
     }
     public int cleanupPiracyEvent(obj_id self, dictionary params) throws InterruptedException
@@ -283,16 +283,14 @@ public class piracy extends script.base_script
         clearMissionCriticalObjects(player);
         if (exists(targetShip) && isIdValid(targetShip))
         {
-            messageTo(targetShip, "hyperLeave", null, 0.f, false);
+            messageTo(targetShip, "hyperLeave", null, 0.0f, false);
         }
         obj_id[] escortIdArray = utils.getObjIdArrayObjVar(self, "escortIdArray");
         if (escortIdArray != null)
         {
-            for (int i = 0; i < escortIdArray.length; i++)
-            {
-                if (isIdValid(escortIdArray[i]) && exists(escortIdArray[i]))
-                {
-                    messageTo(escortIdArray[i], "hyperLeave", null, 0.f, false);
+            for (obj_id obj_id : escortIdArray) {
+                if (isIdValid(obj_id) && exists(obj_id)) {
+                    messageTo(obj_id, "hyperLeave", null, 0.0f, false);
                 }
             }
         }
@@ -321,7 +319,7 @@ public class piracy extends script.base_script
         obj_id player = getObjIdObjVar(self, "player");
         if (!exists(player) || !isIdValid(player))
         {
-            messageTo(self, "cleanupPiracyEvent", null, 0.f, false);
+            messageTo(self, "cleanupPiracyEvent", null, 0.0f, false);
             return SCRIPT_CONTINUE;
         }
         String dialog = "space/space_piracy_event";
@@ -359,7 +357,7 @@ public class piracy extends script.base_script
             }
             disabledCounter++;
             utils.setScriptVar(self, "disabledCounter", disabledCounter);
-            messageTo(self, "eventTimer", null, 30.f, false);
+            messageTo(self, "eventTimer", null, 30.0f, false);
             return SCRIPT_CONTINUE;
         }
         int hyperTimer = utils.getIntScriptVar(self, "hyperTimer");
@@ -388,11 +386,11 @@ public class piracy extends script.base_script
             space_quest.groupTaunt(targetShip, player, pp);
             CustomerServiceLog("space_piracy", "Time expired for piracy event started by " + player + " Starting cleanup.");
             sendSystemMessage(player, "You failed to disable your target in time. Your target is making the jump to hyperspace", null);
-            messageTo(self, "cleanupPiracyEvent", null, 1.f, false);
+            messageTo(self, "cleanupPiracyEvent", null, 1.0f, false);
         }
         hyperTimer = hyperTimer + 10;
         utils.setScriptVar(self, "hyperTimer", hyperTimer);
-        messageTo(self, "eventTimer", null, 60.f, false);
+        messageTo(self, "eventTimer", null, 60.0f, false);
         return SCRIPT_CONTINUE;
     }
 }

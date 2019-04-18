@@ -70,12 +70,10 @@ public class storage_door_terminal extends script.base_script
         obj_id[] objContents = utils.getContents(player, true);
         if (objContents != null)
         {
-            for (int intI = 0; intI < objContents.length; intI++)
-            {
-                String strItemTemplate = getTemplateName(objContents[intI]);
-                if (strItemTemplate.equals("object/tangible/dungeon/death_watch_bunker/passkey_storage.iff"))
-                {
-                    obj_id passkey = objContents[intI];
+            for (obj_id objContent : objContents) {
+                String strItemTemplate = getTemplateName(objContent);
+                if (strItemTemplate.equals("object/tangible/dungeon/death_watch_bunker/passkey_storage.iff")) {
+                    obj_id passkey = objContent;
                     sendSystemMessage(player, ACCESS_GRANTED);
                     unlockDoors(structure, player);
                     destroyObject(passkey);
@@ -87,7 +85,7 @@ public class storage_door_terminal extends script.base_script
         {
             utils.setScriptVar(self, "terminal_lock_out", 1);
             sendSystemMessage(player, ACCESS_DENIED);
-            messageTo(self, "handleLockDown", null, 600f, false);
+            messageTo(self, "handleLockDown", null, 600.0f, false);
             spawnWave(player);
             return;
         }
@@ -136,7 +134,7 @@ public class storage_door_terminal extends script.base_script
         }
         if (group.isGrouped(player))
         {
-            Vector members = group.getPCMembersInRange(player, 100f);
+            Vector members = group.getPCMembersInRange(player, 100.0f);
             if (members != null && members.size() > 0)
             {
                 int numInGroup = members.size();
@@ -144,9 +142,8 @@ public class storage_door_terminal extends script.base_script
                 {
                     return;
                 }
-                for (int i = 0; i < numInGroup; i++)
-                {
-                    obj_id thisMember = ((obj_id)members.get(i));
+                for (Object member : members) {
+                    obj_id thisMember = ((obj_id) member);
                     setObjVar(thisMember, "death_watch.storagePass", 1);
                     obj_id openRoom = getCellId(structure, "storageroom24");
                     dictionary params = new dictionary();

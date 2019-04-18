@@ -4,6 +4,8 @@ import script.*;
 import script.library.space_dungeon;
 import script.library.space_dungeon_data;
 
+import java.util.Objects;
+
 public class travel_space_dungeon extends script.base_script
 {
     public travel_space_dungeon()
@@ -139,14 +141,7 @@ public class travel_space_dungeon extends script.base_script
         space_dungeon.cleanupPlayerTicketObjvars(player);
         space_dungeon.removeDungeonTraveler(self, request_id);
         string_id success = space_dungeon_data.getDungeonFailureString(dungeon_name);
-        if (success == null)
-        {
-            sendSystemMessage(player, SID_UNABLE_TO_FIND_DUNGEON);
-        }
-        else 
-        {
-            sendSystemMessage(player, success);
-        }
+        sendSystemMessage(player, Objects.requireNonNullElse(success, SID_UNABLE_TO_FIND_DUNGEON));
         return SCRIPT_CONTINUE;
     }
     public int msgStartDungeonTravel(obj_id self, dictionary params) throws InterruptedException

@@ -37,11 +37,10 @@ public class mining_squad_member extends script.base_script
     {
         if (isPlayer(attacker) || pet_lib.isPet(attacker))
         {
-            setHate(self, attacker, -5000f);
+            setHate(self, attacker, -5000.0f);
             int total = 0;
-            for (int x = 0; x < damage.length; x++)
-            {
-                total += damage[x];
+            for (int i : damage) {
+                total += i;
             }
             addToHealth(self, total);
         }
@@ -51,7 +50,7 @@ public class mining_squad_member extends script.base_script
     {
         if (isPlayer(defender))
         {
-            setHate(self, defender, -5000f);
+            setHate(self, defender, -5000.0f);
         }
         return SCRIPT_CONTINUE;
     }
@@ -59,7 +58,7 @@ public class mining_squad_member extends script.base_script
     {
         if (isPlayer(target) || pet_lib.isPet(target))
         {
-            setHate(self, target, -5000f);
+            setHate(self, target, -5000.0f);
         }
         return SCRIPT_CONTINUE;
     }

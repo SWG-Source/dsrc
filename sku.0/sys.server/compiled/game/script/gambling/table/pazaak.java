@@ -153,10 +153,9 @@ public class pazaak extends script.gambling.base.table
             obj_id[] players = getObjIdArrayObjVar(self, gambling.VAR_TABLE_PLAYERS);
             if (players != null && players.length > 0)
             {
-                for (int i = 0; i < players.length; i++)
-                {
-                    LOG("LOG_CHANNEL", "players ->" + players[i]);
-                    updateBetSUI(self, players[i]);
+                for (obj_id player1 : players) {
+                    LOG("LOG_CHANNEL", "players ->" + player1);
+                    updateBetSUI(self, player1);
                 }
             }
         }
@@ -354,9 +353,8 @@ public class pazaak extends script.gambling.base.table
         obj_id[] players = getObjIdArrayObjVar(self, gambling.VAR_TABLE_PLAYERS);
         if (players != null)
         {
-            for (int i = 0; i < players.length; i++)
-            {
-                updateBetSUI(self, players[i]);
+            for (obj_id player : players) {
+                updateBetSUI(self, player);
             }
         }
         if (players.length < getIntObjVar(self, gambling.VAR_TABLE_PLAYER_LIMIT_MIN))
@@ -384,21 +382,18 @@ public class pazaak extends script.gambling.base.table
                 sendTableMessage(self, SID_NOT_ENOUGH_PLAYERS);
                 if (players != null)
                 {
-                    for (int i = 0; i < players.length; i++)
-                    {
-                        int bet_amt = getPazaakPlayerBet(self, players[i]);
-                        LOG("LOG_CHANNEL", "startTableGame: " + players[i] + " amt ->" + bet_amt);
-                        removePazaakPlayerBet(self, players[i]);
-                        if (bet_amt > 0)
-                        {
-                            transferBankCreditsTo(self, players[i], bet_amt, "noHandler", "noHandler", new dictionary());
+                    for (obj_id player : players) {
+                        int bet_amt = getPazaakPlayerBet(self, player);
+                        LOG("LOG_CHANNEL", "startTableGame: " + player + " amt ->" + bet_amt);
+                        removePazaakPlayerBet(self, player);
+                        if (bet_amt > 0) {
+                            transferBankCreditsTo(self, player, bet_amt, "noHandler", "noHandler", new dictionary());
                         }
                     }
                 }
             }
-            for (int i = 0; i < players.length; i++)
-            {
-                int[] hand = drawPazaakHand(self, players[i]);
+            for (obj_id player : players) {
+                int[] hand = drawPazaakHand(self, player);
             }
         }
         sendTableMessage(self, SID_PAZAAK_BEGIN);
@@ -411,9 +406,8 @@ public class pazaak extends script.gambling.base.table
             sendTableMessage(self, SID_PAZAAK_ERROR);
             stopTableGame(self);
         }
-        for (int i = 0; i < players.length; i++)
-        {
-            updateBetSUI(self, players[i]);
+        for (obj_id player1 : players) {
+            updateBetSUI(self, player1);
         }
         startPazaakTurn(self, player);
         return;
@@ -460,60 +454,39 @@ public class pazaak extends script.gambling.base.table
         {
             if (utils.hasScriptVar(self, SCRIPT_VAR_GAME_ACTIVE))
             {
-                for (int i = 0; i < bet_players.length; i++)
-                {
-                    boolean active = isActivePlayer(self, bet_players[i]);
-                    int[] hand = getPazaakHand(self, bet_players[i]);
-                    if (hand != null)
-                    {
-                        if (bet_players[i] == player)
-                        {
-                            if (active)
-                            {
+                for (obj_id bet_player : bet_players) {
+                    boolean active = isActivePlayer(self, bet_player);
+                    int[] hand = getPazaakHand(self, bet_player);
+                    if (hand != null) {
+                        if (bet_player == player) {
+                            if (active) {
                                 entries = utils.addElement(entries, "Your Hand: " + displayPazaakCards(hand));
-                            }
-                            else 
-                            {
+                            } else {
                                 entries = utils.addElement(entries, "Your Hand: Standing");
                             }
-                        }
-                        else 
-                        {
-                            if (active)
-                            {
-                                int hand_size = getPazaakHand(self, bet_players[i]).length;
-                                entries = utils.addElement(entries, getFirstName(bet_players[i]) + "'s Hand: " + hand_size + " cards");
-                            }
-                            else 
-                            {
-                                entries = utils.addElement(entries, getFirstName(bet_players[i]) + "'s Hand: Standing");
+                        } else {
+                            if (active) {
+                                int hand_size = getPazaakHand(self, bet_player).length;
+                                entries = utils.addElement(entries, getFirstName(bet_player) + "'s Hand: " + hand_size + " cards");
+                            } else {
+                                entries = utils.addElement(entries, getFirstName(bet_player) + "'s Hand: Standing");
                             }
                         }
                     }
-                    int[] board = getPazaakBoard(self, bet_players[i]);
-                    int board_total = getPazaakBoardTotal(self, bet_players[i]);
-                    if (board != null)
-                    {
-                        if (bet_players[i] == player)
-                        {
-                            if (board_total <= -99 || (board_total > 20 && !active))
-                            {
+                    int[] board = getPazaakBoard(self, bet_player);
+                    int board_total = getPazaakBoardTotal(self, bet_player);
+                    if (board != null) {
+                        if (bet_player == player) {
+                            if (board_total <= -99 || (board_total > 20 && !active)) {
                                 entries = utils.addElement(entries, "Your Board: Out");
-                            }
-                            else 
-                            {
+                            } else {
                                 entries = utils.addElement(entries, "Your Board: " + displayPazaakCards(board) + " (Total: " + board_total + ")");
                             }
-                        }
-                        else 
-                        {
-                            if (board_total <= -99 || (board_total > 20 && !active))
-                            {
-                                entries = utils.addElement(entries, getFirstName(bet_players[i]) + "'s Board: Out");
-                            }
-                            else 
-                            {
-                                entries = utils.addElement(entries, getFirstName(bet_players[i]) + "'s Board: " + displayPazaakCards(board) + " (Total: " + board_total + ")");
+                        } else {
+                            if (board_total <= -99 || (board_total > 20 && !active)) {
+                                entries = utils.addElement(entries, getFirstName(bet_player) + "'s Board: Out");
+                            } else {
+                                entries = utils.addElement(entries, getFirstName(bet_player) + "'s Board: " + displayPazaakCards(board) + " (Total: " + board_total + ")");
                             }
                         }
                     }
@@ -589,9 +562,8 @@ public class pazaak extends script.gambling.base.table
         {
             return false;
         }
-        for (int i = 0; i < players.length; i++)
-        {
-            updateBetSUI(table, players[i]);
+        for (obj_id player1 : players) {
+            updateBetSUI(table, player1);
         }
         int[] hand = getPazaakHand(table, player);
         if (hand != null && hand.length > 0)
@@ -678,13 +650,12 @@ public class pazaak extends script.gambling.base.table
                     rake = getIntObjVar(table, VAR_HOUSE_RAKE);
                 }
                 int pay_out = (int)(table_balance * (100 - rake) / 100) / winners_array.length;
-                for (int i = 0; i < winners_array.length; i++)
-                {
+                for (obj_id obj_id : winners_array) {
                     prose_package pp = prose.getPackage(SID_PLAYER_WIN_SELF, pay_out);
-                    sendSystemMessageProse(winners_array[i], pp);
-                    pp = prose.getPackage(SID_PLAYER_WIN_OTHER, winners_array[i], winners_array[i], pay_out);
-                    sendTableMessage(table, pp, winners_array[i]);
-                    transferBankCreditsTo(table, winners_array[i], pay_out, "noHandler", "noHandler", new dictionary());
+                    sendSystemMessageProse(obj_id, pp);
+                    pp = prose.getPackage(SID_PLAYER_WIN_OTHER, obj_id, obj_id, pay_out);
+                    sendTableMessage(table, pp, obj_id);
+                    transferBankCreditsTo(table, obj_id, pay_out, "noHandler", "noHandler", new dictionary());
                     table_balance -= pay_out;
                 }
                 obj_id structure = player_structure.getStructure(table);
@@ -752,11 +723,9 @@ public class pazaak extends script.gambling.base.table
         valid_players.setSize(0);
         if (players != null)
         {
-            for (int i = 0; i < players.length; i++)
-            {
-                if (getPazaakPlayerBet(table, players[i]) > 0)
-                {
-                    valid_players.add(players[i]);
+            for (obj_id player : players) {
+                if (getPazaakPlayerBet(table, player) > 0) {
+                    valid_players.add(player);
                 }
             }
         }
@@ -899,7 +868,7 @@ public class pazaak extends script.gambling.base.table
                 _bets = new int[bets.size()];
                 for (int _i = 0; _i < bets.size(); ++_i)
                 {
-                    _bets[_i] = ((Integer)bets.get(_i)).intValue();
+                    _bets[_i] = (Integer) bets.get(_i);
                 }
             }
             return _bets;
@@ -921,9 +890,8 @@ public class pazaak extends script.gambling.base.table
         }
         Vector default_deck = new Vector();
         default_deck.setSize(0);
-        for (int i = 0; i < DEFAULT_SIDE_DECK.length; i++)
-        {
-            default_deck = utils.addElement(default_deck, DEFAULT_SIDE_DECK[i]);
+        for (int i1 : DEFAULT_SIDE_DECK) {
+            default_deck = utils.addElement(default_deck, i1);
         }
         int[] hand = new int[4];
         for (int i = 0; i < 4; i++)
@@ -933,7 +901,7 @@ public class pazaak extends script.gambling.base.table
                 break;
             }
             int rand_idx = rand(0, default_deck.size() - 1);
-            int card = ((Integer)default_deck.get(rand_idx)).intValue();
+            int card = (Integer) default_deck.get(rand_idx);
             hand[i] = card;
             default_deck.removeElementAt(rand_idx);
         }
@@ -963,9 +931,8 @@ public class pazaak extends script.gambling.base.table
         }
         else 
         {
-            for (int i = 0; i < PLAY_DECK.length; i++)
-            {
-                deck = utils.addElement(deck, PLAY_DECK[i]);
+            for (int i1 : PLAY_DECK) {
+                deck = utils.addElement(deck, i1);
             }
         }
         if (deck == null || deck.size() < 1)
@@ -973,7 +940,7 @@ public class pazaak extends script.gambling.base.table
             return -1;
         }
         int rand_idx = rand(0, deck.size() - 1);
-        int card = ((Integer)deck.get(rand_idx)).intValue();
+        int card = (Integer) deck.get(rand_idx);
         deck.removeElementAt(rand_idx);
         utils.setScriptVar(table, SCRIPT_VAR_DECK, deck);
         return card;
@@ -1034,9 +1001,8 @@ public class pazaak extends script.gambling.base.table
         if (board != null)
         {
             int total = 0;
-            for (int i = 0; i < board.length; i++)
-            {
-                total += board[i];
+            for (int i1 : board) {
+                total += i1;
             }
             return total;
         }
@@ -1108,22 +1074,15 @@ public class pazaak extends script.gambling.base.table
             return null;
         }
         Vector cards_str = new Vector();
-        for (int i = 0; i < cards.length; i++)
-        {
-            if (cards[i] >= 0)
-            {
-                if (cards[i] / 100 > 0)
-                {
-                    utils.addElement(cards_str, "+/- " + cards[i] / 100);
+        for (int card : cards) {
+            if (card >= 0) {
+                if (card / 100 > 0) {
+                    utils.addElement(cards_str, "+/- " + card / 100);
+                } else {
+                    utils.addElement(cards_str, "+" + card);
                 }
-                else 
-                {
-                    utils.addElement(cards_str, "+" + cards[i]);
-                }
-            }
-            else 
-            {
-                utils.addElement(cards_str, Integer.toString(cards[i]));
+            } else {
+                utils.addElement(cards_str, Integer.toString(card));
             }
         }
         String[] card_array = new String[cards_str.size()];
@@ -1318,10 +1277,9 @@ public class pazaak extends script.gambling.base.table
         obj_id[] players = getObjIdArrayObjVar(table, gambling.VAR_TABLE_PLAYERS);
         if (players != null && players.length > 0)
         {
-            for (int i = 0; i < players.length; i++)
-            {
-                LOG("LOG_CHANNEL", "players ->" + players[i]);
-                updateBetSUI(table, players[i]);
+            for (obj_id player : players) {
+                LOG("LOG_CHANNEL", "players ->" + player);
+                updateBetSUI(table, player);
             }
         }
         return true;

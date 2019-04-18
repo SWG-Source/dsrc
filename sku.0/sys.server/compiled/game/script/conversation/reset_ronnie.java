@@ -40,11 +40,8 @@ public class reset_ronnie extends script.base_script
             "rtp_luke_02",
             "rtp_luke_03"
         };
-        for (int i = 0; i < questList.length; i++)
-        {
-            String quest = questList[i];
-            if (groundquests.isQuestActiveOrComplete(player, quest))
-            {
+        for (String quest : questList) {
+            if (groundquests.isQuestActiveOrComplete(player, quest)) {
                 groundquests.clearQuest(player, quest);
             }
         }

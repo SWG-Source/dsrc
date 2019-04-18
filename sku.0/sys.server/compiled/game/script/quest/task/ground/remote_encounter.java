@@ -349,11 +349,8 @@ public class remote_encounter extends script.quest.task.ground.base_task
         {
             obj_id[] groupMembers = getGroupMemberIds(groupObj);
             int numGroupMembers = groupMembers.length;
-            for (int i = 0; i < numGroupMembers; i++)
-            {
-                obj_id groupMember = groupMembers[i];
-                if (isIdValid(groupMember))
-                {
+            for (obj_id groupMember : groupMembers) {
+                if (isIdValid(groupMember)) {
                     messageTo(groupMember, message, params, 0, false);
                 }
             }

@@ -197,9 +197,8 @@ public class crafting_r3_droid extends script.systems.crafting.droid.crafting_ba
         if (skills != null)
         {
             int[] mods = getSkillStatisticModifiers(player, skills);
-            for (int i = 0; i < mods.length; ++i)
-            {
-                playerCustomizationMod += mods[i];
+            for (int mod : mods) {
+                playerCustomizationMod += mod;
             }
         }
         if (playerCustomizationMod < 32)

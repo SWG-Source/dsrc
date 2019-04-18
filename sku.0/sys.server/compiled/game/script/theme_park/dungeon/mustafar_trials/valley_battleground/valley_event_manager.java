@@ -42,22 +42,15 @@ public class valley_event_manager extends script.base_script
         {
             return;
         }
-        for (int i = 0; i < objects.length; i++)
-        {
-            if (isIdValid(objects[i]) && objects[i] != self)
-            {
-                if (!isPlayer(objects[i]))
-                {
-                    if (!isMob(objects[i]))
-                    {
-                        if (trial.isTempObject(objects[i]))
-                        {
-                            trial.cleanupNpc(objects[i]);
+        for (obj_id object : objects) {
+            if (isIdValid(object) && object != self) {
+                if (!isPlayer(object)) {
+                    if (!isMob(object)) {
+                        if (trial.isTempObject(object)) {
+                            trial.cleanupNpc(object);
                         }
-                    }
-                    else 
-                    {
-                        trial.cleanupNpc(objects[i]);
+                    } else {
+                        trial.cleanupNpc(object);
                     }
                 }
             }
@@ -78,11 +71,9 @@ public class valley_event_manager extends script.base_script
             return SCRIPT_CONTINUE;
         }
         boolean moreStages = false;
-        for (int i = 0; i < stages.length; i++)
-        {
-            if (stages[i] > nextStage)
-            {
-                nextStage = stages[i];
+        for (int stage : stages) {
+            if (stage > nextStage) {
+                nextStage = stage;
                 moreStages = true;
                 break;
             }
@@ -178,9 +169,8 @@ public class valley_event_manager extends script.base_script
     public void attachSpawnScripts(obj_id subject, String spawnScripts) throws InterruptedException
     {
         String[] scripts = split(spawnScripts, ':');
-        for (int q = 0; q < scripts.length; q++)
-        {
-            attachScript(subject, scripts[q]);
+        for (String script : scripts) {
+            attachScript(subject, script);
         }
     }
     public void setSpawnScriptVar(obj_id subject, String spawnScriptVar) throws InterruptedException
@@ -190,28 +180,26 @@ public class valley_event_manager extends script.base_script
             return;
         }
         String[] pairs = split(spawnScriptVar, ',');
-        for (int i = 0; i < pairs.length; i++)
-        {
-            String[] scriptVarToSet = split(pairs[i], '=');
+        for (String pair : pairs) {
+            String[] scriptVarToSet = split(pair, '=');
             String scriptVarValue = scriptVarToSet[1];
             String[] scriptVarNameAndType = split(scriptVarToSet[0], ':');
             String scriptVarType = scriptVarNameAndType[0];
             String scriptVarName = scriptVarNameAndType[1];
-            if (scriptVarType.equals("string"))
-            {
-                utils.setScriptVar(subject, scriptVarName, scriptVarValue);
-            }
-            else if (scriptVarType.equals("int"))
-            {
-                utils.setScriptVar(subject, scriptVarName, utils.stringToInt(scriptVarValue));
-            }
-            else if (scriptVarType.equals("float"))
-            {
-                utils.setScriptVar(subject, scriptVarName, utils.stringToFloat(scriptVarValue));
-            }
-            else if (scriptVarType.equals("boolean") || scriptVarType.equals("bool"))
-            {
-                utils.setScriptVar(subject, scriptVarName, scriptVarValue);
+            switch (scriptVarType) {
+                case "string":
+                    utils.setScriptVar(subject, scriptVarName, scriptVarValue);
+                    break;
+                case "int":
+                    utils.setScriptVar(subject, scriptVarName, utils.stringToInt(scriptVarValue));
+                    break;
+                case "float":
+                    utils.setScriptVar(subject, scriptVarName, utils.stringToFloat(scriptVarValue));
+                    break;
+                case "boolean":
+                case "bool":
+                    utils.setScriptVar(subject, scriptVarName, scriptVarValue);
+                    break;
             }
         }
     }
@@ -222,25 +210,18 @@ public class valley_event_manager extends script.base_script
         {
             return;
         }
-        for (int i = 0; i < objects.length; i++)
-        {
-            if (objects[i] != self)
-            {
-                if (utils.hasScriptVar(objects[i], trial.BATTLEFIELD_DROID_ARMY))
-                {
-                    if (buff.hasBuff(objects[i], "high_morale"))
-                    {
-                        buff.removeBuff(objects[i], "high_morale");
+        for (obj_id object : objects) {
+            if (object != self) {
+                if (utils.hasScriptVar(object, trial.BATTLEFIELD_DROID_ARMY)) {
+                    if (buff.hasBuff(object, "high_morale")) {
+                        buff.removeBuff(object, "high_morale");
                     }
-                    buff.applyBuff(objects[i], "low_morale");
-                }
-                else if (isPlayer(objects[i]) || utils.hasScriptVar(objects[i], trial.BATTLEFIELD_MINER))
-                {
-                    if (buff.hasBuff(objects[i], "low_morale"))
-                    {
-                        buff.removeBuff(objects[i], "low_morale");
+                    buff.applyBuff(object, "low_morale");
+                } else if (isPlayer(object) || utils.hasScriptVar(object, trial.BATTLEFIELD_MINER)) {
+                    if (buff.hasBuff(object, "low_morale")) {
+                        buff.removeBuff(object, "low_morale");
                     }
-                    buff.applyBuff(objects[i], "high_morale");
+                    buff.applyBuff(object, "high_morale");
                 }
             }
         }
@@ -252,29 +233,19 @@ public class valley_event_manager extends script.base_script
         {
             return;
         }
-        for (int i = 0; i < objects.length; i++)
-        {
-            if (objects[i] != self)
-            {
-                if (utils.hasScriptVar(objects[i], trial.BATTLEFIELD_DROID_ARMY))
-                {
-                    if (!buff.hasBuff(objects[i], "low_morale"))
-                    {
-                        buff.applyBuff(objects[i], "high_morale");
+        for (obj_id object : objects) {
+            if (object != self) {
+                if (utils.hasScriptVar(object, trial.BATTLEFIELD_DROID_ARMY)) {
+                    if (!buff.hasBuff(object, "low_morale")) {
+                        buff.applyBuff(object, "high_morale");
                     }
-                }
-                else if (isPlayer(objects[i]))
-                {
-                    if (!buff.hasBuff(objects[i], "high_morale"))
-                    {
-                        buff.applyBuff(objects[i], "low_morale");
+                } else if (isPlayer(object)) {
+                    if (!buff.hasBuff(object, "high_morale")) {
+                        buff.applyBuff(object, "low_morale");
                     }
-                }
-                else if (utils.hasScriptVar(objects[i], trial.BATTLEFIELD_MINER))
-                {
-                    if (buff.hasBuff(objects[i], "high_morale"))
-                    {
-                        buff.removeBuff(objects[i], "high_morale");
+                } else if (utils.hasScriptVar(object, trial.BATTLEFIELD_MINER)) {
+                    if (buff.hasBuff(object, "high_morale")) {
+                        buff.removeBuff(object, "high_morale");
                     }
                 }
             }
@@ -305,15 +276,12 @@ public class valley_event_manager extends script.base_script
         }
         location finalPoint = null;
         location playerExit = null;
-        for (int i = 0; i < objects.length; i++)
-        {
-            if ((getStringObjVar(objects[i], trial.WP_NAME)).equals("end_point"))
-            {
-                finalPoint = getLocation(objects[i]);
+        for (obj_id object : objects) {
+            if ((getStringObjVar(object, trial.WP_NAME)).equals("end_point")) {
+                finalPoint = getLocation(object);
             }
-            if ((getStringObjVar(objects[i], trial.WP_NAME)).equals("player_exit"))
-            {
-                playerExit = getLocation(objects[i]);
+            if ((getStringObjVar(object, trial.WP_NAME)).equals("player_exit")) {
+                playerExit = getLocation(object);
             }
         }
         obj_id[] army = trial.getObjectsInRangeWithScriptVar(self, trial.BATTLEFIELD_DROID_ARMY, 400.0f);
@@ -321,14 +289,13 @@ public class valley_event_manager extends script.base_script
         {
             return;
         }
-        for (int p = 0; p < army.length; p++)
-        {
-            stop(army[p]);
+        for (obj_id obj_id : army) {
+            stop(obj_id);
             location[] newPath = new location[3];
-            newPath[0] = getLocation(army[p]);
+            newPath[0] = getLocation(obj_id);
             newPath[1] = playerExit;
             newPath[2] = finalPoint;
-            ai_lib.setPatrolOncePath(army[p], newPath);
+            ai_lib.setPatrolOncePath(obj_id, newPath);
         }
     }
     public int commanderDied(obj_id self, dictionary params) throws InterruptedException
@@ -352,9 +319,8 @@ public class valley_event_manager extends script.base_script
         utils.sendSystemMessage(players, trial.BATTLEFIELD_WIN_MESSAGE);
         instance.playMusicInInstance(self, trial.MUS_MUST_QUEST_WIN);
         badge.grantBadge(players, "bdg_must_victory_army");
-        for (int i = 0; i < players.length; i++)
-        {
-            buff.applyBuff(players[i], "high_morale", 3600);
+        for (obj_id player : players) {
+            buff.applyBuff(player, "high_morale", 3600);
         }
         return SCRIPT_CONTINUE;
     }
@@ -380,16 +346,12 @@ public class valley_event_manager extends script.base_script
                 return SCRIPT_CONTINUE;
             }
             int test = 0;
-            for (int i = 0; i < army.length; i++)
-            {
-                if (!isDead(army[i]))
-                {
+            for (obj_id obj_id : army) {
+                if (!isDead(obj_id)) {
                     test += 1;
                     livingDroid = true;
-                }
-                else 
-                {
-                    destroyObject(army[i]);
+                } else {
+                    destroyObject(obj_id);
                 }
             }
             if (!livingDroid)

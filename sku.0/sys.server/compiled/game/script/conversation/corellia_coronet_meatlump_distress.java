@@ -29,11 +29,8 @@ public class corellia_coronet_meatlump_distress extends script.base_script
                 obj_id[] spawnList = getObjIdArrayObjVar(player, spawnListObjVarName);
                 if (spawnList != null)
                 {
-                    for (int k = 0; k < spawnList.length; ++k)
-                    {
-                        obj_id spawn = spawnList[k];
-                        if (spawn == npc)
-                        {
+                    for (obj_id spawn : spawnList) {
+                        if (spawn == npc) {
                             return true;
                         }
                     }

@@ -54,7 +54,7 @@ public class lava_beetle_nest_destroy extends script.base_script
                     messageTo(self, "handleDamageTarget", dict, 10, false);
                     if (group.isGrouped(player))
                     {
-                        Vector members = group.getPCMembersInRange(player, 80f);
+                        Vector members = group.getPCMembersInRange(player, 80.0f);
                         if (members != null && members.size() > 0)
                         {
                             int numInGroup = members.size();
@@ -62,9 +62,8 @@ public class lava_beetle_nest_destroy extends script.base_script
                             {
                                 return SCRIPT_CONTINUE;
                             }
-                            for (int i = 0; i < numInGroup; i++)
-                            {
-                                obj_id thisMember = ((obj_id)members.get(i));
+                            for (Object member : members) {
+                                obj_id thisMember = ((obj_id) member);
                                 utils.setScriptVar(player, "beetle_nestdestroyed_01", 1);
                                 dictionary dict2 = new dictionary();
                                 dict2.put("target", thisMember);
@@ -103,7 +102,7 @@ public class lava_beetle_nest_destroy extends script.base_script
                     messageTo(self, "handleDamageTarget", dict, 10, false);
                     if (group.isGrouped(player))
                     {
-                        Vector members = group.getPCMembersInRange(player, 80f);
+                        Vector members = group.getPCMembersInRange(player, 80.0f);
                         if (members != null && members.size() > 0)
                         {
                             int numInGroup = members.size();
@@ -111,9 +110,8 @@ public class lava_beetle_nest_destroy extends script.base_script
                             {
                                 return SCRIPT_CONTINUE;
                             }
-                            for (int i = 0; i < numInGroup; i++)
-                            {
-                                obj_id thisMember = ((obj_id)members.get(i));
+                            for (Object member : members) {
+                                obj_id thisMember = ((obj_id) member);
                                 utils.setScriptVar(player, "beetle_nestdestroyed_02", 1);
                                 dictionary dict2 = new dictionary();
                                 dict2.put("target", thisMember);
@@ -152,7 +150,7 @@ public class lava_beetle_nest_destroy extends script.base_script
                     messageTo(self, "handleDamageTarget", dict, 10, false);
                     if (group.isGrouped(player))
                     {
-                        Vector members = group.getPCMembersInRange(player, 80f);
+                        Vector members = group.getPCMembersInRange(player, 80.0f);
                         if (members != null && members.size() > 0)
                         {
                             int numInGroup = members.size();
@@ -160,9 +158,8 @@ public class lava_beetle_nest_destroy extends script.base_script
                             {
                                 return SCRIPT_CONTINUE;
                             }
-                            for (int i = 0; i < numInGroup; i++)
-                            {
-                                obj_id thisMember = ((obj_id)members.get(i));
+                            for (Object member : members) {
+                                obj_id thisMember = ((obj_id) member);
                                 utils.setScriptVar(player, "beetle_nestdestroyed_03", 1);
                                 dictionary dict2 = new dictionary();
                                 dict2.put("target", thisMember);
@@ -201,7 +198,7 @@ public class lava_beetle_nest_destroy extends script.base_script
                     messageTo(self, "handleDamageTarget", dict, 10, false);
                     if (group.isGrouped(player))
                     {
-                        Vector members = group.getPCMembersInRange(player, 80f);
+                        Vector members = group.getPCMembersInRange(player, 80.0f);
                         if (members != null && members.size() > 0)
                         {
                             int numInGroup = members.size();
@@ -209,9 +206,8 @@ public class lava_beetle_nest_destroy extends script.base_script
                             {
                                 return SCRIPT_CONTINUE;
                             }
-                            for (int i = 0; i < numInGroup; i++)
-                            {
-                                obj_id thisMember = ((obj_id)members.get(i));
+                            for (Object member : members) {
+                                obj_id thisMember = ((obj_id) member);
                                 utils.setScriptVar(player, "beetle_nestdestroyed_04", 1);
                                 dictionary dict2 = new dictionary();
                                 dict2.put("target", thisMember);
@@ -284,9 +280,8 @@ public class lava_beetle_nest_destroy extends script.base_script
         {
             return SCRIPT_CONTINUE;
         }
-        for (int i = 0; i < targets.length; i++)
-        {
-            damage(targets[i], DAMAGE_ELEMENTAL_HEAT, HIT_LOCATION_BODY, 750);
+        for (obj_id target : targets) {
+            damage(target, DAMAGE_ELEMENTAL_HEAT, HIT_LOCATION_BODY, 750);
         }
         return SCRIPT_CONTINUE;
     }
@@ -297,11 +292,9 @@ public class lava_beetle_nest_destroy extends script.base_script
         targets.setSize(0);
         if (players != null && players.length != 0)
         {
-            for (int k = 0; k < players.length; k++)
-            {
-                if (isPlayer(players[k]) && isIdValid(players[k]) && exists(players[k]) && !isIncapacitated(players[k]))
-                {
-                    utils.addElement(targets, players[k]);
+            for (obj_id player : players) {
+                if (isPlayer(player) && isIdValid(player) && exists(player) && !isIncapacitated(player)) {
+                    utils.addElement(targets, player);
                 }
             }
         }

@@ -111,14 +111,11 @@ public class audience_member extends script.base_script
                 {
                     int m = rand(0, 5);
                     utils.setScriptVar(self, CHAT_OBJVAR, "positive_" + m + "_m");
-                    for (int i = 0; i < MUSIC_NAMES.length; i++)
-                    {
-                        if (utils.hasScriptVar(control, RATING_OBJVAR + "." + MUSIC_NAMES[i]))
-                        {
-                            int rating = utils.getIntScriptVar(control, RATING_OBJVAR + "." + MUSIC_NAMES[i]);
-                            if (rating > 0)
-                            {
-                                choices = utils.addElement(choices, MUSIC_NAMES[i]);
+                    for (String musicName : MUSIC_NAMES) {
+                        if (utils.hasScriptVar(control, RATING_OBJVAR + "." + musicName)) {
+                            int rating = utils.getIntScriptVar(control, RATING_OBJVAR + "." + musicName);
+                            if (rating > 0) {
+                                choices = utils.addElement(choices, musicName);
                             }
                         }
                     }
@@ -189,14 +186,11 @@ public class audience_member extends script.base_script
                 {
                     int m = rand(0, 5);
                     utils.setScriptVar(self, CHAT_OBJVAR, "negative_" + m + "_m");
-                    for (int i = 0; i < MUSIC_NAMES.length; i++)
-                    {
-                        if (utils.hasScriptVar(control, RATING_OBJVAR + "." + MUSIC_NAMES[i]))
-                        {
-                            int rating = utils.getIntScriptVar(control, RATING_OBJVAR + "." + MUSIC_NAMES[i]);
-                            if (rating < 0)
-                            {
-                                choices = utils.addElement(choices, MUSIC_NAMES[i]);
+                    for (String musicName : MUSIC_NAMES) {
+                        if (utils.hasScriptVar(control, RATING_OBJVAR + "." + musicName)) {
+                            int rating = utils.getIntScriptVar(control, RATING_OBJVAR + "." + musicName);
+                            if (rating < 0) {
+                                choices = utils.addElement(choices, musicName);
                             }
                         }
                     }

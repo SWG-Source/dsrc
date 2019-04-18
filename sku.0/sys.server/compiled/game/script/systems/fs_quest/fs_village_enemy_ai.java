@@ -47,7 +47,7 @@ public class fs_village_enemy_ai extends script.base_script
     {
         LOG("questAI", "fs_village_enemy_ai.OnAttach(" + self + ") - setting up new patrol paths");
         setObjVar(self, fs_dyn_village.OBJVAR_TURRET_TARGET, 1);
-        messageTo(self, "msgSelfDestruct", null, (float)fs_dyn_village.VILLAGE_ENEMY_MAX_LIFE, false);
+        messageTo(self, "msgSelfDestruct", null, fs_dyn_village.VILLAGE_ENEMY_MAX_LIFE, false);
         messageTo(self, "fs_enemy_combat_tick", null, 10.0f, false);
         setPatrolPaths();
         return SCRIPT_CONTINUE;

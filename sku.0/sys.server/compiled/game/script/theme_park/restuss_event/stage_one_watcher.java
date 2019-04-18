@@ -87,19 +87,22 @@ public class stage_one_watcher extends script.base_script
     }
     public int OnClusterWideDataResponse(obj_id self, String manage_name, String name, int request_id, String[] element_name_list, dictionary[] dungeon_data, int lock_key) throws InterruptedException
     {
-        if (dungeon_data == null || dungeon_data.length == 0) {
-            LOG("events", "Dungeon data was null or empty");
+        if (dungeon_data == null || dungeon_data.length == 0)
+        {
+            LOG("doLogging", "Dungeon data was null or empty");
             return SCRIPT_CONTINUE;
         }
-        if (hasObjVar(self, "sent_signal_one") && hasObjVar(self, "sent_signal_two")) {
-            for (int i = 0; i < dungeon_data.length; i++) {
-                obj_id crier_id = dungeon_data[i].getObjId("dungeon_id");
+        if (hasObjVar(self, "sent_signal_one") && hasObjVar(self, "sent_signal_two"))
+        {
+            for (dictionary dungeon_datum : dungeon_data) {
+                obj_id crier_id = dungeon_datum.getObjId("dungeon_id");
                 messageTo(crier_id, "beginMessage", null, 0, false);
             }
         }
-        if (hasObjVar(self, "sent_signal_one") && !hasObjVar(self, "sent_signal_two")) {
-            for (int i = 0; i < dungeon_data.length; i++) {
-                obj_id crier_id = dungeon_data[i].getObjId("dungeon_id");
+        if (hasObjVar(self, "sent_signal_one") && !hasObjVar(self, "sent_signal_two"))
+        {
+            for (dictionary dungeon_datum : dungeon_data) {
+                obj_id crier_id = dungeon_datum.getObjId("dungeon_id");
                 messageTo(crier_id, "beginSpawn", null, 0, false);
             }
         }

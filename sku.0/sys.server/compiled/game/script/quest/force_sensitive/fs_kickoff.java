@@ -375,13 +375,10 @@ public class fs_kickoff extends script.base_script
                     }
                     if (permitted != null)
                     {
-                        for (int i = 0; i < permitted.length; i++)
-                        {
-                            if (permitted[i] == self)
-                            {
+                        for (obj_id obj_id : permitted) {
+                            if (obj_id == self) {
                                 obj_id inv = utils.getInventoryContainer(corpse);
-                                if (isIdValid(inv))
-                                {
+                                if (isIdValid(inv)) {
                                     obj_id loot = createObject("object/tangible/loot/quest/force_sensitive/waypoint_datapad.iff", inv, "");
                                     setObjVar(loot, "quest.loot_datapad_1.quest_item_target", self);
                                     setOwner(loot, self);

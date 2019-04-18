@@ -228,22 +228,17 @@ public class survivor_pathing extends script.base_script
                     float smallestDist = 300;
                     obj_id closestObj = obj_id.NULL_ID;
                     boolean modified = false;
-                    for (int i = 0; i < waypointList.length; i++)
-                    {
-                        if (!isValidId(waypointList[i]) || !exists(waypointList[i]))
-                        {
+                    for (obj_id obj_id : waypointList) {
+                        if (!isValidId(obj_id) || !exists(obj_id)) {
                             continue;
                         }
-                        float npcAndWaypointDist = getDistance(self, waypointList[i]);
-                        if (npcAndWaypointDist > smallestDist)
-                        {
+                        float npcAndWaypointDist = getDistance(self, obj_id);
+                        if (npcAndWaypointDist > smallestDist) {
                             continue;
-                        }
-                        else 
-                        {
-                            CustomerServiceLog("outbreak_themepark", "survivor_pathing.checkOwnerValidity() Mob: " + self + " has found a node (" + waypointList[i] + ") that is closer than any previously found node. Previous dist: " + smallestDist + ". New Dist: " + npcAndWaypointDist);
+                        } else {
+                            CustomerServiceLog("outbreak_themepark", "survivor_pathing.checkOwnerValidity() Mob: " + self + " has found a node (" + obj_id + ") that is closer than any previously found node. Previous dist: " + smallestDist + ". New Dist: " + npcAndWaypointDist);
                             smallestDist = npcAndWaypointDist;
-                            closestObj = waypointList[i];
+                            closestObj = obj_id;
                             modified = true;
                         }
                     }

@@ -183,13 +183,11 @@ public class master extends script.theme_park.poi.base
             }
             else 
             {
-                for (int i = 0; i < victors.length; i++)
-                {
-                    switch (rand(1, 2))
-                    {
+                for (obj_id victor : victors) {
+                    switch (rand(1, 2)) {
                         case 1:
-                        messageTo(victors[i], scenario.HANDLER_VICTORY, null, 1, false);
-                        break;
+                            messageTo(victor, scenario.HANDLER_VICTORY, null, 1, false);
+                            break;
                     }
                 }
             }

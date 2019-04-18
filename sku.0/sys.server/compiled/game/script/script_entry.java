@@ -249,14 +249,12 @@ public class script_entry
 		// put the function names into an array, filtering out functions that are derived from base_class.java
 		// and other non-script classes
 		Vector functions = new Vector();
-		for ( int i = 0; i < scriptMethods.length; ++i )
-		{
-			if (scriptMethods[i].getDeclaringClass() != baseClass &&
-				scriptMethods[i].getDeclaringClass() != objectClass)
-			{
-				functions.add(scriptMethods[i].getName());
-			}
-		}
+        for (Method scriptMethod : scriptMethods) {
+            if (scriptMethod.getDeclaringClass() != baseClass &&
+                    scriptMethod.getDeclaringClass() != objectClass) {
+                functions.add(scriptMethod.getName());
+            }
+        }
 
 		// convert the Vector of function names to an array
 		String[] returnValue = new String[functions.size()];
@@ -336,6 +334,7 @@ public class script_entry
 	 *
 	 * @return SCRIPT_CONTINUE or SCRIPT_OVERRIDE
 	 */
+	@SuppressWarnings("deprecation")
 	public static int runScript(String script, String method, Object[] params) throws internal_script_error, internal_script_exception
 	{
 		boolean scriptCalled = false;
@@ -434,7 +433,7 @@ public class script_entry
 
 				Object scriptResult = meth.invoke(obj, params);
 				if ( scriptResult != null )
-					result = ((Integer)scriptResult).intValue();
+					result = (Integer) scriptResult;
 			}
 		}
 		catch (NoSuchMethodException err)
@@ -673,6 +672,7 @@ public class script_entry
 	 *
 	 * @return SCRIPT_CONTINUE or SCRIPT_OVERRIDE
 	 */
+	@SuppressWarnings("deprecation")
 	public static int callMessageHandler(String script, String method, Object[] params)  throws internal_script_error, internal_script_exception
 	{
 		boolean scriptCalled = false;
@@ -744,7 +744,7 @@ public class script_entry
 
 				Object scriptResult = meth.invoke(obj, params);
 				if ( scriptResult != null )
-					result = ((Integer)scriptResult).intValue();
+					result = (Integer) scriptResult;
 			}
 		}
 		catch (NoSuchMethodException err)
@@ -936,27 +936,25 @@ public class script_entry
 			if(object.getLockCount() > 1)
 			{
 				String[] scripts = object.getScripts();
-				for (int i = 0; i < scripts.length; ++i)
-				{
-					result = callMessageHandler(scripts[i], method, paramArray);
-					if (result != base_class.SCRIPT_CONTINUE)
-						break;
-				}
+                for (String script : scripts) {
+                    result = callMessageHandler(script, method, paramArray);
+                    if (result != base_class.SCRIPT_CONTINUE)
+                        break;
+                }
 			}
 			else
 			{
 				ArrayList scripts = object.getScriptArrayList();
-				for (int i = 0; i < scripts.size(); ++i)
-				{
-	//				String script = "script." + (String)scripts.get(i);
-	//				scriptNameBuffer.setLength("script.".length());
-	//				scriptNameBuffer.append(script);
-	//				script = scriptNameBuffer.toString();
-	//				result = callMessageHandler(scriptNameBuffer.toString(), method, paramArray);
-					result = callMessageHandler((String)scripts.get(i), method, paramArray);
-					if (result != base_class.SCRIPT_CONTINUE)
-						break;
-				}
+                for (Object script : scripts) {
+                    //				String script = "script." + (String)scripts.get(i);
+                    //				scriptNameBuffer.setLength("script.".length());
+                    //				scriptNameBuffer.append(script);
+                    //				script = scriptNameBuffer.toString();
+                    //				result = callMessageHandler(scriptNameBuffer.toString(), method, paramArray);
+                    result = callMessageHandler((String) script, method, paramArray);
+                    if (result != base_class.SCRIPT_CONTINUE)
+                        break;
+                }
 			}
 		}
 		catch (ClassCastException err)
@@ -990,6 +988,7 @@ public class script_entry
 	 *
 	 * @return the string returned from the handler function
 	 */
+	@SuppressWarnings("deprecation")
 	public static String runConsoleHandler(String script, String method, Object[] params)  throws internal_script_error, internal_script_exception
 	{
 		boolean scriptCalled = false;

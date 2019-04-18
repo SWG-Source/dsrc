@@ -495,9 +495,8 @@ public class create extends script.base_script
             ranged_int_custom_var[] c = hue.getPalcolorVars(creature);
             if (c != null)
             {
-                for (int i = 0; i < c.length; i++)
-                {
-                    c[i].setValue(huevar);
+                for (ranged_int_custom_var ranged_int_custom_var : c) {
+                    ranged_int_custom_var.setValue(huevar);
                 }
             }
         }
@@ -590,7 +589,7 @@ public class create extends script.base_script
                 dictionary primDat = weapons.getWeaponDat(primaryWeapon);
                 if (primDat != null)
                 {
-                    weapons.setWeaponAttributes(primaryWeapon, primDat, 1f);
+                    weapons.setWeaponAttributes(primaryWeapon, primDat, 1.0f);
                 }
                 setWeaponAttackSpeed(primaryWeapon, primarySpeed);
                 setWeaponMaxDamage(primaryWeapon, priMaxDamage);
@@ -613,7 +612,7 @@ public class create extends script.base_script
                 dictionary secDat = weapons.getWeaponDat(secondaryWeapon);
                 if (secDat != null)
                 {
-                    weapons.setWeaponAttributes(secondaryWeapon, secDat, 1f);
+                    weapons.setWeaponAttributes(secondaryWeapon, secDat, 1.0f);
                 }
                 setWeaponAttackSpeed(secondaryWeapon, secondarySpeed);
                 setWeaponMaxDamage(secondaryWeapon, secMaxDamage);
@@ -805,7 +804,7 @@ public class create extends script.base_script
         int level = 0;
         
         {
-            level = (int)(((statLevel * 6) + (dmgLevel * 6) + (toHitLevel * 2) + (armorLevel * 4)) / 18f);
+            level = (int)(((statLevel * 6) + (dmgLevel * 6) + (toHitLevel * 2) + (armorLevel * 4)) / 18.0f);
         }
         return level;
     }
@@ -826,9 +825,8 @@ public class create extends script.base_script
             return;
         }
         String[] scriptArray = split(scriptList, ',');
-        for (int i = 0; i < scriptArray.length; i++)
-        {
-            attachScript(creature, scriptArray[i]);
+        for (String s : scriptArray) {
+            attachScript(creature, s);
         }
     }
     public static boolean initializeArmor(obj_id creature, dictionary creatureDict) throws InterruptedException
@@ -910,7 +908,7 @@ public class create extends script.base_script
         {
             intDifference = 1;
         }
-        float fltPercent = (float)(intPlayerDifficulty / intDifference);
+        float fltPercent = (intPlayerDifficulty / intDifference);
         fltPercent = fltPercent * 100;
         int intIndex = (int)(fltPercent / 20);
         intIndex = intIndex - 1;
@@ -1049,23 +1047,23 @@ public class create extends script.base_script
     public static void randomlyNameCreature(obj_id npc, String creatureName) throws InterruptedException
     {
         String templateName = getTemplateName(npc);
-        if (templateName.indexOf("stormtrooper") != -1)
+        if (templateName.contains("stormtrooper"))
         {
             nameStormTrooper(npc);
         }
-        if (templateName.indexOf("swamp_trooper") != -1)
+        if (templateName.contains("swamp_trooper"))
         {
             nameSwampTrooper(npc);
         }
-        if (templateName.indexOf("scout_trooper") != -1)
+        if (templateName.contains("scout_trooper"))
         {
             nameScoutTrooper(npc);
         }
-        if (templateName.indexOf("tie_fighter") != -1)
+        if (templateName.contains("tie_fighter"))
         {
             nameImperialPilot(npc);
         }
-        if (templateName.indexOf("dark_trooper") != -1)
+        if (templateName.contains("dark_trooper"))
         {
             nameDarkTrooper(npc);
         }

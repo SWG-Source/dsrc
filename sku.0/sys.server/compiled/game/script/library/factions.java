@@ -18,8 +18,8 @@ public class factions extends script.base_script
     public static final float BOTHAN_NEGATIVE_MOD = 0.90f;
     public static final String FACTION = "faction";
     public static final float FACTION_RATING_MIN = -5000.0f;
-    public static final float FACTION_RATING_MAX = +5000.0f;
-    public static final float NON_ALIGNED_FACTION_MAX = +1000.0f;
+    public static final float FACTION_RATING_MAX = 5000.0f;
+    public static final float NON_ALIGNED_FACTION_MAX = 1000.0f;
     public static final float FACTION_RATING_DECLARABLE_MIN = 200.0f;
     public static final float FACTION_RATING_SYMPATHIZER_MIN = 750.0f;
     public static final float FACTION_RATING_INVALID = 0.0f;
@@ -225,16 +225,12 @@ public class factions extends script.base_script
             return;
         }
         obj_id inv = getObjectInSlot(self, "inventory");
-        for (int i = 0; i < items.length; i++)
-        {
-            if (hasScript(items[i], factions.SCRIPT_FACTION_ITEM))
-            {
-                if (!checkForDeclaredObjVar || hasObjVar(items[i], factions.VAR_DECLARED))
-                {
-                    String strTemplate = getTemplateName(items[i]);
-                    if (!strTemplate.endsWith("marine/armor_marine_backpack.iff"))
-                    {
-                        putInOverloaded(items[i], inv);
+        for (obj_id item : items) {
+            if (hasScript(item, factions.SCRIPT_FACTION_ITEM)) {
+                if (!checkForDeclaredObjVar || hasObjVar(item, factions.VAR_DECLARED)) {
+                    String strTemplate = getTemplateName(item);
+                    if (!strTemplate.endsWith("marine/armor_marine_backpack.iff")) {
+                        putInOverloaded(item, inv);
                     }
                 }
             }
@@ -251,13 +247,10 @@ public class factions extends script.base_script
             LOG("LOG_CHANNEL", "Player " + self + " has an appearance inventory, but the contents were null. Skipping appearance inventory faction unequip...");
             return;
         }
-        for (int i = 0; i < appInvItems.length; i++)
-        {
-            if (hasScript(appInvItems[i], factions.SCRIPT_FACTION_ITEM))
-            {
-                if (!checkForDeclaredObjVar || hasObjVar(appInvItems[i], factions.VAR_DECLARED))
-                {
-                    putInOverloaded(appInvItems[i], inv);
+        for (obj_id appInvItem : appInvItems) {
+            if (hasScript(appInvItem, factions.SCRIPT_FACTION_ITEM)) {
+                if (!checkForDeclaredObjVar || hasObjVar(appInvItem, factions.VAR_DECLARED)) {
+                    putInOverloaded(appInvItem, inv);
                 }
             }
         }
@@ -530,7 +523,7 @@ public class factions extends script.base_script
         {
             return;
         }
-        float multiplier = (float)ratioTo / (float)ratioFrom;
+        float multiplier = (float)ratioTo / ratioFrom;
         if (params == null || params.equals(""))
         {
             String title = utils.packStringId(SID_SUI_DELEGATE_FACTION);
@@ -1002,19 +995,19 @@ public class factions extends script.base_script
                     if (playerAllowed)
                     {
                         float playerFaction = getFactionStanding(target, npcFaction);
-                        if (playerFaction > (FACTION_RATING_MAX * .75f))
+                        if (playerFaction > (FACTION_RATING_MAX * 0.75f))
                         {
                             result = REACTION_POSITIVE;
                         }
-                        else if (playerFaction > (FACTION_RATING_MAX * .5f))
+                        else if (playerFaction > (FACTION_RATING_MAX * 0.5f))
                         {
                             result = REACTION_LIKE;
                         }
-                        else if (playerFaction < (FACTION_RATING_MIN * .75f))
+                        else if (playerFaction < (FACTION_RATING_MIN * 0.75f))
                         {
                             result = REACTION_NEGATIVE;
                         }
-                        else if (playerFaction < (FACTION_RATING_MIN * .5f))
+                        else if (playerFaction < (FACTION_RATING_MIN * 0.5f))
                         {
                             result = REACTION_DISLIKE;
                         }
@@ -1130,7 +1123,7 @@ public class factions extends script.base_script
     }
     public static void grantCombatFaction(obj_id killer, obj_id target, double percentDamage) throws InterruptedException
     {
-        if (!isIdValid(target) || !isIdValid(killer) || percentDamage < 0.f || percentDamage > 1.f)
+        if (!isIdValid(target) || !isIdValid(killer) || percentDamage < 0.0f || percentDamage > 1.0f)
         {
             return;
         }
@@ -1173,7 +1166,7 @@ public class factions extends script.base_script
             }
             int kRank = pvpGetCurrentGcwRank(killer);
             int tRank = pvpGetCurrentGcwRank(target);
-            float diffFactor = 1f + (tRank - kRank) / (2 * MAXIMUM_RANK);
+            float diffFactor = 1.0f + (tRank - kRank) / (2 * MAXIMUM_RANK);
             int actualReward = (int)(MAX_FACTION_KILL_REWARD * percentDamage * diffFactor);
             int factionLoss = (int)(-1.5f * actualReward);
             if (hasSkill(target, "class_smuggler_phase2_novice"))
@@ -1200,7 +1193,7 @@ public class factions extends script.base_script
                 killerDiff = 25;
             }
             int diffDelta = (targetDiff - killerDiff) + 25;
-            float diffFactor = diffDelta / 50.f;
+            float diffFactor = diffDelta / 50.0f;
             int actualReward = (int)(MAX_FACTION_KILL_REWARD * percentDamage * diffFactor);
             int factionLoss = (int)(-1.5f * actualReward);
             awardFactionStanding(killer, killerFaction, actualReward);
@@ -1241,11 +1234,9 @@ public class factions extends script.base_script
         if (allies != null)
         {
             String[] alliesList = split(allies, ',');
-            for (int i = 0; i < alliesList.length; i++)
-            {
-                if (!alliesList[i].equals(FACTION_IMPERIAL) && !alliesList[i].equals(FACTION_REBEL))
-                {
-                    addFactionStanding(target, alliesList[i], amount);
+            for (String s : alliesList) {
+                if (!s.equals(FACTION_IMPERIAL) && !s.equals(FACTION_REBEL)) {
+                    addFactionStanding(target, s, amount);
                 }
             }
         }
@@ -1260,11 +1251,9 @@ public class factions extends script.base_script
             return;
         }
         String[] enemiesList = split(enemies, ',');
-        for (int i = 0; i < enemiesList.length; i++)
-        {
-            if (!enemiesList[i].equals(FACTION_IMPERIAL) && !enemiesList[i].equals(FACTION_REBEL))
-            {
-                addFactionStanding(target, enemiesList[i], -amount);
+        for (String s : enemiesList) {
+            if (!s.equals(FACTION_IMPERIAL) && !s.equals(FACTION_REBEL)) {
+                addFactionStanding(target, s, -amount);
             }
         }
     }
@@ -1462,8 +1451,8 @@ public class factions extends script.base_script
         {
             return;
         }
-        float gain = kashyyykAmmount + (float)ammount;
-        float lose = hsskorAmmount - (float)ammount;
+        float gain = kashyyykAmmount + ammount;
+        float lose = hsskorAmmount - ammount;
         setObjVar(player, FACTION + "." + KASHYYYK, gain);
         setObjVar(player, FACTION + "." + HSSKOR, lose);
         prose_package pp = prose.getPackage(PROSE_AWARD_FACTION, getLocalizedFactionName(KASHYYYK), (int)ammount);
@@ -1490,8 +1479,8 @@ public class factions extends script.base_script
         {
             return;
         }
-        float gain = hsskorAmmount + (float)ammount;
-        float lose = kashyyykAmmount - (float)ammount;
+        float gain = hsskorAmmount + ammount;
+        float lose = kashyyykAmmount - ammount;
         setObjVar(player, FACTION + "." + HSSKOR, gain);
         setObjVar(player, FACTION + "." + KASHYYYK, lose);
         prose_package pp = prose.getPackage(PROSE_AWARD_FACTION, getLocalizedFactionName(HSSKOR), (int)ammount);
@@ -1505,8 +1494,8 @@ public class factions extends script.base_script
     {
         String checkHsskor = FACTION + "." + HSSKOR;
         String checkKashyyyk = FACTION + "." + KASHYYYK;
-        float hsskorBalance = 0f;
-        float kashyyykBalance = 0f;
+        float hsskorBalance = 0.0f;
+        float kashyyykBalance = 0.0f;
         if (hasObjVar(player, checkHsskor))
         {
             if (!hasObjVar(player, checkKashyyyk))
@@ -1896,7 +1885,7 @@ public class factions extends script.base_script
                         if (intYourPVPType == PVPTYPE_COVERT)
                         {
                             LOG("combat", "return 5");
-                            doTransitionSui(objPlayer, objTarget, 30f);
+                            doTransitionSui(objPlayer, objTarget, 30.0f);
                             return false;
                         }
                         if (intYourPVPType == PVPTYPE_DECLARED)
@@ -2041,7 +2030,7 @@ public class factions extends script.base_script
                     if (intYourPVPType == PVPTYPE_COVERT)
                     {
                         LOG("combat", "return 5");
-                        doTransitionSui(objPlayer, objTarget, 30f);
+                        doTransitionSui(objPlayer, objTarget, 30.0f);
                         return false;
                     }
                 }
@@ -2177,10 +2166,8 @@ public class factions extends script.base_script
             return false;
         }
         String[] alliesParse = split(allies, ',');
-        for (int i = 0; i < alliesParse.length; i++)
-        {
-            if (alliesParse[i].equals(factionTwo))
-            {
+        for (String s : alliesParse) {
+            if (s.equals(factionTwo)) {
                 return true;
             }
         }

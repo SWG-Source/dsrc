@@ -23,10 +23,8 @@ public class han_solo_experience_manager extends script.base_script
         obj_id[] contents = getContents(bldg);
         if (contents != null)
         {
-            for (int i = 0; i < contents.length; ++i)
-            {
-                if (isPlayer(contents[i]) || containsPlayer(contents[i]))
-                {
+            for (obj_id content : contents) {
+                if (isPlayer(content) || containsPlayer(content)) {
                     return true;
                 }
             }
@@ -58,12 +56,10 @@ public class han_solo_experience_manager extends script.base_script
             obj_id[] objContents = getContents(medBayCell);
             if (objContents != null)
             {
-                for (int intI = 0; intI < objContents.length; intI++)
-                {
-                    String strItemTemplate = getTemplateName(objContents[intI]);
-                    if (strItemTemplate.equals("object/tangible/npe/npe_target_crate.iff"))
-                    {
-                        crates[crateCount] = objContents[intI];
+                for (obj_id objContent : objContents) {
+                    String strItemTemplate = getTemplateName(objContent);
+                    if (strItemTemplate.equals("object/tangible/npe/npe_target_crate.iff")) {
+                        crates[crateCount] = objContent;
                         crateCount++;
                     }
                 }
@@ -73,12 +69,10 @@ public class han_solo_experience_manager extends script.base_script
         if (utils.hasScriptVar(self, "objAlarms"))
         {
             Vector alarms = utils.getResizeableObjIdArrayScriptVar(self, "objAlarms");
-            for (int i = 0; i < alarms.size(); i++)
-            {
-                if (isIdValid(((obj_id)alarms.get(i))))
-                {
-                    setCondition(((obj_id)alarms.get(i)), CONDITION_ON);
-                    LOG("npe_alarm", "Condition is on for alarm " + ((obj_id)alarms.get(i)));
+            for (Object alarm : alarms) {
+                if (isIdValid(((obj_id) alarm))) {
+                    setCondition(((obj_id) alarm), CONDITION_ON);
+                    LOG("npe_alarm", "Condition is on for alarm " + ((obj_id) alarm));
                 }
             }
         }
@@ -291,11 +285,9 @@ public class han_solo_experience_manager extends script.base_script
         obj_id[] contents = getBuildingContents(self);
         if (contents != null)
         {
-            for (int intI = 0; intI < contents.length; intI++)
-            {
-                if (!isPlayer(contents[intI]) && isMob(contents[intI]))
-                {
-                    destroyObject(contents[intI]);
+            for (obj_id content : contents) {
+                if (!isPlayer(content) && isMob(content)) {
+                    destroyObject(content);
                 }
             }
         }
@@ -427,11 +419,9 @@ public class han_solo_experience_manager extends script.base_script
     public int setupcrates(obj_id self, dictionary params) throws InterruptedException
     {
         obj_id[] crates = utils.getObjIdArrayScriptVar(self, "objArrayCrates");
-        for (int i = 0; i < crates.length; i++)
-        {
-            if (isIdValid(crates[i]))
-            {
-                setInvulnerable(crates[i], false);
+        for (obj_id crate : crates) {
+            if (isIdValid(crate)) {
+                setInvulnerable(crate, false);
             }
         }
         obj_id player = sequencer.getSequenceObject("player");
@@ -511,14 +501,11 @@ public class han_solo_experience_manager extends script.base_script
         Vector objContents = new Vector();
         objContents.setSize(0);
         obj_id[] objCells = getContents(objObject);
-        for (int intI = 0; intI < objCells.length; intI++)
-        {
-            obj_id[] objTestContents = getContents(objCells[intI]);
-            if ((objTestContents != null) && (objTestContents.length > 0))
-            {
-                for (int intJ = 0; intJ < objTestContents.length; intJ++)
-                {
-                    objContents = utils.addElement(objContents, objTestContents[intJ]);
+        for (obj_id objCell : objCells) {
+            obj_id[] objTestContents = getContents(objCell);
+            if ((objTestContents != null) && (objTestContents.length > 0)) {
+                for (obj_id objTestContent : objTestContents) {
+                    objContents = utils.addElement(objContents, objTestContent);
                 }
             }
         }

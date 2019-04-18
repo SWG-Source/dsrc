@@ -11,7 +11,7 @@ public class taike_tusken extends script.base_script
     }
     public int goToTheSpot(obj_id self, dictionary params) throws InterruptedException
     {
-        location there = new location(3839f, 22f, 2351f, "tatooine", null);
+        location there = new location(3839.0f, 22.0f, 2351.0f, "tatooine", null);
         pathTo(self, there);
         return SCRIPT_CONTINUE;
     }

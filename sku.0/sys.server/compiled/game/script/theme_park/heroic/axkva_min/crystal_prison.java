@@ -35,12 +35,10 @@ public class crystal_prison extends script.base_script
         obj_id[] enemies = getWhoIsTargetingMe(self);
         if (enemies != null && enemies.length > 1)
         {
-            for (int i = 0; i < enemies.length; i++)
-            {
-                if (isPlayer(enemies[i]))
-                {
-                    setTarget(enemies[i], null);
-                    setCombatTarget(enemies[i], null);
+            for (obj_id enemy : enemies) {
+                if (isPlayer(enemy)) {
+                    setTarget(enemy, null);
+                    setCombatTarget(enemy, null);
                 }
             }
         }

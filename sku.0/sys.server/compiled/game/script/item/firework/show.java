@@ -42,9 +42,9 @@ public class show extends script.base_script
         }
         for (int i = 0; i < show_delay.size(); i++)
         {
-            if (((Float)show_delay.get(i)).floatValue() < firework.SHOW_DELAY_MIN)
+            if ((Float) show_delay.get(i) < firework.SHOW_DELAY_MIN)
             {
-                show_delay.set(i, new Float(firework.SHOW_DELAY_MIN));
+                show_delay.set(i, firework.SHOW_DELAY_MIN);
             }
         }
         setObjVar(self, firework.VAR_SHOW_DELAY, show_delay);
@@ -128,12 +128,10 @@ public class show extends script.base_script
                     fireworks.setSize(0);
                     Vector entries = new Vector();
                     entries.setSize(0);
-                    for (int i = 0; i < tmpFireworks.length; i++)
-                    {
-                        if (hasObjVar(tmpFireworks[i], firework.VAR_FIREWORK_FX))
-                        {
-                            fireworks = utils.addElement(fireworks, tmpFireworks[i]);
-                            entries = utils.addElement(entries, utils.getStringName(tmpFireworks[i]) + " (" + getCount(tmpFireworks[i]) + ")");
+                    for (obj_id tmpFirework : tmpFireworks) {
+                        if (hasObjVar(tmpFirework, firework.VAR_FIREWORK_FX)) {
+                            fireworks = utils.addElement(fireworks, tmpFirework);
+                            entries = utils.addElement(entries, utils.getStringName(tmpFirework) + " (" + getCount(tmpFirework) + ")");
                         }
                     }
                     if (entries != null && fireworks != null && entries.size() == fireworks.size())
@@ -283,7 +281,7 @@ public class show extends script.base_script
         {
             return SCRIPT_CONTINUE;
         }
-        float delay = sui.getTransferInputTo(params) / 10f;
+        float delay = sui.getTransferInputTo(params) / 10.0f;
         firework.setEventDelay(player, self, idx, delay);
         firework.showModifyEventIndexSUI(player, self);
         return SCRIPT_CONTINUE;

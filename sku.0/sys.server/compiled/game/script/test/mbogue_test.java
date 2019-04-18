@@ -367,14 +367,11 @@ public class mbogue_test extends script.base_script
                 {
                     obj_id objectList[] = getObjectsInRange(self, 16000.0f);
                     int count = 0;
-                    for (int i = 0; i < objectList.length; ++i)
-                    {
-                        if (isGameObjectTypeOf(objectList[i], GOT_ship) && !isGameObjectTypeOf(objectList[i], GOT_ship_station) && !(getTemplateName(objectList[i])).startsWith("object/ship/player"))
-                        {
+                    for (obj_id obj_id : objectList) {
+                        if (isGameObjectTypeOf(obj_id, GOT_ship) && !isGameObjectTypeOf(obj_id, GOT_ship_station) && !(getTemplateName(obj_id)).startsWith("object/ship/player")) {
                             Random random = new Random();
-                            if ((Math.abs(random.nextInt()) % 2) == 0)
-                            {
-                                debugDestroyObject(self, objectList[i]);
+                            if ((Math.abs(random.nextInt()) % 2) == 0) {
+                                debugDestroyObject(self, obj_id);
                                 ++count;
                             }
                         }
@@ -385,11 +382,9 @@ public class mbogue_test extends script.base_script
                 {
                     obj_id objectList[] = getObjectsInRange(self, 16000.0f);
                     int count = 0;
-                    for (int i = 0; i < objectList.length; ++i)
-                    {
-                        if (isGameObjectTypeOf(objectList[i], GOT_ship) && !isGameObjectTypeOf(objectList[i], GOT_ship_station) && !(getTemplateName(objectList[i])).startsWith("object/ship/player"))
-                        {
-                            debugDestroyObject(self, objectList[i]);
+                    for (obj_id obj_id : objectList) {
+                        if (isGameObjectTypeOf(obj_id, GOT_ship) && !isGameObjectTypeOf(obj_id, GOT_ship_station) && !(getTemplateName(obj_id)).startsWith("object/ship/player")) {
+                            debugDestroyObject(self, obj_id);
                             ++count;
                         }
                     }
@@ -622,10 +617,10 @@ public class mbogue_test extends script.base_script
                         }
                         for (int index = 0; index < squadCount; ++index)
                         {
-                            final float radian = (float)Math.PI * 2.0f * ((float)index / (float)squadCount);
-                            final float x = anchorPosition_w.x + (float)Math.sin(radian) * squadSpacingRadius;
+                            final float radian = (float)Math.PI * 2.0f * ((float)index / squadCount);
+                            final float x = anchorPosition_w.x + (float) StrictMath.sin(radian) * squadSpacingRadius;
                             final float y = anchorPosition_w.y;
-                            final float z = anchorPosition_w.z + (float)Math.cos(radian) * squadSpacingRadius;
+                            final float z = anchorPosition_w.z + (float) StrictMath.cos(radian) * squadSpacingRadius;
                             final int newSquad = createPatrollingSquad(self, unitName, squadSize, new vector(x, y, z));
                             ship_ai.squadSetGuardTarget(newSquad, unitToGuardSquadId);
                         }
@@ -747,11 +742,11 @@ public class mbogue_test extends script.base_script
         for (int i = 0; i < points; ++i)
         {
             final float halfHeightPercent = 2.0f;
-            final float yOffset = ((float)i / (float)points) * radius * (halfHeightPercent * 2.0f) - radius * halfHeightPercent;
-            final float radian = (float)Math.PI * 4.0f * ((float)i / (float)points);
-            final float x = position_w.x + (float)Math.sin(radian) * radius;
+            final float yOffset = ((float)i / points) * radius * (halfHeightPercent * 2.0f) - radius * halfHeightPercent;
+            final float radian = (float)Math.PI * 4.0f * ((float)i / points);
+            final float x = position_w.x + (float) StrictMath.sin(radian) * radius;
             final float y = position_w.y + yOffset;
-            final float z = position_w.z + (float)Math.cos(radian) * radius;
+            final float z = position_w.z + (float) StrictMath.cos(radian) * radius;
             path[i] = transform.identity.setPosition_p(x, y, z);
         }
         return path;

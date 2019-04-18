@@ -320,12 +320,12 @@ public class beast_control_device extends script.base_script
                 for (int i = 0; i < incubationBonuses.length; i++)
                 {
                     String name = beast_lib.DISPLAY_NAMES[i];
-                    if (name.indexOf("_skill") < 0)
+                    if (!name.contains("_skill"))
                     {
                         if (!name.equals("block_value_bonus"))
                         {
                             names[idx] = beast_lib.DISPLAY_NAMES[i];
-                            attribs[idx] = "" + utils.roundFloatByDecimal((float)incubationBonuses[i] * beast_lib.DISPLAY_OBJVAR_CONVERSION_RATES[i]) + "%";
+                            attribs[idx] = "" + utils.roundFloatByDecimal(incubationBonuses[i] * beast_lib.DISPLAY_OBJVAR_CONVERSION_RATES[i]) + "%";
                             idx++;
                         }
                         else 
@@ -469,7 +469,7 @@ public class beast_control_device extends script.base_script
             beastHappiness = getIntArrayObjVar(self, beast_lib.PET_FAVORITES_OBJVAR);
             String favoriteActivity = dataTableGetString(beast_lib.DATATABLE_BEAST_FAVORITES, (beastHappiness[2] - 1), beast_lib.DATATABLE_ACTIVITY_COL);
             String dislikeActivity = dataTableGetString(beast_lib.DATATABLE_BEAST_FAVORITES, (beastHappiness[3] - 1), beast_lib.DATATABLE_ACTIVITY_COL);
-            if (favoriteActivity.indexOf("grouped") > -1)
+            if (favoriteActivity.contains("grouped"))
             {
                 beast_lib.performingActivity(self, beast_lib.PET_FAVORITE_ACTIVITY);
                 messageTo(self, "checkIfStillGrouped", null, 1800, false);
@@ -483,7 +483,7 @@ public class beast_control_device extends script.base_script
                     messageTo(self, "removeActivityBlock", null, 600, false);
                 }
             }
-            else if (dislikeActivity.indexOf("grouped") > -1)
+            else if (dislikeActivity.contains("grouped"))
             {
                 beast_lib.performingActivity(self, beast_lib.PET_DISLIKE_ACTIVITY);
                 messageTo(self, "checkIfStillGrouped", null, 1800, false);
@@ -528,7 +528,7 @@ public class beast_control_device extends script.base_script
             beastHappiness = getIntArrayObjVar(self, beast_lib.PET_FAVORITES_OBJVAR);
             String favoriteActivity = dataTableGetString(beast_lib.DATATABLE_BEAST_FAVORITES, (beastHappiness[2] - 1), beast_lib.DATATABLE_ACTIVITY_COL);
             String dislikeActivity = dataTableGetString(beast_lib.DATATABLE_BEAST_FAVORITES, (beastHappiness[3] - 1), beast_lib.DATATABLE_ACTIVITY_COL);
-            if (favoriteActivity.indexOf("watchingEntertainer") > -1)
+            if (favoriteActivity.contains("watchingEntertainer"))
             {
                 beast_lib.performingActivity(self, beast_lib.PET_FAVORITE_ACTIVITY);
                 messageTo(self, "checkIfStillEntertained", null, 1800, false);
@@ -542,7 +542,7 @@ public class beast_control_device extends script.base_script
                     messageTo(self, "removeActivityBlock", null, 600, false);
                 }
             }
-            else if (dislikeActivity.indexOf("watchingEntertainer") > -1)
+            else if (dislikeActivity.contains("watchingEntertainer"))
             {
                 beast_lib.performingActivity(self, beast_lib.PET_DISLIKE_ACTIVITY);
                 messageTo(self, "checkIfStillEntertained", null, 1800, false);
@@ -590,7 +590,7 @@ public class beast_control_device extends script.base_script
             String dislikeActivity = dataTableGetString(beast_lib.DATATABLE_BEAST_FAVORITES, (beastHappiness[3] - 1), beast_lib.DATATABLE_ACTIVITY_COL);
             if (ai_lib.isAnimal(target))
             {
-                if (favoriteActivity.indexOf("killCreature") > -1)
+                if (favoriteActivity.contains("killCreature"))
                 {
                     beast_lib.performingActivity(self, beast_lib.PET_FAVORITE_ACTIVITY);
                     messageTo(self, "removeKillBonus", null, 1800, false);
@@ -603,7 +603,7 @@ public class beast_control_device extends script.base_script
                         utils.setScriptVar(self, beast_lib.PET_KILL_MESSAGE_SCRIPTVAR, 1);
                     }
                 }
-                else if (dislikeActivity != null && dislikeActivity.length() > 0 && dislikeActivity.indexOf("killCreature") > -1)
+                else if (dislikeActivity != null && dislikeActivity.length() > 0 && dislikeActivity.contains("killCreature"))
                 {
                     if (isIdValid(player) && hasObjVar(player, "qa_beast_hate"))
                     {
@@ -613,7 +613,7 @@ public class beast_control_device extends script.base_script
             }
             if (ai_lib.isNpc(target))
             {
-                if (favoriteActivity.indexOf("killNpc") > -1)
+                if (favoriteActivity.contains("killNpc"))
                 {
                     beast_lib.performingActivity(self, beast_lib.PET_FAVORITE_ACTIVITY);
                     messageTo(self, "removeKillBonus", null, 1800, false);
@@ -626,7 +626,7 @@ public class beast_control_device extends script.base_script
                         utils.setScriptVar(self, beast_lib.PET_KILL_MESSAGE_SCRIPTVAR, 1);
                     }
                 }
-                else if (dislikeActivity != null && dislikeActivity.length() > 0 && dislikeActivity.indexOf("killNpc") > -1)
+                else if (dislikeActivity != null && dislikeActivity.length() > 0 && dislikeActivity.contains("killNpc"))
                 {
                     if (isIdValid(player) && hasObjVar(player, "qa_beast_hate"))
                     {
@@ -661,7 +661,7 @@ public class beast_control_device extends script.base_script
             beastHappiness = getIntArrayObjVar(self, beast_lib.PET_FAVORITES_OBJVAR);
             String favoriteActivity = dataTableGetString(beast_lib.DATATABLE_BEAST_FAVORITES, (beastHappiness[2] - 1), beast_lib.DATATABLE_ACTIVITY_COL);
             String dislikeActivity = dataTableGetString(beast_lib.DATATABLE_BEAST_FAVORITES, (beastHappiness[3] - 1), beast_lib.DATATABLE_ACTIVITY_COL);
-            if (favoriteActivity.indexOf("trick") > -1)
+            if (favoriteActivity.contains("trick"))
             {
                 beast_lib.performingActivity(self, beast_lib.PET_FAVORITE_ACTIVITY);
                 messageTo(self, "removeTrickBonus", null, 1800, false);
@@ -675,7 +675,7 @@ public class beast_control_device extends script.base_script
                     messageTo(self, "removeActivityBlock", null, 600, false);
                 }
             }
-            else if (dislikeActivity.indexOf("trick") > -1)
+            else if (dislikeActivity.contains("trick"))
             {
                 beast_lib.performingActivity(self, beast_lib.PET_DISLIKE_ACTIVITY);
                 messageTo(self, "removeTrickBonus", null, 1800, false);

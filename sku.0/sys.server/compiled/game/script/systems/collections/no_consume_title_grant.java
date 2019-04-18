@@ -115,13 +115,10 @@ public class no_consume_title_grant extends script.base_script
         String[] catagories = getCollectionSlotCategoryInfo(slotName);
         if (catagories != null && catagories.length > 0)
         {
-            for (int i = 0; i < catagories.length; ++i)
-            {
-                if (catagories[i].indexOf(collection.CATEGORY_NUM_ALT_TITLES) > -1)
-                {
-                    String[] splitAltTitles = split(catagories[i], ':');
-                    if (splitAltTitles == null || splitAltTitles.length != 2)
-                    {
+            for (String catagory : catagories) {
+                if (catagory.contains(collection.CATEGORY_NUM_ALT_TITLES)) {
+                    String[] splitAltTitles = split(catagory, ':');
+                    if (splitAltTitles == null || splitAltTitles.length != 2) {
                         continue;
                     }
                     int numAltTitles = utils.stringToInt(splitAltTitles[1]);

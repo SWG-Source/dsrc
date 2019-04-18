@@ -119,7 +119,7 @@ public class pet extends script.base_script
             if (isIdValid(petControlDevice) && exists(petControlDevice))
             {
                 int powerLevel = getIntObjVar(petControlDevice, "ai.pet.powerLevel");
-                float percentRemaining = (((float)pet_lib.OUT_OF_POWER - (float)powerLevel) / (float)pet_lib.OUT_OF_POWER) * 100.0f;
+                float percentRemaining = (((float)pet_lib.OUT_OF_POWER - powerLevel) / pet_lib.OUT_OF_POWER) * 100.0f;
                 names[idx] = "pet_stats.battery_power";
                 attribs[idx] = " " + (int)percentRemaining + "%";
                 idx++;
@@ -311,16 +311,13 @@ public class pet extends script.base_script
                                 {
                                     return SCRIPT_CONTINUE;
                                 }
-                                for (int i = 0; i < loadedDroidCommands.length; i++)
-                                {
-                                    if (hasObjVar(loadedDroidCommands[i], "strDroidCommand"))
-                                    {
-                                        String programName = getStringObjVar(loadedDroidCommands[i], "strDroidCommand");
+                                for (obj_id loadedDroidCommand : loadedDroidCommands) {
+                                    if (hasObjVar(loadedDroidCommand, "strDroidCommand")) {
+                                        String programName = getStringObjVar(loadedDroidCommand, "strDroidCommand");
                                         names[idx] = "pet_stats.droid_program";
                                         attribs[idx] = " " + localize(new string_id("space/droid_commands", programName));
                                         idx++;
-                                        if (idx >= names.length)
-                                        {
+                                        if (idx >= names.length) {
                                             return SCRIPT_CONTINUE;
                                         }
                                     }
@@ -554,13 +551,11 @@ public class pet extends script.base_script
                         String[] effects = pet_lib.getLightingEffects(petControlDevice);
                         if (effects != null)
                         {
-                            for (int i = 0; i < effects.length; i++)
-                            {
-                                names[idx] = "pet_stats." + effects[i];
+                            for (String effect : effects) {
+                                names[idx] = "pet_stats." + effect;
                                 attribs[idx] = " installed";
                                 idx++;
-                                if (idx >= names.length)
-                                {
+                                if (idx >= names.length) {
                                     return SCRIPT_CONTINUE;
                                 }
                             }
@@ -1545,7 +1540,7 @@ public class pet extends script.base_script
             {
                 return SCRIPT_CONTINUE;
             }
-            messageTo(self, "awakenPet", null, 0f, false);
+            messageTo(self, "awakenPet", null, 0.0f, false);
         }
         if (ai_lib.isAiDead(self))
         {
@@ -1674,7 +1669,7 @@ public class pet extends script.base_script
             {
                 if (idx > -1)
                 {
-                    int cmdIndex = ((Integer)commandIndexList.get(idx)).intValue();
+                    int cmdIndex = (Integer) commandIndexList.get(idx);
                     pet_lib.learnPetCommand(pet, cmdIndex);
                 }
                 break;
@@ -1704,7 +1699,7 @@ public class pet extends script.base_script
         {
             return SCRIPT_CONTINUE;
         }
-        int command = ((Integer)commandIndexList.get(idx)).intValue();
+        int command = (Integer) commandIndexList.get(idx);
         String prompt = utils.packStringId(new string_id("pet/pet_ability", "learn_command_header"));
         setSUIProperty(pid, sui.LISTBOX_PROMPT, sui.PROP_TEXT, prompt);
         flushSUIPage(pid);
@@ -1839,7 +1834,7 @@ public class pet extends script.base_script
         {
             return SCRIPT_CONTINUE;
         }
-        showFlyText(self, new string_id("npc_reaction/flytext", "low_power"), .75f, colors.DARKORANGE);
+        showFlyText(self, new string_id("npc_reaction/flytext", "low_power"), 0.75f, colors.DARKORANGE);
         messageTo(self, "powerWarningText", null, 30, false);
         return SCRIPT_CONTINUE;
     }
@@ -1981,11 +1976,11 @@ public class pet extends script.base_script
         }
         if (updatedColors)
         {
-            messageTo(tool, "customizationSuccess", params, 0f, false);
+            messageTo(tool, "customizationSuccess", params, 0.0f, false);
         }
         else 
         {
-            messageTo(tool, "customizationFailed", params, 0f, false);
+            messageTo(tool, "customizationFailed", params, 0.0f, false);
         }
         return SCRIPT_CONTINUE;
     }

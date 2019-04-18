@@ -119,13 +119,10 @@ public class craft extends script.quest.task.ground.base_task
                 String questCrcString = (String)keys.nextElement();
                 int questCrc = utils.stringToInt(questCrcString);
                 int[] tasksForCurrentQuest = tasks.getIntArray(questCrcString);
-                for (int i = 0; i < tasksForCurrentQuest.length; ++i)
-                {
-                    int taskId = tasksForCurrentQuest[i];
+                for (int taskId : tasksForCurrentQuest) {
                     String baseObjVar = groundquests.getBaseObjVar(self, taskType, questGetQuestName(questCrc), taskId);
                     String countObjVar = baseObjVar + dot + objvarCount;
-                    if (hasObjVar(self, countObjVar))
-                    {
+                    if (hasObjVar(self, countObjVar)) {
                         int currentCount = getIntObjVar(self, countObjVar);
                         int count = groundquests.getTaskIntDataEntry(questCrc, taskId, dataTableColumnCount);
                         questSetQuestTaskCounter(self, questGetQuestName(questCrc), taskId, "quest/groundquests:crafting_counter", 0, count);

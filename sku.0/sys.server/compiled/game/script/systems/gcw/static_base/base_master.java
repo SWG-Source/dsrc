@@ -57,18 +57,15 @@ public class base_master extends script.base_script
     }
     public obj_id findMasterObject(obj_id self) throws InterruptedException
     {
-        obj_id[] objects = getObjectsInRange(getLocation(self), 100f);
+        obj_id[] objects = getObjectsInRange(getLocation(self), 100.0f);
         if (objects == null || objects.length == 0)
         {
             return obj_id.NULL_ID;
         }
-        for (int i = 0; i < objects.length; i++)
-        {
-            if (isIdValid(objects[i]))
-            {
-                if (hasScript(objects[i], "systems.gcw.static_base.master"))
-                {
-                    return objects[i];
+        for (obj_id object : objects) {
+            if (isIdValid(object)) {
+                if (hasScript(object, "systems.gcw.static_base.master")) {
+                    return object;
                 }
             }
         }
@@ -143,11 +140,9 @@ public class base_master extends script.base_script
         {
             return;
         }
-        for (int i = 0; i < terminals.length; i++)
-        {
-            if (isIdValid(terminals[i]))
-            {
-                messageTo(terminals[i], "handleTerminalDestructionRequest", null, 20.0f, false);
+        for (obj_id terminal : terminals) {
+            if (isIdValid(terminal)) {
+                messageTo(terminal, "handleTerminalDestructionRequest", null, 20.0f, false);
             }
         }
         if (hasObjVar(self, VAR_TERMINAL_STATUS))
@@ -173,10 +168,8 @@ public class base_master extends script.base_script
             return;
         }
         int testCase = terminalStatus[0];
-        for (int i = 0; i < terminalStatus.length; i++)
-        {
-            if (testCase != terminalStatus[i])
-            {
+        for (int terminalStatus1 : terminalStatus) {
+            if (testCase != terminalStatus1) {
                 return;
             }
         }
@@ -210,11 +203,9 @@ public class base_master extends script.base_script
             obj_id[] terminals = getObjIdArrayObjVar(self, VAR_TERMINAL_IDS);
             if (terminals != null && terminals.length > 0)
             {
-                for (int i = 0; i < terminals.length; i++)
-                {
-                    if (isIdValid(terminals[i]))
-                    {
-                        setObjVar(terminals[i], VAR_ACCESS_DELAY, (getGameTime() + 30));
+                for (obj_id terminal : terminals) {
+                    if (isIdValid(terminal)) {
+                        setObjVar(terminal, VAR_ACCESS_DELAY, (getGameTime() + 30));
                     }
                 }
             }
@@ -333,10 +324,8 @@ public class base_master extends script.base_script
         {
             return SCRIPT_CONTINUE;
         }
-        for (int i = 0; i < validate.length; i++)
-        {
-            if (validate[i] < 1)
-            {
+        for (int i1 : validate) {
+            if (i1 < 1) {
                 beginTerminalSpawnSequence(self);
                 break;
             }

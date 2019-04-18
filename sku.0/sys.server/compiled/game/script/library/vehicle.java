@@ -109,7 +109,7 @@ public class vehicle extends script.base_script
         String vi_name = s_varInfoNames[var_index];
         float vi_conversion = s_varInfoConversions[var_index];
         int ivalue = getRangedIntCustomVarValue(vehicle, vi_name);
-        return ((float)ivalue) / vi_conversion;
+        return ivalue / vi_conversion;
     }
     public static void setMinimumSpeed(obj_id vehicle, float value) throws InterruptedException
     {
@@ -360,8 +360,8 @@ public class vehicle extends script.base_script
         }
         int toHeal = getMaxHitpoints(vehicle) - getHitpoints(vehicle);
         float repair_rate = getVehicleRepairRate(vehicle);
-        float city_base = 100f;
-        float city_add = 0f;
+        float city_base = 100.0f;
+        float city_add = 0.0f;
         int city_id = getCityAtLocation(getLocation(vehicle), 0);
         obj_id city = cityGetCityHall(city_id);
         if (isIdValid(city))
@@ -370,7 +370,7 @@ public class vehicle extends script.base_script
             String cityGarage = cityName + ".garageFee";
             if (hasObjVar(city, cityGarage))
             {
-                city_add = (float)getIntObjVar(city, cityGarage);
+                city_add = getIntObjVar(city, cityGarage);
             }
         }
         if (!isIdValid(city))
@@ -378,7 +378,7 @@ public class vehicle extends script.base_script
             city = obj_id.NULL_ID;
         }
         utils.setScriptVar(vehicle, "vehicleRepair.city_id", city);
-        float city_tax = ((city_base + city_add) / 100f);
+        float city_tax = ((city_base + city_add) / 100.0f);
         float city_cut = (((toHeal * repair_rate) * city_tax) - (toHeal * repair_rate));
         utils.setScriptVar(vehicle, "vehicleRepair.city_tax", city_cut);
         return Math.round((toHeal * repair_rate) * city_tax);
@@ -387,17 +387,17 @@ public class vehicle extends script.base_script
     {
         if (!isIdValid(vehicle))
         {
-            return -1f;
+            return -1.0f;
         }
         obj_id controlDevice = callable.getCallableCD(vehicle);
         if (!isIdValid(controlDevice))
         {
-            return -1f;
+            return -1.0f;
         }
         String ref = getVehicleReference(controlDevice);
         if (ref == null || ref.equals(""))
         {
-            return -1f;
+            return -1.0f;
         }
         return dataTableGetFloat(create.VEHICLE_TABLE, ref, "REPAIR_RATE");
     }
@@ -409,7 +409,7 @@ public class vehicle extends script.base_script
         }
         int now = getGameTime();
         float decay_rate = getVehicleDecayRate(vehicle);
-        if (decay_rate <= 0f)
+        if (decay_rate <= 0.0f)
         {
             return;
         }
@@ -423,7 +423,7 @@ public class vehicle extends script.base_script
         }
         else 
         {
-            decayAmt = Math.round(decay_rate / 2f);
+            decayAmt = Math.round(decay_rate / 2.0f);
         }
         if (decayAmt <= 0)
         {
@@ -436,7 +436,7 @@ public class vehicle extends script.base_script
         dictionary params = new dictionary();
         params.put("hp", currentHP);
         params.put("penalty", decayAmt);
-        messageTo(vcd, "handleStoreVehicleDamage", params, 0f, false);
+        messageTo(vcd, "handleStoreVehicleDamage", params, 0.0f, false);
         utils.setScriptVar(vehicle, "decay.stamp", now);
         messageTo(vehicle, "handleVehicleDecay", null, VEHICLE_DECAY_CYCLE, false);
     }
@@ -444,17 +444,17 @@ public class vehicle extends script.base_script
     {
         if (!isIdValid(vehicle))
         {
-            return -1f;
+            return -1.0f;
         }
         obj_id controlDevice = callable.getCallableCD(vehicle);
         if (!isIdValid(controlDevice))
         {
-            return -1f;
+            return -1.0f;
         }
         String ref = getVehicleReference(controlDevice);
         if (ref == null || ref.equals(""))
         {
-            return -1f;
+            return -1.0f;
         }
         return dataTableGetFloat(create.VEHICLE_TABLE, ref, "DECAY_RATE");
     }
@@ -562,7 +562,7 @@ public class vehicle extends script.base_script
         dictionary params = new dictionary();
         params.put("hp", currentHP);
         params.put("penalty", 0);
-        messageTo(vehicleControlDevice, "handleStoreVehicleDamage", params, 0f, false);
+        messageTo(vehicleControlDevice, "handleStoreVehicleDamage", params, 0.0f, false);
         messageTo(currentVehicle, "handlePackRequest", null, 1, false);
         callable.setCDCallable(vehicleControlDevice, null);
         return true;

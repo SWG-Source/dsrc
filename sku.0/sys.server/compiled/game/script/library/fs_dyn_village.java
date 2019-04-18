@@ -121,7 +121,7 @@ public class fs_dyn_village extends script.base_script
                         yaw = line.getFloat("yaw");
                     }
                     loc.add(new location(line.getFloat("x"), line.getFloat("y"), line.getFloat("z")));
-                    loc.add(new Float(yaw));
+                    loc.add(yaw);
                 }
             }
         }
@@ -282,7 +282,7 @@ public class fs_dyn_village extends script.base_script
         if (scriptDat != null && scriptDat.length() > 0)
         {
             String[] scripts = null;
-            if (scriptDat.indexOf("|") > -1)
+            if (scriptDat.contains("|"))
             {
                 scripts = split(scriptDat, '|');
             }
@@ -293,11 +293,9 @@ public class fs_dyn_village extends script.base_script
                     scriptDat
                 };
             }
-            for (int i = 0; i < scripts.length; i++)
-            {
-                if (scripts[i] != null && scripts[i].length() > 0 && !scripts[i].equals("none"))
-                {
-                    attachScript(mob, scripts[i]);
+            for (String script : scripts) {
+                if (script != null && script.length() > 0 && !script.equals("none")) {
+                    attachScript(mob, script);
                 }
             }
         }
@@ -413,7 +411,7 @@ public class fs_dyn_village extends script.base_script
             if (isIdValid(oturret))
             {
                 setObjVar(oturret, turret.OBJVAR_CAN_ATTACK, fs_dyn_village.OBJVAR_TURRET_TARGET);
-                float yaw = (((Float)turretLocs.get(i + 1))).floatValue();
+                float yaw = (Float) turretLocs.get(i + 1);
                 setYaw(oturret, yaw);
                 if (useAttributes)
                 {
@@ -681,7 +679,7 @@ public class fs_dyn_village extends script.base_script
             spawnVillageVictims();
         }
         String spawnPulseSecondsString = getConfigSetting("GameServer", "fsVillageEnemyRespawnPulseTime");
-        float spawnPulseSeconds = (float)rand(VILLAGE_MIN_ENEMY_SPAWN_PULSE, VILLAGE_MAX_ENEMY_SPAWN_PULSE);
+        float spawnPulseSeconds = rand(VILLAGE_MIN_ENEMY_SPAWN_PULSE, VILLAGE_MAX_ENEMY_SPAWN_PULSE);
         if (spawnPulseSecondsString != null && spawnPulseSecondsString.length() > 0)
         {
             spawnPulseSeconds = utils.stringToFloat(spawnPulseSecondsString);
@@ -735,13 +733,11 @@ public class fs_dyn_village extends script.base_script
         }
         if (campIds != null && campIds.length > 0)
         {
-            for (int i = 0; i < campIds.length; i++)
-            {
-                if (campIds[i] == null)
-                {
+            for (obj_id campId : campIds) {
+                if (campId == null) {
                     continue;
                 }
-                messageTo(campIds[i], "msgSelfDestruct", null, 0.0f, false);
+                messageTo(campId, "msgSelfDestruct", null, 0.0f, false);
             }
         }
         removeObjVar(villageMaster, "fs_cs");
@@ -982,11 +978,9 @@ public class fs_dyn_village extends script.base_script
         {
             objs = utils.getObjIdBatchObjVar(villageMaster, OBJVAR_VILLAGE_OBJECTS);
         }
-        for (int i = 0; i < objs.length; i++)
-        {
-            if (isIdValid(objs[i]) && exists(objs[i]))
-            {
-                destroyObject(objs[i]);
+        for (obj_id obj : objs) {
+            if (isIdValid(obj) && exists(obj)) {
+                destroyObject(obj);
             }
         }
         removeObjVar(villageMaster, OBJVAR_VILLAGE_OBJECTS);
@@ -999,11 +993,9 @@ public class fs_dyn_village extends script.base_script
         {
             objs = utils.getObjIdBatchObjVar(villageMaster, OBJVAR_VILLAGE_SPAWNERS);
         }
-        for (int i = 0; i < objs.length; i++)
-        {
-            if (isIdValid(objs[i]) && exists(objs[i]))
-            {
-                destroyObject(objs[i]);
+        for (obj_id obj : objs) {
+            if (isIdValid(obj) && exists(obj)) {
+                destroyObject(obj);
             }
         }
         removeObjVar(villageMaster, OBJVAR_VILLAGE_SPAWNERS);

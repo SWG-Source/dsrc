@@ -319,9 +319,8 @@ public class e3_demoer extends script.base_script
             obj_id[] objTestObjects = getAllObjectsWithObjVar(getLocation(self), 320000, "intDeleteOnReset");
             if (objTestObjects != null)
             {
-                for (int intI = 0; intI < objTestObjects.length; intI++)
-                {
-                    destroyObject(objTestObjects[intI]);
+                for (obj_id objTestObject : objTestObjects) {
+                    destroyObject(objTestObject);
                 }
             }
             objTestObjects = getAllObjectsWithTemplate(getLocation(self), 320000, "object/ship/player/player_corellian_corvette.iff");
@@ -386,15 +385,11 @@ public class e3_demoer extends script.base_script
         {
             String[] strItems = LIGHTSABERS;
             obj_id objInventory = utils.getInventoryContainer(self);
-            for (int intI = 0; intI < strItems.length; intI++)
-            {
-                obj_id objTest = createObjectOverloaded(strItems[intI], objInventory);
-                if (!isIdValid(objTest))
-                {
-                    sendSystemMessageTestingOnly(self, "Item of template " + strItems[intI] + " is Incorret!");
-                }
-                else 
-                {
+            for (String strItem : strItems) {
+                obj_id objTest = createObjectOverloaded(strItem, objInventory);
+                if (!isIdValid(objTest)) {
+                    sendSystemMessageTestingOnly(self, "Item of template " + strItem + " is Incorret!");
+                } else {
                     setObjVar(objTest, "crafting.source_schematic", objTest);
                     setCrafter(objTest, self);
                 }
@@ -404,10 +399,9 @@ public class e3_demoer extends script.base_script
         if (strCommands[0].equalsIgnoreCase("resetNebulon"))
         {
             obj_id[] objTestObjects = getAllObjectsWithObjVar(getLocation(self), 320000, "intNebulon");
-            for (int intI = 0; intI < objTestObjects.length; intI++)
-            {
-                setObjVar(objTestObjects[intI], "intReset", 1);
-                destroyObject(objTestObjects[intI]);
+            for (obj_id objTestObject : objTestObjects) {
+                setObjVar(objTestObject, "intReset", 1);
+                destroyObject(objTestObject);
             }
             obj_id[] objNebulon = getAllObjectsWithScript(getLocation(self), 320000, "e3demo.spawner_nebulon");
             dictionary dctParams = new dictionary();
@@ -417,10 +411,9 @@ public class e3_demoer extends script.base_script
         if (strCommands[0].equalsIgnoreCase("destroyNebulon"))
         {
             obj_id[] objTestObjects = getAllObjectsWithObjVar(getLocation(self), 320000, "intNebulon");
-            for (int intI = 0; intI < objTestObjects.length; intI++)
-            {
-                setObjVar(objTestObjects[intI], "intReset", 1);
-                destroyObject(objTestObjects[intI]);
+            for (obj_id objTestObject : objTestObjects) {
+                setObjVar(objTestObject, "intReset", 1);
+                destroyObject(objTestObject);
             }
         }
         if (strCommands[0].equalsIgnoreCase("openJediSlot"))
@@ -540,7 +533,7 @@ public class e3_demoer extends script.base_script
             float maxToHit = toHitChance + (toHitChance * bio_engineer.CREATURE_MAX_TO_HIT_MOD);
             setObjVar(object, "creature_attribs.toHitChance", toHitChance);
             obj_id creatureWeapon = getCurrentWeapon(object);
-            float wpnSpeed = (float)creatureDict.getInt("attackSpeed");
+            float wpnSpeed = creatureDict.getInt("attackSpeed");
             float minWpnSpeed = wpnSpeed + (wpnSpeed * bio_engineer.CREATURE_MIN_WEAPON_SPEED_MOD);
             float maxWpnSpeed = wpnSpeed + (wpnSpeed * bio_engineer.CREATURE_MAX_WEAPON_SPEED_MOD);
             setObjVar(object, "creature_attribs.attackSpeed", wpnSpeed);
@@ -564,9 +557,8 @@ public class e3_demoer extends script.base_script
     }
     public void grantAllSkills(obj_id objPlayer, String[] strSkillList) throws InterruptedException
     {
-        for (int intI = 0; intI < strSkillList.length; intI++)
-        {
-            grantSkill(objPlayer, strSkillList[intI]);
+        for (String s : strSkillList) {
+            grantSkill(objPlayer, s);
         }
     }
     public void createBantha(obj_id self) throws InterruptedException
@@ -640,12 +632,10 @@ public class e3_demoer extends script.base_script
     public void createInInventory(obj_id objPlayer, String[] strItems) throws InterruptedException
     {
         obj_id objInventory = utils.getInventoryContainer(objPlayer);
-        for (int intI = 0; intI < strItems.length; intI++)
-        {
-            obj_id objTest = createObjectOverloaded(strItems[intI], objInventory);
-            if (!isIdValid(objTest))
-            {
-                sendSystemMessageTestingOnly(objPlayer, "Item of template " + strItems[intI] + " is Incorret!");
+        for (String strItem : strItems) {
+            obj_id objTest = createObjectOverloaded(strItem, objInventory);
+            if (!isIdValid(objTest)) {
+                sendSystemMessageTestingOnly(objPlayer, "Item of template " + strItem + " is Incorret!");
             }
         }
         return;

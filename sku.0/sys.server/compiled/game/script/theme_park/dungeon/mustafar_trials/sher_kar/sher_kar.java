@@ -102,17 +102,16 @@ public class sher_kar extends script.base_script
             trial.bumpSession(self);
             return SCRIPT_CONTINUE;
         }
-        for (int i = 0; i < targets.length; i++)
-        {
+        for (obj_id target : targets) {
             int damage = AE_DAMAGE;
             prose_package pp = new prose_package();
             pp.stringId = new string_id("cbt_spam", "sk_cave_in");
             pp.actor.set(self);
-            pp.target.set(targets[i]);
+            pp.target.set(target);
             pp.digitInteger = damage;
-            combat.sendCombatSpamMessageProse(targets[i], self, pp, true, true, false, COMBAT_RESULT_HIT);
-            playClientEffectLoc(targets[i], trial.PRT_SHER_KAR_CAVE_IN, getLocation(targets[i]), 14.0f);
-            damage(targets[i], DAMAGE_ELEMENTAL_HEAT, HIT_LOCATION_BODY, damage);
+            combat.sendCombatSpamMessageProse(target, self, pp, true, true, false, COMBAT_RESULT_HIT);
+            playClientEffectLoc(target, trial.PRT_SHER_KAR_CAVE_IN, getLocation(target), 14.0f);
+            damage(target, DAMAGE_ELEMENTAL_HEAT, HIT_LOCATION_BODY, damage);
         }
         messageTo(self, "performAe", trial.getSessionDict(self), AE_RECAST, false);
         return SCRIPT_CONTINUE;
@@ -139,8 +138,8 @@ public class sher_kar extends script.base_script
     }
     public void verifyHealth(obj_id self) throws InterruptedException
     {
-        float max = (float)getMaxHealth(self);
-        float current = (float)getHealth(self);
+        float max = getMaxHealth(self);
+        float current = getHealth(self);
         float ratio = current / max;
         if (ratio <= HEALTH_TRIGGER_1)
         {

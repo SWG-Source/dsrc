@@ -50,11 +50,9 @@ public class bug_spawner_tracker extends script.base_script
         }
         Vector waypoints = new Vector();
         waypoints.setSize(0);
-        for (int i = 0; i < contents.length; i++)
-        {
-            if (utils.hasScriptVar(contents[i], trial.WP_NAME))
-            {
-                utils.addElement(waypoints, getLocation(contents[i]));
+        for (obj_id content : contents) {
+            if (utils.hasScriptVar(content, trial.WP_NAME)) {
+                utils.addElement(waypoints, getLocation(content));
             }
         }
         if (waypoints == null)
@@ -96,18 +94,16 @@ public class bug_spawner_tracker extends script.base_script
     }
     public void checkForRelayPoint(obj_id self) throws InterruptedException
     {
-        obj_id[] objects = getObjectsInRange(self, 5f);
+        obj_id[] objects = getObjectsInRange(self, 5.0f);
         if (objects == null || objects.length == 0)
         {
             messageTo(self, "pathToNextPoint", null, 0, false);
             return;
         }
-        for (int i = 0; i < objects.length; i++)
-        {
-            if ((getTemplateName(objects[i])).equals(trial.RELAY_OBJECT))
-            {
+        for (obj_id object : objects) {
+            if ((getTemplateName(object)).equals(trial.RELAY_OBJECT)) {
                 dictionary dict = new dictionary();
-                dict.put("relay", objects[i]);
+                dict.put("relay", object);
                 messageTo(self, "destroyRelayObject", dict, 5, false);
                 return;
             }
@@ -128,9 +124,8 @@ public class bug_spawner_tracker extends script.base_script
                 doLogging("nukeSelf", "No valid targets in blast radius");
                 return SCRIPT_CONTINUE;
             }
-            for (int i = 0; i < targets.length; i++)
-            {
-                damage(targets[i], DAMAGE_ELEMENTAL_HEAT, HIT_LOCATION_BODY, 500);
+            for (obj_id target : targets) {
+                damage(target, DAMAGE_ELEMENTAL_HEAT, HIT_LOCATION_BODY, 500);
             }
             return SCRIPT_CONTINUE;
         }

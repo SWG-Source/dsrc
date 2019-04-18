@@ -19,7 +19,7 @@ public class combat_base_old extends script.base_script
     public static final int AREA = 2;
     public static final int TARGET_AREA = 3;
     public static final int DUAL_WIELD = 4;
-    public static final float PVP_DAMAGE_VALUE = .25f;
+    public static final float PVP_DAMAGE_VALUE = 0.25f;
     public static final int MIN_PVP_DAMAGE = 40;
     public static final float UNIVERSAL_ACTION_COST_MULTIPLIER = 1.0f;
     public static final String COMBAT_DATATABLE = "datatables/combat/combat_data.iff";
@@ -50,16 +50,16 @@ public class combat_base_old extends script.base_script
     public static final float MAX_COMBAT_RANGE = 96.0f;
     public static final float MELEE_TARGET_DISTANCE = 24;
     public static final float MAX_THROWING_DISTANCE = 48;
-    public static final float CLOSE_THROWING_DISTANCE = 10f;
-    public static final float MEDIUM_THROWING_DISTANCE = 20f;
-    public static final float FAR_THROWING_DISTANCE = 32f;
+    public static final float CLOSE_THROWING_DISTANCE = 10.0f;
+    public static final float MEDIUM_THROWING_DISTANCE = 20.0f;
+    public static final float FAR_THROWING_DISTANCE = 32.0f;
     public static final int TARGET_COMMAND = -2;
     public static final int POSTURE_DOWN = -2;
     public static final int POSTURE_UP = -3;
     public static final int POSTURE_UPRIGHT_ACTIVE_DEFENSE_MOD = 10;
     public static final int POSTURE_CROUCHED_ACTIVE_DEFENSE_MOD = 0;
     public static final int PRONE_ACTIVE_DEFENSE_MOD = 0 - 20;
-    public static final float TIMESLICE_VALUE = 1f;
+    public static final float TIMESLICE_VALUE = 1.0f;
     public static final int BASE_TO_HIT = 75;
     public static final int BASE_UNSKILLED = -50;
     public static final int TO_HIT_MAX = 100;
@@ -70,19 +70,19 @@ public class combat_base_old extends script.base_script
     public static final int COMBAT_ROLL_MAX = 200;
     public static final int DEFENDER_MOD_MAX = 125;
     public static final int DIZZY_CHECK_VALUE = 85;
-    public static final float BLINDED_DEFENSE_MODIFIER = 0 - 60f;
-    public static final float STUNNED_DEFENSE_MODIFIER = 0 - 50f;
-    public static final float STUNNED_DAMAGE_MODIFIER = 0 - .20f;
-    public static final float INTIMIDATED_DEFENSE_MODIFIER = 0 - 20f;
-    public static final float INTIMIDATED_DAMAGE_MODIFIER = 0 - .50f;
-    public static final float BERSERK_DEFENSE_MODIFIER = 0 - 60f;
-    public static final float TUMBLING_DEFENSE_MODIFIER = 25f;
-    public static final float NIGHT_TIME_DEFENSE_MODIFIER = 30f;
-    public static final float FLARE_DEFENSE_MODIFIER = 0 - 30f;
-    public static final float BLINDED_TO_HIT_MODIFIER = 0 - 60f;
-    public static final float BERSERK_TO_HIT_MODIFIER = 20f;
-    public static final float RALLIED_DEFENSE_MODIFIER = 30f;
-    public static final float RALLIED_TO_HIT_MODIFIER = 50f;
+    public static final float BLINDED_DEFENSE_MODIFIER = 0 - 60.0f;
+    public static final float STUNNED_DEFENSE_MODIFIER = 0 - 50.0f;
+    public static final float STUNNED_DAMAGE_MODIFIER = 0 - 0.20f;
+    public static final float INTIMIDATED_DEFENSE_MODIFIER = 0 - 20.0f;
+    public static final float INTIMIDATED_DAMAGE_MODIFIER = 0 - 0.50f;
+    public static final float BERSERK_DEFENSE_MODIFIER = 0 - 60.0f;
+    public static final float TUMBLING_DEFENSE_MODIFIER = 25.0f;
+    public static final float NIGHT_TIME_DEFENSE_MODIFIER = 30.0f;
+    public static final float FLARE_DEFENSE_MODIFIER = 0 - 30.0f;
+    public static final float BLINDED_TO_HIT_MODIFIER = 0 - 60.0f;
+    public static final float BERSERK_TO_HIT_MODIFIER = 20.0f;
+    public static final float RALLIED_DEFENSE_MODIFIER = 30.0f;
+    public static final float RALLIED_TO_HIT_MODIFIER = 50.0f;
     public static final float BERSERK_TIME_MODIFIER = 0;
     public static final float BERSERK_DAMAGE_MODIFIER = 75;
     public static final float FEIGN_DEATH_DAMAGE_MODIFIER = 1.25f;
@@ -105,25 +105,20 @@ public class combat_base_old extends script.base_script
         }
         Vector objValidDefenders = new Vector();
         objValidDefenders.setSize(0);
-        for (int intI = 0; intI < objDefenders.length; intI++)
-        {
-            if (!isIdValid(objDefenders[intI]))
-            {
+        for (obj_id objDefender : objDefenders) {
+            if (!isIdValid(objDefender)) {
                 continue;
             }
-            if (isDead(objDefenders[intI]))
-            {
+            if (isDead(objDefender)) {
                 continue;
             }
-            if (isIncapacitated(objDefenders[intI]))
-            {
+            if (isIncapacitated(objDefender)) {
                 continue;
             }
-            if (attackerSocialGroup != null && attackerSocialGroup.equals(ai_lib.getSocialGroup(objDefenders[intI])))
-            {
+            if (attackerSocialGroup != null && attackerSocialGroup.equals(ai_lib.getSocialGroup(objDefender))) {
                 continue;
             }
-            objValidDefenders = utils.addElement(objValidDefenders, objDefenders[intI]);
+            objValidDefenders = utils.addElement(objValidDefenders, objDefender);
         }
         obj_id[] _objValidDefenders = new obj_id[0];
         if (objValidDefenders != null)
@@ -357,8 +352,8 @@ public class combat_base_old extends script.base_script
                 }
             }
         }
-        float fltMinDamage = (float)cbtWeaponData.minDamage;
-        float fltMaxDamage = (float)cbtWeaponData.maxDamage;
+        float fltMinDamage = cbtWeaponData.minDamage;
+        float fltMaxDamage = cbtWeaponData.maxDamage;
         int intState = 0;
         if (intState > 0)
         {
@@ -418,7 +413,7 @@ public class combat_base_old extends script.base_script
         float fltStateMod = 0;
         if (!isPlayer(objPlayer))
         {
-            fltToHitMod = (float)getMobHitMod(objPlayer);
+            fltToHitMod = getMobHitMod(objPlayer);
         }
         else 
         {
@@ -437,7 +432,7 @@ public class combat_base_old extends script.base_script
                 fltToHitMod = fltToHitMod + getSkillModifiers(objPlayer, strWeaponType + "_", strToHitMods);
                 if (fltToHitMod == 0)
                 {
-                    fltToHitMod = fltToHitMod + (float)UNSKILLED_PENALTY;
+                    fltToHitMod = fltToHitMod + UNSKILLED_PENALTY;
                 }
             }
         }
@@ -448,7 +443,7 @@ public class combat_base_old extends script.base_script
             {
                 if (hasSkill(objPlayer, "combat_pistol_novice"))
                 {
-                    float fltHitBonus = (float)intToHitBonus;
+                    float fltHitBonus = intToHitBonus;
                     fltHitBonus = fltHitBonus * 1.15f;
                     intToHitBonus = (int)fltHitBonus;
                 }
@@ -457,7 +452,7 @@ public class combat_base_old extends script.base_script
             {
                 if (hasSkill(objPlayer, "combat_carbine_novice"))
                 {
-                    float fltHitBonus = (float)intToHitBonus;
+                    float fltHitBonus = intToHitBonus;
                     fltHitBonus = fltHitBonus * 1.15f;
                     intToHitBonus = (int)fltHitBonus;
                 }
@@ -506,7 +501,7 @@ public class combat_base_old extends script.base_script
                 int intPosture = cbtDefenderData[intI].posture;
                 if (intPosture != POSTURE_INCAPACITATED)
                 {
-                    fltDefenseModifier = -100000f;
+                    fltDefenseModifier = -100000.0f;
                 }
                 else 
                 {
@@ -721,7 +716,7 @@ public class combat_base_old extends script.base_script
             {
                 if (isPlayer(cbtDefenderData[intI].id))
                 {
-                    float fltDamage = (float)cbtHitData[intI].damage;
+                    float fltDamage = cbtHitData[intI].damage;
                     if (fltDamage > MIN_PVP_DAMAGE)
                     {
                         fltDamage = fltDamage * PVP_DAMAGE_VALUE;
@@ -840,7 +835,7 @@ public class combat_base_old extends script.base_script
                         int intBleedHealth = dctCombatInfo.getInt("intBleedHealth");
                         int intBleedAction = dctCombatInfo.getInt("intBleedAction");
                         int intBleedTotals = intBleedMind + intBleedAction + intBleedHealth;
-                        float fltRawDamage = (float)cbtHitData[intI].damage;
+                        float fltRawDamage = cbtHitData[intI].damage;
                         fltRawDamage = fltRawDamage * fltBleedingValue;
                         fltRawDamage = fltRawDamage / intBleedTotals;
                         int intBleedDamage = (int)fltRawDamage;
@@ -885,7 +880,7 @@ public class combat_base_old extends script.base_script
             {
                 utils.setScriptVar(objDefender, "food.mitigate_damage.dur", dur);
             }
-            int mitigated = (int)(cbtHitData.damage * (eff / 100.f));
+            int mitigated = (int)(cbtHitData.damage * (eff / 100.0f));
             cbtHitData.damage -= mitigated;
             if (cbtHitData.damage < 0)
             {
@@ -2271,26 +2266,22 @@ public class combat_base_old extends script.base_script
         {
             if (utils.hasScriptVar(checkId, "trapmod.enable"))
             {
-                if (modName.equals("stun_defense"))
-                {
-                    if (utils.hasScriptVar(checkId, "trapmod.stun_defense"))
-                    {
-                        mod -= utils.getIntScriptVar(checkId, "trapmod.stun_defense");
-                    }
-                }
-                else if (modName.equals("dizzy_defense"))
-                {
-                    if (utils.hasScriptVar(checkId, "trapmod.dizzy_defense"))
-                    {
-                        mod -= utils.getIntScriptVar(checkId, "trapmod.dizzy_defense");
-                    }
-                }
-                else if (modName.equals("intimidate_defense"))
-                {
-                    if (utils.hasScriptVar(checkId, "trapmod.intimidate_defense"))
-                    {
-                        mod -= utils.getIntScriptVar(checkId, "trapmod.intimidate_defense");
-                    }
+                switch (modName) {
+                    case "stun_defense":
+                        if (utils.hasScriptVar(checkId, "trapmod.stun_defense")) {
+                            mod -= utils.getIntScriptVar(checkId, "trapmod.stun_defense");
+                        }
+                        break;
+                    case "dizzy_defense":
+                        if (utils.hasScriptVar(checkId, "trapmod.dizzy_defense")) {
+                            mod -= utils.getIntScriptVar(checkId, "trapmod.dizzy_defense");
+                        }
+                        break;
+                    case "intimidate_defense":
+                        if (utils.hasScriptVar(checkId, "trapmod.intimidate_defense")) {
+                            mod -= utils.getIntScriptVar(checkId, "trapmod.intimidate_defense");
+                        }
+                        break;
                 }
             }
             return mod;
@@ -2320,7 +2311,7 @@ public class combat_base_old extends script.base_script
             _intEffects = new int[intEffects.size()];
             for (int _i = 0; _i < intEffects.size(); ++_i)
             {
-                _intEffects[_i] = ((Integer)intEffects.get(_i)).intValue();
+                _intEffects[_i] = (Integer) intEffects.get(_i);
             }
         }
         return _intEffects;
@@ -2341,7 +2332,7 @@ public class combat_base_old extends script.base_script
             _fltDurations = new float[fltDurations.size()];
             for (int _i = 0; _i < fltDurations.size(); ++_i)
             {
-                _fltDurations[_i] = ((Float)fltDurations.get(_i)).floatValue();
+                _fltDurations[_i] = (Float) fltDurations.get(_i);
             }
         }
         return _fltDurations;
@@ -2751,14 +2742,14 @@ public class combat_base_old extends script.base_script
             int intValue = (int)(intBaseValue * fltMultiplier);
             float fltBaseDuration = rand(15, 30);
             float fltDuration = fltBaseDuration * fltMultiplier;
-            addAttribModifier(objTarget, intI, intValue, fltDuration, rand(15f, 30f), rand(15f, 30f));
+            addAttribModifier(objTarget, intI, intValue, fltDuration, rand(15.0f, 30.0f), rand(15.0f, 30.0f));
         }
         return;
     }
     public weapon_data calculateDamageMitigation(obj_id objDefender, String strDefenderCommand, weapon_data cbtWeaponData, int intMinDamage, int intMaxDamage) throws InterruptedException
     {
-        float fltMinDamage = (float)intMinDamage;
-        float fltMaxDamage = (float)intMaxDamage;
+        float fltMinDamage = intMinDamage;
+        float fltMaxDamage = intMaxDamage;
         float fltLimit = 1.0f;
         if (hasCommand(objDefender, strDefenderCommand + "_1"))
         {
@@ -2786,29 +2777,29 @@ public class combat_base_old extends script.base_script
             switch (intWeaponType)
             {
                 case WEAPON_TYPE_RIFLE:
-                return 0f;
+                return 0.0f;
                 case WEAPON_TYPE_LIGHT_RIFLE:
-                return 0f;
+                return 0.0f;
                 case WEAPON_TYPE_PISTOL:
-                return 0f;
+                return 0.0f;
                 case WEAPON_TYPE_HEAVY:
-                return 0f;
+                return 0.0f;
                 case WEAPON_TYPE_1HAND_MELEE:
-                return 0f;
+                return 0.0f;
                 case WEAPON_TYPE_2HAND_MELEE:
-                return 0f;
+                return 0.0f;
                 case WEAPON_TYPE_UNARMED:
-                return 0f;
+                return 0.0f;
                 case WEAPON_TYPE_POLEARM:
-                return 0f;
+                return 0.0f;
                 case WEAPON_TYPE_THROWN:
-                return 0f;
+                return 0.0f;
                 case WEAPON_TYPE_WT_1HAND_LIGHTSABER:
-                return 0f;
+                return 0.0f;
                 case WEAPON_TYPE_WT_2HAND_LIGHTSABER:
-                return 0f;
+                return 0.0f;
                 case WEAPON_TYPE_WT_POLEARM_LIGHTSABER:
-                return 0f;
+                return 0.0f;
             }
         }
         else 
@@ -2816,32 +2807,32 @@ public class combat_base_old extends script.base_script
             switch (intWeaponType)
             {
                 case WEAPON_TYPE_RIFLE:
-                return 100f;
+                return 100.0f;
                 case WEAPON_TYPE_LIGHT_RIFLE:
-                return 75f;
+                return 75.0f;
                 case WEAPON_TYPE_PISTOL:
-                return 20f;
+                return 20.0f;
                 case WEAPON_TYPE_HEAVY:
-                return 100f;
+                return 100.0f;
                 case WEAPON_TYPE_1HAND_MELEE:
-                return 0f;
+                return 0.0f;
                 case WEAPON_TYPE_2HAND_MELEE:
-                return 0f;
+                return 0.0f;
                 case WEAPON_TYPE_UNARMED:
-                return 0f;
+                return 0.0f;
                 case WEAPON_TYPE_POLEARM:
-                return 0f;
+                return 0.0f;
                 case WEAPON_TYPE_THROWN:
-                return 0f;
+                return 0.0f;
                 case WEAPON_TYPE_WT_1HAND_LIGHTSABER:
-                return 0f;
+                return 0.0f;
                 case WEAPON_TYPE_WT_2HAND_LIGHTSABER:
-                return 0f;
+                return 0.0f;
                 case WEAPON_TYPE_WT_POLEARM_LIGHTSABER:
-                return 0f;
+                return 0.0f;
             }
         }
-        return 0f;
+        return 0.0f;
     }
     public void combatLog(obj_id attacker, obj_id defender, String logName, String logMsg) throws InterruptedException
     {

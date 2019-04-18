@@ -34,20 +34,13 @@ public class monster_manager extends script.base_script
             doLogging("clearEventArea", "Dungeon was empty, return");
             return;
         }
-        for (int i = 0; i < contents.length; i++)
-        {
-            if (isPlayer(contents[i]))
-            {
-            }
-            else 
-            {
-                if (isMob(contents[i]))
-                {
-                    trial.cleanupNpc(contents[i]);
-                }
-                else if (trial.isTempObject(contents[i]))
-                {
-                    trial.cleanupNpc(contents[i]);
+        for (obj_id content : contents) {
+            if (isPlayer(content)) {
+            } else {
+                if (isMob(content)) {
+                    trial.cleanupNpc(content);
+                } else if (trial.isTempObject(content)) {
+                    trial.cleanupNpc(content);
                 }
             }
         }
@@ -65,11 +58,9 @@ public class monster_manager extends script.base_script
         {
             return;
         }
-        for (int i = 0; i < wp.length; i++)
-        {
-            if ((getStringObjVar(wp[i], trial.MONSTER_WP)).equals("sher_kar"))
-            {
-                obj_id sherKar = create.object("som_sherkar", getLocation(wp[i]));
+        for (obj_id obj_id : wp) {
+            if ((getStringObjVar(obj_id, trial.MONSTER_WP)).equals("sher_kar")) {
+                obj_id sherKar = create.object("som_sherkar", getLocation(obj_id));
                 setYaw(sherKar, -10);
                 utils.setScriptVar(self, trial.MONSTER_SHER_KAR, sherKar);
             }
@@ -84,25 +75,18 @@ public class monster_manager extends script.base_script
         }
         int type = 0;
         obj_id[] guards = new obj_id[4];
-        for (int i = 0; i < wp.length; i++)
-        {
-            if ((getStringObjVar(wp[i], trial.MONSTER_WP)).startsWith("guard"))
-            {
-                if (type == 0 || type == 1)
-                {
-                    guards[type] = create.object("som_sherkar_praetorian", getLocation(wp[i]));
+        for (obj_id obj_id : wp) {
+            if ((getStringObjVar(obj_id, trial.MONSTER_WP)).startsWith("guard")) {
+                if (type == 0 || type == 1) {
+                    guards[type] = create.object("som_sherkar_praetorian", getLocation(obj_id));
                     faceTo(guards[type], utils.getObjIdScriptVar(self, trial.MONSTER_SHER_KAR));
                     type++;
-                }
-                else if (type == 2)
-                {
-                    guards[type] = create.object("som_sherkar_karling", getLocation(wp[i]));
+                } else if (type == 2) {
+                    guards[type] = create.object("som_sherkar_karling", getLocation(obj_id));
                     faceTo(guards[type], utils.getObjIdScriptVar(self, trial.MONSTER_SHER_KAR));
                     type++;
-                }
-                else if (type == 3)
-                {
-                    guards[type] = create.object("som_sherkar_symbiot", getLocation(wp[i]));
+                } else if (type == 3) {
+                    guards[type] = create.object("som_sherkar_symbiot", getLocation(obj_id));
                     faceTo(guards[type], utils.getObjIdScriptVar(self, trial.MONSTER_SHER_KAR));
                     type++;
                 }

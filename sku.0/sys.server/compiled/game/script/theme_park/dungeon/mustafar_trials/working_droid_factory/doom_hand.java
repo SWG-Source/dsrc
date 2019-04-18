@@ -26,11 +26,9 @@ public class doom_hand extends script.base_script
     public int setFacing(obj_id self, dictionary params) throws InterruptedException
     {
         obj_id[] objects = utils.getSharedContainerObjects(self);
-        for (int i = 0; i < objects.length; i++)
-        {
-            if ((getTemplateName(objects[i])).indexOf("radioactive") > -1)
-            {
-                faceTo(self, objects[i]);
+        for (obj_id object : objects) {
+            if ((getTemplateName(object)).contains("radioactive")) {
+                faceTo(self, object);
             }
         }
         return SCRIPT_CONTINUE;
@@ -61,9 +59,8 @@ public class doom_hand extends script.base_script
         if (!trial.isPrimaryHand(self))
         {
             int total = 0;
-            for (int x = 0; x < damage.length; x++)
-            {
-                total += damage[x];
+            for (int i : damage) {
+                total += i;
             }
             addToHealth(self, total);
         }

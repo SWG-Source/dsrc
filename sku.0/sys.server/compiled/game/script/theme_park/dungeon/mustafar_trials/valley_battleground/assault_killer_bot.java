@@ -57,15 +57,11 @@ public class assault_killer_bot extends script.base_script
         }
         Vector waypoints = new Vector();
         waypoints.setSize(0);
-        for (int i = 0; i < pathList.length; i++)
-        {
-            for (int k = 0; k < objects.length; k++)
-            {
-                if (hasObjVar(objects[k], "wp_name"))
-                {
-                    if (pathList[i].equals(getStringObjVar(objects[k], "wp_name")))
-                    {
-                        utils.addElement(waypoints, getLocation(objects[k]));
+        for (String s : pathList) {
+            for (obj_id object : objects) {
+                if (hasObjVar(object, "wp_name")) {
+                    if (s.equals(getStringObjVar(object, "wp_name"))) {
+                        utils.addElement(waypoints, getLocation(object));
                     }
                 }
             }

@@ -52,36 +52,27 @@ public class gcw_defensive_general_boss extends script.base_script
         HashSet allParticipants = new HashSet();
         if (allPlayersHatedList != null && allPlayersHatedList.size() > 0)
         {
-            for (int i = 0; i < allPlayersHatedList.size(); i++)
-            {
-                if (isIdValid(((obj_id)allPlayersHatedList.get(i))))
-                {
-                    allParticipants.add(((obj_id)allPlayersHatedList.get(i)));
+            for (Object o : allPlayersHatedList) {
+                if (isIdValid(((obj_id) o))) {
+                    allParticipants.add(((obj_id) o));
                 }
             }
         }
         if (attackerList != null && attackerList.length > 0)
         {
-            for (int i = 0; i < attackerList.length; i++)
-            {
-                if (!isIdValid(attackerList[i]))
-                {
+            for (obj_id obj_id : attackerList) {
+                if (!isIdValid(obj_id)) {
                     continue;
                 }
-                if (group.isGroupObject(attackerList[i]))
-                {
-                    obj_id[] members = getGroupMemberIds(attackerList[i]);
-                    for (int j = 0, k = members.length; j < k; j++)
-                    {
-                        if (isIdValid(members[j]))
-                        {
-                            allParticipants.add(members[j]);
+                if (group.isGroupObject(obj_id)) {
+                    obj_id[] members = getGroupMemberIds(obj_id);
+                    for (obj_id member : members) {
+                        if (isIdValid(member)) {
+                            allParticipants.add(member);
                         }
                     }
-                }
-                else 
-                {
-                    allParticipants.add(attackerList[i]);
+                } else {
+                    allParticipants.add(obj_id);
                 }
             }
         }
@@ -121,50 +112,40 @@ public class gcw_defensive_general_boss extends script.base_script
             return SCRIPT_CONTINUE;
         }
         String information = getName(self);
-        for (int i = 0; i < participantList.length; i++)
-        {
-            if (!isIdValid(participantList[i]) || !exists(participantList[i]) || !isPlayer(participantList[i]))
-            {
+        for (obj_id obj_id : participantList) {
+            if (!isIdValid(obj_id) || !exists(obj_id) || !isPlayer(obj_id)) {
                 continue;
             }
-            if (utils.getDistance2D(self, participantList[i]) > 150.0)
-            {
+            if (utils.getDistance2D(self, obj_id) > 150.0) {
                 continue;
             }
             int damage = 0;
             int damageBase = 10000;
-            int actualDmg = utils.getIntScriptVar(self, "creditForKills.attackerList." + participantList[i] + ".damage");
-            if (actualDmg > damageBase)
-            {
+            int actualDmg = utils.getIntScriptVar(self, "creditForKills.attackerList." + obj_id + ".damage");
+            if (actualDmg > damageBase) {
                 damage = actualDmg;
-            }
-            else 
-            {
+            } else {
                 damage = damageBase;
             }
-            if (damage <= 0)
-            {
+            if (damage <= 0) {
                 continue;
             }
-            gcw.grantModifiedGcwPoints(self, participantList[i], gcw.GCW_GENERAL_GCW_BASE_AMOUNT, false, gcw.GCW_POINT_TYPE_GROUND_PVE, information);
-            xp.grantQuestKillCredit(participantList[i], self);
-            obj_id inv = getObjectInSlot(participantList[i], "inventory");
-            if (!isIdValid(inv))
-            {
+            gcw.grantModifiedGcwPoints(self, obj_id, gcw.GCW_GENERAL_GCW_BASE_AMOUNT, false, gcw.GCW_POINT_TYPE_GROUND_PVE, information);
+            xp.grantQuestKillCredit(obj_id, self);
+            obj_id inv = getObjectInSlot(obj_id, "inventory");
+            if (!isIdValid(inv)) {
                 continue;
             }
             obj_id tokenObject = static_item.createNewItemFunction(token, inv);
-            if (!isValidId(tokenObject))
-            {
+            if (!isValidId(tokenObject)) {
                 continue;
             }
             int count = damage / gcw.GCW_GENERAL_TOKEN_BONUS_DIVISOR;
-            if (!incrementCount(tokenObject, count))
-            {
+            if (!incrementCount(tokenObject, count)) {
                 continue;
             }
-            groundquests.sendPlacedMoreThanOneInInventorySystemMessage(participantList[i], tokenObject, count);
-            CustomerServiceLog("gcw_city_invasion", "GCW CITY SYSTEM HAS REWARDED PLAYER: " + participantList[i] + " with " + count + " " + tokenObject + " static item tokens for killing the DEFENSIVE GENERAL.");
+            groundquests.sendPlacedMoreThanOneInInventorySystemMessage(obj_id, tokenObject, count);
+            CustomerServiceLog("gcw_city_invasion", "GCW CITY SYSTEM HAS REWARDED PLAYER: " + obj_id + " with " + count + " " + tokenObject + " static item tokens for killing the DEFENSIVE GENERAL.");
         }
         return SCRIPT_CONTINUE;
     }
@@ -312,7 +293,7 @@ public class gcw_defensive_general_boss extends script.base_script
         else if (initialKitCount > 0)
         {
             blog("calculateGeneralHealthAndAbilities checking for a change in the defensive count");
-            float defenseObjectCount = (float)getIntObjVar(self, "defenseObjectCount");
+            float defenseObjectCount = getIntObjVar(self, "defenseObjectCount");
             if (defenseObjectCount < 0)
             {
                 blog("calculateGeneralHealthAndAbilities defenseObjectCount is less than 0!");

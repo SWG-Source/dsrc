@@ -130,7 +130,7 @@ public class gcw_smuggler_device extends script.base_script
     {
         playClientEffectLoc(self, "clienteffect/combat_explosion_lair_large.cef", getLocation(self), 0);
         setInvulnerable(self, true);
-        messageTo(self, "destroyGCWTower", null, 1f, false);
+        messageTo(self, "destroyGCWTower", null, 1.0f, false);
         return;
     }
 }

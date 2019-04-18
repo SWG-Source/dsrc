@@ -152,13 +152,10 @@ public class destroy_multi extends script.quest.task.ground.base_task
                 String questCrcString = (String)keys.nextElement();
                 int questCrc = utils.stringToInt(questCrcString);
                 int[] tasksForCurrentQuest = tasks.getIntArray(questCrcString);
-                for (int i = 0; i < tasksForCurrentQuest.length; ++i)
-                {
-                    int taskId = tasksForCurrentQuest[i];
+                for (int taskId : tasksForCurrentQuest) {
                     String baseObjVar = groundquests.getBaseObjVar(self, taskType, questGetQuestName(questCrc), taskId);
                     String objvarNameCount = baseObjVar + dot + objvarCount;
-                    if (hasObjVar(self, objvarNameCount))
-                    {
+                    if (hasObjVar(self, objvarNameCount)) {
                         int killCount = getIntObjVar(self, objvarNameCount);
                         int countMax = groundquests.getTaskIntDataEntry(questCrc, taskId, "COUNT");
                         questSetQuestTaskCounter(self, questGetQuestName(questCrc), taskId, "quest/groundquests:destroy_counter", countMax - killCount, countMax);

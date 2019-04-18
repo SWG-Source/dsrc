@@ -164,9 +164,8 @@ public class interior_spawner extends script.base_script
             return;
         }
         String[] scriptArray = split(scriptList, ',');
-        for (int i = 0; i < scriptArray.length; i++)
-        {
-            attachScript(creature, scriptArray[i]);
+        for (String s : scriptArray) {
+            attachScript(creature, s);
         }
     }
     public String getType(dictionary row, obj_id self) throws InterruptedException
@@ -291,8 +290,8 @@ public class interior_spawner extends script.base_script
         String scripts = getScripts(row, spawner);
         if (radius > 0)
         {
-            float newX = rand((radius * (-1f)), radius);
-            float newZ = rand((radius * (-1f)), radius);
+            float newX = rand((radius * (-1.0f)), radius);
+            float newZ = rand((radius * (-1.0f)), radius);
             here.x = here.x + newX;
             here.z = here.z + newZ;
         }

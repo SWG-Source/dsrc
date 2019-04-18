@@ -3,6 +3,7 @@ package script.conversation;
 import script.*;
 import script.library.*;
 
+import java.util.Objects;
 import java.util.Vector;
 
 public class story_arc_chapter_three_pilot extends script.base_script
@@ -40,7 +41,7 @@ public class story_arc_chapter_three_pilot extends script.base_script
     {
         if (group.isGrouped(player))
         {
-            Vector members = group.getPCMembersInRange(player, 80f);
+            Vector members = group.getPCMembersInRange(player, 80.0f);
             if (members != null && members.size() > 0)
             {
                 int numInGroup = members.size();
@@ -48,11 +49,9 @@ public class story_arc_chapter_three_pilot extends script.base_script
                 {
                     return;
                 }
-                for (int i = 0; i < numInGroup; i++)
-                {
-                    obj_id thisMember = ((obj_id)members.get(i));
-                    if (groundquests.isTaskActive(thisMember, "som_story_arc_chapter_three_03", "volcano_arena_one"))
-                    {
+                for (Object member : members) {
+                    obj_id thisMember = ((obj_id) member);
+                    if (groundquests.isTaskActive(thisMember, "som_story_arc_chapter_three_03", "volcano_arena_one")) {
                         groundquests.sendSignal(thisMember, "volcano_arena_pilot");
                     }
                 }
@@ -418,14 +417,7 @@ public class story_arc_chapter_three_pilot extends script.base_script
         space_dungeon.cleanupPlayerTicketObjvars(player);
         space_dungeon.removeDungeonTraveler(self, request_id);
         string_id success = space_dungeon_data.getDungeonFailureString(dungeon_name);
-        if (success == null)
-        {
-            sendSystemMessage(player, space_dungeon.SID_UNABLE_TO_FIND_DUNGEON);
-        }
-        else 
-        {
-            sendSystemMessage(player, success);
-        }
+        sendSystemMessage(player, Objects.requireNonNullElse(success, space_dungeon.SID_UNABLE_TO_FIND_DUNGEON));
         return SCRIPT_CONTINUE;
     }
     public int msgStartDungeonTravel(obj_id self, dictionary params) throws InterruptedException

@@ -284,7 +284,7 @@ public class hideoutspawner extends script.base_script
     public void spawnTrooper4(obj_id self) throws InterruptedException
     {
         obj_id jailcell2 = getCellId(self, "jailcell2");
-        location trooper4Location = new location(-13f, 1.01f, -19f, "corellia", jailcell2);
+        location trooper4Location = new location(-13.0f, 1.01f, -19.0f, "corellia", jailcell2);
         obj_id trooper4 = create.object("rebel_trooper", trooper4Location);
         setObjVar(self, "HideoutInhabitants.trooper4", trooper4);
         setObjVar(trooper4, "hideout", self);
@@ -458,7 +458,7 @@ public class hideoutspawner extends script.base_script
     }
     public void spawnTurret01(obj_id self) throws InterruptedException
     {
-        location loc = new location(-6545.16f, 405f, 5916.49f, "corellia", null);
+        location loc = new location(-6545.16f, 405.0f, 5916.49f, "corellia", null);
         int T_yaw = -121;
         obj_id turret01 = advanced_turret.createTurret(loc, T_yaw, advanced_turret.TYPE_DISH, advanced_turret.SIZE_SMALL, advanced_turret.DAMAGE_ELEMENTAL_HEAT, 1000, 3000, 10000, 30.0f, 2.0f, "Rebel");
         attachScript(turret01, "theme_park.corellia.patrol.turret");
@@ -468,7 +468,7 @@ public class hideoutspawner extends script.base_script
     }
     public void spawnTurret2(obj_id self) throws InterruptedException
     {
-        location loc = new location(-6530.26f, 405f, 5913.65f, "corellia", null);
+        location loc = new location(-6530.26f, 405.0f, 5913.65f, "corellia", null);
         int T_yaw = -161;
         obj_id turret2 = advanced_turret.createTurret(loc, T_yaw, advanced_turret.TYPE_TOWER, advanced_turret.SIZE_SMALL, advanced_turret.DAMAGE_ELEMENTAL_HEAT, 1000, 3000, 10000, 30.0f, 2.0f, "Rebel");
         attachScript(turret2, "theme_park.corellia.patrol.turret");
@@ -478,7 +478,7 @@ public class hideoutspawner extends script.base_script
     }
     public void spawnTurret3(obj_id self) throws InterruptedException
     {
-        location loc = new location(-6515.82f, 405f, 5904.84f, "corellia", null);
+        location loc = new location(-6515.82f, 405.0f, 5904.84f, "corellia", null);
         int T_yaw = 167;
         obj_id turret3 = advanced_turret.createTurret(loc, T_yaw, advanced_turret.TYPE_DISH, advanced_turret.SIZE_SMALL, advanced_turret.DAMAGE_ELEMENTAL_HEAT, 1000, 3000, 10000, 30.0f, 2.0f, "Rebel");
         attachScript(turret3, "theme_park.corellia.patrol.turret");
@@ -488,7 +488,7 @@ public class hideoutspawner extends script.base_script
     }
     public void spawnTurret4(obj_id self) throws InterruptedException
     {
-        location loc = new location(-6572f, 405f, 5939.71f, "corellia", null);
+        location loc = new location(-6572.0f, 405.0f, 5939.71f, "corellia", null);
         int T_yaw = -45;
         obj_id turret4 = advanced_turret.createTurret(loc, T_yaw, advanced_turret.TYPE_TOWER, advanced_turret.SIZE_SMALL, advanced_turret.DAMAGE_ELEMENTAL_HEAT, 1000, 3000, 10000, 30.0f, 2.0f, "Rebel");
         attachScript(turret4, "theme_park.corellia.patrol.turret");
@@ -498,7 +498,7 @@ public class hideoutspawner extends script.base_script
     }
     public void spawnTurret5(obj_id self) throws InterruptedException
     {
-        location loc = new location(-6481.84f, 405f, 5912.74f, "corellia", null);
+        location loc = new location(-6481.84f, 405.0f, 5912.74f, "corellia", null);
         int T_yaw = 79;
         obj_id turret5 = advanced_turret.createTurret(loc, T_yaw, advanced_turret.TYPE_TOWER, advanced_turret.SIZE_SMALL, advanced_turret.DAMAGE_ELEMENTAL_HEAT, 1000, 3000, 10000, 30.0f, 2.0f, "Rebel");
         attachScript(turret5, "theme_park.corellia.patrol.turret");
@@ -508,7 +508,7 @@ public class hideoutspawner extends script.base_script
     }
     public void spawnTurret6(obj_id self) throws InterruptedException
     {
-        location loc = new location(-6560.04f, 404f, 5965.22f, "corellia", null);
+        location loc = new location(-6560.04f, 404.0f, 5965.22f, "corellia", null);
         int T_yaw = -117;
         obj_id turret6 = advanced_turret.createTurret(loc, T_yaw, advanced_turret.TYPE_TOWER, advanced_turret.SIZE_LARGE, advanced_turret.DAMAGE_ELEMENTAL_HEAT, 3000, 5000, 30000, 50.0f, 2.0f, "Rebel");
         attachScript(turret6, "theme_park.corellia.patrol.turret");
@@ -518,7 +518,7 @@ public class hideoutspawner extends script.base_script
     }
     public void spawnTurret7(obj_id self) throws InterruptedException
     {
-        location loc = new location(-6536.1f, 404f, 5941.59f, "corellia", null);
+        location loc = new location(-6536.1f, 404.0f, 5941.59f, "corellia", null);
         int T_yaw = -148;
         obj_id turret7 = advanced_turret.createTurret(loc, T_yaw, advanced_turret.TYPE_TOWER, advanced_turret.SIZE_LARGE, advanced_turret.DAMAGE_ELEMENTAL_HEAT, 3000, 5000, 30000, 50.0f, 2.0f, "Rebel");
         attachScript(turret7, "theme_park.corellia.patrol.turret");
@@ -528,7 +528,7 @@ public class hideoutspawner extends script.base_script
     }
     public void spawnTurret8(obj_id self) throws InterruptedException
     {
-        location loc = new location(-6510.06f, 404f, 5931.47f, "corellia", null);
+        location loc = new location(-6510.06f, 404.0f, 5931.47f, "corellia", null);
         int T_yaw = -170;
         obj_id turret8 = advanced_turret.createTurret(loc, T_yaw, advanced_turret.TYPE_TOWER, advanced_turret.SIZE_LARGE, advanced_turret.DAMAGE_ELEMENTAL_HEAT, 3000, 5000, 30000, 50.0f, 2.0f, "Rebel");
         attachScript(turret8, "theme_park.corellia.patrol.turret");
@@ -538,7 +538,7 @@ public class hideoutspawner extends script.base_script
     }
     public void spawnTurret9(obj_id self) throws InterruptedException
     {
-        location loc = new location(-6474.96f, 404f, 5937.97f, "corellia", null);
+        location loc = new location(-6474.96f, 404.0f, 5937.97f, "corellia", null);
         int T_yaw = 156;
         obj_id turret9 = advanced_turret.createTurret(loc, T_yaw, advanced_turret.TYPE_TOWER, advanced_turret.SIZE_LARGE, advanced_turret.DAMAGE_ELEMENTAL_HEAT, 3000, 5000, 30000, 50.0f, 2.0f, "Rebel");
         attachScript(turret9, "theme_park.corellia.patrol.turret");
@@ -548,7 +548,7 @@ public class hideoutspawner extends script.base_script
     }
     public void spawnTurret10(obj_id self) throws InterruptedException
     {
-        location loc = new location(-6443.04f, 404f, 6000.2f, "corellia", null);
+        location loc = new location(-6443.04f, 404.0f, 6000.2f, "corellia", null);
         int T_yaw = 79;
         obj_id turret10 = advanced_turret.createTurret(loc, T_yaw, advanced_turret.TYPE_TOWER, advanced_turret.SIZE_LARGE, advanced_turret.DAMAGE_ELEMENTAL_HEAT, 3000, 5000, 30000, 50.0f, 2.0f, "Rebel");
         attachScript(turret10, "theme_park.corellia.patrol.turret");
@@ -558,7 +558,7 @@ public class hideoutspawner extends script.base_script
     }
     public void spawnTurret11(obj_id self) throws InterruptedException
     {
-        location loc = new location(-6457f, 404f, 6032.01f, "corellia", null);
+        location loc = new location(-6457.0f, 404.0f, 6032.01f, "corellia", null);
         int T_yaw = 53;
         obj_id turret11 = advanced_turret.createTurret(loc, T_yaw, advanced_turret.TYPE_TOWER, advanced_turret.SIZE_LARGE, advanced_turret.DAMAGE_ELEMENTAL_HEAT, 3000, 5000, 30000, 50.0f, 2.0f, "Rebel");
         attachScript(turret11, "theme_park.corellia.patrol.turret");
@@ -568,7 +568,7 @@ public class hideoutspawner extends script.base_script
     }
     public void spawnTurret12(obj_id self) throws InterruptedException
     {
-        location loc = new location(-6434.14f, 405f, 6032.2f, "corellia", null);
+        location loc = new location(-6434.14f, 405.0f, 6032.2f, "corellia", null);
         int T_yaw = -23;
         obj_id turret12 = advanced_turret.createTurret(loc, T_yaw, advanced_turret.TYPE_TOWER, advanced_turret.SIZE_SMALL, advanced_turret.DAMAGE_ELEMENTAL_HEAT, 1000, 3000, 10000, 30.0f, 2.0f, "Rebel");
         attachScript(turret12, "theme_park.corellia.patrol.turret");
@@ -578,7 +578,7 @@ public class hideoutspawner extends script.base_script
     }
     public void spawnTurret13(obj_id self) throws InterruptedException
     {
-        location loc = new location(-6424.52f, 405f, 6019.65f, "corellia", null);
+        location loc = new location(-6424.52f, 405.0f, 6019.65f, "corellia", null);
         int T_yaw = 157;
         obj_id turret13 = advanced_turret.createTurret(loc, T_yaw, advanced_turret.TYPE_TOWER, advanced_turret.SIZE_SMALL, advanced_turret.DAMAGE_ELEMENTAL_HEAT, 1000, 3000, 10000, 30.0f, 2.0f, "Rebel");
         attachScript(turret13, "theme_park.corellia.patrol.turret");

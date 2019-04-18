@@ -39,7 +39,7 @@ public class base_tool extends script.base_script
             removeObjVar(self, craftinglib.OBJVAR_CRAFTER);
         }
         String template = getTemplateName(self);
-        if (template != null && template.indexOf("weapon_tool.iff") >= 0)
+        if (template != null && template.contains("weapon_tool.iff"))
         {
             int craftingType = getIntObjVar(self, craftinglib.OBJVAR_CRAFTING_TYPE);
             craftingType &= ~CT_genericItem;
@@ -66,9 +66,8 @@ public class base_tool extends script.base_script
             int[] stationBuffs = buff.getAllBuffsByEffect(player, "station_buff");
             if (stationBuffs != null || stationBuffs.length > 0)
             {
-                for (int i = 0; i < stationBuffs.length; ++i)
-                {
-                    buff.removeBuff(player, stationBuffs[i]);
+                for (int stationBuff1 : stationBuffs) {
+                    buff.removeBuff(player, stationBuff1);
                 }
             }
         }
@@ -117,21 +116,17 @@ public class base_tool extends script.base_script
                 if (testIds != null)
                 {
                     float closestLength = craftinglib.STATION_AREA + 100.0f;
-                    for (int i = 0; i < testIds.length; i++)
-                    {
-                        if (isIdValid(testIds[i]) && hasObjVar(testIds[i], craftinglib.OBJVAR_STATION))
-                        {
-                            debugServerConsoleMsg(tool, "Testing crafting station " + testIds[i] + " at " + getLocation(testIds[i]));
-                            float dist = getDistance(testIds[i], myPos);
+                    for (obj_id testId : testIds) {
+                        if (isIdValid(testId) && hasObjVar(testId, craftinglib.OBJVAR_STATION)) {
+                            debugServerConsoleMsg(tool, "Testing crafting station " + testId + " at " + getLocation(testId));
+                            float dist = getDistance(testId, myPos);
                             debugServerConsoleMsg(tool, "\tstation distance = " + dist);
-                            if (dist >= 0 && dist < closestLength)
-                            {
-                                if ((ai_lib.aiGetNiche(stationId) == NICHE_DROID || ai_lib.aiGetNiche(stationId) == NICHE_ANDROID) && pet_lib.isLowOnPower(stationId))
-                                {
+                            if (dist >= 0 && dist < closestLength) {
+                                if ((ai_lib.aiGetNiche(stationId) == NICHE_DROID || ai_lib.aiGetNiche(stationId) == NICHE_ANDROID) && pet_lib.isLowOnPower(stationId)) {
                                     continue;
                                 }
                                 closestLength = dist;
-                                stationId = testIds[i];
+                                stationId = testId;
                             }
                         }
                     }
@@ -174,7 +169,7 @@ public class base_tool extends script.base_script
             }
         }
         String template = getTemplateName(stationId);
-        if (template != null && template.indexOf("weapon_station.iff") >= 0)
+        if (template != null && template.contains("weapon_station.iff"))
         {
             int craftingType = getIntObjVar(stationId, craftinglib.OBJVAR_CRAFTING_TYPE);
             craftingType &= ~CT_genericItem;
@@ -303,9 +298,8 @@ public class base_tool extends script.base_script
         {
             ++resourcesPer;
         }
-        for (int i = 0; i < numResources; ++i)
-        {
-            resourceAmount[i].set(resourcesPer);
+        for (modifiable_int modifiable_int : resourceAmount) {
+            modifiable_int.set(resourcesPer);
         }
         return SCRIPT_CONTINUE;
     }

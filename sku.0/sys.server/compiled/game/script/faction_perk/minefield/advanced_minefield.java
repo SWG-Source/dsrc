@@ -63,16 +63,16 @@ public class advanced_minefield extends script.systems.combat.combat_base
             return SCRIPT_CONTINUE;
         }
         float radius = hq.getMinefieldRadius(structure);
-        float interval = (radius / 5f);
+        float interval = (radius / 5.0f);
         int count = 1;
-        while (radius > 1f && count < 6)
+        while (radius > 1.0f && count < 6)
         {
             String volume_name = "hq_minefield_" + count;
             createTriggerVolume(volume_name, radius, true);
             radius -= interval;
             count++;
         }
-        weapons.setWeaponData(self, 4000, 6000, 64f, WEAPON_TYPE_HEAVY, DAMAGE_KINETIC, DAMAGE_ELEMENTAL_HEAT, 0, 1f, 0f);
+        weapons.setWeaponData(self, 4000, 6000, 64.0f, WEAPON_TYPE_HEAVY, DAMAGE_KINETIC, DAMAGE_ELEMENTAL_HEAT, 0, 1.0f, 0.0f);
         return SCRIPT_CONTINUE;
     }
     public void checkMineDetonation(obj_id self, obj_id who) throws InterruptedException
@@ -111,9 +111,9 @@ public class advanced_minefield extends script.systems.combat.combat_base
         {
             return;
         }
-        float max = (float)hq.getMaxMines(structure);
-        float current = (float)hq.getTotalMines(structure);
-        int chance = (int)(((current / max) * MAX_MINE_CHANCE) * 100f);
+        float max = hq.getMaxMines(structure);
+        float current = hq.getTotalMines(structure);
+        int chance = (int)(((current / max) * MAX_MINE_CHANCE) * 100.0f);
         int roll = rand(1, 100);
         if (roll < chance)
         {
@@ -147,11 +147,11 @@ public class advanced_minefield extends script.systems.combat.combat_base
         if (combatStandardAction(MINE_ATTACK_COMMAND[type], self, who, self, "", null, true))
         {
             stealth.testInvisCombatAction(who, who);
-            playClientEffectLoc(who, MINE_EFFECT[type], getLocation(who), 0f);
+            playClientEffectLoc(who, MINE_EFFECT[type], getLocation(who), 0.0f);
             utils.dismountRiderJetpackCheck(who);
             dictionary d = new dictionary();
             d.put("player", who);
-            messageTo(self, "handleMineDeathBlow", d, 1f, false);
+            messageTo(self, "handleMineDeathBlow", d, 1.0f, false);
         }
     }
     public int handleMineDeathBlow(obj_id self, dictionary params) throws InterruptedException

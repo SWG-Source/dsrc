@@ -104,14 +104,11 @@ public class cybernetic extends script.base_script
             return false;
         }
         int count = 0;
-        for (int intI = 0; intI < contents.length; intI++)
-        {
-            String templateName = getTemplateName(contents[intI]);
-            if (hasScript(contents[intI], "cybernetic.cybernetic_item") || templateName.indexOf("cybernetic") > -1)
-            {
+        for (obj_id content : contents) {
+            String templateName = getTemplateName(content);
+            if (hasScript(content, "cybernetic.cybernetic_item") || templateName.contains("cybernetic")) {
                 ++count;
-                if (count >= MAX_INSTALLED)
-                {
+                if (count >= MAX_INSTALLED) {
                     return true;
                 }
             }
@@ -122,21 +119,18 @@ public class cybernetic extends script.base_script
     {
         obj_id[] allSlots = getAllWornItems(player, false);
         HashSet duplicateEater = new HashSet();
-        for (int i = 0; i < allSlots.length; i++)
-        {
-            duplicateEater.add(allSlots[i]);
+        for (obj_id allSlot : allSlots) {
+            duplicateEater.add(allSlot);
         }
         obj_id[] contents = new obj_id[duplicateEater.size()];
         duplicateEater.toArray(contents);
         int count = 0;
         LOG("sissynoid", "contents length: " + contents.length);
-        for (int intI = 0; intI < contents.length; intI++)
-        {
-            LOG("sissynoid", "Contents: (" + contents[intI] + ") ::::: " + getTemplateName(contents[intI]));
-            String templateName = getTemplateName(contents[intI]);
-            if (hasScript(contents[intI], "cybernetic.cybernetic_item") || templateName.indexOf("cybernetic") > -1)
-            {
-                count += getCyberneticPointValue(contents[intI]);
+        for (obj_id content : contents) {
+            LOG("sissynoid", "Contents: (" + content + ") ::::: " + getTemplateName(content));
+            String templateName = getTemplateName(content);
+            if (hasScript(content, "cybernetic.cybernetic_item") || templateName.contains("cybernetic")) {
+                count += getCyberneticPointValue(content);
             }
         }
         LOG("sissynoid", "Cybernetic Count - " + count);
@@ -184,7 +178,7 @@ public class cybernetic extends script.base_script
         location loc = getLocation(player);
         String area = loc.area;
         int sceneCRC = getStringCrc(area);
-        if (area.indexOf("space_") != -1)
+        if (area.contains("space_"))
         {
             return;
         }
@@ -335,17 +329,14 @@ public class cybernetic extends script.base_script
     {
         obj_id[] allSlots = getAllWornItems(player, false);
         HashSet duplicateEater = new HashSet();
-        for (int i = 0; i < allSlots.length; i++)
-        {
-            duplicateEater.add(allSlots[i]);
+        for (obj_id allSlot : allSlots) {
+            duplicateEater.add(allSlot);
         }
         obj_id[] contents = new obj_id[duplicateEater.size()];
         duplicateEater.toArray(contents);
-        for (int intI = 0; intI < contents.length; intI++)
-        {
-            String templateName = getTemplateName(contents[intI]);
-            if ((hasScript(contents[intI], "cybernetic.cybernetic_item") || templateName.indexOf("cybernetic") > -1) && (!isGameObjectTypeOf(contents[intI], GOT_cybernetic_component)))
-            {
+        for (obj_id content : contents) {
+            String templateName = getTemplateName(content);
+            if ((hasScript(content, "cybernetic.cybernetic_item") || templateName.contains("cybernetic")) && (!isGameObjectTypeOf(content, GOT_cybernetic_component))) {
                 return true;
             }
         }
@@ -363,11 +354,9 @@ public class cybernetic extends script.base_script
         {
             return false;
         }
-        for (int intI = 0; intI < contents.length; intI++)
-        {
-            String templateName = getTemplateName(contents[intI]);
-            if ((hasScript(contents[intI], "cybernetic.cybernetic_item") || templateName.indexOf("cybernetic") > -1) && (!isGameObjectTypeOf(contents[intI], GOT_cybernetic_component)))
-            {
+        for (obj_id content : contents) {
+            String templateName = getTemplateName(content);
+            if ((hasScript(content, "cybernetic.cybernetic_item") || templateName.contains("cybernetic")) && (!isGameObjectTypeOf(content, GOT_cybernetic_component))) {
                 return true;
             }
         }
@@ -381,19 +370,16 @@ public class cybernetic extends script.base_script
     {
         obj_id[] allSlots = getAllWornItems(player, false);
         HashSet duplicateEater = new HashSet();
-        for (int i = 0; i < allSlots.length; i++)
-        {
-            duplicateEater.add(allSlots[i]);
+        for (obj_id allSlot : allSlots) {
+            duplicateEater.add(allSlot);
         }
         obj_id[] contents = new obj_id[duplicateEater.size()];
         duplicateEater.toArray(contents);
         Vector cyberneticItems = new Vector();
-        for (int intI = 0; intI < contents.length; intI++)
-        {
-            String templateName = getTemplateName(contents[intI]);
-            if (hasScript(contents[intI], "cybernetic.cybernetic_item") || templateName.indexOf("cybernetic") > -1)
-            {
-                cyberneticItems.addElement(contents[intI]);
+        for (obj_id content : contents) {
+            String templateName = getTemplateName(content);
+            if (hasScript(content, "cybernetic.cybernetic_item") || templateName.contains("cybernetic")) {
+                cyberneticItems.addElement(content);
             }
         }
         if (cyberneticItems == null || cyberneticItems.size() < 1)
@@ -458,11 +444,9 @@ public class cybernetic extends script.base_script
             return;
         }
         Vector newInstallList = new Vector();
-        for (int i = 0; i < installedCybernetics.length; i++)
-        {
-            if (!installedCybernetics[i].equals(templateName))
-            {
-                newInstallList.addElement(installedCybernetics[i]);
+        for (String installedCybernetic : installedCybernetics) {
+            if (!installedCybernetic.equals(templateName)) {
+                newInstallList.addElement(installedCybernetic);
             }
         }
         if (newInstallList == null || newInstallList.size() < 1)
@@ -540,7 +524,7 @@ public class cybernetic extends script.base_script
     }
     public static float getThrowRangeMod(obj_id player, float maxRange) throws InterruptedException
     {
-        float rangeMod = (float)getSkillStatMod(player, "cybernetic_throw_range");
+        float rangeMod = getSkillStatMod(player, "cybernetic_throw_range");
         if (rangeMod != 0.0f)
         {
             return (maxRange + rangeMod);
@@ -549,7 +533,7 @@ public class cybernetic extends script.base_script
     }
     public static float getRangedRangeMod(obj_id player, float maxRange) throws InterruptedException
     {
-        float rangeMod = (float)getSkillStatMod(player, "cybernetic_ranged_range");
+        float rangeMod = getSkillStatMod(player, "cybernetic_ranged_range");
         if (rangeMod != 0.0f)
         {
             return (maxRange + rangeMod);
@@ -558,7 +542,7 @@ public class cybernetic extends script.base_script
     }
     public static float getCyberneticHealingMod(obj_id player, float maxHealMod) throws InterruptedException
     {
-        float healMod = (float)getSkillStatMod(player, "cybernetic_healing_mod");
+        float healMod = getSkillStatMod(player, "cybernetic_healing_mod");
         if (healMod != 0.0f)
         {
             healMod = healMod / 100;
@@ -568,7 +552,7 @@ public class cybernetic extends script.base_script
     }
     public static float getCyberneticRangedAccuracyMod(obj_id player, float baseAccuracy) throws InterruptedException
     {
-        float accMod = (float)getSkillStatMod(player, "cybernetic_ranged_acc");
+        float accMod = getSkillStatMod(player, "cybernetic_ranged_acc");
         if (accMod != 0.0f)
         {
             accMod = accMod / 100;
@@ -578,7 +562,7 @@ public class cybernetic extends script.base_script
     }
     public static float getCyberneticMeleeAccuracyMod(obj_id player, float baseAccuracy) throws InterruptedException
     {
-        float accMod = (float)getSkillStatMod(player, "cybernetic_melee_acc");
+        float accMod = getSkillStatMod(player, "cybernetic_melee_acc");
         if (accMod != 0.0f)
         {
             accMod = accMod / 100;
@@ -588,7 +572,7 @@ public class cybernetic extends script.base_script
     }
     public static float getCyberneticMeleeDefenseMod(obj_id player, float baseDefense) throws InterruptedException
     {
-        float defMod = (float)getSkillStatMod(player, "cybernetic_melee_def");
+        float defMod = getSkillStatMod(player, "cybernetic_melee_def");
         if (defMod != 0.0f)
         {
             defMod = defMod / 100;
@@ -747,9 +731,8 @@ public class cybernetic extends script.base_script
         obj_id[] cybernetics = getInstalledCybernetics(player);
         if (cybernetics != null && cybernetics.length > 0)
         {
-            for (int i = 0; i < cybernetics.length; ++i)
-            {
-                grantCyberneticSkillMods(player, cybernetics[i]);
+            for (obj_id cybernetic : cybernetics) {
+                grantCyberneticSkillMods(player, cybernetic);
             }
         }
         movement.refresh(player);
@@ -818,11 +801,9 @@ public class cybernetic extends script.base_script
         {
             return null;
         }
-        for (int i = 0; i < installed.length; ++i)
-        {
-            if (itemName.equals(getTemplateName(installed[i])))
-            {
-                return installed[i];
+        for (obj_id obj_id : installed) {
+            if (itemName.equals(getTemplateName(obj_id))) {
+                return obj_id;
             }
         }
         revokeAllOccurancesOfCommand(player, commandName);

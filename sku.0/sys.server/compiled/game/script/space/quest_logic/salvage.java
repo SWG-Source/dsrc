@@ -59,7 +59,7 @@ public class salvage extends script.space.quest_logic.recovery
         {
             dictionary outparams = new dictionary();
             outparams.put("player", player);
-            messageTo(self, "initializedQuestPlayer", outparams, 1.f, false);
+            messageTo(self, "initializedQuestPlayer", outparams, 1.0f, false);
         }
         int questid = questGetQuestId("spacequest/" + questType + "/" + questName);
         if (questid != 0)
@@ -166,7 +166,7 @@ public class salvage extends script.space.quest_logic.recovery
         ship_ai.unitAddExclusiveAggro(ship, player);
         dictionary outp = new dictionary();
         outp.put("objShip", space_transition.getContainingShip(player));
-        messageTo(ship, "disableSelf", outp, 1.f, false);
+        messageTo(ship, "disableSelf", outp, 1.0f, false);
         attachScript(ship, "space_mining.mining_salvage_hulk");
         int hp = getIntObjVar(self, "salvageResources");
         setMaxHitpoints(ship, hp);
@@ -178,7 +178,7 @@ public class salvage extends script.space.quest_logic.recovery
         {
             setObjVar(ship, "convo.appearance", rescueAppearance);
         }
-        messageTo(self, "updateTargetWaypoint", null, 1.f, false);
+        messageTo(self, "updateTargetWaypoint", null, 1.0f, false);
         String questName = getStringObjVar(self, space_quest.QUEST_NAME);
         String questType = getStringObjVar(self, space_quest.QUEST_TYPE);
         string_id status_update = new string_id("spacequest/" + questType + "/" + questName, "arrival_phase_2");
@@ -206,19 +206,19 @@ public class salvage extends script.space.quest_logic.recovery
                 questCompleted(self);
             }
             int msgCount = getIntObjVar(self, "msgCount");
-            if (currentCount > (.50 * salvageCount) && currentCount < (.75 * salvageCount) && msgCount == 1)
+            if (currentCount > (0.50 * salvageCount) && currentCount < (0.75 * salvageCount) && msgCount == 1)
             {
                 setObjVar(self, "msgCount", 0);
                 messageTo(self, "launchAttack", null, 0, false);
                 space_quest.showQuestUpdate(self, SID_REMAINDER_UPDATE, salvageCount - currentCount);
             }
-            else if (currentCount > (.25 * salvageCount) && currentCount < (.50 * salvageCount) && msgCount == 2)
+            else if (currentCount > (0.25 * salvageCount) && currentCount < (0.50 * salvageCount) && msgCount == 2)
             {
                 setObjVar(self, "msgCount", 1);
                 messageTo(self, "launchAttack", null, 0, false);
                 space_quest.showQuestUpdate(self, SID_REMAINDER_UPDATE, salvageCount - currentCount);
             }
-            else if (currentCount > (0) && currentCount < (.25 * salvageCount) && msgCount == 3)
+            else if (currentCount > (0) && currentCount < (0.25 * salvageCount) && msgCount == 3)
             {
                 setObjVar(self, "msgCount", 2);
                 messageTo(self, "launchAttack", null, 0, false);
@@ -283,12 +283,12 @@ public class salvage extends script.space.quest_logic.recovery
         for (int i = k; i < count + k; i++)
         {
             transform gloc = getTransform_o2w(ship);
-            float dist = rand(1000.f, 1200.f);
+            float dist = rand(1000.0f, 1200.0f);
             vector n = ((gloc.getLocalFrameK_p()).normalize()).multiply(dist);
             gloc = gloc.move_p(n);
             gloc = gloc.yaw_l(3.14f);
-            vector vi = ((gloc.getLocalFrameI_p()).normalize()).multiply(rand(-150.f, 150.f));
-            vector vj = ((gloc.getLocalFrameJ_p()).normalize()).multiply(rand(-150.f, 150.f));
+            vector vi = ((gloc.getLocalFrameI_p()).normalize()).multiply(rand(-150.0f, 150.0f));
+            vector vj = ((gloc.getLocalFrameJ_p()).normalize()).multiply(rand(-150.0f, 150.0f));
             vector vd = vi.add(vj);
             gloc = gloc.move_p(vd);
             obj_id newship = space_create.createShipHyperspace(shipList[j], gloc);
@@ -345,20 +345,18 @@ public class salvage extends script.space.quest_logic.recovery
                 string_id abort = new string_id("spacequest/" + questType + "/" + questName, "abort");
                 prose_package pp = prose.getPackage(abort, 0);
                 space_quest.groupTaunt(ship, player, pp);
-                messageTo(ship, "missionAbort", null, 2.f, false);
+                messageTo(ship, "missionAbort", null, 2.0f, false);
             }
             else 
             {
-                messageTo(ship, "missionAbort", null, 10.f, false);
+                messageTo(ship, "missionAbort", null, 10.0f, false);
             }
             obj_id[] escorts = getObjIdArrayObjVar(self, "escorts");
             if (escorts != null)
             {
-                for (int i = 0; i < escorts.length; i++)
-                {
-                    if (isIdValid(escorts[i]) && exists(escorts[i]))
-                    {
-                        messageTo(escorts[i], "missionAbort", null, 10.f, false);
+                for (obj_id escort : escorts) {
+                    if (isIdValid(escort) && exists(escort)) {
+                        messageTo(escort, "missionAbort", null, 10.0f, false);
                     }
                 }
             }

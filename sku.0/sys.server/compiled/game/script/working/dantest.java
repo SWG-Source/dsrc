@@ -118,14 +118,13 @@ public class dantest extends script.base_script
         {
             obj_id objShip = getPilotedShip(self);
             int[] intSlots = space_crafting.getShipInstalledSlots(objShip);
-            for (int intI = 0; intI < intSlots.length; intI++)
-            {
-                String strName = ship_chassis_slot_type.names[intSlots[intI]];
+            for (int intSlot : intSlots) {
+                String strName = ship_chassis_slot_type.names[intSlot];
                 debugConsoleMsg(self, "Item: " + strName);
-                debugConsoleMsg(self, "General Efficiency: " + getShipComponentEfficiencyGeneral(objShip, intSlots[intI]));
-                debugConsoleMsg(self, "Energy Efficiency: " + getShipComponentEfficiencyEnergy(objShip, intSlots[intI]));
-                debugConsoleMsg(self, "Current Hitpoints: " + getShipComponentHitpointsCurrent(objShip, intSlots[intI]));
-                debugConsoleMsg(self, "Maximum Hitpoints: " + getShipComponentHitpointsMaximum(objShip, intSlots[intI]));
+                debugConsoleMsg(self, "General Efficiency: " + getShipComponentEfficiencyGeneral(objShip, intSlot));
+                debugConsoleMsg(self, "Energy Efficiency: " + getShipComponentEfficiencyEnergy(objShip, intSlot));
+                debugConsoleMsg(self, "Current Hitpoints: " + getShipComponentHitpointsCurrent(objShip, intSlot));
+                debugConsoleMsg(self, "Maximum Hitpoints: " + getShipComponentHitpointsMaximum(objShip, intSlot));
             }
         }
         if (strCommands[0].equals("validateCharacter"))
@@ -214,10 +213,8 @@ public class dantest extends script.base_script
                     obj_id[] objContents = utils.getContents(objObjects[intI], true);
                     if (objContents != null)
                     {
-                        for (int intJ = 0; intJ < objContents.length; intJ++)
-                        {
-                            if (isMob(objContents[intJ]))
-                            {
+                        for (obj_id objContent : objContents) {
+                            if (isMob(objContent)) {
                                 sendSystemMessageTestingOnly(self, "Found  mob in " + objContents[intI]);
                                 intMobs++;
                             }
@@ -229,7 +226,7 @@ public class dantest extends script.base_script
         }
         if (strCommands[0].equals("findMobs"))
         {
-            obj_id[] objMobs = getAllObjectsWithObjVar(getLocation(self), 32000f, "ai");
+            obj_id[] objMobs = getAllObjectsWithObjVar(getLocation(self), 32000.0f, "ai");
             int intRoll = rand(0, objMobs.length - 1);
             sendSystemMessageTestingOnly(self, "Try ");
             int intTest = 0;
@@ -238,31 +235,26 @@ public class dantest extends script.base_script
             objDungeons.setSize(0);
             Vector intCounts = new Vector();
             intCounts.setSize(0);
-            for (int intI = 0; intI < objMobs.length; intI++)
-            {
-                if (hasCondition(objMobs[intI], CONDITION_HIBERNATING))
-                {
+            for (obj_id objMob : objMobs) {
+                if (hasCondition(objMob, CONDITION_HIBERNATING)) {
                     intTest++;
                 }
-                obj_id objTest = getTopMostContainer(objMobs[intI]);
+                obj_id objTest = getTopMostContainer(objMob);
                 int intIndex = utils.getElementPositionInArray(objDungeons, objTest);
-                if (intIndex < 0)
-                {
+                if (intIndex < 0) {
                     objDungeons = utils.addElement(objDungeons, objTest);
                     intCounts = utils.addElement(intCounts, 0);
-                }
-                else 
-                {
-                    int intCount = ((Integer)intCounts.get(intIndex)).intValue();
+                } else {
+                    int intCount = (Integer) intCounts.get(intIndex);
                     intCount++;
-                    intCounts.set(intIndex, new Integer(intCount));
+                    intCounts.set(intIndex, intCount);
                 }
             }
             for (int intI = 0; intI < objDungeons.size(); intI++)
             {
-                strTest += "For " + getTemplateName(((obj_id)objDungeons.get(intI))) + " NPC Count is " + ((Integer)intCounts.get(intI)).intValue() + "\r\n";
-                sendSystemMessageTestingOnly(self, "For " + getTemplateName(((obj_id)objDungeons.get(intI))) + " NPC Count is " + ((Integer)intCounts.get(intI)).intValue());
-                LOG("npe", "For " + getTemplateName(((obj_id)objDungeons.get(intI))) + " NPC Count is " + ((Integer)intCounts.get(intI)).intValue());
+                strTest += "For " + getTemplateName(((obj_id)objDungeons.get(intI))) + " NPC Count is " + (Integer) intCounts.get(intI) + "\r\n";
+                sendSystemMessageTestingOnly(self, "For " + getTemplateName(((obj_id)objDungeons.get(intI))) + " NPC Count is " + (Integer) intCounts.get(intI));
+                LOG("npe", "For " + getTemplateName(((obj_id)objDungeons.get(intI))) + " NPC Count is " + (Integer) intCounts.get(intI));
             }
             sendSystemMessageTestingOnly(self, "Total Hibernating Mob Count is " + intTest + " from " + objMobs.length);
             strTest += "Total Hibernating Mob Count is " + intTest + " from " + objMobs.length;
@@ -273,28 +265,21 @@ public class dantest extends script.base_script
             String strTest = "";
             obj_id objBuilding = getTopMostContainer(self);
             obj_id[] objContents = getShipContents(objBuilding);
-            for (int intI = 0; intI < objContents.length; intI++)
-            {
-                if (hasScript(objContents[intI], "systems.spawning.spawner_area"))
-                {
-                    String strName = getStringObjVar(objContents[intI], "strName");
-                    strTest += getDumpString(objContents[intI], strName);
-                }
-                else if (!hasScript(objContents[intI], "content_tools.sequencer_object"))
-                {
-                    if (!hasScript(objContents[intI], "systems.spawning.spawned_tracker"))
-                    {
-                        String strName = getEncodedName(objContents[intI]);
-                        if (strName == null)
-                        {
-                            strName = getName(objContents[intI]);
+            for (obj_id objContent : objContents) {
+                if (hasScript(objContent, "systems.spawning.spawner_area")) {
+                    String strName = getStringObjVar(objContent, "strName");
+                    strTest += getDumpString(objContent, strName);
+                } else if (!hasScript(objContent, "content_tools.sequencer_object")) {
+                    if (!hasScript(objContent, "systems.spawning.spawned_tracker")) {
+                        String strName = getEncodedName(objContent);
+                        if (strName == null) {
+                            strName = getName(objContent);
                         }
                         int intIndex = strName.indexOf("@");
-                        if (intIndex > -1)
-                        {
+                        if (intIndex > -1) {
                             strName = getString(utils.unpackString(strName));
                         }
-                        strTest += getDumpString(objContents[intI], strName);
+                        strTest += getDumpString(objContent, strName);
                     }
                 }
             }
@@ -304,7 +289,7 @@ public class dantest extends script.base_script
         if (strCommands[0].equals("checkForceRegen"))
         {
             int baseRegenRate = getSkillStatisticModifier(self, "jedi_force_power_regen");
-            float regenRate = (float)baseRegenRate;
+            float regenRate = baseRegenRate;
             sendSystemMessageTestingOnly(self, "regen Rate base is " + regenRate);
             float fltActualRegen = getForcePowerRegenRate(self);
             sendSystemMessageTestingOnly(self, "Actual Modified Regen is " + fltActualRegen);
@@ -367,10 +352,9 @@ public class dantest extends script.base_script
         if (strCommands[0].equals("resetStormtroopers"))
         {
             obj_id[] objTestObjects = getAllObjectsWithTemplate(getLocation(self), 2000, "object/mobile/stormtrooper.iff");
-            for (int intI = 0; intI < objTestObjects.length; intI++)
-            {
-                detachScript(objTestObjects[intI], "e3demo.e3_stormtrooper");
-                attachScript(objTestObjects[intI], "e3demo.e3_stormtrooper");
+            for (obj_id objTestObject : objTestObjects) {
+                detachScript(objTestObject, "e3demo.e3_stormtrooper");
+                attachScript(objTestObject, "e3demo.e3_stormtrooper");
             }
             return SCRIPT_CONTINUE;
         }
@@ -414,10 +398,9 @@ public class dantest extends script.base_script
                 "object/tangible/loot/quest/lifeday_orb.iff",
                 "object/tangible/wearables/wookiee/wke_lifeday_robe.iff"
             };
-            for (int intI = 0; intI < strItems.length; intI++)
-            {
+            for (String strItem : strItems) {
                 locTest.x = locTest.x + 3;
-                obj_id objTest = createObject(strItems[intI], locTest);
+                obj_id objTest = createObject(strItem, locTest);
             }
             sendSystemMessageTestingOnly(self, "Done");
         }
@@ -504,13 +487,12 @@ public class dantest extends script.base_script
         if (strCommands[0].equals("checkMissions"))
         {
             obj_id[] objMissions = getMissionObjects(self);
-            for (int intI = 0; intI < objMissions.length; intI++)
-            {
-                location locTest = getMissionStartLocation(objMissions[intI]);
+            for (obj_id objMission : objMissions) {
+                location locTest = getMissionStartLocation(objMission);
                 sendSystemMessageTestingOnly(self, "Start: " + locTest);
                 float dist = utils.getDistance2D(getLocation(self), locTest);
                 sendSystemMessageTestingOnly(self, "dist is " + dist);
-                locTest = getMissionEndLocation(objMissions[intI]);
+                locTest = getMissionEndLocation(objMission);
                 sendSystemMessageTestingOnly(self, "End: " + locTest);
                 dist = utils.getDistance2D(getLocation(self), locTest);
                 sendSystemMessageTestingOnly(self, "dist is " + dist);
@@ -530,13 +512,12 @@ public class dantest extends script.base_script
         if (strCommands[0].equals("checkMissions"))
         {
             obj_id[] objMissions = getMissionObjects(self);
-            for (int intI = 0; intI < objMissions.length; intI++)
-            {
-                location locTest = getMissionStartLocation(objMissions[intI]);
+            for (obj_id objMission : objMissions) {
+                location locTest = getMissionStartLocation(objMission);
                 sendSystemMessageTestingOnly(self, "Start: " + locTest);
                 float dist = utils.getDistance2D(getLocation(self), locTest);
                 sendSystemMessageTestingOnly(self, "dist is " + dist);
-                locTest = getMissionEndLocation(objMissions[intI]);
+                locTest = getMissionEndLocation(objMission);
                 sendSystemMessageTestingOnly(self, "End: " + locTest);
                 dist = utils.getDistance2D(getLocation(self), locTest);
                 sendSystemMessageTestingOnly(self, "dist is " + dist);
@@ -594,17 +575,13 @@ public class dantest extends script.base_script
         {
             obj_id ship = space_transition.getContainingShip(self);
             int[] slots = space_crafting.getShipInstalledSlots(ship);
-            for (int i = 0; i < slots.length; i++)
-            {
-                sendSystemMessageTestingOnly(self, "checking slot " + slots[i]);
-                if (space_crafting.isMissileSlot(ship, slots[i]))
-                {
-                    space_pilot_command.weaponLauncherSpaceReload(ship, self, slots[i]);
-                }
-                else if (space_crafting.isCounterMeasureSlot(ship, slots[i]))
-                {
+            for (int slot : slots) {
+                sendSystemMessageTestingOnly(self, "checking slot " + slot);
+                if (space_crafting.isMissileSlot(ship, slot)) {
+                    space_pilot_command.weaponLauncherSpaceReload(ship, self, slot);
+                } else if (space_crafting.isCounterMeasureSlot(ship, slot)) {
                     sendSystemMessageTestingOnly(self, "aweads");
-                    space_pilot_command.countermeasureLauncherSpaceReload(ship, self, slots[i]);
+                    space_pilot_command.countermeasureLauncherSpaceReload(ship, self, slot);
                 }
             }
             sendSystemMessageTestingOnly(self, "WACHSD");
@@ -660,24 +637,19 @@ public class dantest extends script.base_script
             sendSystemMessageTestingOnly(self, "Ships From Spawners: " + objSpawnedShips.length);
             sendSystemMessageTestingOnly(self, "Ships From Spawners and Missions: " + objAllShips.length);
             obj_id[] objSpawners = getAllObjectsWithTemplate(getLocation(objShip), 32000, "object/tangible/space/content_infrastructure/basic_spawner.iff");
-            for (int intI = 0; intI < objSpawners.length; intI++)
-            {
-                obj_id objParent = objSpawners[intI];
+            for (obj_id objParent : objSpawners) {
                 LOG("space", "Checking " + objParent);
                 int intSpawnCount = getIntObjVar(objParent, "intSpawnCount");
                 int intActualCount = 0;
-                for (int intJ = 0; intJ < objSpawnedShips.length; intJ++)
-                {
-                    obj_id objSpawnParent = getObjIdObjVar(objSpawnedShips[intJ], "objParent");
+                for (obj_id objSpawnedShip : objSpawnedShips) {
+                    obj_id objSpawnParent = getObjIdObjVar(objSpawnedShip, "objParent");
                     LOG("space", "Checking spawn parent of " + objSpawnParent);
-                    if (objSpawnParent == objParent)
-                    {
+                    if (objSpawnParent == objParent) {
                         intActualCount = intActualCount + 1;
                     }
                 }
                 sendSystemMessageTestingOnly(self, objParent + " Set count is :" + intSpawnCount + " and spawned count is: " + intActualCount);
-                if (intActualCount > intSpawnCount)
-                {
+                if (intActualCount > intSpawnCount) {
                     sendSystemMessageTestingOnly(self, "WARNING! WARNING! WARNING! SPAWN COUNT IS OVER SET COUNT!@!@");
                 }
             }
@@ -740,7 +712,7 @@ public class dantest extends script.base_script
                 space_utils.callTrigger("OnObjectMenuRequest", newParams);
                 newParams[0] = getLookAtTarget(self);
                 newParams[1] = self;
-                Integer intTest = new Integer(menu_info_types.CRAFT_START);
+                Integer intTest = menu_info_types.CRAFT_START;
                 newParams[2] = intTest;
                 space_utils.callTrigger("OnObjectMenuSelect", newParams);
                 queueCommand(self, (1283441724), getLookAtTarget(self), "", COMMAND_PRIORITY_IMMEDIATE);
@@ -894,13 +866,11 @@ public class dantest extends script.base_script
         {
             obj_id objInventory = utils.getInventoryContainer(self);
             obj_id[] objContents = utils.getContents(self, true);
-            for (int intI = 0; intI < objContents.length; intI++)
-            {
-                if (hasScript(objContents[intI], "systems.combat.combat_weapon"))
-                {
-                    setWeaponAttackSpeed(objContents[intI], .25f);
-                    setWeaponMinDamage(objContents[intI], 5);
-                    setWeaponMaxDamage(objContents[intI], 10);
+            for (obj_id objContent : objContents) {
+                if (hasScript(objContent, "systems.combat.combat_weapon")) {
+                    setWeaponAttackSpeed(objContent, 0.25f);
+                    setWeaponMinDamage(objContent, 5);
+                    setWeaponMaxDamage(objContent, 10);
                 }
             }
             sendSystemMessageTestingOnly(self, "Done length was " + objContents.length);
@@ -908,11 +878,10 @@ public class dantest extends script.base_script
         if (strCommands[0].equals("setupMonster"))
         {
             obj_id objMonsters[] = getAllObjectsWithObjVar(getLocation(self), 320000, "ai");
-            for (int intI = 0; intI < objMonsters.length; intI++)
-            {
-                setMaxAttrib(objMonsters[intI], HEALTH, 50);
-                setAttrib(objMonsters[intI], HEALTH, 50);
-                debugSpeakMsg(objMonsters[intI], "SET HEALTH AND STUFF");
+            for (obj_id objMonster : objMonsters) {
+                setMaxAttrib(objMonster, HEALTH, 50);
+                setAttrib(objMonster, HEALTH, 50);
+                debugSpeakMsg(objMonster, "SET HEALTH AND STUFF");
             }
             sendSystemMessageTestingOnly(self, "as");
         }
@@ -946,10 +915,9 @@ public class dantest extends script.base_script
         if (strCommands[0].equals("getShipIds"))
         {
             obj_id[] objControlDevices = space_transition.findShipControlDevicesForPlayer(self);
-            for (int intI = 0; intI < objControlDevices.length; intI++)
-            {
-                obj_id objTestShip = space_transition.getShipFromShipControlDevice(objControlDevices[intI]);
-                sendSystemMessageTestingOnly(self, "Ship from PCD " + objControlDevices[intI] + " is " + objTestShip);
+            for (obj_id objControlDevice : objControlDevices) {
+                obj_id objTestShip = space_transition.getShipFromShipControlDevice(objControlDevice);
+                sendSystemMessageTestingOnly(self, "Ship from PCD " + objControlDevice + " is " + objTestShip);
             }
         }
         if (strCommands[0].equals("woozle"))
@@ -961,12 +929,10 @@ public class dantest extends script.base_script
         {
             obj_id objDefender = getLookAtTarget(self);
             int[] intRawSlots = getShipChassisSlots(objDefender);
-            for (int intI = 0; intI < intRawSlots.length; intI++)
-            {
-                if (isShipSlotInstalled(objDefender, intRawSlots[intI]))
-                {
-                    setShipComponentArmorHitpointsCurrent(objDefender, intRawSlots[intI], 0);
-                    setShipComponentHitpointsCurrent(objDefender, intRawSlots[intI], 0);
+            for (int intRawSlot : intRawSlots) {
+                if (isShipSlotInstalled(objDefender, intRawSlot)) {
+                    setShipComponentArmorHitpointsCurrent(objDefender, intRawSlot, 0);
+                    setShipComponentHitpointsCurrent(objDefender, intRawSlot, 0);
                 }
             }
             setShipCurrentChassisHitPoints(objDefender, 0);
@@ -990,7 +956,7 @@ public class dantest extends script.base_script
         {
             dictionary dctParams = new dictionary();
             dctParams.put("intLoops", 90);
-            messageTo(self, "checkEngineValue", dctParams, .25f, false);
+            messageTo(self, "checkEngineValue", dctParams, 0.25f, false);
             sendSystemMessageTestingOnly(self, "checking");
         }
         if (strCommands[0].equals("checkImmune"))
@@ -1003,10 +969,9 @@ public class dantest extends script.base_script
         {
             obj_id[] objControlDevices = space_transition.findShipControlDevicesForPlayer(self);
             int intCount = 0;
-            for (int intI = 0; intI < objControlDevices.length; intI++)
-            {
-                obj_id objTestShip = space_transition.getShipFromShipControlDevice(objControlDevices[intI]);
-                setChassisComponentMassMaximum(objTestShip, 500000f);
+            for (obj_id objControlDevice : objControlDevices) {
+                obj_id objTestShip = space_transition.getShipFromShipControlDevice(objControlDevice);
+                setChassisComponentMassMaximum(objTestShip, 500000.0f);
                 sendSystemMessageTestingOnly(self, "massed ");
             }
         }
@@ -1060,9 +1025,8 @@ public class dantest extends script.base_script
         {
             obj_id objInventory = utils.getInventoryContainer(self);
             obj_id[] objContents = getContents(objInventory);
-            for (int intI = 0; intI < objContents.length; intI++)
-            {
-                destroyObject(objContents[intI]);
+            for (obj_id objContent : objContents) {
+                destroyObject(objContent);
             }
             sendSystemMessageTestingOnly(self, "WHOOM");
         }
@@ -1073,20 +1037,15 @@ public class dantest extends script.base_script
             if (utils.hasScriptVar(objShip, "objPlasmaConduits"))
             {
                 Vector objPlasmaConduits = utils.getResizeableObjIdArrayScriptVar(objShip, "objPlasmaConduits");
-                for (int intI = 0; intI < objPlasmaConduits.size(); intI++)
-                {
-                    if (hasCondition(((obj_id)objPlasmaConduits.get(intI)), CONDITION_ON))
-                    {
+                for (Object objPlasmaConduit : objPlasmaConduits) {
+                    if (hasCondition(((obj_id) objPlasmaConduit), CONDITION_ON)) {
                         Vector locBrokenComponents = getResizeableLocationArrayObjVar(objShip, "locBrokenComponents");
-                        location locTest = getLocation(((obj_id)objPlasmaConduits.get(intI)));
+                        location locTest = getLocation(((obj_id) objPlasmaConduit));
                         int intIndex = utils.getElementPositionInArray(locBrokenComponents, locTest);
-                        if (intIndex > -1)
-                        {
-                            sendSystemMessageTestingOnly(self, ((obj_id)objPlasmaConduits.get(intI)) + " is in the list");
-                        }
-                        else 
-                        {
-                            sendSystemMessageTestingOnly(self, ((obj_id)objPlasmaConduits.get(intI)) + " is NOT IN THE LIST");
+                        if (intIndex > -1) {
+                            sendSystemMessageTestingOnly(self, ((obj_id) objPlasmaConduit) + " is in the list");
+                        } else {
+                            sendSystemMessageTestingOnly(self, ((obj_id) objPlasmaConduit) + " is NOT IN THE LIST");
                         }
                     }
                 }
@@ -1441,9 +1400,8 @@ public class dantest extends script.base_script
         if (strCommands[0].equals("findStationEggs"))
         {
             obj_id objStationEggs[] = getAllObjectsWithObjVar(getLocation(self), 320000, "intStationRespawner");
-            for (int intI = 0; intI < objStationEggs.length; intI++)
-            {
-                sendSystemMessageTestingOnly(self, "Egg is " + objStationEggs[intI]);
+            for (obj_id objStationEgg : objStationEggs) {
+                sendSystemMessageTestingOnly(self, "Egg is " + objStationEgg);
             }
         }
         if (strCommands[0].equals("destroyerPhase"))
@@ -1501,7 +1459,7 @@ public class dantest extends script.base_script
             fltPercent = 1000 * fltPercent;
             dctParams.put("fltCurrentHitpoints", fltPercent);
             LOG("space", "Put");
-            dctParams.put("fltMaximumHitpoints", 1000f);
+            dctParams.put("fltMaximumHitpoints", 1000.0f);
             LOG("space", "DctParams is " + dctParams);
             space_utils.notifyObject(space_transition.getContainingShip(self), "componentEfficiencyChanged", dctParams);
             sendSystemMessageTestingOnly(self, "set " + intSlot + " to " + fltPercent);
@@ -1576,17 +1534,13 @@ public class dantest extends script.base_script
             Vector objContents = new Vector();
             objContents.setSize(0);
             obj_id[] objCells = getContents(objObject);
-            for (int intI = 0; intI < objCells.length; intI++)
-            {
-                obj_id[] objTestContents = getContents(objCells[intI]);
-                if ((objTestContents != null) && (objTestContents.length > 0))
-                {
-                    for (int intJ = 0; intJ < objTestContents.length; intJ++)
-                    {
-                        String strTest = getTemplateName(objTestContents[intJ]);
-                        if (strTest.equals("object/tangible/space/content_infrastructure/generic_egg_small.iff"))
-                        {
-                            objSparkers = utils.addElement(objSparkers, objTestContents[intJ]);
+            for (obj_id objCell : objCells) {
+                obj_id[] objTestContents = getContents(objCell);
+                if ((objTestContents != null) && (objTestContents.length > 0)) {
+                    for (obj_id objTestContent : objTestContents) {
+                        String strTest = getTemplateName(objTestContent);
+                        if (strTest.equals("object/tangible/space/content_infrastructure/generic_egg_small.iff")) {
+                            objSparkers = utils.addElement(objSparkers, objTestContent);
                         }
                     }
                 }
@@ -1657,13 +1611,12 @@ public class dantest extends script.base_script
             obj_id objStationEggs[] = getAllObjectsWithObjVar(getLocation(objManager), 320000, "intStationRespawner");
             if (objStationEggs != null)
             {
-                for (int intI = 0; intI < objStationEggs.length; intI++)
-                {
-                    String strObjVars = utils.getStringLocalVar(objStationEggs[intI], "strObjVars");
-                    String strScripts = utils.getStringLocalVar(objStationEggs[intI], "strScripts");
-                    String strTemplate = utils.getStringLocalVar(objStationEggs[intI], "strTemplate");
-                    LOG("space", "making " + strTemplate + " from object " + objStationEggs[intI]);
-                    transform trTest = getTransform_o2p(objStationEggs[intI]);
+                for (obj_id objStationEgg : objStationEggs) {
+                    String strObjVars = utils.getStringLocalVar(objStationEgg, "strObjVars");
+                    String strScripts = utils.getStringLocalVar(objStationEgg, "strScripts");
+                    String strTemplate = utils.getStringLocalVar(objStationEgg, "strTemplate");
+                    LOG("space", "making " + strTemplate + " from object " + objStationEgg);
+                    transform trTest = getTransform_o2p(objStationEgg);
                 }
             }
         }
@@ -1690,21 +1643,19 @@ public class dantest extends script.base_script
         if (strCommands[0].equals("damageParticleTest"))
         {
             int intDamageType = 0;
-            if (strCommands[1].equals("chassis"))
-            {
-                intDamageType = 1;
-            }
-            else if (strCommands[1].equals("component"))
-            {
-                intDamageType = 2;
-            }
-            else if (strCommands[1].equals("shield"))
-            {
-                intDamageType = 3;
-            }
-            else if (strCommands[1].equals("armor"))
-            {
-                intDamageType = 4;
+            switch (strCommands[1]) {
+                case "chassis":
+                    intDamageType = 1;
+                    break;
+                case "component":
+                    intDamageType = 2;
+                    break;
+                case "shield":
+                    intDamageType = 3;
+                    break;
+                case "armor":
+                    intDamageType = 4;
+                    break;
             }
             int intDamageIntensity = 0;
             if (strCommands[2].equals("light"))
@@ -1729,10 +1680,9 @@ public class dantest extends script.base_script
             obj_id[] shipControlDevices = space_transition.findShipControlDevicesForPlayer(self);
             if (shipControlDevices != null)
             {
-                for (int i = 0; i < shipControlDevices.length; ++i)
-                {
-                    sendSystemMessageTestingOnly(self, "objPcd is " + shipControlDevices[i]);
-                    obj_id objShip = space_transition.getShipFromShipControlDevice(shipControlDevices[i]);
+                for (obj_id shipControlDevice : shipControlDevices) {
+                    sendSystemMessageTestingOnly(self, "objPcd is " + shipControlDevice);
+                    obj_id objShip = space_transition.getShipFromShipControlDevice(shipControlDevice);
                     sendSystemMessageTestingOnly(self, "objShip is " + objShip);
                     obj_id objDroid = getDroidControlDeviceForShip(objShip);
                     sendSystemMessageTestingOnly(self, "objDroid is " + objDroid);
@@ -1743,13 +1693,10 @@ public class dantest extends script.base_script
         {
             obj_id[] objObjects = getObjectsInRange(self, 32000);
             sendSystemMessageTestingOnly(self, "Destroying world");
-            for (int intI = 0; intI < objObjects.length; intI++)
-            {
-                if (!isPlayer(objObjects[intI]))
-                {
-                    if (hasObjVar(objObjects[intI], "intNoDump"))
-                    {
-                        destroyObject(objObjects[intI]);
+            for (obj_id objObject : objObjects) {
+                if (!isPlayer(objObject)) {
+                    if (hasObjVar(objObject, "intNoDump")) {
+                        destroyObject(objObject);
                     }
                 }
             }
@@ -1767,12 +1714,10 @@ public class dantest extends script.base_script
                 {
                     obj_id[] objObjects = getObjectsInRange(self, 32000);
                     sendSystemMessageTestingOnly(self, "Destroying world");
-                    for (int intI = 0; intI < objObjects.length; intI++)
-                    {
-                        if (isIdValid(objObjects[intI]) && !isPlayer(objObjects[intI]))
-                        {
-                            setObjVar(objObjects[intI], "intCleaningUp", 1);
-                            trial.cleanupObject(objObjects[intI]);
+                    for (obj_id objObject : objObjects) {
+                        if (isIdValid(objObject) && !isPlayer(objObject)) {
+                            setObjVar(objObject, "intCleaningUp", 1);
+                            trial.cleanupObject(objObject);
                         }
                     }
                 }
@@ -1845,7 +1790,7 @@ public class dantest extends script.base_script
         }
         if (strCommands[0].equals("checkTargets"))
         {
-            obj_id[] objTargets = pvpGetTargetsInRange(self, self, 32f);
+            obj_id[] objTargets = pvpGetTargetsInRange(self, self, 32.0f);
             sendSystemMessageTestingOnly(self, "Found " + objTargets.length + " pvp targets in range");
         }
         if (strCommands[0].equals("jediTrainer"))
@@ -1951,7 +1896,7 @@ public class dantest extends script.base_script
             setMaxForcePower(self, intMaxPower);
             LOG("jedi", "Setting force power to " + intMaxPower);
             int intRegenRate = getSkillStatisticModifier(self, "jedi_force_power_regen");
-            float fltRate = (float)intRegenRate;
+            float fltRate = intRegenRate;
             fltRate = fltRate / 10;
             setForcePowerRegenRate(self, fltRate);
         }
@@ -1973,9 +1918,8 @@ public class dantest extends script.base_script
         if (strCommands[0].equals("getMissions"))
         {
             obj_id[] objMissions = getMissionObjects(self);
-            for (int intI = 0; intI < objMissions.length; intI++)
-            {
-                sendSystemMessageTestingOnly(self, "Mission is " + objMissions[intI]);
+            for (obj_id objMission : objMissions) {
+                sendSystemMessageTestingOnly(self, "Mission is " + objMission);
             }
         }
         if (strCommands[0].equals("getNewbieSpawnerScriptVars"))
@@ -1983,26 +1927,21 @@ public class dantest extends script.base_script
             obj_id[] objFoo = getAllObjectsWithTemplate(getLocation(self), 10, "object/tangible/creature_spawner/tatooine_spawner_hard.iff");
             if (objFoo != null)
             {
-                for (int intI = 0; intI < objFoo.length; intI++)
-                {
-                    deltadictionary dctScriptVars = objFoo[intI].getScriptVars();
-                    sendSystemMessageTestingOnly(self, "scriptvars for " + objFoo[intI] + " are " + dctScriptVars.toString());
+                for (obj_id obj_id : objFoo) {
+                    deltadictionary dctScriptVars = obj_id.getScriptVars();
+                    sendSystemMessageTestingOnly(self, "scriptvars for " + obj_id + " are " + dctScriptVars.toString());
                 }
             }
         }
         if (strCommands[0].equals("getMissionData"))
         {
             obj_id[] objMissions = getMissionObjects(self);
-            for (int intI = 0; intI < objMissions.length; intI++)
-            {
-                sendSystemMessageTestingOnly(self, "Mission is " + objMissions[intI]);
-                obj_id objMissionData = objMissions[intI];
-                if (objMissionData == null)
-                {
+            for (obj_id objMission : objMissions) {
+                sendSystemMessageTestingOnly(self, "Mission is " + objMission);
+                obj_id objMissionData = objMission;
+                if (objMissionData == null) {
                     sendSystemMessageTestingOnly(self, " missionData is null");
-                }
-                else 
-                {
+                } else {
                     sendSystemMessageTestingOnly(self, "missionData is " + objMissionData);
                 }
             }
@@ -2020,80 +1959,72 @@ public class dantest extends script.base_script
             }
             else 
             {
-                for (int intI = 0; intI < rgnRegions.length; intI++)
-                {
-                    sendSystemMessageTestingOnly(self, "region name is " + rgnRegions[intI].getName());
+                for (region rgnRegion : rgnRegions) {
+                    sendSystemMessageTestingOnly(self, "region name is " + rgnRegion.getName());
                 }
             }
         }
-        if (strCommands[0].equals("goodLocationSlope"))
-        {
-            location locTest = locations.getGoodLocationAroundLocation(getLocation(self), 1, 1, 3, 3, false, true);
-            if (locTest == null)
-            {
-                sendSystemMessageTestingOnly(self, "good location is null");
+        switch (strCommands[0]) {
+            case "goodLocationSlope": {
+                location locTest = locations.getGoodLocationAroundLocation(getLocation(self), 1, 1, 3, 3, false, true);
+                if (locTest == null) {
+                    sendSystemMessageTestingOnly(self, "good location is null");
+                } else {
+                    sendSystemMessageTestingOnly(self, "good location is " + locTest);
+                }
+                break;
             }
-            else 
-            {
-                sendSystemMessageTestingOnly(self, "good location is " + locTest);
+            case "goodLocationNoSlope": {
+                location locTest = locations.getGoodLocationAroundLocation(getLocation(self), 5, 5, 10, 10, false, true);
+                if (locTest == null) {
+                    sendSystemMessageTestingOnly(self, "good location is null");
+                } else {
+                    sendSystemMessageTestingOnly(self, "good location is " + locTest);
+                }
+                break;
             }
-        }
-        else if (strCommands[0].equals("goodLocationNoSlope"))
-        {
-            location locTest = locations.getGoodLocationAroundLocation(getLocation(self), 5, 5, 10, 10, false, true);
-            if (locTest == null)
-            {
-                sendSystemMessageTestingOnly(self, "good location is null");
+            case "object": {
+                location locTest = getLocation(self);
+                locTest.x = locTest.x + 10;
+                obj_id objTest = createObject("object/weapon/ranged/pistol/pistol_dl44.iff", locTest);
+                locTest.z = locTest.z + 10;
+                objTest = createObject("object/weapon/ranged/pistol/pistol_dl44.iff", locTest);
+                obj_id[] objFoo = getObjectsInRange(locTest, 10);
+                sendSystemMessageTestingOnly(self, "objFoo length is " + objFoo.length);
+                for (obj_id obj_id : objFoo) {
+                    destroyObject(obj_id);
+                }
+                break;
             }
-            else 
-            {
-                sendSystemMessageTestingOnly(self, "good location is " + locTest);
+            case "npcLairCheck":
+                break;
+            case "objectWithTemplate": {
+                location locTest = getLocation(self);
+                locTest.x = locTest.x + 10;
+                obj_id objTest = createObject("object/weapon/ranged/pistol/pistol_dl44.iff", locTest);
+                locTest.z = locTest.z + 10;
+                objTest = createObject("object/weapon/ranged/pistol/pistol_dl44.iff", locTest);
+                obj_id[] objFoo = getAllObjectsWithTemplate(locTest, 10, "object/weapon/ranged/pistol/pistol_dl44.iff");
+                sendSystemMessageTestingOnly(self, "objFoo length is " + objFoo.length);
+                for (obj_id obj_id : objFoo) {
+                    destroyObject(obj_id);
+                }
+                break;
             }
-        }
-        else if (strCommands[0].equals("object"))
-        {
-            location locTest = getLocation(self);
-            locTest.x = locTest.x + 10;
-            obj_id objTest = createObject("object/weapon/ranged/pistol/pistol_dl44.iff", locTest);
-            locTest.z = locTest.z + 10;
-            objTest = createObject("object/weapon/ranged/pistol/pistol_dl44.iff", locTest);
-            obj_id[] objFoo = getObjectsInRange(locTest, 10);
-            sendSystemMessageTestingOnly(self, "objFoo length is " + objFoo.length);
-            for (int intI = 0; intI < objFoo.length; intI++)
-            {
-                destroyObject(objFoo[intI]);
+            case "lairs": {
+                float fltDistance = rand(120, 150);
+                location locHome = getLocation(self);
+                obj_id[] objLairs = getAllObjectsWithTemplate(locHome, fltDistance, "object/tangible/lair/npc_lair.iff");
+                sendSystemMessageTestingOnly(self, "length of lairs is " + objLairs.length + " at distance " + fltDistance);
+                break;
             }
-        }
-        else if (strCommands[0].equals("npcLairCheck"))
-        {
-        }
-        else if (strCommands[0].equals("objectWithTemplate"))
-        {
-            location locTest = getLocation(self);
-            locTest.x = locTest.x + 10;
-            obj_id objTest = createObject("object/weapon/ranged/pistol/pistol_dl44.iff", locTest);
-            locTest.z = locTest.z + 10;
-            objTest = createObject("object/weapon/ranged/pistol/pistol_dl44.iff", locTest);
-            obj_id[] objFoo = getAllObjectsWithTemplate(locTest, 10, "object/weapon/ranged/pistol/pistol_dl44.iff");
-            sendSystemMessageTestingOnly(self, "objFoo length is " + objFoo.length);
-            for (int intI = 0; intI < objFoo.length; intI++)
-            {
-                destroyObject(objFoo[intI]);
+            case "theaters": {
+                location locHome = getLocation(self);
+                obj_id[] objLairs = getAllObjectsWithTemplate(locHome, 200, "object/tangible/lair/npc_lair.iff");
+                int intCount = utils.countSubStringObjVars(objLairs, "spawing.lairType", "theater");
+                sendSystemMessageTestingOnly(self, "intCount is " + intCount);
+                break;
             }
-        }
-        else if (strCommands[0].equals("lairs"))
-        {
-            float fltDistance = rand(120, 150);
-            location locHome = getLocation(self);
-            obj_id[] objLairs = getAllObjectsWithTemplate(locHome, fltDistance, "object/tangible/lair/npc_lair.iff");
-            sendSystemMessageTestingOnly(self, "length of lairs is " + objLairs.length + " at distance " + fltDistance);
-        }
-        else if (strCommands[0].equals("theaters"))
-        {
-            location locHome = getLocation(self);
-            obj_id[] objLairs = getAllObjectsWithTemplate(locHome, 200, "object/tangible/lair/npc_lair.iff");
-            int intCount = utils.countSubStringObjVars(objLairs, "spawing.lairType", "theater");
-            sendSystemMessageTestingOnly(self, "intCount is " + intCount);
         }
         if (strCommands[0].equals("alarmOn"))
         {
@@ -2124,9 +2055,8 @@ public class dantest extends script.base_script
             String[] skillsNeeded = getStringArrayObjVar(self, pclib.OBJVAR_JEDI_SKILL_REQUIREMENTS);
             if (skillsNeeded != null)
             {
-                for (int i = 0; i < skillsNeeded.length; ++i)
-                {
-                    skill.grantSkillToPlayer(self, skillsNeeded[i]);
+                for (String s : skillsNeeded) {
+                    skill.grantSkillToPlayer(self, s);
                 }
             }
         }
@@ -2244,11 +2174,10 @@ public class dantest extends script.base_script
         {
             obj_id[] objStuff = getObjectsInRange(getLocation(self), 40);
             sendSystemMessageTestingOnly(self, "length is " + objStuff.length);
-            for (int intI = 0; intI < objStuff.length; intI++)
-            {
-                sendSystemMessageTestingOnly(self, "NPC is: " + objStuff[intI]);
-                sendSystemMessageTestingOnly(self, "InvulnerableFlag is: " + isInvulnerable(objStuff[intI]));
-                sendSystemMessageTestingOnly(self, "pvpCanAttack is: " + pvpCanAttack(self, objStuff[intI]));
+            for (obj_id obj_id : objStuff) {
+                sendSystemMessageTestingOnly(self, "NPC is: " + obj_id);
+                sendSystemMessageTestingOnly(self, "InvulnerableFlag is: " + isInvulnerable(obj_id));
+                sendSystemMessageTestingOnly(self, "pvpCanAttack is: " + pvpCanAttack(self, obj_id));
             }
         }
         if (strCommands[0].equals("burySomeHouses"))
@@ -2692,12 +2621,10 @@ public class dantest extends script.base_script
             obj_id[] objContents = getShipContents(self);
             if ((objContents != null) && (objContents.length > 0))
             {
-                for (int intI = 0; intI < objContents.length; intI++)
-                {
-                    if (isPlayer(objContents[intI]))
-                    {
-                        sendSystemMessageTestingOnly(objContents[intI], "playing effect");
-                        playClientEffectLoc(objContents[intI], "clienteffect/int_camshake_light.cef", getLocation(objContents[intI]), 0);
+                for (obj_id objContent : objContents) {
+                    if (isPlayer(objContent)) {
+                        sendSystemMessageTestingOnly(objContent, "playing effect");
+                        playClientEffectLoc(objContent, "clienteffect/int_camshake_light.cef", getLocation(objContent), 0);
                     }
                 }
             }
@@ -2709,14 +2636,11 @@ public class dantest extends script.base_script
         Vector objContents = new Vector();
         objContents.setSize(0);
         obj_id[] objCells = getContents(objObject);
-        for (int intI = 0; intI < objCells.length; intI++)
-        {
-            obj_id[] objTestContents = getContents(objCells[intI]);
-            if ((objTestContents != null) && (objTestContents.length > 0))
-            {
-                for (int intJ = 0; intJ < objTestContents.length; intJ++)
-                {
-                    objContents = utils.addElement(objContents, objTestContents[intJ]);
+        for (obj_id objCell : objCells) {
+            obj_id[] objTestContents = getContents(objCell);
+            if ((objTestContents != null) && (objTestContents.length > 0)) {
+                for (obj_id objTestContent : objTestContents) {
+                    objContents = utils.addElement(objContents, objTestContent);
                 }
             }
         }
@@ -2747,7 +2671,7 @@ public class dantest extends script.base_script
         LOG("space", "Actual Pitch: " + getShipActualPitchRateMaximumDegrees(objShip));
         LOG("space", "Actual Roll: " + getShipActualRollRateMaximumDegrees(objShip));
         params.put("intLoops", intLoops);
-        messageTo(self, "checkEngineValue", params, .25f, false);
+        messageTo(self, "checkEngineValue", params, 0.25f, false);
         return SCRIPT_CONTINUE;
     }
     public String getDumpString(obj_id objTest, String strName) throws InterruptedException

@@ -18,8 +18,8 @@ public class minigame extends script.base_script
     public static final String VAR_FISH_STAMP = VAR_FISH_BASE + ".stamp";
     public static final String VAR_FISH_TIME_STAMP = VAR_FISH_BASE + ".time";
     public static final String VAR_FISH_CATCHER = VAR_FISH_BASE + ".catcher";
-    public static final float FISHING_TICK = 7f;
-    public static final float SPOOL_RANGE = 20f;
+    public static final float FISHING_TICK = 7.0f;
+    public static final float SPOOL_RANGE = 20.0f;
     public static final String SPLASH_EFFECT = "object/tangible/fishing/splash.iff";
     public static final String TBL_TEMPLATE = "datatables/fishing/fish/fish_template.iff";
     public static final String COL_NAME = "name";
@@ -207,7 +207,7 @@ public class minigame extends script.base_script
         float range = getDistance(getLocation(target), castLoc);
         float castTime = getFishingCastTime(range);
         LOG("fishing", "startFishing: casting range = " + range + " time = " + castTime);
-        if (castTime < 0f)
+        if (castTime < 0.0f)
         {
             return false;
         }
@@ -585,7 +585,7 @@ public class minigame extends script.base_script
         LOG("fishing", "getFishingCastLocation: randomized cast range = " + castRange);
         location there = utils.rotatePointXZ(here, castRange, yaw);
         LOG("fishing", "getFishingCastLocation: straight cast loc = " + there);
-        location castLoc = utils.getRandomLocationInRing(there, 0f, 0.5f);
+        location castLoc = utils.getRandomLocationInRing(there, 0.0f, 0.5f);
         LOG("fishing", "getFishingCastLocation: ringed cast loc = " + castLoc);
         if (!isLocationFishable(castLoc))
         {
@@ -597,11 +597,11 @@ public class minigame extends script.base_script
     }
     public static float getFishingCastTime(float range) throws InterruptedException
     {
-        if (range < 0f)
+        if (range < 0.0f)
         {
-            return -1f;
+            return -1.0f;
         }
-        return 3f;
+        return 3.0f;
     }
     public static boolean isLocationFishable(location loc) throws InterruptedException
     {
@@ -649,7 +649,7 @@ public class minigame extends script.base_script
         String prompt = "";
         prompt += "STATUS      : " + FISHING_STATUS[status] + "\n";
         prompt += "BAIT STATUS : " + BAIT_STATUS[baitStatus] + "\n";
-        if (lineRange >= 10f)
+        if (lineRange >= 10.0f)
         {
             prompt += "LINE RANGE  : " + ((String.valueOf(lineRange))).substring(0, 5) + " \n";
         }
@@ -765,7 +765,7 @@ public class minigame extends script.base_script
         LOG("fishing", "updateFishingLocation: here = " + here.toString());
         LOG("fishing", "updateFishingLocation: there = " + there.toString());
         LOG("fishing", "updateFishingLocation: pre-update distance = " + currentDistance);
-        float dist = 0f;
+        float dist = 0.0f;
         switch (action)
         {
             case FA_TUG_UP:
@@ -801,19 +801,19 @@ public class minigame extends script.base_script
             return;
         }
         float theta = getYaw(marker);
-        float dTheta = 0f;
+        float dTheta = 0.0f;
         switch (action)
         {
             case FA_TUG_RIGHT:
-            dTheta = rand(-45f, -15f);
+            dTheta = rand(-45.0f, -15.0f);
             break;
             case FA_TUG_LEFT:
-            dTheta = rand(15f, 45f);
+            dTheta = rand(15.0f, 45.0f);
             break;
             case FA_TUG_UP:
             case FA_SMALL_REEL:
             default:
-            dTheta = rand(-5f, 5f);
+            dTheta = rand(-5.0f, 5.0f);
             break;
         }
         LOG("fishing", "updateFishingLocation: heading to player = " + theta);
@@ -891,12 +891,12 @@ public class minigame extends script.base_script
         {
             return;
         }
-        float bonus = 0f;
+        float bonus = 0.0f;
         if (utils.hasScriptVar(target, SCRIPTVAR_BONUS))
         {
             bonus = utils.getFloatScriptVar(target, SCRIPTVAR_BONUS);
         }
-        bonus += rand(0f, 0.05f);
+        bonus += rand(0.0f, 0.05f);
         utils.setScriptVar(target, SCRIPTVAR_BONUS, bonus);
     }
     public static boolean checkForNibble(obj_id target) throws InterruptedException
@@ -910,7 +910,7 @@ public class minigame extends script.base_script
         {
             return false;
         }
-        float bonus = 0f;
+        float bonus = 0.0f;
         if (utils.hasScriptVar(target, SCRIPTVAR_BONUS))
         {
             bonus = utils.getFloatScriptVar(target, SCRIPTVAR_BONUS);
@@ -929,8 +929,8 @@ public class minigame extends script.base_script
         }
         float eff = getFishEfficiency(there);
         float chance = eff + bonus;
-        float roll = rand(0f, 1f);
-        if (roll == 0f)
+        float roll = rand(0.0f, 1.0f);
+        if (roll == 0.0f)
         {
             bonus += rand(0.1f, 0.2f);
             utils.setScriptVar(target, SCRIPTVAR_BONUS, bonus);
@@ -961,7 +961,7 @@ public class minigame extends script.base_script
         {
             return false;
         }
-        float bonus = 0f;
+        float bonus = 0.0f;
         if (utils.hasScriptVar(target, SCRIPTVAR_BONUS))
         {
             bonus = utils.getFloatScriptVar(target, SCRIPTVAR_BONUS);
@@ -981,7 +981,7 @@ public class minigame extends script.base_script
         float eff = getFishEfficiency(there);
         float poleBonus = getPoleBonus(target);
         float chance = eff + bonus + superBonus + poleBonus;
-        float roll = rand(0f, 1f);
+        float roll = rand(0.0f, 1.0f);
         if (roll < 0.05f)
         {
             sendSystemMessage(target, SID_HARD_BITE);
@@ -1000,7 +1000,7 @@ public class minigame extends script.base_script
     }
     public static boolean checkForBite(obj_id target) throws InterruptedException
     {
-        return checkForBite(target, 0f);
+        return checkForBite(target, 0.0f);
     }
     public static boolean checkForCatch(obj_id target, float superBonus) throws InterruptedException
     {
@@ -1013,7 +1013,7 @@ public class minigame extends script.base_script
         {
             return false;
         }
-        float bonus = 0f;
+        float bonus = 0.0f;
         if (utils.hasScriptVar(target, SCRIPTVAR_BONUS))
         {
             bonus = utils.getFloatScriptVar(target, SCRIPTVAR_BONUS);
@@ -1027,7 +1027,7 @@ public class minigame extends script.base_script
         {
             float poleBonus = getPoleBonus(target);
             float chance = 0.25f + bonus + superBonus + poleBonus;
-            float roll = rand(0f, 1f);
+            float roll = rand(0.0f, 1.0f);
             if (roll < chance)
             {
                 caughtFish = true;
@@ -1042,7 +1042,7 @@ public class minigame extends script.base_script
     }
     public static boolean checkForCatch(obj_id target) throws InterruptedException
     {
-        return checkForCatch(target, 0f);
+        return checkForCatch(target, 0.0f);
     }
     public static boolean checkForSnag(obj_id target, location loc) throws InterruptedException
     {
@@ -1051,7 +1051,7 @@ public class minigame extends script.base_script
             return false;
         }
         float eff = getVegetationSnagFactor(loc);
-        if (eff > rand(0.3f, 1f))
+        if (eff > rand(0.3f, 1.0f))
         {
             setFishingState(target, FS_SNAG);
             utils.setScriptVar(target, SCRIPTVAR_BONUS, eff);
@@ -1063,14 +1063,14 @@ public class minigame extends script.base_script
     {
         if (loc == null)
         {
-            return -1f;
+            return -1.0f;
         }
         String rType = "seafood_fish_" + loc.area;
         LOG("fishing", "getFishEfficiency: rType = " + rType);
         obj_id resourceId = pickRandomNonDepeletedResource(rType);
         if ((resourceId == null) || (resourceId == obj_id.NULL_ID))
         {
-            return -1f;
+            return -1.0f;
         }
         return getResourceEfficiency(resourceId, loc);
     }
@@ -1078,12 +1078,12 @@ public class minigame extends script.base_script
     {
         if (loc == null)
         {
-            return -1f;
+            return -1.0f;
         }
         obj_id resourceId = pickRandomNonDepeletedResource("vegetable_greens");
         if ((resourceId == null) || (resourceId == obj_id.NULL_ID))
         {
-            return -1f;
+            return -1.0f;
         }
         return getResourceEfficiency(resourceId, loc);
     }
@@ -1227,7 +1227,7 @@ public class minigame extends script.base_script
         else 
         {
             sendSystemMessage(target, SID_REEL_IN);
-            float delay = rand(1.5f, 5f);
+            float delay = rand(1.5f, 5.0f);
             dictionary params = new dictionary();
             params.put("castLoc", castLoc);
             messageTo(target, HANDLER_REEL_IN, params, delay, false);
@@ -1267,19 +1267,19 @@ public class minigame extends script.base_script
     {
         if (!isIdValid(target))
         {
-            return 0f;
+            return 0.0f;
         }
         obj_id pole = utils.getObjIdScriptVar(target, SCRIPTVAR_POLE);
         if (!isIdValid(pole))
         {
-            return 0f;
+            return 0.0f;
         }
         if (!isFishingPole(pole))
         {
-            return 0f;
+            return 0.0f;
         }
         int useModifier = getIntObjVar(pole, "useModifier");
-        float bonus = useModifier / 500f;
+        float bonus = useModifier / 500.0f;
         return bonus;
     }
     public static obj_id spawnFishingFish(obj_id target, location castLoc) throws InterruptedException
@@ -1428,10 +1428,10 @@ public class minigame extends script.base_script
             lengthPercentile = (length - lengthMin) / (lengthMax - lengthMin);
             if (lengthPercentile > 0.95f)
             {
-                float dPercentile = 0f;
+                float dPercentile = 0.0f;
                 do
                 {
-                    float toAdd = rand(0f, dLength);
+                    float toAdd = rand(0.0f, dLength);
                     length += toAdd;
                     dPercentile = toAdd / dLength;
                 } while (dPercentile > 0.95f && length < absoluteLengthMax);
@@ -1442,7 +1442,7 @@ public class minigame extends script.base_script
             length = absoluteLengthMax;
         }
         setObjVar(fish, VAR_FISH_LENGTH, length);
-        int xp = (int)(90.f * (length / lengthNorm));
+        int xp = (int)(90.0f * (length / lengthNorm));
         utils.setScriptVar(fish, "fish_xp", xp);
         int resourceMin = params.getInt(COL_RESOURCE_MIN);
         int resourceNorm = params.getInt(COL_RESOURCE_NORM);
@@ -1456,7 +1456,7 @@ public class minigame extends script.base_script
             resourcePercentile = (resourceAmt - resourceMin) / (resourceMax - resourceMin);
             if (resourcePercentile > 0.95f)
             {
-                float dPercentile = 0f;
+                float dPercentile = 0.0f;
                 do
                 {
                     int toAdd = rand(0, dResource);

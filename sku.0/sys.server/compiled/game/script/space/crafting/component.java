@@ -252,7 +252,7 @@ public class component extends script.base_script
             CustomerServiceLog("ShipComponents", "Component: (" + self + ") " + objectName + " is in a Cell.  We will swap out the reactor with the correct schematic at the location of the reactor.");
             location compLoc = getLocation(self);
             blog("component_fix", "INIT - LOCATION: " + compLoc);
-            if (!isValidLocation(compLoc, 1.f))
+            if (!isValidLocation(compLoc, 1.0f))
             {
                 CustomerServiceLog("ShipComponents", "Component: (" + self + ") " + objectName + " is in a Cell and the location received is not valid. We have no choice but to abort. The bugged reactor will remain in: " + container);
                 blog("component_fix", "INIT - LOCATION NOT VALID");
@@ -310,25 +310,23 @@ public class component extends script.base_script
         obj_id newItem = null;
         String markVersion = "";
         String replacementSchematic = "";
-        if (template.equals("object/tangible/ship/crafted/reactor/collection_reward_reactor_01_mk1.iff"))
-        {
-            markVersion = "1";
-            replacementSchematic = space_crafting.COLLECTION_REWARD_REACTOR_MK1_V2;
-        }
-        else if (template.equals("object/tangible/ship/crafted/reactor/collection_reward_reactor_01_mk2.iff"))
-        {
-            markVersion = "2";
-            replacementSchematic = space_crafting.COLLECTION_REWARD_REACTOR_MK2_V2;
-        }
-        else if (template.equals("object/tangible/ship/crafted/reactor/collection_reward_reactor_01_mk3.iff"))
-        {
-            markVersion = "3";
-            replacementSchematic = space_crafting.COLLECTION_REWARD_REACTOR_MK3_V2;
-        }
-        else if (template.equals("object/tangible/ship/crafted/reactor/collection_reward_reactor_01_mk4.iff"))
-        {
-            markVersion = "4";
-            replacementSchematic = space_crafting.COLLECTION_REWARD_REACTOR_MK4_V2;
+        switch (template) {
+            case "object/tangible/ship/crafted/reactor/collection_reward_reactor_01_mk1.iff":
+                markVersion = "1";
+                replacementSchematic = space_crafting.COLLECTION_REWARD_REACTOR_MK1_V2;
+                break;
+            case "object/tangible/ship/crafted/reactor/collection_reward_reactor_01_mk2.iff":
+                markVersion = "2";
+                replacementSchematic = space_crafting.COLLECTION_REWARD_REACTOR_MK2_V2;
+                break;
+            case "object/tangible/ship/crafted/reactor/collection_reward_reactor_01_mk3.iff":
+                markVersion = "3";
+                replacementSchematic = space_crafting.COLLECTION_REWARD_REACTOR_MK3_V2;
+                break;
+            case "object/tangible/ship/crafted/reactor/collection_reward_reactor_01_mk4.iff":
+                markVersion = "4";
+                replacementSchematic = space_crafting.COLLECTION_REWARD_REACTOR_MK4_V2;
+                break;
         }
         CustomerServiceLog("ShipComponents", "Component: (" + self + ") " + objectName + " IS MARK " + markVersion + " and will be replace with " + replacementSchematic + ".");
         blog("component_fix", "Component: (" + self + ") " + objectName + " IS MARK " + markVersion + " and will be replace with " + replacementSchematic + ".");

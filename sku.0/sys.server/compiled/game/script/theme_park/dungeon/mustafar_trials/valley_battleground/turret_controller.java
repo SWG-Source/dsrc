@@ -271,15 +271,11 @@ public class turret_controller extends script.base_script
         obj_id[] targets = getCreaturesInRange(turret, 40);
         Vector validTargets = new Vector();
         validTargets.setSize(0);
-        for (int i = 0; i < targets.length; i++)
-        {
-            if (!isPlayer(targets[i]))
-            {
-                if (!isDead(targets[i]))
-                {
-                    if (canSee(turret, targets[i]))
-                    {
-                        utils.addElement(validTargets, targets[i]);
+        for (obj_id target : targets) {
+            if (!isPlayer(target)) {
+                if (!isDead(target)) {
+                    if (canSee(turret, target)) {
+                        utils.addElement(validTargets, target);
                     }
                 }
             }

@@ -124,19 +124,14 @@ public class terminal_space extends script.terminal.base.base_terminal
                 {
                     obj_id[] objControlDevices = space_transition.findShipControlDevicesForPlayer(player, true);
                     int intCount = 0;
-                    for (int intI = 0; intI < objControlDevices.length; intI++)
-                    {
-                        obj_id objTestShip = space_transition.getShipFromShipControlDevice(objControlDevices[intI]);
-                        if (space_utils.isShipWithInterior(objTestShip))
-                        {
-                            if (objTestShip != ship)
-                            {
+                    for (obj_id objControlDevice : objControlDevices) {
+                        obj_id objTestShip = space_transition.getShipFromShipControlDevice(objControlDevice);
+                        if (space_utils.isShipWithInterior(objTestShip)) {
+                            if (objTestShip != ship) {
                                 int intItemCount = player_structure.getStructureNumItems(objTestShip);
-                                if (intItemCount > 0)
-                                {
+                                if (intItemCount > 0) {
                                     intCount = intCount + 1;
-                                    if (intCount >= 2)
-                                    {
+                                    if (intCount >= 2) {
                                         string_id strSpam = new string_id("space/space_interaction", "too_many_pobs");
                                         sendSystemMessage(player, strSpam);
                                         return SCRIPT_CONTINUE;
@@ -184,15 +179,12 @@ public class terminal_space extends script.terminal.base.base_terminal
                         }
                         if (membersApprovedByShipOwner != null && membersApprovedByShipOwner.length > 0)
                         {
-                            for (int i = 0; i < membersApprovedByShipOwner.length; ++i)
-                            {
-                                if (hasScript(membersApprovedByShipOwner[i], performance.DANCE_HEARTBEAT_SCRIPT))
-                                {
-                                    performance.stopDance(membersApprovedByShipOwner[i]);
+                            for (obj_id obj_id : membersApprovedByShipOwner) {
+                                if (hasScript(obj_id, performance.DANCE_HEARTBEAT_SCRIPT)) {
+                                    performance.stopDance(obj_id);
                                 }
-                                if (hasScript(membersApprovedByShipOwner[i], performance.MUSIC_HEARTBEAT_SCRIPT))
-                                {
-                                    performance.stopMusic(membersApprovedByShipOwner[i]);
+                                if (hasScript(obj_id, performance.MUSIC_HEARTBEAT_SCRIPT)) {
+                                    performance.stopMusic(obj_id);
                                 }
                             }
                         }
@@ -248,27 +240,22 @@ public class terminal_space extends script.terminal.base.base_terminal
             location playerLoc = getLocation(player);
             if (isIdValid(playerLoc.cell))
             {
-                for (int i = 0; i < membersApprovedByShipOwner.length; ++i)
-                {
-                    if (membersApprovedByShipOwner[i] != player && exists(membersApprovedByShipOwner[i]) && getLocation(membersApprovedByShipOwner[i]).cell == playerLoc.cell)
-                    {
+                for (obj_id obj_id : membersApprovedByShipOwner) {
+                    if (obj_id != player && exists(obj_id) && getLocation(obj_id).cell == playerLoc.cell) {
                         startIndex = space_transition.getNextStartIndex(shipStartLocations, startIndex);
-                        if (startIndex <= shipStartLocations.size())
-                        {
-                            groupMembersToWarp = utils.addElement(groupMembersToWarp, membersApprovedByShipOwner[i]);
+                        if (startIndex <= shipStartLocations.size()) {
+                            groupMembersToWarp = utils.addElement(groupMembersToWarp, obj_id);
                             groupMemberStartIndex = utils.addElement(groupMemberStartIndex, startIndex);
                         }
-                        if (callable.hasAnyCallable(membersApprovedByShipOwner[i]))
-                        {
-                            callable.storeCallables(membersApprovedByShipOwner[i]);
+                        if (callable.hasAnyCallable(obj_id)) {
+                            callable.storeCallables(obj_id);
                         }
                     }
                 }
             }
         }
-        for (int i = 0; i < groupMembersToWarp.size(); ++i)
-        {
-            travel.movePlayerToDestination(((obj_id)groupMembersToWarp.get(i)), planet, pointName);
+        for (Object o : groupMembersToWarp) {
+            travel.movePlayerToDestination(((obj_id) o), planet, pointName);
         }
         return;
     }
@@ -296,23 +283,17 @@ public class terminal_space extends script.terminal.base.base_terminal
             location playerLoc = getLocation(player);
             if (isIdValid(playerLoc.cell))
             {
-                for (int i = 0; i < membersApprovedByShipOwner.length; ++i)
-                {
-                    if (membersApprovedByShipOwner[i] != player && exists(membersApprovedByShipOwner[i]) && getLocation(membersApprovedByShipOwner[i]).cell == playerLoc.cell)
-                    {
-                        if (features.isSpaceEdition(membersApprovedByShipOwner[i]))
-                        {
+                for (obj_id obj_id : membersApprovedByShipOwner) {
+                    if (obj_id != player && exists(obj_id) && getLocation(obj_id).cell == playerLoc.cell) {
+                        if (features.isSpaceEdition(obj_id)) {
                             startIndex = space_transition.getNextStartIndex(shipStartLocations, startIndex);
-                            if (startIndex <= shipStartLocations.size())
-                            {
-                                groupMembersToWarp = utils.addElement(groupMembersToWarp, membersApprovedByShipOwner[i]);
+                            if (startIndex <= shipStartLocations.size()) {
+                                groupMembersToWarp = utils.addElement(groupMembersToWarp, obj_id);
                                 groupMemberStartIndex = utils.addElement(groupMemberStartIndex, startIndex);
                             }
-                        }
-                        else 
-                        {
+                        } else {
                             string_id strSpam = new string_id("space/space_interaction", "no_space_expansion");
-                            sendSystemMessage(membersApprovedByShipOwner[i], strSpam);
+                            sendSystemMessage(obj_id, strSpam);
                         }
                     }
                 }
@@ -331,7 +312,7 @@ public class terminal_space extends script.terminal.base.base_terminal
                 buff.removeBuff(((obj_id)groupMembersToWarp.get(i)), shapechange);
                 sendSystemMessage(((obj_id)groupMembersToWarp.get(i)), event_perk.SHAPECHANGE_SPACE);
             }
-            space_transition.setLaunchInfo(((obj_id)groupMembersToWarp.get(i)), ship, ((Integer)groupMemberStartIndex.get(i)).intValue(), groundLoc);
+            space_transition.setLaunchInfo(((obj_id)groupMembersToWarp.get(i)), ship, (Integer) groupMemberStartIndex.get(i), groundLoc);
             warpPlayer(((obj_id)groupMembersToWarp.get(i)), warpLocation.area, warpLocation.x, warpLocation.y, warpLocation.z, null, warpLocation.x, warpLocation.y, warpLocation.z);
         }
     }
@@ -410,9 +391,9 @@ public class terminal_space extends script.terminal.base.base_terminal
             return SCRIPT_CONTINUE;
         }
         location warpLocation = new location();
-        warpLocation.x = (float)dctPointInfo.getInt("X");
-        warpLocation.y = (float)dctPointInfo.getInt("Y");
-        warpLocation.z = (float)dctPointInfo.getInt("Z");
+        warpLocation.x = dctPointInfo.getInt("X");
+        warpLocation.y = dctPointInfo.getInt("Y");
+        warpLocation.z = dctPointInfo.getInt("Z");
         warpLocation.area = dctPointInfo.getString("SCENE");
         obj_id shipControlDevice = utils.getObjIdLocalVar(player, "objControlDevice");
         LOG("space", "shipControlDevice is " + shipControlDevice);
@@ -445,11 +426,9 @@ public class terminal_space extends script.terminal.base.base_terminal
     }
     public location checkZonePopulation(location[] locTest) throws InterruptedException
     {
-        for (int intI = 0; intI < locTest.length; intI++)
-        {
-            if (!isAreaTooFullForTravel(locTest[intI].area, 0, 0))
-            {
-                return locTest[intI];
+        for (location location : locTest) {
+            if (!isAreaTooFullForTravel(location.area, 0, 0)) {
+                return location;
             }
         }
         return null;

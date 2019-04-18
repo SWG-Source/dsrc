@@ -286,37 +286,31 @@ public class survey_tool_script extends script.base_script
         utils.setScriptVar(self, "surveying.surveying", 1);
         utils.setScriptVar(self, "surveying.player", player);
         String resType = getStringObjVar(self, "survey.resource_class");
-        if (resType.equals("gas"))
-        {
-            playClientEffectLoc(player, "clienteffect/survey_tool_gas.cef", getLocation(player), 0f);
-        }
-        else if (resType.equals("chemical"))
-        {
-            playClientEffectLoc(player, "clienteffect/survey_tool_moisture.cef", getLocation(player), 0f);
-        }
-        else if (resType.equals("flora_resources"))
-        {
-            playClientEffectLoc(player, "clienteffect/survey_tool_lumber.cef", getLocation(player), 0f);
-        }
-        else if (resType.equals("mineral"))
-        {
-            playClientEffectLoc(player, "clienteffect/survey_tool_mineral.cef", getLocation(player), 0f);
-        }
-        else if (resType.equals("water"))
-        {
-            playClientEffectLoc(player, "clienteffect/survey_tool_liquid.cef", getLocation(player), 0f);
-        }
-        else if (resType.equals("energy_renewable_unlimited_wind"))
-        {
-            playClientEffectLoc(player, "clienteffect/survey_tool_gas.cef", getLocation(player), 0f);
-        }
-        else if (resType.equals("energy_renewable_unlimited_solar"))
-        {
-            playClientEffectLoc(player, "clienteffect/survey_tool_moisture.cef", getLocation(player), 0f);
-        }
-        else if (resType.equals("energy_renewable_site_limited_geothermal"))
-        {
-            playClientEffectLoc(player, "clienteffect/survey_tool_liquid.cef", getLocation(player), 0f);
+        switch (resType) {
+            case "gas":
+                playClientEffectLoc(player, "clienteffect/survey_tool_gas.cef", getLocation(player), 0.0f);
+                break;
+            case "chemical":
+                playClientEffectLoc(player, "clienteffect/survey_tool_moisture.cef", getLocation(player), 0.0f);
+                break;
+            case "flora_resources":
+                playClientEffectLoc(player, "clienteffect/survey_tool_lumber.cef", getLocation(player), 0.0f);
+                break;
+            case "mineral":
+                playClientEffectLoc(player, "clienteffect/survey_tool_mineral.cef", getLocation(player), 0.0f);
+                break;
+            case "water":
+                playClientEffectLoc(player, "clienteffect/survey_tool_liquid.cef", getLocation(player), 0.0f);
+                break;
+            case "energy_renewable_unlimited_wind":
+                playClientEffectLoc(player, "clienteffect/survey_tool_gas.cef", getLocation(player), 0.0f);
+                break;
+            case "energy_renewable_unlimited_solar":
+                playClientEffectLoc(player, "clienteffect/survey_tool_moisture.cef", getLocation(player), 0.0f);
+                break;
+            case "energy_renewable_site_limited_geothermal":
+                playClientEffectLoc(player, "clienteffect/survey_tool_liquid.cef", getLocation(player), 0.0f);
+                break;
         }
         prose_package pp = prose.getPackage(SID_START_SURVEY, resource_type);
         sendSystemMessageProse(player, pp);
@@ -326,7 +320,7 @@ public class survey_tool_script extends script.base_script
         outparams.put("resource_type", resource_type);
         outparams.put("surveyRange", surveyRange);
         outparams.put("points", points);
-        messageTo(self, "finalizeSurvey", outparams, 4.f, false);
+        messageTo(self, "finalizeSurvey", outparams, 4.0f, false);
         xp.grantCraftingXpChance(self, player, 30);
         return SCRIPT_CONTINUE;
     }
@@ -363,53 +357,37 @@ public class survey_tool_script extends script.base_script
             obj_id[] objMissionArray = getMissionObjects(player);
             if (objMissionArray != null)
             {
-                for (int intI = 0; intI < objMissionArray.length; intI++)
-                {
-                    obj_id objMissionData = objMissionArray[intI];
+                for (obj_id objMissionData : objMissionArray) {
                     String strMissionType = getMissionType(objMissionData);
                     location locSurveyLocation = getLocation(player);
-                    if (strMissionType.equals("survey"))
-                    {
+                    if (strMissionType.equals("survey")) {
                         obj_id objResource = getResourceTypeByName(resource_type);
                         String strResource = getStringObjVar(objMissionData, "strResource");
-                        if (objResource != null)
-                        {
-                            if (isResourceDerivedFrom(objResource, strResource) && isResourceDerivedFrom(objResource, resource_class))
-                            {
+                        if (objResource != null) {
+                            if (isResourceDerivedFrom(objResource, strResource) && isResourceDerivedFrom(objResource, resource_class)) {
                                 int intEffeciency = getIntObjVar(objMissionData, "intEffeciency");
                                 float fltEffeciency = getResourceEfficiency(objResource, locSurveyLocation);
                                 fltEffeciency *= 100.0f;
-                                if (fltEffeciency >= (float)intEffeciency)
-                                {
+                                if (fltEffeciency >= intEffeciency) {
                                     float testDistance = 10000.0f;
                                     location locStartLocation = getLocationObjVar(objMissionData, "locStartLocation");
-                                    if (locStartLocation == null)
-                                    {
+                                    if (locStartLocation == null) {
                                         CustomerServiceLog("survey_mission", "getLocationObjVar for mission data " + objMissionData + " returned null");
-                                    }
-                                    else 
-                                    {
+                                    } else {
                                         String strStartPlanet = locStartLocation.area;
                                         String strCurrentPlanet = locSurveyLocation.area;
-                                        if (strStartPlanet.equals(strCurrentPlanet))
-                                        {
+                                        if (strStartPlanet.equals(strCurrentPlanet)) {
                                             float realDistance = getDistance(locStartLocation, locSurveyLocation);
-                                            if (realDistance < 0)
-                                            {
+                                            if (realDistance < 0) {
                                                 CustomerServiceLog("survey_mission", "Could not get a valid distance between " + locStartLocation + " and " + locSurveyLocation);
-                                            }
-                                            else 
-                                            {
+                                            } else {
                                                 testDistance = realDistance;
                                             }
                                         }
                                     }
-                                    if (testDistance > MIN_SURVEY_MISSION_DISTANCE)
-                                    {
-                                        messageTo(objMissionArray[intI], "surveySuccess", null, 0, false);
-                                    }
-                                    else 
-                                    {
+                                    if (testDistance > MIN_SURVEY_MISSION_DISTANCE) {
+                                        messageTo(objMissionData, "surveySuccess", null, 0, false);
+                                    } else {
                                         prose_package pp = new prose_package();
                                         pp.stringId = new string_id("mission/mission_generic", "survey_too_close");
                                         pp.digitInteger = MIN_SURVEY_MISSION_DISTANCE;
@@ -417,9 +395,7 @@ public class survey_tool_script extends script.base_script
                                         sendSystemMessageProse(player, pp);
                                     }
                                 }
-                            }
-                            else 
-                            {
+                            } else {
                             }
                         }
                     }
@@ -640,8 +616,8 @@ public class survey_tool_script extends script.base_script
         utils.setScriptVar(player, "surveying.outstandingHarvestMessage", getGameTime() + getSurveyToolDelay(player) + 5);
         dictionary outparams = new dictionary();
         outparams.put("player", player);
-        messageTo(self, "sampleLoop", outparams, 1.f, false);
-        messageTo(self, "samplingEffect", outparams, 1.f, false);
+        messageTo(self, "sampleLoop", outparams, 1.0f, false);
+        messageTo(self, "samplingEffect", outparams, 1.0f, false);
         prose_package pp = prose.getPackage(SID_START_SAMPLING, resource_type);
         sendSystemMessageProse(player, pp);
         xp.grantCraftingXpChance(self, player, 30);
@@ -681,12 +657,12 @@ public class survey_tool_script extends script.base_script
         location playerCurrent = getLocation(player);
         location sampleLocation = getLocationObjVar(player, "surveying.sampleLocation");
         String resource_type = utils.getStringScriptVar(player, "surveying.resource");
-        float dist = 0.f;
+        float dist = 0.0f;
         if (sampleLocation != null)
         {
             dist = utils.getDistance(playerCurrent, sampleLocation);
         }
-        if ((sampleLocation != null) && (dist > 1.f))
+        if ((sampleLocation != null) && (dist > 1.0f))
         {
             sendSystemMessage(player, SID_SAMPLE_CANCEL);
             resource.cleanupTool(player, self);
@@ -775,29 +751,25 @@ public class survey_tool_script extends script.base_script
             return SCRIPT_CONTINUE;
         }
         String resType = getStringObjVar(self, "survey.resource_class");
-        if (resType.equals("gas"))
-        {
-            playClientEffectLoc(player, "clienteffect/survey_sample_gas.cef", getLocation(player), 0f);
-        }
-        else if (resType.equals("chemical"))
-        {
-            playClientEffectLoc(player, "clienteffect/survey_sample_moisture.cef", getLocation(player), 0f);
-        }
-        else if (resType.equals("flora_resources"))
-        {
-            playClientEffectLoc(player, "clienteffect/survey_sample_lumber.cef", getLocation(player), 0f);
-        }
-        else if (resType.equals("mineral"))
-        {
-            playClientEffectLoc(player, "clienteffect/survey_sample_mineral.cef", getLocation(player), 0f);
-        }
-        else if (resType.equals("water"))
-        {
-            playClientEffectLoc(player, "clienteffect/survey_sample_liquid.cef", getLocation(player), 0f);
-        }
-        else if (resType.equals("energy_renewable_site_limited_geothermal"))
-        {
-            playClientEffectLoc(player, "clienteffect/survey_sample_liquid.cef", getLocation(player), 0f);
+        switch (resType) {
+            case "gas":
+                playClientEffectLoc(player, "clienteffect/survey_sample_gas.cef", getLocation(player), 0.0f);
+                break;
+            case "chemical":
+                playClientEffectLoc(player, "clienteffect/survey_sample_moisture.cef", getLocation(player), 0.0f);
+                break;
+            case "flora_resources":
+                playClientEffectLoc(player, "clienteffect/survey_sample_lumber.cef", getLocation(player), 0.0f);
+                break;
+            case "mineral":
+                playClientEffectLoc(player, "clienteffect/survey_sample_mineral.cef", getLocation(player), 0.0f);
+                break;
+            case "water":
+                playClientEffectLoc(player, "clienteffect/survey_sample_liquid.cef", getLocation(player), 0.0f);
+                break;
+            case "energy_renewable_site_limited_geothermal":
+                playClientEffectLoc(player, "clienteffect/survey_sample_liquid.cef", getLocation(player), 0.0f);
+                break;
         }
         return SCRIPT_CONTINUE;
     }
@@ -818,7 +790,7 @@ public class survey_tool_script extends script.base_script
         {
             return SCRIPT_CONTINUE;
         }
-        messageTo(self, "sampleLoop", params, 1.f, false);
+        messageTo(self, "sampleLoop", params, 1.0f, false);
         return SCRIPT_CONTINUE;
     }
     public int handleSetRange(obj_id self, dictionary params) throws InterruptedException
@@ -941,32 +913,29 @@ public class survey_tool_script extends script.base_script
             return;
         }
         int average = (int)(efficiency * 10.0f);
-        if (special.equals("object/tangible/loot/quest/ardanium_ii.iff"))
-        {
-            setObjVar(resource, "crafting_components.res_potential_energy", getResourceValue(average));
-            setObjVar(resource, "crafting_components.res_quality", getResourceValue(average));
-        }
-        else if (special.equals("object/tangible/loot/quest/wind_crystal.iff"))
-        {
-            setObjVar(resource, "crafting_components.res_potential_energy", getResourceValue(average));
-        }
-        else if (special.equals("object/tangible/loot/quest/ostrine.iff"))
-        {
-            setObjVar(resource, "crafting_components.res_malleability", getResourceValue(average));
-            setObjVar(resource, "crafting_components.res_quality", getResourceValue(average));
-        }
-        else if (special.equals("object/tangible/loot/quest/endrine.iff"))
-        {
-            setObjVar(resource, "crafting_components.res_malleability", getResourceValue(average));
-            setObjVar(resource, "crafting_components.res_quality", getResourceValue(average));
-            setObjVar(resource, "crafting_components.res_toughness", getResourceValue(average));
-        }
-        else if (special.equals("object/tangible/loot/quest/rudic.iff"))
-        {
-            setObjVar(resource, "crafting_components.res_conductivity", getResourceValue(average));
-            setObjVar(resource, "crafting_components.res_decay_resist", getResourceValue(average));
-            setObjVar(resource, "crafting_components.res_quality", getResourceValue(average));
-            setObjVar(resource, "crafting_components.res_shock_resistance", getResourceValue(average));
+        switch (special) {
+            case "object/tangible/loot/quest/ardanium_ii.iff":
+                setObjVar(resource, "crafting_components.res_potential_energy", getResourceValue(average));
+                setObjVar(resource, "crafting_components.res_quality", getResourceValue(average));
+                break;
+            case "object/tangible/loot/quest/wind_crystal.iff":
+                setObjVar(resource, "crafting_components.res_potential_energy", getResourceValue(average));
+                break;
+            case "object/tangible/loot/quest/ostrine.iff":
+                setObjVar(resource, "crafting_components.res_malleability", getResourceValue(average));
+                setObjVar(resource, "crafting_components.res_quality", getResourceValue(average));
+                break;
+            case "object/tangible/loot/quest/endrine.iff":
+                setObjVar(resource, "crafting_components.res_malleability", getResourceValue(average));
+                setObjVar(resource, "crafting_components.res_quality", getResourceValue(average));
+                setObjVar(resource, "crafting_components.res_toughness", getResourceValue(average));
+                break;
+            case "object/tangible/loot/quest/rudic.iff":
+                setObjVar(resource, "crafting_components.res_conductivity", getResourceValue(average));
+                setObjVar(resource, "crafting_components.res_decay_resist", getResourceValue(average));
+                setObjVar(resource, "crafting_components.res_quality", getResourceValue(average));
+                setObjVar(resource, "crafting_components.res_shock_resistance", getResourceValue(average));
+                break;
         }
     }
     public int getResourceValue(int average) throws InterruptedException

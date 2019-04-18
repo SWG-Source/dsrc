@@ -83,7 +83,7 @@ public class pvp_region_bonus_controller extends script.base_script
         {
             return SCRIPT_CONTINUE;
         }
-        float cycleItteration = (float)getCycleItteration(self);
+        float cycleItteration = getCycleItteration(self);
         float maxItteration = CYCLE_MAX_RUN / CYCLE_HEARTBEAT;
         doLogging("cycleUpdate", "We are on " + cycleItteration + " of " + maxItteration);
         if (cycleItteration >= maxItteration)
@@ -123,12 +123,10 @@ public class pvp_region_bonus_controller extends script.base_script
             return 0;
         }
         int factionCount = 0;
-        for (int i = 0; i < recordList.size(); i++)
-        {
-            String[] parse = split(((String)recordList.get(i)), '-');
+        for (Object o : recordList) {
+            String[] parse = split(((String) o), '-');
             String faction = parse[1];
-            if (faction.equals(passedFaction))
-            {
+            if (faction.equals(passedFaction)) {
                 factionCount++;
             }
         }
@@ -141,9 +139,8 @@ public class pvp_region_bonus_controller extends script.base_script
             return 0;
         }
         int deathCount = 0;
-        for (int i = 0; i < recordList.size(); i++)
-        {
-            String[] parse = split(((String)recordList.get(i)), '-');
+        for (Object o : recordList) {
+            String[] parse = split(((String) o), '-');
             int playerDeath = utils.stringToInt(parse[3]);
             deathCount += playerDeath;
         }
@@ -175,13 +172,11 @@ public class pvp_region_bonus_controller extends script.base_script
         {
             return null;
         }
-        for (int i = 0; i < recordList.size(); i++)
-        {
-            String[] parse = split(((String)recordList.get(i)), '-');
+        for (Object o : recordList) {
+            String[] parse = split(((String) o), '-');
             obj_id listId = utils.stringToObjId(parse[0]);
-            if (listId == player)
-            {
-                listEntry = ((String)recordList.get(i));
+            if (listId == player) {
+                listEntry = ((String) o);
             }
         }
         return listEntry;

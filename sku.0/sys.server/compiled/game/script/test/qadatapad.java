@@ -72,60 +72,60 @@ public class qadatapad extends script.base_script
     {
         
         {
-            6495f,
-            -5552f,
-            -568f,
-            -2530f,
-            -1850f,
-            -1132f,
-            -1127f,
-            3998f,
-            4000f,
-            3227f,
-            -5524f,
-            -3002f,
-            -6966f,
-            -115f,
-            3690f,
-            3082f
+                6495.0f,
+            -5552.0f,
+            -568.0f,
+            -2530.0f,
+            -1850.0f,
+            -1132.0f,
+            -1127.0f,
+                3998.0f,
+                4000.0f,
+                3227.0f,
+            -5524.0f,
+            -3002.0f,
+            -6966.0f,
+            -115.0f,
+                3690.0f,
+                3082.0f
         },
         
         {
             0.0f,
-            -7065f,
+            -7065.0f,
             0.0f,
             0.0f,
             0.0f,
             13.32f,
-            15f,
-            37f,
-            37f,
-            24f,
-            29f,
-            4f,
-            73f,
-            18f,
-            96f,
-            301f
+                15.0f,
+                37.0f,
+                37.0f,
+                24.0f,
+                29.0f,
+                4.0f,
+                73.0f,
+                18.0f,
+                96.0f,
+                301.0f
         },
         
         {
-            4490f,
-            -5121f,
-            -100f,
-            1650f,
-            820f,
-            -3542f,
-            -3589f,
-            -6195f,
-            -6196f,
-            -3436f,
-            4618f,
-            2201f,
+                4490.0f,
+            -5121.0f,
+            -100.0f,
+                1650.0f,
+                820.0f,
+            -3542.0f,
+            -3589.0f,
+            -6195.0f,
+            -6196.0f,
+            -3436.0f,
+                4618.0f,
+                2201.0f,
             -5660,
-            -1579f,
-            -6463f,
-            -5203f
+            -1579.0f,
+            -6463.0f,
+            -5203.0f
         }
     };
     public int OnAttach(obj_id self) throws InterruptedException
@@ -253,18 +253,15 @@ public class qadatapad extends script.base_script
     public boolean deleteAllWaypoints(obj_id self) throws InterruptedException
     {
         obj_id[] waypoints = getWaypointsInDatapad(self);
-        for (int i = 0; i < waypoints.length; i++)
-        {
-            destroyWaypointInDatapad(waypoints[i], self);
+        for (obj_id waypoint : waypoints) {
+            destroyWaypointInDatapad(waypoint, self);
         }
         return true;
     }
     public boolean addOnSelection(obj_id self, String previousSelection) throws InterruptedException
     {
-        for (int i = 0; i < ADD_ON_DATAPAD_MENU.length; i++)
-        {
-            if (previousSelection.equals(ADD_ON_DATAPAD_MENU[i]))
-            {
+        for (String addOnDatapadMenu : ADD_ON_DATAPAD_MENU) {
+            if (previousSelection.equals(addOnDatapadMenu)) {
                 return true;
             }
         }

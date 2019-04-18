@@ -30,10 +30,8 @@ public class nomove_container extends script.item.special.nomove_base
     public boolean containsNoTradeItem(obj_id container) throws InterruptedException
     {
         obj_id[] contents = getContents(container);
-        for (int i = 0; i < contents.length; i++)
-        {
-            if (hasObjVar(contents[i], "noTrade"))
-            {
+        for (obj_id content : contents) {
+            if (hasObjVar(content, "noTrade")) {
                 return true;
             }
         }

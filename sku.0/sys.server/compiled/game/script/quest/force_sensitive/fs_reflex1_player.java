@@ -93,52 +93,43 @@ public class fs_reflex1_player extends script.base_script
         {
             return SCRIPT_CONTINUE;
         }
-        if (questName.equals("fs_reflex_rescue_quest_01"))
-        {
-            setObjVar(self, IN_PROGRESS_OBJVAR, 1);
-        }
-        else if (questName.equals("fs_reflex_rescue_quest_03"))
-        {
-            if (hasObjVar(self, "quest.fs_reflex_rescue_quest_02.waypoint"))
-            {
-                obj_id waypoint = getObjIdObjVar(self, "quest.fs_reflex_rescue_quest_02.waypoint");
-                if (isIdValid(waypoint))
-                {
-                    destroyWaypointInDatapad(waypoint, self);
+        switch (questName) {
+            case "fs_reflex_rescue_quest_01":
+                setObjVar(self, IN_PROGRESS_OBJVAR, 1);
+                break;
+            case "fs_reflex_rescue_quest_03":
+                if (hasObjVar(self, "quest.fs_reflex_rescue_quest_02.waypoint")) {
+                    obj_id waypoint = getObjIdObjVar(self, "quest.fs_reflex_rescue_quest_02.waypoint");
+                    if (isIdValid(waypoint)) {
+                        destroyWaypointInDatapad(waypoint, self);
+                    }
                 }
-            }
-        }
-        else if (questName.equals("fs_reflex_rescue_quest_05"))
-        {
-            int rescued = 0;
-            if (hasObjVar(self, RESCUED_OBJVAR))
-            {
-                rescued = getIntObjVar(self, RESCUED_OBJVAR);
-            }
-            rescued++;
-            if (rescued >= 5)
-            {
-                finishQuest(self, questName);
-            }
-            else 
-            {
-                setObjVar(self, RESCUED_OBJVAR, rescued);
-                continueQuest(self, questName, rescued);
-            }
-        }
-        else if (questName.equals("fs_reflex_rescue_quest_06"))
-        {
-            sendSystemMessage(self, MSG_QUEST_FAILED);
-            removeObjVar(self, IN_PROGRESS_OBJVAR);
-            setObjVar(self, FAILED_OBJVAR, 1);
-            resetQuest(self);
-        }
-        else if (questName.equals("fs_reflex_rescue_quest_07"))
-        {
-            sendSystemMessage(self, MSG_QUEST_ERROR_ABORTED);
-            removeObjVar(self, IN_PROGRESS_OBJVAR);
-            setObjVar(self, ABORTED_OBJVAR, 1);
-            resetQuest(self);
+                break;
+            case "fs_reflex_rescue_quest_05":
+                int rescued = 0;
+                if (hasObjVar(self, RESCUED_OBJVAR)) {
+                    rescued = getIntObjVar(self, RESCUED_OBJVAR);
+                }
+                rescued++;
+                if (rescued >= 5) {
+                    finishQuest(self, questName);
+                } else {
+                    setObjVar(self, RESCUED_OBJVAR, rescued);
+                    continueQuest(self, questName, rescued);
+                }
+                break;
+            case "fs_reflex_rescue_quest_06":
+                sendSystemMessage(self, MSG_QUEST_FAILED);
+                removeObjVar(self, IN_PROGRESS_OBJVAR);
+                setObjVar(self, FAILED_OBJVAR, 1);
+                resetQuest(self);
+                break;
+            case "fs_reflex_rescue_quest_07":
+                sendSystemMessage(self, MSG_QUEST_ERROR_ABORTED);
+                removeObjVar(self, IN_PROGRESS_OBJVAR);
+                setObjVar(self, ABORTED_OBJVAR, 1);
+                resetQuest(self);
+                break;
         }
         return SCRIPT_CONTINUE;
     }

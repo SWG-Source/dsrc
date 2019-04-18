@@ -15,15 +15,12 @@ public class crafting_base_weapon extends script.systems.crafting.crafting_base
     public static final float MAX_STAT_INTENSITY = 1.00f;
     public void calcAndSetPrototypeProperties(obj_id prototype, draft_schematic.attribute[] itemAttributes, dictionary craftingValuesDictionary) throws InterruptedException
     {
-        for (int i = 0; i < itemAttributes.length; ++i)
-        {
-            if (itemAttributes[i] == null)
-            {
+        for (draft_schematic.attribute itemAttribute : itemAttributes) {
+            if (itemAttribute == null) {
                 continue;
             }
-            if (((itemAttributes[i].name).getAsciiId()).equals("attackSpeed") || ((itemAttributes[i].name).getAsciiId()).equals("attackCost"))
-            {
-                itemAttributes[i].currentValue = (itemAttributes[i].minValue + itemAttributes[i].maxValue) - itemAttributes[i].currentValue;
+            if (((itemAttribute.name).getAsciiId()).equals("attackSpeed") || ((itemAttribute.name).getAsciiId()).equals("attackCost")) {
+                itemAttribute.currentValue = (itemAttribute.minValue + itemAttribute.maxValue) - itemAttribute.currentValue;
             }
         }
         super.calcAndSetPrototypeProperties(prototype, itemAttributes, craftingValuesDictionary);
@@ -45,106 +42,88 @@ public class crafting_base_weapon extends script.systems.crafting.crafting_base
         int elementalValue = weapons.getElementalValueLow(weaponDat);
         int accuracy = 0;
         debugServerConsoleMsg(null, "Beginning assembly-phase prototype property setting");
-        for (int i = 0; i < itemAttributes.length; ++i)
-        {
-            if (itemAttributes[i] == null)
-            {
+        for (draft_schematic.attribute itemAttribute : itemAttributes) {
+            if (itemAttribute == null) {
                 continue;
             }
-            if (!calcAndSetPrototypeProperty(prototype, itemAttributes[i]))
-            {
-                if (((itemAttributes[i].name).getAsciiId()).equals("minDamage"))
-                {
-                    curCraftVal = itemAttributes[i].currentValue;
-                    curMasterVal = weapons.getMinDamageHighCap(weaponDat);
-                    curMaxVal = (curMasterVal * MAX_STAT_INTENSITY);
-                    if (curCraftVal > curMaxVal)
-                    {
-                        notifyStatCapped(curCraftVal, curMaxVal, "Minimum Damage", prototype);
-                        curCraftVal = curMaxVal;
-                    }
-                    setWeaponMinDamage(prototype, (int)curCraftVal);
-                }
-                else if (((itemAttributes[i].name).getAsciiId()).equals("maxDamage"))
-                {
-                    curCraftVal = itemAttributes[i].currentValue;
-                    curMasterVal = weapons.getMaxDamageHighCap(weaponDat);
-                    curMaxVal = (curMasterVal * MAX_STAT_INTENSITY);
-                    if (curCraftVal > curMaxVal)
-                    {
-                        notifyStatCapped(curCraftVal, curMaxVal, "Maximum Damage", prototype);
-                        curCraftVal = curMaxVal;
-                    }
-                    setWeaponMaxDamage(prototype, (int)curCraftVal);
-                }
-                else if (((itemAttributes[i].name).getAsciiId()).equals("attackSpeed"))
-                {
-                    curCraftVal = itemAttributes[i].currentValue;
-                    curMasterVal = weapons.getSpeedLow(weaponDat);
-                    curMaxVal = (float)Math.floor(curMasterVal / MAX_STAT_INTENSITY);
-                    if (curCraftVal < curMaxVal)
-                    {
-                        notifyStatCapped(curCraftVal / 100.0f, curMaxVal / 100.0f, "Attack Speed", prototype);
-                        curCraftVal = curMaxVal;
-                    }
-                    setWeaponAttackSpeed(prototype, curCraftVal / 100.0f);
-                }
-                else if (((itemAttributes[i].name).getAsciiId()).equals("woundChance"))
-                {
-                    curCraftVal = itemAttributes[i].currentValue;
-                    curMasterVal = weapons.getWoundChanceHigh(weaponDat);
-                    curMaxVal = (curMasterVal * MAX_STAT_INTENSITY);
-                    if (curCraftVal > curMaxVal)
-                    {
-                        notifyStatCapped(curCraftVal, curMaxVal, "Wound Chance", prototype);
-                        curCraftVal = curMaxVal;
-                    }
-                    setWeaponWoundChance(prototype, curCraftVal);
-                }
-                else if (((itemAttributes[i].name).getAsciiId()).equals("accuracy"))
-                {
-                    curCraftVal = itemAttributes[i].currentValue;
-                    accuracy = Math.round(curCraftVal);
-                }
-                else if (((itemAttributes[i].name).getAsciiId()).equals("charges"))
-                {
-                    setCount(prototype, (int)itemAttributes[i].currentValue);
-                }
-                else if (((itemAttributes[i].name).getAsciiId()).equals("attackCost"))
-                {
-                    curCraftVal = itemAttributes[i].currentValue;
-                    curMasterVal = weapons.getAttackCostLow(weaponDat);
-                    curMaxVal = (float)Math.floor(curMasterVal / MAX_STAT_INTENSITY);
-                    if (curCraftVal < curMaxVal)
-                    {
-                        notifyStatCapped(curCraftVal, curMaxVal, "Attack Cost", prototype);
-                        curCraftVal = curMaxVal;
-                    }
-                    setWeaponAttackCost(prototype, (int)curCraftVal);
-                }
-                else if (((itemAttributes[i].name).getAsciiId()).equals("damageType"))
-                {
-                    damageType = (int)itemAttributes[i].currentValue;
-                }
-                else if (((itemAttributes[i].name).getAsciiId()).equals("elementalType"))
-                {
-                    elementalType = (int)itemAttributes[i].currentValue;
-                }
-                else if (((itemAttributes[i].name).getAsciiId()).equals("elementalValue"))
-                {
-                    curCraftVal = itemAttributes[i].currentValue;
-                    curMasterVal = weapons.getElementalValueHigh(weaponDat);
-                    curMaxVal = (curMasterVal * MAX_STAT_INTENSITY);
-                    if (curCraftVal > curMaxVal)
-                    {
-                        notifyStatCapped(curCraftVal, curMaxVal, "Elemental Value", prototype);
-                        curCraftVal = curMaxVal;
-                    }
-                    elementalValue = (int)curCraftVal;
-                }
-                else 
-                {
-                    debugServerConsoleMsg(null, "Error. Unknown Attribute Read in. Attribute was " + itemAttributes[i].name + ".");
+            if (!calcAndSetPrototypeProperty(prototype, itemAttribute)) {
+                switch (((itemAttribute.name).getAsciiId())) {
+                    case "minDamage":
+                        curCraftVal = itemAttribute.currentValue;
+                        curMasterVal = weapons.getMinDamageHighCap(weaponDat);
+                        curMaxVal = (curMasterVal * MAX_STAT_INTENSITY);
+                        if (curCraftVal > curMaxVal) {
+                            notifyStatCapped(curCraftVal, curMaxVal, "Minimum Damage", prototype);
+                            curCraftVal = curMaxVal;
+                        }
+                        setWeaponMinDamage(prototype, (int) curCraftVal);
+                        break;
+                    case "maxDamage":
+                        curCraftVal = itemAttribute.currentValue;
+                        curMasterVal = weapons.getMaxDamageHighCap(weaponDat);
+                        curMaxVal = (curMasterVal * MAX_STAT_INTENSITY);
+                        if (curCraftVal > curMaxVal) {
+                            notifyStatCapped(curCraftVal, curMaxVal, "Maximum Damage", prototype);
+                            curCraftVal = curMaxVal;
+                        }
+                        setWeaponMaxDamage(prototype, (int) curCraftVal);
+                        break;
+                    case "attackSpeed":
+                        curCraftVal = itemAttribute.currentValue;
+                        curMasterVal = weapons.getSpeedLow(weaponDat);
+                        curMaxVal = (float) Math.floor(curMasterVal / MAX_STAT_INTENSITY);
+                        if (curCraftVal < curMaxVal) {
+                            notifyStatCapped(curCraftVal / 100.0f, curMaxVal / 100.0f, "Attack Speed", prototype);
+                            curCraftVal = curMaxVal;
+                        }
+                        setWeaponAttackSpeed(prototype, curCraftVal / 100.0f);
+                        break;
+                    case "woundChance":
+                        curCraftVal = itemAttribute.currentValue;
+                        curMasterVal = weapons.getWoundChanceHigh(weaponDat);
+                        curMaxVal = (curMasterVal * MAX_STAT_INTENSITY);
+                        if (curCraftVal > curMaxVal) {
+                            notifyStatCapped(curCraftVal, curMaxVal, "Wound Chance", prototype);
+                            curCraftVal = curMaxVal;
+                        }
+                        setWeaponWoundChance(prototype, curCraftVal);
+                        break;
+                    case "accuracy":
+                        curCraftVal = itemAttribute.currentValue;
+                        accuracy = Math.round(curCraftVal);
+                        break;
+                    case "charges":
+                        setCount(prototype, (int) itemAttribute.currentValue);
+                        break;
+                    case "attackCost":
+                        curCraftVal = itemAttribute.currentValue;
+                        curMasterVal = weapons.getAttackCostLow(weaponDat);
+                        curMaxVal = (float) Math.floor(curMasterVal / MAX_STAT_INTENSITY);
+                        if (curCraftVal < curMaxVal) {
+                            notifyStatCapped(curCraftVal, curMaxVal, "Attack Cost", prototype);
+                            curCraftVal = curMaxVal;
+                        }
+                        setWeaponAttackCost(prototype, (int) curCraftVal);
+                        break;
+                    case "damageType":
+                        damageType = (int) itemAttribute.currentValue;
+                        break;
+                    case "elementalType":
+                        elementalType = (int) itemAttribute.currentValue;
+                        break;
+                    case "elementalValue":
+                        curCraftVal = itemAttribute.currentValue;
+                        curMasterVal = weapons.getElementalValueHigh(weaponDat);
+                        curMaxVal = (curMasterVal * MAX_STAT_INTENSITY);
+                        if (curCraftVal > curMaxVal) {
+                            notifyStatCapped(curCraftVal, curMaxVal, "Elemental Value", prototype);
+                            curCraftVal = curMaxVal;
+                        }
+                        elementalValue = (int) curCraftVal;
+                        break;
+                    default:
+                        debugServerConsoleMsg(null, "Error. Unknown Attribute Read in. Attribute was " + itemAttribute.name + ".");
+                        break;
                 }
             }
         }
@@ -154,9 +133,8 @@ public class crafting_base_weapon extends script.systems.crafting.crafting_base
         {
             int sockets = 0;
             int experimentModTotal = 0;
-            for (int j = 0; j < mods.length; ++j)
-            {
-                experimentModTotal += mods[j];
+            for (int mod : mods) {
+                experimentModTotal += mod;
             }
             if (experimentModTotal > craftinglib.socketThreshold)
             {

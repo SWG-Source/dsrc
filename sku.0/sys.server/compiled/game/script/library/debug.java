@@ -28,12 +28,10 @@ public class debug extends script.base_script
     public static void barkContents(obj_id self, obj_id[] contents) throws InterruptedException
     {
         String contentsMsg = "Contents: ";
-        for (int i = 0; i < contents.length; ++i)
-        {
-            if (contents[i] != null)
-            {
+        for (obj_id content : contents) {
+            if (content != null) {
                 contentsMsg += " [";
-                contentsMsg += contents[i].toString();
+                contentsMsg += content.toString();
                 contentsMsg += "]";
             }
         }

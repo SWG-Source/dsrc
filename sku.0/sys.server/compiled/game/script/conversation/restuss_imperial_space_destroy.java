@@ -97,7 +97,7 @@ public class restuss_imperial_space_destroy extends script.base_script
         if (phase == 0)
         {
             float ratio = restuss_event.getCompletedQuestRatio(npc, "restuss_imperial_space_destroy_1");
-            if (ratio > .5)
+            if (ratio > 0.5)
             {
                 restuss_event.incrimentPhase(npc);
                 return;

@@ -97,13 +97,10 @@ public class panicked_researcher extends script.base_script
             return false;
         }
         int countCores = 0;
-        for (int i = 0; i < contents.length; i++)
-        {
-            if (hasObjVar(contents[i], "warren.reactorCore"))
-            {
+        for (obj_id content : contents) {
+            if (hasObjVar(content, "warren.reactorCore")) {
                 countCores++;
-                if (countCores > 1)
-                {
+                if (countCores > 1) {
                     return true;
                 }
             }

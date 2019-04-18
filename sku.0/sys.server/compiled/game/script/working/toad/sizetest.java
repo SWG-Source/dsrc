@@ -30,7 +30,7 @@ public class sizetest extends script.base_script
             float big = max;
             String alternate = "";
             String templateName = creatureDict.getString("template");
-            if (templateName.indexOf(".iff") == -1)
+            if (!templateName.contains(".iff"))
             {
                 return SCRIPT_OVERRIDE;
             }

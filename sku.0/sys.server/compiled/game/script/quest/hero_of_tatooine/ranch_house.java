@@ -31,7 +31,7 @@ public class ranch_house extends script.base_script
     {
         if (text.equals("reset"))
         {
-            messageTo(self, "reset", null, 1f, false);
+            messageTo(self, "reset", null, 1.0f, false);
             return SCRIPT_CONTINUE;
         }
         return SCRIPT_CONTINUE;
@@ -59,7 +59,7 @@ public class ranch_house extends script.base_script
                     {
                         setObjVar(self, "quest.hero_of_tatooine.progress", item);
                         setObjVar(self, "quest.hero_of_tatooine.timer", getGameTime());
-                        messageTo(self, "restart", null, 300f, false);
+                        messageTo(self, "restart", null, 300.0f, false);
                         sendSystemMessage(item, ENTER);
                     }
                 }
@@ -79,7 +79,7 @@ public class ranch_house extends script.base_script
             setObjVar(self, "wife", wife);
             location boxLocation = new location(-6.33f, -3.57f, -7.27f, "tatooine", getCellId(self, "stair1"));
             obj_id box = create.object(BOX, boxLocation);
-            setYaw(box, 175f);
+            setYaw(box, 175.0f);
             setName(box, "Intercom");
             setCondition(self, CONDITION_CONVERSABLE);
             detachScript(box, "systems.elevator.elevator_up");
@@ -90,7 +90,7 @@ public class ranch_house extends script.base_script
             setObjVar(self, "statue01", statue01);
             location statue02Location = new location(-10.62f, 0.30f, -2.10f, "tatooine", getCellId(self, "livingroom"));
             obj_id statue02 = create.object(STATUE02, statue02Location);
-            setYaw(statue02, 90f);
+            setYaw(statue02, 90.0f);
             setObjVar(self, "statue02", statue02);
             location rugLocation = new location(-8.07f, 0.31f, -3.29f, "tatooine", getCellId(self, "livingroom"));
             obj_id rug = create.object(RUG, rugLocation);
@@ -120,8 +120,8 @@ public class ranch_house extends script.base_script
         obj_id pirate04 = create.object("fugitive", pirate04Location);
         attachScript(pirate04, "quest.hero_of_tatooine.pirate_04");
         setObjVar(self, "pirate04", pirate04);
-        messageTo(self, "cleanUp", null, 120f, false);
-        messageTo(self, "failed", null, 3f, false);
+        messageTo(self, "cleanUp", null, 120.0f, false);
+        messageTo(self, "failed", null, 3.0f, false);
         return SCRIPT_CONTINUE;
     }
     public int piratesLose(obj_id self, dictionary params) throws InterruptedException
@@ -138,8 +138,8 @@ public class ranch_house extends script.base_script
         obj_id auth02 = create.object("crackdown_elite_dark_trooper", auth02Location);
         attachScript(auth02, "quest.hero_of_tatooine.auth_02");
         setObjVar(self, "auth02", auth02);
-        messageTo(self, "cleanUp", null, 120f, false);
-        messageTo(self, "success", null, 10f, false);
+        messageTo(self, "cleanUp", null, 120.0f, false);
+        messageTo(self, "success", null, 10.0f, false);
         return SCRIPT_CONTINUE;
     }
     public int piratesCaptured(obj_id self, dictionary params) throws InterruptedException
@@ -231,7 +231,7 @@ public class ranch_house extends script.base_script
         removeObjVar(self, "quest.hero_of_tatooine.spawned");
         removeObjVar(self, "quest.hero_of_tatooine.progress");
         removeObjVar(self, "quest.hero_of_tatooine.timer");
-        messageTo(self, "spawnDudes", null, 5f, false);
+        messageTo(self, "spawnDudes", null, 5.0f, false);
         return SCRIPT_CONTINUE;
     }
     public int failed(obj_id self, dictionary params) throws InterruptedException
@@ -266,7 +266,7 @@ public class ranch_house extends script.base_script
             int gametime = getGameTime();
             if ((died + 420) > gametime)
             {
-                messageTo(self, "restart", null, 5f, false);
+                messageTo(self, "restart", null, 5.0f, false);
                 return SCRIPT_CONTINUE;
             }
             else 
@@ -311,7 +311,7 @@ public class ranch_house extends script.base_script
                 removeObjVar(self, "quest.hero_of_tatooine.spawned");
                 removeObjVar(self, "quest.hero_of_tatooine.progress");
                 removeObjVar(self, "quest.hero_of_tatooine.timer");
-                messageTo(self, "spawnDudes", null, 5f, false);
+                messageTo(self, "spawnDudes", null, 5.0f, false);
                 sendSystemMessage(player, RESTART);
                 return SCRIPT_CONTINUE;
             }
@@ -360,7 +360,7 @@ public class ranch_house extends script.base_script
         removeObjVar(self, "quest.hero_of_tatooine.spawned");
         removeObjVar(self, "quest.hero_of_tatooine.progress");
         removeObjVar(self, "quest.hero_of_tatooine.timer");
-        messageTo(self, "spawnDudes", null, 5f, false);
+        messageTo(self, "spawnDudes", null, 5.0f, false);
         sendSystemMessage(player, RESTART);
         return SCRIPT_CONTINUE;
     }

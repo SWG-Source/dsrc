@@ -47,16 +47,12 @@ public class junk_compactor extends script.base_script
         {
             Vector junk = new Vector();
             junk.setSize(0);
-            for (int i = 0; i < contents.length; i++)
-            {
-                if (!isCrafted(contents[i]) && !utils.isEquipped(contents[i]))
-                {
-                    String template = getTemplateName(contents[i]);
-                    if ((template != null) && (!template.equals("")))
-                    {
-                        if (dataTableGetInt(TBL, template, "price") >= 0)
-                        {
-                            junk = utils.addElement(junk, contents[i]);
+            for (obj_id content : contents) {
+                if (!isCrafted(content) && !utils.isEquipped(content)) {
+                    String template = getTemplateName(content);
+                    if ((template != null) && (!template.equals(""))) {
+                        if (dataTableGetInt(TBL, template, "price") >= 0) {
+                            junk = utils.addElement(junk, content);
                         }
                     }
                 }
@@ -252,18 +248,14 @@ public class junk_compactor extends script.base_script
         {
             int now = getGameTime();
             int total = 0;
-            for (int i = 0; i < junk.size(); i++)
-            {
-                if (utils.hasScriptVar(((obj_id)junk.get(i)), SCRIPTVAR_SOLD))
-                {
-                    toRemove = utils.addElement(toRemove, ((obj_id)junk.get(i)));
-                }
-                else 
-                {
-                    String template = getTemplateName(((obj_id)junk.get(i)));
+            for (Object o : junk) {
+                if (utils.hasScriptVar(((obj_id) o), SCRIPTVAR_SOLD)) {
+                    toRemove = utils.addElement(toRemove, ((obj_id) o));
+                } else {
+                    String template = getTemplateName(((obj_id) o));
                     int price = dataTableGetInt(TBL, template, "price");
                     total += price;
-                    utils.setScriptVar(((obj_id)junk.get(i)), SCRIPTVAR_SOLD, now);
+                    utils.setScriptVar(((obj_id) o), SCRIPTVAR_SOLD, now);
                 }
             }
             junk = utils.removeElements(junk, toRemove);
@@ -302,9 +294,8 @@ public class junk_compactor extends script.base_script
         {
             prose_package ppNoSale = prose.getPackage(PROSE_NO_ALL_SALE, self);
             sendSystemMessageProse(player, ppNoSale);
-            for (int i = 0; i < junk.length; i++)
-            {
-                utils.removeScriptVar(junk[i], SCRIPTVAR_SOLD);
+            for (obj_id obj_id : junk) {
+                utils.removeScriptVar(obj_id, SCRIPTVAR_SOLD);
             }
             return SCRIPT_CONTINUE;
         }

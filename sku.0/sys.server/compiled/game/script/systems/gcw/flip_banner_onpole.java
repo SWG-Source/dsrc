@@ -16,12 +16,12 @@ public class flip_banner_onpole extends script.systems.gcw.flip_banner
     }
     public int OnInitialize(obj_id self) throws InterruptedException
     {
-        messageTo(self, "checkBannerImpulse", null, 1.f, false);
+        messageTo(self, "checkBannerImpulse", null, 1.0f, false);
         return SCRIPT_CONTINUE;
     }
     public int OnAttach(obj_id self) throws InterruptedException
     {
-        messageTo(self, "checkBannerImpulse", null, 1.f, false);
+        messageTo(self, "checkBannerImpulse", null, 1.0f, false);
         return SCRIPT_CONTINUE;
     }
     public int OnDestroy(obj_id self) throws InterruptedException
@@ -72,7 +72,7 @@ public class flip_banner_onpole extends script.systems.gcw.flip_banner
             }
             spawnBanner(self, "rebel");
         }
-        messageTo(self, "checkBannerImpulse", null, 3600.f, false);
+        messageTo(self, "checkBannerImpulse", null, 3600.0f, false);
         return SCRIPT_CONTINUE;
     }
     public void spawnBanner(obj_id self, String faction) throws InterruptedException

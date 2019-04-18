@@ -92,14 +92,11 @@ public class crafting_food_additive extends script.systems.crafting.crafting_bas
     }
     public void calcAndSetPrototypeProperties(obj_id prototype, draft_schematic.attribute[] itemAttributes) throws InterruptedException
     {
-        for (int i = 0; i < itemAttributes.length; ++i)
-        {
-            if (itemAttributes[i] == null)
-            {
+        for (draft_schematic.attribute itemAttribute : itemAttributes) {
+            if (itemAttribute == null) {
                 continue;
             }
-            if (!calcAndSetPrototypeProperty(prototype, itemAttributes[i]))
-            {
+            if (!calcAndSetPrototypeProperty(prototype, itemAttribute)) {
             }
         }
         obj_id self = getSelf();

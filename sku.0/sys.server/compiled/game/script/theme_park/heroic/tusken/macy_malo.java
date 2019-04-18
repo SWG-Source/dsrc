@@ -33,38 +33,30 @@ public class macy_malo extends script.base_script
         npc.setSize(0);
         Vector gods = new Vector();
         gods.setSize(0);
-        for (int i = 0; i < objects.length; i++)
-        {
-            if (!isIdValid(objects[i]) || !exists(objects[i]))
-            {
+        for (obj_id object : objects) {
+            if (!isIdValid(object) || !exists(object)) {
                 continue;
             }
-            if (!isMob(objects[i]) && !isPlayer(objects[i]))
-            {
+            if (!isMob(object) && !isPlayer(object)) {
                 continue;
             }
-            if (isGod(objects[i]))
-            {
-                gods.add(objects[i]);
+            if (isGod(object)) {
+                gods.add(object);
             }
-            if (isDead(objects[i]))
-            {
+            if (isDead(object)) {
                 continue;
             }
-            String tFac = factions.getFaction(objects[i]);
-            if (tFac == null || tFac.equals(""))
-            {
+            String tFac = factions.getFaction(object);
+            if (tFac == null || tFac.equals("")) {
                 continue;
             }
-            if (!tFac.equals("tusken") && !tFac.equals("heroic_tusken"))
-            {
+            if (!tFac.equals("tusken") && !tFac.equals("heroic_tusken")) {
                 continue;
             }
-            if (isIdValid(getLocation(objects[i]).cell))
-            {
+            if (isIdValid(getLocation(object).cell)) {
                 continue;
             }
-            npc.add(objects[i]);
+            npc.add(object);
         }
         if (npc == null || npc.size() == 0)
         {

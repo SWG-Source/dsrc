@@ -169,7 +169,7 @@ public class load_test extends script.base_script
                 obj_id lastShip = clientShip;
                 for (int i = 0; i < aiShipCount; ++i)
                 {
-                    obj_id aiShip = space_create.createShip(aiShipName, (getTransform_o2p(lastShip)).move_l(new vector(0.f, 0.f, -15.f)));
+                    obj_id aiShip = space_create.createShip(aiShipName, (getTransform_o2p(lastShip)).move_l(new vector(0.0f, 0.0f, -15.0f)));
                     if (isIdValid(aiShip))
                     {
                         utils.setScriptVar(aiShip, "followTarget", lastShip);
@@ -193,32 +193,32 @@ public class load_test extends script.base_script
                 if (battlefield)
                 {
                     setObjVar(ship, "intBattlefieldTeam", team);
-                    obj_id w = createWaypointInDatapad(clientCreature, new location(-6000.f, 0.f, 0.f, "space_heavy1"));
+                    obj_id w = createWaypointInDatapad(clientCreature, new location(-6000.0f, 0.0f, 0.0f, "space_heavy1"));
                     setWaypointName(w, "Rebel Base");
                     setWaypointActive(w, true);
-                    w = createWaypointInDatapad(clientCreature, new location(6000.f, 0.f, 0.f, "space_heavy1"));
+                    w = createWaypointInDatapad(clientCreature, new location(6000.0f, 0.0f, 0.0f, "space_heavy1"));
                     setWaypointActive(w, true);
                     setWaypointName(w, "Imperial Base");
                     if (team == (370444368))
                     {
                         setRebelSkills(clientCreature);
-                        float x = -5000.f + rand(-100, 100);
-                        float y = 0.f + rand(-100, 100);
-                        float z = 0.f + rand(-100, 100);
+                        float x = -5000.0f + rand(-100, 100);
+                        float y = 0.0f + rand(-100, 100);
+                        float z = 0.0f + rand(-100, 100);
                         warpPlayer(clientCreature, spaceSceneName, x, y, z, null, x, y, z);
                     }
                     else 
                     {
                         setImperialSkills(clientCreature);
-                        float x = 6000.f + rand(-100, 100);
-                        float y = -1200.f + rand(-100, 100);
-                        float z = 600.f + rand(-100, 100);
+                        float x = 6000.0f + rand(-100, 100);
+                        float y = -1200.0f + rand(-100, 100);
+                        float z = 600.0f + rand(-100, 100);
                         warpPlayer(clientCreature, spaceSceneName, x, y, z, null, x, y, z);
                     }
                 }
                 else 
                 {
-                    warpPlayer(clientCreature, spaceSceneName, 10.f, 0.f, 10.f, null, 10.f, 0.f, 10.f);
+                    warpPlayer(clientCreature, spaceSceneName, 10.0f, 0.0f, 10.0f, null, 10.0f, 0.0f, 10.0f);
                 }
             }
         }
@@ -237,9 +237,8 @@ public class load_test extends script.base_script
     }
     public static void grantSkills(obj_id creature, String[] skills) throws InterruptedException
     {
-        for (int i = 0; i < skills.length; ++i)
-        {
-            grantSkill(creature, skills[i]);
+        for (String skill : skills) {
+            grantSkill(creature, skill);
         }
     }
     public static void revokeSkills(obj_id creature, String[] skills) throws InterruptedException

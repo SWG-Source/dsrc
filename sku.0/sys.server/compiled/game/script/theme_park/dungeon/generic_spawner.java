@@ -283,9 +283,8 @@ public class generic_spawner extends script.base_script
             if (scriptList != null && !scriptList.equals(""))
             {
                 String[] scriptArray = split(scriptList, ',');
-                for (int i = 0; i < scriptArray.length; i++)
-                {
-                    attachScript(spawnedCreature, scriptArray[i]);
+                for (String s : scriptArray) {
+                    attachScript(spawnedCreature, s);
                 }
             }
         }

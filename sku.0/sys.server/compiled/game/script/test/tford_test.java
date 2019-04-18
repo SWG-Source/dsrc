@@ -14,9 +14,7 @@ public class tford_test extends script.base_script
     {
         debugConsoleMsg(self, "loot lottery by " + self + " for " + target_id);
         debugSpeakMsg(self, "selected items:");
-        for (int i = 0; i < selection_ids.length; ++i)
-        {
-            obj_id item = selection_ids[i];
+        for (obj_id item : selection_ids) {
             debugSpeakMsg(self, "[" + item + "]");
         }
         return SCRIPT_CONTINUE;
@@ -49,23 +47,21 @@ public class tford_test extends script.base_script
             {
                 String command = tok.nextToken();
                 debugConsoleMsg(self, "command is: " + command);
-                if (command.equals("tmf_showLotteryMyInventory"))
-                {
-                }
-                else if (command.equals("tmf_pvpPrepareToBeCovert"))
-                {
-                    debugConsoleMsg(self, "pvpPrepareToBeCovert");
-                    pvpPrepareToBeCovert(self);
-                }
-                else if (command.equals("tmf_pvpPrepareToBeDeclared"))
-                {
-                    debugConsoleMsg(self, "pvpPrepareToBeDeclared");
-                    pvpPrepareToBeDeclared(self);
-                }
-                else if (command.equals("tmf_pvpPrepareToBeNeutral"))
-                {
-                    debugConsoleMsg(self, "pvpPrepareToBeNeutral");
-                    pvpPrepareToBeNeutral(self);
+                switch (command) {
+                    case "tmf_showLotteryMyInventory":
+                        break;
+                    case "tmf_pvpPrepareToBeCovert":
+                        debugConsoleMsg(self, "pvpPrepareToBeCovert");
+                        pvpPrepareToBeCovert(self);
+                        break;
+                    case "tmf_pvpPrepareToBeDeclared":
+                        debugConsoleMsg(self, "pvpPrepareToBeDeclared");
+                        pvpPrepareToBeDeclared(self);
+                        break;
+                    case "tmf_pvpPrepareToBeNeutral":
+                        debugConsoleMsg(self, "pvpPrepareToBeNeutral");
+                        pvpPrepareToBeNeutral(self);
+                        break;
                 }
                 if (command.equals("tmf_hideFromClient"))
                 {
@@ -73,25 +69,27 @@ public class tford_test extends script.base_script
                     obj_id target = getLookAtTarget(self);
                     hideFromClient(target, true);
                 }
-                if (command.equals("tmf_noHideFromClient"))
-                {
-                    debugConsoleMsg(self, "hit tmf_noHideFromClient");
-                    obj_id target = getLookAtTarget(self);
-                    hideFromClient(target, false);
-                }
-                else if (command.equals("tmf_makePrivate"))
-                {
-                    debugConsoleMsg(self, "hit tmf_makePrivate");
-                    location here = getLocation(self);
-                    obj_id target = here.cell;
-                    permissionsMakePrivate(target);
-                }
-                else if (command.equals("tmf_makePublic"))
-                {
-                    debugConsoleMsg(self, "hit tmf_makePublic");
-                    location here = getLocation(self);
-                    obj_id target = here.cell;
-                    permissionsMakePublic(target);
+                switch (command) {
+                    case "tmf_noHideFromClient": {
+                        debugConsoleMsg(self, "hit tmf_noHideFromClient");
+                        obj_id target = getLookAtTarget(self);
+                        hideFromClient(target, false);
+                        break;
+                    }
+                    case "tmf_makePrivate": {
+                        debugConsoleMsg(self, "hit tmf_makePrivate");
+                        location here = getLocation(self);
+                        obj_id target = here.cell;
+                        permissionsMakePrivate(target);
+                        break;
+                    }
+                    case "tmf_makePublic": {
+                        debugConsoleMsg(self, "hit tmf_makePublic");
+                        location here = getLocation(self);
+                        obj_id target = here.cell;
+                        permissionsMakePublic(target);
+                        break;
+                    }
                 }
             }
         }

@@ -45,7 +45,7 @@ public class space_mining_destroy extends script.base_script
         {
             dictionary outparams = new dictionary();
             outparams.put("player", player);
-            messageTo(self, "initializedQuestPlayer", outparams, 1.f, false);
+            messageTo(self, "initializedQuestPlayer", outparams, 1.0f, false);
         }
         setObjVar(self, "msgCount", 3);
         return SCRIPT_CONTINUE;
@@ -118,17 +118,17 @@ public class space_mining_destroy extends script.base_script
             String questType = getStringObjVar(self, space_quest.QUEST_TYPE);
             questSetQuestTaskCounter(player, "spacequest/" + questType + "/" + questName, 1, "quest/groundquests:mine_counter", currentCount, mineCount);
             int msgCount = getIntObjVar(self, "msgCount");
-            if (currentCount > (.50 * mineCount) && currentCount < (.75 * mineCount) && msgCount == 1)
+            if (currentCount > (0.50 * mineCount) && currentCount < (0.75 * mineCount) && msgCount == 1)
             {
                 setObjVar(self, "msgCount", 0);
                 space_quest.showQuestUpdate(self, SID_REMAINDER_UPDATE, mineCount - currentCount);
             }
-            else if (currentCount > (.25 * mineCount) && currentCount < (.50 * mineCount) && msgCount == 2)
+            else if (currentCount > (0.25 * mineCount) && currentCount < (0.50 * mineCount) && msgCount == 2)
             {
                 setObjVar(self, "msgCount", 1);
                 space_quest.showQuestUpdate(self, SID_REMAINDER_UPDATE, mineCount - currentCount);
             }
-            else if (currentCount > (0) && currentCount < (.25 * mineCount) && msgCount == 3)
+            else if (currentCount > (0) && currentCount < (0.25 * mineCount) && msgCount == 3)
             {
                 setObjVar(self, "msgCount", 2);
                 space_quest.showQuestUpdate(self, SID_REMAINDER_UPDATE, mineCount - currentCount);

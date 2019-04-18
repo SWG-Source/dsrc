@@ -24,13 +24,9 @@ public class imp_boss_bunker extends script.base_script
             {
                 obj_id[] groupMembers = getGroupMemberIds(groupObj);
                 int numGroupMembers = groupMembers.length;
-                for (int f = 0; f < numGroupMembers; f++)
-                {
-                    obj_id groupie = groupMembers[f];
-                    if (isIdValid(groupie))
-                    {
-                        if (groundquests.isTaskActive(groupie, "c_story1_4b_rebel", "killboss") || groundquests.isTaskActive(groupie, "c_story1_4b_rebel", "retrieveinfo") || groundquests.isTaskActive(groupie, "c_story1_4b_rebel", "rebel_blackmail"))
-                        {
+                for (obj_id groupie : groupMembers) {
+                    if (isIdValid(groupie)) {
+                        if (groundquests.isTaskActive(groupie, "c_story1_4b_rebel", "killboss") || groundquests.isTaskActive(groupie, "c_story1_4b_rebel", "retrieveinfo") || groundquests.isTaskActive(groupie, "c_story1_4b_rebel", "rebel_blackmail")) {
                             return SCRIPT_CONTINUE;
                         }
                     }

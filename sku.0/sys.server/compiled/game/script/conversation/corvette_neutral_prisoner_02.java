@@ -36,13 +36,9 @@ public class corvette_neutral_prisoner_02 extends script.base_script
                 obj_id groupObj = getGroupObject(player);
                 obj_id[] groupMembers = getGroupMemberIds(groupObj);
                 int numGroupMembers = groupMembers.length;
-                for (int f = 0; f < numGroupMembers; f++)
-                {
-                    obj_id groupie = groupMembers[f];
-                    if (isIdValid(groupie))
-                    {
-                        if (groupie != player)
-                        {
+                for (obj_id groupie : groupMembers) {
+                    if (isIdValid(groupie)) {
+                        if (groupie != player) {
                             factions.addFactionStanding(groupie, "jabba", 7);
                         }
                     }

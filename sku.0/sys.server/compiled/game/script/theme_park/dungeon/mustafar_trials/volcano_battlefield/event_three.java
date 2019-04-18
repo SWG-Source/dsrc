@@ -265,11 +265,9 @@ public class event_three extends script.base_script
         }
         Vector liveBoss = new Vector();
         liveBoss.setSize(0);
-        for (int i = 0; i < boss.length; i++)
-        {
-            if (!isDead(boss[i]))
-            {
-                utils.addElement(liveBoss, boss[i]);
+        for (obj_id boss1 : boss) {
+            if (!isDead(boss1)) {
+                utils.addElement(liveBoss, boss1);
             }
         }
         if (liveBoss == null || liveBoss.size() == 0)
@@ -326,11 +324,9 @@ public class event_three extends script.base_script
         obj_id[] corpseList = trial.getObjectsInRangeWithScriptVar(self, trial.VOLCANO_THREE_IS_CORPSE, 400.0f);
         Vector bossList = new Vector();
         bossList.setSize(0);
-        for (int i = 0; i < boss.length; i++)
-        {
-            if (!isDead(boss[i]))
-            {
-                utils.addElement(bossList, boss[i]);
+        for (obj_id boss1 : boss) {
+            if (!isDead(boss1)) {
+                utils.addElement(bossList, boss1);
             }
         }
         if (bossList != null && bossList.size() > 0 && corpseList != null && corpseList.length > 0)

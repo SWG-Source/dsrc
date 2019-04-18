@@ -133,7 +133,7 @@ public class psg extends script.base_script
     {
         float time = BASE_UPDATE_TIME + rand(0.0f, RAND_UPDATE_TIME);
         dictionary params = new dictionary();
-        params.put(PARAM_TIME, new Long(System.currentTimeMillis()));
+        params.put(PARAM_TIME, Long.valueOf(System.currentTimeMillis()));
         int messageId = rand(0, Integer.MAX_VALUE - 1);
         params.put(PARAM_MESSAGE_ID, messageId);
         utils.setScriptVar(self, SCRIPTVAR_MESSAGE_ID, messageId);

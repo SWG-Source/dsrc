@@ -30,7 +30,7 @@ public class fort_tusken extends script.base_script
             location loc = getGoodLocation(self, room);
             obj_id sandperson = create.object(tusken, loc);
             setObjVar(sandperson, "fort", self);
-            create.addDestroyMessage(sandperson, "tuskenDead", 300f, self);
+            create.addDestroyMessage(sandperson, "tuskenDead", 300.0f, self);
             intX = intX + 1;
         }
         return;
@@ -94,7 +94,7 @@ public class fort_tusken extends script.base_script
         location loc = getGoodLocation(self, room);
         obj_id sandperson = create.object(tusken, loc);
         setObjVar(sandperson, "fort", self);
-        create.addDestroyMessage(sandperson, "tuskenDead", 300f, self);
+        create.addDestroyMessage(sandperson, "tuskenDead", 300.0f, self);
         return SCRIPT_CONTINUE;
     }
 }

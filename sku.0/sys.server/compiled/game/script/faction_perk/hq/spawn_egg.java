@@ -172,7 +172,7 @@ public class spawn_egg extends script.base_script
             }
         }
         location here = getLocation(self);
-        location spawnLoc = locations.getGoodLocationAroundLocation(here, 1f, 1f, 4f, 4f);
+        location spawnLoc = locations.getGoodLocationAroundLocation(here, 1.0f, 1.0f, 4.0f, 4.0f);
         if (spawnLoc == null)
         {
             spawnLoc = here;
@@ -205,7 +205,7 @@ public class spawn_egg extends script.base_script
             float dtheta = 30;
             if (keys.size() > 1)
             {
-                dtheta = 360f / (keys.size() - 1);
+                dtheta = 360.0f / (keys.size() - 1);
             }
             location baseLoc = null;
             obj_id spawn;
@@ -306,19 +306,19 @@ public class spawn_egg extends script.base_script
         {
             return;
         }
-        float maxTheaterSpawn = getFloatObjVar(parent, "poi.fltSize") - 20f;
+        float maxTheaterSpawn = getFloatObjVar(parent, "poi.fltSize") - 20.0f;
         location here = getLocation(self);
         location there = getLocation(parent);
         if (getDistance(here, there) > maxTheaterSpawn)
         {
             location[] pathpoints = new location[rand(4, 8)];
-            float dTheta = 360f / pathpoints.length;
-            float patrol_distance = maxTheaterSpawn + rand(15f, 30f);
+            float dTheta = 360.0f / pathpoints.length;
+            float patrol_distance = maxTheaterSpawn + rand(15.0f, 30.0f);
             float minDistance = Float.POSITIVE_INFINITY;
             int closeIndex = 0;
             for (int i = 0; i < pathpoints.length; i++)
             {
-                pathpoints[i] = utils.rotatePointXZ(there, patrol_distance, (i * dTheta) - 180f);
+                pathpoints[i] = utils.rotatePointXZ(there, patrol_distance, (i * dTheta) - 180.0f);
                 float dist = getDistance(here, pathpoints[i]);
                 if (dist < minDistance)
                 {

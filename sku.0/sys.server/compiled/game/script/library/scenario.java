@@ -300,7 +300,7 @@ public class scenario extends script.base_script
             Vector member_alive = getResizeableIntArrayObjVar(master, VAR_TEAM + "." + team_name + ".member_alive");
             if (member_alive != null && member_alive.size() > 0)
             {
-                member_alive.set(idx, new Integer(0));
+                member_alive.set(idx, 0);
                 setObjVar(master, VAR_TEAM + "." + team_name + ".member_alive", member_alive);
             }
             else 

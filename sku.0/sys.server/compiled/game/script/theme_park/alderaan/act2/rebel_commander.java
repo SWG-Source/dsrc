@@ -94,7 +94,7 @@ public class rebel_commander extends script.base_script
         {
             LOG("CoA2_Rebel", "Rebel Delivery Location:  Attepmt #" + (x + 1));
             location loc = utils.getRandomLocationInRing(cityCenter, minDistance, maxDistance);
-            deliveryLoc = locations.getGoodLocationAroundLocation(loc, 30f, 30f, 200f, 200f);
+            deliveryLoc = locations.getGoodLocationAroundLocation(loc, 30.0f, 30.0f, 200.0f, 200.0f);
             if (deliveryLoc != null)
             {
                 deliveryLoc.y = getElevation(deliveryLoc);

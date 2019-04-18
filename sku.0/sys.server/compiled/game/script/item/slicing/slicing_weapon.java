@@ -71,17 +71,16 @@ public class slicing_weapon extends script.base_script
             int slice_cost = effect.getInt("COST");
             int slice_amount = effect.getInt("AMOUNT");
             boolean asuccess = false;
-            if (stat.equals("fire_rate"))
-            {
-                asuccess = applyFireRateChange(self, player, slice_amount);
-            }
-            else if (stat.equals("damage"))
-            {
-                asuccess = applyDamageChange(self, player, slice_amount);
-            }
-            else if (stat.equals("crit_chance"))
-            {
-                asuccess = applyCritChance(self, player, slice_amount);
+            switch (stat) {
+                case "fire_rate":
+                    asuccess = applyFireRateChange(self, player, slice_amount);
+                    break;
+                case "damage":
+                    asuccess = applyDamageChange(self, player, slice_amount);
+                    break;
+                case "crit_chance":
+                    asuccess = applyCritChance(self, player, slice_amount);
+                    break;
             }
             if (asuccess)
             {
@@ -104,7 +103,7 @@ public class slicing_weapon extends script.base_script
     {
         String template = getTemplateName(self);
         float pctBonus = slice_amount / 100.0f;
-        float spdLow = (float)weapons.getSpeedLow(template, weapons.VIA_TEMPLATE);
+        float spdLow = weapons.getSpeedLow(template, weapons.VIA_TEMPLATE);
         spdLow /= 100.0f;
         float spd = getWeaponAttackSpeed(self);
         if (hasObjVar(self, "slice.old_fire_rate"))
@@ -132,14 +131,14 @@ public class slicing_weapon extends script.base_script
     public boolean applyDamageChange(obj_id self, obj_id player, int slice_amount) throws InterruptedException
     {
         String template = getTemplateName(self);
-        float minDamLow = (float)weapons.getMinDamageLow(template, weapons.VIA_TEMPLATE);
-        float minDamHigh = (float)weapons.getMinDamageHigh(template, weapons.VIA_TEMPLATE);
-        float maxDamLow = (float)weapons.getMaxDamageLow(template, weapons.VIA_TEMPLATE);
-        float maxDamHigh = (float)weapons.getMaxDamageHigh(template, weapons.VIA_TEMPLATE);
+        float minDamLow = weapons.getMinDamageLow(template, weapons.VIA_TEMPLATE);
+        float minDamHigh = weapons.getMinDamageHigh(template, weapons.VIA_TEMPLATE);
+        float maxDamLow = weapons.getMaxDamageLow(template, weapons.VIA_TEMPLATE);
+        float maxDamHigh = weapons.getMaxDamageHigh(template, weapons.VIA_TEMPLATE);
         float minDamRange = minDamHigh - minDamLow;
         float maxDamRange = maxDamHigh - maxDamLow;
-        float minDam = (float)getWeaponMinDamage(self);
-        float maxDam = (float)getWeaponMaxDamage(self);
+        float minDam = getWeaponMinDamage(self);
+        float maxDam = getWeaponMaxDamage(self);
         if ((minDam > (minDamHigh * 1.3f)) || (maxDam > (maxDamHigh * 1.3f)))
         {
             sendSystemMessage(player, SID_WEAPON_AT_MAX);

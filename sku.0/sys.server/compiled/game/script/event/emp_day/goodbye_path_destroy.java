@@ -84,7 +84,7 @@ public class goodbye_path_destroy extends script.base_script
             messageTo(self, "selfDestruct", null, 2, false);
             return SCRIPT_CONTINUE;
         }
-        obj_id[] exitPoints = getAllObjectsWithObjVar(getLocation(self), 40f, "disguise_exit");
+        obj_id[] exitPoints = getAllObjectsWithObjVar(getLocation(self), 40.0f, "disguise_exit");
         if (exitPoints == null || exitPoints.length <= 0)
         {
             blog("GOODBYE pathToExit - NO POINTS FOUND");

@@ -140,7 +140,7 @@ public final class obj_id implements Comparable, Serializable
 		if (id == 0)
 			return NULL_ID;
 
-		return getObjId(new Long(id));
+		return getObjId(Long.valueOf(id));
 	} // getObjId
 
 	/**
@@ -153,7 +153,7 @@ public final class obj_id implements Comparable, Serializable
 	 */
 	static public obj_id getObjId(Long id)
 	{
-		if (id == null || id.longValue() == 0)
+		if (id == null || id == 0)
 			return NULL_ID;
 
 		if (DEBUG)
@@ -266,7 +266,7 @@ public final class obj_id implements Comparable, Serializable
 	 */
 	public long getValue()
 	{
-		return m_id.longValue();
+		return m_id;
 	}	// getValue
 
 	public int getProcessId()
@@ -282,7 +282,7 @@ public final class obj_id implements Comparable, Serializable
 
 	public boolean isBuildoutObject()
 	{
-		return m_id.longValue() < 0;
+		return m_id < 0;
 	}
 
 	/**
@@ -402,9 +402,8 @@ public final class obj_id implements Comparable, Serializable
 				// update the script list for the pending scripts
 				if (DEBUG)
 					System.out.println("Updating pending scripts on object " + m_id);
-				for (int i = 0; i < m_pendingScripts.size(); ++i)
-				{
-					pending_script pending = (pending_script)m_pendingScripts.get(i);
+				for (Object m_pendingScript : m_pendingScripts) {
+					pending_script pending = (pending_script) m_pendingScript;
 					if (pending.add)
 						attachScript(pending.script);
 					else
@@ -446,9 +445,9 @@ public final class obj_id implements Comparable, Serializable
 		if (id == null)
 			return 1;
 
-		if (m_id.longValue() > id.m_id.longValue())
+		if (m_id > id.m_id)
 			return 1;
-		else if (m_id.longValue() < id.m_id.longValue())
+		else if (m_id < id.m_id)
 			return -1;
 		return 0;
 	}	// compareTo(obj_id)
@@ -484,7 +483,7 @@ public final class obj_id implements Comparable, Serializable
 	{
 		// hash code from Effective Java, item 8, page 38
 		int result = 17;
-		result = 37 * result + (int)(m_id.longValue() ^ (m_id.longValue() >>> 32));
+		result = 37 * result + (int)(m_id ^ (m_id >>> 32));
 		return result;
 	}	// hashCode
 
@@ -532,7 +531,7 @@ public final class obj_id implements Comparable, Serializable
 	 */
 	private obj_id(long id)
 	{
-		m_id = new Long(id);
+		m_id = id;
 		m_authoritative = false;
 		m_loaded = false;
 		m_initialized = false;
@@ -864,24 +863,20 @@ public final class obj_id implements Comparable, Serializable
 		}
 
 		// the scripts need to be added in reverse order to the front of the list
-		for (int i = 0; i < scripts.length; ++i)
-		{
-			if (scripts[i] == null || scripts[i].length() == 0)
-			{
+		for (String script1 : scripts) {
+			if (script1 == null || script1.length() == 0) {
 				System.err.println("Java obj_id.attachScript[] trying to attach empty script name to object " + m_id);
 				continue;
 			}
 
-			String script = scripts[i];
+			String script = script1;
 			if (!script.startsWith(SCRIPT_PREFIX))
 				script = SCRIPT_PREFIX + script;
 
-			if (VALIDATE_SCRIPTS)
-			{
-				if (m_scripts.contains(script))
-				{
+			if (VALIDATE_SCRIPTS) {
+				if (m_scripts.contains(script)) {
 					System.err.println("WARNING: Java obj_id.attachScript(array) tried to add script " +
-						script + " to object " + this + " more than once!");
+							script + " to object " + this + " more than once!");
 					continue;
 				}
 			}
@@ -958,9 +953,8 @@ public final class obj_id implements Comparable, Serializable
 		if (m_pendingScripts != null)
 		{
 			int count = m_pendingScripts.size();
-			for (int i = 0; i < count; ++i)
-			{
-				pending_script pending = (pending_script)m_pendingScripts.get(i);
+			for (Object m_pendingScript : m_pendingScripts) {
+				pending_script pending = (pending_script) m_pendingScript;
 				String scriptName = null;
 				if (!pending.script.startsWith(SCRIPT_PREFIX))
 					scriptName = SCRIPT_PREFIX + pending.script;
@@ -983,10 +977,10 @@ public final class obj_id implements Comparable, Serializable
 	{
 		out.defaultWriteObject();
 		// write the obj_id value
-		out.writeLong(m_id.longValue());
+		out.writeLong(m_id);
 		if (DEBUG)
 		{
-			System.out.println("obj_id Serialize writeObject writing id #" + m_id.longValue());
+			System.out.println("obj_id Serialize writeObject writing id #" + m_id);
 		}
 	}
 

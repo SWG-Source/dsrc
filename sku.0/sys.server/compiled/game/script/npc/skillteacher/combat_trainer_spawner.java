@@ -29,7 +29,7 @@ public class combat_trainer_spawner extends script.base_script
         obj_id room = getCellId(self, "meetingd");
         location marksLoc = new location(0.0f, 1.13f, -14.48f, "tatooine", room);
         obj_id marksman = create.object("trainer_marksman", marksLoc);
-        create.addDestroyMessage(marksman, "marksmanDied", 10f, self);
+        create.addDestroyMessage(marksman, "marksmanDied", 10.0f, self);
         setCreatureStatic(marksman, true);
         setInvulnerable(marksman, true);
         setYaw(marksman, 0);
@@ -41,7 +41,7 @@ public class combat_trainer_spawner extends script.base_script
         obj_id room = getCellId(self, "meetingb");
         location scoutloc = new location(-11.98f, 1.13f, 5.00f, "tatooine", room);
         obj_id scout = create.object("trainer_scout", scoutloc);
-        create.addDestroyMessage(scout, "scoutDied", 10f, self);
+        create.addDestroyMessage(scout, "scoutDied", 10.0f, self);
         setCreatureStatic(scout, true);
         setInvulnerable(scout, true);
         setYaw(scout, 179);
@@ -53,7 +53,7 @@ public class combat_trainer_spawner extends script.base_script
         obj_id room = getCellId(self, "meetingb");
         location dealerloc = new location(-14.56f, 1.13f, 2.85f, "tatooine", room);
         obj_id dealer = create.object("junk_dealer", dealerloc);
-        create.addDestroyMessage(dealer, "dealerDied", 10f, self);
+        create.addDestroyMessage(dealer, "dealerDied", 10.0f, self);
         setCreatureStatic(dealer, true);
         setInvulnerable(dealer, true);
         setYaw(dealer, 92);
@@ -64,7 +64,7 @@ public class combat_trainer_spawner extends script.base_script
         obj_id room = getCellId(self, "meetinge");
         location brawlerloc = new location(-11.13f, 1.13f, -13.98f, "tatooine", room);
         obj_id brawler = create.object("trainer_brawler", brawlerloc);
-        create.addDestroyMessage(brawler, "brawlerDied", 10f, self);
+        create.addDestroyMessage(brawler, "brawlerDied", 10.0f, self);
         setCreatureStatic(brawler, true);
         setInvulnerable(brawler, true);
         setYaw(brawler, 0);
@@ -75,7 +75,7 @@ public class combat_trainer_spawner extends script.base_script
         obj_id room = getCellId(self, "meetingd");
         location deliverloc = new location(3.32f, 1.13f, -8.49f, "tatooine", room);
         obj_id deliverer = create.object("businessman", deliverloc);
-        create.addDestroyMessage(deliverer, "delivererDied", 10f, self);
+        create.addDestroyMessage(deliverer, "delivererDied", 10.0f, self);
         String[] strTest = new String[1];
         strTest[0] = "mission.objDeliverMission";
         setObjVar(deliverer, "mission.strMissionTypes", strTest);
@@ -92,7 +92,7 @@ public class combat_trainer_spawner extends script.base_script
         obj_id room = getCellId(self, "meetinge");
         location destroyerloc = new location(-14.01f, 1.13f, -8.53f, "tatooine", room);
         obj_id destroyer = create.object("hunter", destroyerloc);
-        create.addDestroyMessage(destroyer, "destroyerDied", 10f, self);
+        create.addDestroyMessage(destroyer, "destroyerDied", 10.0f, self);
         String[] strTest = new String[1];
         strTest[0] = "mission.objDestroyMission";
         setObjVar(destroyer, "mission.strMissionTypes", strTest);

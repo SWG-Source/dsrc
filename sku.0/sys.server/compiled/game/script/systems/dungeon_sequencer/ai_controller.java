@@ -150,7 +150,7 @@ public class ai_controller extends script.base_script
             float testFloat = getFloatObjVar(self, "run");
             if (testInt != 0)
             {
-                float newMove = (1.0f + (float)testInt);
+                float newMove = (1.0f + testInt);
                 setMovementPercent(self, newMove);
             }
             if (testFloat != 0)
@@ -241,11 +241,9 @@ public class ai_controller extends script.base_script
             Vector customTrigger = utils.getResizeableStringArrayScriptVar(self, restuss_event.TRIG_CUSTOMSIGNAL);
             if (customTrigger != null && customTrigger.size() > 0)
             {
-                for (int i = 0; i < customTrigger.size(); i++)
-                {
-                    if (((String)customTrigger.get(i)).startsWith(signalName))
-                    {
-                        executeTriggerData(self, ((String)customTrigger.get(i)).substring(signalName.length() + 1, ((String)customTrigger.get(i)).length()));
+                for (Object o : customTrigger) {
+                    if (((String) o).startsWith(signalName)) {
+                        executeTriggerData(self, ((String) o).substring(signalName.length() + 1, ((String) o).length()));
                     }
                 }
             }
@@ -269,9 +267,8 @@ public class ai_controller extends script.base_script
             Vector deathTriggers = utils.getResizeableStringArrayScriptVar(self, restuss_event.TRIG_ONDEATH);
             if (deathTriggers != null && deathTriggers.size() > 0)
             {
-                for (int i = 0; i < deathTriggers.size(); i++)
-                {
-                    executeTriggerData(self, ((String)deathTriggers.get(i)).concat(":" + killer));
+                for (Object deathTrigger : deathTriggers) {
+                    executeTriggerData(self, ((String) deathTrigger).concat(":" + killer));
                 }
             }
         }
@@ -282,7 +279,7 @@ public class ai_controller extends script.base_script
             playClientEffectObj(killer, "clienteffect/combat_explosion_lair_large.cef", self, "");
             playClientEffectLoc(killer, "clienteffect/combat_explosion_lair_large.cef", death, 0);
             setInvulnerable(self, true);
-            messageTo(self, "handleDelayedCleanup", null, 1f, false);
+            messageTo(self, "handleDelayedCleanup", null, 1.0f, false);
         }
         return;
     }
@@ -294,9 +291,8 @@ public class ai_controller extends script.base_script
             Vector combatTriggers = utils.getResizeableStringArrayScriptVar(self, restuss_event.TRIG_ENTERCOMBAT);
             if (combatTriggers != null && combatTriggers.size() > 0)
             {
-                for (int i = 0; i < combatTriggers.size(); i++)
-                {
-                    executeTriggerData(self, ((String)combatTriggers.get(i)));
+                for (Object combatTrigger : combatTriggers) {
+                    executeTriggerData(self, ((String) combatTrigger));
                 }
             }
         }
@@ -314,9 +310,8 @@ public class ai_controller extends script.base_script
             Vector combatTriggers = utils.getResizeableStringArrayScriptVar(self, restuss_event.TRIG_EXITCOMBAT);
             if (combatTriggers != null && combatTriggers.size() > 0)
             {
-                for (int i = 0; i < combatTriggers.size(); i++)
-                {
-                    executeTriggerData(self, ((String)combatTriggers.get(i)));
+                for (Object combatTrigger : combatTriggers) {
+                    executeTriggerData(self, ((String) combatTrigger));
                 }
             }
         }
@@ -334,12 +329,10 @@ public class ai_controller extends script.base_script
             Vector arriveTrigger = utils.getResizeableStringArrayScriptVar(self, restuss_event.TRIG_ARRIVELOCATION);
             if (arriveTrigger != null && arriveTrigger.size() > 0)
             {
-                for (int i = 0; i < arriveTrigger.size(); i++)
-                {
-                    if (((String)arriveTrigger.get(i)).endsWith(location))
-                    {
+                for (Object o : arriveTrigger) {
+                    if (((String) o).endsWith(location)) {
                         dictionary dict = new dictionary();
-                        dict.put("triggerData", ((String)arriveTrigger.get(i)));
+                        dict.put("triggerData", ((String) o));
                         dict.put("suspend", true);
                         messageTo(self, "handleTriggerData", dict, 1.0f, false);
                         executedAction = true;
@@ -354,7 +347,7 @@ public class ai_controller extends script.base_script
         if (hasObjVar(self, "gcw.entertainer_rally"))
         {
             messageTo(self, "handleSetDefaultBehavior", null, 1, false);
-            loiterLocation(self, getLocation(self), 1f, 5f, 2f, 8f);
+            loiterLocation(self, getLocation(self), 1.0f, 5.0f, 2.0f, 8.0f);
         }
         return SCRIPT_CONTINUE;
     }
@@ -467,61 +460,50 @@ public class ai_controller extends script.base_script
         String target = parse[1];
         String condition = parse[2];
         float yaw = 0.0f;
-        if (target.equals("player"))
-        {
-            if (condition.equals("nearest"))
-            {
-                obj_id player = getClosestPlayer(getLocation(self));
-                if (isIdValid(player))
-                {
-                    faceTo(self, player);
+        switch (target) {
+            case "player":
+                if (condition.equals("nearest")) {
+                    obj_id player = getClosestPlayer(getLocation(self));
+                    if (isIdValid(player)) {
+                        faceTo(self, player);
+                    }
                 }
-            }
-        }
-        else if (target.equals("spawn_id"))
-        {
-            Vector children = new Vector();
-            children.setSize(0);
-            if (utils.hasResizeableObjIdBatchScriptVar(trial.getParent(self), trial.PROT_CHILD_ARRAY))
-            {
-                children = utils.getResizeableObjIdBatchScriptVar(trial.getParent(self), trial.PROT_CHILD_ARRAY);
-            }
-            obj_id[] list = new obj_id[0];
-            if (children != null)
-            {
-                list = new obj_id[children.size()];
-                children.toArray(list);
-            }
-            obj_id[] spawnId = trial.getObjectsInListWithObjVar(list, "spawn_id");
-            if (spawnId != null)
-            {
-                obj_id intended = getSpawnIdFromList(spawnId, condition);
-                if (isIdValid(intended) && exists(intended))
-                {
-                    faceTo(self, intended);
+                break;
+            case "spawn_id":
+                Vector children = new Vector();
+                children.setSize(0);
+                if (utils.hasResizeableObjIdBatchScriptVar(trial.getParent(self), trial.PROT_CHILD_ARRAY)) {
+                    children = utils.getResizeableObjIdBatchScriptVar(trial.getParent(self), trial.PROT_CHILD_ARRAY);
                 }
-            }
-        }
-        else if (target.equals("yaw"))
-        {
-            if (condition.equals("default"))
-            {
-                yaw = getFloatObjVar(self, "yaw");
-                setYaw(self, yaw);
-            }
-            if (condition.equals("previous"))
-            {
-                if (utils.hasScriptVar(self, "rec_yaw"))
-                {
-                    yaw = utils.getFloatScriptVar(self, "rec_yaw");
+                obj_id[] list = new obj_id[0];
+                if (children != null) {
+                    list = new obj_id[children.size()];
+                    children.toArray(list);
+                }
+                obj_id[] spawnId = trial.getObjectsInListWithObjVar(list, "spawn_id");
+                if (spawnId != null) {
+                    obj_id intended = getSpawnIdFromList(spawnId, condition);
+                    if (isIdValid(intended) && exists(intended)) {
+                        faceTo(self, intended);
+                    }
+                }
+                break;
+            case "yaw":
+                if (condition.equals("default")) {
+                    yaw = getFloatObjVar(self, "yaw");
                     setYaw(self, yaw);
                 }
-            }
-            if (condition.equals("random"))
-            {
-                yaw = rand(-180, 180);
-                setYaw(self, yaw);
-            }
+                if (condition.equals("previous")) {
+                    if (utils.hasScriptVar(self, "rec_yaw")) {
+                        yaw = utils.getFloatScriptVar(self, "rec_yaw");
+                        setYaw(self, yaw);
+                    }
+                }
+                if (condition.equals("random")) {
+                    yaw = rand(-180, 180);
+                    setYaw(self, yaw);
+                }
+                break;
         }
         utils.setScriptVar(self, "rec_yaw", yaw);
     }
@@ -639,7 +621,7 @@ public class ai_controller extends script.base_script
         if (patrolType.equals("patrolOnce"))
         {
             ai_lib.setPatrolOncePath(self, ppl);
-            addLocationTarget("remove_path", ppl[ppl.length - 1], 1f);
+            addLocationTarget("remove_path", ppl[ppl.length - 1], 1.0f);
         }
         if (patrolType.equals("patrolFlip"))
         {
@@ -648,7 +630,7 @@ public class ai_controller extends script.base_script
         if (patrolType.equals("patrolFlipOnce"))
         {
             ai_lib.setPatrolFlipOncePath(self, ppl);
-            addLocationTarget("remove_path", ppl[ppl.length - 1], 1f);
+            addLocationTarget("remove_path", ppl[ppl.length - 1], 1.0f);
         }
         if (patrolType.equals("patrolRandom"))
         {
@@ -686,11 +668,9 @@ public class ai_controller extends script.base_script
     }
     public obj_id getSpawnIdFromList(obj_id[] list, String spawn) throws InterruptedException
     {
-        for (int i = 0; i < list.length; i++)
-        {
-            if ((getStringObjVar(list[i], "spawn_id")).equals(spawn))
-            {
-                return list[i];
+        for (obj_id obj_id : list) {
+            if ((getStringObjVar(obj_id, "spawn_id")).equals(spawn)) {
+                return obj_id;
             }
         }
         return null;

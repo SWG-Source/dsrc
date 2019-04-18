@@ -113,11 +113,9 @@ public class qange extends script.base_script
                 obj_id inventory = utils.getInventoryContainer(self);
                 obj_id respecDevice = utils.getStaticItemInBankOrInventory(self, "item_respec_token_01_01");
                 obj_id[] items = getContents(inventory);
-                for (int i = 0; i < items.length; i++)
-                {
-                    if (items[i] != respecDevice)
-                    {
-                        destroyObject(items[i]);
+                for (obj_id item : items) {
+                    if (item != respecDevice) {
+                        destroyObject(item);
                     }
                 }
             }

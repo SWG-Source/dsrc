@@ -124,10 +124,8 @@ public class jedi_saber_component extends script.base_script
         {
             return SCRIPT_CONTINUE;
         }
-        for (int i = 0; i < contents.length; i++)
-        {
-            if (contents[i] == self)
-            {
+        for (obj_id content : contents) {
+            if (content == self) {
                 jedi.removeCrystalStats(saber, self);
                 break;
             }
@@ -253,7 +251,7 @@ public class jedi_saber_component extends script.base_script
             min = max;
             max = temp;
         }
-        float rank = (float)(level - levelMin) / (float)(levelMax - levelMin);
+        float rank = (float)(level - levelMin) / (levelMax - levelMin);
         float mid = min + ((max - min) * rank);
         if (mid < min)
         {
@@ -287,7 +285,7 @@ public class jedi_saber_component extends script.base_script
             min = _max;
             max = _min;
         }
-        float rank = (float)(level - levelMin) / (float)(levelMax - levelMin);
+        float rank = (float)(level - levelMin) / (levelMax - levelMin);
         float mid = min + ((max - min) * rank);
         if (mid < min)
         {

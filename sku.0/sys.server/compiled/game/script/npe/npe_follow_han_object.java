@@ -26,15 +26,12 @@ public class npe_follow_han_object extends script.base_script
         setAttributeInterested(self, attrib.ALL);
         setAttributeAttained(player, attrib.ALL);
         setAttributeAttained(hanSolo, attrib.ALL);
-        for (int i = 0; i < contents.length; i++)
-        {
-            if (isIdValid(contents[i]) && isPlayer(contents[i]))
-            {
+        for (obj_id content : contents) {
+            if (isIdValid(content) && isPlayer(content)) {
                 setObjVar(self, "playerHere", true);
-                if (getBooleanObjVar(self, "playerHere") && getBooleanObjVar(self, "hanHere"))
-                {
+                if (getBooleanObjVar(self, "playerHere") && getBooleanObjVar(self, "hanHere")) {
                     messageTo(building, "continueMainTable", null, 0, false);
-                    destroyClientPath(contents[i]);
+                    destroyClientPath(content);
                     removeTriggerVolume("npeFollowHan");
                 }
             }

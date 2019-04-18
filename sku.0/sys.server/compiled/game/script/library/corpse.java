@@ -135,10 +135,8 @@ public class corpse extends script.base_script
                 obj_id[] consented = getObjIdArrayObjVar(player, pclib.VAR_CONSENT_TO_ID);
                 if ((consented != null) && (consented.length > 0))
                 {
-                    for (int i = 0; i < consented.length; i++)
-                    {
-                        if (!grantCorpseConsent(corpse, consented[i]))
-                        {
+                    for (obj_id obj_id : consented) {
+                        if (!grantCorpseConsent(corpse, obj_id)) {
                         }
                     }
                 }
@@ -157,7 +155,7 @@ public class corpse extends script.base_script
         litmus &= permissions.initializePermissions(corpse);
         litmus &= permissions.createPermissionsGroup(corpse, GROUP_CONSENTED);
         litmus &= permissions.grantGroupPermission(corpse, GROUP_CONSENTED, permissions.canOpen);
-        messageTo(corpse, HANDLER_PERMISSIONS_INITIALIZED, params, 1f, isObjectPersisted(corpse));
+        messageTo(corpse, HANDLER_PERMISSIONS_INITIALIZED, params, 1.0f, isObjectPersisted(corpse));
         return litmus;
     }
     public static boolean grantCorpseConsent(obj_id corpse, obj_id player) throws InterruptedException
@@ -168,7 +166,7 @@ public class corpse extends script.base_script
         }
         dictionary d = new dictionary();
         d.put(DICT_PLAYER_ID, player);
-        return messageTo(corpse, HANDLER_ADD_CONSENTED, d, 1f, isObjectPersisted(corpse));
+        return messageTo(corpse, HANDLER_ADD_CONSENTED, d, 1.0f, isObjectPersisted(corpse));
     }
     public static boolean grantCorpseConsent(obj_id[] corpses, obj_id player) throws InterruptedException
     {
@@ -177,9 +175,8 @@ public class corpse extends script.base_script
             return false;
         }
         boolean litmus = true;
-        for (int i = 0; i < corpses.length; i++)
-        {
-            litmus &= grantCorpseConsent(corpses[i], player);
+        for (obj_id corps : corpses) {
+            litmus &= grantCorpseConsent(corps, player);
         }
         return litmus;
     }
@@ -191,7 +188,7 @@ public class corpse extends script.base_script
         }
         dictionary d = new dictionary();
         d.put(DICT_PLAYER_ID, player);
-        return messageTo(corpse, HANDLER_REMOVE_CONSENTED, d, 1f, isObjectPersisted(corpse));
+        return messageTo(corpse, HANDLER_REMOVE_CONSENTED, d, 1.0f, isObjectPersisted(corpse));
     }
     public static boolean revokeCorpseConsent(obj_id[] corpses, obj_id player) throws InterruptedException
     {
@@ -200,9 +197,8 @@ public class corpse extends script.base_script
             return false;
         }
         boolean litmus = true;
-        for (int i = 0; i < corpses.length; i++)
-        {
-            litmus &= revokeCorpseConsent(corpses[i], player);
+        for (obj_id corps : corpses) {
+            litmus &= revokeCorpseConsent(corps, player);
         }
         return litmus;
     }
@@ -219,11 +215,9 @@ public class corpse extends script.base_script
             return false;
         }
         boolean litmus = true;
-        for (int i = 0; i < corpses.length; i++)
-        {
-            for (int n = 0; n < consented.length; n++)
-            {
-                litmus &= revokeCorpseConsent(corpses[i], consented[n]);
+        for (obj_id corps : corpses) {
+            for (obj_id obj_id : consented) {
+                litmus &= revokeCorpseConsent(corps, obj_id);
             }
         }
         return litmus;
@@ -264,11 +258,9 @@ public class corpse extends script.base_script
         {
             location playerLoc = getLocation(player);
             obj_id[] stuff = getObjectsInRange(playerLoc, 20.0f);
-            for (int i = 0; i < stuff.length; i++)
-            {
-                if (isPlayer(stuff[i]))
-                {
-                    playClientEffectLoc(stuff[i], "clienteffect/medic_drag.cef", getLocation(corpse), 0.0f);
+            for (obj_id obj_id : stuff) {
+                if (isPlayer(obj_id)) {
+                    playClientEffectLoc(obj_id, "clienteffect/medic_drag.cef", getLocation(corpse), 0.0f);
                 }
             }
             setLocation(corpse, getLocation(player));
@@ -289,11 +281,9 @@ public class corpse extends script.base_script
         }
         Vector moved = new Vector();
         moved.setSize(0);
-        for (int i = 0; i < corpses.length; i++)
-        {
-            if (dragPlayerCorpse(player, corpses[i], false))
-            {
-                moved = utils.addElement(moved, corpses[i]);
+        for (obj_id corps : corpses) {
+            if (dragPlayerCorpse(player, corps, false)) {
+                moved = utils.addElement(moved, corps);
             }
         }
         if ((moved == null) || (moved.size() == 0))
@@ -321,13 +311,10 @@ public class corpse extends script.base_script
         Vector corpses = new Vector();
         corpses.setSize(0);
         obj_id[] stuff = getObjectsInRange(player, 100.0f);
-        for (int i = 0; i < stuff.length; i++)
-        {
-            if (isPlayerCorpse(stuff[i]))
-            {
-                if (canDragPlayerCorpse(player, stuff[i], true))
-                {
-                    corpses = utils.addElement(corpses, stuff[i]);
+        for (obj_id obj_id : stuff) {
+            if (isPlayerCorpse(obj_id)) {
+                if (canDragPlayerCorpse(player, obj_id, true)) {
+                    corpses = utils.addElement(corpses, obj_id);
                 }
             }
         }
@@ -457,7 +444,7 @@ public class corpse extends script.base_script
             d.put(DICT_CORPSE_ID, corpse);
             d.put(DICT_PLAYER_ID, player);
             d.put(DICT_COINS, cash);
-            messageTo(player, HANDLER_REQUEST_COIN_LOOT, d, 1f, isObjectPersisted(corpse));
+            messageTo(player, HANDLER_REQUEST_COIN_LOOT, d, 1.0f, isObjectPersisted(corpse));
             return true;
         }
         return false;
@@ -561,7 +548,7 @@ public class corpse extends script.base_script
             if (lootAICorpseContents(player, corpse))
             {
                 LOG("grouping", "lootAICorpse: successfully looted contents");
-                messageTo(corpse, HANDLER_CORPSE_EMPTY, null, 1f, isObjectPersisted(corpse));
+                messageTo(corpse, HANDLER_CORPSE_EMPTY, null, 1.0f, isObjectPersisted(corpse));
             }
         }
         LOG("grouping", "lootAICorpse: returning false");
@@ -605,9 +592,8 @@ public class corpse extends script.base_script
                 Vector movedContents = utils.removeElements(corpseContents, leftContents);
                 if (movedContents != null && movedContents.size() > 0)
                 {
-                    for (int z = 0; z < movedContents.size(); z++)
-                    {
-                        group.notifyItemLoot(gid, player, corpse, ((obj_id)movedContents.get(z)));
+                    for (Object movedContent : movedContents) {
+                        group.notifyItemLoot(gid, player, corpse, ((obj_id) movedContent));
                     }
                 }
             }
@@ -633,15 +619,11 @@ public class corpse extends script.base_script
         }
         Vector validContents = new Vector();
         validContents.setSize(0);
-        for (int i = 0; i < corpseContents.length; i++)
-        {
-            if (!utils.hasScriptVar(corpseContents[i], "isCreatureWeapon"))
-            {
-                utils.addElement(validContents, corpseContents[i]);
-            }
-            else 
-            {
-                trial.cleanupObject(corpseContents[i]);
+        for (obj_id corpseContent : corpseContents) {
+            if (!utils.hasScriptVar(corpseContent, "isCreatureWeapon")) {
+                utils.addElement(validContents, corpseContent);
+            } else {
+                trial.cleanupObject(corpseContent);
             }
         }
         obj_id[] _validContents = new obj_id[0];
@@ -747,7 +729,7 @@ public class corpse extends script.base_script
         }
         int sklMod = getSkillStatMod(player, "creature_harvesting");
         float bonusHarvest = sklMod / 100.0f;
-        float skillEfficiency = ((sklMod * 10f) + 500f) / 2000f;
+        float skillEfficiency = ((sklMod * 10.0f) + 500.0f) / 2000.0f;
         boolean litmus = true;
         int harvestXP = 0;
         int successCount = 0;
@@ -764,23 +746,17 @@ public class corpse extends script.base_script
             if (group.isGrouped(player))
             {
                 obj_id[] groupMembers = getGroupMemberIds(getGroupObject(player));
-                for (int i = 0; i < groupMembers.length; i++)
-                {
-                    if (isIdValid(groupMembers[i]) && exists(groupMembers[i]) && isPlayer(groupMembers[i]) && groupMembers[i] != player)
-                    {
-                        float dist = getDistance(player, groupMembers[i]);
-                        if (dist != -1 && dist <= 64)
-                        {
-                            if (inGroupBonusMultiplier == GROUP_BONUS_NONE)
-                            {
+                for (obj_id groupMember : groupMembers) {
+                    if (isIdValid(groupMember) && exists(groupMember) && isPlayer(groupMember) && groupMember != player) {
+                        float dist = getDistance(player, groupMember);
+                        if (dist != -1 && dist <= 64) {
+                            if (inGroupBonusMultiplier == GROUP_BONUS_NONE) {
                                 inGroupBonusMultiplier = GROUP_BONUS;
                             }
-                            if (hasSkill(groupMembers[i], "outdoors_scout_novice") && inGroupBonusMultiplier < GROUP_BONUS_SCOUT)
-                            {
+                            if (hasSkill(groupMember, "outdoors_scout_novice") && inGroupBonusMultiplier < GROUP_BONUS_SCOUT) {
                                 inGroupBonusMultiplier = GROUP_BONUS_SCOUT;
                             }
-                            if (hasSkill(groupMembers[i], "outdoors_scout_master"))
-                            {
+                            if (hasSkill(groupMember, "outdoors_scout_master")) {
                                 inGroupBonusMultiplier = GROUP_BONUS_MASTERSCOUT;
                             }
                         }
@@ -841,7 +817,7 @@ public class corpse extends script.base_script
         {
             type = resource.getResourceName(type);
             prose_package pp = null;
-            pp = prose.getPackage(new string_id("skl_use", "harvest_success"), null, type, null, null, null, null, null, null, null, actualAmount, 0.f);
+            pp = prose.getPackage(new string_id("skl_use", "harvest_success"), null, type, null, null, null, null, null, null, null, actualAmount, 0.0f);
             sendSystemMessageProse(player, pp);
             if (inGroupBonusMultiplier == GROUP_BONUS_MASTERSCOUT)
             {
@@ -871,7 +847,7 @@ public class corpse extends script.base_script
                 messageTo(player, "missionHarvestComplete", null, 0, true);
             }
         }
-        messageTo(corpse, HANDLER_CORPSE_EMPTY, null, 1f, isObjectPersisted(corpse));
+        messageTo(corpse, HANDLER_CORPSE_EMPTY, null, 1.0f, isObjectPersisted(corpse));
         return litmus;
     }
     public static void setCreatureHarvestXp(obj_id corpse, obj_id player) throws InterruptedException
@@ -889,7 +865,7 @@ public class corpse extends script.base_script
         {
             return null;
         }
-        int amt = (int)(Math.pow(ai_lib.getLevel(corpse), 1.65f) * 0.4f + 2.f);
+        int amt = (int)(StrictMath.pow(ai_lib.getLevel(corpse), 1.65f) * 0.4f + 2.0f);
         amt += 25;
         if (amt < 1)
         {
@@ -985,15 +961,12 @@ public class corpse extends script.base_script
             return -1;
         }
         int total = 0;
-        for (int i = 0; i < crates.length; i++)
-        {
-            total += getResourceContainerQuantity(crates[i]);
+        for (obj_id crate1 : crates) {
+            total += getResourceContainerQuantity(crate1);
         }
         boolean movefail = false;
-        for (int i = 0; i < crates.length; i++)
-        {
-            if (!putIn(crates[i], pInv, playerId))
-            {
+        for (obj_id crate : crates) {
+            if (!putIn(crate, pInv, playerId)) {
                 movefail = true;
             }
         }
@@ -1086,7 +1059,7 @@ public class corpse extends script.base_script
             killList = new obj_id[1];
             killList[0] = killCredit;
         }
-        transform offset = transform.identity.setPosition_p(0f, getObjectCollisionRadius(corpse), 0);
+        transform offset = transform.identity.setPosition_p(0.0f, getObjectCollisionRadius(corpse), 0);
         playClientEffectObj(killList, "appearance/pt_loot_disc.prt", corpse, "", offset, "lootMe");
     }
     public static void clearLootMeParticle(obj_id corpse) throws InterruptedException

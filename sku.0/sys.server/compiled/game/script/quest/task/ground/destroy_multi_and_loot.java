@@ -168,13 +168,10 @@ public class destroy_multi_and_loot extends script.quest.task.ground.base_task
                 String questCrcString = (String)keys.nextElement();
                 int questCrc = utils.stringToInt(questCrcString);
                 int[] tasksForCurrentQuest = tasks.getIntArray(questCrcString);
-                for (int i = 0; i < tasksForCurrentQuest.length; ++i)
-                {
-                    int taskId = tasksForCurrentQuest[i];
+                for (int taskId : tasksForCurrentQuest) {
                     String baseObjVar = groundquests.getBaseObjVar(self, taskType, questGetQuestName(questCrc), taskId);
                     String objvarNameCount = baseObjVar + dot + objvarCount;
-                    if (hasObjVar(self, objvarNameCount))
-                    {
+                    if (hasObjVar(self, objvarNameCount)) {
                         int lootedCount = getIntObjVar(self, objvarNameCount);
                         int itemsTotal = groundquests.getTaskIntDataEntry(questCrc, taskId, "LOOT_ITEMS_REQUIRED");
                         questSetQuestTaskCounter(self, questGetQuestName(questCrc), taskId, "quest/groundquests:destroy_and_loot_counter", lootedCount, itemsTotal);

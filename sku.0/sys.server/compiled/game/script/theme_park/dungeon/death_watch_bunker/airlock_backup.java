@@ -20,7 +20,7 @@ public class airlock_backup extends script.base_script
         {
             chat.chat(self, new string_id(STF_FILE, "airlock_backup"));
             setObjVar(self, "death_watch.backup", 1);
-            messageTo(self, "Backup", null, 5f, false);
+            messageTo(self, "Backup", null, 5.0f, false);
         }
         return SCRIPT_CONTINUE;
     }

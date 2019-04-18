@@ -67,19 +67,19 @@ public class arena extends script.base_script
     }
     public static int getChallengePeriodLength() throws InterruptedException
     {
-        return (int)Math.ceil(((float)CHALLENGE_PERIOD_LENGTH) * getArenaTimeFactorFromConfig());
+        return (int)Math.ceil(CHALLENGE_PERIOD_LENGTH * getArenaTimeFactorFromConfig());
     }
     public static int getArenaOpenLength() throws InterruptedException
     {
-        return (int)Math.ceil(((float)ARENA_OPEN_LENGTH) * getArenaTimeFactorFromConfig());
+        return (int)Math.ceil(ARENA_OPEN_LENGTH * getArenaTimeFactorFromConfig());
     }
     public static int getArenaOpenEvery() throws InterruptedException
     {
-        return (int)Math.ceil(((float)ARENA_OPEN_EVERY) * getArenaTimeFactorFromConfig());
+        return (int)Math.ceil(ARENA_OPEN_EVERY * getArenaTimeFactorFromConfig());
     }
     public static int getChallengeTimeInterval() throws InterruptedException
     {
-        return (int)Math.ceil(((float)CHALLENGE_TIME_INTERVAL) * getArenaTimeFactorFromConfig());
+        return (int)Math.ceil(CHALLENGE_TIME_INTERVAL * getArenaTimeFactorFromConfig());
     }
     public static void addRankAnsweredChallenge(obj_id terminal, int rankA) throws InterruptedException
     {
@@ -115,11 +115,9 @@ public class arena extends script.base_script
         }
         int[] allRanks = getIntArrayObjVar(terminal, VAR_ALL_RANKS);
         int[] challengedRanks = utils.getIntBatchObjVar(terminal, VAR_CHALLENGED_RANKS);
-        for (int i = 0; i < allRanks.length; i++)
-        {
-            if (utils.getElementPositionInArray(challengedRanks, allRanks[i]) > -1)
-            {
-                utils.addElement(ranks, allRanks[i]);
+        for (int allRank : allRanks) {
+            if (utils.getElementPositionInArray(challengedRanks, allRank) > -1) {
+                utils.addElement(ranks, allRank);
             }
         }
         return ranks;
@@ -130,7 +128,7 @@ public class arena extends script.base_script
         String[] sranks = new String[ranks.size()];
         for (int i = 0; i < ranks.size(); i++)
         {
-            sranks[i] = "Rank " + ((Integer)ranks.get(i)).intValue();
+            sranks[i] = "Rank " + (Integer) ranks.get(i);
         }
         return sranks;
     }
@@ -153,7 +151,7 @@ public class arena extends script.base_script
             trace.log("force_rank", "arena::resolveRankChallengeResult: -> Can't update rank " + rank + " challenge score as there is no record for this rank.", null, trace.TL_ERROR_LOG | trace.TL_DEBUG);
             return;
         }
-        float rateAnswered = (float)timesAnswered / (float)timesChallenged;
+        float rateAnswered = (float)timesAnswered / timesChallenged;
         if (rateAnswered >= PERCENT_MET_CHALLENGE || (COUNT_NO_CHALLENGER_AS_PASSED && timesChallenged == 0))
         {
             trace.log("force_rank", "Rank #" + rank + " met all requirements for this challenge period.", null, trace.TL_CS_LOG);
@@ -186,16 +184,14 @@ public class arena extends script.base_script
             prose_package ppDemote = prose.getPackage(new string_id("pvp_rating", "ch_terminal_demote_rank_penalty"), rank);
             Vector members = force_rank.getAllPlayerNamesInForceRank(enclave);
             string_id subj = new string_id("pvp_rating", "ch_terminal_demote_subject");
-            for (int i = 0; i < members.size(); i++)
-            {
-                utils.sendMail(subj, ppDemote, (String)members.get(i), MAIL_FROM_ENCLAVE);
+            for (Object member : members) {
+                utils.sendMail(subj, ppDemote, (String) member, MAIL_FROM_ENCLAVE);
             }
             String[] demotees = force_rank.getPlayersInForceRank(enclave, rank);
             trace.log("force_rank", "Initiating demotion for rank #" + rank + " (currently has " + demotees.length + " members): Rank challenge score too low.", null, trace.TL_CS_LOG);
-            for (int x = 0; x < demotees.length; x++)
-            {
-                trace.log("force_rank", "Arena initiating low-challenge-score demotion for player " + demotees[x], getPlayerIdFromFirstName(demotees[x]), trace.TL_CS_LOG);
-                force_rank.demoteForceRank(enclave, demotees[x], 0);
+            for (String demotee : demotees) {
+                trace.log("force_rank", "Arena initiating low-challenge-score demotion for player " + demotee, getPlayerIdFromFirstName(demotee), trace.TL_CS_LOG);
+                force_rank.demoteForceRank(enclave, demotee, 0);
             }
             score[idx] = 0;
         }
@@ -370,11 +366,11 @@ public class arena extends script.base_script
         boolean removedAChallenger = false;
         while (i < challengers.size())
         {
-            timeRemaining = (((Integer)timeStamps.get(i)).intValue() + getChallengePeriodLength()) - now;
+            timeRemaining = ((Integer) timeStamps.get(i) + getChallengePeriodLength()) - now;
             if (timeRemaining < 0)
             {
-                trace.log("force_rank", "Dark arena challenge issued by %TU against rank #" + ((Integer)ranks.get(i)).intValue() + " has timed out.", ((obj_id)challengers.get(i)), trace.TL_CS_LOG);
-                notifyChallengeTimedOut(terminal, ((obj_id)challengers.get(i)), ((Integer)ranks.get(i)).intValue());
+                trace.log("force_rank", "Dark arena challenge issued by %TU against rank #" + (Integer) ranks.get(i) + " has timed out.", ((obj_id)challengers.get(i)), trace.TL_CS_LOG);
+                notifyChallengeTimedOut(terminal, ((obj_id)challengers.get(i)), (Integer) ranks.get(i));
                 utils.removeElementAt(challengers, i);
                 utils.removeElementAt(ranks, i);
                 utils.removeElementAt(timeStamps, i);
@@ -421,30 +417,23 @@ public class arena extends script.base_script
         int[] allRanks = getIntArrayObjVar(terminal, VAR_ALL_RANKS);
         int rankChallenges = 0;
         int rankChallengesAccepted = 0;
-        for (int i = 0; i < allRanks.length; i++)
-        {
-            if (challenged != null)
-            {
-                for (int x = 0; x < challenged.length; x++)
-                {
-                    if (challenged[x] == allRanks[i])
-                    {
+        for (int allRank : allRanks) {
+            if (challenged != null) {
+                for (int i1 : challenged) {
+                    if (i1 == allRank) {
                         rankChallenges++;
                     }
                 }
             }
-            if (answered != null)
-            {
-                for (int y = 0; y < answered.length; y++)
-                {
-                    if (answered[y] == allRanks[i])
-                    {
+            if (answered != null) {
+                for (int i1 : answered) {
+                    if (i1 == allRank) {
                         rankChallengesAccepted++;
                     }
                 }
             }
-            trace.log("force_rank", "Rank #" + allRanks[i] + " was challenged " + rankChallenges + " times and answered " + rankChallengesAccepted + " times.", null, trace.TL_CS_LOG);
-            resolveRankChallengeResult(terminal, allRanks[i], rankChallenges, rankChallengesAccepted);
+            trace.log("force_rank", "Rank #" + allRank + " was challenged " + rankChallenges + " times and answered " + rankChallengesAccepted + " times.", null, trace.TL_CS_LOG);
+            resolveRankChallengeResult(terminal, allRank, rankChallenges, rankChallengesAccepted);
             rankChallenges = 0;
             rankChallengesAccepted = 0;
         }
@@ -497,10 +486,9 @@ public class arena extends script.base_script
         ppRank.digitInteger = rankChallenged;
         ppRank.stringId = new string_id("pvp_rating", "challenge_issued_rank");
         string_id msgSubject = new string_id("pvp_rating", "challenge_issued_subject_header");
-        for (int i = 0; i < rankMembers.length; i++)
-        {
-            sendSystemMessageProse(rankMembers[i], ppRank);
-            utils.sendMail(msgSubject, ppRank, utils.getRealPlayerFirstName(rankMembers[i]), MAIL_FROM_ENCLAVE);
+        for (obj_id rankMember : rankMembers) {
+            sendSystemMessageProse(rankMember, ppRank);
+            utils.sendMail(msgSubject, ppRank, utils.getRealPlayerFirstName(rankMember), MAIL_FROM_ENCLAVE);
         }
         return;
     }
@@ -520,10 +508,9 @@ public class arena extends script.base_script
         sendSystemMessageProse(challenger, ppAll);
         obj_id[] rankMembers = force_rank.getAllPlayersInForceRank(enclave, rankFightingFor);
         string_id msgSubject = new string_id("pvp_rating", "challenge_accepted_subject_header");
-        for (int i = 0; i < rankMembers.length; i++)
-        {
-            sendSystemMessageProse(rankMembers[i], ppAll);
-            utils.sendMail(msgSubject, ppAll, utils.getRealPlayerFirstName(rankMembers[i]), MAIL_FROM_ENCLAVE);
+        for (obj_id rankMember : rankMembers) {
+            sendSystemMessageProse(rankMember, ppAll);
+            utils.sendMail(msgSubject, ppAll, utils.getRealPlayerFirstName(rankMember), MAIL_FROM_ENCLAVE);
         }
         return;
     }
@@ -549,10 +536,9 @@ public class arena extends script.base_script
         sendSystemMessageProse(challenger, ppAll);
         utils.sendMail(msgSubject, ppAll, utils.getRealPlayerFirstName(challenger), MAIL_FROM_ENCLAVE);
         obj_id[] rankMembers = force_rank.getAllPlayersInForceRank(enclave, rankFightingFor);
-        for (int i = 0; i < rankMembers.length; i++)
-        {
-            sendSystemMessageProse(rankMembers[i], ppAll);
-            utils.sendMail(msgSubject, ppAll, utils.getRealPlayerFirstName(rankMembers[i]), MAIL_FROM_ENCLAVE);
+        for (obj_id rankMember : rankMembers) {
+            sendSystemMessageProse(rankMember, ppAll);
+            utils.sendMail(msgSubject, ppAll, utils.getRealPlayerFirstName(rankMember), MAIL_FROM_ENCLAVE);
         }
         return;
     }
@@ -571,10 +557,9 @@ public class arena extends script.base_script
         sendSystemMessageProse(challenger, ppAll);
         obj_id[] rankMembers = force_rank.getAllPlayersInForceRank(enclave, rankChallenged);
         string_id msgSubject = new string_id("pvp_rating", "challenge_timout_subject_header");
-        for (int i = 0; i < rankMembers.length; i++)
-        {
-            sendSystemMessageProse(rankMembers[i], ppAll);
-            utils.sendMail(msgSubject, ppAll, utils.getRealPlayerFirstName(rankMembers[i]), MAIL_FROM_ENCLAVE);
+        for (obj_id rankMember : rankMembers) {
+            sendSystemMessageProse(rankMember, ppAll);
+            utils.sendMail(msgSubject, ppAll, utils.getRealPlayerFirstName(rankMember), MAIL_FROM_ENCLAVE);
         }
         return;
     }
@@ -943,7 +928,7 @@ public class arena extends script.base_script
             trace.log("force_rank", "arena::duelistDied: -> No duelist match found in data for player %TU.  Shouldn't really ever happen. This is a problem.", player, trace.TL_ERROR_LOG | trace.TL_DEBUG | trace.TL_CS_LOG);
             return;
         }
-        int rankChallenged = ((Integer)acceptedChllngRanks.get(idx)).intValue();
+        int rankChallenged = (Integer) acceptedChllngRanks.get(idx);
         trace.log("force_rank", "arena::duelistDied: -> " + utils.getRealPlayerFirstName(player) + " was defeated " + utils.getRealPlayerFirstName(opponent), null, trace.TL_CS_LOG | trace.TL_DEBUG);
         utils.removeScriptVar(player, VAR_I_AM_DUELING);
         utils.removeScriptVar(opponent, VAR_I_AM_DUELING);
@@ -1064,7 +1049,7 @@ public class arena extends script.base_script
             sendSystemMessage(defender, new string_id("pvp_rating", "ch_terminal_challenge_no_more"));
             return false;
         }
-        int rankChallenged = ((Integer)ranksChallenged.get(idx)).intValue();
+        int rankChallenged = (Integer) ranksChallenged.get(idx);
         if (force_rank.getForceRank(enclave, getFirstName(defender)) != rankChallenged)
         {
             sendSystemMessage(defender, new string_id("pvp_rating", "ch_terminal_challenge_wrong_rank"));

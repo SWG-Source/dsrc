@@ -16,15 +16,12 @@ public class crafting_base_food extends script.systems.crafting.crafting_base
     public static final String VERSION = "v1.00.00";
     public void calcAndSetPrototypeProperties(obj_id prototype, draft_schematic.attribute[] itemAttributes, dictionary craftingValuesDictionary) throws InterruptedException
     {
-        for (int i = 0; i < itemAttributes.length; ++i)
-        {
-            if (itemAttributes[i] == null)
-            {
+        for (draft_schematic.attribute itemAttribute : itemAttributes) {
+            if (itemAttribute == null) {
                 continue;
             }
-            if (((itemAttributes[i].name).getAsciiId()).equals("filling"))
-            {
-                itemAttributes[i].currentValue = (itemAttributes[i].minValue + itemAttributes[i].maxValue) - itemAttributes[i].currentValue;
+            if (((itemAttribute.name).getAsciiId()).equals("filling")) {
+                itemAttribute.currentValue = (itemAttribute.minValue + itemAttribute.maxValue) - itemAttribute.currentValue;
             }
         }
         super.calcAndSetPrototypeProperties(prototype, itemAttributes, craftingValuesDictionary);
@@ -48,45 +45,37 @@ public class crafting_base_food extends script.systems.crafting.crafting_base
                 obj_var objVar = attributeList.getObjVar(i);
                 String name = objVar.getName();
                 int value = (int)objVar.getFloatData();
-                if (name.equals("crafting:filling"))
-                {
-                    filling = value;
-                }
-                else if (name.equals("crafting:health_e"))
-                {
-                    health_e = value;
-                }
-                else if (name.equals("crafting:health_dur"))
-                {
-                    health_dur = value;
-                }
-                else if (name.equals("crafting:con_e"))
-                {
-                    con_e = value;
-                }
-                else if (name.equals("crafting:con_dur"))
-                {
-                    con_dur = value;
-                }
-                else if (name.equals("crafting:action_e"))
-                {
-                    action_e = value;
-                }
-                else if (name.equals("crafting:action_dur"))
-                {
-                    action_dur = value;
-                }
-                else if (name.equals("crafting:stam_e"))
-                {
-                    stam_e = value;
-                }
-                else if (name.equals("crafting:stam_dur"))
-                {
-                    stam_dur = value;
-                }
-                else if (name.equals("crafting:quantity"))
-                {
-                    setCount(prototype, value);
+                switch (name) {
+                    case "crafting:filling":
+                        filling = value;
+                        break;
+                    case "crafting:health_e":
+                        health_e = value;
+                        break;
+                    case "crafting:health_dur":
+                        health_dur = value;
+                        break;
+                    case "crafting:con_e":
+                        con_e = value;
+                        break;
+                    case "crafting:con_dur":
+                        con_dur = value;
+                        break;
+                    case "crafting:action_e":
+                        action_e = value;
+                        break;
+                    case "crafting:action_dur":
+                        action_dur = value;
+                        break;
+                    case "crafting:stam_e":
+                        stam_e = value;
+                        break;
+                    case "crafting:stam_dur":
+                        stam_dur = value;
+                        break;
+                    case "crafting:quantity":
+                        setCount(prototype, value);
+                        break;
                 }
             }
         }
@@ -127,22 +116,22 @@ public class crafting_base_food extends script.systems.crafting.crafting_base
         am.setSize(0);
         if ((health_e != 0) && (health_dur != 0))
         {
-            attrib_mod new_am = new attrib_mod(HEALTH, health_e, (float)health_dur, 0.0f, 0.0f);
+            attrib_mod new_am = new attrib_mod(HEALTH, health_e, health_dur, 0.0f, 0.0f);
             am = utils.addElement(am, new_am);
         }
         if ((con_e != 0) && (con_dur != 0))
         {
-            attrib_mod new_am = new attrib_mod(CONSTITUTION, con_e, (float)con_dur, 0.0f, 0.0f);
+            attrib_mod new_am = new attrib_mod(CONSTITUTION, con_e, con_dur, 0.0f, 0.0f);
             am = utils.addElement(am, new_am);
         }
         if ((action_e != 0) && (action_dur != 0))
         {
-            attrib_mod new_am = new attrib_mod(ACTION, action_e, (float)action_dur, 0.0f, 0.0f);
+            attrib_mod new_am = new attrib_mod(ACTION, action_e, action_dur, 0.0f, 0.0f);
             am = utils.addElement(am, new_am);
         }
         if ((stam_e != 0) && (stam_dur != 0))
         {
-            attrib_mod new_am = new attrib_mod(STAMINA, stam_e, (float)stam_dur, 0.0f, 0.0f);
+            attrib_mod new_am = new attrib_mod(STAMINA, stam_e, stam_dur, 0.0f, 0.0f);
             am = utils.addElement(am, new_am);
         }
         if ((am != null) && (am.size() > 0))

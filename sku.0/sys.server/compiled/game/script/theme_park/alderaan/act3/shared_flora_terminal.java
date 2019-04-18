@@ -53,15 +53,15 @@ public class shared_flora_terminal extends script.base_script
         obj_id termUser = params.getObjId("termUser");
         obj_id warehouse = params.getObjId("warehouse");
         location death = getLocation(warehouse);
-        playClientEffectLoc(termUser, "clienteffect/combat_explosion_lair_large.cef", death, 10f);
+        playClientEffectLoc(termUser, "clienteffect/combat_explosion_lair_large.cef", death, 10.0f);
         death.x = death.x + 5;
-        playClientEffectLoc(termUser, "clienteffect/combat_explosion_lair_large.cef", death, 10f);
+        playClientEffectLoc(termUser, "clienteffect/combat_explosion_lair_large.cef", death, 10.0f);
         death.z = death.z + 5;
-        playClientEffectLoc(termUser, "clienteffect/combat_explosion_lair_large.cef", death, 10f);
+        playClientEffectLoc(termUser, "clienteffect/combat_explosion_lair_large.cef", death, 10.0f);
         death.x = death.x - 10;
-        playClientEffectLoc(termUser, "clienteffect/combat_explosion_lair_large.cef", death, 10f);
+        playClientEffectLoc(termUser, "clienteffect/combat_explosion_lair_large.cef", death, 10.0f);
         death.z = death.z - 10;
-        playClientEffectLoc(termUser, "clienteffect/combat_explosion_lair_large.cef", death, 10f);
+        playClientEffectLoc(termUser, "clienteffect/combat_explosion_lair_large.cef", death, 10.0f);
         obj_id player = getObjIdObjVar(warehouse, "coa3.shared.playerId");
         if (hasObjVar(warehouse, "coa3.imperial.playerId"))
         {
@@ -81,7 +81,7 @@ public class shared_flora_terminal extends script.base_script
         obj_id termUser = params.getObjId("termUser");
         obj_id warehouse = getTopMostContainer(self);
         location death = getLocation(warehouse);
-        playClientEffectLoc(termUser, "clienteffect/combat_explosion_lair_large.cef", death, 10f);
+        playClientEffectLoc(termUser, "clienteffect/combat_explosion_lair_large.cef", death, 10.0f);
         return SCRIPT_CONTINUE;
     }
 }

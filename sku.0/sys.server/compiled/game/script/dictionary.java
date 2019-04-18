@@ -160,54 +160,34 @@ public class dictionary implements Serializable
 		out.writeInt(count);
 
 		Set keySet = m_data.keySet();
-		Iterator i = keySet.iterator();
-		while (i.hasNext())
-		{
-			Object key = i.next();
+		for (Object key : keySet) {
 			Object value = m_data.get(key);
 			out.writeObject(key);
-			if (value instanceof Boolean)
-			{
+			if (value instanceof Boolean) {
 				out.writeByte('z');
-				out.writeBoolean(((Boolean)value).booleanValue());
-			}
-			else if (value instanceof Byte)
-			{
+				out.writeBoolean((Boolean) value);
+			} else if (value instanceof Byte) {
 				out.writeByte('b');
-				out.writeByte(((Byte)value).byteValue());
-			}
-			else if (value instanceof Character)
-			{
+				out.writeByte((Byte) value);
+			} else if (value instanceof Character) {
 				out.writeByte('c');
-				out.writeChar(((Character)value).charValue());
-			}
-			else if (value instanceof Integer)
-			{
+				out.writeChar((Character) value);
+			} else if (value instanceof Integer) {
 				out.writeByte('i');
-				out.writeInt(((Integer)value).intValue());
-			}
-			else if (value instanceof Long)
-			{
+				out.writeInt((Integer) value);
+			} else if (value instanceof Long) {
 				out.writeByte('l');
-				out.writeLong(((Long)value).longValue());
-			}
-			else if (value instanceof Float)
-			{
+				out.writeLong((Long) value);
+			} else if (value instanceof Float) {
 				out.writeByte('f');
-				out.writeFloat(((Float)value).floatValue());
-			}
-			else if (value instanceof Double)
-			{
+				out.writeFloat((Float) value);
+			} else if (value instanceof Double) {
 				out.writeByte('d');
-				out.writeDouble(((Double)value).doubleValue());
-			}
-			else if (value instanceof obj_id)
-			{
+				out.writeDouble((Double) value);
+			} else if (value instanceof obj_id) {
 				out.writeByte('o');
-				out.writeLong(((obj_id)value).getValue());
-			}
-			else
-			{
+				out.writeLong(((obj_id) value).getValue());
+			} else {
 				out.writeByte('x');
 				out.writeObject(value);
 			}
@@ -237,25 +217,25 @@ public class dictionary implements Serializable
 			switch (tag)
 			{
 				case 'z' :
-					m_data.put(key, new Boolean(in.readBoolean()));
+					m_data.put(key, in.readBoolean());
 					break;
 				case 'b' :
-					m_data.put(key, new Byte(in.readByte()));
+					m_data.put(key, in.readByte());
 					break;
 				case 'c' :
-					m_data.put(key, new Character(in.readChar()));
+					m_data.put(key, in.readChar());
 					break;
 				case 'i':
-					m_data.put(key, new Integer(in.readInt()));
+					m_data.put(key, in.readInt());
 					break;
 				case 'l' :
-					m_data.put(key, new Long(in.readLong()));
+					m_data.put(key, in.readLong());
 					break;
 				case 'f':
-					m_data.put(key, new Float(in.readFloat()));
+					m_data.put(key, in.readFloat());
 					break;
 				case 'd' :
-					m_data.put(key, new Double(in.readDouble()));
+					m_data.put(key, in.readDouble());
 					break;
 				case 'o':
 				{
@@ -316,7 +296,7 @@ public class dictionary implements Serializable
 			Thread.dumpStack();
 			return null;
 		}
-		return m_data.put(key, new Integer(value));
+		return m_data.put(key, value);
 	}	// put(Object, int)
 
 	/**
@@ -330,7 +310,7 @@ public class dictionary implements Serializable
 			Thread.dumpStack();
 			return null;
 		}
-		return m_data.put(key, new Long(value));
+		return m_data.put(key, value);
 	}	// put(Object, long)
 
 	/**
@@ -344,7 +324,7 @@ public class dictionary implements Serializable
 			Thread.dumpStack();
 			return null;
 		}
-		return m_data.put(key, new Float(value));
+		return m_data.put(key, value);
 	}	// put(Object, float)
 
 	/**
@@ -358,7 +338,7 @@ public class dictionary implements Serializable
 			Thread.dumpStack();
 			return null;
 		}
-		return m_data.put(key, new Double(value));
+		return m_data.put(key, value);
 	}	// put(Object, double)
 
 	/**
@@ -372,7 +352,7 @@ public class dictionary implements Serializable
 			Thread.dumpStack();
 			return null;
 		}
-		return m_data.put(key, new Boolean(value));
+		return m_data.put(key, value);
 	}	// put(Object, boolean)
 
 	/**
@@ -386,7 +366,7 @@ public class dictionary implements Serializable
 			Thread.dumpStack();
 			return null;
 		}
-		return m_data.put(key, new Character(value));
+		return m_data.put(key, value);
 	}	// put(Object, char)
 
 	/**
@@ -400,7 +380,7 @@ public class dictionary implements Serializable
 			Thread.dumpStack();
 			return null;
 		}
-		return m_data.put(key, new Byte(value));
+		return m_data.put(key, value);
 	}	// put(Object, byte)
 
 	/**
@@ -450,49 +430,49 @@ public class dictionary implements Serializable
 		{
 			int[] newValue = new int[value.size()];
 			for ( int i = 0; i < newValue.length; ++i )
-				newValue[i] = ((Integer)value.get(i)).intValue();
+				newValue[i] = (Integer) value.get(i);
 			realValue = newValue;
 		}
 		else if (test instanceof Long)
 		{
 			long[] newValue = new long[value.size()];
 			for ( int i = 0; i < newValue.length; ++i )
-				newValue[i] = ((Long)value.get(i)).longValue();
+				newValue[i] = (Long) value.get(i);
 			realValue = newValue;
 		}
 		else if (test instanceof Float)
 		{
 			float[] newValue = new float[value.size()];
 			for ( int i = 0; i < newValue.length; ++i )
-				newValue[i] = ((Float)value.get(i)).floatValue();
+				newValue[i] = (Float) value.get(i);
 			realValue = newValue;
 		}
 		else if (test instanceof Double)
 		{
 			double[] newValue = new double[value.size()];
 			for ( int i = 0; i < newValue.length; ++i )
-				newValue[i] = ((Double)value.get(i)).doubleValue();
+				newValue[i] = (Double) value.get(i);
 			realValue = newValue;
 		}
 		else if (test instanceof Boolean)
 		{
 			boolean[] newValue = new boolean[value.size()];
 			for ( int i = 0; i < newValue.length; ++i )
-				newValue[i] = ((Boolean)value.get(i)).booleanValue();
+				newValue[i] = (Boolean) value.get(i);
 			realValue = newValue;
 		}
 		else if (test instanceof Character)
 		{
 			char[] newValue = new char[value.size()];
 			for ( int i = 0; i < newValue.length; ++i )
-				newValue[i] = ((Character)value.get(i)).charValue();
+				newValue[i] = (Character) value.get(i);
 			realValue = newValue;
 		}
 		else if (test instanceof Byte)
 		{
 			byte[] newValue = new byte[value.size()];
 			for ( int i = 0; i < newValue.length; ++i )
-				newValue[i] = ((Byte)value.get(i)).byteValue();
+				newValue[i] = (Byte) value.get(i);
 			realValue = newValue;
 		}
 		else if (test instanceof String)
@@ -561,7 +541,7 @@ public class dictionary implements Serializable
 		}
 		Object value = m_data.get(key);
 		if (value instanceof Integer)
-			return ((Integer)value).intValue();
+			return (Integer) value;
 		return 0;
 	}	// getInt()
 
@@ -588,8 +568,7 @@ public class dictionary implements Serializable
 		if (array != null)
 		{
 			Vector resizeableArray = new Vector(array.length+10);
-			for (int i = 0; i < array.length; ++i)
-				resizeableArray.add(new Integer(array[i]));
+			for (int i1 : array) resizeableArray.add(i1);
 			return resizeableArray;
 		}
 		return null;
@@ -608,7 +587,7 @@ public class dictionary implements Serializable
 
 		Object value = m_data.get(key);
 		if (value instanceof Long)
-			return ((Long)value).longValue();
+			return (Long) value;
 		return 0;
 	}	// getLong()
 
@@ -642,7 +621,7 @@ public class dictionary implements Serializable
 
 		Object value = m_data.get(key);
 		if (value instanceof Float)
-			return ((Float)value).floatValue();
+			return (Float) value;
 		return 0;
 	}	// getFloat()
 
@@ -669,8 +648,7 @@ public class dictionary implements Serializable
 		if (array != null)
 		{
 			Vector resizeableArray = new Vector(array.length+10);
-			for (int i = 0; i < array.length; ++i)
-				resizeableArray.add(new Float(array[i]));
+			for (float v : array) resizeableArray.add(v);
 			return resizeableArray;
 		}
 		return null;
@@ -689,7 +667,7 @@ public class dictionary implements Serializable
 
 		Object value = m_data.get(key);
 		if (value instanceof Double)
-			return ((Double)value).doubleValue();
+			return (Double) value;
 		return 0;
 	}	// getDouble()
 
@@ -723,7 +701,7 @@ public class dictionary implements Serializable
 
 		Object value = m_data.get(key);
 		if (value instanceof Boolean)
-			return ((Boolean)value).booleanValue();
+			return (Boolean) value;
 		return false;
 	}	// getBoolean()
 
@@ -757,7 +735,7 @@ public class dictionary implements Serializable
 
 		Object value = m_data.get(key);
 		if (value instanceof Character)
-			return ((Character)value).charValue();
+			return (Character) value;
 		return 0;
 	}	// getChar()
 
@@ -791,7 +769,7 @@ public class dictionary implements Serializable
 
 		Object value = m_data.get(key);
 		if (value instanceof Byte)
-			return ((Byte)value).byteValue();
+			return (Byte) value;
 		return 0;
 	}	// getByte()
 
@@ -1548,11 +1526,11 @@ public class dictionary implements Serializable
 		if ( obj != null && !(obj instanceof Integer) )
 			return false;
 		if ( obj == null )
-			m_data.put(key, new Integer(value));
+			m_data.put(key, value);
 		else
 		{
 			Integer current = (Integer)obj;
-			m_data.put(key, new Integer(value + current.intValue()));
+			m_data.put(key, value + current);
 		}
 		return true;
 	}
@@ -1577,11 +1555,11 @@ public class dictionary implements Serializable
 		if ( obj != null && !(obj instanceof Float) )
 			return false;
 		if ( obj == null )
-			m_data.put(key, new Float(value));
+			m_data.put(key, value);
 		else
 		{
 			Float current = (Float)obj;
-			m_data.put(key, new Float(value + current.floatValue()));
+			m_data.put(key, value + current);
 		}
 		return true;
 	}
@@ -1754,30 +1732,24 @@ public class dictionary implements Serializable
 	 */
 	public String toString()
 	{
-		StringBuffer buffer = new StringBuffer();
+		StringBuilder buffer = new StringBuilder();
 		buffer.append('<');
 
-		Enumeration keys = m_data.keys();
-		while ( keys.hasMoreElements() )
-		{
-			Object key = keys.nextElement();
+		for (Object key : m_data.keySet()) {
 			Object value = m_data.get(key);
 			buffer.append('{');
 			buffer.append(key);
 			buffer.append(" = ");
-			if (value instanceof Object[])
-			{
+			if (value instanceof Object[]) {
 				buffer.append('[');
-				Object[] values = (Object[])value;
-				for ( int i = 0; i < values.length; ++i )
-				{
+				Object[] values = (Object[]) value;
+				for (int i = 0; i < values.length; ++i) {
 					buffer.append(values[i]);
 					if (i < values.length - 1)
 						buffer.append(',');
 				}
 				buffer.append(']');
-			}
-			else
+			} else
 				buffer.append(value);
 			buffer.append("}\n");
 		}
@@ -1813,9 +1785,8 @@ public class dictionary implements Serializable
 	{
 		Vector results = new Vector();
 		final Collection c = values();
-		for(Iterator i = c.iterator(); i.hasNext(); )
-		{
-			results.add(i.next().toString());
+		for (Object o : c) {
+			results.add(o.toString());
 		}
 		String[] strings = new String[results.size()];
 		for(int i = 0; i < strings.length; ++i)

@@ -290,7 +290,7 @@ public class masterspawner extends script.base_script
     public void spawnWuher(obj_id self) throws InterruptedException
     {
         obj_id wuher = create.object("wuher", new location(8.46f, 1.0f, 0.35f, "tatooine", getCellId(self, "cantina")));
-        create.addDestroyMessage(wuher, "wuherDied", 10f, self);
+        create.addDestroyMessage(wuher, "wuherDied", 10.0f, self);
         // all bartenders should move around and do their job... nobody gets away with just standing around.
         // (removing setCreatureStatic to allow Wuher to move around.)
         // setCreatureStatic(wuher, true);
@@ -380,7 +380,7 @@ public class masterspawner extends script.base_script
     }
     public void spawnCheatedGambler(obj_id self) throws InterruptedException
     {
-        obj_id gambler = create.object("ep3_cheated_gambler", new location(-6.5f, -.9f, -20.7f, "tatooine", getCellId(self, "stage")));
+        obj_id gambler = create.object("ep3_cheated_gambler", new location(-6.5f, -0.9f, -20.7f, "tatooine", getCellId(self, "stage")));
         setYaw(gambler, 60);
         ai_lib.setDefaultCalmMood(gambler, "npc_sad");
     }

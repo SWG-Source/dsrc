@@ -1,16 +1,9 @@
 package script.working.wwallace;
 
-import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
-
-import script.library.utils;
+import script.dictionary;
 import script.library.datatable;
 import script.library.objvar_mangle;
+import script.obj_id;
 
 public class zone_distro extends script.base_script
 {
@@ -92,41 +85,31 @@ public class zone_distro extends script.base_script
                                 LOG("space", "BROKEN MANGLED OBJVAR GOTTEN");
                             }
                         }
-                        for (int i = 0; i < strSpawns.length; i++)
-                        {
-                            if (strSpawns[i].startsWith("squad_"))
-                            {
+                        for (String strSpawn : strSpawns) {
+                            if (strSpawn.startsWith("squad_")) {
                                 String squadFile = "datatables/space_content/spawners/squads.iff";
                                 String spaceMobile = "datatables/space_mobile/space_mobile.iff";
-                                dictionary squad = dataTableGetRow(squadFile, strSpawns[i]);
-                                for (int j = 1; j < 11; j++)
-                                {
+                                dictionary squad = dataTableGetRow(squadFile, strSpawn);
+                                for (int j = 1; j < 11; j++) {
                                     String temp = squad.getString("strShip" + j);
-                                    if (temp != null && !temp.equals(""))
-                                    {
+                                    if (temp != null && !temp.equals("")) {
                                         dctRow.put("strMob", temp);
                                         dctRow.put("strZone", strZones[intM]);
-                                        dctRow.put("strSquad", strSpawns[i]);
+                                        dctRow.put("strSquad", strSpawn);
                                         dictionary dctSpaceMobile = dataTableGetRow(spaceMobile, temp);
-                                        if (dctSpaceMobile == null)
-                                        {
-                                            LOG("space_error", "SPACE MOBILE IS NULL HERE" + ":  SHIP IS" + strSpawns[i]);
-                                        }
-                                        else 
-                                        {
+                                        if (dctSpaceMobile == null) {
+                                            LOG("space_error", "SPACE MOBILE IS NULL HERE" + ":  SHIP IS" + strSpawn);
+                                        } else {
                                             String tier = dctSpaceMobile.getString("strPilot");
-                                            if (tier == null)
-                                            {
+                                            if (tier == null) {
                                                 tier = "NULL";
                                             }
                                             String treasure = dctSpaceMobile.getString("strLootLookup");
-                                            if (treasure == null)
-                                            {
+                                            if (treasure == null) {
                                                 treasure = "NULL";
                                             }
                                             String shiptype = dctSpaceMobile.getString("strShip");
-                                            if (shiptype == null)
-                                            {
+                                            if (shiptype == null) {
                                                 shiptype = "NULL";
                                             }
                                             dctRow.put("strTreasure", treasure);
@@ -136,34 +119,25 @@ public class zone_distro extends script.base_script
                                         datatable.serverDataTableAddRow(strDataTable, dctRow);
                                     }
                                 }
-                            }
-                            else 
-                            {
-                                if (strSpawns[i] != null && !strSpawns[i].equals(""))
-                                {
+                            } else {
+                                if (strSpawn != null && !strSpawn.equals("")) {
                                     String spaceMobile = "datatables/space_mobile/space_mobile.iff";
-                                    dctRow.put("strMob", strSpawns[i]);
+                                    dctRow.put("strMob", strSpawn);
                                     dctRow.put("strZone", strZones[intM]);
-                                    dictionary dctSpaceMobile = dataTableGetRow(spaceMobile, strSpawns[i]);
-                                    if (dctSpaceMobile == null)
-                                    {
-                                        LOG("space_error", "SPACE MOBILE IS NULL HERE" + ":  SHIP IS" + strSpawns[i]);
-                                    }
-                                    else 
-                                    {
+                                    dictionary dctSpaceMobile = dataTableGetRow(spaceMobile, strSpawn);
+                                    if (dctSpaceMobile == null) {
+                                        LOG("space_error", "SPACE MOBILE IS NULL HERE" + ":  SHIP IS" + strSpawn);
+                                    } else {
                                         String tier = dctSpaceMobile.getString("strPilot");
-                                        if (tier == null)
-                                        {
+                                        if (tier == null) {
                                             tier = "NULL";
                                         }
                                         String treasure = dctSpaceMobile.getString("strLootLookup");
-                                        if (treasure == null)
-                                        {
+                                        if (treasure == null) {
                                             treasure = "NULL";
                                         }
                                         String shiptype = dctSpaceMobile.getString("strShip");
-                                        if (shiptype == null)
-                                        {
+                                        if (shiptype == null) {
                                             shiptype = "NULL";
                                         }
                                         dctRow.put("strTreasure", treasure);

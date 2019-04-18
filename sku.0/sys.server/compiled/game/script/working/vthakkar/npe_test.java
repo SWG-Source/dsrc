@@ -1,16 +1,10 @@
 package script.working.vthakkar;
 
-import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
-
-import script.library.utils;
-import script.library.space_dungeon;
+import script.dictionary;
 import script.library.npe;
+import script.library.utils;
+import script.location;
+import script.obj_id;
 
 public class npe_test extends script.base_script
 {
@@ -125,12 +119,10 @@ public class npe_test extends script.base_script
             obj_id[] tempArray;
             int counter = 0;
             tempArray = getObjectsInRange(self, 20000);
-            for (int i = 0; i < tempArray.length; ++i)
-            {
-                if (type.equals(getTemplateName(tempArray[i])))
-                {
+            for (obj_id obj_id : tempArray) {
+                if (type.equals(getTemplateName(obj_id))) {
                     ++counter;
-                    sendSystemMessageTestingOnly(self, "" + counter + ": " + tempArray[i]);
+                    sendSystemMessageTestingOnly(self, "" + counter + ": " + obj_id);
                 }
             }
             sendSystemMessageTestingOnly(self, "Found " + counter + " objects");
@@ -140,12 +132,10 @@ public class npe_test extends script.base_script
             obj_id[] tempArray;
             int counter = 0;
             tempArray = getObjectsInRange(self, 20000);
-            for (int i = 0; i < tempArray.length; ++i)
-            {
-                String template = getTemplateName(tempArray[i]);
-                location loc = getLocation(tempArray[i]);
-                if (loc.cell == null || loc.cell == obj_id.NULL_ID)
-                {
+            for (obj_id obj_id : tempArray) {
+                String template = getTemplateName(obj_id);
+                location loc = getLocation(obj_id);
+                if (loc.cell == null || loc.cell == obj_id.NULL_ID) {
                     debugConsoleMsg(self, loc.x + " " + loc.y + " " + loc.z + " " + template);
                     ++counter;
                 }
@@ -257,11 +247,9 @@ public class npe_test extends script.base_script
             int range = utils.stringToInt(st.nextToken());
             location loc = new location(x, y, z, scene);
             obj_id[] players_range = getPlayerCreaturesInRange(loc, range);
-            for (int i = 0; i < players_range.length; ++i)
-            {
-                if (isIdValid(players_range[i]))
-                {
-                    sendSystemMessageTestingOnly(self, "Got player " + players_range[i] + " " + getPlayerFullName(players_range[i]));
+            for (obj_id obj_id : players_range) {
+                if (isIdValid(obj_id)) {
+                    sendSystemMessageTestingOnly(self, "Got player " + obj_id + " " + getPlayerFullName(obj_id));
                 }
             }
             sendSystemMessageTestingOnly(self, "Found " + players_range.length + " players");

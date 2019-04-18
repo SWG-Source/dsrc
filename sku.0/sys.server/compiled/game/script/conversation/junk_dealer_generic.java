@@ -39,28 +39,19 @@ public class junk_dealer_generic extends script.base_script
         obj_id[] objContents = utils.getContents(player, true);
         if (objContents != null)
         {
-            for (int intI = 0; intI < objContents.length; intI++)
-            {
-                String strItemTemplate = getTemplateName(objContents[intI]);
-                if (strItemTemplate.equals("object/tangible/loot/collectible/kits/orange_rug_kit.iff"))
-                {
-                    return false;
-                }
-                else if (strItemTemplate.equals("object/tangible/loot/collectible/kits/blue_rug_kit.iff"))
-                {
-                    return false;
-                }
-                else if (strItemTemplate.equals("object/tangible/loot/collectible/kits/gong_kit.iff"))
-                {
-                    return false;
-                }
-                else if (strItemTemplate.equals("object/tangible/loot/collectible/kits/light_table_kit.iff"))
-                {
-                    return false;
-                }
-                else if (strItemTemplate.equals("object/tangible/loot/collectible/kits/sculpture_kit.iff"))
-                {
-                    return false;
+            for (obj_id objContent : objContents) {
+                String strItemTemplate = getTemplateName(objContent);
+                switch (strItemTemplate) {
+                    case "object/tangible/loot/collectible/kits/orange_rug_kit.iff":
+                        return false;
+                    case "object/tangible/loot/collectible/kits/blue_rug_kit.iff":
+                        return false;
+                    case "object/tangible/loot/collectible/kits/gong_kit.iff":
+                        return false;
+                    case "object/tangible/loot/collectible/kits/light_table_kit.iff":
+                        return false;
+                    case "object/tangible/loot/collectible/kits/sculpture_kit.iff":
+                        return false;
                 }
             }
         }
@@ -71,28 +62,19 @@ public class junk_dealer_generic extends script.base_script
         obj_id[] objContents = utils.getContents(player, true);
         if (objContents != null)
         {
-            for (int intI = 0; intI < objContents.length; intI++)
-            {
-                String strItemTemplate = getTemplateName(objContents[intI]);
-                if (strItemTemplate.equals("object/tangible/loot/collectible/kits/orange_rug_kit.iff"))
-                {
-                    return true;
-                }
-                else if (strItemTemplate.equals("object/tangible/loot/collectible/kits/blue_rug_kit.iff"))
-                {
-                    return true;
-                }
-                else if (strItemTemplate.equals("object/tangible/loot/collectible/kits/gong_kit.iff"))
-                {
-                    return true;
-                }
-                else if (strItemTemplate.equals("object/tangible/loot/collectible/kits/light_table_kit.iff"))
-                {
-                    return true;
-                }
-                else if (strItemTemplate.equals("object/tangible/loot/collectible/kits/sculpture_kit.iff"))
-                {
-                    return true;
+            for (obj_id objContent : objContents) {
+                String strItemTemplate = getTemplateName(objContent);
+                switch (strItemTemplate) {
+                    case "object/tangible/loot/collectible/kits/orange_rug_kit.iff":
+                        return true;
+                    case "object/tangible/loot/collectible/kits/blue_rug_kit.iff":
+                        return true;
+                    case "object/tangible/loot/collectible/kits/gong_kit.iff":
+                        return true;
+                    case "object/tangible/loot/collectible/kits/light_table_kit.iff":
+                        return true;
+                    case "object/tangible/loot/collectible/kits/sculpture_kit.iff":
+                        return true;
                 }
             }
         }

@@ -36,10 +36,10 @@ public class avatar_wke_prisoner_02 extends script.base_script
         obj_id structure = getTopMostContainer(self);
         obj_id player = params.getObjId("player");
         setObjVar(structure, "avatar_platform.wke_completed_02", 1);
-        playClientEffectLoc(player, "clienteffect/avatar_wke_gas_01.cef", getLocation(self), 0f);
-        messageTo(self, "handleDeath", null, 5f, false);
+        playClientEffectLoc(player, "clienteffect/avatar_wke_gas_01.cef", getLocation(self), 0.0f);
+        messageTo(self, "handleDeath", null, 5.0f, false);
         doAnimationAction(self, anims.PLAYER_HEAVY_COUGH_VOMIT);
-        messageTo(self, "handleCleanUp", null, 10f, false);
+        messageTo(self, "handleCleanUp", null, 10.0f, false);
         return SCRIPT_CONTINUE;
     }
     public int handleFreedom(obj_id self, dictionary params) throws InterruptedException

@@ -24,15 +24,12 @@ public class hall_fire extends script.base_script
             return;
         }
         obj_id warden = null;
-        for (int i = 0; i < objects.length; i++)
-        {
-            if (!hasObjVar(objects[i], "spawn_id"))
-            {
+        for (obj_id object : objects) {
+            if (!hasObjVar(object, "spawn_id")) {
                 continue;
             }
-            if ((getStringObjVar(objects[i], "spawn_id")).equals("warden"))
-            {
-                warden = objects[i];
+            if ((getStringObjVar(object, "spawn_id")).equals("warden")) {
+                warden = object;
             }
         }
         trial.setParent(warden, self, true);
@@ -45,11 +42,10 @@ public class hall_fire extends script.base_script
             messageTo(self, "burn_hall", null, 1.0f, false);
             return SCRIPT_CONTINUE;
         }
-        for (int i = 0; i < players.length; i++)
-        {
-            location loc = getLocation(players[i]);
+        for (obj_id player : players) {
+            location loc = getLocation(player);
             String locationData = "" + loc.x + " " + loc.y + " " + loc.z + " " + loc.cell + " " + loc.x + " " + loc.y + " " + loc.z;
-            queueCommand(trial.getParent(self), (-1450748792), players[i], locationData, COMMAND_PRIORITY_DEFAULT);
+            queueCommand(trial.getParent(self), (-1450748792), player, locationData, COMMAND_PRIORITY_DEFAULT);
         }
         messageTo(self, "burn_hall", null, 1.0f, false);
         return SCRIPT_CONTINUE;

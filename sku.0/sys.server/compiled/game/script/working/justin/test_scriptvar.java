@@ -28,8 +28,8 @@ public class test_scriptvar extends script.base_script
         int weather = 0;
         try
         {
-            Integer i = new Integer(params);
-            weather = i.intValue();
+            Integer i = Integer.valueOf(params);
+            weather = i;
         }
         catch(NumberFormatException err)
         {

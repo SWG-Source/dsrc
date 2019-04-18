@@ -138,9 +138,8 @@ public class qadna extends script.base_script
         String[] dnaCreatureStringColumn = dataTableGetStringColumn(INCUBATOR_TEMPLATES, "initial_template");
         if (dnaCreatureStringColumn.length > -1)
         {
-            for (int i = 0; i < dnaCreatureStringColumn.length; i++)
-            {
-                String creatureDisplayName = getDisplayName(dnaCreatureStringColumn[i]);
+            for (String s : dnaCreatureStringColumn) {
+                String creatureDisplayName = getDisplayName(s);
                 dnaCreatures.add(creatureDisplayName);
             }
             if (dnaCreatures.size() >= 1)
@@ -163,12 +162,12 @@ public class qadna extends script.base_script
     }
     public String getDisplayName(String creatureName) throws InterruptedException
     {
-        if (creatureName.indexOf("/") > -1)
+        if (creatureName.contains("/"))
         {
             String[] splitType = split(creatureName, '/');
             creatureName = splitType[3];
         }
-        if (creatureName.indexOf(".") > -1)
+        if (creatureName.contains("."))
         {
             String[] splitAtDot = split(creatureName, '.');
             creatureName = splitAtDot[0];

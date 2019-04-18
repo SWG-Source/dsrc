@@ -30,9 +30,8 @@ public class structure_rollup extends script.base_script
             String subject_str = "@" + subject.toString();
             body_oob = chatAppendPersistentMessageWaypointData(body_oob, where.area, where.x, where.z, null, structName);
             String[] admins = player_structure.getAdminListNames(self);
-            for (int i = 0; i < admins.length; ++i)
-            {
-                chatSendPersistentMessage("Galactic Housing Authority", admins[i], subject_str, null, body_oob);
+            for (String admin : admins) {
+                chatSendPersistentMessage("Galactic Housing Authority", admin, subject_str, null, body_oob);
             }
             if (city.isInCity(self))
             {
@@ -69,30 +68,24 @@ public class structure_rollup extends script.base_script
                 obj_id[] players = player_structure.getPlayersInBuilding(self);
                 if (players != null)
                 {
-                    for (int i = 0; i < players.length; i++)
-                    {
-                        expelFromBuilding(players[i]);
+                    for (obj_id player1 : players) {
+                        expelFromBuilding(player1);
                     }
                 }
                 String[] cells = getCellNames(self);
                 if (cells != null)
                 {
-                    for (int i = 0; i < cells.length; i++)
-                    {
-                        obj_id cellid = getCellId(self, cells[i]);
+                    for (String cell : cells) {
+                        obj_id cellid = getCellId(self, cell);
                         obj_id contents[] = getContents(cellid);
-                        if (contents != null)
-                        {
-                            for (int j = 0; j < contents.length; j++)
-                            {
-                                if (hasCondition(contents[j], CONDITION_VENDOR))
-                                {
-                                    obj_id owner = getObjIdObjVar(contents[j], "vendor_owner");
-                                    if (!isIdValid(owner))
-                                    {
-                                        owner = getOwner(contents[j]);
+                        if (contents != null) {
+                            for (obj_id content : contents) {
+                                if (hasCondition(content, CONDITION_VENDOR)) {
+                                    obj_id owner = getObjIdObjVar(content, "vendor_owner");
+                                    if (!isIdValid(owner)) {
+                                        owner = getOwner(content);
                                     }
-                                    vendor_lib.finalizePackUp(owner, contents[j], player, player_structure.isAbandoned(self));
+                                    vendor_lib.finalizePackUp(owner, content, player, player_structure.isAbandoned(self));
                                 }
                             }
                         }

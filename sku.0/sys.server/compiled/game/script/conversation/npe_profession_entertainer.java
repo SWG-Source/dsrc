@@ -24,7 +24,7 @@ public class npe_profession_entertainer extends script.base_script
     public boolean npe_profession_entertainer_condition_isEntertainer(obj_id player, obj_id npc) throws InterruptedException
     {
         String pTemplate = getSkillTemplate(player);
-        if (pTemplate.indexOf("entertainer") > -1)
+        if (pTemplate.contains("entertainer"))
         {
             return true;
         }
@@ -66,13 +66,10 @@ public class npe_profession_entertainer extends script.base_script
         boolean needsItem = false;
         boolean hasItem = false;
         obj_id[] playerStuff = getInventoryAndEquipment(player);
-        for (int i = 0; i < playerStuff.length; i++)
-        {
-            String templateName = static_item.getStaticItemName(playerStuff[i]);
-            if (templateName != null)
-            {
-                if (templateName.equals("item_npe_smooth_slitherhorn_01_01"))
-                {
+        for (obj_id obj_id : playerStuff) {
+            String templateName = static_item.getStaticItemName(obj_id);
+            if (templateName != null) {
+                if (templateName.equals("item_npe_smooth_slitherhorn_01_01")) {
                     hasItem = true;
                 }
             }

@@ -85,13 +85,9 @@ public class tcg_armor_kit extends script.base_script
             String[] targetArmorList = split(targetArmorAppearances, ',');
             if (targetArmorList != null && targetArmorList.length > 0)
             {
-                for (int i = 0; i < targetArmorList.length; i++)
-                {
-                    String targetArmorAppearance = targetArmorList[i];
-                    if (targetArmorAppearance != null && targetArmorAppearance.length() > 0)
-                    {
-                        if (itemAppearanceName.indexOf(targetArmorAppearance) > -1)
-                        {
+                for (String targetArmorAppearance : targetArmorList) {
+                    if (targetArmorAppearance != null && targetArmorAppearance.length() > 0) {
+                        if (itemAppearanceName.contains(targetArmorAppearance)) {
                             return true;
                         }
                     }
@@ -148,13 +144,9 @@ public class tcg_armor_kit extends script.base_script
         obj_id[] armorPieces = getContents(armorKit);
         if (armorPieces != null && armorPieces.length > 0)
         {
-            for (int i = 0; i < armorPieces.length; i++)
-            {
-                obj_id armor = armorPieces[i];
-                if (shouldBeInKit(armor, player, armorKit))
-                {
-                    if (hasObjVar(armor, TEXTURE_OBJVAR_NAME))
-                    {
+            for (obj_id armor : armorPieces) {
+                if (shouldBeInKit(armor, player, armorKit)) {
+                    if (hasObjVar(armor, TEXTURE_OBJVAR_NAME)) {
                         int previousTexture = getIntObjVar(armor, TEXTURE_OBJVAR_NAME);
                         int previousColor_1 = getIntObjVar(armor, COLOR_OBJVAR_NAME_01);
                         int previousColor_2 = getIntObjVar(armor, COLOR_OBJVAR_NAME_02);
@@ -168,12 +160,9 @@ public class tcg_armor_kit extends script.base_script
                         prose.setStringId(pp, new string_id("tcg", "armor_kit_texture_reverted"));
                         prose.setTT(pp, getEncodedName(armor));
                         sendSystemMessageProse(player, pp);
-                    }
-                    else 
-                    {
+                    } else {
                         dictionary armorKitData = getArmorKitData(armorKit, player);
-                        if (armorKitData == null)
-                        {
+                        if (armorKitData == null) {
                             return;
                         }
                         int kitTexture = armorKitData.getInt(DATA_TEXTURE_COLUMN);
@@ -185,12 +174,10 @@ public class tcg_armor_kit extends script.base_script
                         setObjVar(armor, TEXTURE_OBJVAR_NAME, currentTexture);
                         setObjVar(armor, COLOR_OBJVAR_NAME_02, currentColor_2);
                         setObjVar(armor, COLOR_OBJVAR_NAME_01, currentColor_1);
-                        if (kitColor_1 <= -1)
-                        {
+                        if (kitColor_1 <= -1) {
                             kitColor_1 = currentColor_1;
                         }
-                        if (kitColor_2 <= -1)
-                        {
+                        if (kitColor_2 <= -1) {
                             kitColor_2 = currentColor_2;
                         }
                         setRangedIntCustomVarValue(armor, TEXTURE_CUSTVAR_NAME, kitTexture);
@@ -212,9 +199,7 @@ public class tcg_armor_kit extends script.base_script
         obj_id[] armorPieces = getContents(armorKit);
         if (armorPieces != null && armorPieces.length > 0)
         {
-            for (int i = 0; i < armorPieces.length; i++)
-            {
-                obj_id armor = armorPieces[i];
+            for (obj_id armor : armorPieces) {
                 putIn(armor, playerInventory, player);
             }
         }

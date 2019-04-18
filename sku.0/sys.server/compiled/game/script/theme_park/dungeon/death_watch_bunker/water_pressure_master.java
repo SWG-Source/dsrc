@@ -323,15 +323,12 @@ public class water_pressure_master extends script.base_script
             {
                 return;
             }
-            for (int i = 0; i < numInGroup; i++)
-            {
-                obj_id thisLight = lights[i];
-                if (hasObjVar(thisLight, "valveOff"))
-                {
+            for (obj_id thisLight : lights) {
+                if (hasObjVar(thisLight, "valveOff")) {
                     return;
                 }
             }
-            playClientEffectLoc(player, "clienteffect/dth_watch_water_pressure.cef", getLocation(player), 0f);
+            playClientEffectLoc(player, "clienteffect/dth_watch_water_pressure.cef", getLocation(player), 0.0f);
             removeObjVar(player, "death_watch.water_pressure");
             setObjVar(player, "death_watch.water_pressure_success", 1);
             removeObjVar(structure, "death_watch.water_pressure_mission");
@@ -407,7 +404,7 @@ public class water_pressure_master extends script.base_script
             obj_id player = getObjIdObjVar(self, "death_watch.water_pressure_mission");
             dictionary d1 = new dictionary();
             params.put("player", player);
-            messageTo(self, "handleWaterPumpTimeOut", params, 1800f, false);
+            messageTo(self, "handleWaterPumpTimeOut", params, 1800.0f, false);
         }
         return SCRIPT_CONTINUE;
     }

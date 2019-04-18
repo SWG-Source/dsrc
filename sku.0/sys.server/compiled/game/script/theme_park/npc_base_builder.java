@@ -107,20 +107,15 @@ public class npc_base_builder extends script.base_script
             return;
         }
         boolean isMaster = ((getStringObjVar(self, "element")).equals("ph1_restuss_master"));
-        for (int i = 0; i < objects.length; i++)
-        {
-            if (trial.isChild(self, objects[i]))
-            {
-                trial.cleanupObject(objects[i]);
+        for (obj_id object : objects) {
+            if (trial.isChild(self, object)) {
+                trial.cleanupObject(object);
                 continue;
             }
-            if (isMaster)
-            {
-                if (hasObjVar(objects[i], trial.PARENT))
-                {
-                    if (!isIdValid(trial.getParent(objects[i])) || !hasScript(trial.getParent(objects[i]), "theme_park.npc_base_builder"))
-                    {
-                        trial.cleanupObject(objects[i]);
+            if (isMaster) {
+                if (hasObjVar(object, trial.PARENT)) {
+                    if (!isIdValid(trial.getParent(object)) || !hasScript(trial.getParent(object), "theme_park.npc_base_builder")) {
+                        trial.cleanupObject(object);
                     }
                 }
             }
@@ -259,11 +254,9 @@ public class npc_base_builder extends script.base_script
     public boolean validatePhase(int phase, String spawnPhase) throws InterruptedException
     {
         String[] parse = split(spawnPhase, ',');
-        for (int i = 0; i < parse.length; i++)
-        {
-            int intParse = utils.stringToInt(parse[i]);
-            if (intParse == -1 || intParse == phase)
-            {
+        for (String s : parse) {
+            int intParse = utils.stringToInt(s);
+            if (intParse == -1 || intParse == phase) {
                 return true;
             }
         }
@@ -285,9 +278,8 @@ public class npc_base_builder extends script.base_script
         {
             return;
         }
-        for (int i = 0; i < parse.length; i++)
-        {
-            attachScript(newObject, parse[i]);
+        for (String s : parse) {
+            attachScript(newObject, s);
         }
     }
     public void setSpawnObjVar(obj_id newObject, String objvarString) throws InterruptedException
@@ -301,32 +293,26 @@ public class npc_base_builder extends script.base_script
         {
             return;
         }
-        for (int i = 0; i < parse.length; i++)
-        {
-            String[] typeDataSplit = split(parse[i], ':');
+        for (String s : parse) {
+            String[] typeDataSplit = split(s, ':');
             String type = typeDataSplit[0];
             String data = typeDataSplit[1];
             String[] nameValueSplit = split(data, '=');
             String name = nameValueSplit[0];
             String value = nameValueSplit[1];
-            if (type.equals("int"))
-            {
+            if (type.equals("int")) {
                 setObjVar(newObject, name, utils.stringToInt(value));
             }
-            if (type.equals("float"))
-            {
+            if (type.equals("float")) {
                 setObjVar(newObject, name, utils.stringToFloat(value));
             }
-            if (type.equals("string"))
-            {
+            if (type.equals("string")) {
                 setObjVar(newObject, name, value);
             }
-            if (type.equals("boolean") && (value.equals("true") || value.equals("1")))
-            {
+            if (type.equals("boolean") && (value.equals("true") || value.equals("1"))) {
                 setObjVar(newObject, name, true);
             }
-            if (type.equals("boolean") && (value.equals("false") || value.equals("0")))
-            {
+            if (type.equals("boolean") && (value.equals("false") || value.equals("0"))) {
                 setObjVar(newObject, name, false);
             }
         }

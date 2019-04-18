@@ -235,14 +235,14 @@ public class honor_guard extends script.base_script
         obj_id honorGuard;
         for (int i = 0; i < numPerLine; i++)
         {
-            double xRowOffsetDbl = Math.sin(Math.toRadians(heading + 90)) * (i * offset);
+            double xRowOffsetDbl = StrictMath.sin(Math.toRadians(heading + 90)) * (i * offset);
             float xRowOffset = (float)xRowOffsetDbl;
-            double zRowOffsetDbl = Math.cos(Math.toRadians(heading + 90)) * (i * offset);
+            double zRowOffsetDbl = StrictMath.cos(Math.toRadians(heading + 90)) * (i * offset);
             float zRowOffset = (float)zRowOffsetDbl;
             for (int j = 0; j < numRows; j++)
             {
-                double xSpawnDbl = Math.sin(Math.toRadians(heading)) * (j * offset) + xLoc + xRowOffset;
-                double zSpawnDbl = Math.cos(Math.toRadians(heading)) * (j * offset) + zLoc + zRowOffset;
+                double xSpawnDbl = StrictMath.sin(Math.toRadians(heading)) * (j * offset) + xLoc + xRowOffset;
+                double zSpawnDbl = StrictMath.cos(Math.toRadians(heading)) * (j * offset) + zLoc + zRowOffset;
                 float xSpawn = (float)xSpawnDbl;
                 float zSpawn = (float)zSpawnDbl;
                 location spawnPoint = new location();

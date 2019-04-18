@@ -297,25 +297,21 @@ public class master extends script.theme_park.poi.base
     public void celebrateVictory(obj_id[] team, String comment) throws InterruptedException
     {
         int j = 0;
-        for (int i = 0; i < team.length; i++)
-        {
-            if (isIncapacitated(team[i]) || isDead(team[i]))
-            {
+        for (obj_id obj_id : team) {
+            if (isIncapacitated(obj_id) || isDead(obj_id)) {
                 continue;
             }
-            String skeleton = dataTableGetString("datatables/ai/species.iff", ai_lib.aiGetSpecies(team[i]), "Skeleton");
-            if (!skeleton.equals("human"))
-            {
+            String skeleton = dataTableGetString("datatables/ai/species.iff", ai_lib.aiGetSpecies(obj_id), "Skeleton");
+            if (!skeleton.equals("human")) {
                 continue;
             }
-            ai_lib.setDefaultCalmBehavior(team[i], ai_lib.BEHAVIOR_WANDER);
-            stop(team[i]);
+            ai_lib.setDefaultCalmBehavior(obj_id, ai_lib.BEHAVIOR_WANDER);
+            stop(obj_id);
             int whichsocial = rand(0, 4);
-            queueCommand(team[i], (1780871594), null, joyEmotes[whichsocial], COMMAND_PRIORITY_DEFAULT);
-            messageTo(team[i], "resumeDefaultCalmBehavior", null, 3, false);
-            if (j == 0)
-            {
-                poi.quickSay(team[i], comment);
+            queueCommand(obj_id, (1780871594), null, joyEmotes[whichsocial], COMMAND_PRIORITY_DEFAULT);
+            messageTo(obj_id, "resumeDefaultCalmBehavior", null, 3, false);
+            if (j == 0) {
+                poi.quickSay(obj_id, comment);
             }
             j++;
         }

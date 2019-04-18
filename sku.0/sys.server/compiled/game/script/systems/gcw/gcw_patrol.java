@@ -518,7 +518,7 @@ public class gcw_patrol extends script.base_script
     {
         playClientEffectLoc(self, "clienteffect/combat_explosion_lair_large.cef", getLocation(self), 0);
         setInvulnerable(self, true);
-        messageTo(self, "destroyGCWPatrol", null, 1f, false);
+        messageTo(self, "destroyGCWPatrol", null, 1.0f, false);
         gcw.gcwInvasionCreditForDestroy(killer);
         return;
     }

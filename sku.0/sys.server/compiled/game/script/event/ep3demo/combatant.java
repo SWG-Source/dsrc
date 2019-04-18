@@ -63,21 +63,16 @@ public class combatant extends script.base_script
     {
         location here = getLocation(self);
         obj_id[] objects = getObjectsInRange(here, 32);
-        for (int i = 0; i < objects.length; i++)
-        {
-            if (utils.hasScriptVar(self, "ep3demo.aggressor"))
-            {
-                if (utils.hasScriptVar(objects[i], "ep3demo.victim"))
-                {
-                    startCombat(self, objects[i]);
+        for (obj_id object : objects) {
+            if (utils.hasScriptVar(self, "ep3demo.aggressor")) {
+                if (utils.hasScriptVar(object, "ep3demo.victim")) {
+                    startCombat(self, object);
                     return;
                 }
             }
-            if (utils.hasScriptVar(self, "ep3demo.victim"))
-            {
-                if (utils.hasScriptVar(objects[i], "ep3demo.aggressor"))
-                {
-                    startCombat(self, objects[i]);
+            if (utils.hasScriptVar(self, "ep3demo.victim")) {
+                if (utils.hasScriptVar(object, "ep3demo.aggressor")) {
+                    startCombat(self, object);
                     return;
                 }
             }

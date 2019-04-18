@@ -40,7 +40,7 @@ public class terminal_manager extends script.base_script
         if (hasObjVar(self, "hq.objective.tracking"))
         {
             setObjVar(self, "donateTerminalOff", getGameTime());
-            messageTo(self, "terminalOn", null, 3600f, true);
+            messageTo(self, "terminalOn", null, 3600.0f, true);
         }
         return SCRIPT_CONTINUE;
     }

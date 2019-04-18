@@ -68,10 +68,8 @@ public class dev_control_terminal extends script.base_script
         {
             return false;
         }
-        for (int i = 0; i < contents.length; i++)
-        {
-            if (hasObjVar(contents[i], "warren.airlockkey"))
-            {
+        for (obj_id content : contents) {
+            if (hasObjVar(content, "warren.airlockkey")) {
                 return true;
             }
         }

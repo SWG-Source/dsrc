@@ -1,29 +1,11 @@
 package script.working.wwallace;
 
-import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
-
-import script.library.create;
-import script.library.combat;
-import script.library.sui;
-import script.library.utils;
-import script.library.money;
-import script.library.pet_lib;
-import script.library.ai_lib;
-import script.library.skill;
-import script.library.hue;
-import script.library.space_transition;
-import script.library.datatable;
-import script.library.xp;
-import script.library.space_combat;
-import script.library.space_create;
 import script.library.armor;
+import script.library.skill;
+import script.library.utils;
 import script.library.weapons;
+import script.location;
+import script.obj_id;
 
 public class grievous_test extends script.base_script
 {
@@ -339,32 +321,27 @@ public class grievous_test extends script.base_script
         if (strCommands[0].equals("clearInv"))
         {
             obj_id[] contents = getInventoryAndEquipment(self);
-            for (int i = 0; i < contents.length; i++)
-            {
-                destroyObject(contents[i]);
+            for (obj_id content : contents) {
+                destroyObject(content);
             }
             return SCRIPT_CONTINUE;
         }
         if (strCommands[0].equals("makeCharacterOne"))
         {
-            for (int i = 0; i < BRAWLER.length; i++)
-            {
-                skill.grantSkill(self, BRAWLER[i]);
+            for (String s1 : BRAWLER) {
+                skill.grantSkill(self, s1);
             }
-            for (int i = 0; i < TKA.length; i++)
-            {
-                skill.grantSkill(self, TKA[i]);
+            for (String s : TKA) {
+                skill.grantSkill(self, s);
             }
         }
         if (strCommands[0].equals("makeCharacterTwo"))
         {
-            for (int i = 0; i < BRAWLER.length; i++)
-            {
-                skill.grantSkill(self, BRAWLER[i]);
+            for (String s1 : BRAWLER) {
+                skill.grantSkill(self, s1);
             }
-            for (int i = 0; i < PIKEMAN.length; i++)
-            {
-                skill.grantSkill(self, PIKEMAN[i]);
+            for (String s : PIKEMAN) {
+                skill.grantSkill(self, s);
             }
             issueBattleArmorSet(self, ARMOR_SET_BATTLE);
             weapons.createWeapon("object/weapon/melee/polearm/lance_massassi.iff", pInv, weapons.VIA_TEMPLATE, CRAFTED_QUALITY);
@@ -387,13 +364,11 @@ public class grievous_test extends script.base_script
                 "thyroidrupture",
                 "traumatize"
             };
-            for (int i = 0; i < MEDIC.length; i++)
-            {
-                skill.grantSkill(self, MEDIC[i]);
+            for (String s1 : MEDIC) {
+                skill.grantSkill(self, s1);
             }
-            for (int i = 0; i < DOCTOR.length; i++)
-            {
-                skill.grantSkill(self, DOCTOR[i]);
+            for (String s : DOCTOR) {
+                skill.grantSkill(self, s);
             }
             issueBattleArmorSet(self, ARMOR_SET_BATTLE_2);
             obj_id stimd = createObject("object/tangible/medicine/instant_stimpack/stimpack_d.iff", pInv, "");
@@ -402,11 +377,9 @@ public class grievous_test extends script.base_script
                 setCount(stimd, 350);
                 setObjVar(stimd, "healing.power", 1200);
             }
-            for (int i = 0; i < allTemplates.length; i++)
-            {
-                obj_id enh = createObject("object/tangible/medicine/enhancer/enhancer_" + allTemplates[i] + ".iff", pInv, "");
-                if (isIdValid(enh))
-                {
+            for (String allTemplate : allTemplates) {
+                obj_id enh = createObject("object/tangible/medicine/enhancer/enhancer_" + allTemplate + ".iff", pInv, "");
+                if (isIdValid(enh)) {
                     setCount(enh, 150);
                     setObjVar(enh, "healing.enhancement", 700);
                 }
@@ -414,47 +387,39 @@ public class grievous_test extends script.base_script
         }
         if (strCommands[0].equals("makeCharacterFour"))
         {
-            for (int i = 0; i < BRAWLER.length; i++)
-            {
-                skill.grantSkill(self, BRAWLER[i]);
+            for (String s2 : BRAWLER) {
+                skill.grantSkill(self, s2);
             }
-            for (int i = 0; i < MARKSMAN.length; i++)
-            {
-                skill.grantSkill(self, MARKSMAN[i]);
+            for (String s1 : MARKSMAN) {
+                skill.grantSkill(self, s1);
             }
-            for (int i = 0; i < COMMANDO.length; i++)
-            {
-                skill.grantSkill(self, COMMANDO[i]);
+            for (String s : COMMANDO) {
+                skill.grantSkill(self, s);
             }
             issueAssaultArmorSet(self, ARMOR_SET_ASSAULT);
             weapons.createWeapon("object/weapon/ranged/heavy/heavy_lightning_beam.iff", pInv, weapons.VIA_TEMPLATE, CRAFTED_QUALITY);
         }
         if (strCommands[0].equals("makeCharacterFive"))
         {
-            for (int i = 0; i < MARKSMAN.length; i++)
-            {
-                skill.grantSkill(self, MARKSMAN[i]);
+            for (String s1 : MARKSMAN) {
+                skill.grantSkill(self, s1);
             }
-            for (int i = 0; i < CARBINEER.length; i++)
-            {
-                skill.grantSkill(self, CARBINEER[i]);
+            for (String s : CARBINEER) {
+                skill.grantSkill(self, s);
             }
             issueBattleArmorSet(self, ARMOR_SET_BATTLE_3);
             weapons.createWeapon("object/weapon/ranged/carbine/carbine_elite.iff", pInv, weapons.VIA_TEMPLATE, CRAFTED_QUALITY);
         }
         if (strCommands[0].equals("makeCharacterSix"))
         {
-            for (int i = 0; i < MARKSMAN.length; i++)
-            {
-                skill.grantSkill(self, MARKSMAN[i]);
+            for (String s2 : MARKSMAN) {
+                skill.grantSkill(self, s2);
             }
-            for (int i = 0; i < SCOUT.length; i++)
-            {
-                skill.grantSkill(self, SCOUT[i]);
+            for (String s1 : SCOUT) {
+                skill.grantSkill(self, s1);
             }
-            for (int i = 0; i < BOUNTY_HUNTER.length; i++)
-            {
-                skill.grantSkill(self, BOUNTY_HUNTER[i]);
+            for (String s : BOUNTY_HUNTER) {
+                skill.grantSkill(self, s);
             }
             issueAssaultArmorSet(self, ARMOR_SET_ASSAULT_ITHORIAN);
             weapons.createWeapon("object/weapon/ranged/carbine/carbine_czerka_dart.iff", pInv, weapons.VIA_TEMPLATE, CRAFTED_QUALITY);
@@ -464,14 +429,11 @@ public class grievous_test extends script.base_script
     public void issueReconArmorSet(obj_id player, String[] armorPieces) throws InterruptedException
     {
         obj_id pInv = utils.getInventoryContainer(player);
-        for (int j = 0; j < armorPieces.length; ++j)
-        {
-            String armorTemplate = ARMOR_SET_PREFIX + armorPieces[j];
+        for (String armorPiece : armorPieces) {
+            String armorTemplate = ARMOR_SET_PREFIX + armorPiece;
             obj_id armorItem = createObject(armorTemplate, pInv, "");
-            if (isIdValid(armorItem))
-            {
-                if (!isGameObjectTypeOf(armorItem, GOT_armor_foot) && !isGameObjectTypeOf(armorItem, GOT_armor_hand))
-                {
+            if (isIdValid(armorItem)) {
+                if (!isGameObjectTypeOf(armorItem, GOT_armor_foot) && !isGameObjectTypeOf(armorItem, GOT_armor_hand)) {
                     armor.setArmorDataPercent(armorItem, 2, 0, GENERAL_PROTECTION, CONDITION);
                     armor.setArmorSpecialProtectionPercent(armorItem, armor.DATATABLE_RECON_LAYER, 1.0f);
                 }
@@ -481,14 +443,11 @@ public class grievous_test extends script.base_script
     public void issueBattleArmorSet(obj_id player, String[] armorPieces) throws InterruptedException
     {
         obj_id pInv = utils.getInventoryContainer(player);
-        for (int j = 0; j < armorPieces.length; ++j)
-        {
-            String armorTemplate = ARMOR_SET_PREFIX + armorPieces[j];
+        for (String armorPiece : armorPieces) {
+            String armorTemplate = ARMOR_SET_PREFIX + armorPiece;
             obj_id armorItem = createObject(armorTemplate, pInv, "");
-            if (isIdValid(armorItem))
-            {
-                if (!isGameObjectTypeOf(armorItem, GOT_armor_foot) && !isGameObjectTypeOf(armorItem, GOT_armor_hand))
-                {
+            if (isIdValid(armorItem)) {
+                if (!isGameObjectTypeOf(armorItem, GOT_armor_foot) && !isGameObjectTypeOf(armorItem, GOT_armor_hand)) {
                     armor.setArmorDataPercent(armorItem, 2, 1, GENERAL_PROTECTION, CONDITION);
                 }
             }
@@ -497,14 +456,11 @@ public class grievous_test extends script.base_script
     public void issueAssaultArmorSet(obj_id player, String[] armorPieces) throws InterruptedException
     {
         obj_id pInv = utils.getInventoryContainer(player);
-        for (int j = 0; j < armorPieces.length; ++j)
-        {
-            String armorTemplate = ARMOR_SET_PREFIX + armorPieces[j];
+        for (String armorPiece : armorPieces) {
+            String armorTemplate = ARMOR_SET_PREFIX + armorPiece;
             obj_id armorItem = createObject(armorTemplate, pInv, "");
-            if (isIdValid(armorItem))
-            {
-                if (!isGameObjectTypeOf(armorItem, GOT_armor_foot) && !isGameObjectTypeOf(armorItem, GOT_armor_hand))
-                {
+            if (isIdValid(armorItem)) {
+                if (!isGameObjectTypeOf(armorItem, GOT_armor_foot) && !isGameObjectTypeOf(armorItem, GOT_armor_hand)) {
                     armor.setArmorDataPercent(armorItem, 2, 2, GENERAL_PROTECTION, CONDITION);
                     armor.setArmorSpecialProtectionPercent(armorItem, armor.DATATABLE_ASSAULT_LAYER, 1.0f);
                 }

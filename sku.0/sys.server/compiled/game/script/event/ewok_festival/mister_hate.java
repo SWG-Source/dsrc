@@ -105,7 +105,7 @@ public class mister_hate extends script.base_script
     {
         stopCombat(self);
         clearHateList(self);
-        obj_id[] players = getPlayerCreaturesInRange(getLocation(self), 20f);
+        obj_id[] players = getPlayerCreaturesInRange(getLocation(self), 20.0f);
         if (players != null && players.length > 0)
         {
             for (obj_id player : players) {

@@ -364,20 +364,16 @@ public class gcw_city_pylon extends script.base_script
         int bestToolValue = 0;
         int toolValue = 0;
         obj_id bestTool = null;
-        for (int i = 0; i < toolList.length; i++)
-        {
+        for (obj_id obj_id : toolList) {
             toolValue = 0;
-            String itemTemplate = getTemplateName(toolList[i]);
-            if (itemTemplate != null && itemTemplate.equals(desiredTemplate))
-            {
-                if (hasObjVar(toolList[i], "crafting_components.power"))
-                {
-                    toolValue = (int)getFloatObjVar(toolList[i], "crafting_components.power");
+            String itemTemplate = getTemplateName(obj_id);
+            if (itemTemplate != null && itemTemplate.equals(desiredTemplate)) {
+                if (hasObjVar(obj_id, "crafting_components.power")) {
+                    toolValue = (int) getFloatObjVar(obj_id, "crafting_components.power");
                 }
-                if (toolValue > bestToolValue)
-                {
+                if (toolValue > bestToolValue) {
                     bestToolValue = toolValue;
-                    bestTool = toolList[i];
+                    bestTool = obj_id;
                 }
             }
         }

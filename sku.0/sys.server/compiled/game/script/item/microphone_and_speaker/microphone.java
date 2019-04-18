@@ -10,7 +10,7 @@ public class microphone extends script.base_script
     public microphone()
     {
     }
-    public static final float MIC_RADIUS = .05f;
+    public static final float MIC_RADIUS = 0.05f;
     public static final string_id SIGNAL_MESSAGE = new string_id("sui", "mic_speaker_signal");
     public static final string_id SID_ACTIVATE = new string_id("sui", "mic_activation");
     public static final string_id SID_DEACTIVATE = new string_id("sui", "mic_deactivation");
@@ -38,9 +38,8 @@ public class microphone extends script.base_script
             xp.grantCraftingXpChance(self, player, 40);
             dictionary params = new dictionary();
             params.put("message", message);
-            for (int i = 0; i < speakers.length; ++i)
-            {
-                messageTo(speakers[i], "projectMicSpeak", params, 0, true);
+            for (obj_id speaker : speakers) {
+                messageTo(speaker, "projectMicSpeak", params, 0, true);
             }
         }
         return SCRIPT_CONTINUE;
@@ -73,9 +72,8 @@ public class microphone extends script.base_script
             {
                 dictionary params = new dictionary();
                 params.put("message", utils.packStringId(SIGNAL_MESSAGE));
-                for (int i = 0; i < speakers.length; ++i)
-                {
-                    messageTo(speakers[i], "projectMicActive", params, 0, true);
+                for (obj_id speaker : speakers) {
+                    messageTo(speaker, "projectMicActive", params, 0, true);
                 }
             }
             setObjVar(self, VAR_IS_ACTIVE, true);

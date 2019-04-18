@@ -151,22 +151,18 @@ public class sean_trenwell extends script.base_script
             obj_id[] objContents = utils.getContents(objInventory);
             if (objContents != null)
             {
-                for (int intI = 0; intI < objContents.length; intI++)
-                {
-                    String strItemTemplate = getTemplateName(objContents[intI]);
-                    if (strItemTemplate.equals("object/tangible/loot/quest/victor_questn_hlist.iff"))
-                    {
-                        destroyObject(objContents[intI]);
+                for (obj_id objContent : objContents) {
+                    String strItemTemplate = getTemplateName(objContent);
+                    if (strItemTemplate.equals("object/tangible/loot/quest/victor_questn_hlist.iff")) {
+                        destroyObject(objContent);
                         return true;
                     }
-                    if (strItemTemplate.equals("object/tangible/loot/quest/victor_questn_dseal.iff"))
-                    {
-                        destroyObject(objContents[intI]);
+                    if (strItemTemplate.equals("object/tangible/loot/quest/victor_questn_dseal.iff")) {
+                        destroyObject(objContent);
                         return true;
                     }
-                    if (strItemTemplate.equals("object/tangible/loot/quest/victor_questn_journal.iff"))
-                    {
-                        destroyObject(objContents[intI]);
+                    if (strItemTemplate.equals("object/tangible/loot/quest/victor_questn_journal.iff")) {
+                        destroyObject(objContent);
                         return true;
                     }
                 }

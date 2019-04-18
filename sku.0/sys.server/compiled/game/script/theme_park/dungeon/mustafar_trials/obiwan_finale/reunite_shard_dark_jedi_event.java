@@ -18,7 +18,7 @@ public class reunite_shard_dark_jedi_event extends script.base_script
     public static final string_id DARK_SPAWN = new string_id(STF_INQ_MSGS, "dark_trooper_spawn");
     public static final string_id INQ_ATTACK = new string_id(STF_INQ_MSGS, "inquisitor_attack");
     public static final String TRIGGER_VOLUME_JEDI = "jedi_interest_volume";
-    public static final float JEDI_INTEREST_RADIUS = 35f;
+    public static final float JEDI_INTEREST_RADIUS = 35.0f;
     public static final boolean CONST_FLAG_DO_LOGGING = true;
     public int OnAttach(obj_id self) throws InterruptedException
     {
@@ -64,12 +64,9 @@ public class reunite_shard_dark_jedi_event extends script.base_script
         else 
         {
             obj_id[] denizens = getTriggerVolumeContents(self, TRIGGER_VOLUME_JEDI);
-            for (int i = 0; i < denizens.length; i++)
-            {
-                if (isPlayer(denizens[i]) && !isIncapacitated(denizens[i]))
-                {
-                    if (canCallEnemies(self))
-                    {
+            for (obj_id denizen : denizens) {
+                if (isPlayer(denizen) && !isIncapacitated(denizen)) {
+                    if (canCallEnemies(self)) {
                         spawnEnemies(self, self);
                         return;
                     }
@@ -82,14 +79,14 @@ public class reunite_shard_dark_jedi_event extends script.base_script
     {
         debugLogging("//***// callInquisitor: ", "////>>>> entered.");
         location currentLoc = getLocation(self);
-        float landmarkDistanceOffset = 0f;
+        float landmarkDistanceOffset = 0.0f;
         if (isIdValid(landmark))
         {
             location landmarkLoc = getLocation(landmark);
             landmarkDistanceOffset = getDistance(self, landmark);
             debugLogging("callInquisitor: ", "landmark location is valid.");
         }
-        float distance = landmarkDistanceOffset + 30f;
+        float distance = landmarkDistanceOffset + 30.0f;
         location spawnLoc = utils.findLocInFrontOfTarget(self, distance);
         obj_id inquisitor = create.object("som_kenobi_reunite_inquisitorium_hunter", spawnLoc);
         if (!isIdValid(inquisitor))
@@ -106,14 +103,14 @@ public class reunite_shard_dark_jedi_event extends script.base_script
     {
         debugLogging("//***// callDark_trooper_1: ", "////>>>> entered.");
         location currentLoc = getLocation(self);
-        float landmarkDistanceOffset = 0f;
+        float landmarkDistanceOffset = 0.0f;
         if (isIdValid(landmark))
         {
             location landmarkLoc = getLocation(landmark);
             landmarkDistanceOffset = getDistance(self, landmark);
             debugLogging("callDark_trooper_1: ", "landmark location is valid.");
         }
-        float distance = landmarkDistanceOffset + 30f;
+        float distance = landmarkDistanceOffset + 30.0f;
         location spawnLoc = utils.findLocInFrontOfTarget(self, distance);
         obj_id dark_trooper_1 = create.object("som_kenobi_reunite_dark_trooper", spawnLoc);
         if (!isIdValid(dark_trooper_1))
@@ -130,14 +127,14 @@ public class reunite_shard_dark_jedi_event extends script.base_script
     {
         debugLogging("//***// callDark_trooper_2: ", "////>>>> entered.");
         location currentLoc = getLocation(self);
-        float landmarkDistanceOffset = 0f;
+        float landmarkDistanceOffset = 0.0f;
         if (isIdValid(landmark))
         {
             location landmarkLoc = getLocation(landmark);
             landmarkDistanceOffset = getDistance(self, landmark);
             debugLogging("callDark_trooper_2: ", "landmark location is valid.");
         }
-        float distance = landmarkDistanceOffset + 30f;
+        float distance = landmarkDistanceOffset + 30.0f;
         location spawnLoc = utils.findLocInFrontOfTarget(self, distance);
         obj_id dark_trooper_2 = create.object("som_kenobi_reunite_dark_trooper", spawnLoc);
         if (!isIdValid(dark_trooper_2))
@@ -169,7 +166,7 @@ public class reunite_shard_dark_jedi_event extends script.base_script
     {
         debugLogging("enemiesAlreadyPresent: ", " entered.");
         location currentLoc = getLocation(self);
-        obj_id enemyObject = getFirstObjectWithObjVar(currentLoc, 100f, "inquisitor");
+        obj_id enemyObject = getFirstObjectWithObjVar(currentLoc, 100.0f, "inquisitor");
         if (isIdValid(enemyObject))
         {
             debugLogging("enemyAlreadyPresent: ", "found a pre-existing inquisitor object.");
@@ -210,10 +207,10 @@ public class reunite_shard_dark_jedi_event extends script.base_script
         obj_id dark_trooper_1 = params.getObjId("dark_trooper_1");
         obj_id dark_trooper_2 = params.getObjId("dark_trooper_2");
         chat.publicChat(inquisitor, dark_trooper_1, INQ_ATTACK);
-        addHate(inquisitor, self, 1000f);
-        addHate(dark_trooper_1, self, 1000f);
-        addHate(dark_trooper_2, self, 1000f);
-        addHate(self, dark_trooper_2, 5000f);
+        addHate(inquisitor, self, 1000.0f);
+        addHate(dark_trooper_1, self, 1000.0f);
+        addHate(dark_trooper_2, self, 1000.0f);
+        addHate(self, dark_trooper_2, 5000.0f);
         startCombat(inquisitor, self);
         startCombat(dark_trooper_1, self);
         startCombat(dark_trooper_2, self);

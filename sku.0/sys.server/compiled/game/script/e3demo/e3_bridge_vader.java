@@ -64,7 +64,7 @@ public class e3_bridge_vader extends script.base_script
     public void pathToLocationTwo(obj_id self) throws InterruptedException
     {
         location destLoc = new location(getLocation(self));
-        destLoc.x = -.5f;
+        destLoc.x = -0.5f;
         destLoc.y = 455.2f;
         destLoc.z = 321.8f;
         setObjVar(self, "intIndex", 2);

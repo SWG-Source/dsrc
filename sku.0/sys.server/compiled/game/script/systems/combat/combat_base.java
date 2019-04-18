@@ -13,7 +13,7 @@ public class combat_base extends script.base_script
     {
     }
     public static final float MAX_THROWING_DISTANCE = 30;
-    public static final float PVP_DAMAGE_REDUCTION_VALUE = .75f;
+    public static final float PVP_DAMAGE_REDUCTION_VALUE = 0.75f;
     public static final float UNIVERSAL_ACTION_COST_MULTIPLIER = 1.0f;
     public static final String JEDI_COMBAT_DATATABLE = "datatables/jedi/jedi_combat_data.iff";
     public static final int MAX_TARGET_ARRAY_SIZE = 10;
@@ -452,7 +452,7 @@ public class combat_base extends script.base_script
         }
         if (!isPlayer(self) && !beast_lib.isBeast(self))
         {
-            setCommandTimerValue(self, TIMER_COOLDOWN, 0f);
+            setCommandTimerValue(self, TIMER_COOLDOWN, 0.0f);
         }
         if (triggerPetBar)
         {
@@ -813,11 +813,9 @@ public class combat_base extends script.base_script
         {
             return null;
         }
-        for (int i = 0; i < tempDefenders.length; i++)
-        {
-            if (tempDefenders[i] != currentTarget && isOnHateList(self, tempDefenders[i]))
-            {
-                return tempDefenders[i];
+        for (obj_id tempDefender : tempDefenders) {
+            if (tempDefender != currentTarget && isOnHateList(self, tempDefender)) {
+                return tempDefender;
             }
         }
         return null;
@@ -880,7 +878,7 @@ public class combat_base extends script.base_script
             }
             if (specialLine != null && !actionName.equals(""))
             {
-                expertiseConeWidthBonus += (float)getSkillStatisticModifier(self, "expertise_cone_width_line_" + specialLine);
+                expertiseConeWidthBonus += getSkillStatisticModifier(self, "expertise_cone_width_line_" + specialLine);
             }
             length += expertiseConeLengthBonus;
             width += (expertiseConeWidthBonus / 2.0f);
@@ -975,18 +973,14 @@ public class combat_base extends script.base_script
             obj_id[] areaTargets = pvpGetTargetsInRange(self, self, area);
             float maxHate = 0;
             obj_id rampageTarget = null;
-            for (int i = 0; i < areaTargets.length; i++)
-            {
-                if (areaTargets[i] == target)
-                {
+            for (obj_id areaTarget : areaTargets) {
+                if (areaTarget == target) {
                     continue;
                 }
-                if (isOnHateList(self, areaTargets[i]))
-                {
-                    float targetHate = getHate(self, areaTargets[i]);
-                    if (targetHate > maxHate && combat.cachedCanSee(self, areaTargets[i]))
-                    {
-                        rampageTarget = areaTargets[i];
+                if (isOnHateList(self, areaTarget)) {
+                    float targetHate = getHate(self, areaTarget);
+                    if (targetHate > maxHate && combat.cachedCanSee(self, areaTarget)) {
+                        rampageTarget = areaTarget;
                         maxHate = targetHate;
                     }
                 }
@@ -1010,13 +1004,10 @@ public class combat_base extends script.base_script
             float max_range = 64.0f;
             Vector validTargets = new Vector();
             validTargets.setSize(0);
-            for (int i = 0; i < potentialTargets.length; i++)
-            {
-                if (potentialTargets[i] != target && combat.cachedCanSee(self, potentialTargets[i]) && !isDead(potentialTargets[i]))
-                {
-                    if (getDistance(self, potentialTargets[i]) < max_range)
-                    {
-                        utils.addElement(validTargets, potentialTargets[i]);
+            for (obj_id potentialTarget : potentialTargets) {
+                if (potentialTarget != target && combat.cachedCanSee(self, potentialTarget) && !isDead(potentialTarget)) {
+                    if (getDistance(self, potentialTarget) < max_range) {
+                        utils.addElement(validTargets, potentialTarget);
                     }
                 }
             }
@@ -1040,13 +1031,10 @@ public class combat_base extends script.base_script
             obj_id[] potentialTargets = getHateList(self);
             Vector validTargets = new Vector();
             validTargets.setSize(0);
-            for (int i = 0; i < potentialTargets.length; i++)
-            {
-                if (potentialTargets[i] != target && combat.cachedCanSee(self, potentialTargets[i]) && !isDead(potentialTargets[i]))
-                {
-                    if (getDistance(self, potentialTargets[i]) < max_range)
-                    {
-                        utils.addElement(validTargets, potentialTargets[i]);
+            for (obj_id potentialTarget : potentialTargets) {
+                if (potentialTarget != target && combat.cachedCanSee(self, potentialTarget) && !isDead(potentialTarget)) {
+                    if (getDistance(self, potentialTarget) < max_range) {
+                        utils.addElement(validTargets, potentialTarget);
                     }
                 }
             }
@@ -1067,13 +1055,10 @@ public class combat_base extends script.base_script
             obj_id[] potentialTargets = getHateList(self);
             Vector validTargets = new Vector();
             validTargets.setSize(0);
-            for (int i = 0; i < potentialTargets.length; i++)
-            {
-                if (potentialTargets[i] != target && combat.cachedCanSee(self, potentialTargets[i]))
-                {
-                    if (getDistance(self, potentialTargets[i]) < max_range)
-                    {
-                        utils.addElement(validTargets, potentialTargets[i]);
+            for (obj_id potentialTarget : potentialTargets) {
+                if (potentialTarget != target && combat.cachedCanSee(self, potentialTarget)) {
+                    if (getDistance(self, potentialTarget) < max_range) {
+                        utils.addElement(validTargets, potentialTarget);
                     }
                 }
             }
@@ -1094,13 +1079,10 @@ public class combat_base extends script.base_script
             Vector validTargets = new Vector();
             validTargets.setSize(0);
             int max_range = 90;
-            for (int i = 0; i < hateTargets.length; i++)
-            {
-                if (hateTargets[i] != target && canSee(self, hateTargets[i]))
-                {
-                    if (getDistance(self, hateTargets[i]) < max_range)
-                    {
-                        utils.addElement(validTargets, hateTargets[i]);
+            for (obj_id hateTarget : hateTargets) {
+                if (hateTarget != target && canSee(self, hateTarget)) {
+                    if (getDistance(self, hateTarget) < max_range) {
+                        utils.addElement(validTargets, hateTarget);
                     }
                 }
             }
@@ -1152,11 +1134,9 @@ public class combat_base extends script.base_script
             obj_id[] targetsInArea = pvpGetTargetsInRange(self, fromTrap ? weaponData.id : target, area);
             defenders = new obj_id[2];
             defenders[0] = target;
-            for (int i = 0; i < targetsInArea.length; i++)
-            {
-                if (targetsInArea[i] != target)
-                {
-                    defenders[1] = targetsInArea[i];
+            for (obj_id obj_id : targetsInArea) {
+                if (obj_id != target) {
+                    defenders[1] = obj_id;
                     break;
                 }
             }
@@ -1166,12 +1146,10 @@ public class combat_base extends script.base_script
             obj_id[] hateList = getHateList(self);
             obj_id farthest = getHateTarget(self);
             float farDist = 0.0f;
-            for (int i = 0; i < hateList.length; i++)
-            {
-                if (getDistance(self, hateList[i]) >= farDist)
-                {
-                    farthest = hateList[i];
-                    farDist = getDistance(self, hateList[i]);
+            for (obj_id obj_id : hateList) {
+                if (getDistance(self, obj_id) >= farDist) {
+                    farthest = obj_id;
+                    farDist = getDistance(self, obj_id);
                 }
             }
             defenders = new obj_id[1];
@@ -1275,8 +1253,8 @@ public class combat_base extends script.base_script
         int critDamageIncrease = getEnhancedSkillStatisticModifierUncapped(attackerData.id, "expertise_critical_damage_increase");
         for (int i = 0; i < defenderData.length; i++)
         {
-            float minDamage = (float)weaponData.minDamage;
-            float maxDamage = (float)weaponData.maxDamage;
+            float minDamage = weaponData.minDamage;
+            float maxDamage = weaponData.maxDamage;
             hitData[i] = new hit_result();
             float distance = 0;
             boolean isPlayerDefender = isPlayer(defenderData[i].id);
@@ -1439,8 +1417,8 @@ public class combat_base extends script.base_script
                 if (hitData[i].critical)
                 {
                     float damageMod = combat.doCriticalHitEffect(attackerData, defenderData[i], weaponData, hitData[i], actionData);
-                    float critBonus = 1.0f + ((float)critDamageIncrease / 100.0f);
-                    damageMod += (float)critDamageIncrease / 100.0f;
+                    float critBonus = 1.0f + (critDamageIncrease / 100.0f);
+                    damageMod += critDamageIncrease / 100.0f;
                     minDamage = maxDamage * critBonus;
                     maxDamage = maxDamage * damageMod;
                     criticalHit = true;
@@ -1533,7 +1511,7 @@ public class combat_base extends script.base_script
                 if (addDefenderDamageToAction > 0)
                 {
                     float halfOfMod = addDefenderDamageToAction / 2.0f;
-                    int actionToAdd = Math.round((halfOfMod / 100.0f) * (float)getMaxAction(defenderData[i].id));
+                    int actionToAdd = Math.round((halfOfMod / 100.0f) * getMaxAction(defenderData[i].id));
                     combat.gainCombatActionAttribute(defenderData[i].id, actionToAdd);
                 }
             }
@@ -1581,11 +1559,9 @@ public class combat_base extends script.base_script
         if (utils.hasScriptVar(attackerData.id, buff.ON_ATTACK_REMOVE) && actionData.commandType != combat.LEFT_CLICK_DEFAULT)
         {
             Vector buffList = utils.getResizeableStringArrayScriptVar(attackerData.id, buff.ON_ATTACK_REMOVE);
-            for (int i = 0; i < buffList.size(); i++)
-            {
-                if (buff.hasBuff(attackerData.id, ((String)buffList.get(i))))
-                {
-                    buff.removeBuff(attackerData.id, ((String)buffList.get(i)));
+            for (Object o : buffList) {
+                if (buff.hasBuff(attackerData.id, ((String) o))) {
+                    buff.removeBuff(attackerData.id, ((String) o));
                 }
             }
         }
@@ -1877,76 +1853,72 @@ public class combat_base extends script.base_script
         int hit = 0;
         int evade = 0;
         int strikethrough = 0;
-        for (int i = 0; i < defTable.length; i++)
-        {
-            switch (defTable[i])
-            {
+        for (int i2 : defTable) {
+            switch (i2) {
                 case HIT_RESULT_MISS:
-                miss++;
-                break;
+                    miss++;
+                    break;
                 case HIT_RESULT_DODGE:
-                dodge++;
-                break;
+                    dodge++;
+                    break;
                 case HIT_RESULT_PARRY:
-                parry++;
-                break;
+                    parry++;
+                    break;
                 case HIT_RESULT_GLANCING:
-                glancing++;
-                break;
+                    glancing++;
+                    break;
                 case HIT_RESULT_BLOCK:
-                block++;
-                break;
+                    block++;
+                    break;
                 case HIT_RESULT_CRITICAL:
-                critical++;
-                break;
+                    critical++;
+                    break;
                 case HIT_RESULT_PUNISHING:
-                punishing++;
-                break;
+                    punishing++;
+                    break;
                 case HIT_RESULT_HIT:
-                hit++;
-                break;
+                    hit++;
+                    break;
                 case HIT_RESULT_EVADE:
-                evade++;
-                break;
+                    evade++;
+                    break;
                 case HIT_RESULT_STRIKETHROUGH:
-                strikethrough++;
-                break;
+                    strikethrough++;
+                    break;
             }
         }
-        for (int i = 0; i < atkTable.length; i++)
-        {
-            switch (atkTable[i])
-            {
+        for (int i1 : atkTable) {
+            switch (i1) {
                 case HIT_RESULT_MISS:
-                miss++;
-                break;
+                    miss++;
+                    break;
                 case HIT_RESULT_DODGE:
-                dodge++;
-                break;
+                    dodge++;
+                    break;
                 case HIT_RESULT_PARRY:
-                parry++;
-                break;
+                    parry++;
+                    break;
                 case HIT_RESULT_GLANCING:
-                glancing++;
-                break;
+                    glancing++;
+                    break;
                 case HIT_RESULT_BLOCK:
-                block++;
-                break;
+                    block++;
+                    break;
                 case HIT_RESULT_CRITICAL:
-                critical++;
-                break;
+                    critical++;
+                    break;
                 case HIT_RESULT_PUNISHING:
-                punishing++;
-                break;
+                    punishing++;
+                    break;
                 case HIT_RESULT_HIT:
-                hit++;
-                break;
+                    hit++;
+                    break;
                 case HIT_RESULT_EVADE:
-                evade++;
-                break;
+                    evade++;
+                    break;
                 case HIT_RESULT_STRIKETHROUGH:
-                strikethrough++;
-                break;
+                    strikethrough++;
+                    break;
             }
         }
         if (isPlayer(attacker))
@@ -2105,7 +2077,7 @@ public class combat_base extends script.base_script
         }
         if (actionData.attackType == combat.SPLIT_DAMAGE_TARGET_AREA)
         {
-            addedDamage = Math.round((float)addedDamage / (float)numTargets);
+            addedDamage = Math.round((float)addedDamage / numTargets);
         }
         float percentAddFromWeapon = actionData.percentAddFromWeapon;
         if (!combat.checkWeaponCerts(attacker, weaponData, false))
@@ -2135,7 +2107,7 @@ public class combat_base extends script.base_script
             minDamage += normalizedSpecialDmg;
             maxDamage += normalizedSpecialDmg;
         }
-        float damageAddFromLevel = (float)getEnhancedSkillStatisticModifierUncapped(attacker, "level_add_to_damage");
+        float damageAddFromLevel = getEnhancedSkillStatisticModifierUncapped(attacker, "level_add_to_damage");
         if (damageAddFromLevel > 0.0f)
         {
             float levelDamageMod = getLevel(attacker) * (damageAddFromLevel / 100.0f);
@@ -2147,8 +2119,8 @@ public class combat_base extends script.base_script
             if (combat.isMeleeWeapon(weaponData.id) || combat.isLightsaberWeapon(weaponData.id))
             {
                 int strengthBonus = 0;
-                strengthBonus += Math.round((float)getEnhancedSkillStatisticModifierUncapped(attacker, "strength_modified") / 3.0f);
-                strengthBonus += Math.round((float)getSkillStatisticModifier(attacker, "strength") / 3.0f);
+                strengthBonus += Math.round(getEnhancedSkillStatisticModifierUncapped(attacker, "strength_modified") / 3.0f);
+                strengthBonus += Math.round(getSkillStatisticModifier(attacker, "strength") / 3.0f);
                 minDamage += strengthBonus;
                 maxDamage += strengthBonus;
             }
@@ -2195,7 +2167,7 @@ public class combat_base extends script.base_script
             }
             newDamage *= 1.0f - spotASuckerDecreaseChance;
         }
-        float smugglerRankBonus = (float)getSkillStatisticModifier(attacker, "expertise_sm_rank_damage_bonus");
+        float smugglerRankBonus = getSkillStatisticModifier(attacker, "expertise_sm_rank_damage_bonus");
         if (smugglerRankBonus > 0)
         {
             smugglerRankBonus *= 0.01f;
@@ -2215,12 +2187,12 @@ public class combat_base extends script.base_script
         damageDecrease = getSkillStatisticModifier(defender, "damage_decrease_percentage");
         if (damageDecrease > 0)
         {
-            newDamage -= (int)(hitData.damage * (float)((float)damageDecrease / 100.0f));
+            newDamage -= (int)(hitData.damage * (float)(damageDecrease / 100.0f));
         }
         int areaDamageDecrease = getSkillStatisticModifier(defender, "area_damage_decrease_percentage");
         if (areaDamageDecrease > 0 && combat.isAreaAttack(actionData.attackType))
         {
-            newDamage -= (int)(hitData.damage * (float)((float)areaDamageDecrease / 100.0f));
+            newDamage -= (int)(hitData.damage * (float)(areaDamageDecrease / 100.0f));
         }
         int areaDamageResist = getSkillStatisticModifier(defender, "area_damage_resist_full_percentage");
         if (areaDamageResist > 0 && combat.isAreaAttack(actionData.attackType) && rand(0, 99) < areaDamageResist)
@@ -2378,7 +2350,7 @@ public class combat_base extends script.base_script
                 expertiseDotDurationBonus += getEnhancedSkillStatisticModifierUncapped(attacker, "expertise_dot_duration_single_" + specialName);
                 expertiseDotDamageBonus += getEnhancedSkillStatisticModifierUncapped(attacker, "expertise_dot_damage_line_" + specialLine);
             }
-            float dotIntensityFloat = (float)dotIntensity * (1.0f + (expertiseDotDamageBonus / 100.0f));
+            float dotIntensityFloat = dotIntensity * (1.0f + (expertiseDotDamageBonus / 100.0f));
             dotIntensity = (int)dotIntensityFloat;
             dotDuration += expertiseDotDurationBonus;
             int targetAttrib = dotType.equals("disease") ? ACTION : HEALTH;
@@ -2467,13 +2439,13 @@ public class combat_base extends script.base_script
         }
         expertiseDamageBonus += getEnhancedSkillStatisticModifierUncapped(expert, "combat_multiply_damage_dealt");
         expertiseDamageBonus += getEnhancedSkillStatisticModifierUncapped(defender, "combat_multiply_damage_taken");
-        float tempDamageFloat = (float)hitData.damage;
+        float tempDamageFloat = hitData.damage;
         tempDamageFloat = tempDamageFloat * (1.0f + ((float)expertiseDamageBonus / 100.0f));
         int expertiseDamageReduction = 0;
         expertiseDamageReduction += getEnhancedSkillStatisticModifierUncapped(expert, "combat_divide_damage_dealt");
         expertiseDamageReduction += getEnhancedSkillStatisticModifierUncapped(defender, "combat_divide_damage_taken");
         expertiseDamageReduction = expertiseDamageReduction > 100 ? 100 : expertiseDamageReduction;
-        tempDamageFloat = tempDamageFloat * (1.0f - ((float)expertiseDamageReduction / 100.0f));
+        tempDamageFloat = tempDamageFloat * (1.0f - (expertiseDamageReduction / 100.0f));
         hitData.damage = (int)tempDamageFloat;
         hitData.damage += getEnhancedSkillStatisticModifierUncapped(expert, "combat_add_damage_dealt");
         hitData.damage -= getEnhancedSkillStatisticModifierUncapped(expert, "combat_subtract_damage_dealt");
@@ -2635,15 +2607,11 @@ public class combat_base extends script.base_script
         playerList.setSize(0);
         Vector objectList = new Vector();
         objectList.setSize(0);
-        for (int i = 0; i < defenders.length; i++)
-        {
-            if (isPlayer(defenders[i]))
-            {
-                utils.addElement(playerList, defenders[i]);
-            }
-            else 
-            {
-                utils.addElement(objectList, defenders[i]);
+        for (obj_id defender : defenders) {
+            if (isPlayer(defender)) {
+                utils.addElement(playerList, defender);
+            } else {
+                utils.addElement(objectList, defender);
             }
         }
         if ((playerList.size() + objectList.size()) == defenders.length)
@@ -2718,105 +2686,84 @@ public class combat_base extends script.base_script
         {
             attackerSocialGroup = ai_lib.getSocialGroup(attacker);
         }
-        for (int i = 0; i < defenders.length; i++)
-        {
-            if (isInvulnerable(defenders[i]))
-            {
-                combat.combatLog(attacker, defenders[i], "validateDefenders", "Invalid Target - Defender is invulnerable");
+        for (obj_id defender : defenders) {
+            if (isInvulnerable(defender)) {
+                combat.combatLog(attacker, defender, "validateDefenders", "Invalid Target - Defender is invulnerable");
                 continue;
             }
-            if (defenders[i] == target && actionData.attack_rolls == 1)
-            {
-                combat.combatLog(attacker, defenders[i], "validateDefenders", "Skipping target");
+            if (defender == target && actionData.attack_rolls == 1) {
+                combat.combatLog(attacker, defender, "validateDefenders", "Skipping target");
                 continue;
             }
-            if (pvpOnly == 1 && !isPlayer(defenders[i]))
-            {
-                combat.combatLog(attacker, defenders[i], "validateDefenders", "Skipping target - is not a Player");
+            if (pvpOnly == 1 && !isPlayer(defender)) {
+                combat.combatLog(attacker, defender, "validateDefenders", "Skipping target - is not a Player");
                 continue;
             }
-            if (!isIdValid(defenders[i]))
-            {
-                combat.combatLog(attacker, defenders[i], "validateDefenders", "Invalid Target - Invalid ObjId");
+            if (!isIdValid(defender)) {
+                combat.combatLog(attacker, defender, "validateDefenders", "Invalid Target - Invalid ObjId");
                 continue;
             }
-            if (isGameObjectTypeOf(defenders[i], GOT_building))
-            {
-                combat.combatLog(attacker, defenders[i], "validateDefenders", "Invalid Target - Is a building");
+            if (isGameObjectTypeOf(defender, GOT_building)) {
+                combat.combatLog(attacker, defender, "validateDefenders", "Invalid Target - Is a building");
                 continue;
             }
-            if (!isOffensiveAction && !isMob(defenders[i]))
-            {
-                combat.combatLog(attacker, defenders[i], "validateDefenders", "Invalid Target - Not a mobile object");
+            if (!isOffensiveAction && !isMob(defender)) {
+                combat.combatLog(attacker, defender, "validateDefenders", "Invalid Target - Not a mobile object");
                 continue;
             }
-            if (!isOffensiveAction && vehicle.isVehicle(defenders[i]))
-            {
-                combat.combatLog(attacker, defenders[i], "validateDefenders", "Invalid Target - Is a vehicle");
+            if (!isOffensiveAction && vehicle.isVehicle(defender)) {
+                combat.combatLog(attacker, defender, "validateDefenders", "Invalid Target - Is a vehicle");
                 continue;
             }
-            if (isOffensiveAction && isDead(defenders[i]) || getState(defenders[i], STATE_FEIGN_DEATH) > 0)
-            {
-                combat.combatLog(attacker, defenders[i], "validateDefenders", "Invalid Target - Target is Dead");
+            if (isOffensiveAction && isDead(defender) || getState(defender, STATE_FEIGN_DEATH) > 0) {
+                combat.combatLog(attacker, defender, "validateDefenders", "Invalid Target - Target is Dead");
                 continue;
             }
-            if (isOffensiveAction && isIncapacitated(defenders[i]))
-            {
-                combat.combatLog(attacker, defenders[i], "validateDefenders", "Invalid Target - Target is Incapped");
+            if (isOffensiveAction && isIncapacitated(defender)) {
+                combat.combatLog(attacker, defender, "validateDefenders", "Invalid Target - Target is Incapped");
                 continue;
             }
-            if (isOffensiveAction)
-            {
+            if (isOffensiveAction) {
                 obj_id pvpAttacker = attacker;
-                obj_id pvpTarget = defenders[i];
-                if (isMob(attacker) && !isPlayer(attacker) && isIdValid(getMaster(attacker)))
-                {
+                obj_id pvpTarget = defender;
+                if (isMob(attacker) && !isPlayer(attacker) && isIdValid(getMaster(attacker))) {
                     pvpAttacker = getMaster(attacker);
                 }
-                if (isMob(defenders[i]) && !isPlayer(defenders[i]) && isIdValid(getMaster(defenders[i])))
-                {
-                    pvpTarget = getMaster(defenders[i]);
+                if (isMob(defender) && !isPlayer(defender) && isIdValid(getMaster(defender))) {
+                    pvpTarget = getMaster(defender);
                 }
-                if (!pvpCanAttack(pvpAttacker, pvpTarget))
-                {
-                    combat.combatLog(attacker, defenders[i], "validateDefenders", "Invalid Target - Failed PvP check");
+                if (!pvpCanAttack(pvpAttacker, pvpTarget)) {
+                    combat.combatLog(attacker, defender, "validateDefenders", "Invalid Target - Failed PvP check");
                     continue;
                 }
             }
-            if (!isOffensiveAction && (!pvpCanHelp(attacker, defenders[i]) || pvpCanAttack(attacker, defenders[i])))
-            {
-                combat.combatLog(attacker, defenders[i], "validateDefenders", "Invalid Target - Failed PvP check");
+            if (!isOffensiveAction && (!pvpCanHelp(attacker, defender) || pvpCanAttack(attacker, defender))) {
+                combat.combatLog(attacker, defender, "validateDefenders", "Invalid Target - Failed PvP check");
                 continue;
             }
-            if (isOffensiveAction && attackerSocialGroup != null && attackerSocialGroup.equals(ai_lib.getSocialGroup(defenders[i])))
-            {
-                combat.combatLog(attacker, defenders[i], "validateDefenders", "Invalid Target - Same AI social group");
+            if (isOffensiveAction && attackerSocialGroup != null && attackerSocialGroup.equals(ai_lib.getSocialGroup(defender))) {
+                combat.combatLog(attacker, defender, "validateDefenders", "Invalid Target - Same AI social group");
                 continue;
             }
-            if (!combat.cachedCanSee(losSourceObj, defenders[i]) && !ignoreLOS)
-            {
-                combat.combatLog(attacker, defenders[i], "validateDefenders", "Invalid Target - Fail LOS check");
+            if (!combat.cachedCanSee(losSourceObj, defender) && !ignoreLOS) {
+                combat.combatLog(attacker, defender, "validateDefenders", "Invalid Target - Fail LOS check");
                 continue;
             }
-            if (isOffensiveAction && factions.ignorePlayer(attacker, defenders[i]))
-            {
-                combat.combatLog(attacker, defenders[i], "validateDefenders", "Invalid Target - Attacker or Defender is flagged as playerIgnore");
+            if (isOffensiveAction && factions.ignorePlayer(attacker, defender)) {
+                combat.combatLog(attacker, defender, "validateDefenders", "Invalid Target - Attacker or Defender is flagged as playerIgnore");
                 continue;
             }
-            if (!combat.validateTarget(defenders[i], validTargetType))
-            {
-                combat.combatLog(attacker, defenders[i], "validateDefenders", "Invalid Target - failed valid target check");
+            if (!combat.validateTarget(defender, validTargetType)) {
+                combat.combatLog(attacker, defender, "validateDefenders", "Invalid Target - failed valid target check");
                 continue;
             }
-            if (pet_lib.getPetType(defenders[i]) == pet_lib.PET_TYPE_FAMILIAR)
-            {
-                combat.combatLog(attacker, defenders[i], "validateDefenders", "Invalid Target - familiar");
+            if (pet_lib.getPetType(defender) == pet_lib.PET_TYPE_FAMILIAR) {
+                combat.combatLog(attacker, defender, "validateDefenders", "Invalid Target - familiar");
                 continue;
             }
-            combat.combatLog(attacker, defenders[i], "validateDefenders", "Valid Target - Adding Defender: " + defenders[i]);
-            validDefenders = utils.addElement(validDefenders, defenders[i]);
-            if (validDefenders.size() == maxDefenders)
-            {
+            combat.combatLog(attacker, defender, "validateDefenders", "Valid Target - Adding Defender: " + defender);
+            validDefenders = utils.addElement(validDefenders, defender);
+            if (validDefenders.size() == maxDefenders) {
                 break;
             }
         }
@@ -3143,7 +3090,7 @@ public class combat_base extends script.base_script
             else if (defenderResults[i].result == COMBAT_RESULT_TETHERED)
             {
                 strSpam = new string_id("combat_effects", "tethered");
-                textSize = 5f;
+                textSize = 5.0f;
             }
             if (strSpam != null)
             {
@@ -3221,12 +3168,10 @@ public class combat_base extends script.base_script
             defender_results[] cbtDefenderResult = new defender_results[1];
             cbtDefenderResult[0] = cbtDefenderResults[0];
             doCombatResults(strAnimationAction, cbtAttackerResults, cbtDefenderResult);
-            for (int i = 0; i < cbtDefenderResults.length; i++)
-            {
-                cbtAnimationResults.endPosture = cbtDefenderResults[i].endPosture;
-                cbtAnimationResults.id = cbtDefenderResults[i].id;
-                if (cbtDefenderResults[i].result == COMBAT_RESULT_HIT)
-                {
+            for (defender_results cbtDefenderResult1 : cbtDefenderResults) {
+                cbtAnimationResults.endPosture = cbtDefenderResult1.endPosture;
+                cbtAnimationResults.id = cbtDefenderResult1.id;
+                if (cbtDefenderResult1.result == COMBAT_RESULT_HIT) {
                     doCombatResults("get_hit_light", cbtAnimationResults, null);
                 }
             }
@@ -3581,13 +3526,13 @@ public class combat_base extends script.base_script
         {
             prose_package pp = new prose_package();
             prose.setStringId(pp, new string_id("combat_effects", "supply_drop_comm"));
-            commPlayers(self, "object/mobile/npe/npe_hutt_minion.iff", "sound/sys_comm_other.snd", 5f, self, pp);
+            commPlayers(self, "object/mobile/npe/npe_hutt_minion.iff", "sound/sys_comm_other.snd", 5.0f, self, pp);
         }
         else 
         {
             prose_package pp = new prose_package();
             prose.setStringId(pp, new string_id("spam", "officer_reinforcement_com"));
-            commPlayers(self, "object/mobile/npe/npe_hutt_minion.iff", "sound/sys_comm_other.snd", 5f, self, pp);
+            commPlayers(self, "object/mobile/npe/npe_hutt_minion.iff", "sound/sys_comm_other.snd", 5.0f, self, pp);
         }
         return true;
     }
@@ -3728,9 +3673,8 @@ public class combat_base extends script.base_script
         int modifiedHealth = currentHealth - healthCost;
         attrib_mod[] healthMods = getHealthModifiers(target);
         int healthModsValue = 0;
-        for (int i = 0; i < healthMods.length; i++)
-        {
-            healthModsValue += healthMods[i].getValue();
+        for (attrib_mod healthMod : healthMods) {
+            healthModsValue += healthMod.getValue();
         }
         if (healthModsValue < 0)
         {
@@ -3772,34 +3716,28 @@ public class combat_base extends script.base_script
         String evasionScriptVarName = "me_evasion." + medic;
         if (thoseWhoHateMe.length != 0 && thoseWhoHateMe != null)
         {
-            for (int i = 0; i < thoseWhoHateMe.length; i++)
-            {
-                int haterLevel = getLevel(thoseWhoHateMe[i]);
+            for (obj_id obj_id : thoseWhoHateMe) {
+                int haterLevel = getLevel(obj_id);
                 int levelSpread = medicLevel - haterLevel;
                 int baseChance = 93;
-                int difficultyClass = getIntObjVar(thoseWhoHateMe[i], "difficultyClass");
-                if (difficultyClass > 1)
-                {
+                int difficultyClass = getIntObjVar(obj_id, "difficultyClass");
+                if (difficultyClass > 1) {
                     baseChance = -45;
                 }
-                if (levelSpread < -24)
-                {
+                if (levelSpread < -24) {
                     levelSpread = -24;
                 }
                 int roll = rand(1, 100);
-                if (roll + baseChance + (levelSpread * 3) > 100)
-                {
-                    removeHateTarget(medic, thoseWhoHateMe[i]);
-                    removeHateTarget(thoseWhoHateMe[i], medic);
-                    utils.setScriptVar(thoseWhoHateMe[i], evasionScriptVarName, 1);
-                }
-                else 
-                {
-                    float hate = getHate(medic, thoseWhoHateMe[i]);
+                if (roll + baseChance + (levelSpread * 3) > 100) {
+                    removeHateTarget(medic, obj_id);
+                    removeHateTarget(obj_id, medic);
+                    utils.setScriptVar(obj_id, evasionScriptVarName, 1);
+                } else {
+                    float hate = getHate(medic, obj_id);
                     float oldHate = hate;
                     hate /= 2;
-                    setHate(medic, thoseWhoHateMe[i], hate);
-                    utils.removeScriptVar(thoseWhoHateMe[i], evasionScriptVarName);
+                    setHate(medic, obj_id, hate);
+                    utils.removeScriptVar(obj_id, evasionScriptVarName);
                 }
             }
         }
@@ -3809,13 +3747,13 @@ public class combat_base extends script.base_script
     {
         if (stealth.hasInvisibleBuff(self) || buff.hasBuff(self, "sp_smoke_mirrors"))
         {
-            float expertise_defense_overpower = (float)getEnhancedSkillStatisticModifierUncapped(self, "expertise_avoidance_overpower");
+            float expertise_defense_overpower = getEnhancedSkillStatisticModifierUncapped(self, "expertise_avoidance_overpower");
             actionData.reduceParry += expertise_defense_overpower;
             actionData.reduceDodge += expertise_defense_overpower;
             actionData.reduceBlock += expertise_defense_overpower;
             actionData.reduceGlancing += expertise_defense_overpower;
         }
-        float armorBypass = (float)getEnhancedSkillStatisticModifierUncapped(self, "expertise_armor_bypass_" + actionData.specialLine);
+        float armorBypass = getEnhancedSkillStatisticModifierUncapped(self, "expertise_armor_bypass_" + actionData.specialLine);
         if (armorBypass > 0.0f)
         {
             armorBypass = armorBypass / 100.0f;
@@ -3824,13 +3762,13 @@ public class combat_base extends script.base_script
             actionData.increaseStrikethrough = -1000.0f;
             actionData.bypassArmor = armorBypass;
         }
-        float damToHeal = (float)getEnhancedSkillStatisticModifierUncapped(self, "expertise_damage_to_healing_" + actionData.specialLine);
+        float damToHeal = getEnhancedSkillStatisticModifierUncapped(self, "expertise_damage_to_healing_" + actionData.specialLine);
         if (damToHeal > 0.0f && actionData.convertDamageToHealth > 0.0f)
         {
             damToHeal = damToHeal / 100.0f;
             actionData.convertDamageToHealth += damToHeal;
         }
-        float flawlessBead = (float)getEnhancedSkillStatisticModifierUncapped(self, "flawless_bead");
+        float flawlessBead = getEnhancedSkillStatisticModifierUncapped(self, "flawless_bead");
         if (flawlessBead > 0 && actionData.commandType != combat.LEFT_CLICK_DEFAULT)
         {
             actionData.reduceParry += flawlessBead;
@@ -3876,37 +3814,35 @@ public class combat_base extends script.base_script
         int hit = 0;
         int evade = 0;
         int strikethrough = 0;
-        for (int i = 0; i < defTable.length; i++)
-        {
-            switch (defTable[i])
-            {
+        for (int i2 : defTable) {
+            switch (i2) {
                 case HIT_RESULT_MISS:
-                miss++;
-                break;
+                    miss++;
+                    break;
                 case HIT_RESULT_DODGE:
-                dodge++;
-                break;
+                    dodge++;
+                    break;
                 case HIT_RESULT_PARRY:
-                parry++;
-                break;
+                    parry++;
+                    break;
                 case HIT_RESULT_GLANCING:
-                glancing++;
-                break;
+                    glancing++;
+                    break;
                 case HIT_RESULT_BLOCK:
-                block++;
-                break;
+                    block++;
+                    break;
                 case HIT_RESULT_CRITICAL:
-                critical++;
-                break;
+                    critical++;
+                    break;
                 case HIT_RESULT_PUNISHING:
-                punishing++;
-                break;
+                    punishing++;
+                    break;
                 case HIT_RESULT_EVADE:
-                evade++;
-                break;
+                    evade++;
+                    break;
                 case HIT_RESULT_STRIKETHROUGH:
-                strikethrough++;
-                break;
+                    strikethrough++;
+                    break;
             }
         }
         for (int i = 0; i < atkTable.length; i++)
@@ -3965,37 +3901,35 @@ public class combat_base extends script.base_script
             defResult[i] = defTable[rand(0, defTable.length - 1)];
             atkResult[i] = atkTable[rand(0, atkTable.length - 1)];
         }
-        for (int i = 0; i < defResult.length; i++)
-        {
-            switch (defResult[i])
-            {
+        for (int i1 : defResult) {
+            switch (i1) {
                 case HIT_RESULT_MISS:
-                test_miss++;
-                break;
+                    test_miss++;
+                    break;
                 case HIT_RESULT_DODGE:
-                test_dodge++;
-                break;
+                    test_dodge++;
+                    break;
                 case HIT_RESULT_PARRY:
-                test_parry++;
-                break;
+                    test_parry++;
+                    break;
                 case HIT_RESULT_GLANCING:
-                test_glancing++;
-                break;
+                    test_glancing++;
+                    break;
                 case HIT_RESULT_BLOCK:
-                test_block++;
-                break;
+                    test_block++;
+                    break;
                 case HIT_RESULT_CRITICAL:
-                test_critical++;
-                break;
+                    test_critical++;
+                    break;
                 case HIT_RESULT_PUNISHING:
-                test_punishing++;
-                break;
+                    test_punishing++;
+                    break;
                 case HIT_RESULT_EVADE:
-                test_evade++;
-                break;
+                    test_evade++;
+                    break;
                 case HIT_RESULT_STRIKETHROUGH:
-                test_strikethrough++;
-                break;
+                    test_strikethrough++;
+                    break;
             }
         }
         for (int i = 0; i < atkResult.length; i++)
@@ -4048,27 +3982,27 @@ public class combat_base extends script.base_script
         test_hit = 1000 - simTotal > -1 ? 1000 - simTotal : 0;
         String resultString = "Defender and Attacker Hit Table Values \n ";
         resultString += "Passed hit_table Values \n ";
-        resultString += "Defender Dodge: " + (float)dodge / 10.0f + " \n ";
-        resultString += "Defender Parry: " + (float)parry / 10.0f + " \n ";
-        resultString += "Defender Evade: " + (float)evade / 10.0f + " \n ";
-        resultString += "Defender Block: " + (float)block / 10.0f + " \n ";
-        resultString += "Defender Glance: " + (float)glancing / 10.0f + " \n\n ";
-        resultString += "Attacker Miss: " + (float)miss / 10.0f + " \n ";
-        resultString += "Attacker Strikethrough: " + (float)strikethrough / 10.0f + " \n ";
-        resultString += "Attacker Critical: " + (float)critical / 10.0f + " \n ";
-        resultString += "Attacker Punishing: " + (float)punishing / 10.0f + " \n ";
-        resultString += "Attacker Hit: " + (float)hit / 10.0f + " \n\n\n";
+        resultString += "Defender Dodge: " + dodge / 10.0f + " \n ";
+        resultString += "Defender Parry: " + parry / 10.0f + " \n ";
+        resultString += "Defender Evade: " + evade / 10.0f + " \n ";
+        resultString += "Defender Block: " + block / 10.0f + " \n ";
+        resultString += "Defender Glance: " + glancing / 10.0f + " \n\n ";
+        resultString += "Attacker Miss: " + miss / 10.0f + " \n ";
+        resultString += "Attacker Strikethrough: " + strikethrough / 10.0f + " \n ";
+        resultString += "Attacker Critical: " + critical / 10.0f + " \n ";
+        resultString += "Attacker Punishing: " + punishing / 10.0f + " \n ";
+        resultString += "Attacker Hit: " + hit / 10.0f + " \n\n\n";
         resultString += "Simulated hit_table rolls (" + hitNumber + ") itterations \n ";
-        resultString += "Defender Dodge: " + (float)test_dodge / 10.0f + " \n ";
-        resultString += "Defender Parry: " + (float)test_parry / 10.0f + " \n ";
-        resultString += "Defender Evade: " + (float)test_evade / 10.0f + " \n ";
-        resultString += "Defender Block: " + (float)test_block / 10.0f + " \n ";
-        resultString += "Defender Glance: " + (float)test_glancing / 10.0f + " \n\n ";
-        resultString += "Attacker Miss: " + (float)test_miss / 10.0f + " \n ";
-        resultString += "Attacker Strikethrough: " + (float)test_strikethrough / 10.0f + " \n ";
-        resultString += "Attacker Critical: " + (float)test_critical / 10.0f + " \n ";
-        resultString += "Attacker Punishing: " + (float)test_punishing / 10.0f + " \n ";
-        resultString += "Attacker Hit: " + (float)test_hit / 10.0f + " \n ";
+        resultString += "Defender Dodge: " + test_dodge / 10.0f + " \n ";
+        resultString += "Defender Parry: " + test_parry / 10.0f + " \n ";
+        resultString += "Defender Evade: " + test_evade / 10.0f + " \n ";
+        resultString += "Defender Block: " + test_block / 10.0f + " \n ";
+        resultString += "Defender Glance: " + test_glancing / 10.0f + " \n\n ";
+        resultString += "Attacker Miss: " + test_miss / 10.0f + " \n ";
+        resultString += "Attacker Strikethrough: " + test_strikethrough / 10.0f + " \n ";
+        resultString += "Attacker Critical: " + test_critical / 10.0f + " \n ";
+        resultString += "Attacker Punishing: " + test_punishing / 10.0f + " \n ";
+        resultString += "Attacker Hit: " + test_hit / 10.0f + " \n ";
         setSUIProperty(pid, sui.MSGBOX_PROMPT, sui.PROP_TEXT, resultString);
         showSUIPage(pid);
         flushSUIPage(pid);
@@ -4086,11 +4020,9 @@ public class combat_base extends script.base_script
         {
             return actionData;
         }
-        for (int i = 0; i < allBuffs.length; i++)
-        {
-            String buffName = buff.getBuffNameFromCrc(allBuffs[i]);
-            if (buffName.length() != 0 && !buffName.equals("") && buffName.startsWith("attack_override_" + actionData.actionName))
-            {
+        for (int allBuff : allBuffs) {
+            String buffName = buff.getBuffNameFromCrc(allBuff);
+            if (buffName.length() != 0 && !buffName.equals("") && buffName.startsWith("attack_override_" + actionData.actionName)) {
                 String[] parse = split(buffName, '|');
                 String newAttack = parse[1];
                 return combat_engine.getCombatData(newAttack);

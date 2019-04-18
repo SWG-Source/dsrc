@@ -103,11 +103,9 @@ public class rryatt_trail_guide extends script.base_script
             "ai.creature_combat",
             "systems.combat.combat_actions"
         };
-        for (int i = 0; i < aiScripts.length; i++)
-        {
-            if (hasScript(self, aiScripts[i]))
-            {
-                detachScript(self, aiScripts[i]);
+        for (String aiScript : aiScripts) {
+            if (hasScript(self, aiScript)) {
+                detachScript(self, aiScript);
             }
         }
         return SCRIPT_CONTINUE;

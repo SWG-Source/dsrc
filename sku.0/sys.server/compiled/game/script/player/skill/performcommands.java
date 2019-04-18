@@ -83,27 +83,20 @@ public class performcommands extends script.base_script
             performance.startDance(self, params, true);
             return SCRIPT_CONTINUE;
         }
-        for (int i = 0, j = members.length; i < j; i++)
-        {
-            if (!isIdValid(members[i]) || !exists(members[i]) || hasObjVar(members[i], performance.VAR_PERFORM_NO_GROUP_DANCE))
-            {
+        for (obj_id member : members) {
+            if (!isIdValid(member) || !exists(member) || hasObjVar(member, performance.VAR_PERFORM_NO_GROUP_DANCE)) {
                 continue;
             }
-            if (self == members[i])
-            {
-                if (params != null && params.length() > 0)
-                {
+            if (self == member) {
+                if (params != null && params.length() > 0) {
                     performance.performanceMessageToSelf(self, self, new string_id("performance", "start_dance"));
                 }
                 performance.startDance(self, params, true);
-            }
-            else 
-            {
-                if (params != null && params.length() > 0)
-                {
-                    performance.performanceMessageToSelf(members[i], self, new string_id("performance", "start_dance"));
+            } else {
+                if (params != null && params.length() > 0) {
+                    performance.performanceMessageToSelf(member, self, new string_id("performance", "start_dance"));
                 }
-                performance.startDance(members[i], params, false);
+                performance.startDance(member, params, false);
             }
         }
         return SCRIPT_CONTINUE;
@@ -116,14 +109,12 @@ public class performcommands extends script.base_script
             performance.stopDance(self);
             return SCRIPT_CONTINUE;
         }
-        for (int i = 0, j = members.length; i < j; i++)
-        {
-            if (!isIdValid(members[i]) || !exists(members[i]) || hasObjVar(members[i], performance.VAR_PERFORM_NO_GROUP_DANCE))
-            {
+        for (obj_id member : members) {
+            if (!isIdValid(member) || !exists(member) || hasObjVar(member, performance.VAR_PERFORM_NO_GROUP_DANCE)) {
                 continue;
             }
-            performance.performanceMessageToSelf(members[i], self, new string_id("performance", "stop_dance"));
-            performance.stopDance(members[i]);
+            performance.performanceMessageToSelf(member, self, new string_id("performance", "stop_dance"));
+            performance.stopDance(member);
         }
         return SCRIPT_CONTINUE;
     }
@@ -135,27 +126,20 @@ public class performcommands extends script.base_script
             performance.changeDance(self, params, true);
             return SCRIPT_CONTINUE;
         }
-        for (int i = 0, j = members.length; i < j; i++)
-        {
-            if (!isIdValid(members[i]) || !exists(members[i]) || hasObjVar(members[i], performance.VAR_PERFORM_NO_GROUP_DANCE))
-            {
+        for (obj_id member : members) {
+            if (!isIdValid(member) || !exists(member) || hasObjVar(member, performance.VAR_PERFORM_NO_GROUP_DANCE)) {
                 continue;
             }
-            if (self == members[i])
-            {
-                if (params != null && params.length() > 0)
-                {
+            if (self == member) {
+                if (params != null && params.length() > 0) {
                     performance.performanceMessageToSelf(self, self, new string_id("performance", "change_dance"));
                 }
                 performance.changeDance(self, params, true);
-            }
-            else 
-            {
-                if (params != null && params.length() > 0)
-                {
-                    performance.performanceMessageToSelf(members[i], self, new string_id("performance", "change_dance"));
+            } else {
+                if (params != null && params.length() > 0) {
+                    performance.performanceMessageToSelf(member, self, new string_id("performance", "change_dance"));
                 }
-                performance.changeDance(members[i], params, false);
+                performance.changeDance(member, params, false);
             }
         }
         return SCRIPT_CONTINUE;
@@ -168,13 +152,11 @@ public class performcommands extends script.base_script
             performance.specialFlourish(self, performance.SPECIAL_FLOURISH_PAUSE_MUSIC);
             return SCRIPT_CONTINUE;
         }
-        for (int i = 0, j = members.length; i < j; i++)
-        {
-            if (!isIdValid(members[i]) || !exists(members[i]) || hasObjVar(members[i], performance.VAR_PERFORM_NO_GROUP_DANCE))
-            {
+        for (obj_id member : members) {
+            if (!isIdValid(member) || !exists(member) || hasObjVar(member, performance.VAR_PERFORM_NO_GROUP_DANCE)) {
                 continue;
             }
-            performance.specialFlourish(members[i], performance.SPECIAL_FLOURISH_PAUSE_MUSIC);
+            performance.specialFlourish(member, performance.SPECIAL_FLOURISH_PAUSE_MUSIC);
         }
         return SCRIPT_CONTINUE;
     }
@@ -284,9 +266,8 @@ public class performcommands extends script.base_script
             {
                 return SCRIPT_CONTINUE;
             }
-            for (int i = 0; i < members.length; ++i)
-            {
-                performance.specialFlourish(members[i], performance.SPECIAL_FLOURISH_PAUSE_MUSIC);
+            for (obj_id member : members) {
+                performance.specialFlourish(member, performance.SPECIAL_FLOURISH_PAUSE_MUSIC);
             }
             return SCRIPT_CONTINUE;
         }
@@ -307,29 +288,22 @@ public class performcommands extends script.base_script
         {
             return SCRIPT_CONTINUE;
         }
-        for (int i = 0; i < members.length; ++i)
-        {
-            if (instrument != null)
-            {
-                int instrumentNumMember = getInstrumentAudioId(members[i]);
-                int instrumentNumSupplied = performance.lookupInstrumentNumber(members[i], instrument);
+        for (obj_id member : members) {
+            if (instrument != null) {
+                int instrumentNumMember = getInstrumentAudioId(member);
+                int instrumentNumSupplied = performance.lookupInstrumentNumber(member, instrument);
                 boolean hasRightInstrument = true;
-                if (instrumentNumMember == instrumentNumSupplied)
-                {
+                if (instrumentNumMember == instrumentNumSupplied) {
                     hasRightInstrument = false;
-                }
-                else 
-                {
+                } else {
                     String instrumentWithHue = instrument + "_hue";
-                    instrumentNumSupplied = performance.lookupInstrumentNumber(members[i], instrumentWithHue);
-                    if ((instrumentNumMember == instrumentNumSupplied))
-                    {
+                    instrumentNumSupplied = performance.lookupInstrumentNumber(member, instrumentWithHue);
+                    if ((instrumentNumMember == instrumentNumSupplied)) {
                         hasRightInstrument = false;
                     }
                 }
-                if (hasRightInstrument)
-                {
-                    performance.specialFlourish(members[i], performance.SPECIAL_FLOURISH_PAUSE_MUSIC);
+                if (hasRightInstrument) {
+                    performance.specialFlourish(member, performance.SPECIAL_FLOURISH_PAUSE_MUSIC);
                 }
             }
         }

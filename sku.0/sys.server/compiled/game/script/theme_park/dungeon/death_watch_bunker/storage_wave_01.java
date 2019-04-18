@@ -16,8 +16,8 @@ public class storage_wave_01 extends script.base_script
     public static final string_id CALL_BACK_UP = new string_id("dungeon/death_watch", "call_back_up");
     public int OnAttach(obj_id self) throws InterruptedException
     {
-        messageTo(self, "handleAttackerCleanUp", null, 300f, false);
-        messageTo(self, "handleInvestigate", null, 5f, false);
+        messageTo(self, "handleAttackerCleanUp", null, 300.0f, false);
+        messageTo(self, "handleInvestigate", null, 5.0f, false);
         return SCRIPT_CONTINUE;
     }
     public int OnCreatureDamaged(obj_id self, obj_id attacker, obj_id wpn, int[] damage) throws InterruptedException
@@ -28,7 +28,7 @@ public class storage_wave_01 extends script.base_script
             obj_id storageTerminal = getObjIdObjVar(structure, "death_watch.storageTerminal");
             chat.chat(self, CALL_BACK_UP);
             setObjVar(self, "death_watch.call_backup", 1);
-            messageTo(storageTerminal, "handleCallSupport1", null, 30f, false);
+            messageTo(storageTerminal, "handleCallSupport1", null, 30.0f, false);
         }
         return SCRIPT_CONTINUE;
     }
@@ -36,7 +36,7 @@ public class storage_wave_01 extends script.base_script
     {
         if (ai_lib.isInCombat(self))
         {
-            messageTo(self, "handleAttackerCleanUp", null, 300f, false);
+            messageTo(self, "handleAttackerCleanUp", null, 300.0f, false);
             return SCRIPT_CONTINUE;
         }
         destroyObject(self);

@@ -72,10 +72,8 @@ public class respecseller extends script.base_script
         String[] skillList = getSkillListingForPlayer(player);
         if (skillList != null)
         {
-            for (int i = 0; i < skillList.length; ++i)
-            {
-                if (skillList[i].startsWith("expertise_"))
-                {
+            for (String s : skillList) {
+                if (s.startsWith("expertise_")) {
                     return true;
                 }
             }

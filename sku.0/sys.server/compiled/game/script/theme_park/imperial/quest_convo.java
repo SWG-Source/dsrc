@@ -517,7 +517,7 @@ public class quest_convo extends script.base_script
         int factionReward = dataTableGetInt(datatable, questNum, "faction_reward_amount");
         if (factionReward > 0)
         {
-            factions.addFactionStanding(player, factions.FACTION_IMPERIAL, (float)factionReward);
+            factions.addFactionStanding(player, factions.FACTION_IMPERIAL, factionReward);
         }
         int credits = dataTableGetInt(datatable, questNum, "credits");
         if (credits != 0)
@@ -583,24 +583,19 @@ public class quest_convo extends script.base_script
         {
             return;
         }
-        for (int i = 0; i < questIDs.length; ++i)
-        {
-            if (hasObjVar(player, questIDs[i] + ".waypoint"))
-            {
-                obj_id waypoint = getObjIdObjVar(player, questIDs[i] + ".waypoint");
-                if (waypoint != null)
-                {
+        for (String questID : questIDs) {
+            if (hasObjVar(player, questID + ".waypoint")) {
+                obj_id waypoint = getObjIdObjVar(player, questID + ".waypoint");
+                if (waypoint != null) {
                     destroyWaypointInDatapad(waypoint, player);
                 }
             }
-            if (hasObjVar(player, questIDs[i] + ".escort"))
-            {
-                obj_id vip = getObjIdObjVar(player, questIDs[i] + ".escort");
+            if (hasObjVar(player, questID + ".escort")) {
+                obj_id vip = getObjIdObjVar(player, questID + ".escort");
                 messageTo(vip, "stopFollowing", null, 2, true);
             }
-            if (hasObjVar(player, questIDs[i]))
-            {
-                removeObjVar(player, questIDs[i]);
+            if (hasObjVar(player, questID)) {
+                removeObjVar(player, questID);
             }
         }
         String[] questScripts = dataTableGetStringColumnNoDefaults(datatable, "quest_scripts");
@@ -608,11 +603,9 @@ public class quest_convo extends script.base_script
         {
             return;
         }
-        for (int x = 0; x < questScripts.length; ++x)
-        {
-            if (hasScript(player, questScripts[x]))
-            {
-                detachScript(player, questScripts[x]);
+        for (String questScript : questScripts) {
+            if (hasScript(player, questScript)) {
+                detachScript(player, questScript);
             }
         }
         removeObjVar(player, "quest_table");
@@ -668,12 +661,10 @@ public class quest_convo extends script.base_script
         String giveMe = dataTableGetString(datatable, questNum, "retrieve_object");
         boolean hadIt = false;
         obj_id[] contents = getContents(inv);
-        for (int i = 0; i < contents.length; i++)
-        {
-            String itemInInventory = getTemplateName(contents[i]);
-            if (itemInInventory.equals(giveMe))
-            {
-                destroyObject(contents[i]);
+        for (obj_id content : contents) {
+            String itemInInventory = getTemplateName(content);
+            if (itemInInventory.equals(giveMe)) {
+                destroyObject(content);
                 hadIt = true;
             }
         }

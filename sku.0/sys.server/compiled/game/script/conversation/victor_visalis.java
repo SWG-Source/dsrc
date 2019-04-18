@@ -500,30 +500,22 @@ public class victor_visalis extends script.base_script
                 obj_id[] objContents = utils.getContents(objInventory);
                 if (objContents != null)
                 {
-                    for (int intI = 0; intI < objContents.length; intI++)
-                    {
-                        if (isIdValid(objContents[intI]))
-                        {
-                            String strItemTemplate = getTemplateName(objContents[intI]);
-                            if (strItemTemplate.equals("object/tangible/loot/quest/tusken_head.iff"))
-                            {
-                                destroyObject(objContents[intI]);
+                    for (obj_id objContent : objContents) {
+                        if (isIdValid(objContent)) {
+                            String strItemTemplate = getTemplateName(objContent);
+                            if (strItemTemplate.equals("object/tangible/loot/quest/tusken_head.iff")) {
+                                destroyObject(objContent);
                                 obj_id item = weapons.createWeapon(REWARD, objInventory, rand(0.8f, 1.1f));
-                                if (hasObjVar(player, "bestine.tuskenquest"))
-                                {
+                                if (hasObjVar(player, "bestine.tuskenquest")) {
                                     removeObjVar(player, "bestine.tuskenquest");
                                 }
-                                if (hasObjVar(player, "bestine.tuskenquestdone"))
-                                {
+                                if (hasObjVar(player, "bestine.tuskenquestdone")) {
                                     removeObjVar(player, "bestine.tuskenquestdone");
                                 }
                                 int currentQuestNum = 0;
-                                if (hasObjVar(npc, "bestine.electionStarted"))
-                                {
+                                if (hasObjVar(npc, "bestine.electionStarted")) {
                                     currentQuestNum = getIntObjVar(npc, "bestine.electionStarted") - 1;
-                                }
-                                else if (hasObjVar(npc, "bestine.electionEnded"))
-                                {
+                                } else if (hasObjVar(npc, "bestine.electionEnded")) {
                                     currentQuestNum = getIntObjVar(npc, "bestine.electionEnded");
                                 }
                                 setObjVar(player, "bestine.tuskengotreward", currentQuestNum);
@@ -544,22 +536,18 @@ public class victor_visalis extends script.base_script
             obj_id[] objContents = utils.getContents(objInventory);
             if (objContents != null)
             {
-                for (int intI = 0; intI < objContents.length; intI++)
-                {
-                    String strItemTemplate = getTemplateName(objContents[intI]);
-                    if (strItemTemplate.equals("object/tangible/loot/quest/sean_questn_gpapers.iff"))
-                    {
-                        destroyObject(objContents[intI]);
+                for (obj_id objContent : objContents) {
+                    String strItemTemplate = getTemplateName(objContent);
+                    if (strItemTemplate.equals("object/tangible/loot/quest/sean_questn_gpapers.iff")) {
+                        destroyObject(objContent);
                         return;
                     }
-                    if (strItemTemplate.equals("object/tangible/loot/quest/sean_questn_tdisk.iff"))
-                    {
-                        destroyObject(objContents[intI]);
+                    if (strItemTemplate.equals("object/tangible/loot/quest/sean_questn_tdisk.iff")) {
+                        destroyObject(objContent);
                         return;
                     }
-                    if (strItemTemplate.equals("object/tangible/loot/quest/sean_questn_alog.iff"))
-                    {
-                        destroyObject(objContents[intI]);
+                    if (strItemTemplate.equals("object/tangible/loot/quest/sean_questn_alog.iff")) {
+                        destroyObject(objContent);
                         return;
                     }
                 }

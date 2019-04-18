@@ -91,17 +91,13 @@ public class uber_lair_interior extends script.base_script
     {
         boolean boolDestroy = true;
         obj_id[] objStuff = player_structure.getObjectsInBuilding(self);
-        for (int intI = 0; intI < objStuff.length; intI++)
-        {
-            if (isPlayer(objStuff[intI]))
-            {
+        for (obj_id obj_id : objStuff) {
+            if (isPlayer(obj_id)) {
                 boolDestroy = false;
-                expelFromBuilding(objStuff[intI]);
-            }
-            else if ((getGameObjectType(objStuff[intI]) == GOT_corpse))
-            {
+                expelFromBuilding(obj_id);
+            } else if ((getGameObjectType(obj_id) == GOT_corpse)) {
                 boolDestroy = false;
-                expelFromBuilding(objStuff[intI]);
+                expelFromBuilding(obj_id);
             }
         }
         if (boolDestroy)

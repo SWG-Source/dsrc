@@ -199,9 +199,8 @@ public class empire_day_interior_npc_spawner extends script.base_script
         if (scriptList != null && !scriptList.equals(""))
         {
             String[] scriptArray = split(scriptList, ',');
-            for (int i = 0; i < scriptArray.length; i++)
-            {
-                attachScript(spawnedCreature, scriptArray[i]);
+            for (String s : scriptArray) {
+                attachScript(spawnedCreature, s);
             }
         }
         if (dataTableHasColumn(datatable, "yaw"))
@@ -280,32 +279,29 @@ public class empire_day_interior_npc_spawner extends script.base_script
             return;
         }
         String[] pairs = split(objVarList, ',');
-        for (int i = 0; i < pairs.length; i++)
-        {
-            String[] objVarToSet = split(pairs[i], '=');
+        for (String pair : pairs) {
+            String[] objVarToSet = split(pair, '=');
             String objVarValue = objVarToSet[1];
             String[] objVarNameAndType = split(objVarToSet[0], ':');
             String objVarType = objVarNameAndType[0];
             String objVarName = objVarNameAndType[1];
-            if (objVarType.equals("string"))
-            {
-                setObjVar(creature, objVarName, objVarValue);
-            }
-            else if (objVarType.equals("int"))
-            {
-                setObjVar(creature, objVarName, utils.stringToInt(objVarValue));
-            }
-            else if (objVarType.equals("float"))
-            {
-                setObjVar(creature, objVarName, utils.stringToFloat(objVarValue));
-            }
-            else if (objVarType.equals("boolean") || objVarType.equals("bool"))
-            {
-                setObjVar(creature, objVarName, utils.stringToInt(objVarValue));
-            }
-            else 
-            {
-                setObjVar(creature, objVarName, objVarValue);
+            switch (objVarType) {
+                case "string":
+                    setObjVar(creature, objVarName, objVarValue);
+                    break;
+                case "int":
+                    setObjVar(creature, objVarName, utils.stringToInt(objVarValue));
+                    break;
+                case "float":
+                    setObjVar(creature, objVarName, utils.stringToFloat(objVarValue));
+                    break;
+                case "boolean":
+                case "bool":
+                    setObjVar(creature, objVarName, utils.stringToInt(objVarValue));
+                    break;
+                default:
+                    setObjVar(creature, objVarName, objVarValue);
+                    break;
             }
         }
     }

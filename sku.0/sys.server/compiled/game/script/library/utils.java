@@ -82,10 +82,10 @@ public class utils extends script.base_script
     }
     public static location getRandomAwayLocation(location pos, float fMinRadius, float fMaxRadius) throws InterruptedException
     {
-        float fTheta = rand() * (2f * (float)Math.PI);
+        float fTheta = rand() * (2.0f * (float)Math.PI);
         float fRadius = Math.min(fMinRadius, fMaxRadius) + rand() * Math.abs(fMaxRadius - fMinRadius);
-        pos.x += fRadius * Math.cos(fTheta);
-        pos.z += fRadius * Math.sin(fTheta);
+        pos.x += fRadius * StrictMath.cos(fTheta);
+        pos.z += fRadius * StrictMath.sin(fTheta);
         return pos;
     }
     public static float getDistance2D(location locTarget1, location locTarget2) throws InterruptedException
@@ -95,9 +95,9 @@ public class utils extends script.base_script
             return -1.00f;
         }
         location loc1 = (location)locTarget1.clone();
-        loc1.y = 0f;
+        loc1.y = 0.0f;
         location loc2 = (location)locTarget2.clone();
-        loc2.y = 0f;
+        loc2.y = 0.0f;
         return getDistance(loc1, loc2);
     }
     public static float getDistance2D(obj_id hereTarget, obj_id thereTarget) throws InterruptedException
@@ -699,7 +699,7 @@ public class utils extends script.base_script
         Long lngId;
         try
         {
-            lngId = new Long(text);
+            lngId = Long.valueOf(text);
         }
         catch(NumberFormatException err)
         {
@@ -876,11 +876,11 @@ public class utils extends script.base_script
     }
     public static Vector addElement(Vector array, int element) throws InterruptedException
     {
-        return addElement(array, new Integer(element));
+        return addElement(array, Integer.valueOf(element));
     }
     public static Vector addElement(Vector array, float element) throws InterruptedException
     {
-        return addElement(array, new Float(element));
+        return addElement(array, Float.valueOf(element));
     }
     public static obj_id[] toStaticObjIdArray(Vector vector) throws InterruptedException
     {
@@ -1961,8 +1961,8 @@ public class utils extends script.base_script
         float dx = locPoint.x - locOrigin.x;
         float dz = locPoint.z - locOrigin.z;
         float fltRadians = (float)Math.toRadians(fltAngle);
-        float fltC = (float)Math.cos(fltRadians);
-        float fltS = (float)Math.sin(fltRadians);
+        float fltC = (float) StrictMath.cos(fltRadians);
+        float fltS = (float) StrictMath.sin(fltRadians);
         location locNewOffset = (location)locOrigin.clone();
         locNewOffset.x += (dx * fltS) - (dz * fltC);
         locNewOffset.y = locPoint.y;
@@ -1972,8 +1972,8 @@ public class utils extends script.base_script
     public static location rotatePointXZ(location locPoint, float fltAngle) throws InterruptedException
     {
         float fltRadians = (float)Math.toRadians(fltAngle);
-        float fltC = (float)Math.cos(fltRadians);
-        float fltS = (float)Math.sin(fltRadians);
+        float fltC = (float) StrictMath.cos(fltRadians);
+        float fltS = (float) StrictMath.sin(fltRadians);
         location locNewPoint = (location)locPoint.clone();
         locNewPoint.x += (locPoint.x * fltC) - (locPoint.z * fltS);
         locNewPoint.z += (locPoint.x * fltS) + (locPoint.z * fltC);
@@ -1983,11 +1983,11 @@ public class utils extends script.base_script
     {
         if (here == null || there == null)
         {
-            return -1f;
+            return -1.0f;
         }
         float dx = there.x - here.x;
         float dz = there.z - here.z;
-        double radHeading = Math.atan2(-dx, dz);
+        double radHeading = StrictMath.atan2(-dx, dz);
         double degreeHeading = Math.toDegrees(radHeading);
         return (float)(degreeHeading);
     }
@@ -3604,7 +3604,7 @@ public class utils extends script.base_script
     }
     public static float thetaDegrees(location direction) throws InterruptedException
     {
-        return (float)Math.toDegrees(Math.atan2(direction.x, direction.z));
+        return (float)Math.toDegrees(StrictMath.atan2(direction.x, direction.z));
     }
     public static float thetaDegrees(location start, location end) throws InterruptedException
     {
@@ -4807,7 +4807,7 @@ public class utils extends script.base_script
             }
             else
             {
-                float fltRatio = (float)(intNumCreatures / intNumPlayers);
+                float fltRatio = (intNumCreatures / intNumPlayers);
                 if (fltRatio > 10)
                 {
                     return false;
@@ -5000,7 +5000,7 @@ public class utils extends script.base_script
     }
     public static void sendDelayedSystemMessage(obj_id target, string_id sid, float delay) throws InterruptedException
     {
-        if (!isIdValid(target) || (sid == null) || (delay < 0f))
+        if (!isIdValid(target) || (sid == null) || (delay < 0.0f))
         {
             return;
         }
@@ -5010,7 +5010,7 @@ public class utils extends script.base_script
     }
     public static void sendDelayedSystemMessage(obj_id target, String sid, float delay) throws InterruptedException
     {
-        if (!isIdValid(target) || (sid == null) || sid.equals("") || (delay < 0f))
+        if (!isIdValid(target) || (sid == null) || sid.equals("") || (delay < 0.0f))
         {
             return;
         }
@@ -5020,7 +5020,7 @@ public class utils extends script.base_script
     }
     public static void sendDelayedProseMessage(obj_id msgTarget, string_id sid, obj_id actor, String actorString, string_id actorStringId, obj_id target, String targetString, string_id targetStringId, obj_id other, String otherString, string_id otherStringId, int di, float df, float delay) throws InterruptedException
     {
-        if (!isIdValid(msgTarget) || (sid == null) || (delay < 0f))
+        if (!isIdValid(msgTarget) || (sid == null) || (delay < 0.0f))
         {
             return;
         }
@@ -6148,7 +6148,7 @@ public class utils extends script.base_script
             return true;
         }
         float distanceDifference = getDistance(getLocationObjVar(subject, "recordLoc"), getLocation(getTopMostContainer(subject)));
-        if (distanceDifference > distance || distanceDifference == -1f)
+        if (distanceDifference > distance || distanceDifference == -1.0f)
         {
             destroyObject(subject);
             return false;
@@ -6163,7 +6163,7 @@ public class utils extends script.base_script
             return true;
         }
         float distanceDifference = getDistance(getLocationObjVar(subject, "recordLoc"), getLocation(getTopMostContainer(subject)));
-        if (distanceDifference > distance || distanceDifference == -1f)
+        if (distanceDifference > distance || distanceDifference == -1.0f)
         {
             destroyObject(subject);
             return false;
@@ -6227,11 +6227,11 @@ public class utils extends script.base_script
             String attrib = "";
             if (localized)
             {
-                attrib = days + (days != 1 ? " $@spam:days$, " : " $@spam:day$, ") + remainder_hours + (remainder_hours != 1 ? " $@spam:hours$, " : " $@spam:hour$, ") + +remainder_minutes + (remainder_minutes != 1 ? " $@spam:minutes$" : " $@spam:minute$");
+                attrib = days + (days != 1 ? " $@spam:days$, " : " $@spam:day$, ") + remainder_hours + (remainder_hours != 1 ? " $@spam:hours$, " : " $@spam:hour$, ") + remainder_minutes + (remainder_minutes != 1 ? " $@spam:minutes$" : " $@spam:minute$");
             }
             else 
             {
-                attrib = days + (days != 1 ? " days, " : " day, ") + remainder_hours + (remainder_hours != 1 ? " hours, " : " hour, ") + +remainder_minutes + (remainder_minutes != 1 ? " minutes" : " minute");
+                attrib = days + (days != 1 ? " days, " : " day, ") + remainder_hours + (remainder_hours != 1 ? " hours, " : " hour, ") + remainder_minutes + (remainder_minutes != 1 ? " minutes" : " minute");
             }
             return attrib;
         }
@@ -7017,7 +7017,7 @@ public class utils extends script.base_script
             {
                 HashSet abilitiesCurrentNoDupes = new HashSet();
                 for (Object anAbilitiesCurrent : abilitiesCurrent) {
-                    abilitiesCurrentNoDupes.add(new Integer((Integer) anAbilitiesCurrent));
+                    abilitiesCurrentNoDupes.add(Integer.valueOf((Integer) anAbilitiesCurrent));
                 }
                 Integer ability;
                 for (Object abilitiesCurrentNoDupe : abilitiesCurrentNoDupes) {

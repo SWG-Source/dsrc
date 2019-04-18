@@ -58,15 +58,15 @@ public class imperial_research_terminal extends script.base_script
         obj_id viewer = params.getObjId("player");
         obj_id bldg = params.getObjId("bldg");
         location death = getLocation(bldg);
-        playClientEffectLoc(viewer, "clienteffect/combat_explosion_lair_large.cef", death, 10f);
+        playClientEffectLoc(viewer, "clienteffect/combat_explosion_lair_large.cef", death, 10.0f);
         death.x = death.x + 5;
-        playClientEffectLoc(viewer, "clienteffect/combat_explosion_lair_large.cef", death, 10f);
+        playClientEffectLoc(viewer, "clienteffect/combat_explosion_lair_large.cef", death, 10.0f);
         death.z = death.z + 5;
-        playClientEffectLoc(viewer, "clienteffect/combat_explosion_lair_large.cef", death, 10f);
+        playClientEffectLoc(viewer, "clienteffect/combat_explosion_lair_large.cef", death, 10.0f);
         death.x = death.x - 10;
-        playClientEffectLoc(viewer, "clienteffect/combat_explosion_lair_large.cef", death, 10f);
+        playClientEffectLoc(viewer, "clienteffect/combat_explosion_lair_large.cef", death, 10.0f);
         death.z = death.z - 10;
-        playClientEffectLoc(viewer, "clienteffect/combat_explosion_lair_large.cef", death, 10f);
+        playClientEffectLoc(viewer, "clienteffect/combat_explosion_lair_large.cef", death, 10.0f);
         boolean blowUp = destroyObject(bldg);
         setObjVar(self, "coa3.imperial.success", 1);
         messageTo(self, "bldgCheck", params, 1, true);
@@ -77,7 +77,7 @@ public class imperial_research_terminal extends script.base_script
         obj_id viewer = params.getObjId("player");
         obj_id bldg = getTopMostContainer(self);
         location death = getLocation(bldg);
-        playClientEffectLoc(viewer, "clienteffect/combat_explosion_lair_large.cef", death, 10f);
+        playClientEffectLoc(viewer, "clienteffect/combat_explosion_lair_large.cef", death, 10.0f);
         return SCRIPT_CONTINUE;
     }
     public int bldgCheck(obj_id self, dictionary params) throws InterruptedException

@@ -120,14 +120,12 @@ public class grievous_demoer extends script.base_script
         obj_id[] objContents = getContents(objBuilding);
         if (objContents != null)
         {
-            for (int intI = 0; intI < objContents.length; intI++)
-            {
-                String strTemplate = getTemplateName(objContents[intI]);
+            for (obj_id objContent : objContents) {
+                String strTemplate = getTemplateName(objContent);
                 int intIndex = strTemplate.indexOf("cell.iff");
                 LOG("test", "intIndex is " + intIndex);
-                if (intIndex == -1)
-                {
-                    destroyObject(objContents[intI]);
+                if (intIndex == -1) {
+                    destroyObject(objContent);
                 }
             }
         }
@@ -135,15 +133,12 @@ public class grievous_demoer extends script.base_script
     }
     public void detachScriptList(String[] strScriptList, obj_id objObject) throws InterruptedException
     {
-        for (int intJ = 0; intJ < strScriptList.length; intJ++)
-        {
-            String script = strScriptList[intJ];
-            if (script.indexOf("script.") > -1)
-            {
+        for (String s : strScriptList) {
+            String script = s;
+            if (script.contains("script.")) {
                 script = script.substring(7);
             }
-            if (!script.equals(""))
-            {
+            if (!script.equals("")) {
                 detachScript(objObject, script);
             }
         }

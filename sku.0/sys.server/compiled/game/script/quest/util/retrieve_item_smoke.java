@@ -25,7 +25,7 @@ public class retrieve_item_smoke extends script.base_script
                     {
                         return SCRIPT_CONTINUE;
                     }
-                    playClientEffectLoc(player, "clienteffect/lair_med_damage_smoke.cef", getLocation(self), 1f);
+                    playClientEffectLoc(player, "clienteffect/lair_med_damage_smoke.cef", getLocation(self), 1.0f);
                 }
             }
         }

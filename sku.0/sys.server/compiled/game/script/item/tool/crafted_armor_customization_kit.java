@@ -85,47 +85,28 @@ public class crafted_armor_customization_kit extends script.base_script
         blog("invItems.length: " + invItems.length);
         if (invItems != null && invItems.length > 0)
         {
-            for (int i = 0; i < invItems.length; i++)
-            {
-                if ((getTemplateName(invItems[i])).startsWith("object/tangible/wearables/armor/"))
-                {
-                    if ((getTemplateName(invItems[i])).startsWith("object/tangible/wearables/armor/assault_trooper"))
-                    {
+            for (obj_id invItem : invItems) {
+                if ((getTemplateName(invItem)).startsWith("object/tangible/wearables/armor/")) {
+                    if ((getTemplateName(invItem)).startsWith("object/tangible/wearables/armor/assault_trooper")) {
+                        continue;
+                    } else if ((getTemplateName(invItem)).startsWith("object/tangible/wearables/armor/rebel_")) {
+                        continue;
+                    } else if ((getTemplateName(invItem)).startsWith("object/tangible/wearables/armor/scout_")) {
+                        continue;
+                    } else if ((getTemplateName(invItem)).startsWith("object/tangible/wearables/armor/stormtrooper")) {
+                        continue;
+                    } else if ((getTemplateName(invItem)).startsWith("object/tangible/wearables/armor/marine")) {
+                        continue;
+                    } else if ((getTemplateName(invItem)).startsWith("object/tangible/wearables/armor/clone_trooper/armor_clone_trooper_imperial")) {
+                        continue;
+                    } else if ((getTemplateName(invItem)).startsWith("object/tangible/wearables/armor/clone_trooper/armor_clone_trooper_rebel")) {
+                        continue;
+                    } else if ((getTemplateName(invItem)).startsWith("object/tangible/wearables/armor/bounty_hunter/armor_bounty_hunter_crafted_belt")) {
+                        continue;
+                    } else if ((getTemplateName(invItem)).startsWith("object/tangible/wearables/armor/bounty_hunter/armor_bounty_hunter_belt")) {
                         continue;
                     }
-                    else if ((getTemplateName(invItems[i])).startsWith("object/tangible/wearables/armor/rebel_"))
-                    {
-                        continue;
-                    }
-                    else if ((getTemplateName(invItems[i])).startsWith("object/tangible/wearables/armor/scout_"))
-                    {
-                        continue;
-                    }
-                    else if ((getTemplateName(invItems[i])).startsWith("object/tangible/wearables/armor/stormtrooper"))
-                    {
-                        continue;
-                    }
-                    else if ((getTemplateName(invItems[i])).startsWith("object/tangible/wearables/armor/marine"))
-                    {
-                        continue;
-                    }
-                    else if ((getTemplateName(invItems[i])).startsWith("object/tangible/wearables/armor/clone_trooper/armor_clone_trooper_imperial"))
-                    {
-                        continue;
-                    }
-                    else if ((getTemplateName(invItems[i])).startsWith("object/tangible/wearables/armor/clone_trooper/armor_clone_trooper_rebel"))
-                    {
-                        continue;
-                    }
-                    else if ((getTemplateName(invItems[i])).startsWith("object/tangible/wearables/armor/bounty_hunter/armor_bounty_hunter_crafted_belt"))
-                    {
-                        continue;
-                    }
-                    else if ((getTemplateName(invItems[i])).startsWith("object/tangible/wearables/armor/bounty_hunter/armor_bounty_hunter_belt"))
-                    {
-                        continue;
-                    }
-                    items.addElement(invItems[i]);
+                    items.addElement(invItem);
                 }
             }
         }
@@ -144,15 +125,11 @@ public class crafted_armor_customization_kit extends script.base_script
         Vector armorNames = new Vector();
         if (!items.isEmpty())
         {
-            for (int i = 0; i < items.size(); i++)
-            {
-                obj_id piece = (obj_id)items.get(i);
-                if (!isCrafted(piece))
-                {
+            for (Object item : items) {
+                obj_id piece = (obj_id) item;
+                if (!isCrafted(piece)) {
                     continue;
-                }
-                else if (static_item.isStaticItem(piece))
-                {
+                } else if (static_item.isStaticItem(piece)) {
                     continue;
                 }
                 armor.addElement(piece);

@@ -17,12 +17,9 @@ public class hue_test extends script.base_script
         if (item == menu_info_types.SERVER_HUE)
         {
             custom_var[] allVars = getAllCustomVars(self);
-            for (int i = 0; i < allVars.length; i++)
-            {
-                custom_var cv = allVars[i];
-                if (cv.isPalColor())
-                {
-                    ranged_int_custom_var ri = (ranged_int_custom_var)cv;
+            for (custom_var cv : allVars) {
+                if (cv.isPalColor()) {
+                    ranged_int_custom_var ri = (ranged_int_custom_var) cv;
                     int min = ri.getMinRangeInclusive();
                     int max = ri.getMaxRangeInclusive();
                     int randVal = rand(min, max);

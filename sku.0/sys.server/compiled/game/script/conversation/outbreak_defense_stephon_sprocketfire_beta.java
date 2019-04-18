@@ -63,14 +63,11 @@ public class outbreak_defense_stephon_sprocketfire_beta extends script.base_scri
             CustomerServiceLog("outbreak_themepark", "camp_defense.hasAvailableGuardPosts() the npc, " + npc + " has an invalid guardPostList script var.");
             return false;
         }
-        for (int i = 0; i < guardPostList.length; i++)
-        {
-            if (!isValidId(guardPostList[i]) || !exists(guardPostList[i]))
-            {
+        for (obj_id obj_id : guardPostList) {
+            if (!isValidId(obj_id) || !exists(obj_id)) {
                 continue;
             }
-            if (!utils.hasScriptVar(guardPostList[i], "occupied"))
-            {
+            if (!utils.hasScriptVar(obj_id, "occupied")) {
                 return true;
             }
         }
@@ -107,21 +104,15 @@ public class outbreak_defense_stephon_sprocketfire_beta extends script.base_scri
             }
             else 
             {
-                for (int i = 0; i < guardPostList.length; i++)
-                {
-                    if (!isValidId(guardPostList[i]) || !exists(guardPostList[i]))
-                    {
+                for (obj_id obj_id : guardPostList) {
+                    if (!isValidId(obj_id) || !exists(obj_id)) {
                         continue;
                     }
-                    if (!utils.hasScriptVar(guardPostList[i], "occupied"))
-                    {
-                        String questName = getStringObjVar(guardPostList[i], "questObject");
-                        if (questName == null || questName.length() <= 0)
-                        {
+                    if (!utils.hasScriptVar(obj_id, "occupied")) {
+                        String questName = getStringObjVar(obj_id, "questObject");
+                        if (questName == null || questName.length() <= 0) {
                             CustomerServiceLog("outbreak_themepark", "camp_defense.giveQuest() the npc, " + npc + " has an invalid guardPostList script var.");
-                        }
-                        else 
-                        {
+                        } else {
                             CustomerServiceLog("outbreak_themepark", "camp_defense.giveQuest() the npc, " + npc + " is granting the player: " + player + " has an invalid guardPostList script var.");
                             groundquests.grantQuest(player, questName);
                         }
@@ -392,20 +383,17 @@ public class outbreak_defense_stephon_sprocketfire_beta extends script.base_scri
             return SCRIPT_CONTINUE;
         }
         Vector guardPostsFound = null;
-        for (int i = 0; i < guardPostList.length; i++)
-        {
-            String spawnerQuestNameMatch = getStringObjVar(guardPostList[i], "questObject");
-            if (spawnerQuestNameMatch == null || spawnerQuestNameMatch.length() <= 0)
-            {
-                CustomerServiceLog("outbreak_themepark", "camp_defense.findGuardPosts() the npc, " + self + " found a guard post object that did not have a quest string. Guard Post: " + guardPostList[i]);
+        for (obj_id obj_id : guardPostList) {
+            String spawnerQuestNameMatch = getStringObjVar(obj_id, "questObject");
+            if (spawnerQuestNameMatch == null || spawnerQuestNameMatch.length() <= 0) {
+                CustomerServiceLog("outbreak_themepark", "camp_defense.findGuardPosts() the npc, " + self + " found a guard post object that did not have a quest string. Guard Post: " + obj_id);
                 continue;
             }
-            if (!spawnerQuestNameMatch.startsWith("camp_beta_defense"))
-            {
+            if (!spawnerQuestNameMatch.startsWith("camp_beta_defense")) {
                 continue;
             }
-            CustomerServiceLog("outbreak_themepark", "camp_defense.findGuardPosts() the npc, " + self + " found a guard post object. Adding the object to the list. Guard Post: " + guardPostList[i]);
-            utils.addElement(guardPostsFound, guardPostList[i]);
+            CustomerServiceLog("outbreak_themepark", "camp_defense.findGuardPosts() the npc, " + self + " found a guard post object. Adding the object to the list. Guard Post: " + obj_id);
+            utils.addElement(guardPostsFound, obj_id);
         }
         CustomerServiceLog("outbreak_themepark", "camp_defense.findGuardPosts() the npc, " + self + " loop for all the available guard posts has finished. Length of list: " + guardPostList.length);
         if (guardPostList.length <= 0)

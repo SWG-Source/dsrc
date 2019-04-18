@@ -1313,11 +1313,9 @@ public class particlebrowser extends script.base_script
             utils.setScriptVar(speaker, "particlebrowser.filter", filter);
             utils.setScriptVar(speaker, "particlebrowser.filter2", filter2);
             Vector itms = new Vector();
-            for (int i = 0; i < particles.length; i++)
-            {
-                if ((filter.equals("all") || particles[i].indexOf(filter) > -1) && (filter2.equals("all") || particles[i].indexOf(filter2) > -1))
-                {
-                    itms.add(particles[i]);
+            for (String particle : particles) {
+                if ((filter.equals("all") || particle.contains(filter)) && (filter2.equals("all") || particle.contains(filter2))) {
+                    itms.add(particle);
                 }
             }
             sendSystemMessageTestingOnly(speaker, "Found " + itms.size() + " particles that fit your filters of '" + filter + "' and '" + filter2);

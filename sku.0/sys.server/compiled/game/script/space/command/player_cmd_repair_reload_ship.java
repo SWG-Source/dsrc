@@ -33,18 +33,17 @@ public class player_cmd_repair_reload_ship extends script.base_script
         messageTo(self, "repairSFX", outparams, 2.0f, false);
         obj_id closestStation = getObjIdObjVar(self, "closestStation");
         String command_type = getStringObjVar(self, "command_type");
-        if (command_type.equals("repair"))
-        {
-            space_crafting.doStationToShipRepairs(objPilot, closestStation, space_pilot_command.IN_SPACE_REPAIR_STD_REPAIR_PERCENTAGE, space_pilot_command.IN_SPACE_REPAIR_DECAY);
-        }
-        else if (command_type.equals("reload"))
-        {
-            space_pilot_command.doStationToShipReload(objPilot, closestStation);
-        }
-        else if (command_type.equals("repairAndReload"))
-        {
-            space_crafting.doStationToShipRepairs(objPilot, closestStation, space_pilot_command.IN_SPACE_REPAIR_STD_REPAIR_PERCENTAGE, space_pilot_command.IN_SPACE_REPAIR_DECAY);
-            space_pilot_command.doStationToShipReload(objPilot, closestStation);
+        switch (command_type) {
+            case "repair":
+                space_crafting.doStationToShipRepairs(objPilot, closestStation, space_pilot_command.IN_SPACE_REPAIR_STD_REPAIR_PERCENTAGE, space_pilot_command.IN_SPACE_REPAIR_DECAY);
+                break;
+            case "reload":
+                space_pilot_command.doStationToShipReload(objPilot, closestStation);
+                break;
+            case "repairAndReload":
+                space_crafting.doStationToShipRepairs(objPilot, closestStation, space_pilot_command.IN_SPACE_REPAIR_STD_REPAIR_PERCENTAGE, space_pilot_command.IN_SPACE_REPAIR_DECAY);
+                space_pilot_command.doStationToShipReload(objPilot, closestStation);
+                break;
         }
         space_utils.setComponentDisabled(dockTarget, ship_chassis_slot_type.SCST_reactor, true);
         space_utils.setComponentDisabled(dockTarget, ship_chassis_slot_type.SCST_engine, true);
@@ -140,17 +139,16 @@ public class player_cmd_repair_reload_ship extends script.base_script
             sendSystemMessage(self, SID_REPAIRSHIP_STOP_MOVING);
             return SCRIPT_CONTINUE;
         }
-        if (command_type.equals("repair"))
-        {
-            space_pilot_command.inSpaceRepairComponentsEstimate(ship, commander, closestStation);
-        }
-        else if (command_type.equals("reload"))
-        {
-            space_pilot_command.inSpaceReloadLaunchersEstimate(ship, commander, closestStation);
-        }
-        else if (command_type.equals("repairAndReload"))
-        {
-            space_pilot_command.inSpaceRepairReloadComponentsEstimate(ship, commander, closestStation);
+        switch (command_type) {
+            case "repair":
+                space_pilot_command.inSpaceRepairComponentsEstimate(ship, commander, closestStation);
+                break;
+            case "reload":
+                space_pilot_command.inSpaceReloadLaunchersEstimate(ship, commander, closestStation);
+                break;
+            case "repairAndReload":
+                space_pilot_command.inSpaceRepairReloadComponentsEstimate(ship, commander, closestStation);
+                break;
         }
         return SCRIPT_CONTINUE;
     }

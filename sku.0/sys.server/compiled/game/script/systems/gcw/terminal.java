@@ -121,27 +121,26 @@ public class terminal extends script.base_script
             hq.disableHqTerminals(structure);
         }
         abortCountdown(self);
-        messageTo(self, "handleFacilityReboot", null, 300f, false);
+        messageTo(self, "handleFacilityReboot", null, 300.0f, false);
     }
     public void startCountdown(obj_id self, obj_id player) throws InterruptedException
     {
         int meleemod = getSkillStatMod(player, "group_melee_defense");
         int rangemod = getSkillStatMod(player, "group_range_defense");
-        float delay = 300f + 300f * (100f - (meleemod + rangemod)) / 100f;
-        int minutes = Math.round(delay / 60f);
+        float delay = 300.0f + 300.0f * (100.0f - (meleemod + rangemod)) / 100.0f;
+        int minutes = Math.round(delay / 60.0f);
         obj_id[] players = player_structure.getPlayersInBuilding(getTopMostContainer(self));
         if (players != null && players.length > 0)
         {
-            for (int i = 0; i < players.length; i++)
-            {
-                sendSystemMessageTestingOnly(players[i], "COUNTDOWN INITIATED: estimated time to detonation: " + minutes + " minutes.");
+            for (obj_id player1 : players) {
+                sendSystemMessageTestingOnly(player1, "COUNTDOWN INITIATED: estimated time to detonation: " + minutes + " minutes.");
             }
         }
         utils.setScriptVar(self, SCRIPTVAR_COUNTDOWN, getGameTime() + delay);
         dictionary d = new dictionary();
         d.put("player", player);
         d.put("cnt", minutes);
-        messageTo(self, "handleCountdown", d, 10f, false);
+        messageTo(self, "handleCountdown", d, 10.0f, false);
     }
     public void abortCountdown(obj_id self) throws InterruptedException
     {
@@ -149,9 +148,8 @@ public class terminal extends script.base_script
         obj_id[] players = player_structure.getPlayersInBuilding(getTopMostContainer(self));
         if (players != null && players.length > 0)
         {
-            for (int i = 0; i < players.length; i++)
-            {
-                sendSystemMessageTestingOnly(players[i], "COUNTDOWN ABORTED: FACILITY SHUTTING DOWN!!");
+            for (obj_id player : players) {
+                sendSystemMessageTestingOnly(player, "COUNTDOWN ABORTED: FACILITY SHUTTING DOWN!!");
             }
         }
     }
@@ -166,9 +164,8 @@ public class terminal extends script.base_script
         obj_id[] players = player_structure.getPlayersInBuilding(getTopMostContainer(self));
         if (players != null && players.length > 0)
         {
-            for (int i = 0; i < players.length; i++)
-            {
-                sendSystemMessageTestingOnly(players[i], "FACILITY RESTART: RELOADING PRIMARY FACILITY SYSTEMS");
+            for (obj_id player : players) {
+                sendSystemMessageTestingOnly(player, "FACILITY RESTART: RELOADING PRIMARY FACILITY SYSTEMS");
             }
         }
         return SCRIPT_CONTINUE;
@@ -214,14 +211,13 @@ public class terminal extends script.base_script
             obj_id[] players = player_structure.getPlayersInBuilding(structure);
             if (players != null && players.length > 0)
             {
-                for (int i = 0; i < players.length; i++)
-                {
-                    sendSystemMessageTestingOnly(players[i], msg);
+                for (obj_id player1 : players) {
+                    sendSystemMessageTestingOnly(player1, msg);
                 }
             }
             params.put("cnt", minutes);
         }
-        messageTo(self, "handleCountdown", params, 10f, false);
+        messageTo(self, "handleCountdown", params, 10.0f, false);
         return SCRIPT_CONTINUE;
     }
 }

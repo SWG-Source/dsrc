@@ -127,22 +127,14 @@ public class collection extends script.base_script
         {
             String[] badges = split(slotName, ',');
             blog("COLLECTIONS", "badges.length: " + badges.length + " badges[0]: " + badges[0]);
-            for (int i = 0; i < badges.length; ++i)
-            {
-                String[] info = getCollectionSlotInfo(badges[i]);
-                if ((info != null) || (info.length == COLLECTION_INFO_ARRAY_SIZE) || (info[COLLECTION_INFO_INDEX_BOOK] != null))
-                {
-                    if (info[COLLECTION_INFO_INDEX_BOOK].equals("badge_book"))
-                    {
-                        badge.grantBadge(player, badges[i]);
+            for (String b : badges) {
+                String[] info = getCollectionSlotInfo(b);
+                if ((info != null) || (info.length == COLLECTION_INFO_ARRAY_SIZE) || (info[COLLECTION_INFO_INDEX_BOOK] != null)) {
+                    if (info[COLLECTION_INFO_INDEX_BOOK].equals("badge_book")) {
+                        badge.grantBadge(player, b);
+                    } else {
+                        modifyCollectionSlotValue(player, b, 1);
                     }
-                    else 
-                    {
-                        modifyCollectionSlotValue(player, badges[i], 1);
-                    }
-                }
-                else 
-                {
                 }
             }
             CustomerServiceLog("CollectionComplete: ", "Player " + getFirstName(player) + "(" + player + ") has completed " + collectionName + " and was granted Slot" + slotName + ".");
@@ -177,11 +169,9 @@ public class collection extends script.base_script
         if (quest != null && !quest.equals(""))
         {
             String[] quests = split(quest, ',');
-            for (int i = 0; i < quests.length; ++i)
-            {
-                int result = groundquests.grantQuestNoAcceptUI(player, quests[i], false);
-                if (result > 0)
-                {
+            for (String quest1 : quests) {
+                int result = groundquests.grantQuestNoAcceptUI(player, quest1, false);
+                if (result > 0) {
                     logQuestError(player, quest, result);
                 }
             }
@@ -220,28 +210,21 @@ public class collection extends script.base_script
             }
             else 
             {
-                for (int i = 0; i < items.length; ++i)
-                {
-                    if (static_item.isStaticItem(items[i]))
-                    {
-                        itemId = createStaticItemWithMessage(player, items[i], collectionName, pp);
-                        if (!isValidId(itemId))
-                        {
+                for (String item1 : items) {
+                    if (static_item.isStaticItem(item1)) {
+                        itemId = createStaticItemWithMessage(player, item1, collectionName, pp);
+                        if (!isValidId(itemId)) {
+                            return false;
+                        }
+                        utils.addElement(allNewObjectsResizable, itemId);
+                    } else {
+                        itemId = createTemplateItemWithMessage(player, item1, collectionName, pp);
+                        if (!isValidId(itemId)) {
                             return false;
                         }
                         utils.addElement(allNewObjectsResizable, itemId);
                     }
-                    else 
-                    {
-                        itemId = createTemplateItemWithMessage(player, items[i], collectionName, pp);
-                        if (!isValidId(itemId))
-                        {
-                            return false;
-                        }
-                        utils.addElement(allNewObjectsResizable, itemId);
-                    }
-                    if (itemIncrement > 1 && hasScript(itemId, AUTO_STACK_SCRIPT))
-                    {
+                    if (itemIncrement > 1 && hasScript(itemId, AUTO_STACK_SCRIPT)) {
                         setCount(itemId, itemIncrement);
                     }
                 }
@@ -253,9 +236,8 @@ public class collection extends script.base_script
         if (command != null && !command.equals(""))
         {
             String[] commands = split(command, ',');
-            for (int i = 0; i < commands.length; ++i)
-            {
-                grantCommand(player, commands[i]);
+            for (String command1 : commands) {
+                grantCommand(player, command1);
                 CustomerServiceLog("CollectionComplete: ", "Player " + getFirstName(player) + "(" + player + ") has completed " + collectionName + " and was granted Command: " + command + ".");
             }
         }
@@ -264,17 +246,15 @@ public class collection extends script.base_script
             int skillModAmount = dict.getInt("skill_mod_amount");
             int skillModMax = dict.getInt("skill_mod_max");
             String[] skillMods = split(skillMod, ',');
-            for (int i = 0; i < skillMods.length; ++i)
-            {
-                int currentSkillModAmount = getSkillStatMod(player, skillMods[i]);
-                if (currentSkillModAmount < skillModMax || skillModMax == -1)
-                {
+            for (String skillMod1 : skillMods) {
+                int currentSkillModAmount = getSkillStatMod(player, skillMod1);
+                if (currentSkillModAmount < skillModMax || skillModMax == -1) {
                     prose.setStringId(pp, SID_REWARD_SKILL_MOD);
                     prose.setDI(pp, skillModAmount);
-                    prose.setTT(pp, new string_id("stat_n", skillMods[i]));
-                    applySkillStatisticModifier(player, skillMods[i], skillModAmount);
+                    prose.setTT(pp, new string_id("stat_n", skillMod1));
+                    applySkillStatisticModifier(player, skillMod1, skillModAmount);
                     sendSystemMessageProse(player, pp);
-                    CustomerServiceLog("CollectionComplete: ", "Player " + getFirstName(player) + "(" + player + ") has completed " + collectionName + " and was granted SkillMod: " + skillMods[i] + ".");
+                    CustomerServiceLog("CollectionComplete: ", "Player " + getFirstName(player) + "(" + player + ") has completed " + collectionName + " and was granted SkillMod: " + skillMod1 + ".");
                 }
             }
         }
@@ -321,23 +301,20 @@ public class collection extends script.base_script
         {
             return false;
         }
-        for (int i = 0; i < slotNames.length; ++i)
-        {
-            if (hasCompletedCollectionSlot(player, slotNames[i]))
-            {
+        for (String slotName : slotNames) {
+            if (hasCompletedCollectionSlot(player, slotName)) {
                 continue;
             }
-            String[] collectionInfo = getCollectionSlotInfo(slotNames[i]);
+            String[] collectionInfo = getCollectionSlotInfo(slotName);
             String collectionName = collectionInfo[COLLECTION_INFO_INDEX_COLLECTION];
-            modifyCollectionSlotValue(player, slotNames[i], 1);
-            blog("COLLECTIONS", "Updating allslotName " + slotNames[i]);
-            if (hasCompletedCollectionSlot(player, slotNames[i]))
-            {
+            modifyCollectionSlotValue(player, slotName, 1);
+            blog("COLLECTIONS", "Updating allslotName " + slotName);
+            if (hasCompletedCollectionSlot(player, slotName)) {
                 continue;
             }
             prose_package pp = new prose_package();
             prose.setStringId(pp, SID_SLOT_INCREMENT);
-            prose.setTU(pp, new string_id("collection_n", slotNames[i]));
+            prose.setTU(pp, new string_id("collection_n", slotName));
             prose.setTO(pp, new string_id("collection_n", collectionName));
             sendSystemMessageProse(player, pp);
         }
@@ -414,23 +391,18 @@ public class collection extends script.base_script
             return false;
         }
         blog("collection", "length of mobs: " + allMobsCombat.length);
-        for (int i = 0; i < allMobsCombat.length; i++)
-        {
-            if (allMobsCombat[i] == player)
-            {
+        for (obj_id obj_id : allMobsCombat) {
+            if (obj_id == player) {
                 continue;
             }
-            if (hasObjVar(allMobsCombat[i], "ignoreCollector"))
-            {
+            if (hasObjVar(obj_id, "ignoreCollector")) {
                 continue;
             }
-            if (isInvulnerable(allMobsCombat[i]))
-            {
+            if (isInvulnerable(obj_id)) {
                 continue;
             }
-            if (pvpCanAttack(allMobsCombat[i], player))
-            {
-                startCombat(allMobsCombat[i], player);
+            if (pvpCanAttack(obj_id, player)) {
+                startCombat(obj_id, player);
             }
         }
         return true;
@@ -585,12 +557,10 @@ public class collection extends script.base_script
         }
         String[] baseSlotNames = split(getStringObjVar(collectible, OBJVAR_SLOT_NAME), '|');
         Vector collectionNames = new Vector();
-        for (int i = 0; i < baseSlotNames.length; ++i)
-        {
-            String[] splitSlotNames = split(baseSlotNames[i], ':');
+        for (String baseSlotName : baseSlotNames) {
+            String[] splitSlotNames = split(baseSlotName, ':');
             collection.blog("COLLECTIONS", "splitSlotNames.length " + splitSlotNames.length);
-            for (int j = 0; j < splitSlotNames.length; j += 2)
-            {
+            for (int j = 0; j < splitSlotNames.length; j += 2) {
                 collectionNames.add(splitSlotNames[j]);
             }
         }
@@ -606,12 +576,10 @@ public class collection extends script.base_script
         }
         String[] baseSlotNames = split(getStringObjVar(collectible, OBJVAR_SLOT_NAME), '|');
         Vector slotNames = new Vector();
-        for (int i = 0; i < baseSlotNames.length; ++i)
-        {
-            String[] splitSlotNames = split(baseSlotNames[i], ':');
+        for (String baseSlotName : baseSlotNames) {
+            String[] splitSlotNames = split(baseSlotName, ':');
             collection.blog("COLLECTIONS", "splitSlotNames.length " + splitSlotNames.length);
-            for (int j = 0; j < splitSlotNames.length; j += 2)
-            {
+            for (int j = 0; j < splitSlotNames.length; j += 2) {
                 slotNames.add(splitSlotNames[j + 1]);
             }
         }
@@ -627,19 +595,14 @@ public class collection extends script.base_script
         }
         String[] baseSlotNames = split(getStringObjVar(collectible, OBJVAR_SLOT_NAME), '|');
         Vector collectionNames = new Vector();
-        for (int i = 0; i < baseSlotNames.length; ++i)
-        {
-            String[] splitSlotNames = split(baseSlotNames[i], ':');
+        for (String baseSlotName : baseSlotNames) {
+            String[] splitSlotNames = split(baseSlotName, ':');
             collection.blog("COLLECTIONS", "splitSlotNames.length " + splitSlotNames.length);
-            for (int j = 0; j < splitSlotNames.length; j += 2)
-            {
+            for (int j = 0; j < splitSlotNames.length; j += 2) {
                 collection.blog("COLLECTIONS", "splitSlotNames[" + j + "] " + splitSlotNames[j]);
-                if (!hasCompletedCollection(player, splitSlotNames[j]))
-                {
-                    if (!hasCompletedCollectionSlot(player, splitSlotNames[j + 1]))
-                    {
-                        if (hasCompletedCollectionSlotPrereq(player, splitSlotNames[j + 1]))
-                        {
+                if (!hasCompletedCollection(player, splitSlotNames[j])) {
+                    if (!hasCompletedCollectionSlot(player, splitSlotNames[j + 1])) {
+                        if (hasCompletedCollectionSlotPrereq(player, splitSlotNames[j + 1])) {
                             collectionNames.add(splitSlotNames[j]);
                         }
                     }
@@ -658,19 +621,14 @@ public class collection extends script.base_script
         }
         String[] baseSlotNames = split(getStringObjVar(collectible, OBJVAR_SLOT_NAME), '|');
         Vector slotNames = new Vector();
-        for (int i = 0; i < baseSlotNames.length; ++i)
-        {
-            String[] splitSlotNames = split(baseSlotNames[i], ':');
+        for (String baseSlotName : baseSlotNames) {
+            String[] splitSlotNames = split(baseSlotName, ':');
             collection.blog("COLLECTIONS", "splitSlotNames.length " + splitSlotNames.length);
-            for (int j = 0; j < splitSlotNames.length; j += 2)
-            {
+            for (int j = 0; j < splitSlotNames.length; j += 2) {
                 collection.blog("COLLECTIONS", "splitSlotNames[" + j + "] " + splitSlotNames[j]);
-                if (!hasCompletedCollection(player, splitSlotNames[j]))
-                {
-                    if (!hasCompletedCollectionSlot(player, splitSlotNames[j + 1]))
-                    {
-                        if (hasCompletedCollectionSlotPrereq(player, splitSlotNames[j + 1]))
-                        {
+                if (!hasCompletedCollection(player, splitSlotNames[j])) {
+                    if (!hasCompletedCollectionSlot(player, splitSlotNames[j + 1])) {
+                        if (hasCompletedCollectionSlotPrereq(player, splitSlotNames[j + 1])) {
                             slotNames.add(splitSlotNames[j + 1]);
                         }
                     }
@@ -692,10 +650,9 @@ public class collection extends script.base_script
             return false;
         }
         String[] slotsInCollection = getAllCollectionSlotsInCollection(collectionName);
-        for (int i = 0; i < slotsInCollection.length; i++)
-        {
-            long collectionSlotValue = getCollectionSlotValue(player, slotsInCollection[i]) * -1;
-            modifyCollectionSlotValue(player, slotsInCollection[i], collectionSlotValue);
+        for (String s : slotsInCollection) {
+            long collectionSlotValue = getCollectionSlotValue(player, s) * -1;
+            modifyCollectionSlotValue(player, s, collectionSlotValue);
         }
         sendSystemMessage(player, COLLECTION_CLEARED);
         return true;
@@ -711,12 +668,11 @@ public class collection extends script.base_script
             return false;
         }
         String[] slotsInCollection = getAllCollectionSlotsInCollection(collectionName);
-        for (int i = 0; i < slotsInCollection.length; i++)
-        {
-            long collectionSlotNegativeValue = getCollectionSlotValue(player, slotsInCollection[i]) * -1;
-            long collectionSlotPostiveValue = getCollectionSlotValue(player, slotsInCollection[i]);
-            modifyCollectionSlotValue(player, slotsInCollection[i], collectionSlotNegativeValue);
-            modifyCollectionSlotValue(player, slotsInCollection[i], collectionSlotPostiveValue);
+        for (String s : slotsInCollection) {
+            long collectionSlotNegativeValue = getCollectionSlotValue(player, s) * -1;
+            long collectionSlotPostiveValue = getCollectionSlotValue(player, s);
+            modifyCollectionSlotValue(player, s, collectionSlotNegativeValue);
+            modifyCollectionSlotValue(player, s, collectionSlotPostiveValue);
         }
         sendSystemMessageTestingOnly(player, "Collection Revoked and Regranted.");
         return true;
@@ -737,10 +693,9 @@ public class collection extends script.base_script
             return false;
         }
         String[] slotsInCollection = getAllCollectionSlotsInCollection(collectionName);
-        for (int i = 0; i < slotsInCollection.length; i++)
-        {
-            long collectionSlotValue = getCollectionSlotValue(player, slotsInCollection[i]) * -1;
-            modifyCollectionSlotValue(player, slotsInCollection[i], collectionSlotValue);
+        for (String s : slotsInCollection) {
+            long collectionSlotValue = getCollectionSlotValue(player, s) * -1;
+            modifyCollectionSlotValue(player, s, collectionSlotValue);
         }
         sendSystemMessage(player, COLLECTION_CLEARED);
         CustomerServiceLog("Collection: ", "Player " + getFirstName(player) + "(" + player + ") has voluntarily reset their collection: " + collectionName);
@@ -761,10 +716,9 @@ public class collection extends script.base_script
             return false;
         }
         String[] slotsInCollection = getAllCollectionSlotsInCollection(collectionName);
-        for (int i = 0; i < slotsInCollection.length; i++)
-        {
-            long collectionSlotValue = getCollectionSlotValue(player, slotsInCollection[i]) * -1;
-            modifyCollectionSlotValue(player, slotsInCollection[i], collectionSlotValue);
+        for (String s : slotsInCollection) {
+            long collectionSlotValue = getCollectionSlotValue(player, s) * -1;
+            modifyCollectionSlotValue(player, s, collectionSlotValue);
         }
         prose_package pp = new prose_package();
         prose.setTO(pp, new string_id("collection_n", collectionName));
@@ -849,11 +803,9 @@ public class collection extends script.base_script
         {
             return false;
         }
-        for (int i = 0; i < slotNames.length; ++i)
-        {
-            if (!hasCompletedCollectionSlot(player, slotNames[i]))
-            {
-                modifyCollectionSlotValue(player, slotNames[i], 1);
+        for (String slotName : slotNames) {
+            if (!hasCompletedCollectionSlot(player, slotName)) {
+                modifyCollectionSlotValue(player, slotName, 1);
             }
         }
         return true;
@@ -1447,19 +1399,19 @@ public class collection extends script.base_script
             {
                 case 1:
                 prose.setStringId(pp, new string_id("collection", "newbie_comm_message_2"));
-                commPlayers(object, "object/mobile/r2.iff", "sound/dro_r2_3_danger.snd", 10f, player, pp);
+                commPlayers(object, "object/mobile/r2.iff", "sound/dro_r2_3_danger.snd", 10.0f, player, pp);
                 number++;
                 utils.setScriptVar(player, "newbie_comm_series", number);
                 break;
                 case 2:
                 prose.setStringId(pp, new string_id("collection", "newbie_comm_message_3"));
-                commPlayers(object, "object/mobile/r2.iff", "sound/dro_r2_3_danger.snd", 15f, player, pp);
+                commPlayers(object, "object/mobile/r2.iff", "sound/dro_r2_3_danger.snd", 15.0f, player, pp);
                 number++;
                 utils.setScriptVar(player, "newbie_comm_series", number);
                 break;
                 case 3:
                 prose.setStringId(pp, new string_id("collection", "newbie_comm_message_4"));
-                commPlayers(object, "object/mobile/r2.iff", "sound/dro_r2_3_danger.snd", 12f, player, pp);
+                commPlayers(object, "object/mobile/r2.iff", "sound/dro_r2_3_danger.snd", 12.0f, player, pp);
                 number++;
                 utils.setScriptVar(player, "newbie_comm_series", number);
                 break;
@@ -1471,7 +1423,7 @@ public class collection extends script.base_script
         {
             prose_package pp = new prose_package();
             prose.setStringId(pp, new string_id("collection", "newbie_comm_message"));
-            commPlayers(object, "object/mobile/r2.iff", "sound/dro_r2_3_danger.snd", 10f, player, pp);
+            commPlayers(object, "object/mobile/r2.iff", "sound/dro_r2_3_danger.snd", 10.0f, player, pp);
             utils.setScriptVar(player, "newbie_comm_series", 1);
         }
         return;

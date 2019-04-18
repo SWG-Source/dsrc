@@ -128,10 +128,8 @@ public class space_duty_crate extends script.base_script
             return null;
         }
         int realCompTypeLength = 0;
-        for (int i = 0; i < compType.length; i++)
-        {
-            if (compType[i] != null && compType[i].length() > 0)
-            {
+        for (String s : compType) {
+            if (s != null && s.length() > 0) {
                 realCompTypeLength++;
             }
         }

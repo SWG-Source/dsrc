@@ -24,13 +24,9 @@ public class imp_safehouse extends script.base_script
             {
                 obj_id[] groupMembers = getGroupMemberIds(groupObj);
                 int numGroupMembers = groupMembers.length;
-                for (int f = 0; f < numGroupMembers; f++)
-                {
-                    obj_id groupie = groupMembers[f];
-                    if (isIdValid(groupie))
-                    {
-                        if (groundquests.isQuestActive(item, "c_story1_4b_imperial") && !groundquests.hasCompletedTask(groupie, "c_story1_4b_imperial", "imp_choice"))
-                        {
+                for (obj_id groupie : groupMembers) {
+                    if (isIdValid(groupie)) {
+                        if (groundquests.isQuestActive(item, "c_story1_4b_imperial") && !groundquests.hasCompletedTask(groupie, "c_story1_4b_imperial", "imp_choice")) {
                             return SCRIPT_CONTINUE;
                         }
                     }

@@ -57,9 +57,8 @@ public class theater_controller extends script.base_script
             obj_id[] interiorObjects = trial.getAllObjectsInDungeon(theater);
             if (interiorObjects != null && interiorObjects.length > 0)
             {
-                for (int i = 0; i < interiorObjects.length; i++)
-                {
-                    utils.addElement(allObjects, interiorObjects[i]);
+                for (obj_id interiorObject : interiorObjects) {
+                    utils.addElement(allObjects, interiorObject);
                 }
             }
         }
@@ -67,9 +66,8 @@ public class theater_controller extends script.base_script
         obj_id[] objectsInRange = getObjectsInRange(getLocation(theater), range);
         if (objectsInRange != null && objectsInRange.length > 0)
         {
-            for (int i = 0; i < objectsInRange.length; i++)
-            {
-                utils.addElement(allObjects, objectsInRange[i]);
+            for (obj_id obj_id : objectsInRange) {
+                utils.addElement(allObjects, obj_id);
             }
         }
         obj_id[] filteredList = getStorytellerObjectsFromArray(allObjects);
@@ -84,9 +82,8 @@ public class theater_controller extends script.base_script
         }
         trial.cleanupObject(filteredList);
         obj_id inventory = utils.getInventoryContainer(player);
-        for (int i = 0; i < storytellerItems.length; i++)
-        {
-            static_item.createNewItemFunction(storytellerItems[i], inventory);
+        for (String storytellerItem : storytellerItems) {
+            static_item.createNewItemFunction(storytellerItem, inventory);
         }
         return storytellerItems;
     }
@@ -98,19 +95,16 @@ public class theater_controller extends script.base_script
     {
         Vector filteredList = new Vector();
         filteredList.setSize(0);
-        for (int i = 0; i < allObjects.size(); i++)
-        {
-            if (!isIdValid(((obj_id)allObjects.get(i))) || !exists(((obj_id)allObjects.get(i))))
-            {
+        for (Object allObject : allObjects) {
+            if (!isIdValid(((obj_id) allObject)) || !exists(((obj_id) allObject))) {
                 continue;
             }
-            String itemName = getStaticItemName(((obj_id)allObjects.get(i)));
+            String itemName = getStaticItemName(((obj_id) allObject));
             int row = dataTableSearchColumnForString(itemName, "name", storyteller.STORYTELLER_DATATABLE);
-            if (row == -1)
-            {
+            if (row == -1) {
                 continue;
             }
-            utils.addElement(filteredList, ((obj_id)allObjects.get(i)));
+            utils.addElement(filteredList, ((obj_id) allObject));
         }
         obj_id[] _filteredList = new obj_id[0];
         if (filteredList != null)
@@ -133,11 +127,9 @@ public class theater_controller extends script.base_script
     {
         float range = getTheaterBuildoutRange(getStaticItemName(theater));
         obj_id[] objects = getObjectsInRange(getLocation(theater), range);
-        for (int i = 0; i < objects.length; i++)
-        {
-            if (storyteller.isAnyStorytellerItem(objects[i]) && objects[i] != theater)
-            {
-                trial.cleanupObject(objects[i]);
+        for (obj_id object : objects) {
+            if (storyteller.isAnyStorytellerItem(object) && object != theater) {
+                trial.cleanupObject(object);
             }
         }
         trial.cleanupObject(theater);

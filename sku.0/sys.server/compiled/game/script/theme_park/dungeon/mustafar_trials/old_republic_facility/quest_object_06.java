@@ -59,14 +59,12 @@ public class quest_object_06 extends script.base_script
             {
                 return;
             }
-            for (int i = 0; i < members.length; i++)
-            {
-                if (members[i] != player)
-                {
+            for (obj_id member : members) {
+                if (member != player) {
                     prose_package pp = new prose_package();
                     pp = prose.setStringId(pp, new string_id("mustafar/old_republic_facility", "quest_object_06_msg_other"));
                     pp = prose.setTU(pp, player);
-                    sendSystemMessageProse(members[i], pp);
+                    sendSystemMessageProse(member, pp);
                 }
             }
         }

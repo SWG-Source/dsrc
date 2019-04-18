@@ -99,9 +99,8 @@ public class bunker_controller extends script.base_script
     {
         Vector resizeableCellId = new Vector();
         resizeableCellId.setSize(0);
-        for (int i = 0; i < CELL_NAMES.length; i++)
-        {
-            utils.addElement(resizeableCellId, getCellId(bunker, CELL_NAMES[i]));
+        for (String cellName : CELL_NAMES) {
+            utils.addElement(resizeableCellId, getCellId(bunker, cellName));
         }
         obj_id[] _resizeableCellId = new obj_id[0];
         if (resizeableCellId != null)
@@ -113,20 +112,14 @@ public class bunker_controller extends script.base_script
     }
     public void clearDungeon(obj_id bunker, obj_id[] cellIds) throws InterruptedException
     {
-        for (int i = 0; i < cellIds.length; i++)
-        {
-            obj_id[] cellContents = getContents(cellIds[i]);
-            if (cellContents.length > 0)
-            {
-                for (int k = 0; k < cellContents.length; k++)
-                {
-                    if (isPlayer(cellContents[k]))
-                    {
-                        expelFromBuilding(cellContents[k]);
-                    }
-                    else if (isMob(cellContents[k]))
-                    {
-                        destroyObject(cellContents[k]);
+        for (obj_id cellId : cellIds) {
+            obj_id[] cellContents = getContents(cellId);
+            if (cellContents.length > 0) {
+                for (obj_id cellContent : cellContents) {
+                    if (isPlayer(cellContent)) {
+                        expelFromBuilding(cellContent);
+                    } else if (isMob(cellContent)) {
+                        destroyObject(cellContent);
                     }
                 }
             }
@@ -136,9 +129,8 @@ public class bunker_controller extends script.base_script
             obj_id[] terminalList = getObjIdArrayObjVar(bunker, "terminalObjIdList");
             if (terminalList.length > 0)
             {
-                for (int j = 0; j < terminalList.length; j++)
-                {
-                    destroyObject(terminalList[j]);
+                for (obj_id obj_id : terminalList) {
+                    destroyObject(obj_id);
                 }
             }
         }

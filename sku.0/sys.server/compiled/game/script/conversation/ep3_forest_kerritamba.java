@@ -119,11 +119,9 @@ public class ep3_forest_kerritamba extends script.base_script
         obj_id inventory = utils.getInventoryContainer(player);
         obj_id[] invAndEquip = getInventoryAndEquipment(player);
         boolean ep3_forest_kerritamba_condition_hasCure = false;
-        for (int i = 0; i < invAndEquip.length; i++)
-        {
-            String templateName = getTemplateName(invAndEquip[i]);
-            if (templateName.equals("object/tangible/loot/quest/ep3_forest_cure.iff"))
-            {
+        for (obj_id obj_id : invAndEquip) {
+            String templateName = getTemplateName(obj_id);
+            if (templateName.equals("object/tangible/loot/quest/ep3_forest_cure.iff")) {
                 ep3_forest_kerritamba_condition_hasCure = true;
             }
         }

@@ -85,16 +85,16 @@ public class spice extends script.base_script
                 metrics.logBuffStatus(player);
             }
         }
-        float downTimeReduction = 0f;
+        float downTimeReduction = 0.0f;
         if (utils.hasScriptVar(player, "food.reduce_spice_downtime.eff"))
         {
             int eff = utils.getIntScriptVar(player, "food.reduce_spice_downtime.eff");
             utils.removeScriptVarTree(player, "food.reduce_spice_downtime");
             clearBuffIcon(player, "food.reduce_spice_downtime");
-            downTimeReduction = 1f - (eff / 100f);
-            if (downTimeReduction > .7f)
+            downTimeReduction = 1.0f - (eff / 100.0f);
+            if (downTimeReduction > 0.7f)
             {
-                downTimeReduction = .7f;
+                downTimeReduction = 0.7f;
             }
         }
         attachScript(player, "player.player_spice");

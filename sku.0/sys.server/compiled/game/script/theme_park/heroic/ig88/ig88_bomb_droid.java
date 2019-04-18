@@ -31,7 +31,7 @@ public class ig88_bomb_droid extends script.base_script
         }
         if (getMovementPercent(self) >= 1.0f)
         {
-            setMovementPercent(self, 0.5f + rand(0f, 0.1f));
+            setMovementPercent(self, 0.5f + rand(0.0f, 0.1f));
         }
         if (isInvulnerable(self))
         {

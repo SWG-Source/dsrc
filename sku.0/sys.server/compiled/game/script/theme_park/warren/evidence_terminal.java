@@ -74,12 +74,9 @@ public class evidence_terminal extends script.base_script
         {
             return false;
         }
-        for (int i = 0; i < contents.length; i++)
-        {
-            if (hasObjVar(contents[i], "warren.evidence"))
-            {
-                if (getIntObjVar(contents[i], "warren.evidence") == evidencePiece)
-                {
+        for (obj_id content : contents) {
+            if (hasObjVar(content, "warren.evidence")) {
+                if (getIntObjVar(content, "warren.evidence") == evidencePiece) {
                     return true;
                 }
             }

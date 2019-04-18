@@ -15,8 +15,8 @@ public class mine_mini_boss extends script.base_script
     public int OnAttach(obj_id self) throws InterruptedException
     {
         setName(self, "Fenri Dalso");
-        messageTo(self, "handleAttackerCleanUp", null, 300f, false);
-        messageTo(self, "handleInvestigate", null, 1f, false);
+        messageTo(self, "handleAttackerCleanUp", null, 300.0f, false);
+        messageTo(self, "handleInvestigate", null, 1.0f, false);
         return SCRIPT_CONTINUE;
     }
     public int aiCorpsePrepared(obj_id self, dictionary params) throws InterruptedException
@@ -33,7 +33,7 @@ public class mine_mini_boss extends script.base_script
     {
         if (ai_lib.isInCombat(self))
         {
-            messageTo(self, "handleAttackerCleanUp", null, 300f, false);
+            messageTo(self, "handleAttackerCleanUp", null, 300.0f, false);
             return SCRIPT_CONTINUE;
         }
         destroyObject(self);

@@ -9,7 +9,7 @@ import script.obj_id;
 
 public class interior_convo_base extends script.base_script
 {
-    private final float[][] offsets = new float[][]{{1.1f, 0},{1.1f, 1.1f},{0f,1.1f},{0f,0f}};
+    private final float[][] offsets = new float[][]{{1.1f, 0},{1.1f, 1.1f},{0.0f,1.1f},{0.0f, 0.0f}};
 
     public interior_convo_base()
     {

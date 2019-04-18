@@ -111,7 +111,7 @@ public class enclave_sentinel extends script.base_script
                     {
                         return SCRIPT_CONTINUE;
                     }
-                    addToMentalStateToward(self, attackers[i], FEAR, 10f);
+                    addToMentalStateToward(self, attackers[i], FEAR, 10.0f);
                     if (pvpCanAttack(self, attackers[i]) && !isInCombat && factions.isAggro(self))
                     {
                         startCombat(self, attackers[i]);

@@ -24,7 +24,7 @@ public class e3_bridge_worker_2 extends script.base_script
     {
         location destLoc = new location(getLocation(self));
         destLoc.x = -5.9f;
-        destLoc.y = 453f;
+        destLoc.y = 453.0f;
         destLoc.z = 326.4f;
         setObjVar(self, "intIndex", 1);
         pathTo(self, destLoc);
@@ -33,7 +33,7 @@ public class e3_bridge_worker_2 extends script.base_script
     {
         location destLoc = new location(getLocation(self));
         destLoc.x = -6.8f;
-        destLoc.y = 453f;
+        destLoc.y = 453.0f;
         destLoc.z = 331.3f;
         setObjVar(self, "intIndex", 2);
         pathTo(self, destLoc);
@@ -68,14 +68,14 @@ public class e3_bridge_worker_2 extends script.base_script
         if (intIndex == 1)
         {
             locTest.x = -6.9f;
-            locTest.y = 453f;
+            locTest.y = 453.0f;
             locTest.z = 325.5f;
         }
         else 
         {
             locTest.x = -7.7f;
-            locTest.y = 453f;
-            locTest.z = 331f;
+            locTest.y = 453.0f;
+            locTest.z = 331.0f;
         }
         faceTo(self, locTest);
         messageTo(self, "doTwiddle", null, 2.5f, false);

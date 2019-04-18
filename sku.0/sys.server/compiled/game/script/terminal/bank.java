@@ -152,7 +152,7 @@ public class bank extends script.terminal.base.base_terminal
                 {
                     dictionary closer = new dictionary();
                     closer.put("player", player);
-                    messageTo(other, "forceCloseBankSui", closer, 0f, false);
+                    messageTo(other, "forceCloseBankSui", closer, 0.0f, false);
                 }
             }
         }
@@ -163,7 +163,7 @@ public class bank extends script.terminal.base.base_terminal
             utils.setScriptVar(self, scriptvar, pid);
             dictionary d = new dictionary();
             d.put("player", player);
-            messageTo(self, "forceCloseBankSui", d, 30f, false);
+            messageTo(self, "forceCloseBankSui", d, 30.0f, false);
             return true;
         }
         return false;

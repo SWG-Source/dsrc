@@ -162,7 +162,7 @@ public class race_coordinator extends script.base_script
                 location loc = getLocation(npc);
                 if (loc != null)
                 {
-                    playClientEffectLoc(player, "clienteffect/droid_effect_confetti.cef", loc, 0.f);
+                    playClientEffectLoc(player, "clienteffect/droid_effect_confetti.cef", loc, 0.0f);
                 }
             }
         }

@@ -7,6 +7,8 @@ import script.library.space_utils;
 import script.obj_id;
 import script.string_id;
 
+import java.util.StringTokenizer;
+
 public class inspect extends script.base_script
 {
     public inspect()
@@ -48,7 +50,7 @@ public class inspect extends script.base_script
         {
             dictionary outparams = new dictionary();
             outparams.put("player", player);
-            messageTo(self, "initializedQuestPlayer", outparams, 1.f, false);
+            messageTo(self, "initializedQuestPlayer", outparams, 1.0f, false);
         }
         int questid = questGetQuestId("spacequest/" + questType + "/" + questName);
         if (questid != 0)
@@ -135,7 +137,7 @@ public class inspect extends script.base_script
         {
             dictionary outparams = new dictionary();
             outparams.put("added", added);
-            messageTo(self, "notifyTargetWaypoints", outparams, 1.f, false);
+            messageTo(self, "notifyTargetWaypoints", outparams, 1.0f, false);
         }
         return SCRIPT_CONTINUE;
     }
@@ -218,11 +220,9 @@ public class inspect extends script.base_script
         obj_id[] waypoints = getObjIdArrayObjVar(self, "target_waypoints");
         if (waypoints != null)
         {
-            for (int i = 0; i < waypoints.length; i++)
-            {
-                if (isIdValid(waypoints[i]))
-                {
-                    destroyWaypointInDatapad(waypoints[i], player);
+            for (obj_id waypoint : waypoints) {
+                if (isIdValid(waypoint)) {
+                    destroyWaypointInDatapad(waypoint, player);
                 }
             }
         }
@@ -310,37 +310,28 @@ public class inspect extends script.base_script
         obj_id player = params.getObjId("player");
         String[] shipTypes = getStringArrayObjVar(self, "shipTypes");
         String spawnerName = params.getString("spawner");
-        for (int j = 0; j < shipTypes.length; j++)
-        {
-            String type = shipTypes[j];
-            if (type.equals(shiptype))
-            {
-                if (hasObjVar(self, "validSpawns"))
-                {
+        for (String type : shipTypes) {
+            if (type.equals(shiptype)) {
+                if (hasObjVar(self, "validSpawns")) {
                     String[] spawns = getStringArrayObjVar(self, "validSpawns");
-                    if (spawns != null)
-                    {
+                    if (spawns != null) {
                         boolean match = false;
-                        for (int i = 0; i < spawns.length; i++)
-                        {
-                            java.util.StringTokenizer st = new java.util.StringTokenizer(spawns[i], ":");
+                        for (String spawn : spawns) {
+                            StringTokenizer st = new StringTokenizer(spawn, ":");
                             String scene = st.nextToken();
                             String point = st.nextToken();
-                            if ((spawnerName != null) && spawnerName.equals(point))
-                            {
+                            if ((spawnerName != null) && spawnerName.equals(point)) {
                                 match = true;
                                 break;
                             }
                         }
-                        if (!match)
-                        {
+                        if (!match) {
                             return SCRIPT_CONTINUE;
                         }
                     }
                 }
                 String cargoType = getStringObjVar(self, "cargo");
-                if ((cargo != null) && cargo.equals(cargoType))
-                {
+                if ((cargo != null) && cargo.equals(cargoType)) {
                     space_quest.showQuestUpdate(self, SID_RECOVERED_CARGO);
                     questCompleted(self);
                     return SCRIPT_CONTINUE;

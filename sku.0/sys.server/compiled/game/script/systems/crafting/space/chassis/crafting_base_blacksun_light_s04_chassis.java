@@ -16,25 +16,20 @@ public class crafting_base_blacksun_light_s04_chassis extends script.systems.cra
     public void calcAndSetPrototypeProperties(obj_id prototype, draft_schematic.attribute[] itemAttributes) throws InterruptedException
     {
         debugServerConsoleMsg(null, "Beginning assembly-phase prototype property setting");
-        for (int i = 0; i < itemAttributes.length; ++i)
-        {
+        for (draft_schematic.attribute itemAttribute : itemAttributes) {
             setObjVar(prototype, "isShipDeed", true);
             setObjVar(prototype, "shiptype", "blacksun_light_s04");
-            if (itemAttributes[i] == null)
-            {
+            if (itemAttribute == null) {
                 continue;
             }
-            if (!calcAndSetPrototypeProperty(prototype, itemAttributes[i]))
-            {
-                if (((itemAttributes[i].name).getAsciiId()).equals("massMax"))
-                {
+            if (!calcAndSetPrototypeProperty(prototype, itemAttribute)) {
+                if (((itemAttribute.name).getAsciiId()).equals("massMax")) {
                     String OBJVAR_NAME = "ship_chassis.mass";
-                    setObjVar(prototype, OBJVAR_NAME, (float)itemAttributes[i].currentValue);
+                    setObjVar(prototype, OBJVAR_NAME, (float) itemAttribute.currentValue);
                 }
-                if (((itemAttributes[i].name).getAsciiId()).equals("hp"))
-                {
+                if (((itemAttribute.name).getAsciiId()).equals("hp")) {
                     String OBJVAR_NAME = "ship_chassis.hp";
-                    setObjVar(prototype, OBJVAR_NAME, (float)itemAttributes[i].currentValue);
+                    setObjVar(prototype, OBJVAR_NAME, (float) itemAttribute.currentValue);
                 }
             }
         }

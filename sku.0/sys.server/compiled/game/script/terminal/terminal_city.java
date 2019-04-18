@@ -4,6 +4,7 @@ import script.*;
 import script.library.*;
 
 import java.util.Arrays;
+import java.util.Objects;
 import java.util.Vector;
 
 public class terminal_city extends script.base_script
@@ -237,7 +238,7 @@ public class terminal_city extends script.base_script
             return SCRIPT_CONTINUE;
         }
         String template = getTemplateName(structure);
-        if (template.indexOf("cityhall_") < 0)
+        if (!template.contains("cityhall_"))
         {
             sendSystemMessage(player, new string_id(STF, "city_network_error"));
             return SCRIPT_CONTINUE;
@@ -651,7 +652,7 @@ public class terminal_city extends script.base_script
             obj_id cityMaster = getMasterCityObject();
             dictionary outparams = new dictionary();
             outparams.put("city_id", city_id);
-            messageTo(cityMaster, "forceElection", outparams, 0.f, false);
+            messageTo(cityMaster, "forceElection", outparams, 0.0f, false);
         }
         return SCRIPT_CONTINUE;
     }
@@ -681,7 +682,7 @@ public class terminal_city extends script.base_script
         CustomerServiceLog("player_city", "!!!!! A CITY UPDATE WAS FORCED !!!!! Player: " + player + " City: " + city_id);
         sendSystemMessageProse(self, prose.getPackage(new string_id(STF, "force_city_update"), city_id));
         obj_id cityMaster = getMasterCityObject();
-        messageTo(cityMaster, "forceUpdate", outparams, 0.f, false);
+        messageTo(cityMaster, "forceUpdate", outparams, 0.0f, false);
         return SCRIPT_CONTINUE;
     }
     public void forceRank(obj_id player, obj_id self, int city_id, int rank) throws InterruptedException
@@ -705,7 +706,7 @@ public class terminal_city extends script.base_script
         dictionary outparams = new dictionary();
         outparams.put("city_id", city_id);
         outparams.put("rank_change", utils.getIntScriptVar(self, "rank_change"));
-        messageTo(cityMaster, "forceRank", outparams, 0.f, false);
+        messageTo(cityMaster, "forceRank", outparams, 0.0f, false);
         return SCRIPT_CONTINUE;
     }
     public void makeMayor(obj_id player, obj_id self, int city_id) throws InterruptedException
@@ -789,7 +790,7 @@ public class terminal_city extends script.base_script
         int city_id = getCityAtLocation(structureLoc, 0);
         obj_id incumbent_mayor = cityGetLeader(city_id);
         String template = getTemplateName(structure);
-        if (template.indexOf("cityhall_") < 0)
+        if (!template.contains("cityhall_"))
         {
             sendSystemMessageTestingOnly(player, "City Hall not recognized - Please make sure you are in a City Hall and attempt the Mayor Transfer again.");
             return SCRIPT_CONTINUE;
@@ -863,54 +864,27 @@ public class terminal_city extends script.base_script
         Vector list_strings = new Vector();
         list_strings.setSize(0);
         obj_id[] structures = cityGetStructureIds(city_id);
-        for (int i = 0; i < structures.length; i++)
-        {
-            if (city.isMissionTerminal(city_id, structures[i]))
-            {
-                String name = localize(getNameStringId(structures[i]));
+        for (obj_id structure : structures) {
+            if (city.isMissionTerminal(city_id, structure)) {
+                String name = localize(getNameStringId(structure));
                 String str = "Mission Terminal: ";
-                if (name != null)
-                {
-                    str += name;
-                }
-                else 
-                {
-                    str += "\\#FF0000Unloaded or Bad Entry\\";
-                }
-                str += " (" + structures[i] + ")";
-                list_structures = utils.addElement(list_structures, structures[i]);
+                str += Objects.requireNonNullElse(name, "\\#FF0000Unloaded or Bad Entry\\");
+                str += " (" + structure + ")";
+                list_structures = utils.addElement(list_structures, structure);
                 list_strings = utils.addElement(list_strings, str);
-            }
-            else if (city.isSkillTrainer(city_id, structures[i]))
-            {
-                String name = localize(getNameStringId(structures[i]));
+            } else if (city.isSkillTrainer(city_id, structure)) {
+                String name = localize(getNameStringId(structure));
                 String str = "Skill Trainer: ";
-                if (name != null)
-                {
-                    str += name;
-                }
-                else 
-                {
-                    str += "\\#FF0000Unloaded or Bad Entry\\";
-                }
-                str += " (" + structures[i] + ")";
-                list_structures = utils.addElement(list_structures, structures[i]);
+                str += Objects.requireNonNullElse(name, "\\#FF0000Unloaded or Bad Entry\\");
+                str += " (" + structure + ")";
+                list_structures = utils.addElement(list_structures, structure);
                 list_strings = utils.addElement(list_strings, str);
-            }
-            else if (city.isDecoration(city_id, structures[i]))
-            {
-                String name = localize(getNameStringId(structures[i]));
+            } else if (city.isDecoration(city_id, structure)) {
+                String name = localize(getNameStringId(structure));
                 String str = "Decoration: ";
-                if (name != null)
-                {
-                    str += name;
-                }
-                else 
-                {
-                    str += "\\#FF0000Unloaded or Bad Entry\\";
-                }
-                str += " (" + structures[i] + ")";
-                list_structures = utils.addElement(list_structures, structures[i]);
+                str += Objects.requireNonNullElse(name, "\\#FF0000Unloaded or Bad Entry\\");
+                str += " (" + structure + ")";
+                list_structures = utils.addElement(list_structures, structure);
                 list_strings = utils.addElement(list_strings, str);
             }
         }
@@ -958,7 +932,7 @@ public class terminal_city extends script.base_script
         Vector list_strings = utils.getResizeableStringArrayScriptVar(self, "list_strings");
         Vector list_structures = utils.getResizeableObjIdArrayScriptVar(self, "list_structures");
         String name = ((String)list_strings.get(idx));
-        messageTo(((obj_id)list_structures.get(idx)), "requestDestroy", null, 0.f, true);
+        messageTo(((obj_id)list_structures.get(idx)), "requestDestroy", null, 0.0f, true);
         cityRemoveStructure(city_id, ((obj_id)list_structures.get(idx)));
         sendSystemMessageProse(self, prose.getPackage(new string_id(STF, "destroy_object"), city_id));
         CustomerServiceLog("player_city", "CSR remove city object via menu.  Player: " + player + " City: " + city_id + " Object: " + ((obj_id)list_structures.get(idx)));
@@ -1117,27 +1091,22 @@ public class terminal_city extends script.base_script
             utils.setScriptVar(self, city.CITIZEN_LIST_QUERIED, true);
         }
         dictionary residentInfo = new dictionary();
-        for (int j = 0; j < structures.length; ++j)
-        {
-            if (!exists(structures[j]) && !hasAsked)
-            {
+        for (obj_id structure : structures) {
+            if (!exists(structure) && !hasAsked) {
                 dictionary dict = new dictionary();
                 dict.put("terminal_id", self);
                 dict.put("city_id", city_id);
-                if (!messageTo(structures[j], "getStructureCitizenInformation", dict, 0.0f, false))
-                {
-                    CustomerServiceLog("player_city", "Citizen List: City(" + city_id + ")" + cityGetName(city_id) + " MessageTo failed!  Attempted to message Object(" + structures[j] + ").");
+                if (!messageTo(structure, "getStructureCitizenInformation", dict, 0.0f, false)) {
+                    CustomerServiceLog("player_city", "Citizen List: City(" + city_id + ")" + cityGetName(city_id) + " MessageTo failed!  Attempted to message Object(" + structure + ").");
                 }
-                CustomerServiceLog("player_city", "Citizen List: City(" + city_id + ")" + cityGetName(city_id) + " Structure(" + structures[j] + ") does not exist on this Server - Messaging to object to obtain Data.");
+                CustomerServiceLog("player_city", "Citizen List: City(" + city_id + ")" + cityGetName(city_id) + " Structure(" + structure + ") does not exist on this Server - Messaging to object to obtain Data.");
             }
-            if (city.isNormalStructure(city_id, structures[j]) && !player_structure.isCivic(structures[j]))
-            {
-                if (exists(structures[j]) && hasObjVar(structures[j], player_structure.VAR_RESIDENCE_BUILDING))
-                {
-                    obj_id citizenId = getObjIdObjVar(structures[j], player_structure.VAR_RESIDENCE_BUILDING);
+            if (city.isNormalStructure(city_id, structure) && !player_structure.isCivic(structure)) {
+                if (exists(structure) && hasObjVar(structure, player_structure.VAR_RESIDENCE_BUILDING)) {
+                    obj_id citizenId = getObjIdObjVar(structure, player_structure.VAR_RESIDENCE_BUILDING);
                     dictionary residentDict = new dictionary();
-                    residentDict.put("house_id", structures[j]);
-                    residentDict.put("house_loc", getLocation(structures[j]));
+                    residentDict.put("house_id", structure);
+                    residentDict.put("house_loc", getLocation(structure));
                     residentInfo.put(citizenId, residentDict);
                 }
             }
@@ -1457,15 +1426,11 @@ public class terminal_city extends script.base_script
         loadedStructures.setSize(0);
         Vector unloadedStructures = new Vector();
         unloadedStructures.setSize(0);
-        for (int i = 0; i < structures.length; i++)
-        {
-            if (structures[i].isLoaded())
-            {
-                utils.addElement(loadedStructures, structures[i]);
-            }
-            else 
-            {
-                utils.addElement(unloadedStructures, structures[i]);
+        for (obj_id structure : structures) {
+            if (structure.isLoaded()) {
+                utils.addElement(loadedStructures, structure);
+            } else {
+                utils.addElement(unloadedStructures, structure);
             }
         }
         obj_id[] loadedStructuresStaticArray = utils.toStaticObjIdArray(loadedStructures);
@@ -1493,7 +1458,7 @@ public class terminal_city extends script.base_script
             else if (player_structure.isCivic(loadedStructures[i]))
             {
                 structuresLocation[i] = getLocation(loadedStructures[i]);
-                float cond = ((float)player_structure.getStructureCondition(loadedStructures[i])) / ((float)player_structure.getMaxCondition(loadedStructures[i]));
+                float cond = ((float)player_structure.getStructureCondition(loadedStructures[i])) / player_structure.getMaxCondition(loadedStructures[i]);
                 int outcond = (int)(cond * 100);
                 structuresName[i] = getEncodedName(loadedStructures[i]) + " (Condition : " + outcond + "%)";
             }
@@ -1533,17 +1498,15 @@ public class terminal_city extends script.base_script
     }
     public void messageUnloadedCityStructures(obj_id self, obj_id player, int city_id, obj_id[] unloadedStructures) throws InterruptedException
     {
-        for (int k = 0; k < unloadedStructures.length; k++)
-        {
+        for (obj_id unloadedStructure : unloadedStructures) {
             dictionary d = new dictionary();
             d.put("player", player);
             d.put("city_id", city_id);
             d.put("city_terminal", self);
-            if (!messageTo(unloadedStructures[k], "handleUnloadedCityStructureReportData", d, 0.0f, false))
-            {
-                CustomerServiceLog("player_city", "Structure List: City(" + city_id + ")" + cityGetName(city_id) + " MessageTo Structure(" + unloadedStructures[k] + ") Failed!");
+            if (!messageTo(unloadedStructure, "handleUnloadedCityStructureReportData", d, 0.0f, false)) {
+                CustomerServiceLog("player_city", "Structure List: City(" + city_id + ")" + cityGetName(city_id) + " MessageTo Structure(" + unloadedStructure + ") Failed!");
             }
-            CustomerServiceLog("player_city", "Structure List: City(" + city_id + ")" + cityGetName(city_id) + " Requesting Structure Info from Object(" + unloadedStructures[k] + ") - Sent Data: (requesting)Player(" + player + "), CityID(" + city_id + "), City Terminal(" + self + ").");
+            CustomerServiceLog("player_city", "Structure List: City(" + city_id + ")" + cityGetName(city_id) + " Requesting Structure Info from Object(" + unloadedStructure + ") - Sent Data: (requesting)Player(" + player + "), CityID(" + city_id + "), City Terminal(" + self + ").");
         }
     }
     public int DisplayCityStructuresList(obj_id self, dictionary params) throws InterruptedException
@@ -1584,7 +1547,7 @@ public class terminal_city extends script.base_script
                     break;
                     case 2:
                     String template = getTemplateName(structureIds[i]);
-                    if (template.indexOf("garden_") > -1)
+                    if (template.contains("garden_"))
                     {
                         displayData[i][k] = "Garden";
                         break;
@@ -1640,7 +1603,7 @@ public class terminal_city extends script.base_script
                     break;
                     case 2:
                     String template = getTemplateName(structureIds[i]);
-                    if (template.indexOf("garden_") > -1)
+                    if (template.contains("garden_"))
                     {
                         displayData[i][k] = "Garden";
                         break;
@@ -1774,7 +1737,7 @@ public class terminal_city extends script.base_script
         }
         obj_id city_hall = getTopMostContainer(self);
         String template = getTemplateName(city_hall);
-        if (template.indexOf("cityhall_") < 0)
+        if (!template.contains("cityhall_"))
         {
             sendSystemMessage(player, new string_id(STF, "city_network_error"));
             return;
@@ -1867,7 +1830,7 @@ public class terminal_city extends script.base_script
         dictionary outparams = new dictionary();
         outparams.put("player", player);
         outparams.put("city_id", city_id);
-        messageTo(city_master, "reportUpdateEstimate", outparams, 0.f, false);
+        messageTo(city_master, "reportUpdateEstimate", outparams, 0.0f, false);
     }
     public void showMaintInfo(obj_id player, obj_id self, int city_id) throws InterruptedException
     {
@@ -1878,7 +1841,7 @@ public class terminal_city extends script.base_script
         }
         obj_id city_hall = getTopMostContainer(self);
         String template = getTemplateName(city_hall);
-        if (template.indexOf("cityhall_") < 0)
+        if (!template.contains("cityhall_"))
         {
             sendSystemMessage(player, new string_id(STF, "city_network_error"));
             return;
@@ -1904,23 +1867,16 @@ public class terminal_city extends script.base_script
         int deco_cost = 0;
         int other_cost = 0;
         obj_id[] structures = cityGetStructureIds(city_id);
-        for (int i = 0; i < structures.length; i++)
-        {
-            if (structures[i] == city_hall)
-            {
+        for (obj_id structure : structures) {
+            if (structure == city_hall) {
                 continue;
             }
-            if (city.isNormalStructure(city_id, structures[i]))
-            {
-                structures_cost += city.getStructureCost(city_id, structures[i]);
-            }
-            else if (city.isDecoration(city_id, structures[i]))
-            {
-                deco_cost += city.getStructureCost(city_id, structures[i]);
-            }
-            else 
-            {
-                other_cost += city.getStructureCost(city_id, structures[i]);
+            if (city.isNormalStructure(city_id, structure)) {
+                structures_cost += city.getStructureCost(city_id, structure);
+            } else if (city.isDecoration(city_id, structure)) {
+                deco_cost += city.getStructureCost(city_id, structure);
+            } else {
+                other_cost += city.getStructureCost(city_id, structure);
             }
         }
         total_cost = city_hall_cost + spec_cost + structures_cost + deco_cost + other_cost;
@@ -1965,7 +1921,7 @@ public class terminal_city extends script.base_script
         dictionary outparams = new dictionary();
         outparams.put("player", player);
         outparams.put("city_id", city_id);
-        messageTo(city_master, "reportUpdateEstimate", outparams, 0.f, false);
+        messageTo(city_master, "reportUpdateEstimate", outparams, 0.0f, false);
     }
     public void changeCityName(obj_id player, obj_id self, int city_id) throws InterruptedException
     {
@@ -2028,11 +1984,9 @@ public class terminal_city extends script.base_script
         Vector militiaMembers = new Vector();
         militiaMembers.setSize(0);
         militiaMembers = utils.addElement(militiaMembers, "Add Militia Member");
-        for (int i = 0; i < citizens.length; i++)
-        {
-            if (city.hasMilitiaFlag(citizens[i], city_id))
-            {
-                String name = cityGetCitizenName(city_id, citizens[i]);
+        for (obj_id citizen : citizens) {
+            if (city.hasMilitiaFlag(citizen, city_id)) {
+                String name = cityGetCitizenName(city_id, citizen);
                 militiaMembers = utils.addElement(militiaMembers, name);
             }
         }
@@ -2069,16 +2023,13 @@ public class terminal_city extends script.base_script
             Vector militiaMembers = new Vector();
             militiaMembers.setSize(0);
             militiaMembers = utils.addElement(militiaMembers, "Add Militia Member");
-            for (int i = 0; i < citizens.length; i++)
-            {
-                if (city.hasMilitiaFlag(citizens[i], city_id))
-                {
+            for (obj_id citizen : citizens) {
+                if (city.hasMilitiaFlag(citizen, city_id)) {
                     j++;
-                    String name = cityGetCitizenName(city_id, citizens[i]);
+                    String name = cityGetCitizenName(city_id, citizen);
                     militiaMembers = utils.addElement(militiaMembers, name);
-                    if (j == idx)
-                    {
-                        utils.setScriptVar(self, "removal.temp", citizens[i]);
+                    if (j == idx) {
+                        utils.setScriptVar(self, "removal.temp", citizen);
                         removeName = name;
                         break;
                     }
@@ -2112,24 +2063,18 @@ public class terminal_city extends script.base_script
         }
         String s2 = playerName.toLowerCase();
         obj_id[] players = getPlayerCreaturesInRange(getLocation(self), 10);
-        for (int i = 0; i < players.length; i++)
-        {
-            String s1 = (getName(players[i])).toLowerCase();
+        for (obj_id player1 : players) {
+            String s1 = (getName(player1)).toLowerCase();
             int indexOf = s1.indexOf(' ');
-            if (indexOf > -1)
-            {
+            if (indexOf > -1) {
                 s1 = s1.substring(0, indexOf);
             }
-            if (s1.compareTo(s2) == 0)
-            {
-                if (city.isCitizenOfCity(players[i], city_id))
-                {
-                    city.addMilitia(city_id, players[i]);
+            if (s1.compareTo(s2) == 0) {
+                if (city.isCitizenOfCity(player1, city_id)) {
+                    city.addMilitia(city_id, player1);
                     sendSystemMessage(player, SID_ADDED_MILITIA);
-                    sendSystemMessage(players[i], SID_ADDED_MILITIA_TARGET);
-                }
-                else 
-                {
+                    sendSystemMessage(player1, SID_ADDED_MILITIA_TARGET);
+                } else {
                     sendSystemMessage(player, SID_NOT_CITIZEN);
                 }
                 return SCRIPT_CONTINUE;
@@ -2174,7 +2119,7 @@ public class terminal_city extends script.base_script
         }
         obj_id structure = getTopMostContainer(self);
         String template = getTemplateName(structure);
-        if (template.indexOf("cityhall_") < 0)
+        if (!template.contains("cityhall_"))
         {
             sendSystemMessage(player, new string_id(STF, "city_network_error"));
             return;
@@ -2209,7 +2154,7 @@ public class terminal_city extends script.base_script
         }
         obj_id structure = getTopMostContainer(self);
         String template = getTemplateName(structure);
-        if (template.indexOf("cityhall_") < 0)
+        if (!template.contains("cityhall_"))
         {
             sendSystemMessage(player, new string_id(STF, "city_network_error"));
             return;
@@ -2349,9 +2294,8 @@ public class terminal_city extends script.base_script
         String citizen_name = "";
         String withdraw_reason = utils.getStringScriptVar(self, "withdrawReason");
         obj_id[] citizens = cityGetCitizenIds(city_id);
-        for (int i = 0; i < citizens.length; i++)
-        {
-            citizen_name = cityGetCitizenName(city_id, citizens[i]);
+        for (obj_id citizen : citizens) {
+            citizen_name = cityGetCitizenName(city_id, citizen);
             prose_package bodypp = prose.getPackage(TREASURY_WITHDRAW_BODY, withdraw_reason, mayor_name, amt);
             utils.sendMail(TREASURY_WITHDRAW_SUBJECT, bodypp, citizen_name, "City Hall");
         }
@@ -2436,7 +2380,7 @@ public class terminal_city extends script.base_script
         int desired_tax = 0;
         try
         {
-            desired_tax = (Integer.valueOf(tax_string)).intValue();
+            desired_tax = Integer.valueOf(tax_string);
         }
         catch(NumberFormatException err)
         {
@@ -2458,32 +2402,29 @@ public class terminal_city extends script.base_script
             case 0:
             city.setIncomeTax(city_id, desired_tax);
             pp = prose.getPackage(SID_INCOME_TAX, desired_tax);
-            for (int i = 0; i < citizens.length; i++)
-            {
-                String citizen_name = cityGetCitizenName(city_id, citizens[i]);
-                prose_package bodypp = prose.getPackage(TAX_INCOME_BODY, city_name, desired_tax);
-                utils.sendMail(TAX_INCOME_SUBJECT, bodypp, citizen_name, "City Hall");
-            }
+                for (obj_id citizen4 : citizens) {
+                    String citizen_name = cityGetCitizenName(city_id, citizen4);
+                    prose_package bodypp = prose.getPackage(TAX_INCOME_BODY, city_name, desired_tax);
+                    utils.sendMail(TAX_INCOME_SUBJECT, bodypp, citizen_name, "City Hall");
+                }
             break;
             case 1:
             city.setPropertyTax(city_id, desired_tax);
             pp = prose.getPackage(SID_PROPERTY_TAX, desired_tax);
-            for (int i = 0; i < citizens.length; i++)
-            {
-                String citizen_name = cityGetCitizenName(city_id, citizens[i]);
-                prose_package bodypp = prose.getPackage(TAX_PROPERTY_BODY, city_name, desired_tax);
-                utils.sendMail(TAX_PROPERTY_SUBJECT, bodypp, citizen_name, "City Hall");
-            }
+                for (obj_id citizen3 : citizens) {
+                    String citizen_name = cityGetCitizenName(city_id, citizen3);
+                    prose_package bodypp = prose.getPackage(TAX_PROPERTY_BODY, city_name, desired_tax);
+                    utils.sendMail(TAX_PROPERTY_SUBJECT, bodypp, citizen_name, "City Hall");
+                }
             break;
             case 2:
             city.setSalesTax(city_id, desired_tax);
             pp = prose.getPackage(SID_SALES_TAX, desired_tax);
-            for (int i = 0; i < citizens.length; i++)
-            {
-                String citizen_name = cityGetCitizenName(city_id, citizens[i]);
-                prose_package bodypp = prose.getPackage(TAX_SALES_BODY, city_name, desired_tax);
-                utils.sendMail(TAX_SALES_SUBJECT, bodypp, citizen_name, "City Hall");
-            }
+                for (obj_id citizen2 : citizens) {
+                    String citizen_name = cityGetCitizenName(city_id, citizen2);
+                    prose_package bodypp = prose.getPackage(TAX_SALES_BODY, city_name, desired_tax);
+                    utils.sendMail(TAX_SALES_SUBJECT, bodypp, citizen_name, "City Hall");
+                }
             break;
             case 3:
             location cityTravelLoc = cityGetTravelLocation(city_id);
@@ -2494,23 +2435,21 @@ public class terminal_city extends script.base_script
             }
             city.setTravelFee(city_id, desired_tax);
             pp = prose.getPackage(SID_TRAVEL_FEE, desired_tax);
-            for (int i = 0; i < citizens.length; i++)
-            {
-                String citizen_name = cityGetCitizenName(city_id, citizens[i]);
-                prose_package bodypp = prose.getPackage(TAX_TRAVEL_BODY, city_name, desired_tax);
-                utils.sendMail(TAX_TRAVEL_SUBJECT, bodypp, citizen_name, "City Hall");
-            }
+                for (obj_id citizen1 : citizens) {
+                    String citizen_name = cityGetCitizenName(city_id, citizen1);
+                    prose_package bodypp = prose.getPackage(TAX_TRAVEL_BODY, city_name, desired_tax);
+                    utils.sendMail(TAX_TRAVEL_SUBJECT, bodypp, citizen_name, "City Hall");
+                }
             break;
             case 4:
             String garageFee = city_name + ".garageFee";
             setObjVar(structure, garageFee, desired_tax);
             pp = prose.getPackage(SID_GARAGE_TAX, desired_tax);
-            for (int i = 0; i < citizens.length; i++)
-            {
-                String citizen_name = cityGetCitizenName(city_id, citizens[i]);
-                prose_package bodypp = prose.getPackage(GARAGE_FEE_BODY, city_name, desired_tax);
-                utils.sendMail(GARAGE_FEE_SUBJECT, bodypp, citizen_name, "City Hall");
-            }
+                for (obj_id citizen : citizens) {
+                    String citizen_name = cityGetCitizenName(city_id, citizen);
+                    prose_package bodypp = prose.getPackage(GARAGE_FEE_BODY, city_name, desired_tax);
+                    utils.sendMail(GARAGE_FEE_SUBJECT, bodypp, citizen_name, "City Hall");
+                }
             break;
         }
         sendSystemMessageProse(player, pp);
@@ -2732,10 +2671,9 @@ public class terminal_city extends script.base_script
         String nmayor_name = cityGetCitizenName(city_id, mayor);
         obj_id[] citizens = cityGetCitizenIds(city_id);
         String city_name = cityGetName(city_id);
-        for (int i = 0; i < citizens.length; i++)
-        {
-            city.setCitizenAllegiance(city_id, citizens[i], mayor);
-            String citizen_name = cityGetCitizenName(city_id, citizens[i]);
+        for (obj_id citizen : citizens) {
+            city.setCitizenAllegiance(city_id, citizen, mayor);
+            String citizen_name = cityGetCitizenName(city_id, citizen);
             prose_package bodypp = prose.getPackage(PUBLIC_ELECTION_BODY, city_name, nmayor_name);
             utils.sendMail(PUBLIC_ELECTION_SUBJECT, bodypp, citizen_name, "City Hall");
         }
@@ -2756,16 +2694,12 @@ public class terminal_city extends script.base_script
             return false;
         }
         obj_id[] structures = cityGetStructureIds(city_id);
-        for (int i = 0; i < structures.length; i++)
-        {
-            if (structures[i].isLoaded())
-            {
-                if (!city.isNormalStructure(city_id, structures[i]))
-                {
-                    if (hasScript(structures[i], PROFESSION_TRAINER_SCRIPT))
-                    {
-                        CustomerServiceLog("player_city", "Player: " + mayor + " - " + getName(mayor) + " deleted " + structures[i] + " - " + getName(structures[i]) + " at City: " + city_id + " - " + cityGetName(city_id));
-                        destroyObject(structures[i]);
+        for (obj_id structure : structures) {
+            if (structure.isLoaded()) {
+                if (!city.isNormalStructure(city_id, structure)) {
+                    if (hasScript(structure, PROFESSION_TRAINER_SCRIPT)) {
+                        CustomerServiceLog("player_city", "Player: " + mayor + " - " + getName(mayor) + " deleted " + structure + " - " + getName(structure) + " at City: " + city_id + " - " + cityGetName(city_id));
+                        destroyObject(structure);
                     }
                 }
             }
@@ -2779,12 +2713,9 @@ public class terminal_city extends script.base_script
             return false;
         }
         obj_id[] structures = cityGetStructureIds(city_id);
-        for (int i = 0; i < structures.length; i++)
-        {
-            if (structures[i].isLoaded())
-            {
-                if (!city.isNormalStructure(city_id, structures[i]))
-                {
+        for (obj_id structure : structures) {
+            if (structure.isLoaded()) {
+                if (!city.isNormalStructure(city_id, structure)) {
                     return true;
                 }
             }

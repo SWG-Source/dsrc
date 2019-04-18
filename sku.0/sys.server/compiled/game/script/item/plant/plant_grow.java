@@ -386,30 +386,21 @@ public class plant_grow extends script.base_script
             Vector container_list = new Vector();
             container_list.setSize(0);
             obj_id[] objects = utils.getContents(inv, false);
-            for (int i = 0; i < objects.length; i++)
-            {
-                if (isResourceContainer(objects[i]))
-                {
-                    obj_id resource_type = getResourceContainerResourceType(objects[i]);
-                    if (isIdValid(resource_type))
-                    {
+            for (obj_id object : objects) {
+                if (isResourceContainer(object)) {
+                    obj_id resource_type = getResourceContainerResourceType(object);
+                    if (isIdValid(resource_type)) {
                         String resource_class = getResourceClass(resource_type);
-                        if (resource_class != null)
-                        {
-                            if (type.equals("nutrient"))
-                            {
-                                if (resource.isOrganic(resource_class))
-                                {
+                        if (resource_class != null) {
+                            if (type.equals("nutrient")) {
+                                if (resource.isOrganic(resource_class)) {
                                     dsrc.add(getResourceName(resource_type));
-                                    container_list.add(objects[i]);
+                                    container_list.add(object);
                                 }
-                            }
-                            else 
-                            {
-                                if (isResourceClassDerivedFrom(resource_class, resource.RT_LIQUID_WATER))
-                                {
+                            } else {
+                                if (isResourceClassDerivedFrom(resource_class, resource.RT_LIQUID_WATER)) {
                                     dsrc.add(getResourceName(resource_type));
-                                    container_list.add(objects[i]);
+                                    container_list.add(object);
                                 }
                             }
                         }

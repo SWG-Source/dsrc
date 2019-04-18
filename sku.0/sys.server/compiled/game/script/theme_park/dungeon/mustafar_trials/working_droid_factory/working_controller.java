@@ -82,15 +82,12 @@ public class working_controller extends script.base_script
         }
         location loc1 = null;
         location loc2 = null;
-        for (int i = 0; i < bossWp.length; i++)
-        {
-            if ((getStringObjVar(bossWp[i], "boss_wp")).equals("aurek"))
-            {
-                loc1 = getLocation(bossWp[i]);
+        for (obj_id obj_id : bossWp) {
+            if ((getStringObjVar(obj_id, "boss_wp")).equals("aurek")) {
+                loc1 = getLocation(obj_id);
             }
-            if ((getStringObjVar(bossWp[i], "boss_wp")).equals("besh"))
-            {
-                loc2 = getLocation(bossWp[i]);
+            if ((getStringObjVar(obj_id, "boss_wp")).equals("besh")) {
+                loc2 = getLocation(obj_id);
             }
         }
         if (loc1 == null || loc2 == null)
@@ -120,19 +117,15 @@ public class working_controller extends script.base_script
         location devistatorLoc = null;
         location reactiveRepairLoc = null;
         location inhibitorSupplyLoc = null;
-        for (int i = 0; i < bossWp.length; i++)
-        {
-            if ((getStringObjVar(bossWp[i], "boss_wp")).equals("devistator"))
-            {
-                devistatorLoc = getLocation(bossWp[i]);
+        for (obj_id obj_id : bossWp) {
+            if ((getStringObjVar(obj_id, "boss_wp")).equals("devistator")) {
+                devistatorLoc = getLocation(obj_id);
             }
-            if ((getStringObjVar(bossWp[i], "boss_wp")).equals("reactive_repair_unit"))
-            {
-                reactiveRepairLoc = getLocation(bossWp[i]);
+            if ((getStringObjVar(obj_id, "boss_wp")).equals("reactive_repair_unit")) {
+                reactiveRepairLoc = getLocation(obj_id);
             }
-            if ((getStringObjVar(bossWp[i], "boss_wp")).equals("inhibitor_supply"))
-            {
-                inhibitorSupplyLoc = getLocation(bossWp[i]);
+            if ((getStringObjVar(obj_id, "boss_wp")).equals("inhibitor_supply")) {
+                inhibitorSupplyLoc = getLocation(obj_id);
             }
         }
         if (devistatorLoc == null || reactiveRepairLoc == null || inhibitorSupplyLoc == null)
@@ -166,27 +159,21 @@ public class working_controller extends script.base_script
         location clonerTwoLoc = null;
         location clonerOneExit = null;
         location clonerTwoExit = null;
-        for (int i = 0; i < bossWp.length; i++)
-        {
-            if ((getStringObjVar(bossWp[i], "boss_wp")).equals("droid_engineer"))
-            {
-                mdeLoc = getLocation(bossWp[i]);
+        for (obj_id obj_id : bossWp) {
+            if ((getStringObjVar(obj_id, "boss_wp")).equals("droid_engineer")) {
+                mdeLoc = getLocation(obj_id);
             }
-            if ((getStringObjVar(bossWp[i], "boss_wp")).equals("cloner1"))
-            {
-                clonerOneLoc = getLocation(bossWp[i]);
+            if ((getStringObjVar(obj_id, "boss_wp")).equals("cloner1")) {
+                clonerOneLoc = getLocation(obj_id);
             }
-            if ((getStringObjVar(bossWp[i], "boss_wp")).equals("cloner2"))
-            {
-                clonerTwoLoc = getLocation(bossWp[i]);
+            if ((getStringObjVar(obj_id, "boss_wp")).equals("cloner2")) {
+                clonerTwoLoc = getLocation(obj_id);
             }
-            if ((getStringObjVar(bossWp[i], "boss_wp")).equals("cloner_exit_1"))
-            {
-                clonerOneExit = getLocation(bossWp[i]);
+            if ((getStringObjVar(obj_id, "boss_wp")).equals("cloner_exit_1")) {
+                clonerOneExit = getLocation(obj_id);
             }
-            if ((getStringObjVar(bossWp[i], "boss_wp")).equals("cloner_exit_2"))
-            {
-                clonerTwoExit = getLocation(bossWp[i]);
+            if ((getStringObjVar(obj_id, "boss_wp")).equals("cloner_exit_2")) {
+                clonerTwoExit = getLocation(obj_id);
             }
         }
         if (mdeLoc == null || clonerOneLoc == null || clonerTwoLoc == null || clonerOneExit == null || clonerTwoExit == null)
@@ -217,15 +204,12 @@ public class working_controller extends script.base_script
         }
         location doomBringerLoc = null;
         location destructionPileLoc = null;
-        for (int i = 0; i < bossWp.length; i++)
-        {
-            if ((getStringObjVar(bossWp[i], "boss_wp")).equals("doom_bringer"))
-            {
-                doomBringerLoc = getLocation(bossWp[i]);
+        for (obj_id obj_id : bossWp) {
+            if ((getStringObjVar(obj_id, "boss_wp")).equals("doom_bringer")) {
+                doomBringerLoc = getLocation(obj_id);
             }
-            if ((getStringObjVar(bossWp[i], "boss_wp")).equals("destruction_pile"))
-            {
-                destructionPileLoc = getLocation(bossWp[i]);
+            if ((getStringObjVar(obj_id, "boss_wp")).equals("destruction_pile")) {
+                destructionPileLoc = getLocation(obj_id);
             }
         }
         if (doomBringerLoc == null || destructionPileLoc == null)
@@ -249,11 +233,9 @@ public class working_controller extends script.base_script
             return SCRIPT_CONTINUE;
         }
         int k = 0;
-        for (int i = 0; i < bossWp.length; i++)
-        {
-            if ((getStringObjVar(bossWp[i], "boss_wp")).equals("watcher" + k))
-            {
-                obj_id watcher = create.object("som_working_hand_of_doom", getLocation(bossWp[i]));
+        for (obj_id obj_id : bossWp) {
+            if ((getStringObjVar(obj_id, "boss_wp")).equals("watcher" + k)) {
+                obj_id watcher = create.object("som_working_hand_of_doom", getLocation(obj_id));
                 attachScript(watcher, "theme_park.dungeon.mustafar_trials.working_droid_factory.doom_hand");
                 k++;
             }
@@ -262,16 +244,14 @@ public class working_controller extends script.base_script
     }
     public void setEventLocks(obj_id dungeon) throws InterruptedException
     {
-        for (int i = 0; i < LOCKED_ROOMS.length; i++)
-        {
-            permissionsMakePrivate(getCellId(dungeon, LOCKED_ROOMS[i]));
+        for (String lockedRoom : LOCKED_ROOMS) {
+            permissionsMakePrivate(getCellId(dungeon, lockedRoom));
         }
     }
     public void removeEventLocks(obj_id dungeon) throws InterruptedException
     {
-        for (int i = 0; i < LOCKED_ROOMS.length; i++)
-        {
-            permissionsMakePublic(getCellId(dungeon, LOCKED_ROOMS[i]));
+        for (String lockedRoom : LOCKED_ROOMS) {
+            permissionsMakePublic(getCellId(dungeon, lockedRoom));
         }
     }
     public void setEventStates(obj_id dungeon) throws InterruptedException
@@ -354,11 +334,9 @@ public class working_controller extends script.base_script
             return;
         }
         location loc1 = null;
-        for (int i = 0; i < bossWp.length; i++)
-        {
-            if ((getStringObjVar(bossWp[i], "boss_wp")).equals("aurek"))
-            {
-                loc1 = getLocation(bossWp[i]);
+        for (obj_id obj_id : bossWp) {
+            if ((getStringObjVar(obj_id, "boss_wp")).equals("aurek")) {
+                loc1 = getLocation(obj_id);
             }
         }
         if (loc1 == null)
@@ -382,11 +360,9 @@ public class working_controller extends script.base_script
             return;
         }
         location loc1 = null;
-        for (int i = 0; i < bossWp.length; i++)
-        {
-            if ((getStringObjVar(bossWp[i], "boss_wp")).equals("besh"))
-            {
-                loc1 = getLocation(bossWp[i]);
+        for (obj_id obj_id : bossWp) {
+            if ((getStringObjVar(obj_id, "boss_wp")).equals("besh")) {
+                loc1 = getLocation(obj_id);
             }
         }
         if (loc1 == null)
@@ -457,15 +433,12 @@ public class working_controller extends script.base_script
             return SCRIPT_CONTINUE;
         }
         obj_id[] objects = trial.getObjectsInDungeonWithObjVar(self, "boss_wp");
-        for (int i = 0; i < objects.length; i++)
-        {
-            if ((getStringObjVar(objects[i], "boss_wp")).equals("doom_bringer"))
-            {
-                playClientEffectLoc(players[0], trial.PRT_WORKING_HK_BOOM_1, getLocation(objects[i]), 1f);
+        for (obj_id object : objects) {
+            if ((getStringObjVar(object, "boss_wp")).equals("doom_bringer")) {
+                playClientEffectLoc(players[0], trial.PRT_WORKING_HK_BOOM_1, getLocation(object), 1.0f);
             }
-            if ((getStringObjVar(objects[i], "boss_wp")).equals("destruction_pile"))
-            {
-                playClientEffectLoc(players[0], trial.PRT_WORKING_HK_BOOM_1, getLocation(objects[i]), 1f);
+            if ((getStringObjVar(object, "boss_wp")).equals("destruction_pile")) {
+                playClientEffectLoc(players[0], trial.PRT_WORKING_HK_BOOM_1, getLocation(object), 1.0f);
             }
         }
         messageTo(self, "handlePlayerForceRevive", null, 3, false);
@@ -500,15 +473,12 @@ public class working_controller extends script.base_script
         }
         location startLoc = null;
         location endLoc = null;
-        for (int i = 0; i < wp.length; i++)
-        {
-            if ((getStringObjVar(wp[i], "hk_sequence")).equals("hk_spawn"))
-            {
-                startLoc = getLocation(wp[i]);
+        for (obj_id obj_id : wp) {
+            if ((getStringObjVar(obj_id, "hk_sequence")).equals("hk_spawn")) {
+                startLoc = getLocation(obj_id);
             }
-            if ((getStringObjVar(wp[i], "hk_sequence")).equals("hk_moveto"))
-            {
-                endLoc = getLocation(wp[i]);
+            if ((getStringObjVar(obj_id, "hk_sequence")).equals("hk_moveto")) {
+                endLoc = getLocation(obj_id);
             }
         }
         if (startLoc == null || endLoc == null)
@@ -546,23 +516,18 @@ public class working_controller extends script.base_script
         }
         location[] fireLoc = new location[3];
         location blastLoc = null;
-        for (int i = 0; i < wp.length; i++)
-        {
-            if ((getStringObjVar(wp[i], "hk_sequence")).equals("fire1"))
-            {
-                fireLoc[0] = getLocation(wp[i]);
+        for (obj_id obj_id1 : wp) {
+            if ((getStringObjVar(obj_id1, "hk_sequence")).equals("fire1")) {
+                fireLoc[0] = getLocation(obj_id1);
             }
-            if ((getStringObjVar(wp[i], "hk_sequence")).equals("fire2"))
-            {
-                fireLoc[1] = getLocation(wp[i]);
+            if ((getStringObjVar(obj_id1, "hk_sequence")).equals("fire2")) {
+                fireLoc[1] = getLocation(obj_id1);
             }
-            if ((getStringObjVar(wp[i], "hk_sequence")).equals("fire3"))
-            {
-                fireLoc[2] = getLocation(wp[i]);
+            if ((getStringObjVar(obj_id1, "hk_sequence")).equals("fire3")) {
+                fireLoc[2] = getLocation(obj_id1);
             }
-            if ((getStringObjVar(wp[i], "hk_sequence")).equals("player_blast_trigger"))
-            {
-                blastLoc = getLocation(wp[i]);
+            if ((getStringObjVar(obj_id1, "hk_sequence")).equals("player_blast_trigger")) {
+                blastLoc = getLocation(obj_id1);
             }
         }
         if (blastLoc == null || fireLoc[0] == null || fireLoc[1] == null || fireLoc[2] == null)
@@ -577,13 +542,12 @@ public class working_controller extends script.base_script
             doLogging("detonateHk", "There are no players in the dungeon");
             return SCRIPT_CONTINUE;
         }
-        playClientEffectLoc(players[0], trial.PRT_WORKING_HK_BOOM_1, fireLoc[1], 1f);
+        playClientEffectLoc(players[0], trial.PRT_WORKING_HK_BOOM_1, fireLoc[1], 1.0f);
         if (playersInBlast != null && playersInBlast.length > 0)
         {
-            for (int q = 0; q < playersInBlast.length; q++)
-            {
-                buff.applyBuff(playersInBlast[q], "stop", 5);
-                warpPlayer(playersInBlast[q], blastLoc.area, 48, -24, -1, trial.getTop(self), trial.WORKING_MAIN_HALL, 48, -24, -1, "nullCallBack", false);
+            for (obj_id obj_id : playersInBlast) {
+                buff.applyBuff(obj_id, "stop", 5);
+                warpPlayer(obj_id, blastLoc.area, 48, -24, -1, trial.getTop(self), trial.WORKING_MAIN_HALL, 48, -24, -1, "nullCallBack", false);
             }
         }
         trial.bumpSession(self, "spawn_hk");
@@ -598,14 +562,14 @@ public class working_controller extends script.base_script
     {
         location[] wp = utils.getLocationArrayScriptVar(self, "wps");
         obj_id viewer = utils.getObjIdScriptVar(self, "viewer");
-        playClientEffectLoc(viewer, trial.PRT_WORKING_HK_BOOM_2, wp[0], 1f);
+        playClientEffectLoc(viewer, trial.PRT_WORKING_HK_BOOM_2, wp[0], 1.0f);
         return SCRIPT_CONTINUE;
     }
     public int doExplosionThree(obj_id self, dictionary params) throws InterruptedException
     {
         location[] wp = utils.getLocationArrayScriptVar(self, "wps");
         obj_id viewer = utils.getObjIdScriptVar(self, "viewer");
-        playClientEffectLoc(viewer, trial.PRT_WORKING_HK_BOOM_3, wp[2], 1f);
+        playClientEffectLoc(viewer, trial.PRT_WORKING_HK_BOOM_3, wp[2], 1.0f);
         messageTo(self, "doHkTaunt", null, 2, false);
         return SCRIPT_CONTINUE;
     }
@@ -637,15 +601,12 @@ public class working_controller extends script.base_script
         obj_id[] twins = trial.getObjectsInDungeonWithScriptVar(self, "name");
         obj_id aurek = null;
         obj_id besh = null;
-        for (int i = 0; i < twins.length; i++)
-        {
-            if ((utils.getStringScriptVar(twins[i], "name")).equals("aurek"))
-            {
-                aurek = twins[i];
+        for (obj_id twin : twins) {
+            if ((utils.getStringScriptVar(twin, "name")).equals("aurek")) {
+                aurek = twin;
             }
-            if ((utils.getStringScriptVar(twins[i], "name")).equals("besh"))
-            {
-                besh = twins[i];
+            if ((utils.getStringScriptVar(twin, "name")).equals("besh")) {
+                besh = twin;
             }
         }
         if (!isIdValid(aurek) || !isIdValid(besh) || ai_lib.isDead(aurek) || ai_lib.isDead(besh))

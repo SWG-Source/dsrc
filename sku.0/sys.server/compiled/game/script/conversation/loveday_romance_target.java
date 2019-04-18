@@ -108,7 +108,7 @@ public class loveday_romance_target extends script.base_script
     {
         String file = "event/love_day";
         Vector randomOrder = utils.getResizeableIntArrayScriptVar(player, "traits_randomOrder");
-        String traitObjVar = "playingCupid.trait_0" + ((Integer)randomOrder.get(0)).intValue();
+        String traitObjVar = "playingCupid.trait_0" + (Integer) randomOrder.get(0);
         String message = getString(new string_id(file, "trait_" + getStringObjVar(npc, traitObjVar)));
         return message;
     }
@@ -116,7 +116,7 @@ public class loveday_romance_target extends script.base_script
     {
         String file = "event/love_day";
         Vector randomOrder = utils.getResizeableIntArrayScriptVar(player, "traits_randomOrder");
-        String traitObjVar = "playingCupid.trait_0" + ((Integer)randomOrder.get(4)).intValue();
+        String traitObjVar = "playingCupid.trait_0" + (Integer) randomOrder.get(4);
         String message = getString(new string_id(file, "trait_" + getStringObjVar(npc, traitObjVar)));
         return message;
     }
@@ -124,7 +124,7 @@ public class loveday_romance_target extends script.base_script
     {
         String file = "event/love_day";
         Vector randomOrder = utils.getResizeableIntArrayScriptVar(player, "traits_randomOrder");
-        String traitObjVar = "playingCupid.trait_0" + ((Integer)randomOrder.get(3)).intValue();
+        String traitObjVar = "playingCupid.trait_0" + (Integer) randomOrder.get(3);
         String message = getString(new string_id(file, "trait_" + getStringObjVar(npc, traitObjVar)));
         return message;
     }
@@ -132,7 +132,7 @@ public class loveday_romance_target extends script.base_script
     {
         String file = "event/love_day";
         Vector randomOrder = utils.getResizeableIntArrayScriptVar(player, "traits_randomOrder");
-        String traitObjVar = "playingCupid.trait_0" + ((Integer)randomOrder.get(2)).intValue();
+        String traitObjVar = "playingCupid.trait_0" + (Integer) randomOrder.get(2);
         String message = getString(new string_id(file, "trait_" + getStringObjVar(npc, traitObjVar)));
         return message;
     }
@@ -140,7 +140,7 @@ public class loveday_romance_target extends script.base_script
     {
         String file = "event/love_day";
         Vector randomOrder = utils.getResizeableIntArrayScriptVar(player, "traits_randomOrder");
-        String traitObjVar = "playingCupid.trait_0" + ((Integer)randomOrder.get(1)).intValue();
+        String traitObjVar = "playingCupid.trait_0" + (Integer) randomOrder.get(1);
         String message = getString(new string_id(file, "trait_" + getStringObjVar(npc, traitObjVar)));
         return message;
     }

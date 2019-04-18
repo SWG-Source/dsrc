@@ -20,9 +20,8 @@ public class rtp_han_solo_general_otto extends script.base_script
         {
             check = true;
         }
-        for (int i = 0; i < damage.length; i++)
-        {
-            currentHealth = currentHealth - damage[i];
+        for (int i1 : damage) {
+            currentHealth = currentHealth - i1;
         }
         if (currentHealth <= 0)
         {

@@ -1,21 +1,15 @@
 package script.working.wwallace;
 
-import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
-
-import script.library.space_utils;
-import script.library.space_combat;
+import script.dictionary;
 import script.library.space_transition;
-import script.library.space_crafting;
-import script.library.create;
-import script.library.utils;
+import script.library.space_utils;
 import script.library.sui;
-import script.library.space_create;
+import script.library.utils;
+import script.location;
+import script.obj_id;
+import script.string_id;
+
+import java.util.Vector;
 
 public class space_mining_test extends script.base_script
 {
@@ -52,13 +46,11 @@ public class space_mining_test extends script.base_script
             entries.setSize(0);
             Vector locations = new Vector();
             locations.setSize(0);
-            for (int i = 0; i < objectsInRange.length; i++)
-            {
-                if (hasObjVar(objectsInRange[i], "mining_asteroid.numShipsSpawned"))
-                {
+            for (obj_id obj_id : objectsInRange) {
+                if (hasObjVar(obj_id, "mining_asteroid.numShipsSpawned")) {
                     sendSystemMessageTestingOnly(self, "Found asteroid within 10000 meters!");
-                    String strAsteroidType = getStringObjVar(objectsInRange[i], "strAsteroidType");
-                    location asteroid = getLocation(objectsInRange[i]);
+                    String strAsteroidType = getStringObjVar(obj_id, "strAsteroidType");
+                    location asteroid = getLocation(obj_id);
                     locations = utils.addElement(locations, asteroid);
                     entries = utils.addElement(entries, "Found asteroid of type: " + strAsteroidType + " at location " + asteroid);
                 }
@@ -106,20 +98,15 @@ public class space_mining_test extends script.base_script
                 if (isIdValid(group))
                 {
                     obj_id[] groupMembers = getGroupMemberIds(group);
-                    for (int i = 0; i < groupMembers.length; ++i)
-                    {
-                        if (groupMembers[i] != player && exists(groupMembers[i]) && getLocation(groupMembers[i]).cell == playerLoc.cell && groupMemberApproved(membersApprovedByShipOwner, groupMembers[i]))
-                        {
+                    for (obj_id groupMember : groupMembers) {
+                        if (groupMember != player && exists(groupMember) && getLocation(groupMember).cell == playerLoc.cell && groupMemberApproved(membersApprovedByShipOwner, groupMember)) {
                             startIndex = getNextStartIndex(shipStartLocations, startIndex);
-                            if (startIndex <= shipStartLocations.size())
-                            {
-                                groupMembersToWarp = utils.addElement(groupMembersToWarp, groupMembers[i]);
+                            if (startIndex <= shipStartLocations.size()) {
+                                groupMembersToWarp = utils.addElement(groupMembersToWarp, groupMember);
                                 groupMemberStartIndex = utils.addElement(groupMemberStartIndex, startIndex);
-                            }
-                            else 
-                            {
+                            } else {
                                 string_id strSpam = new string_id("space/space_interaction", "no_space_expansion");
-                                sendSystemMessage(groupMembers[i], strSpam);
+                                sendSystemMessage(groupMember, strSpam);
                             }
                         }
                     }
@@ -128,7 +115,7 @@ public class space_mining_test extends script.base_script
         }
         for (int i = 0; i < groupMembersToWarp.size(); ++i)
         {
-            space_transition.setLaunchInfo(((obj_id)groupMembersToWarp.get(i)), ship, ((Integer)groupMemberStartIndex.get(i)).intValue(), groundLoc);
+            space_transition.setLaunchInfo(((obj_id)groupMembersToWarp.get(i)), ship, (Integer) groupMemberStartIndex.get(i), groundLoc);
             warpPlayer(((obj_id)groupMembersToWarp.get(i)), warpLocation.area, warpLocation.x, warpLocation.y, warpLocation.z, null, warpLocation.x, warpLocation.y, warpLocation.z);
         }
     }
@@ -149,10 +136,8 @@ public class space_mining_test extends script.base_script
     }
     public boolean groupMemberApproved(obj_id[] membersApprovedByShipOwner, obj_id memberToTest) throws InterruptedException
     {
-        for (int i = 0; i < membersApprovedByShipOwner.length; ++i)
-        {
-            if (membersApprovedByShipOwner[i] == memberToTest)
-            {
+        for (obj_id obj_id : membersApprovedByShipOwner) {
+            if (obj_id == memberToTest) {
                 return true;
             }
         }

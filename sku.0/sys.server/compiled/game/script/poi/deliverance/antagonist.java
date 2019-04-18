@@ -279,46 +279,38 @@ public class antagonist extends script.theme_park.poi.base
             String aId = response.getAsciiId();
             LOG("poiDeliverance", "your response = " + aId);
             string_id msg = new string_id();
-            if ((aId.equals("response_yes")))
-            {
-                scenario.say(self, convo, "a_yes");
-                npcEndConversation(speaker);
-                scenario.setPlayerProgress(speaker, 5);
-                return SCRIPT_CONTINUE;
-            }
-            else if ((aId.equals("response_no")))
-            {
-                scenario.say(self, convo, "a_no");
-                npcEndConversation(speaker);
-                scenario.setPlayerProgress(speaker, 4);
-                groupAttack(self, speaker);
-                return SCRIPT_CONTINUE;
-            }
-            else if ((aId.equals("response_maybe")))
-            {
-                int roll = rand(1, 3);
-                switch (roll)
-                {
-                    case 1:
-                    scenario.say(self, convo, "a_no_negotiate");
+            switch (aId) {
+                case "response_yes":
+                    scenario.say(self, convo, "a_yes");
                     npcEndConversation(speaker);
-                    obj_id target = poi.findObject(scenario.MEDIATOR);
-                    if ((target == null) || (target == obj_id.NULL_ID))
-                    {
-                    }
-                    else 
-                    {
-                        groupAttack(self, target);
-                    }
-                    break;
-                    default:
-                    scenario.say(self, convo, "a_maybe");
+                    scenario.setPlayerProgress(speaker, 5);
+                    return SCRIPT_CONTINUE;
+                case "response_no":
+                    scenario.say(self, convo, "a_no");
                     npcEndConversation(speaker);
-                    setObjVar(self, VAR_RESET_TIMER, true);
-                    break;
-                }
-                scenario.setPlayerProgress(speaker, 6);
-                return SCRIPT_CONTINUE;
+                    scenario.setPlayerProgress(speaker, 4);
+                    groupAttack(self, speaker);
+                    return SCRIPT_CONTINUE;
+                case "response_maybe":
+                    int roll = rand(1, 3);
+                    switch (roll) {
+                        case 1:
+                            scenario.say(self, convo, "a_no_negotiate");
+                            npcEndConversation(speaker);
+                            obj_id target = poi.findObject(scenario.MEDIATOR);
+                            if ((target == null) || (target == obj_id.NULL_ID)) {
+                            } else {
+                                groupAttack(self, target);
+                            }
+                            break;
+                        default:
+                            scenario.say(self, convo, "a_maybe");
+                            npcEndConversation(speaker);
+                            setObjVar(self, VAR_RESET_TIMER, true);
+                            break;
+                    }
+                    scenario.setPlayerProgress(speaker, 6);
+                    return SCRIPT_CONTINUE;
             }
         }
         return SCRIPT_CONTINUE;
@@ -452,31 +444,19 @@ public class antagonist extends script.theme_park.poi.base
         }
         else 
         {
-            for (int i = 0; i < killers.length; i++)
-            {
-                obj_id tmp = killers[i];
-                if ((tmp == null) || (tmp == obj_id.NULL_ID))
-                {
-                }
-                else 
-                {
-                    if (group.isGroupObject(tmp))
-                    {
+            for (obj_id tmp : killers) {
+                if ((tmp == null) || (tmp == obj_id.NULL_ID)) {
+                } else {
+                    if (group.isGroupObject(tmp)) {
                         obj_id[] members = getGroupMemberIds(tmp);
-                        if ((members == null) || (members.length == 0))
-                        {
-                        }
-                        else 
-                        {
-                            for (int n = 0; n < members.length; n++)
-                            {
-                                LOG("poiDeliverance", "granting poi credit to (" + members[n] + ") " + getName(members[n]));
-                                poiGrantCredit(members[n]);
+                        if ((members == null) || (members.length == 0)) {
+                        } else {
+                            for (obj_id member : members) {
+                                LOG("poiDeliverance", "granting poi credit to (" + member + ") " + getName(member));
+                                poiGrantCredit(member);
                             }
                         }
-                    }
-                    else 
-                    {
+                    } else {
                         LOG("poiDeliverance", "granting poi credit to (" + tmp + ") " + getName(tmp));
                         poiGrantCredit(tmp);
                     }
@@ -498,7 +478,7 @@ public class antagonist extends script.theme_park.poi.base
         {
             messageTo(poiMaster, scenario.HANDLER_CLEANUP_SCENARIO, null, TIME_WAIT, false);
         }
-        location loc = utils.getRandomLocationInRing(getLocation(self), 96f, 128f);
+        location loc = utils.getRandomLocationInRing(getLocation(self), 96.0f, 128.0f);
         pathTo(self, loc);
         return SCRIPT_CONTINUE;
     }

@@ -51,7 +51,7 @@ public class trap_ranged_def_1 extends script.item.trap.trap_base
         dictionary outparams = new dictionary();
         outparams.put("ranged_defense", 30);
         outparams.put("prefix", "ranged_def_1");
-        messageTo(target, "applyModTrap", outparams, 0.f, false);
+        messageTo(target, "applyModTrap", outparams, 0.0f, false);
         prose_package pp = prose.getPackage(SID_SYS_EFFECT, target);
         sendSystemMessageProse(player, pp);
         if (!hasObjVar(self, "droid_trap"))

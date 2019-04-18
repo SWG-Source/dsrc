@@ -247,86 +247,63 @@ public class object_for_sale extends script.base_script
             money.requestPayment(player, containedBy, creditCost, "no_handler", null, false);
         }
         boolean foundTokenHolderBox = false;
-        for (int i = 0; i < inventoryContents.length; i++)
-        {
-            String itemName = getStaticItemName(inventoryContents[i]);
-            if (itemName != null && !itemName.equals(""))
-            {
-                if (hasObjVar(self, VENDOR_TOKEN_TYPE))
-                {
+        for (obj_id inventoryContent : inventoryContents) {
+            String itemName = getStaticItemName(inventoryContent);
+            if (itemName != null && !itemName.equals("")) {
+                if (hasObjVar(self, VENDOR_TOKEN_TYPE)) {
                     String tokenList = getStringObjVar(self, VENDOR_TOKEN_TYPE);
                     String[] differentTokens = split(tokenList, ',');
-                    for (int j = 0; j < differentTokens.length; j++)
-                    {
-                        if (itemName.equals(differentTokens[j]) && tokenCostForReals[j] > 0)
-                        {
-                            if (getCount(inventoryContents[i]) > 1)
-                            {
-                                int numInStack = getCount(inventoryContents[i]);
-                                for (int m = 0; m < numInStack - 1; m++)
-                                {
-                                    if (tokenCostForReals[j] > 0)
-                                    {
+                    for (int j = 0; j < differentTokens.length; j++) {
+                        if (itemName.equals(differentTokens[j]) && tokenCostForReals[j] > 0) {
+                            if (getCount(inventoryContent) > 1) {
+                                int numInStack = getCount(inventoryContent);
+                                for (int m = 0; m < numInStack - 1; m++) {
+                                    if (tokenCostForReals[j] > 0) {
                                         tokenCostForReals[j]--;
-                                        setCount(inventoryContents[i], getCount(inventoryContents[i]) - 1);
+                                        setCount(inventoryContent, getCount(inventoryContent) - 1);
                                     }
                                 }
                             }
-                            if (getCount(inventoryContents[i]) <= 1 && tokenCostForReals[j] > 0)
-                            {
-                                destroyObject(inventoryContents[i]);
+                            if (getCount(inventoryContent) <= 1 && tokenCostForReals[j] > 0) {
+                                destroyObject(inventoryContent);
                                 tokenCostForReals[j]--;
                             }
                         }
                     }
-                }
-                else 
-                {
-                    for (int j = 0; j < trial.HEROIC_TOKENS.length; j++)
-                    {
-                        if (itemName.equals(trial.HEROIC_TOKENS[j]) && tokenCostForReals[j] > 0)
-                        {
-                            if (getCount(inventoryContents[i]) > 1)
-                            {
-                                int numInStack = getCount(inventoryContents[i]);
-                                for (int m = 0; m < numInStack - 1; m++)
-                                {
-                                    if (tokenCostForReals[j] > 0)
-                                    {
+                } else {
+                    for (int j = 0; j < trial.HEROIC_TOKENS.length; j++) {
+                        if (itemName.equals(trial.HEROIC_TOKENS[j]) && tokenCostForReals[j] > 0) {
+                            if (getCount(inventoryContent) > 1) {
+                                int numInStack = getCount(inventoryContent);
+                                for (int m = 0; m < numInStack - 1; m++) {
+                                    if (tokenCostForReals[j] > 0) {
                                         tokenCostForReals[j]--;
-                                        setCount(inventoryContents[i], getCount(inventoryContents[i]) - 1);
+                                        setCount(inventoryContent, getCount(inventoryContent) - 1);
                                     }
                                 }
                             }
-                            if (getCount(inventoryContents[i]) <= 1 && tokenCostForReals[j] > 0)
-                            {
-                                destroyObject(inventoryContents[i]);
+                            if (getCount(inventoryContent) <= 1 && tokenCostForReals[j] > 0) {
+                                destroyObject(inventoryContent);
                                 tokenCostForReals[j]--;
                             }
                         }
                     }
-                    if (!foundTokenHolderBox && itemName.equals("item_heroic_token_box_01_01"))
-                    {
+                    if (!foundTokenHolderBox && itemName.equals("item_heroic_token_box_01_01")) {
                         foundTokenHolderBox = true;
-                        if (hasObjVar(inventoryContents[i], "item.set.tokens_held"))
-                        {
-                            int[] virtualTokens = getIntArrayObjVar(inventoryContents[i], "item.set.tokens_held");
-                            for (int k = 0; k < trial.HEROIC_TOKENS.length; k++)
-                            {
-                                if (tokenCostForReals[k] > 0 && virtualTokens[k] > 0)
-                                {
+                        if (hasObjVar(inventoryContent, "item.set.tokens_held")) {
+                            int[] virtualTokens = getIntArrayObjVar(inventoryContent, "item.set.tokens_held");
+                            for (int k = 0; k < trial.HEROIC_TOKENS.length; k++) {
+                                if (tokenCostForReals[k] > 0 && virtualTokens[k] > 0) {
                                     int paymentCounter = tokenCostForReals[k];
-                                    for (int l = 0; l < paymentCounter; l++)
-                                    {
-                                        if (virtualTokens[k] > 0)
-                                        {
+                                    for (int l = 0; l < paymentCounter; l++) {
+                                        if (virtualTokens[k] > 0) {
                                             virtualTokens[k]--;
                                             tokenCostForReals[k]--;
                                         }
                                     }
                                 }
                             }
-                            setObjVar(inventoryContents[i], "item.set.tokens_held", virtualTokens);
+                            setObjVar(inventoryContent, "item.set.tokens_held", virtualTokens);
                         }
                     }
                 }

@@ -18,21 +18,19 @@ public class e3_housing extends script.base_script
             sendSystemMessageTestingOnly(self, "Player inventory is null.");
             return SCRIPT_CONTINUE;
         }
-        if (text.equals("tatooine small"))
-        {
-            deed = createObjectOverloaded("object/tangible/deed/player_house_deed/tatooine_house_small_deed.iff", inv);
-        }
-        else if (text.equals("naboo medium"))
-        {
-            deed = createObjectOverloaded("object/tangible/deed/player_house_deed/naboo_house_medium_deed.iff", inv);
-        }
-        else if (text.equals("corellia large"))
-        {
-            deed = createObjectOverloaded("object/tangible/deed/player_house_deed/corellia_house_large_deed.iff", inv);
-        }
-        else if (text.equals("tatooine guild"))
-        {
-            deed = createObjectOverloaded("object/tangible/deed/guild_deed/tatooine_guild_style_02_deed.iff", inv);
+        switch (text) {
+            case "tatooine small":
+                deed = createObjectOverloaded("object/tangible/deed/player_house_deed/tatooine_house_small_deed.iff", inv);
+                break;
+            case "naboo medium":
+                deed = createObjectOverloaded("object/tangible/deed/player_house_deed/naboo_house_medium_deed.iff", inv);
+                break;
+            case "corellia large":
+                deed = createObjectOverloaded("object/tangible/deed/player_house_deed/corellia_house_large_deed.iff", inv);
+                break;
+            case "tatooine guild":
+                deed = createObjectOverloaded("object/tangible/deed/guild_deed/tatooine_guild_style_02_deed.iff", inv);
+                break;
         }
         if (isIdValid(deed))
         {
@@ -45,14 +43,11 @@ public class e3_housing extends script.base_script
         {
             location loc = getLocation(self);
             obj_id[] objects = getObjectsInRange(loc, 30.0f);
-            for (int i = 0; i < objects.length; i++)
-            {
-                if (player_structure.isBuilding(objects[i]) || player_structure.isInstallation(objects[i]))
-                {
-                    if (player_structure.getStructureOwnerObjId(objects[i]) == self)
-                    {
-                        player_structure.destroyStructure(objects[i]);
-                        sendSystemMessageTestingOnly(self, objects[i] + " destroyed.");
+            for (obj_id object : objects) {
+                if (player_structure.isBuilding(object) || player_structure.isInstallation(object)) {
+                    if (player_structure.getStructureOwnerObjId(object) == self) {
+                        player_structure.destroyStructure(object);
+                        sendSystemMessageTestingOnly(self, object + " destroyed.");
                     }
                 }
             }

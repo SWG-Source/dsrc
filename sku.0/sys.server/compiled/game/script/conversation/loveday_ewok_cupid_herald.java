@@ -40,12 +40,11 @@ public class loveday_ewok_cupid_herald extends script.base_script
     }
     public int handleDestroySelf(obj_id self, dictionary params) throws InterruptedException
     {
-        obj_id[] players = getPlayerCreaturesInRange(getLocation(self), 20f);
+        obj_id[] players = getPlayerCreaturesInRange(getLocation(self), 20.0f);
         if (players != null && players.length > 0)
         {
-            for (int i = 0; i < players.length; i++)
-            {
-                npcEndConversation(players[i]);
+            for (obj_id player : players) {
+                npcEndConversation(player);
             }
         }
         destroyObject(self);

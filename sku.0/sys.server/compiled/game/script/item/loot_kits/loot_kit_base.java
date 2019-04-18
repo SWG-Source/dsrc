@@ -418,9 +418,8 @@ public class loot_kit_base extends script.base_script
         if (contents != null && contents.length > 0)
         {
             obj_id playerInv = utils.getInventoryContainer(transferer);
-            for (int i = 0; i < contents.length; i++)
-            {
-                putInOverloaded(contents[i], playerInv);
+            for (obj_id content : contents) {
+                putInOverloaded(content, playerInv);
             }
         }
         checkForCompletion(self, transferer);

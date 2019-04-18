@@ -26,11 +26,9 @@ public class halloween_vendor extends script.base_script
         int[] currentBuffs = buff.getAllBuffs(player);
         if (currentBuffs != null || currentBuffs.length > 0)
         {
-            for (int i = 0; i < currentBuffs.length; i++)
-            {
-                String buffName = buff.getBuffNameFromCrc(currentBuffs[i]);
-                if (buffName.startsWith("event_halloween_costume_"))
-                {
+            for (int currentBuff : currentBuffs) {
+                String buffName = buff.getBuffNameFromCrc(currentBuff);
+                if (buffName.startsWith("event_halloween_costume_")) {
                     return true;
                 }
             }
@@ -90,11 +88,9 @@ public class halloween_vendor extends script.base_script
         }
         obj_id inventory = utils.getInventoryContainer(player);
         obj_id[] inventoryContents = getContents(inventory);
-        for (int i = 0; i < inventoryContents.length; i++)
-        {
-            String itemName = getStaticItemName(inventoryContents[i]);
-            if (itemName != null && !itemName.equals("") && itemName.startsWith("item_event_halloween_trick_device_"))
-            {
+        for (obj_id inventoryContent : inventoryContents) {
+            String itemName = getStaticItemName(inventoryContent);
+            if (itemName != null && !itemName.equals("") && itemName.startsWith("item_event_halloween_trick_device_")) {
                 return true;
             }
         }
@@ -184,30 +180,22 @@ public class halloween_vendor extends script.base_script
         if (halloween_vendor_condition_costumeAlready(player, npc))
         {
             int[] currentBuffs = buff.getAllBuffs(player);
-            for (int i = 0; i < currentBuffs.length; i++)
-            {
-                String buffName = buff.getBuffNameFromCrc(currentBuffs[i]);
-                if (buffName.startsWith("event_halloween_costume_"))
-                {
+            for (int currentBuff : currentBuffs) {
+                String buffName = buff.getBuffNameFromCrc(currentBuff);
+                if (buffName.startsWith("event_halloween_costume_")) {
                     int costumeRandom = rand(0, 4);
                     String newCostume = "event_halloween_costume_" + costumes[costumeRandom];
-                    if (newCostume != null && !newCostume.equals(""))
-                    {
+                    if (newCostume != null && !newCostume.equals("")) {
                         obj_id weapon = getObjectInSlot(player, "hold_r");
                         obj_id playerInv = utils.getInventoryContainer(player);
-                        if (isIdValid(weapon) && isIdValid(playerInv))
-                        {
+                        if (isIdValid(weapon) && isIdValid(playerInv)) {
                             putInOverloaded(weapon, playerInv);
                         }
-                        if (buffName.equals(newCostume))
-                        {
+                        if (buffName.equals(newCostume)) {
                             halloween_vendor_action_applyCostume(player, npc);
-                        }
-                        else 
-                        {
+                        } else {
                             int halloweenBuff = buff.getBuffOnTargetFromGroup(player, "shapechange");
-                            if (halloweenBuff != 0)
-                            {
+                            if (halloweenBuff != 0) {
                                 buff.removeBuff(player, halloweenBuff);
                             }
                             buff.applyBuff(player, newCostume);
@@ -247,29 +235,21 @@ public class halloween_vendor extends script.base_script
             obj_id inventory = utils.getInventoryContainer(player);
             obj_id[] inventoryContents = getInventoryAndEquipment(player);
             int tokenCostForReals = 700;
-            for (int i = 0; i < inventoryContents.length; i++)
-            {
-                String itemName = getStaticItemName(inventoryContents[i]);
-                if (itemName != null && !itemName.equals(""))
-                {
+            for (obj_id inventoryContent : inventoryContents) {
+                String itemName = getStaticItemName(inventoryContent);
+                if (itemName != null && !itemName.equals("")) {
                     String halloweenCoins = "item_event_halloween_coin";
-                    if (itemName.equals(halloweenCoins) && tokenCostForReals > 0)
-                    {
-                        if (getCount(inventoryContents[i]) > 1)
-                        {
-                            int numInStack = getCount(inventoryContents[i]);
-                            for (int m = 0; m < numInStack - 1; m++)
-                            {
-                                if (tokenCostForReals > 0)
-                                {
+                    if (itemName.equals(halloweenCoins) && tokenCostForReals > 0) {
+                        if (getCount(inventoryContent) > 1) {
+                            int numInStack = getCount(inventoryContent);
+                            for (int m = 0; m < numInStack - 1; m++) {
+                                if (tokenCostForReals > 0) {
                                     tokenCostForReals--;
-                                    setCount(inventoryContents[i], getCount(inventoryContents[i]) - 1);
-                                    if (tokenCostForReals <= 0)
-                                    {
+                                    setCount(inventoryContent, getCount(inventoryContent) - 1);
+                                    if (tokenCostForReals <= 0) {
                                         static_item.createNewItemFunction("item_event_halloween_trick_device_03_01", inventory);
                                         obj_id trickDeviceThree = utils.getStaticItemInInventory(player, "item_event_halloween_trick_device_03_01");
-                                        if (isIdValid(trickDeviceThree) && exists(trickDeviceThree))
-                                        {
+                                        if (isIdValid(trickDeviceThree) && exists(trickDeviceThree)) {
                                             setObjVar(trickDeviceThree, "deviceOwner", player);
                                             destroyObject(trickDeviceTwo);
                                             modifyCollectionSlotValue(player, "received_halloween_reward", 1);
@@ -278,16 +258,13 @@ public class halloween_vendor extends script.base_script
                                 }
                             }
                         }
-                        if (getCount(inventoryContents[i]) <= 1 && tokenCostForReals > 0)
-                        {
-                            destroyObject(inventoryContents[i]);
+                        if (getCount(inventoryContent) <= 1 && tokenCostForReals > 0) {
+                            destroyObject(inventoryContent);
                             tokenCostForReals--;
-                            if (tokenCostForReals <= 0)
-                            {
+                            if (tokenCostForReals <= 0) {
                                 static_item.createNewItemFunction("item_event_halloween_trick_device_03_01", inventory);
                                 obj_id trickDeviceThree = utils.getStaticItemInInventory(player, "item_event_halloween_trick_device_03_01");
-                                if (isIdValid(trickDeviceThree) && exists(trickDeviceThree))
-                                {
+                                if (isIdValid(trickDeviceThree) && exists(trickDeviceThree)) {
                                     destroyObject(trickDeviceTwo);
                                     modifyCollectionSlotValue(player, "received_halloween_reward", 1);
                                 }
@@ -324,36 +301,27 @@ public class halloween_vendor extends script.base_script
         obj_id inventory = utils.getInventoryContainer(player);
         obj_id[] inventoryContents = getInventoryAndEquipment(player);
         int tokenCostForReals = 900;
-        for (int i = 0; i < inventoryContents.length; i++)
-        {
-            String itemName = getStaticItemName(inventoryContents[i]);
-            if (itemName != null && !itemName.equals(""))
-            {
+        for (obj_id inventoryContent : inventoryContents) {
+            String itemName = getStaticItemName(inventoryContent);
+            if (itemName != null && !itemName.equals("")) {
                 String halloweenCoins = "item_event_halloween_coin";
-                if (itemName.equals(halloweenCoins) && tokenCostForReals > 0)
-                {
-                    if (getCount(inventoryContents[i]) > 1)
-                    {
-                        int numInStack = getCount(inventoryContents[i]);
-                        for (int m = 0; m < numInStack - 1; m++)
-                        {
-                            if (tokenCostForReals > 0)
-                            {
+                if (itemName.equals(halloweenCoins) && tokenCostForReals > 0) {
+                    if (getCount(inventoryContent) > 1) {
+                        int numInStack = getCount(inventoryContent);
+                        for (int m = 0; m < numInStack - 1; m++) {
+                            if (tokenCostForReals > 0) {
                                 tokenCostForReals--;
-                                setCount(inventoryContents[i], getCount(inventoryContents[i]) - 1);
-                                if (tokenCostForReals <= 0)
-                                {
+                                setCount(inventoryContent, getCount(inventoryContent) - 1);
+                                if (tokenCostForReals <= 0) {
                                     badge.grantBadge(player, "halloween_badge_11");
                                 }
                             }
                         }
                     }
-                    if (getCount(inventoryContents[i]) <= 1 && tokenCostForReals > 0)
-                    {
-                        destroyObject(inventoryContents[i]);
+                    if (getCount(inventoryContent) <= 1 && tokenCostForReals > 0) {
+                        destroyObject(inventoryContent);
                         tokenCostForReals--;
-                        if (tokenCostForReals <= 0)
-                        {
+                        if (tokenCostForReals <= 0) {
                             badge.grantBadge(player, "halloween_badge_11");
                         }
                     }

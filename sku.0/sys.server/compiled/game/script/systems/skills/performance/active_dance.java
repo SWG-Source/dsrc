@@ -97,11 +97,9 @@ public class active_dance extends script.base_script
         if (isIdValid(group))
         {
             obj_id[] members = getGroupMemberIds(group);
-            for (int i = 0; i < members.length; ++i)
-            {
-                if (members[i] != actor && (hasScript(members[i], performance.DANCE_HEARTBEAT_SCRIPT) || hasScript(members[i], performance.MUSIC_HEARTBEAT_SCRIPT)))
-                {
-                    band_members[band_size] = members[i];
+            for (obj_id member : members) {
+                if (member != actor && (hasScript(member, performance.DANCE_HEARTBEAT_SCRIPT) || hasScript(member, performance.MUSIC_HEARTBEAT_SCRIPT))) {
+                    band_members[band_size] = member;
                     ++band_size;
                 }
             }
@@ -161,7 +159,7 @@ public class active_dance extends script.base_script
             int entXpAmt = 0;
             if (flourishNum > 0)
             {
-                entXpAmt = (int)((float)xpAmt * 0.5f);
+                entXpAmt = (int)(xpAmt * 0.5f);
             }
             xp.grantSocialStyleXp(self, xp.DANCE, xpAmt);
             ++sequence;
@@ -517,7 +515,7 @@ public class active_dance extends script.base_script
         showFlyTextPrivate(target, self, new string_id("performance", list[idx]), 0.66f, colors.LIGHTPINK);
         utils.setScriptVar(target, performance.VAR_BUFF_TYPE, list[idx]);
         int inspireBuffCrc = buff.getBuffOnTargetFromGroup(target, "inspiration");
-        float currentBuffTime = 30f;
+        float currentBuffTime = 30.0f;
         if (utils.hasScriptVar(target, performance.VAR_PERFORM_INSPIRATION))
         {
             currentBuffTime = utils.getFloatScriptVar(target, performance.VAR_PERFORM_INSPIRATION);

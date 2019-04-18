@@ -32,20 +32,17 @@ public class gcw_city extends script.base_script
     public static final obj_id CITY_OBJECT_KEREN = getObjIdWithNull(9865353);
     public void qaInstabuild(obj_id[] kits) throws InterruptedException
     {
-        for (int i = 0, j = kits.length; i < j; i++)
-        {
-            if (!isIdValid(kits[i]) || !exists(kits[i]))
-            {
+        for (obj_id kit : kits) {
+            if (!isIdValid(kit) || !exists(kit)) {
                 continue;
             }
-            int construction = getIntObjVar(kits[i], "gcw.constructionQuestsCompleted");
+            int construction = getIntObjVar(kit, "gcw.constructionQuestsCompleted");
             int newConstruction = gcw.GCW_CONSTRUCTION_MAXIMUM / 2;
-            if (construction >= newConstruction)
-            {
+            if (construction >= newConstruction) {
                 newConstruction = gcw.GCW_CONSTRUCTION_MAXIMUM;
             }
-            setObjVar(kits[i], "gcw.constructionQuestsCompleted", newConstruction);
-            messageTo(kits[i], "handleUpdateName", null, 1.0f, false);
+            setObjVar(kit, "gcw.constructionQuestsCompleted", newConstruction);
+            messageTo(kit, "handleUpdateName", null, 1.0f, false);
         }
     }
     public void qaInstaclear(obj_id[] kits) throws InterruptedException

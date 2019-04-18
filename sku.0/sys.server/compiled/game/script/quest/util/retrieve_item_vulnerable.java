@@ -32,7 +32,7 @@ public class retrieve_item_vulnerable extends script.base_script
                     {
                         return SCRIPT_CONTINUE;
                     }
-                    playClientEffectLoc(player, "clienteffect/avatar_wke_electric_01.cef", getLocation(self), 1f);
+                    playClientEffectLoc(player, "clienteffect/avatar_wke_electric_01.cef", getLocation(self), 1.0f);
                     if (isMob(self))
                     {
                         dictionary webster = new dictionary();

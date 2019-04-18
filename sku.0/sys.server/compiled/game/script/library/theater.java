@@ -9,7 +9,7 @@ public class theater extends script.base_script
     public theater()
     {
     }
-    public static final float BASE_ITEM_AREA = 3f;
+    public static final float BASE_ITEM_AREA = 3.0f;
     public static final int PERSIST_TIME = 604800;
     public static final String DICT_MASTER = "master";
     public static final String DICT_CHILDREN = "children";
@@ -40,7 +40,7 @@ public class theater extends script.base_script
     public static final String HANDLE_THEATER_SETUP = "handleTheaterSetup";
     public static final String HANDLE_THEATER_COMPLETE = "handleTheaterComplete";
     public static final int NUM_TO_SPAWN = 3;
-    public static final float DELAY_TO_SPAWN = .50f;
+    public static final float DELAY_TO_SPAWN = 0.50f;
     public static boolean canSpawnTheaterAtLocation(location loc) throws InterruptedException
     {
         region[] regionList = getRegionsAtPoint(loc);
@@ -111,8 +111,8 @@ public class theater extends script.base_script
         {
             return null;
         }
-        float ringMin = (float)getIntObjVar(target, VAR_RING_MIN);
-        float ringMax = (float)getIntObjVar(target, VAR_RING_MAX);
+        float ringMin = getIntObjVar(target, VAR_RING_MIN);
+        float ringMax = getIntObjVar(target, VAR_RING_MAX);
         if ((ringMin < 0.0f) || (ringMax <= 0.0f) || (ringMin >= ringMax))
         {
             return null;
@@ -494,7 +494,7 @@ public class theater extends script.base_script
             }
             dictionary dctParams = new dictionary();
             dctParams.put("master", target);
-            messageTo(target, HANDLE_THEATER_COMPLETE, dctParams, .50f, false);
+            messageTo(target, HANDLE_THEATER_COMPLETE, dctParams, 0.50f, false);
             dctParams = new dictionary();
             dctParams.put("intIndex", 0);
             messageTo(target, "continueTheater", dctParams, DELAY_TO_SPAWN, false);
@@ -536,9 +536,9 @@ public class theater extends script.base_script
                     float dy = fltY[i];
                     float dz = fltZ[i];
                     float yaw = fltYaw[i];
-                    float fltRadians = (float)Math.toRadians((tYaw * -1f));
-                    float fltC = (float)Math.cos(fltRadians);
-                    float fltS = (float)Math.sin(fltRadians);
+                    float fltRadians = (float)Math.toRadians((tYaw * -1.0f));
+                    float fltC = (float) StrictMath.cos(fltRadians);
+                    float fltS = (float) StrictMath.sin(fltRadians);
                     location here = (location)myLoc.clone();
                     here.x += (dx * fltC) - (dz * fltS);
                     here.y += dy;

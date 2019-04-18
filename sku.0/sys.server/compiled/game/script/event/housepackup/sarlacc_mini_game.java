@@ -326,7 +326,7 @@ public class sarlacc_mini_game extends script.base_script
         }
         if (!hasTriggerVolume(self, house_pet.PET_TRIG_VOLUME))
         {
-            float range = 2f;
+            float range = 2.0f;
             createTriggerVolume(house_pet.PET_TRIG_VOLUME, range, true);
             setObjVar(self, house_pet.MUSIC_RANGE, range);
         }
@@ -773,27 +773,21 @@ public class sarlacc_mini_game extends script.base_script
         {
             return false;
         }
-        for (int x = 0; x < contents.length; x++)
-        {
-            if (!validateItemForSarlacc(player, contents[x]))
-            {
+        for (obj_id content : contents) {
+            if (!validateItemForSarlacc(player, content)) {
                 continue;
             }
-            if (hasObjVar(contents[x], "noTrade") || utils.isEquipped(contents[x]))
-            {
+            if (hasObjVar(content, "noTrade") || utils.isEquipped(content)) {
                 continue;
             }
-            if (isCrafted(contents[x]))
-            {
+            if (isCrafted(content)) {
                 continue;
             }
-            if (static_item.getStaticObjectValue(getStaticItemName(contents[x])) > 0)
-            {
+            if (static_item.getStaticObjectValue(getStaticItemName(content)) > 0) {
                 return true;
             }
-            String itemTemplate = getTemplateName(contents[x]);
-            if (dataTableSearchColumnForString(itemTemplate, "items", smuggler.TBL) > -1)
-            {
+            String itemTemplate = getTemplateName(content);
+            if (dataTableSearchColumnForString(itemTemplate, "items", smuggler.TBL) > -1) {
                 return true;
             }
         }

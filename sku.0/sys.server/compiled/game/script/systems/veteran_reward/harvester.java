@@ -178,12 +178,10 @@ public class harvester extends script.base_script
         }
         Vector deedList = new Vector();
         deedList.setSize(0);
-        for (int n = 0; n < objContents.length; n++)
-        {
-            String strItemTemplate = getTemplateName(objContents[n]);
-            if (strItemTemplate.equals(player_structure.SELFPOWERED_DEED))
-            {
-                deedList.add(objContents[n]);
+        for (obj_id objContent : objContents) {
+            String strItemTemplate = getTemplateName(objContent);
+            if (strItemTemplate.equals(player_structure.SELFPOWERED_DEED)) {
+                deedList.add(objContent);
             }
         }
         return deedList;

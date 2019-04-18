@@ -44,15 +44,12 @@ public class axkva_controller extends script.base_script
             return SCRIPT_CONTINUE;
         }
         obj_id shade = null;
-        for (int i = 0; i < objects.length; i++)
-        {
-            if (!hasObjVar(objects[i], "spawn_id"))
-            {
+        for (obj_id object : objects) {
+            if (!hasObjVar(object, "spawn_id")) {
                 continue;
             }
-            if ((getStringObjVar(objects[i], "spawn_id")).equals("shade"))
-            {
-                shade = objects[i];
+            if ((getStringObjVar(object, "spawn_id")).equals("shade")) {
+                shade = object;
             }
         }
         addPassiveReveal(shade, item, 1);

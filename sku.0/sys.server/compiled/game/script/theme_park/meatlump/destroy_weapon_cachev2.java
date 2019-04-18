@@ -146,9 +146,8 @@ public class destroy_weapon_cachev2 extends script.base_script
             setSUIProperty(pid, CONFIG_PLAYER_BUTTONS[i], "IsCancelButton", "false");
         }
         setSUIProperty(pid, "bg.mmc.close", "IsCancelButton", "true");
-        for (int i = 0; i < CONFIG_PLAYER_BUTTONS.length; i++)
-        {
-            subscribeToSUIEvent(pid, sui_event_type.SET_onButton, CONFIG_PLAYER_BUTTONS[i], "configProcessorPuzzleCallback");
+        for (String configPlayerButton : CONFIG_PLAYER_BUTTONS) {
+            subscribeToSUIEvent(pid, sui_event_type.SET_onButton, configPlayerButton, "configProcessorPuzzleCallback");
         }
         setSUIAssociatedObject(pid, player);
         setSUIMaxRangeToObject(pid, 10.0f);
@@ -338,7 +337,7 @@ public class destroy_weapon_cachev2 extends script.base_script
             }
         }
         tries--;
-        int integrity = (int)(((float)tries / (float)max_tries) * 100);
+        int integrity = (int)(((float)tries / max_tries) * 100);
         blog("configProcessorPuzzleCallback integrity: " + integrity);
         boolean win = true;
         for (int i = 0; i < current.length; i++)
@@ -355,10 +354,9 @@ public class destroy_weapon_cachev2 extends script.base_script
             obj_id component = utils.getObjIdScriptVar(player, COMPONENT_VAR);
             setObjVar(component, STATUS_VAR, 1);
             setSUIProperty(pid, "top.description.desc", "Text", CALIBRATION_SUCCESS);
-            for (int i = 0; i < CONFIG_PLAYER_BUTTONS.length; i++)
-            {
-                subscribeToSUIEvent(pid, sui_event_type.SET_onButton, CONFIG_PLAYER_BUTTONS[i], "noCallback");
-                setSUIProperty(pid, CONFIG_PLAYER_BUTTONS[i], "GetsInput", "false");
+            for (String configPlayerButton : CONFIG_PLAYER_BUTTONS) {
+                subscribeToSUIEvent(pid, sui_event_type.SET_onButton, configPlayerButton, "noCallback");
+                setSUIProperty(pid, configPlayerButton, "GetsInput", "false");
             }
             rewardPlayer(self, player);
         }
@@ -369,10 +367,9 @@ public class destroy_weapon_cachev2 extends script.base_script
             setObjVar(component, STATUS_VAR, -1);
             setSUIProperty(pid, "top.description.attempts", "Text", CALIBRATION_ATTEMPTS_REMAINING + " " + integrity + "%");
             setSUIProperty(pid, "top.description.desc", "Text", CALIBRATION_FAILURE);
-            for (int i = 0; i < CONFIG_PLAYER_BUTTONS.length; i++)
-            {
-                subscribeToSUIEvent(pid, sui_event_type.SET_onButton, CONFIG_PLAYER_BUTTONS[i], "noCallback");
-                setSUIProperty(pid, CONFIG_PLAYER_BUTTONS[i], "GetsInput", "false");
+            for (String configPlayerButton : CONFIG_PLAYER_BUTTONS) {
+                subscribeToSUIEvent(pid, sui_event_type.SET_onButton, configPlayerButton, "noCallback");
+                setSUIProperty(pid, configPlayerButton, "GetsInput", "false");
             }
             removePlayerVars(player);
         }

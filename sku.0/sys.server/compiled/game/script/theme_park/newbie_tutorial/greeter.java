@@ -71,25 +71,27 @@ public class greeter extends script.theme_park.newbie_tutorial.tutorial_base
     public int OnNpcConversationResponse(obj_id self, String convo, obj_id player, string_id response) throws InterruptedException
     {
         npcRemoveConversationResponse(player, response);
-        if ((response.getAsciiId()).equals("convo_1_reply_1"))
-        {
-            string_id message = new string_id(NEWBIE_CONVO, "convo_1_more");
-            npcSpeak(player, message);
-            npcAddConversationResponse(player, new string_id(NEWBIE_CONVO, "convo_1_reply_3"));
-            doAnimationAction(self, "tap_head");
-        }
-        else if ((response.getAsciiId()).equals("convo_1_reply_2"))
-        {
-            doAnimationAction(self, "point_left");
-            setObjVar(player, "newbie.getBoxOfStuff", true);
-            string_id message = new string_id(NEWBIE_CONVO, "convo_1_stuff");
-            npcSpeak(player, message);
-        }
-        else if ((response.getAsciiId()).equals("convo_1_reply_3"))
-        {
-            doAnimationAction(self, "pound_fist_palm");
-            string_id message = new string_id(NEWBIE_CONVO, "convo_1_explain");
-            npcSpeak(player, message);
+        switch ((response.getAsciiId())) {
+            case "convo_1_reply_1": {
+                string_id message = new string_id(NEWBIE_CONVO, "convo_1_more");
+                npcSpeak(player, message);
+                npcAddConversationResponse(player, new string_id(NEWBIE_CONVO, "convo_1_reply_3"));
+                doAnimationAction(self, "tap_head");
+                break;
+            }
+            case "convo_1_reply_2": {
+                doAnimationAction(self, "point_left");
+                setObjVar(player, "newbie.getBoxOfStuff", true);
+                string_id message = new string_id(NEWBIE_CONVO, "convo_1_stuff");
+                npcSpeak(player, message);
+                break;
+            }
+            case "convo_1_reply_3": {
+                doAnimationAction(self, "pound_fist_palm");
+                string_id message = new string_id(NEWBIE_CONVO, "convo_1_explain");
+                npcSpeak(player, message);
+                break;
+            }
         }
         return SCRIPT_CONTINUE;
     }

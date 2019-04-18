@@ -77,7 +77,7 @@ public class proc extends script.base_script
                             continue;
                         }
                         if (procChance != 100) {
-                            procChance = Math.round(weaponData.attackSpeed * (float) procChance);
+                            procChance = Math.round(weaponData.attackSpeed * procChance);
                         }
                         if (rand(0, 99) < procChance) {
                             procCommand = parms.getString("procString");
@@ -131,7 +131,7 @@ public class proc extends script.base_script
                             return;
                         }
                         if (reacChance != 100) {
-                            reacChance = Math.round(weaponData.attackSpeed * (float) reacChance);
+                            reacChance = Math.round(weaponData.attackSpeed * reacChance);
                         }
                         if (rand(0, 99) < reacChance) {
                             reacCommand = reacParms.getString("procString");

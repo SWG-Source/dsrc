@@ -48,11 +48,9 @@ public class quest_hero_of_tatooine_farmer extends script.base_script
     {
         location loc;
         obj_id[] waypoints = getWaypointsInDatapad(player);
-        for (int x = 0; x < waypoints.length; x++)
-        {
-            loc = getWaypointLocation(waypoints[x]);
-            if (loc.x == 6522f && loc.z == -1350f && loc.area.equals("tatooine"))
-            {
+        for (obj_id waypoint : waypoints) {
+            loc = getWaypointLocation(waypoint);
+            if (loc.x == 6522.0f && loc.z == -1350.0f && loc.area.equals("tatooine")) {
                 return false;
             }
         }

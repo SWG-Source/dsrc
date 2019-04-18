@@ -515,16 +515,12 @@ public class quest_armorsmith extends script.base_script
             return null;
         }
         obj_id[] inv_contents = utils.getContents(inventory, false);
-        for (int i = 0; i < inv_contents.length; i++)
-        {
-            if (template.equals(getTemplateName(inv_contents[i])))
-            {
-                obj_id creator = getCrafter(inv_contents[i]);
-                if (isIdValid(creator))
-                {
-                    if (creator == player)
-                    {
-                        return inv_contents[i];
+        for (obj_id inv_content : inv_contents) {
+            if (template.equals(getTemplateName(inv_content))) {
+                obj_id creator = getCrafter(inv_content);
+                if (isIdValid(creator)) {
+                    if (creator == player) {
+                        return inv_content;
                     }
                 }
             }

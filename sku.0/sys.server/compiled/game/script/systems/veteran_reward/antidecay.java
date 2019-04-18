@@ -151,10 +151,8 @@ public class antidecay extends script.base_script
         obj_id[] kitContents = getContents(kit);
         if (kitContents != null && kitContents.length > 0)
         {
-            for (int i = 0; i < kitContents.length; ++i)
-            {
-                if (!utils.putInPlayerInventory(player, kitContents[i]))
-                {
+            for (obj_id kitContent : kitContents) {
+                if (!utils.putInPlayerInventory(player, kitContent)) {
                     sendSystemMessage(player, SID_FAILED_ITEM_CANNOT_BE_PLACED_IN_INVENTORY);
                     return false;
                 }

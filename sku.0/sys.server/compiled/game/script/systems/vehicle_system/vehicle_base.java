@@ -503,11 +503,11 @@ public class vehicle_base extends script.base_script
         }
         if (updatedColors)
         {
-            messageTo(tool, "customizationSuccess", params, 0f, false);
+            messageTo(tool, "customizationSuccess", params, 0.0f, false);
         }
         else 
         {
-            messageTo(tool, "customizationFailed", params, 0f, false);
+            messageTo(tool, "customizationFailed", params, 0.0f, false);
         }
         return SCRIPT_CONTINUE;
     }

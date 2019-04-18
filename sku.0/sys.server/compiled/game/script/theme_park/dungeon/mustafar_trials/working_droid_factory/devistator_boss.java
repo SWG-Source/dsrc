@@ -66,9 +66,8 @@ public class devistator_boss extends script.base_script
         if (!trial.isRruDeactivated(self))
         {
             int total = 0;
-            for (int x = 0; x < damage.length; x++)
-            {
-                total += damage[x];
+            for (int i : damage) {
+                total += i;
             }
             addToHealth(self, total);
         }

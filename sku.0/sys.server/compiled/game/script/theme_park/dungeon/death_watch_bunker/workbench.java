@@ -91,14 +91,11 @@ public class workbench extends script.base_script
         obj_id[] objContents = utils.getContents(player, true);
         if (objContents != null)
         {
-            for (int intI = 0; intI < objContents.length; intI++)
-            {
-                String strItemTemplate = getTemplateName(objContents[intI]);
-                if (strItemTemplate.equals("object/tangible/wearables/goggles/rebreather.iff"))
-                {
-                    obj_id mask = objContents[intI];
-                    if (!hasObjVar(mask, "death_watch_ready"))
-                    {
+            for (obj_id objContent : objContents) {
+                String strItemTemplate = getTemplateName(objContent);
+                if (strItemTemplate.equals("object/tangible/wearables/goggles/rebreather.iff")) {
+                    obj_id mask = objContent;
+                    if (!hasObjVar(mask, "death_watch_ready")) {
                         return true;
                     }
                 }
@@ -111,11 +108,9 @@ public class workbench extends script.base_script
         obj_id[] objContents = utils.getContents(player, true);
         if (objContents != null)
         {
-            for (int intI = 0; intI < objContents.length; intI++)
-            {
-                String strItemTemplate = getTemplateName(objContents[intI]);
-                if (strItemTemplate.equals("object/tangible/dungeon/death_watch_bunker/filter.iff"))
-                {
+            for (obj_id objContent : objContents) {
+                String strItemTemplate = getTemplateName(objContent);
+                if (strItemTemplate.equals("object/tangible/dungeon/death_watch_bunker/filter.iff")) {
                     return true;
                 }
             }
@@ -127,11 +122,9 @@ public class workbench extends script.base_script
         obj_id[] objContents = utils.getContents(player, true);
         if (objContents != null)
         {
-            for (int intI = 0; intI < objContents.length; intI++)
-            {
-                String strItemTemplate = getTemplateName(objContents[intI]);
-                if (strItemTemplate.equals("object/tangible/dungeon/death_watch_bunker/enhanced_filter.iff"))
-                {
+            for (obj_id objContent : objContents) {
+                String strItemTemplate = getTemplateName(objContent);
+                if (strItemTemplate.equals("object/tangible/dungeon/death_watch_bunker/enhanced_filter.iff")) {
                     return true;
                 }
             }
@@ -143,11 +136,9 @@ public class workbench extends script.base_script
         obj_id[] objContents = utils.getContents(player, true);
         if (objContents != null)
         {
-            for (int intI = 0; intI < objContents.length; intI++)
-            {
-                String strItemTemplate = getTemplateName(objContents[intI]);
-                if (strItemTemplate.equals("object/tangible/dungeon/death_watch_bunker/gel_packet.iff"))
-                {
+            for (obj_id objContent : objContents) {
+                String strItemTemplate = getTemplateName(objContent);
+                if (strItemTemplate.equals("object/tangible/dungeon/death_watch_bunker/gel_packet.iff")) {
                     return true;
                 }
             }
@@ -159,14 +150,11 @@ public class workbench extends script.base_script
         obj_id[] objContents = utils.getContents(player, true);
         if (objContents != null)
         {
-            for (int intI = 0; intI < objContents.length; intI++)
-            {
-                String strItemTemplate = getTemplateName(objContents[intI]);
-                if (strItemTemplate.equals("object/tangible/wearables/goggles/rebreather.iff"))
-                {
-                    obj_id mask = objContents[intI];
-                    if (!hasObjVar(mask, "death_watch_ready"))
-                    {
+            for (obj_id objContent : objContents) {
+                String strItemTemplate = getTemplateName(objContent);
+                if (strItemTemplate.equals("object/tangible/wearables/goggles/rebreather.iff")) {
+                    obj_id mask = objContent;
+                    if (!hasObjVar(mask, "death_watch_ready")) {
                         setObjVar(mask, "death_watch_ready", 1);
                         sendSystemMessage(player, AGUMENTED_REBREATHER);
                         break;
@@ -176,12 +164,10 @@ public class workbench extends script.base_script
         }
         if (objContents != null)
         {
-            for (int intI = 0; intI < objContents.length; intI++)
-            {
-                String strItemTemplate = getTemplateName(objContents[intI]);
-                if (strItemTemplate.equals("object/tangible/dungeon/death_watch_bunker/enhanced_filter.iff"))
-                {
-                    obj_id filter = objContents[intI];
+            for (obj_id objContent : objContents) {
+                String strItemTemplate = getTemplateName(objContent);
+                if (strItemTemplate.equals("object/tangible/dungeon/death_watch_bunker/enhanced_filter.iff")) {
+                    obj_id filter = objContent;
                     destroyObject(filter);
                     break;
                 }
@@ -198,18 +184,14 @@ public class workbench extends script.base_script
         obj_id[] objContents = utils.getContents(player, true);
         if (objContents != null)
         {
-            for (int intI = 0; intI < objContents.length; intI++)
-            {
-                String strItemTemplate = getTemplateName(objContents[intI]);
-                if (strItemTemplate.equals("object/tangible/dungeon/death_watch_bunker/filter.iff"))
-                {
-                    obj_id filter = objContents[intI];
-                    if (isIdValid(filter))
-                    {
+            for (obj_id objContent : objContents) {
+                String strItemTemplate = getTemplateName(objContent);
+                if (strItemTemplate.equals("object/tangible/dungeon/death_watch_bunker/filter.iff")) {
+                    obj_id filter = objContent;
+                    if (isIdValid(filter)) {
                         destroyObject(filter);
                         obj_id playerInv = getObjectInSlot(player, "inventory");
-                        if (isIdValid(playerInv))
-                        {
+                        if (isIdValid(playerInv)) {
                             sendSystemMessage(player, AUGMENTED_FILTER);
                             obj_id item = createObject("object/tangible/dungeon/death_watch_bunker/enhanced_filter.iff", playerInv, "");
                             break;
@@ -220,12 +202,10 @@ public class workbench extends script.base_script
         }
         if (objContents != null)
         {
-            for (int intI = 0; intI < objContents.length; intI++)
-            {
-                String strItemTemplate = getTemplateName(objContents[intI]);
-                if (strItemTemplate.equals("object/tangible/dungeon/death_watch_bunker/gel_packet.iff"))
-                {
-                    obj_id packet = objContents[intI];
+            for (obj_id objContent : objContents) {
+                String strItemTemplate = getTemplateName(objContent);
+                if (strItemTemplate.equals("object/tangible/dungeon/death_watch_bunker/gel_packet.iff")) {
+                    obj_id packet = objContent;
                     destroyObject(packet);
                     break;
                 }

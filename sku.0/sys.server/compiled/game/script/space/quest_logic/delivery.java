@@ -47,7 +47,7 @@ public class delivery extends script.base_script
         {
             dictionary outparams = new dictionary();
             outparams.put("player", player);
-            messageTo(self, "initializedQuestPlayer", outparams, 1.f, false);
+            messageTo(self, "initializedQuestPlayer", outparams, 1.0f, false);
         }
         int questid = questGetQuestId("spacequest/" + questType + "/" + questName);
         if (questid != 0)
@@ -189,7 +189,7 @@ public class delivery extends script.base_script
             addLocationTarget3d(player, name, loc, space_quest.PATROL_NAV_RADIUS);
         }
         setObjVar(self, "initialized", 1);
-        messageTo(self, "deliveryNoPickupAttack", null, 10.f, false);
+        messageTo(self, "deliveryNoPickupAttack", null, 10.0f, false);
     }
     public int arrivedAtLocation(obj_id self, dictionary params) throws InterruptedException
     {
@@ -294,7 +294,7 @@ public class delivery extends script.base_script
         ship_ai.unitSetAutoAggroImmuneTime(playership, rand(3.0f, 6.0f));
         dictionary oparams = new dictionary();
         oparams.put("delivery", false);
-        messageTo(self, "sayHello", oparams, 2.f, false);
+        messageTo(self, "sayHello", oparams, 2.0f, false);
         playClientEffectObj(player, SOUND_SPAWN_ESCORT, player, "");
         clearMissionWaypoint(self);
         return SCRIPT_CONTINUE;
@@ -330,7 +330,7 @@ public class delivery extends script.base_script
         ship_ai.unitAddExclusiveAggro(ship, player);
         dictionary oparams = new dictionary();
         oparams.put("delivery", true);
-        messageTo(self, "sayHello", oparams, 2.f, false);
+        messageTo(self, "sayHello", oparams, 2.0f, false);
         playClientEffectObj(player, SOUND_SPAWN_ESCORT, player, "");
         clearMissionWaypoint(self);
         return SCRIPT_CONTINUE;
@@ -411,8 +411,8 @@ public class delivery extends script.base_script
             transform t = getTransform_o2w(ship);
             transform goalLoc = space_quest.getRandomPositionInSphere(t, 1000, 1200);
             ship_ai.unitMoveTo(ship, goalLoc);
-            messageTo(ship, "lightspeedJump", null, 15.f, false);
-            messageTo(self, "findDeliveryPoint", null, 1.f, false);
+            messageTo(ship, "lightspeedJump", null, 15.0f, false);
+            messageTo(self, "findDeliveryPoint", null, 1.0f, false);
             int questid = questGetQuestId("spacequest/" + questType + "/" + questName);
             if (questid != 0)
             {
@@ -463,8 +463,8 @@ public class delivery extends script.base_script
             transform t = getTransform_o2w(ship);
             transform goalLoc = space_quest.getRandomPositionInSphere(t, 1000, 1200);
             ship_ai.unitMoveTo(ship, goalLoc);
-            messageTo(ship, "lightspeedJump", null, 15.f, false);
-            messageTo(self, "finishQuest", null, 2.f, false);
+            messageTo(ship, "lightspeedJump", null, 15.0f, false);
+            messageTo(self, "finishQuest", null, 2.0f, false);
         }
         return SCRIPT_OVERRIDE;
     }
@@ -473,7 +473,7 @@ public class delivery extends script.base_script
         obj_id player = getObjIdObjVar(self, space_quest.QUEST_OWNER);
         dictionary outparams = new dictionary();
         outparams.put("player", player);
-        messageTo(self, "initializedQuestPlayer", outparams, 1.f, false);
+        messageTo(self, "initializedQuestPlayer", outparams, 1.0f, false);
         return SCRIPT_OVERRIDE;
     }
     public void clearMissionWaypoint(obj_id self) throws InterruptedException
@@ -616,12 +616,12 @@ public class delivery extends script.base_script
         for (int i = k; i < count + k; i++)
         {
             transform gloc = getTransform_o2w(space_transition.getContainingShip(player));
-            float dist = rand(1000.f, 1200.f);
+            float dist = rand(1000.0f, 1200.0f);
             vector n = ((gloc.getLocalFrameK_p()).normalize()).multiply(dist);
             gloc = gloc.move_p(n);
             gloc = gloc.yaw_l(3.14f);
-            vector vi = ((gloc.getLocalFrameI_p()).normalize()).multiply(rand(-150.f, 150.f));
-            vector vj = ((gloc.getLocalFrameJ_p()).normalize()).multiply(rand(-150.f, 150.f));
+            vector vi = ((gloc.getLocalFrameI_p()).normalize()).multiply(rand(-150.0f, 150.0f));
+            vector vj = ((gloc.getLocalFrameJ_p()).normalize()).multiply(rand(-150.0f, 150.0f));
             vector vd = vi.add(vj);
             gloc = gloc.move_p(vd);
             obj_id newship = space_create.createShipHyperspace(shipList[j], gloc);
@@ -675,27 +675,21 @@ public class delivery extends script.base_script
         obj_id targets[] = getObjIdArrayObjVar(self, "targets");
         int deadships = getIntObjVar(self, "deadships");
         boolean launchWave = false;
-        for (int i = 0; i < targets.length; i++)
-        {
-            if (deadship == targets[i])
-            {
+        for (obj_id target : targets) {
+            if (deadship == target) {
                 deadships++;
                 setObjVar(self, "deadships", deadships);
                 space_quest._removeMissionCriticalShip(player, self, deadship);
                 int shipswave = getIntObjVar(deadship, "wave");
                 int wavecount = getIntObjVar(self, "wave" + shipswave);
                 wavecount--;
-                if (wavecount <= 0)
-                {
+                if (wavecount <= 0) {
                     removeObjVar(self, "wave" + shipswave);
                     launchWave = true;
-                }
-                else 
-                {
+                } else {
                     setObjVar(self, "wave" + shipswave, wavecount);
                 }
-                if (deadships == targets.length)
-                {
+                if (deadships == targets.length) {
                     playClientEffectObj(player, SOUND_DESTROYED_WAVE, player, "");
                     int rewardships = getIntObjVar(self, "rewardships");
                     rewardships += deadships;

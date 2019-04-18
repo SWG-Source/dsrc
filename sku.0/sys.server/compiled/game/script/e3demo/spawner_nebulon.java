@@ -52,7 +52,7 @@ public class spawner_nebulon extends script.base_script
     public int spawnNebulon(obj_id self, dictionary params) throws InterruptedException
     {
         transform trMyTransform = getTransform_o2w(self);
-        vector vctTest = new vector(100f, 100f, 100f);
+        vector vctTest = new vector(100.0f, 100.0f, 100.0f);
         transform trNewTransform = trMyTransform.move_l(vctTest);
         obj_id objNewNebulon = space_create.createShip("corellian_corvette", trNewTransform, null);
         space_utils.setComponentDisabled(objNewNebulon, ship_chassis_slot_type.SCST_engine, true);
@@ -69,23 +69,19 @@ public class spawner_nebulon extends script.base_script
     {
         obj_id objFoo = null;
         obj_id objFoo2 = null;
-        for (int intI = 0; intI < DEFENDER_LIST.length; intI++)
-        {
+        for (String s : DEFENDER_LIST) {
             transform trNewTransform = space_utils.getRandomPositionInSphere(getTransform_o2w(self), 100, 150, true);
-            obj_id objShip = space_create.createShip(DEFENDER_LIST[intI], trNewTransform, null);
-            if (isIdValid(objShip))
-            {
+            obj_id objShip = space_create.createShip(s, trNewTransform, null);
+            if (isIdValid(objShip)) {
                 objFoo = objShip;
                 setObjVar(objShip, "intNebulon", 1);
-                setObjVar(objShip, "strType", DEFENDER_LIST[intI]);
+                setObjVar(objShip, "strType", s);
                 setObjVar(objShip, "trSpawnLocation", trNewTransform);
                 setObjVar(objShip, "intNoDump", 1);
                 setObjVar(objShip, "objNebulon", self);
                 attachScript(objShip, "e3demo.nebulon_child_object");
-            }
-            else 
-            {
-                LOG("space", "BAD DEFENDER NEBULON E3 SHIP OF TYPE " + DEFENDER_LIST[intI]);
+            } else {
+                LOG("space", "BAD DEFENDER NEBULON E3 SHIP OF TYPE " + s);
             }
         }
         for (int intI = 0; intI < ATTACKER_LIST.length; intI++)

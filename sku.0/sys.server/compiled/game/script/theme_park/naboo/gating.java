@@ -39,7 +39,7 @@ public class gating extends script.base_script
         {
             return false;
         }
-        if (factions.getFactionStanding(player, factions.FACTION_IMPERIAL) < 500f)
+        if (factions.getFactionStanding(player, factions.FACTION_IMPERIAL) < 500.0f)
         {
             return false;
         }

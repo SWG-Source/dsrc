@@ -11,7 +11,7 @@ public class cleanup extends script.base_script
     }
     public int OnAttach(obj_id self) throws InterruptedException
     {
-        messageTo(self, "handleCleanup", null, 60f, false);
+        messageTo(self, "handleCleanup", null, 60.0f, false);
         return SCRIPT_CONTINUE;
     }
     public int OnDetach(obj_id self) throws InterruptedException

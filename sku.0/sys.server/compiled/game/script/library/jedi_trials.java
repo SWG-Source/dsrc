@@ -198,15 +198,11 @@ public class jedi_trials extends script.base_script
             String[] skillList = getSkillListingForPlayer(player);
             int jediSkillPtsSpent = 0;
             int jediDisciplineSkillTrees = 0;
-            for (int j = 0; j < skillList.length; j++)
-            {
-                String skillName = skillList[j];
-                if (skillName.startsWith("force_discipline"))
-                {
+            for (String skillName : skillList) {
+                if (skillName.startsWith("force_discipline")) {
                     int cost = 0;
                     jediSkillPtsSpent = jediSkillPtsSpent + cost;
-                    if (skillName.endsWith("_04"))
-                    {
+                    if (skillName.endsWith("_04")) {
                         jediDisciplineSkillTrees = jediDisciplineSkillTrees + 1;
                     }
                 }
@@ -507,7 +503,7 @@ public class jedi_trials extends script.base_script
             if (foo == -1)
             {
                 int index = rand(0, (unusedRows.size() - 1));
-                int datatableRow = ((Integer)unusedRows.get(index)).intValue();
+                int datatableRow = (Integer) unusedRows.get(index);
                 questList[questNum] = datatableRow;
                 utils.removeElementAt(unusedRows, index);
             }
@@ -623,12 +619,9 @@ public class jedi_trials extends script.base_script
                     String[] validTargets = getValidQuestTargets(player, datatableColumn);
                     if (validTargets != null)
                     {
-                        for (int i = 0; i < validTargets.length; i++)
-                        {
-                            String targetName = validTargets[i];
+                        for (String targetName : validTargets) {
                             int stringCheck = creatureType.indexOf(targetName);
-                            if (stringCheck > -1)
-                            {
+                            if (stringCheck > -1) {
                                 return true;
                             }
                         }
@@ -658,12 +651,9 @@ public class jedi_trials extends script.base_script
                     String[] validTargets = getValidQuestTargets(player, datatableColumn);
                     if (validTargets != null)
                     {
-                        for (int i = 0; i < validTargets.length; i++)
-                        {
-                            String targetName = validTargets[i];
+                        for (String targetName : validTargets) {
                             int stringCheck = creatureType.indexOf(targetName);
-                            if (stringCheck > -1)
-                            {
+                            if (stringCheck > -1) {
                                 return true;
                             }
                         }

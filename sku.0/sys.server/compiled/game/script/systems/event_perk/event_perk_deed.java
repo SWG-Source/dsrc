@@ -1,8 +1,8 @@
 package script.systems.event_perk;
 
 import script.*;
-import script.library.*;
 import script.library.event_perk;
+import script.library.*;
 
 public class event_perk_deed extends script.base_script
 {
@@ -247,14 +247,14 @@ public class event_perk_deed extends script.base_script
             float zLoc = here.z;
             for (int i = 0; i < numPerLine; i++)
             {
-                double xRowOffsetDbl = Math.sin(Math.toRadians(heading + 90)) * (i * offset);
+                double xRowOffsetDbl = StrictMath.sin(Math.toRadians(heading + 90)) * (i * offset);
                 float xRowOffset = (float)xRowOffsetDbl;
-                double zRowOffsetDbl = Math.cos(Math.toRadians(heading + 90)) * (i * offset);
+                double zRowOffsetDbl = StrictMath.cos(Math.toRadians(heading + 90)) * (i * offset);
                 float zRowOffset = (float)zRowOffsetDbl;
                 for (int j = 0; j < numRows; j++)
                 {
-                    double xSpawnDbl = Math.sin(Math.toRadians(heading)) * (j * offset) + xLoc + xRowOffset;
-                    double zSpawnDbl = Math.cos(Math.toRadians(heading)) * (j * offset) + zLoc + zRowOffset;
+                    double xSpawnDbl = StrictMath.sin(Math.toRadians(heading)) * (j * offset) + xLoc + xRowOffset;
+                    double zSpawnDbl = StrictMath.cos(Math.toRadians(heading)) * (j * offset) + zLoc + zRowOffset;
                     float xSpawn = (float)xSpawnDbl;
                     float zSpawn = (float)zSpawnDbl;
                     location spawnPoint = new location();
@@ -468,7 +468,7 @@ public class event_perk_deed extends script.base_script
             setObjVar(vendor, "event_perk.timeStamp", timeStamp);
             setObjVar(vendor, "event_perk.owner", player);
             setObjVar(vendor, "event_perk.ownerName", ownerName);
-            if (templateName.indexOf("ithorian") > -1)
+            if (templateName.contains("ithorian"))
             {
                 dressup.dressNpc(vendor, "random_ithorian", true);
             }

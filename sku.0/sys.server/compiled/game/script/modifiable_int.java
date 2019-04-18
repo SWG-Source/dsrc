@@ -115,7 +115,7 @@ public class modifiable_int extends Number implements Comparable
 	 */
 	public String toString()
 	{
-		return (new Integer(m_data)).toString();
+		return Integer.valueOf(m_data).toString();
 	}	// toString
 
 	/**

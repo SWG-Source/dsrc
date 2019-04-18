@@ -52,12 +52,10 @@ public class boss_fight_functionality extends script.base_script
             CustomerServiceLog("outbreak_themepark", "rancor_boss_fight_controller.OnIncapacitated() groupMembersInRange was NULL. for player: " + playerEnemy);
             return SCRIPT_CONTINUE;
         }
-        for (int i = 0; i < groupMembersInRange.length; i++)
-        {
-            CustomerServiceLog("outbreak_themepark", "boss_fight_functionality.OnIncapacitated() A player, " + groupMembersInRange[i] + ", was found in player group of playerEnemy: " + playerEnemy);
-            if (!isIdValid(groupMembersInRange[i]) && !exists(groupMembersInRange[i]) || isIncapacitated(groupMembersInRange[i]) || !isDead(groupMembersInRange[i]))
-            {
-                CustomerServiceLog("outbreak_themepark", "boss_fight_functionality.OnIncapacitated() A player, " + groupMembersInRange[i] + ", in the group of " + playerEnemy + " was dead, incapacitated or in some way not found.");
+        for (obj_id obj_id : groupMembersInRange) {
+            CustomerServiceLog("outbreak_themepark", "boss_fight_functionality.OnIncapacitated() A player, " + obj_id + ", was found in player group of playerEnemy: " + playerEnemy);
+            if (!isIdValid(obj_id) && !exists(obj_id) || isIncapacitated(obj_id) || !isDead(obj_id)) {
+                CustomerServiceLog("outbreak_themepark", "boss_fight_functionality.OnIncapacitated() A player, " + obj_id + ", in the group of " + playerEnemy + " was dead, incapacitated or in some way not found.");
                 continue;
             }
         }
@@ -120,18 +118,15 @@ public class boss_fight_functionality extends script.base_script
         obj_id[] players = getPlayerCreaturesInRange(self, maxDist);
         if (players != null && players.length > 0)
         {
-            for (int i = 0; i < players.length; i++)
-            {
-                if (!isIdValid(players[i]) && !exists(players[i]) || isIncapacitated(players[i]) || !isDead(players[i]))
-                {
+            for (obj_id player : players) {
+                if (!isIdValid(player) && !exists(player) || isIncapacitated(player) || !isDead(player)) {
                     continue;
                 }
-                if (!group.inSameGroup(players[i], playerEnemy))
-                {
+                if (!group.inSameGroup(player, playerEnemy)) {
                     continue;
                 }
-                addHate(self, players[i], 1000.0f);
-                startCombat(self, players[i]);
+                addHate(self, player, 1000.0f);
+                startCombat(self, player);
             }
         }
         messageTo(self, "handleBossDistanceCheck", null, 3, false);
@@ -239,19 +234,16 @@ public class boss_fight_functionality extends script.base_script
             CustomerServiceLog("outbreak_themepark", "boss_fight_functionality.getRandomCombatTarget() Mob found player but player was not part of owners group.");
             return false;
         }
-        for (int i = 0; i < targets.length; i++)
-        {
-            if (!isIdValid(targets[i]))
-            {
+        for (obj_id target : targets) {
+            if (!isIdValid(target)) {
                 continue;
             }
-            if (!group.inSameGroup(targets[i], playerEnemy))
-            {
-                CustomerServiceLog("outbreak_themepark", "boss_fight_functionality.getRandomCombatTarget(): Player " + targets[i] + " was found as an invalid target.");
+            if (!group.inSameGroup(target, playerEnemy)) {
+                CustomerServiceLog("outbreak_themepark", "boss_fight_functionality.getRandomCombatTarget(): Player " + target + " was found as an invalid target.");
                 continue;
             }
-            startCombat(self, targets[i]);
-            CustomerServiceLog("outbreak_themepark", "boss_fight_functionality.getRandomCombatTarget(): Player " + targets[i] + " was found as a valid target. Boss Mob: " + self + " attacking player.");
+            startCombat(self, target);
+            CustomerServiceLog("outbreak_themepark", "boss_fight_functionality.getRandomCombatTarget(): Player " + target + " was found as a valid target. Boss Mob: " + self + " attacking player.");
             return true;
         }
         CustomerServiceLog("outbreak_themepark", "boss_fight_functionality.OnIncapacitateTarget(): Boss Mob: " + self + " failed to find a player to attack from player: " + playerEnemy + " group.");
@@ -280,9 +272,8 @@ public class boss_fight_functionality extends script.base_script
                 return SCRIPT_CONTINUE;
             }
             obj_id[] objMembersWhoExist = utils.getLocalGroupMemberIds(groupId);
-            for (int x = 0; x < objMembersWhoExist.length; x++)
-            {
-                sendSystemMessage(objMembersWhoExist[x], BOSS_BEGIN);
+            for (obj_id obj_id : objMembersWhoExist) {
+                sendSystemMessage(obj_id, BOSS_BEGIN);
             }
         }
         else 
@@ -312,9 +303,8 @@ public class boss_fight_functionality extends script.base_script
                 return SCRIPT_CONTINUE;
             }
             obj_id[] objMembersWhoExist = utils.getLocalGroupMemberIds(groupId);
-            for (int x = 0; x < objMembersWhoExist.length; x++)
-            {
-                sendSystemMessage(objMembersWhoExist[x], BOSS_LEAVING);
+            for (obj_id obj_id : objMembersWhoExist) {
+                sendSystemMessage(obj_id, BOSS_LEAVING);
             }
         }
         else 

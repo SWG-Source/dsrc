@@ -89,77 +89,67 @@ public class mediator extends script.poi.base.scenario_actor
         Vector responses = new Vector();
         responses.setSize(0);
         npcSetConversationResponses(speaker, responses);
-        if ((aId.equals("r_m_greet")))
-        {
-            npcSpeak(speaker, new string_id(convo, "m_herotalk1"));
-            responses = utils.addElement(responses, new string_id(convo, "r_m_herotalk1"));
-            npcSetConversationResponses(speaker, responses);
-        }
-        else if ((aId.equals("r_m_herotalk1")))
-        {
-            npcSpeak(speaker, new string_id(convo, "m_herotalk2"));
-            responses = utils.addElement(responses, new string_id(convo, "r_m_herotalk2"));
-            npcSetConversationResponses(speaker, responses);
-        }
-        else if ((aId.equals("r_m_herotalk2")))
-        {
-            npcSpeak(speaker, new string_id(convo, "m_herotalk3"));
-            responses = utils.addElement(responses, new string_id(convo, "r_m_herotalk3"));
-            npcSetConversationResponses(speaker, responses);
-        }
-        else if ((aId.equals("r_m_herotalk3")))
-        {
-            npcSpeak(speaker, new string_id(convo, "m_herotalk4"));
-            responses = utils.addElement(responses, new string_id(convo, "r_m_empirebad"));
-            responses = utils.addElement(responses, new string_id(convo, "r_m_empiregood"));
-            npcSetConversationResponses(speaker, responses);
-        }
-        else if ((aId.equals("r_m_empiregood")))
-        {
-            npcSpeak(speaker, new string_id(convo, "m_herotalk5"));
-            scenario.setPlayerProgress(speaker, CONV_SPOKE);
-        }
-        else if ((aId.equals("r_m_empirebad")))
-        {
-            npcSpeak(speaker, new string_id(convo, "m_herotalk6"));
-            responses = utils.addElement(responses, new string_id(convo, "r_m_herotalk6"));
-            npcSetConversationResponses(speaker, responses);
-        }
-        else if ((aId.equals("r_m_herotalk6")))
-        {
-            npcSpeak(speaker, new string_id(convo, "m_herotalk7"));
-            responses = utils.addElement(responses, new string_id(convo, "r_m_herotalk7"));
-            npcSetConversationResponses(speaker, responses);
-        }
-        else if ((aId.equals("r_m_herotalk7")))
-        {
-            npcSpeak(speaker, new string_id(convo, "m_herotalk8"));
-            responses = utils.addElement(responses, new string_id(convo, "r_m_herotalk8"));
-            npcSetConversationResponses(speaker, responses);
-        }
-        else if ((aId.equals("r_m_herotalk8")))
-        {
-            npcSpeak(speaker, new string_id(convo, "m_herotalk9"));
-            responses = utils.addElement(responses, new string_id(convo, "r_m_herotalk9"));
-            npcSetConversationResponses(speaker, responses);
-        }
-        else if ((aId.equals("r_m_herotalk9")))
-        {
-            npcSpeak(speaker, new string_id(convo, "m_herotalk10"));
-            responses = utils.addElement(responses, new string_id(convo, "r_m_herotalk10"));
-            npcSetConversationResponses(speaker, responses);
-        }
-        else if ((aId.equals("r_m_herotalk10")))
-        {
-            npcSpeak(speaker, new string_id(convo, "m_herotalk11"));
-            scenario.setPlayerProgress(speaker, CONV_SPOKE);
-        }
-        else if ((aId.equals("r_m_relatestory")))
-        {
-            npcSpeak(speaker, new string_id(convo, "m_youareahero2"));
-            scenario.setPlayerProgress(speaker, CONV_SPOKE);
-            badge.grantBadge(speaker, "poi_heromark");
-            scenario.complete();
+        switch (aId) {
+            case "r_m_greet":
+                npcSpeak(speaker, new string_id(convo, "m_herotalk1"));
+                responses = utils.addElement(responses, new string_id(convo, "r_m_herotalk1"));
+                npcSetConversationResponses(speaker, responses);
+                break;
+            case "r_m_herotalk1":
+                npcSpeak(speaker, new string_id(convo, "m_herotalk2"));
+                responses = utils.addElement(responses, new string_id(convo, "r_m_herotalk2"));
+                npcSetConversationResponses(speaker, responses);
+                break;
+            case "r_m_herotalk2":
+                npcSpeak(speaker, new string_id(convo, "m_herotalk3"));
+                responses = utils.addElement(responses, new string_id(convo, "r_m_herotalk3"));
+                npcSetConversationResponses(speaker, responses);
+                break;
+            case "r_m_herotalk3":
+                npcSpeak(speaker, new string_id(convo, "m_herotalk4"));
+                responses = utils.addElement(responses, new string_id(convo, "r_m_empirebad"));
+                responses = utils.addElement(responses, new string_id(convo, "r_m_empiregood"));
+                npcSetConversationResponses(speaker, responses);
+                break;
+            case "r_m_empiregood":
+                npcSpeak(speaker, new string_id(convo, "m_herotalk5"));
+                scenario.setPlayerProgress(speaker, CONV_SPOKE);
+                break;
+            case "r_m_empirebad":
+                npcSpeak(speaker, new string_id(convo, "m_herotalk6"));
+                responses = utils.addElement(responses, new string_id(convo, "r_m_herotalk6"));
+                npcSetConversationResponses(speaker, responses);
+                break;
+            case "r_m_herotalk6":
+                npcSpeak(speaker, new string_id(convo, "m_herotalk7"));
+                responses = utils.addElement(responses, new string_id(convo, "r_m_herotalk7"));
+                npcSetConversationResponses(speaker, responses);
+                break;
+            case "r_m_herotalk7":
+                npcSpeak(speaker, new string_id(convo, "m_herotalk8"));
+                responses = utils.addElement(responses, new string_id(convo, "r_m_herotalk8"));
+                npcSetConversationResponses(speaker, responses);
+                break;
+            case "r_m_herotalk8":
+                npcSpeak(speaker, new string_id(convo, "m_herotalk9"));
+                responses = utils.addElement(responses, new string_id(convo, "r_m_herotalk9"));
+                npcSetConversationResponses(speaker, responses);
+                break;
+            case "r_m_herotalk9":
+                npcSpeak(speaker, new string_id(convo, "m_herotalk10"));
+                responses = utils.addElement(responses, new string_id(convo, "r_m_herotalk10"));
+                npcSetConversationResponses(speaker, responses);
+                break;
+            case "r_m_herotalk10":
+                npcSpeak(speaker, new string_id(convo, "m_herotalk11"));
+                scenario.setPlayerProgress(speaker, CONV_SPOKE);
+                break;
+            case "r_m_relatestory":
+                npcSpeak(speaker, new string_id(convo, "m_youareahero2"));
+                scenario.setPlayerProgress(speaker, CONV_SPOKE);
+                badge.grantBadge(speaker, "poi_heromark");
+                scenario.complete();
+                break;
         }
         return SCRIPT_CONTINUE;
     }

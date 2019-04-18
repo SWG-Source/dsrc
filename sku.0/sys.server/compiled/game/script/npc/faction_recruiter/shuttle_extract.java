@@ -71,13 +71,11 @@ public class shuttle_extract extends script.base_script
                                 LOG("LOG_CHANNEL", "shuttle_extract::OnObjectMenuSelect(Use) -- group_members is null for group " + group);
                                 return SCRIPT_CONTINUE;
                             }
-                            for (int i = 0; i < group_members.length; i++)
-                            {
-                                if (group_members[i] != player)
-                                {
-                                    createExtractionWaypoint(group_members[i], loc);
+                            for (obj_id group_member : group_members) {
+                                if (group_member != player) {
+                                    createExtractionWaypoint(group_member, loc);
                                     pp = prose.getPackage(SID_SHUTTLE_INITIATED_GROUP, player, null, ARRIVAL_TIME);
-                                    sendSystemMessageProse(group_members[i], pp);
+                                    sendSystemMessageProse(group_member, pp);
                                 }
                             }
                         }

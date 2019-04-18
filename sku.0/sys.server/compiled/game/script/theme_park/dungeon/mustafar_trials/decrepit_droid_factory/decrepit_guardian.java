@@ -82,9 +82,8 @@ public class decrepit_guardian extends script.base_script
             doLogging("applyAEDebuffs", "Could find no valid players to afflict");
             return;
         }
-        for (int i = 0; i < players.length; i++)
-        {
-            buff.applyBuff(players[i], effects);
+        for (obj_id player : players) {
+            buff.applyBuff(player, effects);
         }
     }
     public void doLogging(String section, String message) throws InterruptedException

@@ -306,34 +306,31 @@ public class medicine extends script.base_script
             }
             else 
             {
-                for (int i = 0; i < am.length; i++)
-                {
-                    int attrib = am[i].getAttribute();
-                    int val = am[i].getValue();
-                    float atk = am[i].getAttack();
-                    float dcy = am[i].getDecay();
-                    switch ((int)(atk))
-                    {
-                        case (int)healing.AM_HEAL_WOUND:
-                        dsrc = utils.addElement(dsrc, "  * HEAL WOUND: " + consumable.STAT_NAME[attrib] + " " + val);
-                        break;
-                        case (int)healing.AM_HEAL_SHOCK:
-                        dsrc = utils.addElement(dsrc, "  * HEAL SHOCK: " + val);
-                        break;
-                        case (int)healing.VAR_BUFF_MOD_ATTACK:
-                        dsrc = utils.addElement(dsrc, "  * ENHANCE: " + consumable.STAT_NAME[attrib] + " " + val);
-                        dsrc = utils.addElement(dsrc, "  * DURATION: " + (int)am[i].getDuration());
-                        break;
+                for (attrib_mod attrib_mod : am) {
+                    int attrib = attrib_mod.getAttribute();
+                    int val = attrib_mod.getValue();
+                    float atk = attrib_mod.getAttack();
+                    float dcy = attrib_mod.getDecay();
+                    switch ((int) (atk)) {
+                        case (int) healing.AM_HEAL_WOUND:
+                            dsrc = utils.addElement(dsrc, "  * HEAL WOUND: " + consumable.STAT_NAME[attrib] + " " + val);
+                            break;
+                        case (int) healing.AM_HEAL_SHOCK:
+                            dsrc = utils.addElement(dsrc, "  * HEAL SHOCK: " + val);
+                            break;
+                        case (int) healing.VAR_BUFF_MOD_ATTACK:
+                            dsrc = utils.addElement(dsrc, "  * ENHANCE: " + consumable.STAT_NAME[attrib] + " " + val);
+                            dsrc = utils.addElement(dsrc, "  * DURATION: " + (int) attrib_mod.getDuration());
+                            break;
                         default:
-                        switch ((int)(dcy))
-                        {
-                            case (int)MOD_POOL:
-                            dsrc = utils.addElement(dsrc, "  * HEAL DAMAGE: " + consumable.STAT_NAME[attrib] + " " + val);
-                            break;
-                            case (int)MOD_ANTIDOTE:
-                            dsrc = utils.addElement(dsrc, "  * ANTIDOTE: " + consumable.STAT_NAME[attrib]);
-                            break;
-                        }
+                            switch ((int) (dcy)) {
+                                case (int) MOD_POOL:
+                                    dsrc = utils.addElement(dsrc, "  * HEAL DAMAGE: " + consumable.STAT_NAME[attrib] + " " + val);
+                                    break;
+                                case (int) MOD_ANTIDOTE:
+                                    dsrc = utils.addElement(dsrc, "  * ANTIDOTE: " + consumable.STAT_NAME[attrib]);
+                                    break;
+                            }
                     }
                 }
             }
@@ -444,71 +441,62 @@ public class medicine extends script.base_script
         }
         else 
         {
-            for (int i = 0; i < am.length; i++)
-            {
-                int attrib = am[i].getAttribute();
-                int val = am[i].getValue();
-                float atk = am[i].getAttack();
-                float dcy = am[i].getDecay();
-                switch ((int)(atk))
-                {
-                    case (int)healing.AM_HEAL_WOUND:
-                    names[idx] = "examine_heal_wound_" + consumable.STAT_NAME[attrib];
-                    attribs[idx] = Integer.toString(val);
-                    idx++;
-                    if (idx >= names.length)
-                    {
-                        return SCRIPT_CONTINUE;
-                    }
-                    break;
-                    case (int)healing.AM_HEAL_SHOCK:
-                    names[idx] = "examine_heal_shock";
-                    attribs[idx] = Integer.toString(val);
-                    idx++;
-                    if (idx >= names.length)
-                    {
-                        return SCRIPT_CONTINUE;
-                    }
-                    break;
-                    case (int)healing.VAR_BUFF_MOD_ATTACK:
-                    names[idx] = "examine_enhance_" + consumable.STAT_NAME[attrib];
-                    int newVal = Integer.MIN_VALUE;
-                    attribs[idx] = Integer.toString(newVal) + "%";
-                    idx++;
-                    if (idx >= names.length)
-                    {
-                        return SCRIPT_CONTINUE;
-                    }
-                    names[idx] = "examine_duration_" + consumable.STAT_NAME[attrib];
-                    attribs[idx] = Integer.toString((int)am[i].getDuration());
-                    idx++;
-                    if (idx >= names.length)
-                    {
-                        return SCRIPT_CONTINUE;
-                    }
-                    break;
+            for (attrib_mod attrib_mod : am) {
+                int attrib = attrib_mod.getAttribute();
+                int val = attrib_mod.getValue();
+                float atk = attrib_mod.getAttack();
+                float dcy = attrib_mod.getDecay();
+                switch ((int) (atk)) {
+                    case (int) healing.AM_HEAL_WOUND:
+                        names[idx] = "examine_heal_wound_" + consumable.STAT_NAME[attrib];
+                        attribs[idx] = Integer.toString(val);
+                        idx++;
+                        if (idx >= names.length) {
+                            return SCRIPT_CONTINUE;
+                        }
+                        break;
+                    case (int) healing.AM_HEAL_SHOCK:
+                        names[idx] = "examine_heal_shock";
+                        attribs[idx] = Integer.toString(val);
+                        idx++;
+                        if (idx >= names.length) {
+                            return SCRIPT_CONTINUE;
+                        }
+                        break;
+                    case (int) healing.VAR_BUFF_MOD_ATTACK:
+                        names[idx] = "examine_enhance_" + consumable.STAT_NAME[attrib];
+                        int newVal = Integer.MIN_VALUE;
+                        attribs[idx] = Integer.toString(newVal) + "%";
+                        idx++;
+                        if (idx >= names.length) {
+                            return SCRIPT_CONTINUE;
+                        }
+                        names[idx] = "examine_duration_" + consumable.STAT_NAME[attrib];
+                        attribs[idx] = Integer.toString((int) attrib_mod.getDuration());
+                        idx++;
+                        if (idx >= names.length) {
+                            return SCRIPT_CONTINUE;
+                        }
+                        break;
                     default:
-                    switch ((int)(dcy))
-                    {
-                        case (int)MOD_POOL:
-                        names[idx] = "examine_heal_damage_" + consumable.STAT_NAME[attrib];
-                        attribs[idx] = Integer.toString(val);
-                        idx++;
-                        if (idx >= names.length)
-                        {
-                            return SCRIPT_CONTINUE;
+                        switch ((int) (dcy)) {
+                            case (int) MOD_POOL:
+                                names[idx] = "examine_heal_damage_" + consumable.STAT_NAME[attrib];
+                                attribs[idx] = Integer.toString(val);
+                                idx++;
+                                if (idx >= names.length) {
+                                    return SCRIPT_CONTINUE;
+                                }
+                                break;
+                            case (int) MOD_ANTIDOTE:
+                                names[idx] = "examine_antidote_" + consumable.STAT_NAME[attrib];
+                                attribs[idx] = Integer.toString(val);
+                                idx++;
+                                if (idx >= names.length) {
+                                    return SCRIPT_CONTINUE;
+                                }
+                                break;
                         }
-                        break;
-                        case (int)MOD_ANTIDOTE:
-                        names[idx] = "examine_antidote_" + consumable.STAT_NAME[attrib];
-                        attribs[idx] = Integer.toString(val);
-                        idx++;
-                        if (idx >= names.length)
-                        {
-                            return SCRIPT_CONTINUE;
-                        }
-                        break;
-                    }
                 }
             }
         }

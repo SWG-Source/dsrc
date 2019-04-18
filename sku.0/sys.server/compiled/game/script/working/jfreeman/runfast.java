@@ -1,12 +1,6 @@
 package script.working.jfreeman;
 
-import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
+import script.obj_id;
 
 public class runfast extends script.base_script
 {
@@ -24,7 +18,7 @@ public class runfast extends script.base_script
         {
             float movePercent = getMovementPercent(self);
             debugSpeakMsg(self, "old speed: " + movePercent);
-            movePercent = movePercent * 2f;
+            movePercent = movePercent * 2.0f;
             setMovementPercent(self, movePercent);
             debugSpeakMsg(self, "new speed: " + movePercent);
         }
@@ -32,7 +26,7 @@ public class runfast extends script.base_script
         {
             float movePercent = getMovementPercent(self);
             debugSpeakMsg(self, "old speed: " + movePercent);
-            movePercent = movePercent / 2f;
+            movePercent = movePercent / 2.0f;
             setMovementPercent(self, movePercent);
             debugSpeakMsg(self, "new speed: " + movePercent);
         }

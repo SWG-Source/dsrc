@@ -20,13 +20,11 @@ public class death_watch_treadwell extends script.base_script
         obj_id[] objContents = utils.getContents(player, true);
         if (objContents != null)
         {
-            for (int intI = 0; intI < objContents.length; intI++)
-            {
-                String strItemTemplate = getTemplateName(objContents[intI]);
-                
+            for (obj_id objContent : objContents) {
+                String strItemTemplate = getTemplateName(objContent);
+
                 {
-                    if (strItemTemplate.equals("object/tangible/dungeon/death_watch_bunker/drill_battery.iff"))
-                    {
+                    if (strItemTemplate.equals("object/tangible/dungeon/death_watch_bunker/drill_battery.iff")) {
                         return true;
                     }
                 }
@@ -39,20 +37,20 @@ public class death_watch_treadwell extends script.base_script
     }
     public void death_watch_treadwell_action_fixBattery(obj_id player, obj_id npc) throws InterruptedException
     {
-        playClientEffectLoc(player, "clienteffect/treadwell_chatter_02.cef", getLocation(npc), 0f);
+        playClientEffectLoc(player, "clienteffect/treadwell_chatter_02.cef", getLocation(npc), 0.0f);
         dictionary params = new dictionary();
         params.put("player", player);
-        messageTo(npc, "handleCleanBattery", params, 1f, false);
+        messageTo(npc, "handleCleanBattery", params, 1.0f, false);
         return;
     }
     public void death_watch_treadwell_action_vocalize_01(obj_id player, obj_id npc) throws InterruptedException
     {
-        playClientEffectLoc(player, "clienteffect/treadwell_chatter_01.cef", getLocation(npc), 0f);
+        playClientEffectLoc(player, "clienteffect/treadwell_chatter_01.cef", getLocation(npc), 0.0f);
         return;
     }
     public void death_watch_treadwell_action_vocalize_02(obj_id player, obj_id npc) throws InterruptedException
     {
-        playClientEffectLoc(player, "clienteffect/treadwell_chatter_02.cef", getLocation(npc), 0f);
+        playClientEffectLoc(player, "clienteffect/treadwell_chatter_02.cef", getLocation(npc), 0.0f);
         return;
     }
     public int OnInitialize(obj_id self) throws InterruptedException

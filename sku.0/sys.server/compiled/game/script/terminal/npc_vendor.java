@@ -145,48 +145,48 @@ public class npc_vendor extends script.base_script
             doAnimationAction(self, "shake_head_no");
             return SCRIPT_CONTINUE;
         }
-        if (templateName.indexOf("ithorian") > -1)
+        if (templateName.contains("ithorian"))
         {
             blog("I am an Ithorian");
-            if (itemName.indexOf("ith_") > -1)
+            if (itemName.contains("ith_"))
             {
                 blog("I have received an Ithorian wearable!");
             }
             else if (itemName.equals(WKE_CAN_WEAR_PADAWAN_ROBE))
             {
             }
-            else if (!(itemName.indexOf("cybernetic_") > -1))
+            else if (!(itemName.contains("cybernetic_")))
             {
                 chat._chat(self, null, chat.CHAT_SAY, chat.MOOD_STUBBORN, null, new string_id("player_structure", "wear_not_ithorian"), null);
                 doAnimationAction(self, "wave_on_dismissing");
                 return SCRIPT_CONTINUE;
             }
         }
-        if (templateName.indexOf("wookiee") > -1)
+        if (templateName.contains("wookiee"))
         {
-            if ((itemName.indexOf("wke_") > -1) || (itemName.indexOf("armor_kashyyykian_") > -1))
+            if ((itemName.contains("wke_")) || (itemName.contains("armor_kashyyykian_")))
             {
             }
             else if (itemName.equals(WKE_CAN_WEAR_PADAWAN_ROBE))
             {
             }
-            else if (!(itemName.indexOf("cybernetic_") > -1))
+            else if (!(itemName.contains("cybernetic_")))
             {
                 chat._chat(self, null, chat.CHAT_SAY, chat.MOOD_STUBBORN, null, new string_id("player_structure", "wear_not_wookiee"), null);
                 doAnimationAction(self, "wave_on_dismissing");
                 return SCRIPT_CONTINUE;
             }
         }
-        else if (templateName.indexOf("ithorian") > -1)
+        else if (templateName.contains("ithorian"))
         {
             blog("itemName: " + itemName);
-            if ((itemName.indexOf("ith_") > -1))
+            if ((itemName.contains("ith_")))
             {
             }
             else if (itemName.equals(WKE_CAN_WEAR_PADAWAN_ROBE))
             {
             }
-            else if (!(itemName.indexOf("cybernetic_") > -1))
+            else if (!(itemName.contains("cybernetic_")))
             {
                 chat._chat(self, null, chat.CHAT_SAY, chat.MOOD_STUBBORN, null, new string_id("player_structure", "wear_not_wookiee"), null);
                 doAnimationAction(self, "wave_on_dismissing");
@@ -195,20 +195,20 @@ public class npc_vendor extends script.base_script
         }
         else 
         {
-            if (itemName.indexOf("wke_") > -1)
+            if (itemName.contains("wke_"))
             {
                 chat._chat(self, null, chat.CHAT_SAY, chat.MOOD_STUBBORN, null, new string_id("player_structure", "wear_no_wookiee"), null);
                 doAnimationAction(self, "wave_on_dismissing");
                 return SCRIPT_CONTINUE;
             }
-            else if (itemName.indexOf("ith_") > -1)
+            else if (itemName.contains("ith_"))
             {
                 chat._chat(self, null, chat.CHAT_SAY, chat.MOOD_STUBBORN, null, new string_id("player_structure", "wear_no_ithorian"), null);
                 doAnimationAction(self, "wave_on_dismissing");
                 return SCRIPT_CONTINUE;
             }
         }
-        if (templateName.indexOf("ishi_tib") > -1 || templateName.indexOf("aqualish") > -1 || templateName.indexOf("devaronian") > -1 || templateName.indexOf("bith") > -1)
+        if (templateName.contains("ishi_tib") || templateName.contains("aqualish") || templateName.contains("devaronian") || templateName.contains("bith"))
         {
             if (itemName.startsWith("object/tangible/wearables/hat") || itemName.startsWith("object/tangible/wearables/armor/marauder/armor_marauder_s03_helmet"))
             {
@@ -299,9 +299,8 @@ public class npc_vendor extends script.base_script
         setObjVar(self, "vendor.barkMood", rawMoods[idx]);
         String[] rawStrCats = dataTableGetStringColumnNoDefaults(TBL_VENDOR_STRCATS, 0);
         Vector strcats = null;
-        for (int i = 0; i < rawStrCats.length; i++)
-        {
-            strcats = utils.addElement(strcats, "@player_structure:subcat_" + rawStrCats[i]);
+        for (String rawStrCat : rawStrCats) {
+            strcats = utils.addElement(strcats, "@player_structure:subcat_" + rawStrCat);
         }
         if (utils.isProfession(player, utils.TRADER))
         {
@@ -439,7 +438,7 @@ public class npc_vendor extends script.base_script
         {
             return SCRIPT_CONTINUE;
         }
-        if (templateName.indexOf("wookiee") > -1)
+        if (templateName.contains("wookiee"))
         {
             return SCRIPT_CONTINUE;
         }
@@ -448,7 +447,7 @@ public class npc_vendor extends script.base_script
             return SCRIPT_CONTINUE;
         }
         boolean ithorian = false;
-        if (templateName.indexOf("ithorian") > -1)
+        if (templateName.contains("ithorian"))
         {
             blog("I am an Ithorian");
             ithorian = true;

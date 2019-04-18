@@ -369,20 +369,19 @@ public class qaweapon extends script.base_script
             float speed = 0.00f;
             String weaponObject = "";
             String weaponType = utils.getStringScriptVar(player, SCRIPTVAR + ".weaponTypeChoice");
-            if (weaponType.equals("Pistol"))
-            {
-                speed = 0.40f;
-                weaponObject = "object/weapon/ranged/pistol/pistol_cdef.iff";
-            }
-            else if (weaponType.equals("Carbine"))
-            {
-                speed = 0.60f;
-                weaponObject = "object/weapon/ranged/carbine/carbine_cdef.iff";
-            }
-            else if (weaponType.equals("Rifle"))
-            {
-                speed = 0.80f;
-                weaponObject = "object/weapon/ranged/rifle/rifle_cdef.iff";
+            switch (weaponType) {
+                case "Pistol":
+                    speed = 0.40f;
+                    weaponObject = "object/weapon/ranged/pistol/pistol_cdef.iff";
+                    break;
+                case "Carbine":
+                    speed = 0.60f;
+                    weaponObject = "object/weapon/ranged/carbine/carbine_cdef.iff";
+                    break;
+                case "Rifle":
+                    speed = 0.80f;
+                    weaponObject = "object/weapon/ranged/rifle/rifle_cdef.iff";
+                    break;
             }
             if (weaponType.equals("Flame Thrower"))
             {
@@ -392,25 +391,22 @@ public class qaweapon extends script.base_script
             else if (weaponType.equals("Unarmed") || weaponType.equals("1-Handed") || weaponType.equals("2-Handed") || weaponType.equals("Polearm") || weaponType.equals("Heavy Weapon"))
             {
                 speed = 1.00f;
-                if (weaponType.equals("Heavy Weapon"))
-                {
-                    weaponObject = "object/weapon/ranged/heavy/heavy_rocket_launcher.iff";
-                }
-                else if (weaponType.equals("Unarmed"))
-                {
-                    weaponObject = "object/weapon/melee/special/vibroknuckler.iff";
-                }
-                else if (weaponType.equals("1-Handed"))
-                {
-                    weaponObject = "object/weapon/melee/knife/knife_dagger.iff";
-                }
-                else if (weaponType.equals("2-Handed"))
-                {
-                    weaponObject = "object/weapon/melee/2h_sword/2h_sword_cleaver.iff";
-                }
-                else if (weaponType.equals("Polearm"))
-                {
-                    weaponObject = "object/weapon/melee/polearm/lance_staff_wood_s1.iff";
+                switch (weaponType) {
+                    case "Heavy Weapon":
+                        weaponObject = "object/weapon/ranged/heavy/heavy_rocket_launcher.iff";
+                        break;
+                    case "Unarmed":
+                        weaponObject = "object/weapon/melee/special/vibroknuckler.iff";
+                        break;
+                    case "1-Handed":
+                        weaponObject = "object/weapon/melee/knife/knife_dagger.iff";
+                        break;
+                    case "2-Handed":
+                        weaponObject = "object/weapon/melee/2h_sword/2h_sword_cleaver.iff";
+                        break;
+                    case "Polearm":
+                        weaponObject = "object/weapon/melee/polearm/lance_staff_wood_s1.iff";
+                        break;
                 }
             }
             obj_id newObj = createObject(weaponObject, inventory, "");

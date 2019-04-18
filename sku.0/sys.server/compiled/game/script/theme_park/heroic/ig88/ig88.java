@@ -362,7 +362,7 @@ public class ig88 extends script.base_script
             combination = rand(1, 3);
             utils.setScriptVar(self, COMBAT_ACTION_COMBINATION, combination);
         }
-        float phaseTime = 1f;
+        float phaseTime = 1.0f;
         removeObjVar(self, "ai.combat.oneShotAction");
         removeObjVar(self, "oneShotActionComplete");
         int time = 0;
@@ -432,14 +432,12 @@ public class ig88 extends script.base_script
                 aiUnEquipWeapons(self);
                 obj_id[] targets = trial.getObjectsInDungeonWithObjVar(dungeon, "spawn_id");
                 int droidekaCount = 0;
-                for (int i = 0; i < targets.length; i++)
-                {
-                    String id = getStringObjVar(targets[i], "spawn_id");
-                    if (id.equals("normal_droideka"))
-                    {
-                        droidekaCount++;
+                    for (obj_id target : targets) {
+                        String id = getStringObjVar(target, "spawn_id");
+                        if (id.equals("normal_droideka")) {
+                            droidekaCount++;
+                        }
                     }
-                }
                 if (droidekaCount < 5)
                 {
                     dictionary dungeonParams = trial.getSessionDict(dungeon);

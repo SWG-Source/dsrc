@@ -22,8 +22,8 @@ public class camp_defense extends script.base_script
     public static final String FAIL_DEFENSE_SIGNAL = "campDefenseFailed";
     public static final String SPAWNER_OBJVAR = "spawnerObject";
     public static final String GUARD_OCCUPIED = "occupied";
-    public static final float TRIGGER_RADIUS = 10f;
-    public static final float SEARCH_RADIUS = 100f;
+    public static final float TRIGGER_RADIUS = 10.0f;
+    public static final float SEARCH_RADIUS = 100.0f;
     public static final int WAIT_DELAY = 5;
     public static final int FAIL_TIMER = 480;
     public static final String MENU_STRING_FILE = "theme_park/outbreak/outbreak";
@@ -356,19 +356,16 @@ public class camp_defense extends script.base_script
             return SCRIPT_CONTINUE;
         }
         obj_id ourSpawner = obj_id.NULL_ID;
-        for (int i = 0; i < spawnerList.length; i++)
-        {
-            String spawnerQuestNameMatch = getStringObjVar(spawnerList[i], SPAWNER_OBJVAR);
-            if (spawnerQuestNameMatch == null || spawnerQuestNameMatch.length() <= 0)
-            {
-                CustomerServiceLog("outbreak_themepark", "camp_defense.findPathNodes() the controller, " + self + " found a spawner object that did not have a quest string. Spawner: " + spawnerList[i]);
+        for (obj_id obj_id : spawnerList) {
+            String spawnerQuestNameMatch = getStringObjVar(obj_id, SPAWNER_OBJVAR);
+            if (spawnerQuestNameMatch == null || spawnerQuestNameMatch.length() <= 0) {
+                CustomerServiceLog("outbreak_themepark", "camp_defense.findPathNodes() the controller, " + self + " found a spawner object that did not have a quest string. Spawner: " + obj_id);
                 continue;
             }
-            if (!spawnerQuestNameMatch.equals(questName))
-            {
+            if (!spawnerQuestNameMatch.equals(questName)) {
                 continue;
             }
-            ourSpawner = spawnerList[i];
+            ourSpawner = obj_id;
             break;
         }
         if (!isValidId(ourSpawner) || !exists(ourSpawner))

@@ -296,11 +296,8 @@ public class computer extends script.terminal.base.base_terminal
             obj_id groupObj = getGroupObject(player);
             obj_id[] groupMembers = getGroupMemberIds(groupObj);
             int numGroupMembers = groupMembers.length;
-            for (int f = 0; f < numGroupMembers; f++)
-            {
-                obj_id groupie = groupMembers[f];
-                if (isIdValid(groupie))
-                {
+            for (obj_id groupie : groupMembers) {
+                if (isIdValid(groupie)) {
                     setObjVar(groupie, objvarName, code);
                 }
             }

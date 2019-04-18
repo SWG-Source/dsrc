@@ -21,7 +21,7 @@ public class destroyduty_ship extends script.base_script
     public int randomTaunt(obj_id self, dictionary params) throws InterruptedException
     {
         float r = rand();
-        if (r < .15f)
+        if (r < 0.15f)
         {
             if(!isIdValid(self) || !exists(self)){
                 return SCRIPT_CONTINUE;
@@ -73,7 +73,7 @@ public class destroyduty_ship extends script.base_script
         {
             dictionary outparams = new dictionary();
             outparams.put("ship", self);
-            messageTo(quest, "warpoutFailure", null, 2.f, false);
+            messageTo(quest, "warpoutFailure", null, 2.0f, false);
         }
         return SCRIPT_CONTINUE;
     }

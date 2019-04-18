@@ -9,8 +9,8 @@ public class fs_camp_commander_ai extends script.base_script
     {
     }
     public static final int RUNAWAY_TIME_LIMIT = 180;
-    public static final float MIN_DISTANCE_TO_RUN = 50f;
-    public static final float MAX_DISTANCE_TO_RUN = 100f;
+    public static final float MIN_DISTANCE_TO_RUN = 50.0f;
+    public static final float MAX_DISTANCE_TO_RUN = 100.0f;
     public static final float RUN_PULSE_TIME = 10;
     public static final int MIN_RESCUERS = 1;
     public static final int MAX_RESCUERS = 2;
@@ -87,17 +87,17 @@ public class fs_camp_commander_ai extends script.base_script
             case 1:
             chat.chat(self, new string_id("fs_quest_village", "commander_pain"));
             utils.setScriptVar(self, "deathSequence", 2);
-            messageTo(self, "msgDeathSequence", null, (float)rand(5, 10), false);
+            messageTo(self, "msgDeathSequence", null, rand(5, 10), false);
             break;
             case 2:
             chat.chat(self, new string_id("fs_quest_village", "commander_pain2"));
             utils.setScriptVar(self, "deathSequence", 3);
-            messageTo(self, "msgDeathSequence", null, (float)rand(5, 10), false);
+            messageTo(self, "msgDeathSequence", null, rand(5, 10), false);
             break;
             case 3:
             chat.chat(self, new string_id("fs_quest_village", "commander_pain3"));
             utils.setScriptVar(self, "deathSequence", 4);
-            messageTo(self, "msgDeathSequence", null, (float)rand(5, 10), false);
+            messageTo(self, "msgDeathSequence", null, rand(5, 10), false);
             break;
             default:
             obj_id primaryEscort = null;
@@ -200,7 +200,7 @@ public class fs_camp_commander_ai extends script.base_script
             }
             location here = getLocation(self);
             location userLoc = getLocation(player);
-            if (here.distance(userLoc) > 10f)
+            if (here.distance(userLoc) > 10.0f)
             {
                 sendSystemMessage(self, new string_id("fs_quest_village", "commander_too_far"));
                 return SCRIPT_CONTINUE;

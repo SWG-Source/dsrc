@@ -17,7 +17,7 @@ public class som_order_rewards extends script.base_script
     public static final string_id ALREADY = new string_id(STF, "");
     public int OnAttach(obj_id self) throws InterruptedException
     {
-        messageTo(self, "handleDeedCreate", null, 1f, false);
+        messageTo(self, "handleDeedCreate", null, 1.0f, false);
         return SCRIPT_CONTINUE;
     }
     public int handleDeedCreate(obj_id self, dictionary params) throws InterruptedException

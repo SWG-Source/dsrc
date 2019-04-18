@@ -10,8 +10,8 @@ public class firework extends script.base_script
     {
     }
     public static final int SHOW_EVENT_MAX = 20;
-    public static final float SHOW_DELAY_MIN = 1f;
-    public static final float SHOW_DELAY_MAX = 10f;
+    public static final float SHOW_DELAY_MIN = 1.0f;
+    public static final float SHOW_DELAY_MAX = 10.0f;
     public static final String SCRIPT_PLAYER = "item.firework.player";
     public static final String SCRIPT_FIREWORK_CLEANUP = "item.firework.cleanup";
     public static final String SCRIPT_LAUNCHER = "item.firework.launcher";
@@ -93,7 +93,7 @@ public class firework extends script.base_script
             d.put("delay", show_delay);
             d.put("player", target);
             d.put("idx", 0);
-            messageTo(launcher, HANDLER_FIREWORK_LAUNCH, d, ((Float)show_delay.get(0)).floatValue(), false);
+            messageTo(launcher, HANDLER_FIREWORK_LAUNCH, d, (Float) show_delay.get(0), false);
             destroyObject(show);
         }
     }
@@ -186,7 +186,7 @@ public class firework extends script.base_script
         {
             delay = SHOW_DELAY_MAX;
         }
-        show_delay.set(idx, new Float(delay));
+        show_delay.set(idx, delay);
         setObjVar(show, VAR_SHOW_DELAY, show_delay);
     }
     public static void showEventDataSUI(obj_id player, obj_id show) throws InterruptedException
@@ -310,7 +310,7 @@ public class firework extends script.base_script
         {
             return;
         }
-        int current = (int)(((Float)delays.get(idx)).floatValue() * 10);
+        int current = (int)((Float) delays.get(idx) * 10);
         int available = (int)(SHOW_DELAY_MAX * 10) - current;
         String title = "@firework:modify_delay_title";
         String prompt = "@firework:modify_delay_prompt";
@@ -367,7 +367,7 @@ public class firework extends script.base_script
         entries.setSize(0);
         for (int i = 0; i < show_fx.size(); i++)
         {
-            time += ((Float)show_delay.get(i)).floatValue();
+            time += (Float) show_delay.get(i);
             String sTime = utils.formatTime(time);
             entries = utils.addElement(entries, "(" + sTime + "s) " + getString(new string_id("firework_n", ((String)show_fx.get(i)))));
         }
@@ -399,11 +399,11 @@ public class firework extends script.base_script
             return;
         }
         String tmpFx = ((String)show_fx.get(idx1));
-        float tmpDelay = ((Float)show_delay.get(idx1)).floatValue();
+        float tmpDelay = (Float) show_delay.get(idx1);
         show_fx.set(idx1, ((String)show_fx.get(idx2)));
-        show_delay.set(idx1, new Float(((Float)show_delay.get(idx2)).floatValue()));
+        show_delay.set(idx1, (Float) show_delay.get(idx2));
         show_fx.set(idx2, tmpFx);
-        show_delay.set(idx2, new Float(tmpDelay));
+        show_delay.set(idx2, tmpDelay);
         setObjVar(show, VAR_SHOW_FX, show_fx);
         setObjVar(show, VAR_SHOW_DELAY, show_delay);
     }
@@ -426,7 +426,7 @@ public class firework extends script.base_script
         {
             return;
         }
-        delays.set(idx, new Float(delay));
+        delays.set(idx, delay);
         if (setObjVar(show, VAR_SHOW_DELAY, delays))
         {
             prose_package ppDelayUpdated = prose.getPackage(new string_id(STF, "prose_delay_update"), idx + 1, delay);

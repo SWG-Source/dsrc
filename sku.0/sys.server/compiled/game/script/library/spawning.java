@@ -169,7 +169,7 @@ public class spawning extends script.base_script
             return null;
         }
         setObjVar(creature, "dungeon", dungeon);
-        create.addDestroyMessage(creature, creatureName + "Dead", 300f, dungeon);
+        create.addDestroyMessage(creature, creatureName + "Dead", 300.0f, dungeon);
         return creature;
     }
     public static boolean spawnObjectsInDungeonFromTable(obj_id dungeon, String planet, String table) throws InterruptedException

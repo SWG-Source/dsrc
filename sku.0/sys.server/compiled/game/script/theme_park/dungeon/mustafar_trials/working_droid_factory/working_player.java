@@ -25,16 +25,14 @@ public class working_player extends script.base_script
         {
             return SCRIPT_CONTINUE;
         }
-        for (int i = 0; i < targets.length; i++)
-        {
-            if (targets[i] == self)
-            {
+        for (obj_id target : targets) {
+            if (target == self) {
                 continue;
             }
             pp.stringId = new string_id("cbt_spam", "duality_detonate_other");
-            pp.target.set(targets[i]);
-            combat.sendCombatSpamMessageProse(self, targets[i], pp, true, true, false, COMBAT_RESULT_HIT);
-            damage(targets[i], DAMAGE_ELEMENTAL_HEAT, HIT_LOCATION_BODY, DUALITY_DAMAGE);
+            pp.target.set(target);
+            combat.sendCombatSpamMessageProse(self, target, pp, true, true, false, COMBAT_RESULT_HIT);
+            damage(target, DAMAGE_ELEMENTAL_HEAT, HIT_LOCATION_BODY, DUALITY_DAMAGE);
         }
         playClientEffectObj(self, trial.PRT_WORKING_DUALITY_EXPLOSION, self, "root");
         return SCRIPT_CONTINUE;

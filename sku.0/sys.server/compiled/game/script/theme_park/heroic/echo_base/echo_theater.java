@@ -46,7 +46,7 @@ public class echo_theater extends script.base_script
         {
             createClientProjectileObjectToObject(players[0], "object/weapon/ranged/turret/shared_turret_energy.iff", cannon[0], "", self, "", 150.0f, 1.0f, false, 0, 0, 0, 0);
         }
-        messageTo(self, "suicide", null, .25f, false);
+        messageTo(self, "suicide", null, 0.25f, false);
         return SCRIPT_CONTINUE;
     }
     public int r2_st_death(obj_id self, dictionary params) throws InterruptedException
@@ -60,7 +60,7 @@ public class echo_theater extends script.base_script
         {
             createClientProjectileObjectToObject(players[0], "object/weapon/ranged/turret/shared_turret_energy.iff", cannon[0], "", self, "", 150.0f, 1.0f, false, 0, 0, 0, 0);
         }
-        messageTo(self, "suicide", null, .25f, false);
+        messageTo(self, "suicide", null, 0.25f, false);
         return SCRIPT_CONTINUE;
     }
     public int suicide(obj_id self, dictionary params) throws InterruptedException

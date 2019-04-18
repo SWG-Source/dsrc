@@ -25,14 +25,14 @@ public class player extends script.base_script
         }
         int posture = getPosture(self);
         params.put("posture", posture);
-        float delay = 2f;
+        float delay = 2.0f;
         if (posture != POSTURE_CROUCHED)
         {
             queueCommand(self, (28609318), null, "", COMMAND_PRIORITY_DEFAULT);
         }
         else 
         {
-            delay = 0f;
+            delay = 0.0f;
         }
         float yaw = getYaw(self);
         params.put("yaw", yaw);
@@ -64,7 +64,7 @@ public class player extends script.base_script
         {
             attachScript(ignition, firework.SCRIPT_FIREWORK_CLEANUP);
         }
-        messageTo(self, firework.HANDLER_FIREWORK_CLEANUP, params, 2f, false);
+        messageTo(self, firework.HANDLER_FIREWORK_CLEANUP, params, 2.0f, false);
         return SCRIPT_CONTINUE;
     }
     public int handleFireworkCleanup(obj_id self, dictionary params) throws InterruptedException

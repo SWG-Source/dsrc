@@ -315,9 +315,8 @@ public class qa extends script.base_script
         }
         int listingLength = arrayList.length;
         HashSet theSet = new HashSet();
-        for (int y = 0; y < listingLength; y++)
-        {
-            theSet.add(arrayList[y]);
+        for (String s : arrayList) {
+            theSet.add(s);
         }
         String[] menuArray = new String[theSet.size()];
         theSet.toArray(menuArray);
@@ -338,11 +337,9 @@ public class qa extends script.base_script
         }
         int listingLength = arrayList.length;
         HashSet theSet = new HashSet();
-        for (int y = 0; y < listingLength; y++)
-        {
-            if (!arrayList[y].equals(noNeed))
-            {
-                theSet.add(arrayList[y]);
+        for (String s : arrayList) {
+            if (!s.equals(noNeed)) {
+                theSet.add(s);
             }
         }
         String[] menuArray = new String[theSet.size()];
@@ -354,11 +351,9 @@ public class qa extends script.base_script
     {
         String[] menu = dataTableGetStringColumn(datatableName, col);
         Vector theVectorData = new Vector();
-        for (int i = 0; i < menu.length; i++)
-        {
-            if (!menu[i].equals(""))
-            {
-                theVectorData.addElement(menu[i]);
+        for (String menu1 : menu) {
+            if (!menu1.equals("")) {
+                theVectorData.addElement(menu1);
             }
         }
         String[] menuArray = new String[theVectorData.size()];
@@ -581,13 +576,11 @@ public class qa extends script.base_script
                 {
                     if (arrayLength > 0)
                     {
-                        for (int x = 0; x < arrayLength; x++)
-                        {
-                            if (allSkillModsList[x].indexOf("_modified") > 0)
-                            {
-                                int underscoreIdx = allSkillModsList[x].indexOf("_");
-                                String nonModifiedSkillname = allSkillModsList[x].substring(0, underscoreIdx);
-                                strTest += localize(new string_id("stat_n", allSkillModsList[x])) + ": " + getSkillStatisticModifier(objTarget, nonModifiedSkillname) + "\r\n";
+                        for (String s : allSkillModsList) {
+                            if (s.indexOf("_modified") > 0) {
+                                int underscoreIdx = s.indexOf("_");
+                                String nonModifiedSkillname = s.substring(0, underscoreIdx);
+                                strTest += localize(new string_id("stat_n", s)) + ": " + getSkillStatisticModifier(objTarget, nonModifiedSkillname) + "\r\n";
                             }
                         }
                     }
@@ -597,13 +590,10 @@ public class qa extends script.base_script
                 {
                     if (arrayLength > 0)
                     {
-                        for (int x = 0; x < arrayLength; x++)
-                        {
-                            if (allSkillModsList[x].indexOf("expertise_") == 0)
-                            {
-                                if (getSkillStatisticModifier(objTarget, allSkillModsList[x]) > 0)
-                                {
-                                    strTest += localize(new string_id("stat_n", allSkillModsList[x])) + ": " + getSkillStatisticModifier(objTarget, allSkillModsList[x]) + "\r\n";
+                        for (String s : allSkillModsList) {
+                            if (s.indexOf("expertise_") == 0) {
+                                if (getSkillStatisticModifier(objTarget, s) > 0) {
+                                    strTest += localize(new string_id("stat_n", s)) + ": " + getSkillStatisticModifier(objTarget, s) + "\r\n";
                                 }
                             }
                         }
@@ -614,11 +604,9 @@ public class qa extends script.base_script
                 {
                     if (arrayLength > 0)
                     {
-                        for (int x = 0; x < arrayLength; x++)
-                        {
-                            if (getEnhancedSkillStatisticModifierUncapped(objTarget, allSkillModsList[x]) > 0)
-                            {
-                                strTest += localize(new string_id("stat_n", allSkillModsList[x])) + " ( " + allSkillModsList[x] + " ): " + getEnhancedSkillStatisticModifierUncapped(objTarget, allSkillModsList[x]) + "\r\n";
+                        for (String s : allSkillModsList) {
+                            if (getEnhancedSkillStatisticModifierUncapped(objTarget, s) > 0) {
+                                strTest += localize(new string_id("stat_n", s)) + " ( " + s + " ): " + getEnhancedSkillStatisticModifierUncapped(objTarget, s) + "\r\n";
                             }
                         }
                     }
@@ -652,32 +640,26 @@ public class qa extends script.base_script
                 int[] buffs = _getAllBuffs(objTarget);
                 if (buffs != null && buffs.length != 0)
                 {
-                    for (int i = 0; i < buffs.length; i++)
-                    {
+                    for (int b : buffs) {
                         obj_id buffOwner = null;
-                        String buffName = buff.getBuffNameFromCrc(buffs[i]);
+                        String buffName = buff.getBuffNameFromCrc(b);
                         float duration = buff.getDuration(buffName);
                         boolean debuff = buff.isDebuff(buffName);
                         boolean groupBuff = buff.isGroupBuff(buffName);
                         boolean ownedBuff = buff.isOwnedBuff(buffName);
-                        if (ownedBuff)
-                        {
+                        if (ownedBuff) {
                             buffOwner = buff.getBuffOwner(objTarget, buffName);
                         }
                         strTest += buffName + "\r\nDuration: " + duration + "\r\n";
-                        if (debuff)
-                        {
+                        if (debuff) {
                             strTest += "Debuff: " + debuff + "\r\n";
                         }
-                        if (groupBuff)
-                        {
+                        if (groupBuff) {
                             strTest += "Group buff: " + debuff + "\r\n";
                         }
-                        if (ownedBuff)
-                        {
+                        if (ownedBuff) {
                             strTest += "Owned buff: " + ownedBuff + "\r\n";
-                            if (isIdValid(buffOwner))
-                            {
+                            if (isIdValid(buffOwner)) {
                                 strTest += "Buff Owner: " + getName(buffOwner) + "\r\n";
                             }
                             strTest += "Owner OID: " + buffOwner + "\r\n";
@@ -725,9 +707,8 @@ public class qa extends script.base_script
             if (skillList != null && skillList.length > 0)
             {
                 strTest += "\r\nSKILLS:\r\n";
-                for (int i = 0; i < skillList.length; i++)
-                {
-                    strTest += skillList[i] + "\r\n";
+                for (String s : skillList) {
+                    strTest += s + "\r\n";
                 }
             }
             else 
@@ -740,9 +721,8 @@ public class qa extends script.base_script
             {
                 strTest += "\r\nGROUND AND SPACE QUESTS:\r\n";
                 strTest += "A = active, C = completed\r\n";
-                for (int i = 0; i < allQuests.length; i++)
-                {
-                    strTest += allQuests[i] + "\r\n";
+                for (String allQuest : allQuests) {
+                    strTest += allQuest + "\r\n";
                 }
             }
             else 
@@ -805,15 +785,12 @@ public class qa extends script.base_script
                 obj_id[] objContents = utils.getContents(targetDatapad, true);
                 if (objContents != null && objContents.length > 0)
                 {
-                    for (int i = 0; i < objContents.length; i++)
-                    {
-                        if (isIdValid(objContents[i]))
-                        {
-                            if (getTemplateName(objContents[i]) != null)
-                            {
-                                strTest += "\tTemplate: " + getTemplateName(objContents[i]) + "\r\n";
-                                strTest += "\tOID: " + objContents[i] + "\r\n";
-                                strTest += getObjectVariables(self, objContents[i]);
+                    for (obj_id objContent : objContents) {
+                        if (isIdValid(objContent)) {
+                            if (getTemplateName(objContent) != null) {
+                                strTest += "\tTemplate: " + getTemplateName(objContent) + "\r\n";
+                                strTest += "\tOID: " + objContent + "\r\n";
+                                strTest += getObjectVariables(self, objContent);
                                 strTest += "\r\n";
                             }
                         }
@@ -985,9 +962,8 @@ public class qa extends script.base_script
             }
             strTest += "SHIP STATS BELOW\r\n";
             int[] intSlots = space_crafting.getShipInstalledSlots(objTarget);
-            for (int intI = 0; intI < intSlots.length; intI++)
-            {
-                strTest += dump.getShipComponentDebugString(objTarget, intSlots[intI]);
+            for (int intSlot : intSlots) {
+                strTest += dump.getShipComponentDebugString(objTarget, intSlot);
                 strTest += "\n\r";
             }
         }
@@ -1039,13 +1015,11 @@ public class qa extends script.base_script
             {
                 putInOverloaded(firstBag, testerInventoryId);
             }
-            for (int i = 0; i < invAndEquip.length; i++)
-            {
-                String templateName = getTemplateName(invAndEquip[i]);
-                if (templateName.equals("object/tangible/test/qabag.iff"))
-                {
+            for (obj_id obj_id : invAndEquip) {
+                String templateName = getTemplateName(obj_id);
+                if (templateName.equals("object/tangible/test/qabag.iff")) {
                     hasBag = true;
-                    myBag = invAndEquip[i];
+                    myBag = obj_id;
                 }
             }
             if (hasBag == false)
@@ -1057,12 +1031,10 @@ public class qa extends script.base_script
             Vector itemsVector = new Vector();
             if (moveContents == true && invItems.length >= 1)
             {
-                for (int k = 0; k < invItems.length; k++)
-                {
-                    String templateName = getTemplateName(invItems[k]);
-                    if (!(templateName.equals(FROG_STRING)) && !(templateName.equals(KASHYYYK_FROG_STRING)))
-                    {
-                        itemsVector.add(invItems[k]);
+                for (obj_id invItem : invItems) {
+                    String templateName = getTemplateName(invItem);
+                    if (!(templateName.equals(FROG_STRING)) && !(templateName.equals(KASHYYYK_FROG_STRING))) {
+                        itemsVector.add(invItem);
                     }
                 }
                 obj_id[] tempArray = new obj_id[itemsVector.size()];
@@ -1082,11 +1054,9 @@ public class qa extends script.base_script
         obj_id[] datapadWaypoints = getWaypointsInDatapad(tester);
         if (datapadWaypoints != null)
         {
-            for (int i = 0; i < datapadWaypoints.length; i++)
-            {
-                if (isIdValid(datapadWaypoints[i]))
-                {
-                    waypointSet.add(datapadWaypoints[i]);
+            for (obj_id datapadWaypoint : datapadWaypoints) {
+                if (isIdValid(datapadWaypoint)) {
+                    waypointSet.add(datapadWaypoint);
                 }
             }
         }
@@ -1183,11 +1153,8 @@ public class qa extends script.base_script
         {
             while (skillList.length > 0 && attempts > 0)
             {
-                for (int i = 0; i < skillList.length; i++)
-                {
-                    String skillName = skillList[i];
-                    if (!skillName.startsWith("species_") && !skillName.startsWith("social_language_") && !skillName.startsWith("utility_") && !skillName.startsWith("common_") && !skillName.startsWith("demo_") && !skillName.startsWith("force_title_") && !skillName.startsWith("force_sensitive_") && !skillName.startsWith("combat_melee_basic") && !skillName.startsWith("pilot_") && !skillName.startsWith("combat_ranged_weapon_basic"))
-                    {
+                for (String skillName : skillList) {
+                    if (!skillName.startsWith("species_") && !skillName.startsWith("social_language_") && !skillName.startsWith("utility_") && !skillName.startsWith("common_") && !skillName.startsWith("demo_") && !skillName.startsWith("force_title_") && !skillName.startsWith("force_sensitive_") && !skillName.startsWith("combat_melee_basic") && !skillName.startsWith("pilot_") && !skillName.startsWith("combat_ranged_weapon_basic")) {
                         skill.revokeSkillSilent(player, skillName);
                     }
                 }
@@ -1230,9 +1197,8 @@ public class qa extends script.base_script
             }
             if (!pilotFaction.equals(""))
             {
-                for (int i = 0; i < REVOKE_SPACE_SKILLS.length; i++)
-                {
-                    skill.revokeSkill(player, "pilot_" + pilotFaction + REVOKE_SPACE_SKILLS[i]);
+                for (String revokeSpaceSkill : REVOKE_SPACE_SKILLS) {
+                    skill.revokeSkill(player, "pilot_" + pilotFaction + revokeSpaceSkill);
                 }
                 utils.removeScriptVar(player, "revokePilotSkill");
             }
@@ -1272,9 +1238,8 @@ public class qa extends script.base_script
     }
     public static void grantPilotingSkills(obj_id self, String factionToggle) throws InterruptedException
     {
-        for (int i = 0; i < GRANT_SPACE_SKILLS.length; i++)
-        {
-            grantSkill(self, "pilot_" + factionToggle + GRANT_SPACE_SKILLS[i]);
+        for (String grantSpaceSkill : GRANT_SPACE_SKILLS) {
+            grantSkill(self, "pilot_" + factionToggle + grantSpaceSkill);
         }
     }
     public static String getClientBuffName(obj_id self, String buffCommand) throws InterruptedException
@@ -1387,16 +1352,14 @@ public class qa extends script.base_script
             Vector allQuestStringsCombined = new Vector();
             if (allActive != null)
             {
-                for (int i = 0; i < allActive.length; i++)
-                {
-                    allQuestStringsCombined.add(allActive[i]);
+                for (String s : allActive) {
+                    allQuestStringsCombined.add(s);
                 }
             }
             if (allComplete != null)
             {
-                for (int i = 0; i < allComplete.length; i++)
-                {
-                    allQuestStringsCombined.add(allComplete[i]);
+                for (String s : allComplete) {
+                    allQuestStringsCombined.add(s);
                 }
             }
             if (allActive == null && allComplete == null)
@@ -1422,18 +1385,13 @@ public class qa extends script.base_script
         {
             HashSet allQuestStringsFound = new HashSet();
             String activeQuestString = "";
-            for (int i = 0; i < activeQuestIds.length; i++)
-            {
-                activeQuestString = questGetQuestName(activeQuestIds[i]);
-                if (!activeQuestString.equals(""))
-                {
-                    if (activeQuestString.indexOf("quest/") == 0)
-                    {
+            for (int activeQuestId : activeQuestIds) {
+                activeQuestString = questGetQuestName(activeQuestId);
+                if (!activeQuestString.equals("")) {
+                    if (activeQuestString.indexOf("quest/") == 0) {
                         String groundCodeAndTitle = getGroundQuestStringAndTitle(player, activeQuestString);
                         allQuestStringsFound.add("(A) " + groundCodeAndTitle);
-                    }
-                    else if (activeQuestString.indexOf("spacequest/") == 0)
-                    {
+                    } else if (activeQuestString.indexOf("spacequest/") == 0) {
                         String spaceCodeAndTitle = getSpaceQuestStringAndTitle(player, activeQuestString);
                         allQuestStringsFound.add("(A) " + spaceCodeAndTitle);
                     }
@@ -1456,18 +1414,13 @@ public class qa extends script.base_script
         {
             HashSet allQuestStringsFound = new HashSet();
             String completedQuestString = "";
-            for (int i = 0; i < completedQuestIds.length; i++)
-            {
-                completedQuestString = questGetQuestName(completedQuestIds[i]);
-                if (!completedQuestString.equals(""))
-                {
-                    if (completedQuestString.indexOf("quest/") == 0)
-                    {
+            for (int completedQuestId : completedQuestIds) {
+                completedQuestString = questGetQuestName(completedQuestId);
+                if (!completedQuestString.equals("")) {
+                    if (completedQuestString.indexOf("quest/") == 0) {
                         String groundCodeAndTitle = getGroundQuestStringAndTitle(player, completedQuestString);
                         allQuestStringsFound.add("(C) " + groundCodeAndTitle);
-                    }
-                    else if (completedQuestString.indexOf("spacequest/") == 0)
-                    {
+                    } else if (completedQuestString.indexOf("spacequest/") == 0) {
                         String spaceCodeAndTitle = getSpaceQuestStringAndTitle(player, completedQuestString);
                         allQuestStringsFound.add("(C) " + spaceCodeAndTitle);
                     }
@@ -1538,10 +1491,8 @@ public class qa extends script.base_script
     {
         if (!questType.equals(""))
         {
-            for (int i = 0; i < SPACE_QUEST_TYPES.length; i++)
-            {
-                if (questType.equals(SPACE_QUEST_TYPES[i]))
-                {
+            for (String spaceQuestType : SPACE_QUEST_TYPES) {
+                if (questType.equals(spaceQuestType)) {
                     return true;
                 }
             }
@@ -1558,11 +1509,9 @@ public class qa extends script.base_script
                 if (isIdValid(datapad))
                 {
                     obj_id[] dpobjs = getContents(datapad);
-                    for (int i = 0; i < dpobjs.length; i++)
-                    {
-                        if (hasObjVar(dpobjs[i], space_quest.QUEST_TYPE) && hasObjVar(dpobjs[i], space_quest.QUEST_NAME))
-                        {
-                            space_quest.setQuestWon(self, dpobjs[i]);
+                    for (obj_id dpobj : dpobjs) {
+                        if (hasObjVar(dpobj, space_quest.QUEST_TYPE) && hasObjVar(dpobj, space_quest.QUEST_NAME)) {
+                            space_quest.setQuestWon(self, dpobj);
                         }
                     }
                     return true;
@@ -1591,20 +1540,16 @@ public class qa extends script.base_script
                 if (isIdValid(datapad))
                 {
                     obj_id[] dpobjs = getContents(datapad);
-                    for (int i = 0; i < dpobjs.length; i++)
-                    {
-                        if (hasObjVar(dpobjs[i], space_quest.QUEST_TYPE) && hasObjVar(dpobjs[i], space_quest.QUEST_NAME))
-                        {
-                            space_quest.setQuestAborted(self, dpobjs[i]);
+                    for (obj_id dpobj : dpobjs) {
+                        if (hasObjVar(dpobj, space_quest.QUEST_TYPE) && hasObjVar(dpobj, space_quest.QUEST_NAME)) {
+                            space_quest.setQuestAborted(self, dpobj);
                             String questType = "";
                             String questName = "";
                             questType = getSpaceQuestType(self, questString);
-                            if (!questType.equals("Error") && !questType.equals(""))
-                            {
+                            if (!questType.equals("Error") && !questType.equals("")) {
                                 questName = getSpaceQuestName(self, questString);
                             }
-                            if (!questName.equals("Error") && !questName.equals(""))
-                            {
+                            if (!questName.equals("Error") && !questName.equals("")) {
                                 String spaceObjVar = "space_quest." + questType + "." + questName;
                                 blowOutObjVars(self, spaceObjVar);
                                 sendSystemMessageTestingOnly(self, "Space quest ObjVar removed.");
@@ -1673,9 +1618,8 @@ public class qa extends script.base_script
     public static boolean grantPilotSkill(obj_id self, String skillStringData) throws InterruptedException
     {
         String[] allSkillStrings = split(skillStringData, ';');
-        for (int i = 0; i < allSkillStrings.length; i++)
-        {
-            skill.noisyGrantSkill(self, allSkillStrings[i]);
+        for (String allSkillString : allSkillStrings) {
+            skill.noisyGrantSkill(self, allSkillString);
             messageTo(self, "delay", null, 1, false);
         }
         return true;
@@ -1683,28 +1627,21 @@ public class qa extends script.base_script
     public static boolean grantOrClearSpaceQuest(obj_id self, String questData, String fateSwitch) throws InterruptedException
     {
         String[] allData = split(questData, ';');
-        for (int i = 0; i < allData.length; i++)
-        {
-            if (fateSwitch.equals("clear"))
-            {
-                clearQuest(self, allData[i]);
-            }
-            else if (fateSwitch.equals("grant"))
-            {
-                evalSpaceQuestThenGrant(self, allData[i]);
+        for (String allDatum : allData) {
+            if (fateSwitch.equals("clear")) {
+                clearQuest(self, allDatum);
+            } else if (fateSwitch.equals("grant")) {
+                evalSpaceQuestThenGrant(self, allDatum);
                 messageTo(self, "delay", null, 4, false);
-                qa.completeActiveQuest(self, allData[i]);
+                qa.completeActiveQuest(self, allDatum);
                 String questType = getSpaceQuestType(self, questData);
-                if (!questType.equals("Error") && !questType.equals(""))
-                {
+                if (!questType.equals("Error") && !questType.equals("")) {
                     String questName = getSpaceQuestName(self, questData);
-                    if (!questType.equals("Error") && !questType.equals(""))
-                    {
-                        if (!space_quest.hasWonQuest(self, questType, questName))
-                        {
-                            evalSpaceQuestThenGrant(self, allData[i]);
+                    if (!questType.equals("Error") && !questType.equals("")) {
+                        if (!space_quest.hasWonQuest(self, questType, questName)) {
+                            evalSpaceQuestThenGrant(self, allDatum);
                             messageTo(self, "delay", null, 4, false);
-                            qa.completeActiveQuest(self, allData[i]);
+                            qa.completeActiveQuest(self, allDatum);
                         }
                     }
                 }
@@ -1837,12 +1774,12 @@ public class qa extends script.base_script
         }
         else if (fltOriginalSize <= 80.0f)
         {
-            return 80f;
+            return 80.0f;
         }
         else if (fltOriginalSize <= 96.0f)
         {
-            return 96f;
+            return 96.0f;
         }
-        return 32f;
+        return 32.0f;
     }
 }

@@ -143,7 +143,7 @@ public class target_dummy extends script.base_script
                 return obj_id.NULL_ID;
             }
             location controllerLocation = getLocation(controller);
-            location awayLoc = utils.getRandomAwayLocation(controllerLocation, 1.f, 2.f);
+            location awayLoc = utils.getRandomAwayLocation(controllerLocation, 1.0f, 2.0f);
             if ((awayLoc.cell != null) && isIdValid(awayLoc.cell))
             {
                 awayLoc = (location)controllerLocation.clone();
@@ -179,7 +179,7 @@ public class target_dummy extends script.base_script
         {
             float controllerYaw = getYaw(controller);
             location offsetLoc = (location)where.clone();
-            offsetLoc.x += 2f;
+            offsetLoc.x += 2.0f;
             location pathToLoc = utils.rotatePointXZ(where, offsetLoc, controllerYaw);
             pathTo(targetDummyObj, pathToLoc);
             setYaw(targetDummyObj, controllerYaw);

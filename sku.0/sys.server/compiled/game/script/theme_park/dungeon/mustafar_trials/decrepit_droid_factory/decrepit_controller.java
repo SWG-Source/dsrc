@@ -72,16 +72,14 @@ public class decrepit_controller extends script.base_script
     }
     public void setEventLocks(obj_id dungeon) throws InterruptedException
     {
-        for (int i = 0; i < LOCKED_ROOMS.length; i++)
-        {
-            permissionsMakePrivate(getCellId(dungeon, LOCKED_ROOMS[i]));
+        for (String lockedRoom : LOCKED_ROOMS) {
+            permissionsMakePrivate(getCellId(dungeon, lockedRoom));
         }
     }
     public void removeEventLocks(obj_id dungeon) throws InterruptedException
     {
-        for (int i = 0; i < LOCKED_ROOMS.length; i++)
-        {
-            permissionsMakePublic(getCellId(dungeon, LOCKED_ROOMS[i]));
+        for (String lockedRoom : LOCKED_ROOMS) {
+            permissionsMakePublic(getCellId(dungeon, lockedRoom));
         }
     }
     public void setEventStates(obj_id dungeon) throws InterruptedException

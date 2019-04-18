@@ -17,21 +17,16 @@ public class crafting_base_station_incubator extends script.systems.crafting.cra
     public void calcAndSetPrototypeProperties(obj_id prototype, draft_schematic.attribute[] itemAttributes) throws InterruptedException
     {
         debugServerConsoleMsg(null, "Beginning assembly-phase prototype property setting");
-        for (int i = 0; i < itemAttributes.length; ++i)
-        {
-            if (itemAttributes[i] == null)
-            {
+        for (draft_schematic.attribute itemAttribute : itemAttributes) {
+            if (itemAttribute == null) {
                 continue;
             }
-            if (!calcAndSetPrototypeProperty(prototype, itemAttributes[i]))
-            {
-                if (((itemAttributes[i].name).getAsciiId()).equals("mechanism_quality"))
-                {
-                    setObjVar(prototype, "crafting.stationMod", itemAttributes[i].currentValue);
+            if (!calcAndSetPrototypeProperty(prototype, itemAttribute)) {
+                if (((itemAttribute.name).getAsciiId()).equals("mechanism_quality")) {
+                    setObjVar(prototype, "crafting.stationMod", itemAttribute.currentValue);
                 }
-                if (((itemAttributes[i].name).getAsciiId()).equals("useModifier"))
-                {
-                    setObjVar(prototype, "crafting.stationMod_1", itemAttributes[i].currentValue);
+                if (((itemAttribute.name).getAsciiId()).equals("useModifier")) {
+                    setObjVar(prototype, "crafting.stationMod_1", itemAttribute.currentValue);
                 }
             }
         }

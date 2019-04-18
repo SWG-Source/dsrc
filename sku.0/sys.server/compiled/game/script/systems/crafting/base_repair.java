@@ -243,7 +243,7 @@ public class base_repair extends script.base_script
     {
         if (!isIdValid(player) || !isIdValid(target))
         {
-            return 20f;
+            return 20.0f;
         }
         float base_complexity = getComplexity(target);
         if (base_complexity <= 1)
@@ -260,22 +260,22 @@ public class base_repair extends script.base_script
         debugServerConsoleMsg(null, "@@@ Base Complexity: " + base_complexity);
         debugServerConsoleMsg(null, "@@@");
         debugServerConsoleMsg(null, "@@@ Current Hitpoints: " + cur_hp + " / " + max_hp);
-        base_complexity *= 1f + ((max_hp - cur_hp) / max_hp);
+        base_complexity *= 1.0f + ((max_hp - cur_hp) / max_hp);
         debugServerConsoleMsg(null, "@@@ New Complexity: " + base_complexity + " (Complexity) x (1f+((" + max_hp + "-" + cur_hp + ")/" + max_hp + "))");
         obj_id self = getSelf();
         if (hasObjVar(self, "repair.quality"))
         {
             float repair_quality = getFloatObjVar(self, "repair.quality");
-            if (repair_quality > 0f)
+            if (repair_quality > 0.0f)
             {
-                base_complexity /= repair_quality / 100f;
+                base_complexity /= repair_quality / 100.0f;
             }
             debugServerConsoleMsg(null, "@@@");
             debugServerConsoleMsg(null, "@@@ Tool Quality: " + repair_quality);
             debugServerConsoleMsg(null, "@@@ New Complexity: " + base_complexity + " (Complexity) / (" + repair_quality + "/100f)");
         }
         int assembly_mod = getSkillStatMod(player, "general_assembly");
-        float complexity = base_complexity * (1f - (0.15f * assembly_mod / 100f));
+        float complexity = base_complexity * (1.0f - (0.15f * assembly_mod / 100.0f));
         debugServerConsoleMsg(null, "@@@");
         debugServerConsoleMsg(null, "@@@ Assembly Mod: " + assembly_mod);
         debugServerConsoleMsg(null, "@@@ New Complexity: " + complexity + " (Complexity) x (1f-((0.15f x " + assembly_mod + ")/100f))");
@@ -303,14 +303,14 @@ public class base_repair extends script.base_script
         }
         if (elite_mod > 0)
         {
-            complexity -= base_complexity * (0.35f * elite_mod / 100f);
+            complexity -= base_complexity * (0.35f * elite_mod / 100.0f);
         }
         debugServerConsoleMsg(null, "@@@");
         debugServerConsoleMsg(null, "@@@ Elite Mod: " + elite_mod);
         debugServerConsoleMsg(null, "@@@ Final Complexity: " + complexity + " (Complexity) - (Base Complexity) x ((0.35f x " + elite_mod + ")/100f)");
-        if (complexity < 2f)
+        if (complexity < 2.0f)
         {
-            return 2f;
+            return 2.0f;
         }
         return complexity;
     }

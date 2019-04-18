@@ -1,12 +1,7 @@
 package script.working.wwallace;
 
-import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
+import script.location;
+import script.obj_id;
 
 public class yt1300_helper extends script.base_script
 {

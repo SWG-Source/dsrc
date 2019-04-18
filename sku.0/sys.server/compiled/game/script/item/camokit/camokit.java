@@ -24,10 +24,8 @@ public class camokit extends script.base_script
         obj_id pInv = utils.getInventoryContainer(player);
         obj_id[] contents = utils.getContents(pInv, true);
         int found = 0;
-        for (int i = 0; i < contents.length; i++)
-        {
-            if (contents[i] == self)
-            {
+        for (obj_id content : contents) {
+            if (content == self) {
                 found = 1;
                 break;
             }

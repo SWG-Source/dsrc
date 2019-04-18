@@ -26,7 +26,7 @@ public class poi_city_street_music extends script.base_script
     }
     public void spawnMusician(obj_id baseObject) throws InterruptedException
     {
-        obj_id musician = create.themeParkObject("noble", 1f, 0f, "objectDestroyed", 0f);
+        obj_id musician = create.themeParkObject("noble", 1.0f, 0.0f, "objectDestroyed", 0.0f);
         createObject("object/tangible/instrument/kloo_horn.iff", musician, "");
         setObjVar(baseObject, "musician", musician);
     }

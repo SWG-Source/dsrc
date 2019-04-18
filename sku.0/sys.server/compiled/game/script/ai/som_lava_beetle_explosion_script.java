@@ -28,9 +28,8 @@ public class som_lava_beetle_explosion_script extends script.base_script
         {
             return SCRIPT_CONTINUE;
         }
-        for (int i = 0; i < targets.length; i++)
-        {
-            damage(targets[i], DAMAGE_ELEMENTAL_HEAT, HIT_LOCATION_BODY, 500);
+        for (obj_id target : targets) {
+            damage(target, DAMAGE_ELEMENTAL_HEAT, HIT_LOCATION_BODY, 500);
         }
         return SCRIPT_CONTINUE;
     }

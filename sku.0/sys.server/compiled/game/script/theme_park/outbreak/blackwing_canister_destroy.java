@@ -118,19 +118,15 @@ public class blackwing_canister_destroy extends script.base_script
         if (npcTargets != null && npcTargets.length > 0)
         {
             CustomerServiceLog("outbreak_themepark", "beast_pathing.blowUp() Valid NPCs in radius.");
-            for (int a = 0; a < npcTargets.length; a++)
-            {
-                if (!isValidId(npcTargets[a]) || !exists(npcTargets[a]))
-                {
+            for (obj_id npcTarget : npcTargets) {
+                if (!isValidId(npcTarget) || !exists(npcTarget)) {
                     continue;
                 }
-                if (!hasObjVar(npcTargets[a], factions.FACTION))
-                {
+                if (!hasObjVar(npcTarget, factions.FACTION)) {
                     continue;
                 }
-                if ((factions.getFaction(npcTargets[a])).equals("afflicted"))
-                {
-                    setPosture(npcTargets[a], POSTURE_INCAPACITATED);
+                if ((factions.getFaction(npcTarget)).equals("afflicted")) {
+                    setPosture(npcTarget, POSTURE_INCAPACITATED);
                 }
             }
         }

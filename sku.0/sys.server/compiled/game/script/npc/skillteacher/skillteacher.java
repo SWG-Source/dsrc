@@ -240,7 +240,7 @@ public class skillteacher extends script.base_script
                         string_id sid_skillName = new string_id(SKILL_N, response);
                         int cost = 1;
                         float skillMod = getEnhancedSkillStatisticModifier(speaker, "force_persuade");
-                        skillMod = skillMod * .01f;
+                        skillMod = skillMod * 0.01f;
                         float discount = cost * skillMod;
                         cost = cost - (int)discount;
                         boolean newbieTraining = hasObjVar(speaker, "newbie.hasSkill");
@@ -366,49 +366,44 @@ public class skillteacher extends script.base_script
             Vector opt = utils.concatArrays(null, OPT_DEFAULT);
             String[] skills = null;
             string_id msg = new string_id(convo, "msg2_1");
-            if (response.equals("opt1_1"))
-            {
-                msg = new string_id(convo, "msg2_1");
-                skills = skill.getQualifiedTeachableSkills(speaker, self);
-                utils.setScriptVar(speaker, self.toString(), STATUS_LEARN);
-            }
-            else if (response.equals("opt1_2"))
-            {
-                msg = new string_id(convoName, "msg2_2");
-                skills = skill.getTeachableSkills(speaker, self);
-                utils.setScriptVar(speaker, self.toString(), STATUS_INFO);
-            }
-            else if (response.equals("yes"))
-            {
-                String ovPath = "confirmTeach." + speaker;
-                if (hasObjVar(self, ovPath))
-                {
-                    string_id sid_skillName = getStringIdObjVar(self, ovPath + ".sid_skillname");
-                    int cost = getIntObjVar(self, ovPath + ".cost");
-                    if (sid_skillName != null && cost > 0)
-                    {
-                        prose_package pp = prose.getPackage(PROSE_PAY, sid_skillName, cost);
-                        sendSystemMessageProse(speaker, pp);
-                        dictionary d = new dictionary();
-                        d.put("skillName", sid_skillName.getAsciiId());
-                        money.requestPayment(speaker, self, cost, "attemptedPayment", d, true);
+            switch (response) {
+                case "opt1_1":
+                    msg = new string_id(convo, "msg2_1");
+                    skills = skill.getQualifiedTeachableSkills(speaker, self);
+                    utils.setScriptVar(speaker, self.toString(), STATUS_LEARN);
+                    break;
+                case "opt1_2":
+                    msg = new string_id(convoName, "msg2_2");
+                    skills = skill.getTeachableSkills(speaker, self);
+                    utils.setScriptVar(speaker, self.toString(), STATUS_INFO);
+                    break;
+                case "yes":
+                    String ovPath = "confirmTeach." + speaker;
+                    if (hasObjVar(self, ovPath)) {
+                        string_id sid_skillName = getStringIdObjVar(self, ovPath + ".sid_skillname");
+                        int cost = getIntObjVar(self, ovPath + ".cost");
+                        if (sid_skillName != null && cost > 0) {
+                            prose_package pp = prose.getPackage(PROSE_PAY, sid_skillName, cost);
+                            sendSystemMessageProse(speaker, pp);
+                            dictionary d = new dictionary();
+                            d.put("skillName", sid_skillName.getAsciiId());
+                            money.requestPayment(speaker, self, cost, "attemptedPayment", d, true);
+                        }
+                        removeObjVar(self, ovPath);
                     }
-                    removeObjVar(self, ovPath);
-                }
-                msg = new string_id(convo, "msg_yes");
-                checkArray = false;
-                utils.removeScriptVar(speaker, self.toString());
-            }
-            else if (response.equals("no"))
-            {
-                msg = new string_id(convo, "msg_no");
-                checkArray = false;
-                utils.removeScriptVar(speaker, self.toString());
-            }
-            else 
-            {
-                checkArray = false;
-                utils.removeScriptVar(speaker, self.toString());
+                    msg = new string_id(convo, "msg_yes");
+                    checkArray = false;
+                    utils.removeScriptVar(speaker, self.toString());
+                    break;
+                case "no":
+                    msg = new string_id(convo, "msg_no");
+                    checkArray = false;
+                    utils.removeScriptVar(speaker, self.toString());
+                    break;
+                default:
+                    checkArray = false;
+                    utils.removeScriptVar(speaker, self.toString());
+                    break;
             }
             if ((checkArray) && ((skills == null) || (skills.length == 0)))
             {
@@ -420,9 +415,8 @@ public class skillteacher extends script.base_script
             else 
             {
                 opt.clear();
-                for (int i = 0; i < skills.length; i++)
-                {
-                    opt = utils.addElement(opt, new string_id(SKILL_N, skills[i]));
+                for (String skill : skills) {
+                    opt = utils.addElement(opt, new string_id(SKILL_N, skill));
                 }
                 opt = utils.addElement(opt, new string_id(CONVOFILE, "back"));
             }
@@ -485,7 +479,7 @@ public class skillteacher extends script.base_script
             {
                 if (!hasObjVar(player, fs_quests.VAR_VILLAGE_COMPLETE))
                 {
-                    if (skillName.indexOf("force_sensitive_") > -1)
+                    if (skillName.contains("force_sensitive_"))
                     {
                         if (fs_quests.getBranchesLearned(player) >= 6)
                         {
@@ -520,9 +514,8 @@ public class skillteacher extends script.base_script
         }
         else 
         {
-            for (int i = 0; i < skillReqs.length; i++)
-            {
-                String sName = getString(new string_id("skl_n", skillReqs[i]));
+            for (String skillReq : skillReqs) {
+                String sName = getString(new string_id("skl_n", skillReq));
                 ret = utils.addElement(ret, " " + sName);
             }
         }
@@ -586,9 +579,8 @@ public class skillteacher extends script.base_script
                 npcEndConversation(speaker);
                 Vector entries = new Vector();
                 entries.setSize(0);
-                for (int i = 0; i < lowSkills.length; i++)
-                {
-                    entries = utils.addElement(entries, "@skl_n:" + lowSkills[i]);
+                for (String lowSkill : lowSkills) {
+                    entries = utils.addElement(entries, "@skl_n:" + lowSkill);
                 }
                 if (entries != null && entries.size() > 0)
                 {

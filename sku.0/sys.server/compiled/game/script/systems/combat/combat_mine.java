@@ -202,14 +202,11 @@ public class combat_mine extends script.base_script
         obj_id[] objects = getObjectsInRange(loc, blastRadius);
         Vector targetsInRadius = new Vector();
         targetsInRadius.setSize(0);
-        for (int i = 0; i < objects.length; i++)
-        {
-            if (isValidTargetTypeByMineFlag(objects[i]))
-            {
-                if (!isIncapacitated(objects[i]) && !isDead(objects[i]))
-                {
-                    targetsInRadius = utils.addElement(targetsInRadius, objects[i]);
-                    doLogging("getTargetsInBlastRadius", "Target(" + getName(objects[i]) + "/" + objects[i] + ") added to targetsInRadius array");
+        for (obj_id object : objects) {
+            if (isValidTargetTypeByMineFlag(object)) {
+                if (!isIncapacitated(object) && !isDead(object)) {
+                    targetsInRadius = utils.addElement(targetsInRadius, object);
+                    doLogging("getTargetsInBlastRadius", "Target(" + getName(object) + "/" + object + ") added to targetsInRadius array");
                 }
             }
         }
@@ -247,12 +244,10 @@ public class combat_mine extends script.base_script
             return;
         }
         playClientEffectLoc(targets[0], mineDetonationEffect, mineLoc, 0.4f);
-        for (int i = 0; i < targets.length; i++)
-        {
+        for (obj_id target : targets) {
             int damageToApply = rand(minDamage, maxDamage);
-            if (damage(targets[i], damageType, HIT_LOCATION_BODY, damageToApply))
-            {
-                doLogging("applyMineEffects", "Applied " + damageToApply + " points of damage to " + getName(targets[i]));
+            if (damage(target, damageType, HIT_LOCATION_BODY, damageToApply)) {
+                doLogging("applyMineEffects", "Applied " + damageToApply + " points of damage to " + getName(target));
             }
         }
         destroyObject(landMine);

@@ -90,11 +90,9 @@ public class crafted_armor_recolor_kit extends script.base_script
         blog("equippedItems.length: " + equippedItems.length);
         if (equippedItems != null && equippedItems.length > 0)
         {
-            for (int i = 0; i < equippedItems.length; i++)
-            {
-                if ((getTemplateName(equippedItems[i])).startsWith("object/tangible/wearables/armor/"))
-                {
-                    wornItems.addElement(equippedItems[i]);
+            for (obj_id equippedItem : equippedItems) {
+                if ((getTemplateName(equippedItem)).startsWith("object/tangible/wearables/armor/")) {
+                    wornItems.addElement(equippedItem);
                 }
             }
         }
@@ -102,11 +100,9 @@ public class crafted_armor_recolor_kit extends script.base_script
         blog("invItems.length: " + invItems.length);
         if (invItems != null && invItems.length > 0)
         {
-            for (int i = 0; i < invItems.length; i++)
-            {
-                if ((getTemplateName(invItems[i])).startsWith("object/tangible/wearables/armor/"))
-                {
-                    items.addElement(invItems[i]);
+            for (obj_id invItem : invItems) {
+                if ((getTemplateName(invItem)).startsWith("object/tangible/wearables/armor/")) {
+                    items.addElement(invItem);
                 }
             }
         }
@@ -123,9 +119,8 @@ public class crafted_armor_recolor_kit extends script.base_script
         Vector armorNames = new Vector();
         if (!wornItems.isEmpty())
         {
-            for (int i = 0; i < wornItems.size(); i++)
-            {
-                obj_id piece = (obj_id)wornItems.get(i);
+            for (Object wornItem : wornItems) {
+                obj_id piece = (obj_id) wornItem;
                 armor.addElement(piece);
                 String name = getName(piece) + "  ( currently worn )";
                 armorNames.addElement(name);
@@ -133,9 +128,8 @@ public class crafted_armor_recolor_kit extends script.base_script
         }
         if (!items.isEmpty())
         {
-            for (int i = 0; i < items.size(); i++)
-            {
-                obj_id piece = (obj_id)items.get(i);
+            for (Object item : items) {
+                obj_id piece = (obj_id) item;
                 armor.addElement(piece);
                 String name = getName(piece);
                 armorNames.addElement(name);
@@ -184,12 +178,9 @@ public class crafted_armor_recolor_kit extends script.base_script
         }
         Vector indexName = new Vector();
         indexName.setSize(0);
-        for (int i = 0; i < palColors.length; i++)
-        {
-            ranged_int_custom_var ri = palColors[i];
+        for (ranged_int_custom_var ri : palColors) {
             String customizationVar = ri.getVarName();
-            if (customizationVar.startsWith("/"))
-            {
+            if (customizationVar.startsWith("/")) {
                 customizationVar = customizationVar.substring(1);
             }
             utils.addElement(indexName, customizationVar);

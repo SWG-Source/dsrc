@@ -34,13 +34,13 @@ public class mission_base extends script.base_script
     public static final int INFORMANT_EASY = 1;
     public static final int INFORMANT_MEDIUM = 2;
     public static final int INFORMANT_HARD = 3;
-    public static final float SPAWN_OVERLOAD_DIFFICULTY_MODIFIER = .50f;
+    public static final float SPAWN_OVERLOAD_DIFFICULTY_MODIFIER = 0.50f;
     public location findRandomLocation(location locCenter, int intVariance) throws InterruptedException
     {
         int intMin;
         int intMax;
         intMin = 0 - intVariance;
-        intMax = 0 + intVariance;
+        intMax = intVariance;
         locCenter.x = locCenter.x + rand(intMin, intMax);
         locCenter.z = locCenter.x + rand(intMin, intMax);
         return locCenter;
@@ -145,7 +145,7 @@ public class mission_base extends script.base_script
             obj_id objHq = getObjIdObjVar(objMission, "hq");
             if (isIdValid(objHq))
             {
-                int hqReward = Math.round(intReward / 20f);
+                int hqReward = Math.round(intReward / 20.0f);
                 transferBankCreditsFromNamedAccount(money.ACCT_MISSION_DYNAMIC, objHq, hqReward, "noHandler", "noHandler", new dictionary());
             }
         }
@@ -191,7 +191,7 @@ public class mission_base extends script.base_script
                 dctParams.put("intPlayerDifficulty", intPlayerDifficulty);
                 group.distributeMissionXpToGroup(objPlayer, group.SPLIT_RANGE, objMissionData);
             }
-            group.systemPayoutToGroupInternal(money.ACCT_MISSION_DYNAMIC, objPlayer, intReward, null, strMessage, "test", (float)missionDivisor, dctParams, objMissionData);
+            group.systemPayoutToGroupInternal(money.ACCT_MISSION_DYNAMIC, objPlayer, intReward, null, strMessage, "test", missionDivisor, dctParams, objMissionData);
         }
         String strTitleString = MISSION_SUCCESS_PERSISTENT_MESSAGE;
         int intStringId = getIntObjVar(objMissionData, "intStringId");
@@ -235,31 +235,22 @@ public class mission_base extends script.base_script
                         {
                             String strOwnerPlanet = locOwnerLocation.area;
                             float fltDistance = 0;
-                            for (int intI = 0; intI < objGroupMembers.length; intI++)
-                            {
-                                location locMemberLocation = getLocation(objGroupMembers[intI]);
-                                if (locMemberLocation == null)
-                                {
+                            for (obj_id objGroupMember : objGroupMembers) {
+                                location locMemberLocation = getLocation(objGroupMember);
+                                if (locMemberLocation == null) {
                                     fltDistance = 100000;
-                                }
-                                else 
-                                {
+                                } else {
                                     String strMemberPlanet = locMemberLocation.area;
-                                    if (!strMemberPlanet.equals(strOwnerPlanet))
-                                    {
+                                    if (!strMemberPlanet.equals(strOwnerPlanet)) {
                                         fltDistance = 100000;
-                                    }
-                                    else 
-                                    {
-                                        fltDistance = getDistance(objPlayer, objGroupMembers[intI]);
+                                    } else {
+                                        fltDistance = getDistance(objPlayer, objGroupMember);
                                     }
                                 }
-                                if (fltDistance < 80 && objGroupMembers[intI] != objPlayer)
-                                {
-                                    factions.awardFactionStanding(objGroupMembers[intI], strFaction, intNewReward);
-                                    if (intGCWPoints > 0)
-                                    {
-                                        gcw._grantGcwPoints(null, objGroupMembers[intI], intGCWPoints, false, gcw.GCW_POINT_TYPE_GROUND_PVE, "mission terminal");
+                                if (fltDistance < 80 && objGroupMember != objPlayer) {
+                                    factions.awardFactionStanding(objGroupMember, strFaction, intNewReward);
+                                    if (intGCWPoints > 0) {
+                                        gcw._grantGcwPoints(null, objGroupMember, intGCWPoints, false, gcw.GCW_POINT_TYPE_GROUND_PVE, "mission terminal");
                                     }
                                 }
                             }
@@ -278,24 +269,18 @@ public class mission_base extends script.base_script
         {
             return player;
         }
-        for (int i = 0; i < targets.size(); i++)
-        {
-            if (!utils.isFreeTrial(((obj_id)targets.get(i))) && !hasScript(((obj_id)targets.get(i)), "ai.pet"))
-            {
-                return ((obj_id)targets.get(i));
+        for (Object target : targets) {
+            if (!utils.isFreeTrial(((obj_id) target)) && !hasScript(((obj_id) target), "ai.pet")) {
+                return ((obj_id) target);
             }
-            if (utils.isFreeTrial(((obj_id)targets.get(i))))
-            {
-                if (group.getSafeDifference(((obj_id)targets.get(i)), money) == money)
-                {
-                    return ((obj_id)targets.get(i));
+            if (utils.isFreeTrial(((obj_id) target))) {
+                if (group.getSafeDifference(((obj_id) target), money) == money) {
+                    return ((obj_id) target);
                 }
             }
-            if (!hasScript(((obj_id)targets.get(i)), "ai.pet"))
-            {
-                if (group.getSafeDifference(((obj_id)targets.get(i)), money) > group.getSafeDifference(mostMoney, money))
-                {
-                    mostMoney = ((obj_id)targets.get(i));
+            if (!hasScript(((obj_id) target), "ai.pet")) {
+                if (group.getSafeDifference(((obj_id) target), money) > group.getSafeDifference(mostMoney, money)) {
+                    mostMoney = ((obj_id) target);
                 }
             }
         }

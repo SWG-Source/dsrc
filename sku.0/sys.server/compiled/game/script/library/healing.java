@@ -241,101 +241,79 @@ public class healing extends script.base_script
         {
             playParticleOnMedic = true;
         }
-        for (int i = 0; i < defenderData.length; i++)
-        {
-            if (!isIdValid(defenderData[i].id) || !exists(defenderData[i].id) || !isMob(defenderData[i].id) || isDead(defenderData[i].id))
-            {
+        for (defender_data defenderDatum : defenderData) {
+            if (!isIdValid(defenderDatum.id) || !exists(defenderDatum.id) || !isMob(defenderDatum.id) || isDead(defenderDatum.id)) {
                 continue;
             }
-            if (!isValidHealTarget(medic, defenderData[i].id))
-            {
+            if (!isValidHealTarget(medic, defenderDatum.id)) {
                 continue;
             }
-            toHeal = getHealingAfterReductions(medic, defenderData[i].id, toHeal);
-            toHeal = getTargetHealingBonus(medic, defenderData[i].id, toHeal);
-            if (luck.isLucky(defenderData[i].id, 0.005f))
-            {
+            toHeal = getHealingAfterReductions(medic, defenderDatum.id, toHeal);
+            toHeal = getTargetHealingBonus(medic, defenderDatum.id, toHeal);
+            if (luck.isLucky(defenderDatum.id, 0.005f)) {
                 float bonus = toHeal * 0.2f;
-                if (bonus < 1)
-                {
+                if (bonus < 1) {
                     bonus = 1;
                 }
                 toHeal += bonus;
             }
-            int hBefore = getAttrib(defenderData[i].id, action_data.attribute);
-            boolean success = healDamage(defenderData[i].id, action_data.attribute, toHeal);
-            if (success)
-            {
-                int delta = getAttrib(defenderData[i].id, action_data.attribute) - hBefore;
-                if (delta <= 0)
-                {
+            int hBefore = getAttrib(defenderDatum.id, action_data.attribute);
+            boolean success = healDamage(defenderDatum.id, action_data.attribute, toHeal);
+            if (success) {
+                int delta = getAttrib(defenderDatum.id, action_data.attribute) - hBefore;
+                if (delta <= 0) {
                     continue;
                 }
                 totalDelta += delta;
                 prose_package pp = new prose_package();
                 pp = prose.setStringId(pp, SID_PERFORM_HEAL_DAMAGE_SUCCESS);
                 pp = prose.setTT(pp, medic);
-                pp = prose.setTO(pp, defenderData[i].id);
+                pp = prose.setTO(pp, defenderDatum.id);
                 pp = prose.setDI(pp, delta);
-                sendMedicalSpam(medic, defenderData[i].id, pp, true, true, true, COMBAT_RESULT_MEDICAL);
+                sendMedicalSpam(medic, defenderDatum.id, pp, true, true, true, COMBAT_RESULT_MEDICAL);
                 pp = prose.setStringId(pp, new string_id("healing", "heal_fly"));
                 pp = prose.setDI(pp, delta);
                 pp = prose.setTO(pp, ATTRIBUTES[action_data.attribute]);
-                showFlyTextPrivateProseWithFlags(defenderData[i].id, defenderData[i].id, pp, 2.0f, colors.SEAGREEN, FLY_TEXT_FLAG_IS_HEAL);
-                if (medic != defenderData[i].id)
-                {
-                    showFlyTextPrivateProseWithFlags(defenderData[i].id, medic, pp, 2.0f, colors.SEAGREEN, FLY_TEXT_FLAG_IS_HEAL);
+                showFlyTextPrivateProseWithFlags(defenderDatum.id, defenderDatum.id, pp, 2.0f, colors.SEAGREEN, FLY_TEXT_FLAG_IS_HEAL);
+                if (medic != defenderDatum.id) {
+                    showFlyTextPrivateProseWithFlags(defenderDatum.id, medic, pp, 2.0f, colors.SEAGREEN, FLY_TEXT_FLAG_IS_HEAL);
                 }
                 float hateMod = action_data.hateDamageModifier;
                 int healingAgroMod = getEnhancedSkillStatisticModifierUncapped(medic, "expertise_agro_healing");
-                float agroReductionFact = 1.0f - ((float)healingAgroMod / 100.0f);
+                float agroReductionFact = 1.0f - (healingAgroMod / 100.0f);
                 float modifiedHate = (delta * agroReductionFact) / HEALING_AGGRO_REDUCER;
-                if (isPlayer(medic))
-                {
-                    _addMedicalHate(medic, defenderData[i].id, (int)modifiedHate, hateMod);
+                if (isPlayer(medic)) {
+                    _addMedicalHate(medic, defenderDatum.id, (int) modifiedHate, hateMod);
                 }
-                pvpHelpPerformed(medic, defenderData[i].id);
-                applyDefenderHealBuffs(medic, defenderData[i].id, action_data);
+                pvpHelpPerformed(medic, defenderDatum.id);
+                applyDefenderHealBuffs(medic, defenderDatum.id, action_data);
                 applyMedicHealBuffs(medic, action_data);
-                location loc = getLocation(defenderData[i].id);
-                if (useTempParticle)
-                {
+                location loc = getLocation(defenderDatum.id);
+                if (useTempParticle) {
                     obj_id[] players = getAllPlayers(loc, 64);
-                    if (players != null)
-                    {
-                        for (int j = 0; j < players.length; j++)
-                        {
-                            if (stealth.hasInvisibleBuff(players[j]))
-                            {
+                    if (players != null) {
+                        for (obj_id player : players) {
+                            if (stealth.hasInvisibleBuff(player)) {
                                 continue;
                             }
-                            if (actionName.startsWith("me_bacta_bomb"))
-                            {
-                                playClientEffectLoc(players[j], "clienteffect/bacta_bomb.cef", loc, 0);
+                            if (actionName.startsWith("me_bacta_bomb")) {
+                                playClientEffectLoc(player, "clienteffect/bacta_bomb.cef", loc, 0);
                             }
-                            if (actionName.startsWith("me_bacta_grenade"))
-                            {
-                                playClientEffectLoc(players[j], "clienteffect/bacta_grenade.cef", loc, 0);
+                            if (actionName.startsWith("me_bacta_grenade")) {
+                                playClientEffectLoc(player, "clienteffect/bacta_grenade.cef", loc, 0);
                             }
                         }
                     }
-                }
-                else if (playParticleOnMedic)
-                {
-                    if (!stealth.hasInvisibleBuff(medic))
-                    {
+                } else if (playParticleOnMedic) {
+                    if (!stealth.hasInvisibleBuff(medic)) {
                         playClientEffectObj(medic, "appearance/pt_heal.prt", medic, "");
                     }
-                }
-                else 
-                {
-                    if (!stealth.hasInvisibleBuff(defenderData[i].id))
-                    {
+                } else {
+                    if (!stealth.hasInvisibleBuff(defenderDatum.id)) {
                         playHealDamageEffect(loc);
                     }
                 }
-                if (delta == 0 && actionName.indexOf("_sh_") > -1)
-                {
+                if (delta == 0 && actionName.contains("_sh_")) {
                     CustomerServiceLog("Heal-Fail", "%TU received a success from heal damage but healed for a delta of 0 on heal: " + actionName, medic);
                 }
             }
@@ -398,18 +376,16 @@ public class healing extends script.base_script
         duration += getEnhancedSkillStatisticModifierUncapped(medic, "expertise_hot_duration_" + specialLine);
         perTick = getExpertiseModifiedHealing(medic, perTick, action_data);
         maxHeal = getExpertiseModifiedHealing(medic, maxHeal, action_data);
-        int tickLength = (int)(((float)duration) / (((float)maxHeal) / ((float)perTick)));
-        for (int i = 0; i < defenderData.length; i++)
-        {
-            if (isDead(defenderData[i].id) || !isValidHealTarget(defenderData[i].id))
-            {
+        int tickLength = (int)(duration / (((float)maxHeal) / perTick));
+        for (defender_data defenderDatum : defenderData) {
+            if (isDead(defenderDatum.id) || !isValidHealTarget(defenderDatum.id)) {
                 continue;
             }
-            perTick = getHealingAfterReductions(medic, defenderData[i].id, perTick);
-            perTick = getTargetHealingBonus(medic, defenderData[i].id, perTick);
-            startHealOverTime(medic, defenderData[i].id, action_data.actionName, duration, tickLength, perTick, true);
-            pvpHelpPerformed(medic, defenderData[i].id);
-            location loc = getLocation(defenderData[i].id);
+            perTick = getHealingAfterReductions(medic, defenderDatum.id, perTick);
+            perTick = getTargetHealingBonus(medic, defenderDatum.id, perTick);
+            startHealOverTime(medic, defenderDatum.id, action_data.actionName, duration, tickLength, perTick, true);
+            pvpHelpPerformed(medic, defenderDatum.id);
+            location loc = getLocation(defenderDatum.id);
             playHealDamageEffect(loc);
         }
         return true;
@@ -431,14 +407,14 @@ public class healing extends script.base_script
     public static int getHealingAfterReductions(obj_id medic, obj_id target, int toHeal) throws InterruptedException
     {
         int healingReduction = getEnhancedSkillStatisticModifierUncapped(target, "expertise_healing_reduction");
-        float redux = (float)healingReduction / ((float)healingReduction + 50.0f);
-        toHeal = (int)((float)toHeal - ((float)toHeal * redux));
+        float redux = healingReduction / (healingReduction + 50.0f);
+        toHeal = (int)(toHeal - (toHeal * redux));
         return toHeal;
     }
     public static int getTargetHealingBonus(obj_id medic, obj_id target, int toHeal) throws InterruptedException
     {
         int healingBonus = getEnhancedSkillStatisticModifierUncapped(target, "expertise_target_healing_bonus");
-        toHeal = (int)((float)toHeal * (1.0f + ((float)healingBonus / 100.0f)));
+        toHeal = (int)(toHeal * (1.0f + (healingBonus / 100.0f)));
         return toHeal;
     }
     public static boolean canUseAbility(obj_id medic, combat_data actionData) throws InterruptedException
@@ -708,54 +684,45 @@ public class healing extends script.base_script
     public static boolean _performRevivePlayer(obj_id medic, obj_id[] targets, obj_id enhancer, combat_data action_data, boolean weak) throws InterruptedException
     {
         boolean hasRevivedPlayer = false;
-        for (int i = 0; i < targets.length; i++)
-        {
-            if (!isPlayer(targets[i]))
-            {
+        for (obj_id target : targets) {
+            if (!isPlayer(target)) {
                 continue;
             }
-            if (!hasObjVar(targets[i], pclib.VAR_BEEN_COUPDEGRACED))
-            {
+            if (!hasObjVar(target, pclib.VAR_BEEN_COUPDEGRACED)) {
                 continue;
             }
-            if (!utils.hasScriptVar(targets[i], "pvp_death") && action_data.actionName.equals("me_rv_pvp_area"))
-            {
+            if (!utils.hasScriptVar(target, "pvp_death") && action_data.actionName.equals("me_rv_pvp_area")) {
                 continue;
             }
-            int stamp = getIntObjVar(targets[i], pclib.VAR_DEATHBLOW_STAMP);
-            if (getGameTime() > (stamp + REVIVE_TIMER))
-            {
+            int stamp = getIntObjVar(target, pclib.VAR_DEATHBLOW_STAMP);
+            if (getGameTime() > (stamp + REVIVE_TIMER)) {
                 prose_package pp = new prose_package();
                 pp = prose.setStringId(pp, SID_PERFORM_REVIVE_TOO_LONG);
                 pp = prose.setTT(pp, medic);
-                pp = prose.setTO(pp, targets[i]);
-                sendMedicalSpam(medic, targets[i], pp, true, true, false, COMBAT_RESULT_MEDICAL);
+                pp = prose.setTO(pp, target);
+                sendMedicalSpam(medic, target, pp, true, true, false, COMBAT_RESULT_MEDICAL);
                 continue;
             }
-            if (!pvpCanHelp(medic, targets[i]))
-            {
+            if (!pvpCanHelp(medic, target)) {
                 prose_package pp = new prose_package();
                 pp = prose.setStringId(pp, new string_id("spam", "revive_no_help_pvp"));
-                pp = prose.setTO(pp, targets[i]);
+                pp = prose.setTO(pp, target);
                 sendSystemMessageProse(medic, pp);
                 continue;
             }
             dictionary params = new dictionary();
             params.put("medic", medic);
-            if (weak)
-            {
+            if (weak) {
                 params.put("weak", 1);
-            }
-            else 
-            {
+            } else {
                 params.put("weak", 0);
             }
-            pvpHelpPerformed(medic, targets[i]);
+            pvpHelpPerformed(medic, target);
             hasRevivedPlayer = true;
-            messageTo(targets[i], "showReviveSUI", params, 0, false);
+            messageTo(target, "showReviveSUI", params, 0, false);
             prose_package reviveAttemptPP = new prose_package();
             reviveAttemptPP = prose.setStringId(reviveAttemptPP, new string_id("spam", "revive_attempt"));
-            reviveAttemptPP = prose.setTO(reviveAttemptPP, targets[i]);
+            reviveAttemptPP = prose.setTO(reviveAttemptPP, target);
             sendSystemMessageProse(medic, reviveAttemptPP);
         }
         return hasRevivedPlayer;
@@ -775,20 +742,17 @@ public class healing extends script.base_script
         {
             hateMod = 0.0f;
         }
-        float hateValue = (float)hate;
+        float hateValue = hate;
         hateValue *= hateMod;
-        for (int i = 0; i < hateList.length; i++)
-        {
-            if (!isIdValid(hateList[i]) || !isTangible(hateList[i]))
-            {
+        for (obj_id obj_id : hateList) {
+            if (!isIdValid(obj_id) || !isTangible(obj_id)) {
                 continue;
             }
-            if (medic == hateList[i])
-            {
+            if (medic == obj_id) {
                 continue;
             }
-            addHate(hateList[i], medic, hateValue);
-            addHate(medic, hateList[i], 0.0f);
+            addHate(obj_id, medic, hateValue);
+            addHate(medic, obj_id, 0.0f);
         }
     }
     public static float _getEnhancerModifier(obj_id enhancer, float cap) throws InterruptedException
@@ -819,7 +783,7 @@ public class healing extends script.base_script
         {
             coeff = 1.0f;
         }
-        float skill = (float)getEnhancedSkillStatisticModifier(medic, skill_mod);
+        float skill = getEnhancedSkillStatisticModifier(medic, skill_mod);
         if (skill <= 0)
         {
             return 0.0f;
@@ -868,29 +832,19 @@ public class healing extends script.base_script
     }
     public static boolean isDotted(obj_id target, String dot_type) throws InterruptedException
     {
-        if (dot_type.equals(dot.DOT_BLEEDING))
-        {
-            return dot.isBleeding(target);
-        }
-        else if (dot_type.equals(dot.DOT_POISON))
-        {
-            return dot.isPoisoned(target);
-        }
-        else if (dot_type.equals(dot.DOT_DISEASE))
-        {
-            return dot.isDiseased(target);
-        }
-        else if (dot_type.equals(dot.DOT_FIRE))
-        {
-            return dot.isOnFire(target);
-        }
-        else if (dot_type.equals(dot.DOT_ACID))
-        {
-            return dot.isAcid(target);
-        }
-        else if (dot_type.equals(dot.DOT_ENERGY))
-        {
-            return dot.isEnergy(target);
+        switch (dot_type) {
+            case dot.DOT_BLEEDING:
+                return dot.isBleeding(target);
+            case dot.DOT_POISON:
+                return dot.isPoisoned(target);
+            case dot.DOT_DISEASE:
+                return dot.isDiseased(target);
+            case dot.DOT_FIRE:
+                return dot.isOnFire(target);
+            case dot.DOT_ACID:
+                return dot.isAcid(target);
+            case dot.DOT_ENERGY:
+                return dot.isEnergy(target);
         }
         return false;
     }
@@ -1099,20 +1053,20 @@ public class healing extends script.base_script
             adventurePlanet = true;
             break;
         }
-        float woundReduction = 0f;
+        float woundReduction = 0.0f;
         if (woundPlayer && !adventurePlanet)
         {
             if (utils.hasScriptVar(player, "buff.dessert_gorrnar.value"))
             {
                 float eff = utils.getFloatScriptVar(player, "buff.dessert_gorrnar.value");
                 buff.removeBuff(player, "dessert_gorrnar");
-                woundReduction = 1f - (eff / 100f);
+                woundReduction = 1.0f - (eff / 100.0f);
             }
         }
-        float fltThreshold = .70f;
+        float fltThreshold = 0.70f;
         attribute[] maxAttribs = getUnmodifiedMaxAttribs(player);
         int attribValue = maxAttribs[HEALTH].getValue();
-        float fltTest = (float)attribValue;
+        float fltTest = attribValue;
         fltTest *= fltThreshold;
         int intMaxWounds = (int)fltTest;
         if (intMaxWounds > 0)
@@ -1182,7 +1136,7 @@ public class healing extends script.base_script
             attribs.setSize(attribsArray.length);
             for (int _i = 0; _i < attribsArray.length; ++_i)
             {
-                attribs.set(_i, new Integer(attribsArray[_i]));
+                attribs.set(_i, attribsArray[_i]);
             }
         }
         Vector delta = new Vector();
@@ -1191,7 +1145,7 @@ public class healing extends script.base_script
             delta.setSize(deltaArray.length);
             for (int _i = 0; _i < deltaArray.length; ++_i)
             {
-                delta.set(_i, new Integer(deltaArray[_i]));
+                delta.set(_i, deltaArray[_i]);
             }
         }
         if (attribs.size() != delta.size())
@@ -1200,7 +1154,7 @@ public class healing extends script.base_script
         }
         for (int i = 0; i < delta.size(); i++)
         {
-            if (((Integer)delta.get(i)).intValue() < 1)
+            if ((Integer) delta.get(i) < 1)
             {
                 attribs = utils.removeElementAt(attribs, i);
                 delta = utils.removeElementAt(delta, i);
@@ -1228,7 +1182,7 @@ public class healing extends script.base_script
         {
             if (attribs.size() == 1)
             {
-                if (((Integer)attribs.get(0)).intValue() == HEALTH)
+                if ((Integer) attribs.get(0) == HEALTH)
                 {
                     if (target == null)
                     {
@@ -1239,7 +1193,7 @@ public class healing extends script.base_script
                         responseType = 2;
                     }
                 }
-                else if (((Integer)attribs.get(0)).intValue() == ACTION)
+                else if ((Integer) attribs.get(0) == ACTION)
                 {
                     if (target == null)
                     {
@@ -1250,7 +1204,7 @@ public class healing extends script.base_script
                         responseType = 4;
                     }
                 }
-                else if (((Integer)attribs.get(0)).intValue() == MIND)
+                else if ((Integer) attribs.get(0) == MIND)
                 {
                     if (target == null)
                     {
@@ -1269,7 +1223,7 @@ public class healing extends script.base_script
             else if (attribs.size() == 2)
             {
                 attribDecWise = 0;
-                attribDecWise = (((Integer)attribs.get(0)).intValue() + ((Integer)attribs.get(1)).intValue());
+                attribDecWise = ((Integer) attribs.get(0) + (Integer) attribs.get(1));
                 if (attribDecWise == HEALTH + ACTION)
                 {
                     if (target == null)
@@ -1311,7 +1265,7 @@ public class healing extends script.base_script
             else if (attribs.size() == 3)
             {
                 attribDecWise = 0;
-                attribDecWise = (((Integer)attribs.get(0)).intValue() + ((Integer)attribs.get(1)).intValue() + ((Integer)attribs.get(2)).intValue());
+                attribDecWise = ((Integer) attribs.get(0) + (Integer) attribs.get(1) + (Integer) attribs.get(2));
                 if (attribDecWise == HEALTH + ACTION + MIND)
                 {
                     if (target == null)
@@ -1333,7 +1287,7 @@ public class healing extends script.base_script
         {
             if (attribs.size() == 1)
             {
-                if (((Integer)attribs.get(0)).intValue() == HEALTH)
+                if ((Integer) attribs.get(0) == HEALTH)
                 {
                     if (target == null)
                     {
@@ -1344,7 +1298,7 @@ public class healing extends script.base_script
                         responseType = 16;
                     }
                 }
-                else if (((Integer)attribs.get(0)).intValue() == CONSTITUTION)
+                else if ((Integer) attribs.get(0) == CONSTITUTION)
                 {
                     if (target == null)
                     {
@@ -1355,7 +1309,7 @@ public class healing extends script.base_script
                         responseType = 20;
                     }
                 }
-                else if (((Integer)attribs.get(0)).intValue() == ACTION)
+                else if ((Integer) attribs.get(0) == ACTION)
                 {
                     if (target == null)
                     {
@@ -1366,7 +1320,7 @@ public class healing extends script.base_script
                         responseType = 22;
                     }
                 }
-                else if (((Integer)attribs.get(0)).intValue() == STAMINA)
+                else if ((Integer) attribs.get(0) == STAMINA)
                 {
                     if (target == null)
                     {
@@ -1377,7 +1331,7 @@ public class healing extends script.base_script
                         responseType = 26;
                     }
                 }
-                else if (((Integer)attribs.get(0)).intValue() == MIND)
+                else if ((Integer) attribs.get(0) == MIND)
                 {
                     if (target == null)
                     {
@@ -1388,7 +1342,7 @@ public class healing extends script.base_script
                         responseType = 28;
                     }
                 }
-                else if (((Integer)attribs.get(0)).intValue() == WILLPOWER)
+                else if ((Integer) attribs.get(0) == WILLPOWER)
                 {
                     if (target == null)
                     {
@@ -1430,9 +1384,9 @@ public class healing extends script.base_script
             {
                 for (int i = 0; i < attribs.size(); i++)
                 {
-                    if (((Integer)attribs.get(i)).intValue() == HEALTH)
+                    if ((Integer) attribs.get(i) == HEALTH)
                     {
-                        damage1 = ((Integer)delta.get(i)).intValue();
+                        damage1 = (Integer) delta.get(i);
                     }
                 }
                 response1 = new string_id(PP_FILE_LOC, utils.dataTableGetString(RESPONSE_TEXT, 9, 1));
@@ -1447,9 +1401,9 @@ public class healing extends script.base_script
             {
                 for (int i = 0; i < attribs.size(); i++)
                 {
-                    if (((Integer)attribs.get(i)).intValue() == HEALTH)
+                    if ((Integer) attribs.get(i) == HEALTH)
                     {
-                        damage1 = ((Integer)delta.get(i)).intValue();
+                        damage1 = (Integer) delta.get(i);
                     }
                 }
                 response1 = new string_id(PP_FILE_LOC, utils.dataTableGetString(RESPONSE_TEXT, 12, 1));
@@ -1467,9 +1421,9 @@ public class healing extends script.base_script
             {
                 for (int i = 0; i < attribs.size(); i++)
                 {
-                    if (((Integer)attribs.get(i)).intValue() == ACTION)
+                    if ((Integer) attribs.get(i) == ACTION)
                     {
-                        damage1 = ((Integer)delta.get(i)).intValue();
+                        damage1 = (Integer) delta.get(i);
                     }
                 }
                 response1 = new string_id(PP_FILE_LOC, utils.dataTableGetString(RESPONSE_TEXT, 10, 1));
@@ -1484,9 +1438,9 @@ public class healing extends script.base_script
             {
                 for (int i = 0; i < attribs.size(); i++)
                 {
-                    if (((Integer)attribs.get(i)).intValue() == ACTION)
+                    if ((Integer) attribs.get(i) == ACTION)
                     {
-                        damage1 = ((Integer)delta.get(i)).intValue();
+                        damage1 = (Integer) delta.get(i);
                     }
                 }
                 response1 = new string_id(PP_FILE_LOC, utils.dataTableGetString(RESPONSE_TEXT, 13, 1));
@@ -1504,9 +1458,9 @@ public class healing extends script.base_script
             {
                 for (int i = 0; i < attribs.size(); i++)
                 {
-                    if (((Integer)attribs.get(i)).intValue() == MIND)
+                    if ((Integer) attribs.get(i) == MIND)
                     {
-                        damage1 = ((Integer)delta.get(i)).intValue();
+                        damage1 = (Integer) delta.get(i);
                     }
                 }
                 response1 = new string_id(PP_FILE_LOC, utils.dataTableGetString(RESPONSE_TEXT, 11, 1));
@@ -1521,9 +1475,9 @@ public class healing extends script.base_script
             {
                 for (int i = 0; i < attribs.size(); i++)
                 {
-                    if (((Integer)attribs.get(i)).intValue() == MIND)
+                    if ((Integer) attribs.get(i) == MIND)
                     {
-                        damage1 = ((Integer)delta.get(i)).intValue();
+                        damage1 = (Integer) delta.get(i);
                     }
                 }
                 response1 = new string_id(PP_FILE_LOC, utils.dataTableGetString(RESPONSE_TEXT, 14, 1));
@@ -1541,13 +1495,13 @@ public class healing extends script.base_script
             {
                 for (int i = 0; i < attribs.size(); i++)
                 {
-                    if (((Integer)attribs.get(i)).intValue() == HEALTH)
+                    if ((Integer) attribs.get(i) == HEALTH)
                     {
-                        damage1 = ((Integer)delta.get(i)).intValue();
+                        damage1 = (Integer) delta.get(i);
                     }
-                    else if (((Integer)attribs.get(i)).intValue() == ACTION)
+                    else if ((Integer) attribs.get(i) == ACTION)
                     {
-                        damage2 = ((Integer)delta.get(i)).intValue();
+                        damage2 = (Integer) delta.get(i);
                     }
                 }
                 response1 = new string_id(PP_FILE_LOC, utils.dataTableGetString(RESPONSE_TEXT, 0, 1));
@@ -1565,13 +1519,13 @@ public class healing extends script.base_script
             {
                 for (int i = 0; i < attribs.size(); i++)
                 {
-                    if (((Integer)attribs.get(i)).intValue() == HEALTH)
+                    if ((Integer) attribs.get(i) == HEALTH)
                     {
-                        damage1 = ((Integer)delta.get(i)).intValue();
+                        damage1 = (Integer) delta.get(i);
                     }
-                    else if (((Integer)attribs.get(i)).intValue() == ACTION)
+                    else if ((Integer) attribs.get(i) == ACTION)
                     {
-                        damage2 = ((Integer)delta.get(i)).intValue();
+                        damage2 = (Integer) delta.get(i);
                     }
                 }
                 response1 = new string_id(PP_FILE_LOC, utils.dataTableGetString(RESPONSE_TEXT, 5, 1));
@@ -1595,13 +1549,13 @@ public class healing extends script.base_script
             {
                 for (int i = 0; i < attribs.size(); i++)
                 {
-                    if (((Integer)attribs.get(i)).intValue() == HEALTH)
+                    if ((Integer) attribs.get(i) == HEALTH)
                     {
-                        damage1 = ((Integer)delta.get(i)).intValue();
+                        damage1 = (Integer) delta.get(i);
                     }
-                    else if (((Integer)attribs.get(i)).intValue() == MIND)
+                    else if ((Integer) attribs.get(i) == MIND)
                     {
-                        damage2 = ((Integer)delta.get(i)).intValue();
+                        damage2 = (Integer) delta.get(i);
                     }
                 }
                 response1 = new string_id(PP_FILE_LOC, utils.dataTableGetString(RESPONSE_TEXT, 0, 1));
@@ -1619,13 +1573,13 @@ public class healing extends script.base_script
             {
                 for (int i = 0; i < attribs.size(); i++)
                 {
-                    if (((Integer)attribs.get(i)).intValue() == HEALTH)
+                    if ((Integer) attribs.get(i) == HEALTH)
                     {
-                        damage1 = ((Integer)delta.get(i)).intValue();
+                        damage1 = (Integer) delta.get(i);
                     }
-                    else if (((Integer)attribs.get(i)).intValue() == MIND)
+                    else if ((Integer) attribs.get(i) == MIND)
                     {
-                        damage2 = ((Integer)delta.get(i)).intValue();
+                        damage2 = (Integer) delta.get(i);
                     }
                 }
                 response1 = new string_id(PP_FILE_LOC, utils.dataTableGetString(RESPONSE_TEXT, 4, 1));
@@ -1649,13 +1603,13 @@ public class healing extends script.base_script
             {
                 for (int i = 0; i < attribs.size(); i++)
                 {
-                    if (((Integer)attribs.get(i)).intValue() == ACTION)
+                    if ((Integer) attribs.get(i) == ACTION)
                     {
-                        damage1 = ((Integer)delta.get(i)).intValue();
+                        damage1 = (Integer) delta.get(i);
                     }
-                    else if (((Integer)attribs.get(i)).intValue() == MIND)
+                    else if ((Integer) attribs.get(i) == MIND)
                     {
-                        damage2 = ((Integer)delta.get(i)).intValue();
+                        damage2 = (Integer) delta.get(i);
                     }
                 }
                 response1 = new string_id(PP_FILE_LOC, utils.dataTableGetString(RESPONSE_TEXT, 4, 1));
@@ -1673,13 +1627,13 @@ public class healing extends script.base_script
             {
                 for (int i = 0; i < attribs.size(); i++)
                 {
-                    if (((Integer)attribs.get(i)).intValue() == ACTION)
+                    if ((Integer) attribs.get(i) == ACTION)
                     {
-                        damage1 = ((Integer)delta.get(i)).intValue();
+                        damage1 = (Integer) delta.get(i);
                     }
-                    else if (((Integer)attribs.get(i)).intValue() == MIND)
+                    else if ((Integer) attribs.get(i) == MIND)
                     {
-                        damage2 = ((Integer)delta.get(i)).intValue();
+                        damage2 = (Integer) delta.get(i);
                     }
                 }
                 response1 = new string_id(PP_FILE_LOC, utils.dataTableGetString(RESPONSE_TEXT, 6, 1));
@@ -1703,17 +1657,17 @@ public class healing extends script.base_script
             {
                 for (int i = 0; i < attribs.size(); i++)
                 {
-                    if (((Integer)attribs.get(i)).intValue() == HEALTH)
+                    if ((Integer) attribs.get(i) == HEALTH)
                     {
-                        damage1 = ((Integer)delta.get(i)).intValue();
+                        damage1 = (Integer) delta.get(i);
                     }
-                    else if (((Integer)attribs.get(i)).intValue() == ACTION)
+                    else if ((Integer) attribs.get(i) == ACTION)
                     {
-                        damage2 = ((Integer)delta.get(i)).intValue();
+                        damage2 = (Integer) delta.get(i);
                     }
-                    else if (((Integer)attribs.get(i)).intValue() == MIND)
+                    else if ((Integer) attribs.get(i) == MIND)
                     {
-                        damage3 = ((Integer)delta.get(i)).intValue();
+                        damage3 = (Integer) delta.get(i);
                     }
                 }
                 response1 = new string_id(PP_FILE_LOC, utils.dataTableGetString(RESPONSE_TEXT, 0, 1));
@@ -1734,17 +1688,17 @@ public class healing extends script.base_script
             {
                 for (int i = 0; i < attribs.size(); i++)
                 {
-                    if (((Integer)attribs.get(i)).intValue() == HEALTH)
+                    if ((Integer) attribs.get(i) == HEALTH)
                     {
-                        damage1 = ((Integer)delta.get(i)).intValue();
+                        damage1 = (Integer) delta.get(i);
                     }
-                    else if (((Integer)attribs.get(i)).intValue() == ACTION)
+                    else if ((Integer) attribs.get(i) == ACTION)
                     {
-                        damage2 = ((Integer)delta.get(i)).intValue();
+                        damage2 = (Integer) delta.get(i);
                     }
-                    else if (((Integer)attribs.get(i)).intValue() == MIND)
+                    else if ((Integer) attribs.get(i) == MIND)
                     {
-                        damage3 = ((Integer)delta.get(i)).intValue();
+                        damage3 = (Integer) delta.get(i);
                     }
                 }
                 response1 = new string_id(PP_FILE_LOC, utils.dataTableGetString(RESPONSE_TEXT, 5, 1));
@@ -1774,9 +1728,9 @@ public class healing extends script.base_script
             {
                 for (int i = 0; i < attribs.size(); i++)
                 {
-                    if (((Integer)attribs.get(i)).intValue() == HEALTH)
+                    if ((Integer) attribs.get(i) == HEALTH)
                     {
-                        damage1 = ((Integer)delta.get(i)).intValue();
+                        damage1 = (Integer) delta.get(i);
                     }
                 }
                 response1 = new string_id(PP_FILE_LOC, utils.dataTableGetString(RESPONSE_TEXT, 48, 1));
@@ -1791,9 +1745,9 @@ public class healing extends script.base_script
             {
                 for (int i = 0; i < attribs.size(); i++)
                 {
-                    if (((Integer)attribs.get(i)).intValue() == HEALTH)
+                    if ((Integer) attribs.get(i) == HEALTH)
                     {
-                        damage1 = ((Integer)delta.get(i)).intValue();
+                        damage1 = (Integer) delta.get(i);
                     }
                 }
                 response1 = new string_id(PP_FILE_LOC, utils.dataTableGetString(RESPONSE_TEXT, 51, 1));
@@ -1811,9 +1765,9 @@ public class healing extends script.base_script
             {
                 for (int i = 0; i < attribs.size(); i++)
                 {
-                    if (((Integer)attribs.get(i)).intValue() == CONSTITUTION)
+                    if ((Integer) attribs.get(i) == CONSTITUTION)
                     {
-                        damage1 = ((Integer)delta.get(i)).intValue();
+                        damage1 = (Integer) delta.get(i);
                     }
                 }
                 response1 = new string_id(PP_FILE_LOC, utils.dataTableGetString(RESPONSE_TEXT, 19, 1));
@@ -1828,9 +1782,9 @@ public class healing extends script.base_script
             {
                 for (int i = 0; i < attribs.size(); i++)
                 {
-                    if (((Integer)attribs.get(i)).intValue() == CONSTITUTION)
+                    if ((Integer) attribs.get(i) == CONSTITUTION)
                     {
-                        damage1 = ((Integer)delta.get(i)).intValue();
+                        damage1 = (Integer) delta.get(i);
                     }
                 }
                 response1 = new string_id(PP_FILE_LOC, utils.dataTableGetString(RESPONSE_TEXT, 31, 1));
@@ -1848,9 +1802,9 @@ public class healing extends script.base_script
             {
                 for (int i = 0; i < attribs.size(); i++)
                 {
-                    if (((Integer)attribs.get(i)).intValue() == ACTION)
+                    if ((Integer) attribs.get(i) == ACTION)
                     {
-                        damage1 = ((Integer)delta.get(i)).intValue();
+                        damage1 = (Integer) delta.get(i);
                     }
                 }
                 response1 = new string_id(PP_FILE_LOC, utils.dataTableGetString(RESPONSE_TEXT, 49, 1));
@@ -1865,9 +1819,9 @@ public class healing extends script.base_script
             {
                 for (int i = 0; i < attribs.size(); i++)
                 {
-                    if (((Integer)attribs.get(i)).intValue() == ACTION)
+                    if ((Integer) attribs.get(i) == ACTION)
                     {
-                        damage1 = ((Integer)delta.get(i)).intValue();
+                        damage1 = (Integer) delta.get(i);
                     }
                 }
                 response1 = new string_id(PP_FILE_LOC, utils.dataTableGetString(RESPONSE_TEXT, 52, 1));
@@ -1885,9 +1839,9 @@ public class healing extends script.base_script
             {
                 for (int i = 0; i < attribs.size(); i++)
                 {
-                    if (((Integer)attribs.get(i)).intValue() == STAMINA)
+                    if ((Integer) attribs.get(i) == STAMINA)
                     {
-                        damage1 = ((Integer)delta.get(i)).intValue();
+                        damage1 = (Integer) delta.get(i);
                     }
                 }
                 response1 = new string_id(PP_FILE_LOC, utils.dataTableGetString(RESPONSE_TEXT, 21, 1));
@@ -1902,9 +1856,9 @@ public class healing extends script.base_script
             {
                 for (int i = 0; i < attribs.size(); i++)
                 {
-                    if (((Integer)attribs.get(i)).intValue() == STAMINA)
+                    if ((Integer) attribs.get(i) == STAMINA)
                     {
-                        damage1 = ((Integer)delta.get(i)).intValue();
+                        damage1 = (Integer) delta.get(i);
                     }
                 }
                 response1 = new string_id(PP_FILE_LOC, utils.dataTableGetString(RESPONSE_TEXT, 33, 1));
@@ -1922,9 +1876,9 @@ public class healing extends script.base_script
             {
                 for (int i = 0; i < attribs.size(); i++)
                 {
-                    if (((Integer)attribs.get(i)).intValue() == MIND)
+                    if ((Integer) attribs.get(i) == MIND)
                     {
-                        damage1 = ((Integer)delta.get(i)).intValue();
+                        damage1 = (Integer) delta.get(i);
                     }
                 }
                 response1 = new string_id(PP_FILE_LOC, utils.dataTableGetString(RESPONSE_TEXT, 49, 1));
@@ -1939,9 +1893,9 @@ public class healing extends script.base_script
             {
                 for (int i = 0; i < attribs.size(); i++)
                 {
-                    if (((Integer)attribs.get(i)).intValue() == MIND)
+                    if ((Integer) attribs.get(i) == MIND)
                     {
-                        damage1 = ((Integer)delta.get(i)).intValue();
+                        damage1 = (Integer) delta.get(i);
                     }
                 }
                 response1 = new string_id(PP_FILE_LOC, utils.dataTableGetString(RESPONSE_TEXT, 53, 1));
@@ -1959,9 +1913,9 @@ public class healing extends script.base_script
             {
                 for (int i = 0; i < attribs.size(); i++)
                 {
-                    if (((Integer)attribs.get(i)).intValue() == WILLPOWER)
+                    if ((Integer) attribs.get(i) == WILLPOWER)
                     {
-                        damage1 = ((Integer)delta.get(i)).intValue();
+                        damage1 = (Integer) delta.get(i);
                     }
                 }
                 response1 = new string_id(PP_FILE_LOC, utils.dataTableGetString(RESPONSE_TEXT, 23, 1));
@@ -1976,9 +1930,9 @@ public class healing extends script.base_script
             {
                 for (int i = 0; i < attribs.size(); i++)
                 {
-                    if (((Integer)attribs.get(i)).intValue() == WILLPOWER)
+                    if ((Integer) attribs.get(i) == WILLPOWER)
                     {
-                        damage1 = ((Integer)delta.get(i)).intValue();
+                        damage1 = (Integer) delta.get(i);
                     }
                 }
                 response1 = new string_id(PP_FILE_LOC, utils.dataTableGetString(RESPONSE_TEXT, 35, 1));
@@ -2008,86 +1962,67 @@ public class healing extends script.base_script
         int total_healed = 0;
         String exp_type;
         boolean directGrant = false;
-        for (int i = 0; i < healed_damage.length; i++)
-        {
-            total_healed = total_healed + healed_damage[i];
+        for (int i1 : healed_damage) {
+            total_healed = total_healed + i1;
         }
-        if (heal_type.equals(HEAL_TYPE_MEDICAL_DAMAGE))
-        {
-            experience = total_healed;
-            exp_type = xp.MEDICAL;
-        }
-        else if (heal_type.equals(HEAL_TYPE_MEDICAL_WOUND))
-        {
-            experience = (int)(total_healed * 5f);
-            exp_type = xp.MEDICAL;
-        }
-        else if (heal_type.equals(HEAL_TYPE_MEDICAL_BUFF))
-        {
-            experience = total_healed * 2;
-            exp_type = xp.MEDICAL;
-        }
-        else if (heal_type.equals(HEAL_TYPE_MEDICAL_STATE))
-        {
-            experience = total_healed * 50;
-            exp_type = xp.MEDICAL;
-        }
-        else if (heal_type.equals(HEAL_TYPE_MEDICAL_FIRSTAID))
-        {
-            experience = total_healed;
-            exp_type = xp.MEDICAL;
-        }
-        else if (heal_type.equals(HEAL_TYPE_MEDICAL_CURE_POISON))
-        {
-            experience = total_healed;
-            exp_type = xp.MEDICAL;
-        }
-        else if (heal_type.equals(HEAL_TYPE_MEDICAL_CURE_FIRE))
-        {
-            experience = total_healed;
-            exp_type = xp.MEDICAL;
-        }
-        else if (heal_type.equals(HEAL_TYPE_MEDICAL_CURE_DISEASE))
-        {
-            experience = total_healed;
-            exp_type = xp.MEDICAL;
-        }
-        else if (heal_type.equals(HEAL_TYPE_MEDICAL_APPLY_POISON))
-        {
-            experience = total_healed;
-            exp_type = xp.MEDICAL;
-        }
-        else if (heal_type.equals(HEAL_TYPE_MEDICAL_APPLY_DISEASE))
-        {
-            experience = total_healed;
-            exp_type = xp.MEDICAL;
-        }
-        else if (heal_type.equals(HEAL_TYPE_MEDICAL_QUICK_HEAL))
-        {
-            return true;
-        }
-        else if (heal_type.equals(HEAL_TYPE_MEDICAL_HEAL_MIND))
-        {
-            return true;
-        }
-        else if (heal_type.equals(HEAL_TYPE_MEDICAL_TEND_WOUND))
-        {
-            experience = (int)(total_healed * 2.5f);
-            exp_type = xp.MEDICAL;
-        }
-        else if (heal_type.equals(HEAL_TYPE_MEDICAL_TEND_DAMAGE))
-        {
-            return true;
-        }
-        else if (heal_type.equals(HEAL_TYPE_MEDICAL_REVIVE))
-        {
-            experience = 500;
-            exp_type = xp.MEDICAL;
-            directGrant = true;
-        }
-        else 
-        {
-            return false;
+        switch (heal_type) {
+            case HEAL_TYPE_MEDICAL_DAMAGE:
+                experience = total_healed;
+                exp_type = xp.MEDICAL;
+                break;
+            case HEAL_TYPE_MEDICAL_WOUND:
+                experience = (int) (total_healed * 5.0f);
+                exp_type = xp.MEDICAL;
+                break;
+            case HEAL_TYPE_MEDICAL_BUFF:
+                experience = total_healed * 2;
+                exp_type = xp.MEDICAL;
+                break;
+            case HEAL_TYPE_MEDICAL_STATE:
+                experience = total_healed * 50;
+                exp_type = xp.MEDICAL;
+                break;
+            case HEAL_TYPE_MEDICAL_FIRSTAID:
+                experience = total_healed;
+                exp_type = xp.MEDICAL;
+                break;
+            case HEAL_TYPE_MEDICAL_CURE_POISON:
+                experience = total_healed;
+                exp_type = xp.MEDICAL;
+                break;
+            case HEAL_TYPE_MEDICAL_CURE_FIRE:
+                experience = total_healed;
+                exp_type = xp.MEDICAL;
+                break;
+            case HEAL_TYPE_MEDICAL_CURE_DISEASE:
+                experience = total_healed;
+                exp_type = xp.MEDICAL;
+                break;
+            case HEAL_TYPE_MEDICAL_APPLY_POISON:
+                experience = total_healed;
+                exp_type = xp.MEDICAL;
+                break;
+            case HEAL_TYPE_MEDICAL_APPLY_DISEASE:
+                experience = total_healed;
+                exp_type = xp.MEDICAL;
+                break;
+            case HEAL_TYPE_MEDICAL_QUICK_HEAL:
+                return true;
+            case HEAL_TYPE_MEDICAL_HEAL_MIND:
+                return true;
+            case HEAL_TYPE_MEDICAL_TEND_WOUND:
+                experience = (int) (total_healed * 2.5f);
+                exp_type = xp.MEDICAL;
+                break;
+            case HEAL_TYPE_MEDICAL_TEND_DAMAGE:
+                return true;
+            case HEAL_TYPE_MEDICAL_REVIVE:
+                experience = 500;
+                exp_type = xp.MEDICAL;
+                directGrant = true;
+                break;
+            default:
+                return false;
         }
         if (experience < 1)
         {
@@ -2126,9 +2061,8 @@ public class healing extends script.base_script
         {
             return false;
         }
-        for (int i = 0; i < hateList.length; i++)
-        {
-            xp.updateCombatXpList(hateList[i], player, xp_type, amount);
+        for (obj_id obj_id : hateList) {
+            xp.updateCombatXpList(obj_id, player, xp_type, amount);
         }
         return true;
     }
@@ -2237,146 +2171,112 @@ public class healing extends script.base_script
         boolean cure_success = false;
         float removal_skill;
         String dot_type;
-        for (int i = 0; i < valid_targets.length; i++)
-        {
-            if (heal_type.equals(HEAL_TYPE_MEDICAL_FIRSTAID))
-            {
-                removal_skill = getEnhancedSkillStatisticModifier(medic, "healing_injury_treatment") * 3.0f;
-                dot_type = dot.DOT_BLEEDING;
-                if (dot.isBleeding(valid_targets[i]))
-                {
-                    if (medic != valid_targets[i])
-                    {
-                        prose_package ppApplyFirstAid = prose.getPackage(SID_YOU_APPLY_FIRST_AID);
-                        prose.setTT(ppApplyFirstAid, valid_targets[i]);
-                        sendMedicalSpam(medic, ppApplyFirstAid, COMBAT_RESULT_MEDICAL);
-                        prose_package ppAppliesFirstAid = prose.getPackage(SID_APPLIES_FIRST_AID);
-                        prose.setTT(ppAppliesFirstAid, medic);
-                        sendMedicalSpam(medic, ppAppliesFirstAid, COMBAT_RESULT_MEDICAL);
+        for (obj_id valid_target : valid_targets) {
+            switch (heal_type) {
+                case HEAL_TYPE_MEDICAL_FIRSTAID:
+                    removal_skill = getEnhancedSkillStatisticModifier(medic, "healing_injury_treatment") * 3.0f;
+                    dot_type = dot.DOT_BLEEDING;
+                    if (dot.isBleeding(valid_target)) {
+                        if (medic != valid_target) {
+                            prose_package ppApplyFirstAid = prose.getPackage(SID_YOU_APPLY_FIRST_AID);
+                            prose.setTT(ppApplyFirstAid, valid_target);
+                            sendMedicalSpam(medic, ppApplyFirstAid, COMBAT_RESULT_MEDICAL);
+                            prose_package ppAppliesFirstAid = prose.getPackage(SID_APPLIES_FIRST_AID);
+                            prose.setTT(ppAppliesFirstAid, medic);
+                            sendMedicalSpam(medic, ppAppliesFirstAid, COMBAT_RESULT_MEDICAL);
+                        } else {
+                            sendMedicalSpam(medic, SID_APPLY_FIRST_AID_SELF, COMBAT_RESULT_MEDICAL);
+                        }
                     }
-                    else 
-                    {
-                        sendMedicalSpam(medic, SID_APPLY_FIRST_AID_SELF, COMBAT_RESULT_MEDICAL);
+                    break;
+                case HEAL_TYPE_MEDICAL_CURE_POISON: {
+                    if (!isIdValid(med_obj)) {
+                        return false;
                     }
+                    int cure_power = getDotPower(med_obj);
+                    if (isAreaMedicine(med_obj)) {
+                        removal_skill = cure_power;
+                    } else {
+                        removal_skill = cure_power * (1.0f + getEnhancedSkillStatisticModifier(medic, "healing_wound_treatment") / 100.0f);
+                    }
+                    dot_type = dot.DOT_POISON;
+                    if (dot.isPoisoned(valid_target)) {
+                        if (medic != valid_target) {
+                            prose_package ppApplyPoisonAntidote = prose.getPackage(SID_APPLY_POISON_ANTIDOTE);
+                            prose.setTT(ppApplyPoisonAntidote, valid_target);
+                            sendMedicalSpam(medic, ppApplyPoisonAntidote, COMBAT_RESULT_MEDICAL);
+                            prose_package ppAppliesPoisonAntidote = prose.getPackage(SID_APPLIES_POISON_ANTIDOTE);
+                            prose.setTT(ppAppliesPoisonAntidote, medic);
+                            sendMedicalSpam(valid_target, ppAppliesPoisonAntidote, COMBAT_RESULT_MEDICAL);
+                        } else {
+                            sendMedicalSpam(medic, SID_APPLY_POISON_ANTIDOTE_SELF, COMBAT_RESULT_MEDICAL);
+                        }
+                    }
+                    break;
                 }
-            }
-            else if (heal_type.equals(HEAL_TYPE_MEDICAL_CURE_POISON))
-            {
-                if (!isIdValid(med_obj))
-                {
+                case HEAL_TYPE_MEDICAL_CURE_FIRE: {
+                    if (!isIdValid(med_obj)) {
+                        return false;
+                    }
+                    int cure_power = getDotPower(med_obj);
+                    if (isAreaMedicine(med_obj)) {
+                        removal_skill = cure_power;
+                    } else {
+                        removal_skill = cure_power * (1.0f + getEnhancedSkillStatisticModifier(medic, "healing_wound_treatment") / 100.0f);
+                    }
+                    dot_type = dot.DOT_FIRE;
+                    if (dot.isOnFire(valid_target)) {
+                        if (medic != valid_target) {
+                            prose_package ppAttemptSuppress = prose.getPackage(SID_ATTEMPT_SUPPRESS_FLAMES);
+                            prose.setTT(ppAttemptSuppress, valid_target);
+                            sendMedicalSpam(medic, ppAttemptSuppress, COMBAT_RESULT_MEDICAL);
+                            prose_package ppCoversBlanket = prose.getPackage(SID_COVERS_YOU_BLANKET);
+                            prose.setTT(ppCoversBlanket, medic);
+                            sendMedicalSpam(valid_target, ppCoversBlanket, COMBAT_RESULT_MEDICAL);
+                        } else {
+                            sendMedicalSpam(medic, SID_COVERS_BLANKET_SELF, COMBAT_RESULT_MEDICAL);
+                        }
+                    }
+                    break;
+                }
+                case HEAL_TYPE_MEDICAL_CURE_DISEASE: {
+                    if (!isIdValid(med_obj)) {
+                        return false;
+                    }
+                    int cure_power = getDotPower(med_obj);
+                    if (isAreaMedicine(med_obj)) {
+                        removal_skill = cure_power;
+                    } else {
+                        removal_skill = cure_power * (1.0f + getEnhancedSkillStatisticModifier(medic, "healing_wound_treatment") / 100.0f);
+                    }
+                    dot_type = dot.DOT_DISEASE;
+                    if (dot.isDiseased(valid_target)) {
+                        if (medic != valid_target) {
+                            prose_package ppApplyDiseaseAntidote = prose.getPackage(SID_APPLY_DISEASE_ANTIDOTE);
+                            prose.setTT(ppApplyDiseaseAntidote, valid_target);
+                            sendMedicalSpam(medic, ppApplyDiseaseAntidote, COMBAT_RESULT_MEDICAL);
+                            prose_package ppAppliesDiseaseAntidote = prose.getPackage(SID_APPLIES_DISEASE_ANTIDOTE);
+                            prose.setTT(ppAppliesDiseaseAntidote, medic);
+                            sendMedicalSpam(valid_target, ppAppliesDiseaseAntidote, COMBAT_RESULT_MEDICAL);
+                        } else {
+                            sendMedicalSpam(medic, SID_APPLY_DISEASE_ANTIDOTE_SELF, COMBAT_RESULT_MEDICAL);
+                        }
+                    }
+                    break;
+                }
+                default:
                     return false;
-                }
-                int cure_power = getDotPower(med_obj);
-                if (isAreaMedicine(med_obj))
-                {
-                    removal_skill = cure_power;
-                }
-                else 
-                {
-                    removal_skill = cure_power * (1.0f + getEnhancedSkillStatisticModifier(medic, "healing_wound_treatment") / 100.0f);
-                }
-                dot_type = dot.DOT_POISON;
-                if (dot.isPoisoned(valid_targets[i]))
-                {
-                    if (medic != valid_targets[i])
-                    {
-                        prose_package ppApplyPoisonAntidote = prose.getPackage(SID_APPLY_POISON_ANTIDOTE);
-                        prose.setTT(ppApplyPoisonAntidote, valid_targets[i]);
-                        sendMedicalSpam(medic, ppApplyPoisonAntidote, COMBAT_RESULT_MEDICAL);
-                        prose_package ppAppliesPoisonAntidote = prose.getPackage(SID_APPLIES_POISON_ANTIDOTE);
-                        prose.setTT(ppAppliesPoisonAntidote, medic);
-                        sendMedicalSpam(valid_targets[i], ppAppliesPoisonAntidote, COMBAT_RESULT_MEDICAL);
-                    }
-                    else 
-                    {
-                        sendMedicalSpam(medic, SID_APPLY_POISON_ANTIDOTE_SELF, COMBAT_RESULT_MEDICAL);
-                    }
-                }
             }
-            else if (heal_type.equals(HEAL_TYPE_MEDICAL_CURE_FIRE))
-            {
-                if (!isIdValid(med_obj))
-                {
-                    return false;
-                }
-                int cure_power = getDotPower(med_obj);
-                if (isAreaMedicine(med_obj))
-                {
-                    removal_skill = cure_power;
-                }
-                else 
-                {
-                    removal_skill = cure_power * (1.0f + getEnhancedSkillStatisticModifier(medic, "healing_wound_treatment") / 100.0f);
-                }
-                dot_type = dot.DOT_FIRE;
-                if (dot.isOnFire(valid_targets[i]))
-                {
-                    if (medic != valid_targets[i])
-                    {
-                        prose_package ppAttemptSuppress = prose.getPackage(SID_ATTEMPT_SUPPRESS_FLAMES);
-                        prose.setTT(ppAttemptSuppress, valid_targets[i]);
-                        sendMedicalSpam(medic, ppAttemptSuppress, COMBAT_RESULT_MEDICAL);
-                        prose_package ppCoversBlanket = prose.getPackage(SID_COVERS_YOU_BLANKET);
-                        prose.setTT(ppCoversBlanket, medic);
-                        sendMedicalSpam(valid_targets[i], ppCoversBlanket, COMBAT_RESULT_MEDICAL);
-                    }
-                    else 
-                    {
-                        sendMedicalSpam(medic, SID_COVERS_BLANKET_SELF, COMBAT_RESULT_MEDICAL);
-                    }
-                }
-            }
-            else if (heal_type.equals(HEAL_TYPE_MEDICAL_CURE_DISEASE))
-            {
-                if (!isIdValid(med_obj))
-                {
-                    return false;
-                }
-                int cure_power = getDotPower(med_obj);
-                if (isAreaMedicine(med_obj))
-                {
-                    removal_skill = cure_power;
-                }
-                else 
-                {
-                    removal_skill = cure_power * (1.0f + getEnhancedSkillStatisticModifier(medic, "healing_wound_treatment") / 100.0f);
-                }
-                dot_type = dot.DOT_DISEASE;
-                if (dot.isDiseased(valid_targets[i]))
-                {
-                    if (medic != valid_targets[i])
-                    {
-                        prose_package ppApplyDiseaseAntidote = prose.getPackage(SID_APPLY_DISEASE_ANTIDOTE);
-                        prose.setTT(ppApplyDiseaseAntidote, valid_targets[i]);
-                        sendMedicalSpam(medic, ppApplyDiseaseAntidote, COMBAT_RESULT_MEDICAL);
-                        prose_package ppAppliesDiseaseAntidote = prose.getPackage(SID_APPLIES_DISEASE_ANTIDOTE);
-                        prose.setTT(ppAppliesDiseaseAntidote, medic);
-                        sendMedicalSpam(valid_targets[i], ppAppliesDiseaseAntidote, COMBAT_RESULT_MEDICAL);
-                    }
-                    else 
-                    {
-                        sendMedicalSpam(medic, SID_APPLY_DISEASE_ANTIDOTE_SELF, COMBAT_RESULT_MEDICAL);
-                    }
-                }
-            }
-            else 
-            {
-                return false;
-            }
-            int poison_reduced = dot.reduceDotTypeStrength(valid_targets[i], dot_type, (int)removal_skill);
-            if (poison_reduced != -1)
-            {
-                if (isPlayer(valid_targets[i]))
-                {
-                    if (isIdValid(med_obj) && isAreaMedicine(med_obj))
-                    {
+            int poison_reduced = dot.reduceDotTypeStrength(valid_target, dot_type, (int) removal_skill);
+            if (poison_reduced != -1) {
+                if (isPlayer(valid_target)) {
+                    if (isIdValid(med_obj) && isAreaMedicine(med_obj)) {
                         poison_reduced *= 0.3f;
                     }
-                    grantHealingExperience(poison_reduced, medic, valid_targets[i], heal_type);
+                    grantHealingExperience(poison_reduced, medic, valid_target, heal_type);
                 }
-                if (medic != valid_targets[i])
-                {
-                    pvpHelpPerformed(medic, valid_targets[i]);
+                if (medic != valid_target) {
+                    pvpHelpPerformed(medic, valid_target);
                 }
                 cure_success = true;
             }
@@ -2423,10 +2323,10 @@ public class healing extends script.base_script
             sendMedicalSpam(medic, SID_MIND_TOO_DRAINED, COMBAT_RESULT_MEDICAL);
             return false;
         }
-        float healing_range = (float)getHealingRange(med_obj);
-        float healing_range_mod = (float)getSkillStatMod(medic, "dot_efficiency");
+        float healing_range = getHealingRange(med_obj);
+        float healing_range_mod = getSkillStatMod(medic, "dot_efficiency");
         healing_range = healing_range + ((100.0f + healing_range_mod) / 15.0f);
-        float strength_mod = (float)getSkillStatMod(medic, "dot_efficiency");
+        float strength_mod = getSkillStatMod(medic, "dot_efficiency");
         if (getDistance(medic, target) > healing_range)
         {
             sendMedicalSpam(medic, consumable.SID_TARGET_OUT_OF_RANGE, COMBAT_RESULT_OUT_OF_RANGE);
@@ -2448,7 +2348,7 @@ public class healing extends script.base_script
             valid_targets[0] = target;
         }
         applyHealingCost(medic, heal_type, 1.0f);
-        float strength = (float)getDotPower(med_obj) * (1.0f + strength_mod / 100.0f);
+        float strength = getDotPower(med_obj) * (1.0f + strength_mod / 100.0f);
         int dot_potency = getDotPotency(med_obj);
         String dot_id = getDotId(med_obj);
         int attribute = getDotAttribute(med_obj);
@@ -2470,59 +2370,45 @@ public class healing extends script.base_script
         {
             return false;
         }
-        for (int i = 0; i < valid_targets.length; i++)
-        {
-            if (heal_type.equals(HEAL_TYPE_MEDICAL_APPLY_POISON))
-            {
-                prose_package pp_self = prose.getPackage(SID_APPLY_POISON_SELF, valid_targets[i]);
-                prose_package pp_other = prose.getPackage(SID_APPLY_POISON_OTHER, medic, valid_targets[i]);
+        for (obj_id valid_target : valid_targets) {
+            if (heal_type.equals(HEAL_TYPE_MEDICAL_APPLY_POISON)) {
+                prose_package pp_self = prose.getPackage(SID_APPLY_POISON_SELF, valid_target);
+                prose_package pp_other = prose.getPackage(SID_APPLY_POISON_OTHER, medic, valid_target);
                 sendMedicalSpam(medic, pp_self, COMBAT_RESULT_DEBUFF);
-                sendMedicalSpam(valid_targets[i], pp_other, COMBAT_RESULT_DEBUFF);
-            }
-            else if (heal_type.equals(HEAL_TYPE_MEDICAL_APPLY_DISEASE))
-            {
-                prose_package pp_self = prose.getPackage(SID_APPLY_DISEASE_SELF, valid_targets[i]);
-                prose_package pp_other = prose.getPackage(SID_APPLY_DISEASE_OTHER, medic, valid_targets[i]);
+                sendMedicalSpam(valid_target, pp_other, COMBAT_RESULT_DEBUFF);
+            } else if (heal_type.equals(HEAL_TYPE_MEDICAL_APPLY_DISEASE)) {
+                prose_package pp_self = prose.getPackage(SID_APPLY_DISEASE_SELF, valid_target);
+                prose_package pp_other = prose.getPackage(SID_APPLY_DISEASE_OTHER, medic, valid_target);
                 sendMedicalSpam(medic, pp_self, COMBAT_RESULT_DEBUFF);
-                sendMedicalSpam(valid_targets[i], pp_other, COMBAT_RESULT_DEBUFF);
+                sendMedicalSpam(valid_target, pp_other, COMBAT_RESULT_DEBUFF);
             }
-            if (isPlayer(valid_targets[i]))
-            {
-                if (factions.pvpDoAllowedAttackCheck(medic, valid_targets[i]))
-                {
-                    pvpAttackPerformed(medic, valid_targets[i]);
+            if (isPlayer(valid_target)) {
+                if (factions.pvpDoAllowedAttackCheck(medic, valid_target)) {
+                    pvpAttackPerformed(medic, valid_target);
                 }
             }
-            if (dot.applyDotEffect(valid_targets[i], medic, dot_type, dot_id, attribute, dot_potency, (int)strength, duration))
-            {
-                if (!isPlayer(valid_targets[i]))
-                {
-                    grantHealingExperience((int)strength, medic, valid_targets[i], heal_type);
-                    if (!ai_lib.isInCombat(valid_targets[i]))
-                    {
+            if (dot.applyDotEffect(valid_target, medic, dot_type, dot_id, attribute, dot_potency, (int) strength, duration)) {
+                if (!isPlayer(valid_target)) {
+                    grantHealingExperience((int) strength, medic, valid_target, heal_type);
+                    if (!ai_lib.isInCombat(valid_target)) {
                         dictionary d = new dictionary();
                         d.put("attacker", medic);
                         messageTo(target, "handleDefenderCombatAction", d, 0.0f, true);
                     }
-                }
-                else 
-                {
+                } else {
                     obj_id[] defenders = new obj_id[1];
-                    defenders[0] = valid_targets[i];
+                    defenders[0] = valid_target;
                     int[] results = new int[1];
                     results[0] = 1;
                     callDefenderCombatAction(defenders, results, medic, getCurrentWeapon(medic));
-                    if (factions.pvpDoAllowedAttackCheck(medic, valid_targets[i]))
-                    {
-                        pvpAttackPerformed(medic, valid_targets[i]);
+                    if (factions.pvpDoAllowedAttackCheck(medic, valid_target)) {
+                        pvpAttackPerformed(medic, valid_target);
                     }
                 }
-            }
-            else 
-            {
-                prose_package pp = prose.getPackage(dot.SID_DOT_RESISTED, valid_targets[i]);
+            } else {
+                prose_package pp = prose.getPackage(dot.SID_DOT_RESISTED, valid_target);
                 sendMedicalSpam(medic, pp, COMBAT_RESULT_GENERIC);
-                sendMedicalSpam(valid_targets[i], SID_RESIST_DOT_OTHER, COMBAT_RESULT_GENERIC);
+                sendMedicalSpam(valid_target, SID_RESIST_DOT_OTHER, COMBAT_RESULT_GENERIC);
             }
         }
         return true;
@@ -2560,13 +2446,9 @@ public class healing extends script.base_script
         obj_id[] contents = utils.getFilteredPlayerContents(medic);
         if ((contents != null) && (contents.length > 0))
         {
-            for (int i = 0; i < contents.length; i++)
-            {
-                obj_id item = contents[i];
-                if (isIdValid(item))
-                {
-                    if (isRevivePack(item))
-                    {
+            for (obj_id item : contents) {
+                if (isIdValid(item)) {
+                    if (isRevivePack(item)) {
                         return item;
                     }
                 }
@@ -2653,22 +2535,17 @@ public class healing extends script.base_script
         {
             applyHealingCost(medic, HEAL_TYPE_MEDICAL_REVIVE, 1.0f);
             int[] att = new int[WILLPOWER + 1];
-            for (int i = 0; i < am.length; i++)
-            {
-                int attrib = am[i].getAttribute();
-                float attack = am[i].getAttack();
-                float decay = am[i].getDecay();
-                int val = am[i].getValue();
-                if (attack == AM_HEAL_WOUND)
-                {
+            for (attrib_mod attrib_mod : am) {
+                int attrib = attrib_mod.getAttribute();
+                float attack = attrib_mod.getAttack();
+                float decay = attrib_mod.getDecay();
+                int val = attrib_mod.getValue();
+                if (attack == AM_HEAL_WOUND) {
                     val *= 2.5;
-                }
-                else if (decay == MOD_POOL)
-                {
+                } else if (decay == MOD_POOL) {
                     val /= 4;
                 }
-                if (val > 0)
-                {
+                if (val > 0) {
                     att[attrib] += val;
                 }
             }
@@ -2687,18 +2564,18 @@ public class healing extends script.base_script
     {
         if (!isIdValid(medic))
         {
-            return -1f;
+            return -1.0f;
         }
         int mod = getSkillStatMod(medic, "healing_ability");
-        if (mod > 0f)
+        if (mod > 0.0f)
         {
-            float range = 8f + (22f * ((float)mod / 100f));
-            if (range > 0f)
+            float range = 8.0f + (22.0f * (mod / 100.0f));
+            if (range > 0.0f)
             {
                 return range;
             }
         }
-        return -1f;
+        return -1.0f;
     }
     public static boolean playRangedAnimation(obj_id medic, obj_id target, obj_id med_obj, String[] animation) throws InterruptedException
     {
@@ -2768,11 +2645,9 @@ public class healing extends script.base_script
         obj_id[] players = getAllPlayers(loc, VAR_EFFECT_DISPLAY_RADIUS);
         if (players != null)
         {
-            for (int i = 0; i < players.length; i++)
-            {
-                if (isIdValid(players[i]) && exists(players[i]) && !stealth.hasInvisibleBuff(players[i]))
-                {
-                    playClientEffectLoc(players[i], "appearance/pt_heal_2.prt", loc, 0);
+            for (obj_id player : players) {
+                if (isIdValid(player) && exists(player) && !stealth.hasInvisibleBuff(player)) {
+                    playClientEffectLoc(player, "appearance/pt_heal_2.prt", loc, 0);
                 }
             }
         }
@@ -2787,9 +2662,8 @@ public class healing extends script.base_script
         obj_id[] players = getAllPlayers(loc, VAR_EFFECT_DISPLAY_RADIUS);
         if (players != null)
         {
-            for (int i = 0; i < players.length; i++)
-            {
-                playClientEffectLoc(players[i], "clienteffect/healing_healwound.cef", loc, 0);
+            for (obj_id player : players) {
+                playClientEffectLoc(player, "clienteffect/healing_healwound.cef", loc, 0);
             }
         }
         return;
@@ -2803,9 +2677,8 @@ public class healing extends script.base_script
         obj_id[] players = getAllPlayers(loc, VAR_EFFECT_DISPLAY_RADIUS);
         if (players != null)
         {
-            for (int i = 0; i < players.length; i++)
-            {
-                playClientEffectLoc(players[i], "clienteffect/healing_healstate.cef", loc, 0);
+            for (obj_id player : players) {
+                playClientEffectLoc(player, "clienteffect/healing_healstate.cef", loc, 0);
             }
         }
         return;
@@ -2819,9 +2692,8 @@ public class healing extends script.base_script
         obj_id[] players = getAllPlayers(loc, VAR_EFFECT_DISPLAY_RADIUS);
         if (players != null)
         {
-            for (int i = 0; i < players.length; i++)
-            {
-                playClientEffectLoc(players[i], "clienteffect/healing_healenhance.cef", loc, 0);
+            for (obj_id player : players) {
+                playClientEffectLoc(player, "clienteffect/healing_healenhance.cef", loc, 0);
             }
         }
         return;
@@ -2835,9 +2707,8 @@ public class healing extends script.base_script
         obj_id[] players = getAllPlayers(loc, VAR_EFFECT_DISPLAY_RADIUS);
         if (players != null)
         {
-            for (int i = 0; i < players.length; i++)
-            {
-                playClientEffectLoc(players[i], "clienteffect/dot_apply_poison.cef", loc, 0);
+            for (obj_id player : players) {
+                playClientEffectLoc(player, "clienteffect/dot_apply_poison.cef", loc, 0);
             }
         }
         return;
@@ -2851,9 +2722,8 @@ public class healing extends script.base_script
         obj_id[] players = getAllPlayers(loc, VAR_EFFECT_DISPLAY_RADIUS);
         if (players != null)
         {
-            for (int i = 0; i < players.length; i++)
-            {
-                playClientEffectLoc(players[i], "clienteffect/dot_apply_area_poison.cef", loc, 0);
+            for (obj_id player : players) {
+                playClientEffectLoc(player, "clienteffect/dot_apply_area_poison.cef", loc, 0);
             }
         }
         return;
@@ -2867,9 +2737,8 @@ public class healing extends script.base_script
         obj_id[] players = getAllPlayers(loc, VAR_EFFECT_DISPLAY_RADIUS);
         if (players != null)
         {
-            for (int i = 0; i < players.length; i++)
-            {
-                playClientEffectLoc(players[i], "clienteffect/dot_apply_disease.cef", loc, 0);
+            for (obj_id player : players) {
+                playClientEffectLoc(player, "clienteffect/dot_apply_disease.cef", loc, 0);
             }
         }
         return;
@@ -2883,9 +2752,8 @@ public class healing extends script.base_script
         obj_id[] players = getAllPlayers(loc, VAR_EFFECT_DISPLAY_RADIUS);
         if (players != null)
         {
-            for (int i = 0; i < players.length; i++)
-            {
-                playClientEffectLoc(players[i], "clienteffect/dot_apply_area_disease.cef", loc, 0);
+            for (obj_id player : players) {
+                playClientEffectLoc(player, "clienteffect/dot_apply_area_disease.cef", loc, 0);
             }
         }
         return;
@@ -2969,9 +2837,8 @@ public class healing extends script.base_script
         if (group.inSameGroup(medic, target) && getState(target, STATE_COMBAT) == 1)
         {
             int total = 0;
-            for (int i = 0; i < delta.length; i++)
-            {
-                total += delta[i];
+            for (int i1 : delta) {
+                total += i1;
             }
             if (total > 0)
             {
@@ -3005,21 +2872,15 @@ public class healing extends script.base_script
         {
             return null;
         }
-        for (int i = 0; i < inv_contents.length; i++)
-        {
-            if (hasObjVar(inv_contents[i], consumable.VAR_CONSUMABLE_MODS))
-            {
-                if (hasObjVar(inv_contents[i], consumable.VAR_CONSUMABLE_DROID_MED))
-                {
-                    attrib_mod[] mod_array = getAttribModArrayObjVar(inv_contents[i], consumable.VAR_CONSUMABLE_MODS);
-                    if (mod_array != null)
-                    {
-                        for (int j = 0; j < mod_array.length; j++)
-                        {
-                            float attack = mod_array[j].getAttack();
-                            if (attack == AM_HEAL_WOUND)
-                            {
-                                return inv_contents[i];
+        for (obj_id inv_content : inv_contents) {
+            if (hasObjVar(inv_content, consumable.VAR_CONSUMABLE_MODS)) {
+                if (hasObjVar(inv_content, consumable.VAR_CONSUMABLE_DROID_MED)) {
+                    attrib_mod[] mod_array = getAttribModArrayObjVar(inv_content, consumable.VAR_CONSUMABLE_MODS);
+                    if (mod_array != null) {
+                        for (attrib_mod attrib_mod : mod_array) {
+                            float attack = attrib_mod.getAttack();
+                            if (attack == AM_HEAL_WOUND) {
+                                return inv_content;
                             }
                         }
                     }
@@ -3044,15 +2905,11 @@ public class healing extends script.base_script
         {
             return null;
         }
-        for (int i = 0; i < inv_contents.length; i++)
-        {
-            if (hasObjVar(inv_contents[i], consumable.VAR_CONSUMABLE_BASE))
-            {
-                if (hasObjVar(inv_contents[i], consumable.VAR_CONSUMABLE_DROID_MED))
-                {
-                    if (hasObjVar(inv_contents[i], "consumable.energy"))
-                    {
-                        return inv_contents[i];
+        for (obj_id inv_content : inv_contents) {
+            if (hasObjVar(inv_content, consumable.VAR_CONSUMABLE_BASE)) {
+                if (hasObjVar(inv_content, consumable.VAR_CONSUMABLE_DROID_MED)) {
+                    if (hasObjVar(inv_content, "consumable.energy")) {
+                        return inv_content;
                     }
                 }
             }
@@ -3178,22 +3035,15 @@ public class healing extends script.base_script
         obj_id[] creatures = getCreaturesInRange(getLocation(player), VAR_STIMPACK_DROID_RADIUS);
         if (creatures != null)
         {
-            for (int i = 0; i < creatures.length; i++)
-            {
-                if (pet_lib.isDroidPet(creatures[i]))
-                {
-                    if (hasObjVar(creatures[i], "module_data.stimpack_capacity"))
-                    {
-                        if (getIntObjVar(creatures[i], "module_data.stimpack_supply") > 0)
-                        {
-                            if (!utils.hasScriptVar(creatures[i], "module_data.stimpack_recharging"))
-                            {
-                                obj_id master = getMaster(creatures[i]);
-                                if (isIdValid(master))
-                                {
-                                    if ((master == player) || group.inSameGroup(master, player))
-                                    {
-                                        return creatures[i];
+            for (obj_id creature : creatures) {
+                if (pet_lib.isDroidPet(creature)) {
+                    if (hasObjVar(creature, "module_data.stimpack_capacity")) {
+                        if (getIntObjVar(creature, "module_data.stimpack_supply") > 0) {
+                            if (!utils.hasScriptVar(creature, "module_data.stimpack_recharging")) {
+                                obj_id master = getMaster(creature);
+                                if (isIdValid(master)) {
+                                    if ((master == player) || group.inSameGroup(master, player)) {
+                                        return creature;
                                     }
                                 }
                             }
@@ -3287,15 +3137,12 @@ public class healing extends script.base_script
         {
             return false;
         }
-        for (int i = 0; i < mod_array.length; i++)
-        {
-            int attribute = mod_array[i].getAttribute();
-            float decay = mod_array[i].getDecay();
-            if ((attribute != HEALTH) && (attribute != ACTION) && (attribute != MIND))
-            {
+        for (attrib_mod attrib_mod : mod_array) {
+            int attribute = attrib_mod.getAttribute();
+            float decay = attrib_mod.getDecay();
+            if ((attribute != HEALTH) && (attribute != ACTION) && (attribute != MIND)) {
             }
-            if (decay != MOD_POOL)
-            {
+            if (decay != MOD_POOL) {
                 return false;
             }
         }
@@ -3339,11 +3186,9 @@ public class healing extends script.base_script
         {
             return false;
         }
-        for (int i = 0; i < mod_array.length; i++)
-        {
-            float duration = mod_array[i].getDuration();
-            if (duration < 1.0f)
-            {
+        for (attrib_mod attrib_mod : mod_array) {
+            float duration = attrib_mod.getDuration();
+            if (duration < 1.0f) {
                 return false;
             }
         }
@@ -3662,46 +3507,43 @@ public class healing extends script.base_script
         boolean medical_type = false;
         boolean entertainer_type = false;
         float random_factor = rand(50, 150);
-        if (type.equals(HEAL_TYPE_MEDICAL_DAMAGE) || type.equals(HEAL_TYPE_MEDICAL_QUICK_HEAL) || type.equals(HEAL_TYPE_MEDICAL_TEND_DAMAGE))
-        {
-            medical_type = true;
-            healing_skill = (float)getEnhancedSkillStatisticModifier(player, "healing_efficiency");
-        }
-        else if (type.equals(HEAL_TYPE_MEDICAL_WOUND) || type.equals(HEAL_TYPE_MEDICAL_TEND_WOUND))
-        {
-            medical_type = true;
-            healing_skill = (float)getEnhancedSkillStatisticModifier(player, "healing_efficiency");
-        }
-        else if (type.equals(HEAL_TYPE_MEDICAL_HEAL_MIND))
-        {
-            medical_type = true;
-            healing_skill = (float)getEnhancedSkillStatisticModifier(player, "dot_efficiency");
-        }
-        else if (type.equals(HEAL_TYPE_MEDICAL_BUFF))
-        {
-            medical_type = true;
-            healing_skill = (float)getEnhancedSkillStatisticModifier(player, "healing_efficiency");
-            random_factor = 100;
-        }
-        else if (type.equals(HEAL_TYPE_DANCE_WOUND))
-        {
-            entertainer_type = true;
-            healing_skill = (float)getEnhancedSkillStatisticModifier(player, "healing_dance_wound");
-        }
-        else if (type.equals(HEAL_TYPE_DANCE_SHOCK))
-        {
-            entertainer_type = true;
-            healing_skill = (float)getEnhancedSkillStatisticModifier(player, "healing_dance_shock");
-        }
-        else if (type.equals(HEAL_TYPE_MUSIC_WOUND))
-        {
-            entertainer_type = true;
-            healing_skill = (float)getEnhancedSkillStatisticModifier(player, "healing_music_wound");
-        }
-        else if (type.equals(HEAL_TYPE_MUSIC_SHOCK))
-        {
-            entertainer_type = true;
-            healing_skill = (float)getEnhancedSkillStatisticModifier(player, "healing_music_shock");
+        switch (type) {
+            case HEAL_TYPE_MEDICAL_DAMAGE:
+            case HEAL_TYPE_MEDICAL_QUICK_HEAL:
+            case HEAL_TYPE_MEDICAL_TEND_DAMAGE:
+                medical_type = true;
+                healing_skill = getEnhancedSkillStatisticModifier(player, "healing_efficiency");
+                break;
+            case HEAL_TYPE_MEDICAL_WOUND:
+            case HEAL_TYPE_MEDICAL_TEND_WOUND:
+                medical_type = true;
+                healing_skill = getEnhancedSkillStatisticModifier(player, "healing_efficiency");
+                break;
+            case HEAL_TYPE_MEDICAL_HEAL_MIND:
+                medical_type = true;
+                healing_skill = getEnhancedSkillStatisticModifier(player, "dot_efficiency");
+                break;
+            case HEAL_TYPE_MEDICAL_BUFF:
+                medical_type = true;
+                healing_skill = getEnhancedSkillStatisticModifier(player, "healing_efficiency");
+                random_factor = 100;
+                break;
+            case HEAL_TYPE_DANCE_WOUND:
+                entertainer_type = true;
+                healing_skill = getEnhancedSkillStatisticModifier(player, "healing_dance_wound");
+                break;
+            case HEAL_TYPE_DANCE_SHOCK:
+                entertainer_type = true;
+                healing_skill = getEnhancedSkillStatisticModifier(player, "healing_dance_shock");
+                break;
+            case HEAL_TYPE_MUSIC_WOUND:
+                entertainer_type = true;
+                healing_skill = getEnhancedSkillStatisticModifier(player, "healing_music_wound");
+                break;
+            case HEAL_TYPE_MUSIC_SHOCK:
+                entertainer_type = true;
+                healing_skill = getEnhancedSkillStatisticModifier(player, "healing_music_shock");
+                break;
         }
         float complexity = 0.0f;
         if (item != null || item != obj_id.NULL_ID)
@@ -3781,11 +3623,9 @@ public class healing extends script.base_script
         attrib_mod[] all_am = getAttribModifiers(player, attribute);
         if (all_am != null && all_am.length > 0)
         {
-            for (int i = 0; i < all_am.length; i++)
-            {
-                if ((all_am[i].getName()).equals(buff_name))
-                {
-                    return all_am[i].getValue();
+            for (attrib_mod attrib_mod : all_am) {
+                if ((attrib_mod.getName()).equals(buff_name)) {
+                    return attrib_mod.getValue();
                 }
             }
         }
@@ -3797,7 +3637,7 @@ public class healing extends script.base_script
     }
     public static float applyShockWoundModifier(float multiplier, obj_id player) throws InterruptedException
     {
-        float shock = (float)getShockWound(player);
+        float shock = getShockWound(player);
         if (shock < 1)
         {
             return multiplier;
@@ -3825,28 +3665,21 @@ public class healing extends script.base_script
     {
         Vector am_new = new Vector();
         am_new.setSize(0);
-        for (int i = 0; i < am.length; i++)
-        {
+        for (attrib_mod attrib_mod : am) {
             attrib_mod tmp;
             int mod_value;
-            if (am[i].getAttack() == AM_HEAL_WOUND)
-            {
-                mod_value = (int)(am[i].getValue() * multiplier);
-                tmp = utils.createHealWoundAttribMod(am[i].getAttribute(), mod_value);
+            if (attrib_mod.getAttack() == AM_HEAL_WOUND) {
+                mod_value = (int) (attrib_mod.getValue() * multiplier);
+                tmp = utils.createHealWoundAttribMod(attrib_mod.getAttribute(), mod_value);
                 am_new = utils.addElement(am_new, tmp);
-            }
-            else 
-            {
-                if (am[i].getDecay() == MOD_POOL)
-                {
-                    mod_value = (int)(am[i].getValue() * multiplier);
-                    tmp = utils.createHealDamageAttribMod(am[i].getAttribute(), mod_value);
+            } else {
+                if (attrib_mod.getDecay() == MOD_POOL) {
+                    mod_value = (int) (attrib_mod.getValue() * multiplier);
+                    tmp = utils.createHealDamageAttribMod(attrib_mod.getAttribute(), mod_value);
                     am_new = utils.addElement(am_new, tmp);
-                }
-                else 
-                {
-                    mod_value = (int)(am[i].getValue() * multiplier);
-                    tmp = new attrib_mod(am[i].getAttribute(), mod_value, am[i].getDuration(), VAR_BUFF_MOD_ATTACK, VAR_BUFF_MOD_DECAY);
+                } else {
+                    mod_value = (int) (attrib_mod.getValue() * multiplier);
+                    tmp = new attrib_mod(attrib_mod.getAttribute(), mod_value, attrib_mod.getDuration(), VAR_BUFF_MOD_ATTACK, VAR_BUFF_MOD_DECAY);
                     am_new = utils.addElement(am_new, tmp);
                 }
             }
@@ -3994,69 +3827,54 @@ public class healing extends script.base_script
         }
         int mind = getAttrib(player, MIND);
         int cost = 0;
-        if (heal_type.equals(HEAL_TYPE_MEDICAL_DAMAGE))
-        {
-            cost = VAR_HEALDAMAGE_COST;
-        }
-        else if (heal_type.equals(HEAL_TYPE_MEDICAL_WOUND))
-        {
-            cost = VAR_HEALWOUND_COST;
-        }
-        else if (heal_type.equals(HEAL_TYPE_MEDICAL_STATE))
-        {
-            cost = VAR_HEALSTATE_COST;
-        }
-        else if (heal_type.equals(HEAL_TYPE_MEDICAL_BUFF))
-        {
-            cost = VAR_HEALENHANCE_COST;
-        }
-        else if (heal_type.equals(HEAL_TYPE_MEDICAL_REVIVE))
-        {
-            cost = COST_MIND_REVIVE;
-        }
-        else if (heal_type.equals(HEAL_TYPE_MEDICAL_FIRSTAID))
-        {
-            cost = VAR_FIRSTAID_COST;
-        }
-        else if (heal_type.equals(HEAL_TYPE_MEDICAL_CURE_POISON))
-        {
-            cost = VAR_CURE_POISON_COST;
-        }
-        else if (heal_type.equals(HEAL_TYPE_MEDICAL_CURE_FIRE))
-        {
-            cost = VAR_CURE_FIRE_COST;
-        }
-        else if (heal_type.equals(HEAL_TYPE_MEDICAL_CURE_DISEASE))
-        {
-            cost = VAR_CURE_DISEASE_COST;
-        }
-        else if (heal_type.equals(HEAL_TYPE_MEDICAL_APPLY_POISON))
-        {
-            cost = VAR_APPLY_POISON_COST;
-        }
-        else if (heal_type.equals(HEAL_TYPE_MEDICAL_APPLY_DISEASE))
-        {
-            cost = VAR_APPLY_DISEASE_COST;
-        }
-        else if (heal_type.equals(HEAL_TYPE_MEDICAL_QUICK_HEAL))
-        {
-            cost = VAR_QUICK_HEAL_COST;
-        }
-        else if (heal_type.equals(HEAL_TYPE_MEDICAL_TEND_WOUND))
-        {
-            cost = VAR_TEND_WOUND_COST;
-        }
-        else if (heal_type.equals(HEAL_TYPE_MEDICAL_TEND_DAMAGE))
-        {
-            cost = VAR_TEND_DAMAGE_COST;
-        }
-        else if (heal_type.equals(HEAL_TYPE_MEDICAL_HEAL_MIND))
-        {
-            cost = VAR_HEAL_MIND_COST;
-        }
-        else 
-        {
-            return false;
+        switch (heal_type) {
+            case HEAL_TYPE_MEDICAL_DAMAGE:
+                cost = VAR_HEALDAMAGE_COST;
+                break;
+            case HEAL_TYPE_MEDICAL_WOUND:
+                cost = VAR_HEALWOUND_COST;
+                break;
+            case HEAL_TYPE_MEDICAL_STATE:
+                cost = VAR_HEALSTATE_COST;
+                break;
+            case HEAL_TYPE_MEDICAL_BUFF:
+                cost = VAR_HEALENHANCE_COST;
+                break;
+            case HEAL_TYPE_MEDICAL_REVIVE:
+                cost = COST_MIND_REVIVE;
+                break;
+            case HEAL_TYPE_MEDICAL_FIRSTAID:
+                cost = VAR_FIRSTAID_COST;
+                break;
+            case HEAL_TYPE_MEDICAL_CURE_POISON:
+                cost = VAR_CURE_POISON_COST;
+                break;
+            case HEAL_TYPE_MEDICAL_CURE_FIRE:
+                cost = VAR_CURE_FIRE_COST;
+                break;
+            case HEAL_TYPE_MEDICAL_CURE_DISEASE:
+                cost = VAR_CURE_DISEASE_COST;
+                break;
+            case HEAL_TYPE_MEDICAL_APPLY_POISON:
+                cost = VAR_APPLY_POISON_COST;
+                break;
+            case HEAL_TYPE_MEDICAL_APPLY_DISEASE:
+                cost = VAR_APPLY_DISEASE_COST;
+                break;
+            case HEAL_TYPE_MEDICAL_QUICK_HEAL:
+                cost = VAR_QUICK_HEAL_COST;
+                break;
+            case HEAL_TYPE_MEDICAL_TEND_WOUND:
+                cost = VAR_TEND_WOUND_COST;
+                break;
+            case HEAL_TYPE_MEDICAL_TEND_DAMAGE:
+                cost = VAR_TEND_DAMAGE_COST;
+                break;
+            case HEAL_TYPE_MEDICAL_HEAL_MIND:
+                cost = VAR_HEAL_MIND_COST;
+                break;
+            default:
+                return false;
         }
         cost = (int)(cost * modifier);
         if (mind < cost)
@@ -4072,7 +3890,7 @@ public class healing extends script.base_script
     {
         if (!isIdValid(player))
         {
-            return -1f;
+            return -1.0f;
         }
         float newroundtime = 0.0f;
         if (!hasObjVar(player, VAR_HEALING_CAN_HEALDAMAGE))
@@ -4275,12 +4093,10 @@ public class healing extends script.base_script
                             attrib_mod[] mod_array = getAttribModArrayObjVar(inv_contents[i], prefix + consumable.VAR_CONSUMABLE_MODS);
                             if (mod_array != null)
                             {
-                                for (int j = 0; j < mod_array.length; j++)
-                                {
-                                    int attribute = mod_array[j].getAttribute();
-                                    float attack = mod_array[j].getAttack();
-                                    if ((attribute == wound_type) && (attack == AM_HEAL_WOUND))
-                                    {
+                                for (attrib_mod attrib_mod : mod_array) {
+                                    int attribute = attrib_mod.getAttribute();
+                                    float attack = attrib_mod.getAttack();
+                                    if ((attribute == wound_type) && (attack == AM_HEAL_WOUND)) {
                                         med_obj = inv_contents[i];
                                     }
                                 }
@@ -4409,11 +4225,9 @@ public class healing extends script.base_script
                         attrib_mod[] mod_array = getAttribModArrayObjVar(inv_contents[i], prefix + consumable.VAR_CONSUMABLE_MODS);
                         if (mod_array != null)
                         {
-                            for (int j = 0; j < mod_array.length; j++)
-                            {
-                                int attribute = mod_array[j].getAttribute();
-                                if (attribute == buff_type)
-                                {
+                            for (attrib_mod attrib_mod : mod_array) {
+                                int attribute = attrib_mod.getAttribute();
+                                if (attribute == buff_type) {
                                     med_obj = inv_contents[i];
                                 }
                             }
@@ -4731,20 +4545,14 @@ public class healing extends script.base_script
         obj_id[] objects = getCreaturesInRange(loc, radius);
         Vector healable_targets = new Vector();
         healable_targets.setSize(0);
-        for (int i = 0; i < objects.length; i++)
-        {
-            if (!isPlayer(objects[i]))
-            {
-                if (pet_lib.isCreaturePet(objects[i]))
-                {
-                    healable_targets = utils.addElement(healable_targets, objects[i]);
+        for (obj_id object : objects) {
+            if (!isPlayer(object)) {
+                if (pet_lib.isCreaturePet(object)) {
+                    healable_targets = utils.addElement(healable_targets, object);
                 }
-            }
-            else 
-            {
-                if (factions.pvpDoAllowedHelpCheck(medic, objects[i]))
-                {
-                    healable_targets = utils.addElement(healable_targets, objects[i]);
+            } else {
+                if (factions.pvpDoAllowedHelpCheck(medic, object)) {
+                    healable_targets = utils.addElement(healable_targets, object);
                 }
             }
         }
@@ -4772,17 +4580,12 @@ public class healing extends script.base_script
         obj_id[] objects = getCreaturesInRange(loc, radius);
         Vector attackable_targets = new Vector();
         attackable_targets.setSize(0);
-        for (int i = 0; i < objects.length; i++)
-        {
-            if (isMob(objects[i]))
-            {
-                if (factions.pvpDoAllowedAttackCheck(medic, objects[i]))
-                {
-                    if (!isIncapacitated(objects[i]) && !isDead(objects[i]))
-                    {
-                        if (!pet_lib.isVehiclePet(objects[i]) && !ai_lib.isAndroid(objects[i]) && ai_lib.aiGetNiche(objects[i]) != NICHE_DROID && ai_lib.aiGetNiche(objects[i]) != NICHE_VEHICLE && !vehicle.isDriveableVehicle(objects[i]))
-                        {
-                            attackable_targets = utils.addElement(attackable_targets, objects[i]);
+        for (obj_id object : objects) {
+            if (isMob(object)) {
+                if (factions.pvpDoAllowedAttackCheck(medic, object)) {
+                    if (!isIncapacitated(object) && !isDead(object)) {
+                        if (!pet_lib.isVehiclePet(object) && !ai_lib.isAndroid(object) && ai_lib.aiGetNiche(object) != NICHE_DROID && ai_lib.aiGetNiche(object) != NICHE_VEHICLE && !vehicle.isDriveableVehicle(object)) {
+                            attackable_targets = utils.addElement(attackable_targets, object);
                         }
                     }
                 }
@@ -4815,69 +4618,54 @@ public class healing extends script.base_script
         }
         int mind = getAttrib(player, MIND);
         int cost = 0;
-        if (heal_type.equals(HEAL_TYPE_MEDICAL_DAMAGE))
-        {
-            cost = VAR_HEALDAMAGE_COST;
-        }
-        else if (heal_type.equals(HEAL_TYPE_MEDICAL_WOUND))
-        {
-            cost = VAR_HEALWOUND_COST;
-        }
-        else if (heal_type.equals(HEAL_TYPE_MEDICAL_STATE))
-        {
-            cost = VAR_HEALSTATE_COST;
-        }
-        else if (heal_type.equals(HEAL_TYPE_MEDICAL_BUFF))
-        {
-            cost = VAR_HEALENHANCE_COST;
-        }
-        else if (heal_type.equals(HEAL_TYPE_MEDICAL_REVIVE))
-        {
-            cost = COST_MIND_REVIVE;
-        }
-        else if (heal_type.equals(HEAL_TYPE_MEDICAL_FIRSTAID))
-        {
-            cost = VAR_FIRSTAID_COST;
-        }
-        else if (heal_type.equals(HEAL_TYPE_MEDICAL_CURE_POISON))
-        {
-            cost = VAR_CURE_POISON_COST;
-        }
-        else if (heal_type.equals(HEAL_TYPE_MEDICAL_CURE_FIRE))
-        {
-            cost = VAR_CURE_FIRE_COST;
-        }
-        else if (heal_type.equals(HEAL_TYPE_MEDICAL_CURE_DISEASE))
-        {
-            cost = VAR_CURE_DISEASE_COST;
-        }
-        else if (heal_type.equals(HEAL_TYPE_MEDICAL_APPLY_POISON))
-        {
-            cost = VAR_APPLY_POISON_COST;
-        }
-        else if (heal_type.equals(HEAL_TYPE_MEDICAL_APPLY_DISEASE))
-        {
-            cost = VAR_APPLY_DISEASE_COST;
-        }
-        else if (heal_type.equals(HEAL_TYPE_MEDICAL_QUICK_HEAL))
-        {
-            cost = VAR_QUICK_HEAL_COST;
-        }
-        else if (heal_type.equals(HEAL_TYPE_MEDICAL_TEND_WOUND))
-        {
-            cost = VAR_TEND_WOUND_COST;
-        }
-        else if (heal_type.equals(HEAL_TYPE_MEDICAL_TEND_DAMAGE))
-        {
-            cost = VAR_TEND_DAMAGE_COST;
-        }
-        else if (heal_type.equals(HEAL_TYPE_MEDICAL_HEAL_MIND))
-        {
-            cost = VAR_HEAL_MIND_COST;
-        }
-        else 
-        {
-            return false;
+        switch (heal_type) {
+            case HEAL_TYPE_MEDICAL_DAMAGE:
+                cost = VAR_HEALDAMAGE_COST;
+                break;
+            case HEAL_TYPE_MEDICAL_WOUND:
+                cost = VAR_HEALWOUND_COST;
+                break;
+            case HEAL_TYPE_MEDICAL_STATE:
+                cost = VAR_HEALSTATE_COST;
+                break;
+            case HEAL_TYPE_MEDICAL_BUFF:
+                cost = VAR_HEALENHANCE_COST;
+                break;
+            case HEAL_TYPE_MEDICAL_REVIVE:
+                cost = COST_MIND_REVIVE;
+                break;
+            case HEAL_TYPE_MEDICAL_FIRSTAID:
+                cost = VAR_FIRSTAID_COST;
+                break;
+            case HEAL_TYPE_MEDICAL_CURE_POISON:
+                cost = VAR_CURE_POISON_COST;
+                break;
+            case HEAL_TYPE_MEDICAL_CURE_FIRE:
+                cost = VAR_CURE_FIRE_COST;
+                break;
+            case HEAL_TYPE_MEDICAL_CURE_DISEASE:
+                cost = VAR_CURE_DISEASE_COST;
+                break;
+            case HEAL_TYPE_MEDICAL_APPLY_POISON:
+                cost = VAR_APPLY_POISON_COST;
+                break;
+            case HEAL_TYPE_MEDICAL_APPLY_DISEASE:
+                cost = VAR_APPLY_DISEASE_COST;
+                break;
+            case HEAL_TYPE_MEDICAL_QUICK_HEAL:
+                cost = VAR_QUICK_HEAL_COST;
+                break;
+            case HEAL_TYPE_MEDICAL_TEND_WOUND:
+                cost = VAR_TEND_WOUND_COST;
+                break;
+            case HEAL_TYPE_MEDICAL_TEND_DAMAGE:
+                cost = VAR_TEND_DAMAGE_COST;
+                break;
+            case HEAL_TYPE_MEDICAL_HEAL_MIND:
+                cost = VAR_HEAL_MIND_COST;
+                break;
+            default:
+                return false;
         }
         cost = (int)(cost * modifier);
         if (mind < cost)
@@ -5060,15 +4848,11 @@ public class healing extends script.base_script
         {
             return null;
         }
-        for (int i = 0; i < inv_contents.length; i++)
-        {
-            if (hasObjVar(inv_contents[i], consumable.VAR_CONSUMABLE_MODS))
-            {
-                if (hasObjVar(inv_contents[i], consumable.VAR_CONSUMABLE_PET_MED))
-                {
-                    if (healing.isHealDamageMedicine(inv_contents[i]))
-                    {
-                        return inv_contents[i];
+        for (obj_id inv_content : inv_contents) {
+            if (hasObjVar(inv_content, consumable.VAR_CONSUMABLE_MODS)) {
+                if (hasObjVar(inv_content, consumable.VAR_CONSUMABLE_PET_MED)) {
+                    if (healing.isHealDamageMedicine(inv_content)) {
+                        return inv_content;
                     }
                 }
             }
@@ -5091,15 +4875,11 @@ public class healing extends script.base_script
         {
             return null;
         }
-        for (int i = 0; i < inv_contents.length; i++)
-        {
-            if (hasObjVar(inv_contents[i], consumable.VAR_CONSUMABLE_BASE))
-            {
-                if (hasObjVar(inv_contents[i], consumable.VAR_CONSUMABLE_PET_MED))
-                {
-                    if (hasObjVar(inv_contents[i], "consumable.strength"))
-                    {
-                        return inv_contents[i];
+        for (obj_id inv_content : inv_contents) {
+            if (hasObjVar(inv_content, consumable.VAR_CONSUMABLE_BASE)) {
+                if (hasObjVar(inv_content, consumable.VAR_CONSUMABLE_PET_MED)) {
+                    if (hasObjVar(inv_content, "consumable.strength")) {
+                        return inv_content;
                     }
                 }
             }
@@ -5142,12 +4922,12 @@ public class healing extends script.base_script
             }
             return false;
         }
-        float healingCostMod = 0f;
+        float healingCostMod = 0.0f;
         if (hasObjVar(medikit, "medikit.quality"))
         {
             int medikitQuality = getIntObjVar(medikit, "medikit.quality");
             int medikitQualModScratch = (int)(((100 - medikitQuality) / 2) + 50.5);
-            float medikitQualMod = ((float)(medikitQualModScratch)) / 100.0f;
+            float medikitQualMod = (medikitQualModScratch) / 100.0f;
             healingCostMod = medikitQualMod;
         }
         else 
@@ -5216,12 +4996,12 @@ public class healing extends script.base_script
                 return false;
             }
         }
-        float healingCostMod = 0f;
+        float healingCostMod = 0.0f;
         if (hasObjVar(medikit, "medikit.quality"))
         {
             int medikitQuality = getIntObjVar(medikit, "medikit.quality");
             int medikitQualModScratch = (int)(((100 - medikitQuality) / 2) + 50.5);
-            float medikitQualMod = ((float)(medikitQualModScratch)) / 100.0f;
+            float medikitQualMod = (medikitQualModScratch) / 100.0f;
             healingCostMod = medikitQualMod;
         }
         else 
@@ -5323,7 +5103,7 @@ public class healing extends script.base_script
         {
             return false;
         }
-        if (fullPath.indexOf("medikit_tool_advanced") > -1)
+        if (fullPath.contains("medikit_tool_advanced"))
         {
             return true;
         }
@@ -5385,11 +5165,9 @@ public class healing extends script.base_script
         {
             return null;
         }
-        for (int i = 0; i < inv_contents.length; i++)
-        {
-            if (isMedikit(inv_contents[i]))
-            {
-                return inv_contents[i];
+        for (obj_id inv_content : inv_contents) {
+            if (isMedikit(inv_content)) {
+                return inv_content;
             }
         }
         return null;
@@ -5505,7 +5283,7 @@ public class healing extends script.base_script
             return toHeal;
         }
         float lastHealTime = utils.getFloatScriptVar(medic, "healing.diminishing_returns.last_heal_time");
-        if (rightNow - lastHealTime > 30f)
+        if (rightNow - lastHealTime > 30.0f)
         {
             utils.setScriptVar(medic, "healing.diminishing_returns.last_heal_time", rightNow);
             utils.setScriptVar(medic, "healing.diminishing_returns.heal_total", toHeal);
@@ -5521,22 +5299,22 @@ public class healing extends script.base_script
             buff.applyBuff(medic, "heal_diminishing_returns_1");
             return toHeal;
         }
-        float healTotalFloat = (float)healTotal;
-        float toHealFloat = (float)toHeal;
+        float healTotalFloat = healTotal;
+        float toHealFloat = toHeal;
         float originalHeal = toHeal;
         float diminishedAmount = 1.0f;
         healTotalFloat -= reductionThreshold;
-        diminishedAmount = healTotalFloat / (100f + (healTotalFloat / 45f)) / 100.0f;
+        diminishedAmount = healTotalFloat / (100.0f + (healTotalFloat / 45.0f)) / 100.0f;
         toHealFloat = toHealFloat * (1.0f - diminishedAmount);
         toHeal = (int)toHealFloat;
         utils.setScriptVar(medic, "healing.diminishing_returns.last_heal_time", rightNow);
         utils.setScriptVar(medic, "healing.diminishing_returns.heal_total", toHeal + healTotal);
         float healNerfRatio = toHealFloat / originalHeal;
-        if (healNerfRatio > .70f)
+        if (healNerfRatio > 0.70f)
         {
             buff.applyBuff(medic, "heal_diminishing_returns_2");
         }
-        else if (healNerfRatio > .35f)
+        else if (healNerfRatio > 0.35f)
         {
             buff.applyBuff(medic, "heal_diminishing_returns_3");
         }

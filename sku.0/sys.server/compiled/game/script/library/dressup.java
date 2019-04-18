@@ -179,17 +179,13 @@ public class dressup extends script.base_script
             return;
         }
         PROFILER_START("dressup.hueClothes.loop." + allVars.length);
-        for (int i = 0; i < allVars.length; i++)
-        {
-            custom_var cv = allVars[i];
-            if (cv.isPalColor())
-            {
-                ranged_int_custom_var ri = (ranged_int_custom_var)cv;
+        for (custom_var cv : allVars) {
+            if (cv.isPalColor()) {
+                ranged_int_custom_var ri = (ranged_int_custom_var) cv;
                 int min = ri.getMinRangeInclusive();
                 int max = ri.getMaxRangeInclusive();
                 int randVal = rand(min, max);
-                if (max > 128)
-                {
+                if (max > 128) {
                     max = max - 128;
                 }
                 ri.setValue(randVal);
@@ -231,7 +227,7 @@ public class dressup extends script.base_script
         }
         int intMaxDamage = creatureDict.getInt("maxDamage");
         int intMinDamage = creatureDict.getInt("minDamage");
-        float fltWeaponSpeed = (float)creatureDict.getInt("attackSpeed");
+        float fltWeaponSpeed = creatureDict.getInt("attackSpeed");
         setWeaponAttackSpeed(weapon, fltWeaponSpeed);
         setWeaponMaxDamage(weapon, intMaxDamage);
         setWeaponMinDamage(weapon, intMinDamage);
@@ -240,19 +236,19 @@ public class dressup extends script.base_script
     public static boolean isClothesWearing(obj_id npc) throws InterruptedException
     {
         String tempName = getTemplateName(npc);
-        if (tempName.indexOf("wookiee") != -1)
+        if (tempName.contains("wookiee"))
         {
             return false;
         }
-        else if (tempName.indexOf("ithorian") != -1)
+        else if (tempName.contains("ithorian"))
         {
             return false;
         }
-        else if (tempName.indexOf("chadra") != -1)
+        else if (tempName.contains("chadra"))
         {
             return false;
         }
-        else if (tempName.indexOf("gungan") != -1)
+        else if (tempName.contains("gungan"))
         {
             return false;
         }

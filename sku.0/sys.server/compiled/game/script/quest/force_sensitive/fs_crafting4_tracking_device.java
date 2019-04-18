@@ -202,10 +202,8 @@ public class fs_crafting4_tracking_device extends script.base_script
                 "fs_crafting4_quest_03",
                 "fs_crafting4_quest_04"
             };
-            for (int i = 0; i < validQuests.length; i++)
-            {
-                if (quests.isActive(validQuests[i], player))
-                {
+            for (String validQuest : validQuests) {
+                if (quests.isActive(validQuest, player)) {
                     return true;
                 }
             }

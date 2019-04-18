@@ -35,52 +35,47 @@ public class quest_npc extends script.base_script
             if (courier == self)
             {
                 obj_id playerInv = utils.getInventoryContainer(speaker);
-                if (type.equals("escort") || type.equals("arrest"))
-                {
-                    String reward = "npc_takeme_" + questNum;
-                    string_id message = new string_id(CONVO, reward);
-                    chat.chat(self, message);
-                    dictionary parms = new dictionary();
-                    parms.put("player", speaker);
-                    messageTo(self, "followPlayer", parms, 2, true);
-                    messageTo(speaker, "finishJabbaQuest", null, 2, true);
-                    return SCRIPT_OVERRIDE;
-                }
-                else if (type.equals("smuggle") || type.equals("deliver"))
-                {
-                    if (checkForItem(playerInv, speaker, questNum) == true)
-                    {
-                        String reward = "npc_smuggle_" + questNum;
+                switch (type) {
+                    case "escort":
+                    case "arrest": {
+                        String reward = "npc_takeme_" + questNum;
                         string_id message = new string_id(CONVO, reward);
                         chat.chat(self, message);
                         dictionary parms = new dictionary();
                         parms.put("player", speaker);
-                        messageTo(speaker, "finishJabbaQuest", null, 1, true);
+                        messageTo(self, "followPlayer", parms, 2, true);
+                        messageTo(speaker, "finishJabbaQuest", null, 2, true);
                         return SCRIPT_OVERRIDE;
                     }
-                    else 
-                    {
-                        string_id work = new string_id(CONVO, "gotowork");
-                        chat.chat(self, work);
-                        return SCRIPT_CONTINUE;
+                    case "smuggle":
+                    case "deliver":
+                        if (checkForItem(playerInv, speaker, questNum) == true) {
+                            String reward = "npc_smuggle_" + questNum;
+                            string_id message = new string_id(CONVO, reward);
+                            chat.chat(self, message);
+                            dictionary parms = new dictionary();
+                            parms.put("player", speaker);
+                            messageTo(speaker, "finishJabbaQuest", null, 1, true);
+                            return SCRIPT_OVERRIDE;
+                        } else {
+                            string_id work = new string_id(CONVO, "gotowork");
+                            chat.chat(self, work);
+                            return SCRIPT_CONTINUE;
+                        }
+                    case "retrieve": {
+                        String reward = "npc_smuggle_" + questNum;
+                        string_id message = new string_id(CONVO, reward);
+                        chat.chat(self, message);
+                        messageTo(speaker, "finishJabbaQuest", null, 0, true);
+                        String retrieveObject = dataTableGetString(datatable, questNum, "retrieve_object");
+                        if (retrieveObject == null) {
+                            retrieveObject = "none";
+                        }
+                        if (!retrieveObject.equals("none")) {
+                            createObject(retrieveObject, playerInv, "");
+                        }
+                        return SCRIPT_OVERRIDE;
                     }
-                }
-                else if (type.equals("retrieve"))
-                {
-                    String reward = "npc_smuggle_" + questNum;
-                    string_id message = new string_id(CONVO, reward);
-                    chat.chat(self, message);
-                    messageTo(speaker, "finishJabbaQuest", null, 0, true);
-                    String retrieveObject = dataTableGetString(datatable, questNum, "retrieve_object");
-                    if (retrieveObject == null)
-                    {
-                        retrieveObject = "none";
-                    }
-                    if (!retrieveObject.equals("none"))
-                    {
-                        createObject(retrieveObject, playerInv, "");
-                    }
-                    return SCRIPT_OVERRIDE;
                 }
                 return SCRIPT_CONTINUE;
             }
@@ -105,49 +100,40 @@ public class quest_npc extends script.base_script
         int questNum = getIntObjVar(self, "questNum");
         String questID = dataTableGetString(datatable, questNum, "temp_objvar");
         String type = dataTableGetString(datatable, questNum, "quest_type");
-        if (type.equals("destroy"))
-        {
-            messageTo(player, "finishJabbaQuest", null, 0, true);
-            return SCRIPT_CONTINUE;
-        }
-        else if (type.equals("fetch"))
-        {
-            String reward = dataTableGetString(datatable, questNum, "retrieve_object");
-            if (reward == null)
-            {
-                reward = "none";
-            }
-            if (!reward.equals("none"))
-            {
-                obj_id playerInv = utils.getInventoryContainer(player);
-                createObject(reward, playerInv, "");
-            }
-            else 
-            {
-                string_id badItem = new string_id("theme_park/messages", "no_item_message");
-                String nospawn = getString(badItem);
-                sendSystemMessage(self, nospawn, null);
-            }
-            messageTo(player, "finishJabbaQuest", null, 0, true);
-            return SCRIPT_CONTINUE;
-        }
-        else if (type.equals("escort") || type.equals("arrest"))
-        {
-            if (questID != null && !questID.equals(""))
-            {
-                int playerQuest = getIntObjVar(player, "theme_park_jabba");
-                if (questNum == playerQuest)
-                {
-                    obj_id escortee = getObjIdObjVar(player, questID + ".vip");
-                    if (escortee == self)
-                    {
-                        setObjVar(player, questID + ".failed", 1);
-                        string_id failed = new string_id("theme_park/messages", "generic_fail_message");
-                        String failure = getString(failed);
-                        sendSystemMessage(self, failure, null);
+        switch (type) {
+            case "destroy":
+                messageTo(player, "finishJabbaQuest", null, 0, true);
+                return SCRIPT_CONTINUE;
+            case "fetch":
+                String reward = dataTableGetString(datatable, questNum, "retrieve_object");
+                if (reward == null) {
+                    reward = "none";
+                }
+                if (!reward.equals("none")) {
+                    obj_id playerInv = utils.getInventoryContainer(player);
+                    createObject(reward, playerInv, "");
+                } else {
+                    string_id badItem = new string_id("theme_park/messages", "no_item_message");
+                    String nospawn = getString(badItem);
+                    sendSystemMessage(self, nospawn, null);
+                }
+                messageTo(player, "finishJabbaQuest", null, 0, true);
+                return SCRIPT_CONTINUE;
+            case "escort":
+            case "arrest":
+                if (questID != null && !questID.equals("")) {
+                    int playerQuest = getIntObjVar(player, "theme_park_jabba");
+                    if (questNum == playerQuest) {
+                        obj_id escortee = getObjIdObjVar(player, questID + ".vip");
+                        if (escortee == self) {
+                            setObjVar(player, questID + ".failed", 1);
+                            string_id failed = new string_id("theme_park/messages", "generic_fail_message");
+                            String failure = getString(failed);
+                            sendSystemMessage(self, failure, null);
+                        }
                     }
                 }
-            }
+                break;
         }
         return SCRIPT_CONTINUE;
     }
@@ -260,12 +246,10 @@ public class quest_npc extends script.base_script
         String giveMe = dataTableGetString(datatable, questNum, "deliver_object");
         boolean hadIt = false;
         obj_id[] contents = getContents(inv);
-        for (int i = 0; i < contents.length; i++)
-        {
-            String itemInInventory = getTemplateName(contents[i]);
-            if (itemInInventory.equals(giveMe))
-            {
-                destroyObject(contents[i]);
+        for (obj_id content : contents) {
+            String itemInInventory = getTemplateName(content);
+            if (itemInInventory.equals(giveMe)) {
+                destroyObject(content);
                 hadIt = true;
             }
         }

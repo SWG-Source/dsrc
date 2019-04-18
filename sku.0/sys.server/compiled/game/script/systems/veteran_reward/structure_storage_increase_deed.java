@@ -56,7 +56,7 @@ public class structure_storage_increase_deed extends script.base_script
         String template = getTemplateName(structure);
         if (!isGameObjectTypeOf(structure, GOT_ship_fighter))
         {
-            if (!(template.indexOf("player_house_") > -1) && !(template.indexOf("player_guildhall_") > -1) && !(template.indexOf("barn_no_planet_restriction.iff") > -1) && !(template.indexOf("diner_no_planet_restriction.iff") > -1) && !(template.indexOf("theater_") > -1) && !(template.indexOf("cantina_") > -1) && !(template.indexOf("hospital_") > -1) && !(template.indexOf("merchant_tent_") > -1))
+            if (!(template.contains("player_house_")) && !(template.contains("player_guildhall_")) && !(template.contains("barn_no_planet_restriction.iff")) && !(template.contains("diner_no_planet_restriction.iff")) && !(template.contains("theater_")) && !(template.contains("cantina_")) && !(template.contains("hospital_")) && !(template.contains("merchant_tent_")))
             {
                 sendSystemMessage(player, new string_id(player_structure.STF_FILE, "storage_increase_houses_only"));
                 return false;

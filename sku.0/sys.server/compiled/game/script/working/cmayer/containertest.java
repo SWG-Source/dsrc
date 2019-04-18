@@ -27,27 +27,27 @@ public class containertest extends script.base_script
     }
     public int OnHearSpeech(obj_id self, obj_id speaker, String text) throws InterruptedException
     {
-        if (text.equals("list"))
-        {
-            obj_id[] contents = getContents(self);
-            for (int i = 0; i < contents.length; ++i)
-            {
-                debugConsoleMsg(speaker, "I have " + contents[i]);
+        switch (text) {
+            case "list":
+                obj_id[] contents = getContents(self);
+                for (obj_id content : contents) {
+                    debugConsoleMsg(speaker, "I have " + content);
+                }
+                break;
+            case "yaw": {
+                float f = rand(0.0f, 270.0f);
+                debugConsoleMsg(speaker, "Rotating object " + f);
+                setYaw(self, f);
+                break;
             }
-        }
-        else if (text.equals("yaw"))
-        {
-            float f = rand(0.0f, 270.0f);
-            debugConsoleMsg(speaker, "Rotating object " + f);
-            setYaw(self, f);
-        }
-        else if (text.equals("createyaw"))
-        {
-            float f = rand(0.0f, 270.0f);
-            debugConsoleMsg(speaker, "Rotating object " + f);
-            obj_id obj = createObject("object/building/player/player_house_tatooine_small_style_01.iff", getLocation(speaker));
-            persistObject(obj);
-            setYaw(obj, f);
+            case "createyaw": {
+                float f = rand(0.0f, 270.0f);
+                debugConsoleMsg(speaker, "Rotating object " + f);
+                obj_id obj = createObject("object/building/player/player_house_tatooine_small_style_01.iff", getLocation(speaker));
+                persistObject(obj);
+                setYaw(obj, f);
+                break;
+            }
         }
         return SCRIPT_CONTINUE;
     }

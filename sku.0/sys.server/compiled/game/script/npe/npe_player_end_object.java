@@ -13,25 +13,21 @@ public class npe_player_end_object extends script.base_script
     {
         createTriggerVolume("npeFalconRamp", 2.0f, true);
         obj_id[] contents = getTriggerVolumeContents(self, "npeFalconRamp");
-        for (int i = 0; i < contents.length; i++)
-        {
-            if (isIdValid(contents[i]) && isPlayer(contents[i]))
-            {
-                obj_id building = getTopMostContainer(contents[i]);
-                utils.removeScriptVar(contents[i], "npe.hangarEventStarted");
-                if (checkGod(contents[i]))
-                {
+        for (obj_id content : contents) {
+            if (isIdValid(content) && isPlayer(content)) {
+                obj_id building = getTopMostContainer(content);
+                utils.removeScriptVar(content, "npe.hangarEventStarted");
+                if (checkGod(content)) {
                     return SCRIPT_CONTINUE;
                 }
-                utils.removeScriptVar(contents[i], "npe.falconEventStarted");
-                boolean moved = npe.movePlayerFromHangarToFalcon(contents[i]);
-                if (moved)
-                {
-                    detachScript(contents[i], "npe.han_solo_experience_player");
-                    attachScript(contents[i], "npe.npe_falcon_player");
+                utils.removeScriptVar(content, "npe.falconEventStarted");
+                boolean moved = npe.movePlayerFromHangarToFalcon(content);
+                if (moved) {
+                    detachScript(content, "npe.han_solo_experience_player");
+                    attachScript(content, "npe.npe_falcon_player");
                 }
                 removeTriggerVolume("npeFalconRamp");
-                LOG("npe_falcon_ramp", "Player ID " + contents[i] + " is trying to board the falcon in hangar ID " + building + ".  Transition function returned " + moved);
+                LOG("npe_falcon_ramp", "Player ID " + content + " is trying to board the falcon in hangar ID " + building + ".  Transition function returned " + moved);
             }
         }
         return SCRIPT_CONTINUE;

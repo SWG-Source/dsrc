@@ -1,27 +1,9 @@
 package script.working.wwallace;
 
-import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
-
-import script.library.create;
-import script.library.combat;
-import script.library.sui;
-import script.library.utils;
-import script.library.money;
-import script.library.pet_lib;
-import script.library.ai_lib;
-import script.library.skill;
-import script.library.hue;
-import script.library.space_transition;
-import script.library.datatable;
-import script.library.xp;
-import script.library.space_crafting;
-import script.library.space_create;
+import script.dictionary;
+import script.library.*;
+import script.location;
+import script.obj_id;
 
 public class wwallace_test extends script.base_script
 {
@@ -57,11 +39,9 @@ public class wwallace_test extends script.base_script
         {
             sendSystemMessageTestingOnly(self, "Cleaning up encounters....");
             obj_id[] objectsInRange = getObjectsInRange(getLocation(self), 200.0f);
-            for (int i = 0; i < objectsInRange.length; i++)
-            {
-                if (hasObjVar(objectsInRange[i], "grievous_encounter.active"))
-                {
-                    obj_id powerCell = objectsInRange[i];
+            for (obj_id obj_id : objectsInRange) {
+                if (hasObjVar(obj_id, "grievous_encounter.active")) {
+                    obj_id powerCell = obj_id;
                     destroyObject(powerCell);
                 }
             }
@@ -125,9 +105,8 @@ public class wwallace_test extends script.base_script
             obj_id objPlayerShip = getPilotedShip(self);
             obj_id objs[] = getShipCargoHoldContentsResourceTypes(objPlayerShip);
             int amounts[] = getShipCargoHoldContentsAmounts(objPlayerShip);
-            for (int i = 0; i < objs.length; i++)
-            {
-                setShipCargoHoldContent(objPlayerShip, objs[i], 0);
+            for (obj_id obj : objs) {
+                setShipCargoHoldContent(objPlayerShip, obj, 0);
             }
         }
         if (strCommands[0].equals("cargoCheck"))
@@ -172,9 +151,8 @@ public class wwallace_test extends script.base_script
             obj_id[] objTestObjects = getObjectsInRange(self, 1000);
             if (objTestObjects != null)
             {
-                for (int intI = 0; intI < objTestObjects.length; intI++)
-                {
-                    destroyObject(objTestObjects[intI]);
+                for (obj_id objTestObject : objTestObjects) {
+                    destroyObject(objTestObject);
                 }
             }
             return SCRIPT_CONTINUE;
@@ -210,7 +188,7 @@ public class wwallace_test extends script.base_script
         if (strCommands[0].equals("makeTutorial"))
         {
             location locTest = getLocation(self);
-            locTest.z = locTest.z + 250f;
+            locTest.z = locTest.z + 250.0f;
             obj_id[] objTestObjects = getAllObjectsWithTemplate(getLocation(self), 320000, "object/building/general/npe_hangar_1.iff");
             obj_id objStation = null;
             if ((objTestObjects == null) || (objTestObjects.length == 0))
@@ -230,7 +208,7 @@ public class wwallace_test extends script.base_script
             }
             obj_id objCell = objCells[0];
             location locDestination = getGoodLocation(objStation, "hanger");
-            locDestination.x = -.5f;
+            locDestination.x = -0.5f;
             locDestination.y = -3;
             locDestination.z = -72.2f;
             setLocation(self, locDestination);
@@ -414,9 +392,9 @@ public class wwallace_test extends script.base_script
         {
             debugSpeakMsg(self, "Unsticking self.");
             location x = getLocation(self);
-            x.x += -1;
-            x.y += -1;
-            x.z += -1;
+            x.x -= 1;
+            x.y -= 1;
+            x.z -= 1;
             setLocation(self, x);
         }
         if (strCommands[0].equals("getShipId"))
@@ -463,23 +441,19 @@ public class wwallace_test extends script.base_script
                 debugSpeakMsg(self, "Now doing " + strTables[intM]);
                 String strFileName = "datatables/ship/components/" + strTables[intM] + ".iff";
                 String[] strTemplates = dataTableGetStringColumn(strFileName, "strType");
-                for (int intI = 0; intI < strTemplates.length; intI++)
-                {
+                for (String strTemplate : strTemplates) {
                     dictionary dctRow = new dictionary(2);
                     String created = "";
                     obj_id objTest = null;
-                    try
-                    {
-                        objTest = createObject(strTemplates[intI], getLocation(self));
+                    try {
+                        objTest = createObject(strTemplate, getLocation(self));
                         created = "yes";
-                    }
-                    catch(Throwable err)
-                    {
+                    } catch (Throwable err) {
                         LOG("space_error", "OBJECT " + strTemplates[intM] + " in " + strFileName + " does not create!!!");
                         created = "no";
                     }
                     destroyObject(objTest);
-                    dctRow.put("objectTemplate", strTemplates[intI]);
+                    dctRow.put("objectTemplate", strTemplate);
                     dctRow.put("didItCreate", created);
                     datatable.serverDataTableAddRow(strDataTable, dctRow);
                 }

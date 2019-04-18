@@ -3,6 +3,8 @@ package script.space.special_loot;
 import script.*;
 import script.library.*;
 
+import java.util.StringTokenizer;
+
 public class encoded_document extends script.base_script
 {
     public encoded_document()
@@ -57,16 +59,13 @@ public class encoded_document extends script.base_script
         obj_id[] data = getWaypointsInDatapad(player);
         if (data != null)
         {
-            for (int i = 0; i < data.length; i++)
-            {
-                if (data[i] == null)
-                {
+            for (obj_id datum : data) {
+                if (datum == null) {
                     continue;
                 }
-                location waypointLoc = getWaypointLocation(data[i]);
-                if ((waypointLoc != null) && (waypointLoc.equals(eventLoc)))
-                {
-                    return data[i];
+                location waypointLoc = getWaypointLocation(datum);
+                if ((waypointLoc != null) && (waypointLoc.equals(eventLoc))) {
+                    return datum;
                 }
             }
         }
@@ -273,16 +272,14 @@ public class encoded_document extends script.base_script
         transform[] translist = new transform[navPoints.length];
         for (int j = 0; j < navPoints.length; j++)
         {
-            for (int i = 0; i < points.length; i++)
-            {
-                String pointName = getStringObjVar(points[i], "nav_name");
+            for (obj_id point : points) {
+                String pointName = getStringObjVar(point, "nav_name");
                 String nName = navPoints[j];
-                java.util.StringTokenizer st = new java.util.StringTokenizer(nName, ":");
+                StringTokenizer st = new StringTokenizer(nName, ":");
                 String scene = st.nextToken();
                 nName = st.nextToken();
-                if ((pointName != null) && pointName.equals(nName))
-                {
-                    translist[j] = getTransform_o2w(points[i]);
+                if ((pointName != null) && pointName.equals(nName)) {
+                    translist[j] = getTransform_o2w(point);
                     break;
                 }
             }

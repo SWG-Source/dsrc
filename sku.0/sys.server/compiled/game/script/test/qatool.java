@@ -4,10 +4,7 @@ import script.combat_engine.weapon_data;
 import script.*;
 import script.library.*;
 
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.StringTokenizer;
-import java.util.Vector;
+import java.util.*;
 
 public class qatool extends script.base_script
 {
@@ -91,7 +88,7 @@ public class qatool extends script.base_script
     public static final String CHU_GON_DAR_PROMPT = "This tool allows you to quickly obtain items needed to create the items listed below.\n**If you do not have a Cube, one will be created for you.**\n\nSelect an item to create.";
     public static final String DNA_PROMPT = "Pet Options\nChoose a category to continue.";
     public static final String DNA_TITLE = "QA DNA Tool";
-    public static final float MINIMUM_FINDER_RADIUS_FLOAT = 10000000f;
+    public static final float MINIMUM_FINDER_RADIUS_FLOAT = 10000000.0f;
     public static final string_id NEW_CITY_STRUCTURE_SUBJECT = new string_id("city/city", "new_city_structure_subject");
     public static final string_id NEW_CITY_STRUCTURE_BODY = new string_id("city/city", "new_city_structure_body");
     public static final String[] QATOOLPROMPT = 
@@ -1033,9 +1030,8 @@ public class qatool extends script.base_script
                 String listcontents = "";
                 if (contents.length > 0)
                 {
-                    for (int i = 0; i < contents.length; i++)
-                    {
-                        listcontents += "(" + contents[i] + ")" + getTemplateName(contents[i]) + "\r";
+                    for (obj_id content : contents) {
+                        listcontents += "(" + content + ")" + getTemplateName(content) + "\r";
                     }
                 }
                 if (!listcontents.equals(""))
@@ -1068,9 +1064,8 @@ public class qatool extends script.base_script
         }
         else if ((toLower(command)).equals("terminal"))
         {
-            for (int i = 0; i < TERMINAL_LIST.length; i++)
-            {
-                obj_id terminalId = qa.templateObjectSpawner(self, TERMINAL_LIST[i], true);
+            for (String s : TERMINAL_LIST) {
+                obj_id terminalId = qa.templateObjectSpawner(self, s, true);
             }
             sendSystemMessageTestingOnly(self, "Terminals Spawned.");
             return SCRIPT_OVERRIDE;
@@ -1130,9 +1125,8 @@ public class qatool extends script.base_script
         }
         else if ((toLower(command)).equals("entertaineritems"))
         {
-            for (int i = 0; i < ENTERTAINER_ITEMS.length; i++)
-            {
-                qa.templateObjectSpawner(self, ENTERTAINER_ITEMS[i]);
+            for (String entertainerItem : ENTERTAINER_ITEMS) {
+                qa.templateObjectSpawner(self, entertainerItem);
             }
             return SCRIPT_CONTINUE;
         }
@@ -1163,13 +1157,10 @@ public class qatool extends script.base_script
                 else
                 {
                     boolean foundBuff = false;
-                    for (int i = 0; i < allBuffs.length; i++)
-                    {
-                        if (allBuffs[i].equals(buffArg))
-                        {
+                    for (String allBuff : allBuffs) {
+                        if (allBuff.equals(buffArg)) {
                             String buffName = qa.getClientBuffName(self, buffArg);
-                            if (!buffName.equals("null"))
-                            {
+                            if (!buffName.equals("null")) {
                                 qa.applyBuffOption(self, buffArg, buffName);
                                 foundBuff = true;
                             }
@@ -1252,9 +1243,8 @@ public class qatool extends script.base_script
                 int intNumber = utils.stringToInt(stringNumber);
                 if (intNumber > 0 && intNumber < 11)
                 {
-                    for (int i = 0; i < CONTRABAND_STRINGS.length; i++)
-                    {
-                        mulipleStaticSpawn(self, CONTRABAND_STRINGS[i], stringNumber, true);
+                    for (String contrabandString : CONTRABAND_STRINGS) {
+                        mulipleStaticSpawn(self, contrabandString, stringNumber, true);
                     }
                 }
                 else
@@ -1477,11 +1467,9 @@ public class qatool extends script.base_script
             String[] badgePages = getAllCollectionPagesInBook("badge_book");
             if ((badgePages != null) && (badgePages.length > 0))
             {
-                for (int i = 0; i < badgePages.length; ++i)
-                {
-                    if (!badgePages[i].equals("bdg_accumulation"))
-                    {
-                        vectorMenuArray.addElement(badgePages[i]);
+                for (String badgePage : badgePages) {
+                    if (!badgePage.equals("bdg_accumulation")) {
+                        vectorMenuArray.addElement(badgePage);
                     }
                 }
             }
@@ -1518,11 +1506,9 @@ public class qatool extends script.base_script
             obj_id inventory = utils.getInventoryContainer(self);
             obj_id[] invAndEquip = getInventoryAndEquipment(self);
             boolean hasBag = false;
-            for (int i = 0; i < invAndEquip.length; i++)
-            {
-                String templateName = getTemplateName(invAndEquip[i]);
-                if (templateName.equals("object/tangible/test/qabag.iff"))
-                {
+            for (obj_id obj_id : invAndEquip) {
+                String templateName = getTemplateName(obj_id);
+                if (templateName.equals("object/tangible/test/qabag.iff")) {
                     hasBag = true;
                 }
             }
@@ -1648,15 +1634,11 @@ public class qatool extends script.base_script
                 else
                 {
                     int arrayOfLocationsSize = arrayOfLocations.length;
-                    for (int i = 0; i < arrayOfLocationsSize; i++)
-                    {
-                        if (arrayOfLocations[i].equals(""))
-                        {
+                    for (String arrayOfLocation : arrayOfLocations) {
+                        if (arrayOfLocation.equals("")) {
                             planetHash.add("no_location_listed");
-                        }
-                        else
-                        {
-                            planetHash.add(toLower(arrayOfLocations[i]));
+                        } else {
+                            planetHash.add(toLower(arrayOfLocation));
                         }
                     }
                 }
@@ -1678,11 +1660,9 @@ public class qatool extends script.base_script
                     HashSet foundCreatures = new HashSet();
                     String[] arrayOfAllCreatures = dataTableGetStringColumn(CREATURE_TABLE, "creatureName");
                     int creatureArraySize = arrayOfAllCreatures.length;
-                    for (int i = 0; i < creatureArraySize; i++)
-                    {
-                        if (arrayOfAllCreatures[i].indexOf(argumentString) > -1)
-                        {
-                            foundCreatures.add(arrayOfAllCreatures[i]);
+                    for (String arrayOfAllCreature : arrayOfAllCreatures) {
+                        if (arrayOfAllCreature.contains(argumentString)) {
+                            foundCreatures.add(arrayOfAllCreature);
                         }
                     }
                     if (foundCreatures.size() > 0)
@@ -1719,11 +1699,9 @@ public class qatool extends script.base_script
                     HashSet foundCreatures = new HashSet();
                     String[] arrayOfAllCreatures = dataTableGetStringColumn(SPACE_MOBILE_TABLE, "strIndex");
                     int creatureArraySize = arrayOfAllCreatures.length;
-                    for (int i = 0; i < creatureArraySize; i++)
-                    {
-                        if (arrayOfAllCreatures[i].indexOf(argumentString) > -1)
-                        {
-                            foundCreatures.add(arrayOfAllCreatures[i]);
+                    for (String arrayOfAllCreature : arrayOfAllCreatures) {
+                        if (arrayOfAllCreature.contains(argumentString)) {
+                            foundCreatures.add(arrayOfAllCreature);
                         }
                     }
                     if (foundCreatures.size() > 0)
@@ -1914,7 +1892,7 @@ public class qatool extends script.base_script
                 return SCRIPT_CONTINUE;
             }
             transform gloc = getTransform_o2w(space_transition.getContainingShip(self));
-            float dist = 200.f;
+            float dist = 200.0f;
             vector n = ((gloc.getLocalFrameK_p()).normalize()).multiply(dist);
             gloc = gloc.move_p(n);
             String targetShipType = "blacksun_bomber_s03_tier5";
@@ -1943,9 +1921,8 @@ public class qatool extends script.base_script
         {
             String allHelpData = "";
             Arrays.sort(QATOOLPROMPT);
-            for (int i = 0; i < QATOOLPROMPT.length; i++)
-            {
-                allHelpData = allHelpData + QATOOLPROMPT[i] + "\r\n\t";
+            for (String s : QATOOLPROMPT) {
+                allHelpData = allHelpData + s + "\r\n\t";
             }
             saveTextOnClient(self, "commandUsage.txt", allHelpData);
             sui.msgbox(self, self, allHelpData, sui.OK_ONLY, QATOOL_TITLE, "noHandler");
@@ -1984,61 +1961,51 @@ public class qatool extends script.base_script
                     {
                         if (previousSelection.equals(OLD_ITEM_MENU[0]))
                         {
-                            for (int i = 0; i < OLD_FS_VILLAGE_ITEMS.length; i++)
-                            {
-                                if (!OLD_FS_VILLAGE_ITEMS[i].equals("object/tangible/item/quest/force_sensitive/fs_buff_item.iff"))
-                                {
-                                    qa.templateObjectSpawner(self, OLD_FS_VILLAGE_ITEMS[i]);
-                                }
-                                else 
-                                {
+                            for (String oldFsVillageItem : OLD_FS_VILLAGE_ITEMS) {
+                                if (!oldFsVillageItem.equals("object/tangible/item/quest/force_sensitive/fs_buff_item.iff")) {
+                                    qa.templateObjectSpawner(self, oldFsVillageItem);
+                                } else {
                                     obj_id inventoryContainer = utils.getInventoryContainer(self);
-                                    obj_id buffItem = createObject(OLD_FS_VILLAGE_ITEMS[i], inventoryContainer, "");
-                                    if (isValidId(buffItem))
-                                    {
+                                    obj_id buffItem = createObject(oldFsVillageItem, inventoryContainer, "");
+                                    if (isValidId(buffItem)) {
                                         setObjVar(buffItem, "item.time.reuse_time", 259200);
                                         setObjVar(buffItem, "item.buff.type", 0);
                                         setObjVar(buffItem, "item.buff.value", 2000);
                                         setObjVar(buffItem, "item.buff.duration", 7200);
                                         sendSystemMessageTestingOnly(self, "Item Issued.");
-                                        CustomerServiceLog("qaTool", "User: (" + self + ") " + getName(self) + " has spawned (" + OLD_FS_VILLAGE_ITEMS[i] + ") using a QA Tool or command.");
+                                        CustomerServiceLog("qaTool", "User: (" + self + ") " + getName(self) + " has spawned (" + oldFsVillageItem + ") using a QA Tool or command.");
                                     }
                                 }
                             }
                         }
                         if (previousSelection.equals(OLD_ITEM_MENU[1]))
                         {
-                            for (int i = 0; i < HERO_OF_TATOOINE_ITEMS.length; i++)
-                            {
-                                qa.templateObjectSpawner(self, HERO_OF_TATOOINE_ITEMS[i]);
+                            for (String heroOfTatooineItem : HERO_OF_TATOOINE_ITEMS) {
+                                qa.templateObjectSpawner(self, heroOfTatooineItem);
                             }
                         }
                         if (previousSelection.equals(OLD_ITEM_MENU[2]))
                         {
-                            for (int i = 0; i < DEATH_WATCH_BUNKER_ITEMS.length; i++)
-                            {
-                                qa.templateObjectSpawner(self, DEATH_WATCH_BUNKER_ITEMS[i]);
+                            for (String deathWatchBunkerItem : DEATH_WATCH_BUNKER_ITEMS) {
+                                qa.templateObjectSpawner(self, deathWatchBunkerItem);
                             }
                         }
                         if (previousSelection.equals(OLD_ITEM_MENU[3]))
                         {
-                            for (int i = 0; i < OLD_SKILL_BUFF_ITEMS.length; i++)
-                            {
-                                qa.templateObjectSpawner(self, OLD_SKILL_BUFF_ITEMS[i]);
+                            for (String oldSkillBuffItem : OLD_SKILL_BUFF_ITEMS) {
+                                qa.templateObjectSpawner(self, oldSkillBuffItem);
                             }
                         }
                         if (previousSelection.equals(OLD_ITEM_MENU[4]))
                         {
-                            for (int i = 0; i < CRAFTING_COMPONENTS.length; i++)
-                            {
-                                qa.templateObjectSpawner(self, CRAFTING_COMPONENTS[i]);
+                            for (String craftingComponent : CRAFTING_COMPONENTS) {
+                                qa.templateObjectSpawner(self, craftingComponent);
                             }
                         }
                         if (previousSelection.equals(OLD_ITEM_MENU[5]))
                         {
-                            for (int i = 0; i < VARACTYL_TREASURE_ITEMS.length; i++)
-                            {
-                                qa.templateObjectSpawner(self, VARACTYL_TREASURE_ITEMS[i]);
+                            for (String varactylTreasureItem : VARACTYL_TREASURE_ITEMS) {
+                                qa.templateObjectSpawner(self, varactylTreasureItem);
                             }
                         }
                         if (previousSelection.equals(OLD_ITEM_MENU[6]))
@@ -2049,9 +2016,8 @@ public class qatool extends script.base_script
                             {
                                 qa.findOrCreateAndEquipQABag(self, testerInventoryId, false);
                                 myBag = getObjectInSlot(self, "back");
-                                for (int i = 0; i < LOOT_SCHEMATICS.length; i++)
-                                {
-                                    obj_id itemId = qa.templateObjectSpawner(self, LOOT_SCHEMATICS[i], false);
+                                for (String lootSchematic : LOOT_SCHEMATICS) {
+                                    obj_id itemId = qa.templateObjectSpawner(self, lootSchematic, false);
                                     putInOverloaded(itemId, myBag);
                                 }
                             }
@@ -2097,26 +2063,23 @@ public class qatool extends script.base_script
                     }
                     else 
                     {
-                        if (previousSelection.equals("Clear"))
-                        {
-                            setWeather(self, 0);
-                        }
-                        else if (previousSelection.equals("Mild"))
-                        {
-                            setWeather(self, 1);
-                        }
-                        else if (previousSelection.equals("Heavy"))
-                        {
-                            setWeather(self, 2);
-                        }
-                        else if (previousSelection.equals("Severe"))
-                        {
-                            setWeather(self, 3);
-                        }
-                        else 
-                        {
-                            sendSystemMessageTestingOnly(self, "Selection Failed.");
-                            qa.refreshMenu(self, "Select weather type.", "Weather Tool", WEATHER_TYPES, "msgHandleWeatherSelection", true, "weather.pid", "weather.list");
+                        switch (previousSelection) {
+                            case "Clear":
+                                setWeather(self, 0);
+                                break;
+                            case "Mild":
+                                setWeather(self, 1);
+                                break;
+                            case "Heavy":
+                                setWeather(self, 2);
+                                break;
+                            case "Severe":
+                                setWeather(self, 3);
+                                break;
+                            default:
+                                sendSystemMessageTestingOnly(self, "Selection Failed.");
+                                qa.refreshMenu(self, "Select weather type.", "Weather Tool", WEATHER_TYPES, "msgHandleWeatherSelection", true, "weather.pid", "weather.list");
+                                break;
                         }
                     }
                 }
@@ -2340,11 +2303,9 @@ public class qatool extends script.base_script
                     String[] badgePages = getAllCollectionPagesInBook("badge_book");
                     if ((badgePages != null) && (badgePages.length > 0))
                     {
-                        for (int i = 0; i < badgePages.length; ++i)
-                        {
-                            if (!badgePages[i].equals("bdg_accumulation"))
-                            {
-                                vectorMenuArray.addElement(badgePages[i]);
+                        for (String badgePage : badgePages) {
+                            if (!badgePage.equals("bdg_accumulation")) {
+                                vectorMenuArray.addElement(badgePage);
                             }
                         }
                     }
@@ -2660,19 +2621,13 @@ public class qatool extends script.base_script
     {
         String strScripts = "";
         String[] scriptArray = filterCharacterScripts(player);
-        for (int i = 0; i < scriptArray.length; i++)
-        {
-            if (scriptArray[i].startsWith("test."))
-            {
-                strScripts += scriptArray[i] + "\r\n";
-            }
-            else 
-            {
-                for (int s = 0; s < SCRIPT_TOOL_COMMON_SCRIPTS.length; s++)
-                {
-                    if (scriptArray[i].equals(SCRIPT_TOOL_COMMON_SCRIPTS[s]))
-                    {
-                        strScripts += scriptArray[i] + "\r\n";
+        for (String s : scriptArray) {
+            if (s.startsWith("test.")) {
+                strScripts += s + "\r\n";
+            } else {
+                for (String scriptToolCommonScript : SCRIPT_TOOL_COMMON_SCRIPTS) {
+                    if (s.equals(scriptToolCommonScript)) {
+                        strScripts += s + "\r\n";
                     }
                 }
             }
@@ -2684,11 +2639,9 @@ public class qatool extends script.base_script
         String strScripts = "";
         String[] scriptArray = getScriptList(player);
         HashSet theSet = new HashSet();
-        for (int i = 0; i < scriptArray.length; i++)
-        {
-            String script = scriptArray[i];
-            if (script.indexOf("script.") > -1)
-            {
+        for (String s : scriptArray) {
+            String script = s;
+            if (script.contains("script.")) {
                 script = script.substring(7);
                 theSet.add(script);
             }
@@ -2711,7 +2664,7 @@ public class qatool extends script.base_script
             {
                 if (arrayOfAllItems[i] != null && !arrayOfAllItems[i].equals(""))
                 {
-                    if ((toLower(arrayOfAllItems[i])).indexOf(toLower(argumentString)) > -1)
+                    if ((toLower(arrayOfAllItems[i])).contains(toLower(argumentString)))
                     {
                         foundItemRowNumbers.add("" + i);
                         finalListOfCombinedItems.add(arrayOfAllItems[i] + "\t ( " + arrayOfAllStaticItemsInDatatable[i] + " )");
@@ -2726,7 +2679,7 @@ public class qatool extends script.base_script
             }
             else 
             {
-                if ((toLower(arrayOfAllStaticItemsInDatatable[i])).indexOf(toLower(argumentString)) > -1)
+                if ((toLower(arrayOfAllStaticItemsInDatatable[i])).contains(toLower(argumentString)))
                 {
                     foundItemRowNumbers.add("" + i);
                     finalListOfCombinedItems.add(arrayOfAllItems[i] + "\t ( " + arrayOfAllStaticItemsInDatatable[i] + " )");
@@ -2755,11 +2708,9 @@ public class qatool extends script.base_script
         {
             Vector allMobObj_IDs = new Vector();
             allMobObj_IDs.setSize(0);
-            for (int i = 0; i < allOIDs.length; i++)
-            {
-                if (isMob(allOIDs[i]) && !isPlayer(allOIDs[i]))
-                {
-                    utils.addElement(allMobObj_IDs, allOIDs[i]);
+            for (obj_id allOID : allOIDs) {
+                if (isMob(allOID) && !isPlayer(allOID)) {
+                    utils.addElement(allMobObj_IDs, allOID);
                 }
             }
             obj_id[] _allMobObj_IDs = new obj_id[0];
@@ -2780,23 +2731,20 @@ public class qatool extends script.base_script
         HashSet combinedMobArrays = new HashSet();
         if (allMobsCreditKills.length > -1)
         {
-            for (int i = 0; i < allMobsCreditKills.length; i++)
-            {
-                combinedMobArrays.add("" + allMobsCreditKills[i]);
+            for (obj_id allMobsCreditKill : allMobsCreditKills) {
+                combinedMobArrays.add("" + allMobsCreditKill);
             }
         }
         if (allMobsAi.length > -1)
         {
-            for (int i = 0; i < allMobsAi.length; i++)
-            {
-                combinedMobArrays.add("" + allMobsAi[i]);
+            for (obj_id obj_id : allMobsAi) {
+                combinedMobArrays.add("" + obj_id);
             }
         }
         if (allMobsCombat.length > -1)
         {
-            for (int i = 0; i < allMobsCombat.length; i++)
-            {
-                combinedMobArrays.add("" + allMobsCombat[i]);
+            for (obj_id obj_id : allMobsCombat) {
+                combinedMobArrays.add("" + obj_id);
             }
         }
         if (combinedMobArrays.size() > 0)
@@ -2823,34 +2771,24 @@ public class qatool extends script.base_script
             mobMenu.setSize(0);
             Vector nullMobCodes = new Vector();
             nullMobCodes.setSize(0);
-            for (int i = 0; i < allMobOIDs.length; i++)
-            {
-                String codeString = getCreatureName(allMobOIDs[i]);
+            for (obj_id allMobOID : allMobOIDs) {
+                String codeString = getCreatureName(allMobOID);
                 String localizedString = localize(new string_id("mob/creature_names", codeString));
-                if (localizedString == null)
-                {
-                    localizedString = getEncodedName(allMobOIDs[i]);
+                if (localizedString == null) {
+                    localizedString = getEncodedName(allMobOID);
                 }
-                if (searchString.equals("none"))
-                {
-                    utils.addElement(mobMenu, localizedString + "  ( " + allMobOIDs[i] + " )");
-                }
-                else if (!searchString.equals("none") && searchString.length() > 2)
-                {
+                if (searchString.equals("none")) {
+                    utils.addElement(mobMenu, localizedString + "  ( " + allMobOID + " )");
+                } else if (!searchString.equals("none") && searchString.length() > 2) {
                     String lowerCaseMobile = toLower(localizedString);
                     String lowerSearchString = toLower(searchString);
-                    if (lowerCaseMobile.indexOf(lowerSearchString) >= 0 || lowerCaseMobile.equals(lowerSearchString))
-                    {
-                        utils.addElement(mobMenu, localizedString + "  ( " + allMobOIDs[i] + " )");
+                    if (lowerCaseMobile.contains(lowerSearchString) || lowerCaseMobile.equals(lowerSearchString)) {
+                        utils.addElement(mobMenu, localizedString + "  ( " + allMobOID + " )");
                     }
-                }
-                else if (!searchString.equals("none") && searchString.length() <= 2)
-                {
+                } else if (!searchString.equals("none") && searchString.length() <= 2) {
                     sendSystemMessageTestingOnly(self, "The mobile name must be at least 3 characters long");
                     break;
-                }
-                else 
-                {
+                } else {
                     sendSystemMessageTestingOnly(self, "There was a problem with your search string.");
                     break;
                 }
@@ -2881,11 +2819,7 @@ public class qatool extends script.base_script
             String stringDir = argString.substring(1, dirEnd);
             String stringName = argString.substring(dirEnd + 2, argString.length());
             String localizedString = localize(new string_id(stringDir, stringName));
-            if (localizedString != null)
-            {
-                return localizedString;
-            }
-            return "The string ID was either incorrect or was deleted.  Review the string data you are passing to the tool and make sure it is correct.";
+            return Objects.requireNonNullElse(localizedString, "The string ID was either incorrect or was deleted.  Review the string data you are passing to the tool and make sure it is correct.");
         }
         else 
         {
@@ -3216,27 +3150,21 @@ public class qatool extends script.base_script
                         exportString += "#\t(OID)Item Template\n";
                         int u = 1;
                         String combinedString = "";
-                        for (int z = 0; z < mobileContents.length; z++)
-                        {
-                            if (mobileContents[z] != null && !mobileContents[z].equals(""))
-                            {
-                                String eachItemList[] = split(mobileContents[z], ',');
-                                if (eachItemList != null && eachItemList.length > 0)
-                                {
-                                    for (int n = 0; n < eachItemList.length; n++)
-                                    {
-                                        String contentsString = eachItemList[n].replace(',', ' ');
+                        for (String mobileContent : mobileContents) {
+                            if (mobileContent != null && !mobileContent.equals("")) {
+                                String eachItemList[] = split(mobileContent, ',');
+                                if (eachItemList != null && eachItemList.length > 0) {
+                                    for (String s : eachItemList) {
+                                        String contentsString = s.replace(',', ' ');
                                         contentsString = contentsString.trim();
-                                        if (!contentsString.equals("") && contentsString != null)
-                                        {
+                                        if (!contentsString.equals("") && contentsString != null) {
                                             combinedString += contentsString + ",";
                                             contentsString = "";
                                         }
                                     }
                                 }
                             }
-                            if (!combinedString.equals(""))
-                            {
+                            if (!combinedString.equals("")) {
                                 exportString += " " + u + "\t" + combinedString + "\n";
                                 u++;
                             }
@@ -3312,11 +3240,11 @@ public class qatool extends script.base_script
                 {
                     scriptStrArg = st.nextToken();
                     String searchType = "";
-                    if (scriptStrArg.indexOf(".") > -1 && scriptStrArg.indexOf(".iff") == -1)
+                    if (scriptStrArg.contains(".") && !scriptStrArg.contains(".iff"))
                     {
                         searchType = "script";
                     }
-                    else if (scriptStrArg.indexOf("/") > -1 && scriptStrArg.indexOf(".iff") > -1)
+                    else if (scriptStrArg.contains("/") && scriptStrArg.contains(".iff"))
                     {
                         searchType = "template";
                     }
@@ -3352,7 +3280,7 @@ public class qatool extends script.base_script
         {
             if (searchType.equals("script"))
             {
-                obj_id[] allScriptObjectsRadius = getAllObjectsWithScript(getLocation(self), 10000000f, attributeString);
+                obj_id[] allScriptObjectsRadius = getAllObjectsWithScript(getLocation(self), 10000000.0f, attributeString);
                 if (allScriptObjectsRadius.length > 0)
                 {
                     String[] scriptObjMenu = getObjMenu(self, allScriptObjectsRadius);
@@ -3368,7 +3296,7 @@ public class qatool extends script.base_script
             }
             else if (searchType.equals("template"))
             {
-                obj_id[] allTemplateObjectsRadius = getAllObjectsWithTemplate(getLocation(self), 10000000f, attributeString);
+                obj_id[] allTemplateObjectsRadius = getAllObjectsWithTemplate(getLocation(self), 10000000.0f, attributeString);
                 if (allTemplateObjectsRadius.length > -1)
                 {
                     String[] templateObjMenu = getObjMenu(self, allTemplateObjectsRadius);
@@ -3381,9 +3309,8 @@ public class qatool extends script.base_script
                     else 
                     {
                         Vector convertOidToString = new Vector();
-                        for (int i = 0; i < allTemplateObjectsRadius.length; i++)
-                        {
-                            utils.addElement(convertOidToString, "" + allTemplateObjectsRadius[i]);
+                        for (obj_id allTemplateObjectsRadius1 : allTemplateObjectsRadius) {
+                            utils.addElement(convertOidToString, "" + allTemplateObjectsRadius1);
                         }
                         if (convertOidToString.size() >= 1)
                         {
@@ -3413,12 +3340,10 @@ public class qatool extends script.base_script
         {
             Vector objMenu = new Vector();
             objMenu.setSize(0);
-            for (int i = 0; i < allObjOIDs.length; i++)
-            {
-                String encodeString = getEncodedName(allObjOIDs[i]);
-                if (encodeString.length() > 0)
-                {
-                    utils.addElement(objMenu, encodeString + "  ( " + allObjOIDs[i] + " )");
+            for (obj_id allObjOID : allObjOIDs) {
+                String encodeString = getEncodedName(allObjOID);
+                if (encodeString.length() > 0) {
+                    utils.addElement(objMenu, encodeString + "  ( " + allObjOID + " )");
                 }
             }
             if (objMenu.size() > -1)
@@ -3625,9 +3550,8 @@ public class qatool extends script.base_script
                         String[] allItemRows = new String[itemRowList.size()];
                         itemRowList.toArray(allItemRows);
                         String itemString = "";
-                        for (int j = 0; j < allItemRows.length; j++)
-                        {
-                            itemString = dataTableGetString(datatableName, utils.stringToInt(allItemRows[j]), "name");
+                        for (String allItemRow : allItemRows) {
+                            itemString = dataTableGetString(datatableName, utils.stringToInt(allItemRow), "name");
                             utils.addElement(itemSpawnStringList, itemString);
                         }
                         if (itemSpawnStringList.size() > -1)
@@ -3636,9 +3560,8 @@ public class qatool extends script.base_script
                             itemSpawnStringList.toArray(allStrings);
                             if (allStrings.length > 0)
                             {
-                                for (int z = 0; z < allStrings.length; z++)
-                                {
-                                    qa.spawnStaticItemInInventory(self, allStrings[z], "none");
+                                for (String allString : allStrings) {
+                                    qa.spawnStaticItemInInventory(self, allString, "none");
                                 }
                             }
                             return true;
@@ -3730,31 +3653,31 @@ public class qatool extends script.base_script
         {
             String professionCodeStr = "";
             professionStr = toLower(professionStr);
-            if (professionStr.indexOf("smu") > -1)
+            if (professionStr.contains("smu"))
             {
                 professionCodeStr = roadmapList[0] + "-" + PROFESSION_PREFIX[0];
             }
-            else if (professionStr.indexOf("bou") > -1 || professionStr.equals("bh"))
+            else if (professionStr.contains("bou") || professionStr.equals("bh"))
             {
                 professionCodeStr = roadmapList[1] + "-" + PROFESSION_PREFIX[1];
             }
-            else if (professionStr.indexOf("off") > -1)
+            else if (professionStr.contains("off"))
             {
                 professionCodeStr = roadmapList[2] + "-" + PROFESSION_PREFIX[2];
             }
-            else if (professionStr.indexOf("com") > -1)
+            else if (professionStr.contains("com"))
             {
                 professionCodeStr = roadmapList[3] + "-" + PROFESSION_PREFIX[3];
             }
-            else if (professionStr.indexOf("jed") > -1 || professionStr.indexOf("for") > -1)
+            else if (professionStr.contains("jed") || professionStr.contains("for"))
             {
                 professionCodeStr = roadmapList[4] + "-" + PROFESSION_PREFIX[4];
             }
-            else if (professionStr.indexOf("med") > -1)
+            else if (professionStr.contains("med"))
             {
                 professionCodeStr = roadmapList[5] + "-" + PROFESSION_PREFIX[5];
             }
-            else if (professionStr.indexOf("spy") > -1)
+            else if (professionStr.contains("spy"))
             {
                 professionCodeStr = roadmapList[6] + "-" + PROFESSION_PREFIX[6];
             }
@@ -3853,9 +3776,8 @@ public class qatool extends script.base_script
         if (allSkillModsList.length > -1)
         {
             String combinedString = "This is a current list of all valid combat profession skill mods in SWG:\n\n";
-            for (int x = 0; x < allSkillModsList.length; x++)
-            {
-                combinedString += localize(new string_id("stat_n", allSkillModsList[x])) + "\t\t\t" + allSkillModsList[x] + "\n";
+            for (String s : allSkillModsList) {
+                combinedString += localize(new string_id("stat_n", s)) + "\t\t\t" + s + "\n";
             }
             if (!combinedString.equals(""))
             {
@@ -3871,9 +3793,8 @@ public class qatool extends script.base_script
             String[] allQuests = qa.getAllQuests(self);
             if (allQuests.length > 0)
             {
-                for (int i = 0; i < allQuests.length; i++)
-                {
-                    allQuestData += allQuests[i] + "\r";
+                for (String allQuest : allQuests) {
+                    allQuestData += allQuest + "\r";
                 }
                 saveTextOnClient(self, "questData.txt", allQuestData);
             }
@@ -3959,9 +3880,8 @@ public class qatool extends script.base_script
             String mobileContentsExport = "";
             if (contents.length > 0)
             {
-                for (int i = 0; i < contents.length; i++)
-                {
-                    mobileContentsExport += "(" + contents[i] + ")" + getTemplateName(contents[i]) + ",";
+                for (obj_id content : contents) {
+                    mobileContentsExport += "(" + content + ")" + getTemplateName(content) + ",";
                 }
                 String combinedContentsString = previousMobileContents + "-" + mobileContentsExport;
                 utils.setScriptVar(self, "lootLogger.mobContents", combinedContentsString);

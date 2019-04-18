@@ -23,17 +23,17 @@ public class power_shrine extends script.base_script
     {
         int hitpoints = getHitpoints(self);
         int max_hitpoints = getMaxHitpoints(self);
-        float percent_hp = (float)hitpoints / (float)max_hitpoints;
+        float percent_hp = (float)hitpoints / max_hitpoints;
         int alert_range = 0;
-        if (percent_hp > .75)
+        if (percent_hp > 0.75)
         {
             alert_range = 15;
         }
-        else if (percent_hp > .50)
+        else if (percent_hp > 0.50)
         {
             alert_range = 20;
         }
-        else if (percent_hp > .25)
+        else if (percent_hp > 0.25)
         {
             alert_range = 25;
         }
@@ -45,9 +45,8 @@ public class power_shrine extends script.base_script
         {
             obj_id[] defenders = new obj_id[0];
             defenders = getNPCsInRange(self, alert_range);
-            for (int i = 0; i < defenders.length; i++)
-            {
-                startCombat(defenders[i], attacker);
+            for (obj_id defender : defenders) {
+                startCombat(defender, attacker);
             }
         }
         return SCRIPT_CONTINUE;
@@ -77,9 +76,8 @@ public class power_shrine extends script.base_script
                     obj_id[] red_stones = getObjIdArrayObjVar(theater_object, "fs_quest.final_battle.red_stones");
                     if (red_stones != null)
                     {
-                        for (int i = 0; i < red_stones.length; i++)
-                        {
-                            playClientEffectObj(killer, "clienteffect/combat_lightning_rifle_hit.cef", red_stones[i], "");
+                        for (obj_id red_stone : red_stones) {
+                            playClientEffectObj(killer, "clienteffect/combat_lightning_rifle_hit.cef", red_stone, "");
                         }
                     }
                 }
@@ -155,10 +153,9 @@ public class power_shrine extends script.base_script
             obj_id[] stones = getObjIdArrayObjVar(theater_object, "fs_quest.final_battle.red_stones");
             if (stones != null)
             {
-                for (int i = 0; i < stones.length; i++)
-                {
-                    setHitpoints(stones[i], getMaxHitpoints(stones[i]));
-                    playClientEffectObj(player, "clienteffect/healing_healdamage.cef", stones[i], "");
+                for (obj_id stone : stones) {
+                    setHitpoints(stone, getMaxHitpoints(stone));
+                    playClientEffectObj(player, "clienteffect/healing_healdamage.cef", stone, "");
                 }
             }
         }

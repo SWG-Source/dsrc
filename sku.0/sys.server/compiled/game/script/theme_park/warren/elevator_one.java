@@ -56,20 +56,15 @@ public class elevator_one extends script.base_script
         location elevLoc = getLocation(self);
         obj_id cell = elevLoc.cell;
         obj_id[] contents = getContents(cell);
-        for (int i = 0; i < contents.length; i++)
-        {
-            if (isPlayer(contents[i]))
-            {
-                playClientEffectObj(contents[i], "clienteffect/elevator_descend.cef", contents[i], null);
-                if (elevatorMove(contents[i], -1) == 0)
-                {
-                    sendSystemMessage(contents[i], new string_id(SYSTEM_MESSAGES, "elev_toolow"));
+        for (obj_id content : contents) {
+            if (isPlayer(content)) {
+                playClientEffectObj(content, "clienteffect/elevator_descend.cef", content, null);
+                if (elevatorMove(content, -1) == 0) {
+                    sendSystemMessage(content, new string_id(SYSTEM_MESSAGES, "elev_toolow"));
                     return;
                 }
-            }
-            else if (pet_lib.isPet(contents[i]))
-            {
-                elevatorMove(contents[i], -1);
+            } else if (pet_lib.isPet(content)) {
+                elevatorMove(content, -1);
             }
         }
     }

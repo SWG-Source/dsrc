@@ -15,7 +15,7 @@ public class terminal_travel_instant_one_use extends script.base_script
     public static final string_id SID_LEFT_ME = new string_id("travel", "left_pickup_zone");
     public static final string_id SID_NOT_YOUR_SHIP = new string_id("travel", "not_your_ship");
     public static final String TRIGGER_VOLUME_PICKUP_SHIP = "travel_instant_pickup_interest_range";
-    public static final float PICKUP_INTEREST_RADIUS = 64f;
+    public static final float PICKUP_INTEREST_RADIUS = 64.0f;
     public static final string_id SID_CALLING_FOR_PICKUP = new string_id("travel", "calling_for_pickup");
     public static final boolean CONST_FLAG_DO_LOGGING = true;
     public static final int SHIP_TYPE_INSTANT_XWING_TIE = 1;
@@ -47,7 +47,7 @@ public class terminal_travel_instant_one_use extends script.base_script
             return null;
         }
         location here = getLocation(player);
-        location spawnLoc = locations.getGoodLocationAroundLocation(here, 1f, 1f, 4f, 4f);
+        location spawnLoc = locations.getGoodLocationAroundLocation(here, 1.0f, 1.0f, 4.0f, 4.0f);
         if (spawnLoc == null)
         {
             debugLogging("//***// spawnPickupCraft", "////>>>> getGoodLocationAroundLocation (player area) returned NULL! OH NO! Telling player that the location is no good.");
@@ -61,7 +61,7 @@ public class terminal_travel_instant_one_use extends script.base_script
             if (playerFactionID == (-615855020))
             {
                 pickupCraftType = "object/tangible/terminal/terminal_travel_instant_tie.iff";
-                spawnLoc.y += 5f;
+                spawnLoc.y += 5.0f;
             }
         }
         if (type == SHIP_TYPE_INSTANT_PRIVATEER)

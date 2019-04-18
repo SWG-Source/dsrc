@@ -67,21 +67,17 @@ public class snowspeeder extends script.base_script
             messageTo(self, "findTarget", null, 1.0f, false);
             return SCRIPT_CONTINUE;
         }
-        for (int i = 0; i < allTar.length; i++)
-        {
-            if (allTar[i] == self)
-            {
+        for (obj_id obj_id : allTar) {
+            if (obj_id == self) {
                 continue;
             }
-            if (!pvpCanAttack(self, allTar[i]))
-            {
+            if (!pvpCanAttack(self, obj_id)) {
                 continue;
             }
-            if (isDead(allTar[i]))
-            {
+            if (isDead(obj_id)) {
                 continue;
             }
-            validTargets.add(allTar[i]);
+            validTargets.add(obj_id);
         }
         if (validTargets == null || validTargets.size() == 0)
         {
@@ -202,10 +198,8 @@ public class snowspeeder extends script.base_script
         {
             return;
         }
-        for (int i = 0; i < atats.length; i++)
-        {
-            if (isInvulnerable(atats[i]))
-            {
+        for (obj_id atat : atats) {
+            if (isInvulnerable(atat)) {
                 setObjVar(snowspeeder, "respawn", -1);
             }
         }

@@ -3,6 +3,8 @@ package script.conversation;
 import script.*;
 import script.library.*;
 
+import java.util.Objects;
+
 public class story_arc_chapter_three_scout extends script.base_script
 {
     public story_arc_chapter_three_scout()
@@ -313,14 +315,7 @@ public class story_arc_chapter_three_scout extends script.base_script
         space_dungeon.cleanupPlayerTicketObjvars(player);
         space_dungeon.removeDungeonTraveler(self, request_id);
         string_id success = space_dungeon_data.getDungeonFailureString(dungeon_name);
-        if (success == null)
-        {
-            sendSystemMessage(player, space_dungeon.SID_UNABLE_TO_FIND_DUNGEON);
-        }
-        else 
-        {
-            sendSystemMessage(player, success);
-        }
+        sendSystemMessage(player, Objects.requireNonNullElse(success, space_dungeon.SID_UNABLE_TO_FIND_DUNGEON));
         return SCRIPT_CONTINUE;
     }
     public int msgStartDungeonTravel(obj_id self, dictionary params) throws InterruptedException

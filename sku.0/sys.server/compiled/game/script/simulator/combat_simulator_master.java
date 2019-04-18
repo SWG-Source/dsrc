@@ -810,33 +810,28 @@ public class combat_simulator_master extends script.base_script
             return null;
         }
         int professionRow = 0;
-        if (profession.equals("artisan"))
-        {
-            professionRow = 0;
-        }
-        else if (profession.equals("brawler"))
-        {
-            professionRow = 1;
-        }
-        else if (profession.equals("entertainer"))
-        {
-            professionRow = 2;
-        }
-        else if (profession.equals("marksman"))
-        {
-            professionRow = 3;
-        }
-        else if (profession.equals("medic"))
-        {
-            professionRow = 4;
-        }
-        else if (profession.equals("scout"))
-        {
-            professionRow = 5;
-        }
-        else if (profession.equals("jedi"))
-        {
-            professionRow = 6;
+        switch (profession) {
+            case "artisan":
+                professionRow = 0;
+                break;
+            case "brawler":
+                professionRow = 1;
+                break;
+            case "entertainer":
+                professionRow = 2;
+                break;
+            case "marksman":
+                professionRow = 3;
+                break;
+            case "medic":
+                professionRow = 4;
+                break;
+            case "scout":
+                professionRow = 5;
+                break;
+            case "jedi":
+                professionRow = 6;
+                break;
         }
         dictionary prof_mods = dataTableGetRow("datatables/creation/profession_mods.iff", professionRow);
         if (debug)
@@ -878,12 +873,10 @@ public class combat_simulator_master extends script.base_script
         setMaxAttribs(npc, attribs);
         setAttribs(npc, attribs);
         String[] skills = getSkillListingForPlayer(npc);
-        for (int i = 0; i < skills.length; ++i)
-        {
-            String[] skillCommands = getSkillCommandsProvided(skills[i]);
-            for (int j = 0; j < skillCommands.length; ++j)
-            {
-                grantCommand(npc, skillCommands[j]);
+        for (String skill : skills) {
+            String[] skillCommands = getSkillCommandsProvided(skill);
+            for (String skillCommand : skillCommands) {
+                grantCommand(npc, skillCommand);
             }
         }
         return npc;
@@ -899,7 +892,7 @@ public class combat_simulator_master extends script.base_script
             return null;
         }
         obj_id id;
-        if (object.indexOf("/weapon/") != -1)
+        if (object.contains("/weapon/"))
         {
             id = weapons.createWeapon(object, reciever, CRAFTED_QUALITY);
             if (debug)
@@ -936,31 +929,31 @@ public class combat_simulator_master extends script.base_script
                 }
             }
         }
-        if (object.indexOf("/armor/") != -1)
+        if (object.contains("/armor/"))
         {
             int armorLevel = AL_advanced;
             int armorCategory = AC_assault;
-            if (object.indexOf("assault") != -1)
+            if (object.contains("assault"))
             {
                 armorCategory = AC_assault;
             }
-            else if (object.indexOf("battle") != -1)
+            else if (object.contains("battle"))
             {
                 armorCategory = AC_battle;
             }
-            else if (object.indexOf("recon") != -1)
+            else if (object.contains("recon"))
             {
                 armorCategory = AC_reconnaissance;
             }
-            else if (object.indexOf("composite") != -1 || object.indexOf("kashyyykian_hunting") != -1 || object.indexOf("chitin") != -1 || object.indexOf("ithorian_sentinel") != -1 || object.indexOf("assault_trooper") != -1 || object.indexOf("rebel_assault") != -1)
+            else if (object.contains("composite") || object.contains("kashyyykian_hunting") || object.contains("chitin") || object.contains("ithorian_sentinel") || object.contains("assault_trooper") || object.contains("rebel_assault"))
             {
                 armorCategory = AC_assault;
             }
-            else if (object.indexOf("padded") != -1 || object.indexOf("kashyyykian_black_mtn") != -1 || object.indexOf("bone") != -1 || object.indexOf("ithorian_defender") != -1 || object.indexOf("stormtrooper") != -1 || object.indexOf("rebel_battle") != -1)
+            else if (object.contains("padded") || object.contains("kashyyykian_black_mtn") || object.contains("bone") || object.contains("ithorian_defender") || object.contains("stormtrooper") || object.contains("rebel_battle"))
             {
                 armorCategory = AC_battle;
             }
-            else if (object.indexOf("tantel") != -1 || object.indexOf("kashyyykian_ceremonial") != -1 || object.indexOf("ubese") != -1 || object.indexOf("ithorian_guardian") != -1 || object.indexOf("scout_trooper") != -1 || object.indexOf("marine") != -1)
+            else if (object.contains("tantel") || object.contains("kashyyykian_ceremonial") || object.contains("ubese") || object.contains("ithorian_guardian") || object.contains("scout_trooper") || object.contains("marine"))
             {
                 armorCategory = AC_reconnaissance;
             }
@@ -1020,11 +1013,9 @@ public class combat_simulator_master extends script.base_script
             debugSpeakMsg(player, "Granting skill " + skill);
         }
         String[] skills = getSkillPrerequisiteSkills(skill);
-        for (int i = 0; i < skills.length; ++i)
-        {
-            if (!hasSkill(recipient, skills[i]))
-            {
-                grantSkillRecursive(player, recipient, skills[i]);
+        for (String skill1 : skills) {
+            if (!hasSkill(recipient, skill1)) {
+                grantSkillRecursive(player, recipient, skill1);
             }
         }
         return grantSkill(recipient, skill);
@@ -1091,11 +1082,8 @@ public class combat_simulator_master extends script.base_script
         int commandListNumber = 0;
         Vector newCommands = new Vector();
         int sizeOfNewCommands = 0;
-        for (int i = 0; i < commands.length; ++i)
-        {
-            String nextCommand = commands[i];
-            if (nextCommand.length() + sizeOfNewCommands > 900)
-            {
+        for (String nextCommand : commands) {
+            if (nextCommand.length() + sizeOfNewCommands > 900) {
                 setObjVar(player, "combat_simulator.command_list." + commandListNumber, newCommands);
                 ++commandListNumber;
                 sizeOfNewCommands = 0;
@@ -1114,9 +1102,8 @@ public class combat_simulator_master extends script.base_script
         {
             String[] commandList = getStringArrayObjVar(player, "combat_simulator.command_list." + commandListNumber);
             ++commandListNumber;
-            for (int i = 0; i < commandList.length; i++)
-            {
-                commands.add(commandList[i]);
+            for (String s : commandList) {
+                commands.add(s);
             }
         }
         return commands;
@@ -1173,743 +1160,571 @@ public class combat_simulator_master extends script.base_script
             }
             return SCRIPT_OVERRIDE;
         }
-        if (arg.equals("setLabel"))
-        {
-            if (st.countTokens() != 1)
-            {
-                if (debug)
-                {
-                    debugSpeakMsg(self, "[combat_simulator] " + validCommands[0]);
-                }
-                return SCRIPT_OVERRIDE;
-            }
-            label = st.nextToken();
-            setObjVar(self, "combat_simulator.label", label);
-            if (debug)
-            {
-                debugSpeakMsg(self, "Label set as : " + label);
-            }
-            return SCRIPT_OVERRIDE;
-        }
-        else if (arg.equals("setNumRounds"))
-        {
-            if (st.countTokens() != 1)
-            {
-                if (debug)
-                {
-                    debugSpeakMsg(self, "[combat_simulator] " + validCommands[1]);
-                }
-                return SCRIPT_OVERRIDE;
-            }
-            int numRounds = utils.stringToInt(st.nextToken());
-            setObjVar(self, "combat_simulator.rounds", numRounds);
-            if (debug)
-            {
-                debugSpeakMsg(self, "Number of rounds set as : " + numRounds);
-            }
-            return SCRIPT_OVERRIDE;
-        }
-        else if (arg.equals("setRange"))
-        {
-            if (st.countTokens() != 1)
-            {
-                if (debug)
-                {
-                    debugSpeakMsg(self, "[combat_simulator] " + validCommands[2]);
-                }
-                return SCRIPT_OVERRIDE;
-            }
-            int range = utils.stringToInt(st.nextToken());
-            setObjVar(self, "combat_simulator.range", range);
-            if (debug)
-            {
-                debugSpeakMsg(self, "Range set as : " + range);
-            }
-            return SCRIPT_OVERRIDE;
-        }
-        else if (arg.equals("makePlayer"))
-        {
-            if (st.countTokens() != 4)
-            {
-                if (debug)
-                {
-                    debugSpeakMsg(self, "[combat_simulator] " + validCommands[3]);
-                }
-                return SCRIPT_OVERRIDE;
-            }
-            String player = st.nextToken();
-            String species = st.nextToken();
-            String gender = st.nextToken();
-            String profession = st.nextToken();
-            location loc = getLocation(self);
-            float range = 1.0f;
-            if (hasObjVar(self, "combat_simulator.range"))
-            {
-                range = getIntObjVar(self, "combat_simulator.range") / 2.0f;
-            }
-            loc.z += 3;
-            if (player.equals("A") && playerA == null)
-            {
-                loc.x -= range;
-                playerA = makePlayer(self, loc, species, gender, profession);
-                attachScript(playerA, actorScript);
-                setObjVar(self, "combat_simulator.player_a", playerA);
-            }
-            else if (player.equals("B") && playerB == null)
-            {
-                loc.x += range;
-                playerB = makePlayer(self, loc, species, gender, profession);
-                attachScript(playerB, actorScript);
-                setObjVar(self, "combat_simulator.player_b", playerB);
-            }
-            if (!hasObjVar(self, "combat_simulator.stop_accumulating_commands"))
-            {
-                commandList.add("makePlayer " + player + " " + species + " " + gender + " " + profession);
-                putCommandList(self, (String[])commandList.toArray(new String[0]));
-            }
-            return SCRIPT_OVERRIDE;
-        }
-        else if (arg.equals("makeCreature"))
-        {
-            if (st.countTokens() != 2)
-            {
-                if (debug)
-                {
-                    debugSpeakMsg(self, "[combat_simulator] " + validCommands[4]);
-                }
-                return SCRIPT_OVERRIDE;
-            }
-            String player = st.nextToken();
-            String creature = st.nextToken();
-            location loc = getLocation(self);
-            float range = 1.0f;
-            if (hasObjVar(self, "combat_simulator.range"))
-            {
-                range = getIntObjVar(self, "combat_simulator.range") / 2.0f;
-            }
-            loc.z += 3;
-            if (player.equals("A") && playerA == null)
-            {
-                loc.x -= range;
-                playerA = create.createCreature(creature, loc, true);
-                stop(playerA);
-                attachScript(playerA, actorScript);
-                setObjVar(self, "combat_simulator.player_a", playerA);
-                setObjVar(playerA, "combat_simulator.is_creature", true);
-            }
-            else if (player.equals("B") && playerB == null)
-            {
-                loc.x += range;
-                playerB = create.createCreature(creature, loc, true);
-                stop(playerB);
-                attachScript(playerB, actorScript);
-                setObjVar(self, "combat_simulator.player_b", playerB);
-                setObjVar(playerB, "combat_simulator.is_creature", true);
-            }
-            if (!hasObjVar(self, "combat_simulator.stop_accumulating_commands"))
-            {
-                commandList.add("makeCreature " + player + " " + creature);
-                putCommandList(self, (String[])commandList.toArray(new String[0]));
-            }
-            return SCRIPT_OVERRIDE;
-        }
-        else if (arg.equals("giveEquipment"))
-        {
-            if (st.countTokens() != 2)
-            {
-                if (debug)
-                {
-                    debugSpeakMsg(self, "[combat_simulator] " + validCommands[5]);
-                }
-                return SCRIPT_OVERRIDE;
-            }
-            String player = st.nextToken();
-            String object = st.nextToken();
-            if (player.equals("A"))
-            {
-                giveEquipment(self, playerA, object);
-            }
-            else if (player.equals("B"))
-            {
-                giveEquipment(self, playerB, object);
-            }
-            if (!hasObjVar(self, "combat_simulator.stop_accumulating_commands"))
-            {
-                commandList.add("giveEquipment " + player + " " + object);
-                putCommandList(self, (String[])commandList.toArray(new String[0]));
-            }
-            return SCRIPT_OVERRIDE;
-        }
-        else if (arg.equals("giveProfession"))
-        {
-            if (st.countTokens() != 3)
-            {
-                if (debug)
-                {
-                    debugSpeakMsg(self, "[combat_simulator] " + validCommands[6]);
-                }
-                return SCRIPT_OVERRIDE;
-            }
-            String player = st.nextToken();
-            String profession = st.nextToken();
-            int level = utils.stringToInt(st.nextToken());
-            obj_id playerId = null;
-            if (player.equals("A"))
-            {
-                playerId = playerA;
-            }
-            else if (player.equals("B"))
-            {
-                playerId = playerB;
-            }
-            else 
-            {
-                return SCRIPT_OVERRIDE;
-            }
-            if (playerId == null)
-            {
-                if (debug)
-                {
-                    debugSpeakMsg(self, "Cannot give profession to a null player");
-                }
-                return SCRIPT_OVERRIDE;
-            }
-            String[] skills = getSkills(profession);
-            if (skills == null || skills.length == 0)
-            {
-                return SCRIPT_OVERRIDE;
-            }
-            boolean result = true;
-            for (int i = 0; i < skills.length; i++)
-            {
-                if (!hasSkill(playerId, skills[i]) && getSkillLevel(skills[i]) <= level)
-                {
-                    result &= grantSkillRecursive(self, playerId, skills[i]);
-                }
-            }
-            if (result)
-            {
-                if (debug)
-                {
-                    debugSpeakMsg(self, "Profession granted");
-                }
-            }
-            if (!hasObjVar(self, "combat_simulator.stop_accumulating_commands"))
-            {
-                commandList.add("giveProfession " + player + " " + profession + " " + level);
-                putCommandList(self, (String[])commandList.toArray(new String[0]));
-            }
-            return SCRIPT_OVERRIDE;
-        }
-        else if (arg.equals("addCommand"))
-        {
-            if (st.countTokens() != 2)
-            {
-                if (debug)
-                {
-                    debugSpeakMsg(self, "[combat_simulator] " + validCommands[7]);
-                }
-                return SCRIPT_OVERRIDE;
-            }
-            String player = st.nextToken();
-            String command = st.nextToken();
-            if (player.equals("A"))
-            {
-                if (!hasCommand(playerA, command))
-                {
-                    if (debug)
-                    {
-                        debugSpeakMsg(self, "Player did not have " + command + ", granting it");
+        switch (arg) {
+            case "setLabel":
+                if (st.countTokens() != 1) {
+                    if (debug) {
+                        debugSpeakMsg(self, "[combat_simulator] " + validCommands[0]);
                     }
-                    if (!grantCommand(playerA, command))
-                    {
-                        if (debug)
-                        {
-                            debugSpeakMsg(self, command + " could not be given");
+                    return SCRIPT_OVERRIDE;
+                }
+                label = st.nextToken();
+                setObjVar(self, "combat_simulator.label", label);
+                if (debug) {
+                    debugSpeakMsg(self, "Label set as : " + label);
+                }
+                return SCRIPT_OVERRIDE;
+            case "setNumRounds":
+                if (st.countTokens() != 1) {
+                    if (debug) {
+                        debugSpeakMsg(self, "[combat_simulator] " + validCommands[1]);
+                    }
+                    return SCRIPT_OVERRIDE;
+                }
+                int numRounds = utils.stringToInt(st.nextToken());
+                setObjVar(self, "combat_simulator.rounds", numRounds);
+                if (debug) {
+                    debugSpeakMsg(self, "Number of rounds set as : " + numRounds);
+                }
+                return SCRIPT_OVERRIDE;
+            case "setRange": {
+                if (st.countTokens() != 1) {
+                    if (debug) {
+                        debugSpeakMsg(self, "[combat_simulator] " + validCommands[2]);
+                    }
+                    return SCRIPT_OVERRIDE;
+                }
+                int range = utils.stringToInt(st.nextToken());
+                setObjVar(self, "combat_simulator.range", range);
+                if (debug) {
+                    debugSpeakMsg(self, "Range set as : " + range);
+                }
+                return SCRIPT_OVERRIDE;
+            }
+            case "makePlayer": {
+                if (st.countTokens() != 4) {
+                    if (debug) {
+                        debugSpeakMsg(self, "[combat_simulator] " + validCommands[3]);
+                    }
+                    return SCRIPT_OVERRIDE;
+                }
+                String player = st.nextToken();
+                String species = st.nextToken();
+                String gender = st.nextToken();
+                String profession = st.nextToken();
+                location loc = getLocation(self);
+                float range = 1.0f;
+                if (hasObjVar(self, "combat_simulator.range")) {
+                    range = getIntObjVar(self, "combat_simulator.range") / 2.0f;
+                }
+                loc.z += 3;
+                if (player.equals("A") && playerA == null) {
+                    loc.x -= range;
+                    playerA = makePlayer(self, loc, species, gender, profession);
+                    attachScript(playerA, actorScript);
+                    setObjVar(self, "combat_simulator.player_a", playerA);
+                } else if (player.equals("B") && playerB == null) {
+                    loc.x += range;
+                    playerB = makePlayer(self, loc, species, gender, profession);
+                    attachScript(playerB, actorScript);
+                    setObjVar(self, "combat_simulator.player_b", playerB);
+                }
+                if (!hasObjVar(self, "combat_simulator.stop_accumulating_commands")) {
+                    commandList.add("makePlayer " + player + " " + species + " " + gender + " " + profession);
+                    putCommandList(self, (String[]) commandList.toArray(new String[0]));
+                }
+                return SCRIPT_OVERRIDE;
+            }
+            case "makeCreature": {
+                if (st.countTokens() != 2) {
+                    if (debug) {
+                        debugSpeakMsg(self, "[combat_simulator] " + validCommands[4]);
+                    }
+                    return SCRIPT_OVERRIDE;
+                }
+                String player = st.nextToken();
+                String creature = st.nextToken();
+                location loc = getLocation(self);
+                float range = 1.0f;
+                if (hasObjVar(self, "combat_simulator.range")) {
+                    range = getIntObjVar(self, "combat_simulator.range") / 2.0f;
+                }
+                loc.z += 3;
+                if (player.equals("A") && playerA == null) {
+                    loc.x -= range;
+                    playerA = create.createCreature(creature, loc, true);
+                    stop(playerA);
+                    attachScript(playerA, actorScript);
+                    setObjVar(self, "combat_simulator.player_a", playerA);
+                    setObjVar(playerA, "combat_simulator.is_creature", true);
+                } else if (player.equals("B") && playerB == null) {
+                    loc.x += range;
+                    playerB = create.createCreature(creature, loc, true);
+                    stop(playerB);
+                    attachScript(playerB, actorScript);
+                    setObjVar(self, "combat_simulator.player_b", playerB);
+                    setObjVar(playerB, "combat_simulator.is_creature", true);
+                }
+                if (!hasObjVar(self, "combat_simulator.stop_accumulating_commands")) {
+                    commandList.add("makeCreature " + player + " " + creature);
+                    putCommandList(self, (String[]) commandList.toArray(new String[0]));
+                }
+                return SCRIPT_OVERRIDE;
+            }
+            case "giveEquipment": {
+                if (st.countTokens() != 2) {
+                    if (debug) {
+                        debugSpeakMsg(self, "[combat_simulator] " + validCommands[5]);
+                    }
+                    return SCRIPT_OVERRIDE;
+                }
+                String player = st.nextToken();
+                String object = st.nextToken();
+                if (player.equals("A")) {
+                    giveEquipment(self, playerA, object);
+                } else if (player.equals("B")) {
+                    giveEquipment(self, playerB, object);
+                }
+                if (!hasObjVar(self, "combat_simulator.stop_accumulating_commands")) {
+                    commandList.add("giveEquipment " + player + " " + object);
+                    putCommandList(self, (String[]) commandList.toArray(new String[0]));
+                }
+                return SCRIPT_OVERRIDE;
+            }
+            case "giveProfession": {
+                if (st.countTokens() != 3) {
+                    if (debug) {
+                        debugSpeakMsg(self, "[combat_simulator] " + validCommands[6]);
+                    }
+                    return SCRIPT_OVERRIDE;
+                }
+                String player = st.nextToken();
+                String profession = st.nextToken();
+                int level = utils.stringToInt(st.nextToken());
+                obj_id playerId = null;
+                if (player.equals("A")) {
+                    playerId = playerA;
+                } else if (player.equals("B")) {
+                    playerId = playerB;
+                } else {
+                    return SCRIPT_OVERRIDE;
+                }
+                if (playerId == null) {
+                    if (debug) {
+                        debugSpeakMsg(self, "Cannot give profession to a null player");
+                    }
+                    return SCRIPT_OVERRIDE;
+                }
+                String[] skills = getSkills(profession);
+                if (skills == null || skills.length == 0) {
+                    return SCRIPT_OVERRIDE;
+                }
+                boolean result = true;
+                for (String skill : skills) {
+                    if (!hasSkill(playerId, skill) && getSkillLevel(skill) <= level) {
+                        result &= grantSkillRecursive(self, playerId, skill);
+                    }
+                }
+                if (result) {
+                    if (debug) {
+                        debugSpeakMsg(self, "Profession granted");
+                    }
+                }
+                if (!hasObjVar(self, "combat_simulator.stop_accumulating_commands")) {
+                    commandList.add("giveProfession " + player + " " + profession + " " + level);
+                    putCommandList(self, (String[]) commandList.toArray(new String[0]));
+                }
+                return SCRIPT_OVERRIDE;
+            }
+            case "addCommand": {
+                if (st.countTokens() != 2) {
+                    if (debug) {
+                        debugSpeakMsg(self, "[combat_simulator] " + validCommands[7]);
+                    }
+                    return SCRIPT_OVERRIDE;
+                }
+                String player = st.nextToken();
+                String command = st.nextToken();
+                if (player.equals("A")) {
+                    if (!hasCommand(playerA, command)) {
+                        if (debug) {
+                            debugSpeakMsg(self, "Player did not have " + command + ", granting it");
+                        }
+                        if (!grantCommand(playerA, command)) {
+                            if (debug) {
+                                debugSpeakMsg(self, command + " could not be given");
+                            }
+                            return SCRIPT_OVERRIDE;
+                        } else if (!hasCommand(playerA, command)) {
+                            if (debug) {
+                                debugSpeakMsg(self, "Invalid command, not adding to list");
+                            }
+                            return SCRIPT_OVERRIDE;
+                        }
+                    }
+                    if (debug) {
+                        debugSpeakMsg(self, command + " added");
+                    }
+                    commandsA.add(command);
+                    setObjVar(self, "combat_simulator.commands_a", commandsA);
+                } else if (player.equals("B")) {
+                    if (!hasCommand(playerB, command)) {
+                        if (debug) {
+                            debugSpeakMsg(self, "Player did not have " + command + ", granting it");
+                        }
+                        if (!grantCommand(playerB, command)) {
+                            if (debug) {
+                                debugSpeakMsg(self, command + " could not be given");
+                            }
+                            return SCRIPT_OVERRIDE;
+                        } else if (!hasCommand(playerB, command)) {
+                            if (debug) {
+                                debugSpeakMsg(self, "Invalid command, not adding to list");
+                            }
+                            return SCRIPT_OVERRIDE;
+                        }
+                    }
+                    if (debug) {
+                        debugSpeakMsg(self, command + " added");
+                    }
+                    commandsB.add(command);
+                    setObjVar(self, "combat_simulator.commands_b", commandsB);
+                }
+                if (!hasObjVar(self, "combat_simulator.stop_accumulating_commands")) {
+                    commandList.add("addCommand " + player + " " + command);
+                    putCommandList(self, (String[]) commandList.toArray(new String[0]));
+                }
+                return SCRIPT_OVERRIDE;
+            }
+            case "getPlayerInfo": {
+                if (st.countTokens() != 1) {
+                    if (debug) {
+                        debugSpeakMsg(self, "[combat_simulator] " + validCommands[8]);
+                    }
+                    return SCRIPT_OVERRIDE;
+                }
+                String player = st.nextToken();
+                obj_id playerId = null;
+                Vector playerCommandList = new Vector();
+                switch (player) {
+                    case "A":
+                        playerId = playerA;
+                        playerCommandList = commandsA;
+                        break;
+                    case "B":
+                        playerId = playerB;
+                        playerCommandList = commandsB;
+                        break;
+                    case "self":
+                        playerId = self;
+                        break;
+                    default:
+                        return SCRIPT_OVERRIDE;
+                }
+                if (playerId == null) {
+                    if (debug) {
+                        debugSpeakMsg(self, "Cannot get info of a null player");
+                    }
+                    return SCRIPT_OVERRIDE;
+                }
+                if (debug) {
+                    debugSpeakMsg(self, "Attributes:");
+                }
+                for (int x = HEALTH; x <= WILLPOWER; x++) {
+                    String aname = "";
+                    switch (x) {
+                        case 0:
+                            aname = "health";
+                            break;
+                        case 1:
+                            aname = "constitution";
+                            break;
+                        case 2:
+                            aname = "action";
+                            break;
+                        case 3:
+                            aname = "stamina";
+                            break;
+                        case 4:
+                            aname = "mind";
+                            break;
+                        case 5:
+                            aname = "willpower";
+                            break;
+                    }
+                    String spaces = "   ";
+                    if (x % 3 != 0) {
+                        spaces = "      ";
+                    }
+                    if (debug) {
+                        debugSpeakMsg(self, spaces + aname + ": " + getAttrib(playerId, x));
+                    }
+                }
+                if (debug) {
+                    debugSpeakMsg(self, "Skills:");
+                }
+                String[] skills = getSkillListingForPlayer(playerId);
+                Arrays.sort(skills);
+                for (String skill : skills) {
+                    if (debug) {
+                        debugSpeakMsg(self, "   " + skill);
+                    }
+                }
+                if (debug) {
+                    debugSpeakMsg(self, "Commands:");
+                }
+                String[] commands = getCommandListingForPlayer(playerId);
+                Arrays.sort(commands);
+                for (String command : commands) {
+                    if (debug) {
+                        debugSpeakMsg(self, "   " + command);
+                    }
+                }
+                if (debug) {
+                    debugSpeakMsg(self, "Command List:");
+                }
+                for (Object o : playerCommandList) {
+                    if (debug) {
+                        debugSpeakMsg(self, "   " + ((String) o));
+                    }
+                }
+                obj_id objWeapon = getCurrentWeapon(playerId);
+                int intWeaponType = getWeaponType(objWeapon);
+                String strWeaponType = combat.getWeaponStringType(intWeaponType);
+                if (debug) {
+                    debugSpeakMsg(self, "Weapon: " + strWeaponType + " Id: " + objWeapon + " Type: " + intWeaponType);
+                }
+                return SCRIPT_OVERRIDE;
+            }
+            case "setAttribWound": {
+                if (st.countTokens() != 3) {
+                    if (debug) {
+                        debugSpeakMsg(self, "[combat_simulator] " + validCommands[9]);
+                    }
+                    return SCRIPT_OVERRIDE;
+                }
+                String player = st.nextToken();
+                String attrib = st.nextToken();
+                int value = utils.stringToInt(st.nextToken());
+                int attribNum;
+                obj_id playerId = null;
+                if (player.equals("A")) {
+                    playerId = playerA;
+                } else if (player.equals("B")) {
+                    playerId = playerB;
+                } else {
+                    return SCRIPT_OVERRIDE;
+                }
+                switch (attrib) {
+                    case "health":
+                        attribNum = 0;
+                        break;
+                    case "constitution":
+                        attribNum = 1;
+                        break;
+                    case "action":
+                        attribNum = 2;
+                        break;
+                    case "stamina":
+                        attribNum = 3;
+                        break;
+                    case "mind":
+                        attribNum = 4;
+                        break;
+                    case "willpower":
+                        attribNum = 5;
+                        break;
+                    default:
+                        if (debug) {
+                            debugSpeakMsg(self, attrib + " is not a valid attribute");
                         }
                         return SCRIPT_OVERRIDE;
-                    }
-                    else if (!hasCommand(playerA, command))
-                    {
-                        if (debug)
-                        {
-                            debugSpeakMsg(self, "Invalid command, not adding to list");
-                        }
-                        return SCRIPT_OVERRIDE;
-                    }
                 }
-                if (debug)
-                {
-                    debugSpeakMsg(self, command + " added");
+                if (!hasObjVar(self, "combat_simulator.stop_accumulating_commands")) {
+                    commandList.add("setAttribWound " + player + " " + attrib + " " + value);
+                    putCommandList(self, (String[]) commandList.toArray(new String[0]));
                 }
-                commandsA.add(command);
-                setObjVar(self, "combat_simulator.commands_a", commandsA);
+                return SCRIPT_OVERRIDE;
             }
-            else if (player.equals("B"))
-            {
-                if (!hasCommand(playerB, command))
-                {
-                    if (debug)
-                    {
-                        debugSpeakMsg(self, "Player did not have " + command + ", granting it");
+            case "giveBuff": {
+                if (st.countTokens() != 2) {
+                    if (debug) {
+                        debugSpeakMsg(self, "[combat_simulator] " + validCommands[10]);
                     }
-                    if (!grantCommand(playerB, command))
-                    {
-                        if (debug)
-                        {
-                            debugSpeakMsg(self, command + " could not be given");
-                        }
-                        return SCRIPT_OVERRIDE;
-                    }
-                    else if (!hasCommand(playerB, command))
-                    {
-                        if (debug)
-                        {
-                            debugSpeakMsg(self, "Invalid command, not adding to list");
-                        }
-                        return SCRIPT_OVERRIDE;
+                    return SCRIPT_OVERRIDE;
+                }
+                String player = st.nextToken();
+                String attrib = st.nextToken();
+                if (!attrib.equals("health") && !attrib.equals("constitution") && !attrib.equals("action") && !attrib.equals("stamina") && !attrib.equals("mind") && !attrib.equals("willpower")) {
+                    if (debug) {
+                        debugSpeakMsg(self, attrib + " is not a valid attribute to buff");
                     }
                 }
-                if (debug)
-                {
-                    debugSpeakMsg(self, command + " added");
+                obj_id playerId = null;
+                if (player.equals("A")) {
+                    playerId = playerA;
+                } else if (player.equals("B")) {
+                    playerId = playerB;
+                } else {
+                    return SCRIPT_OVERRIDE;
                 }
-                commandsB.add(command);
-                setObjVar(self, "combat_simulator.commands_b", commandsB);
-            }
-            if (!hasObjVar(self, "combat_simulator.stop_accumulating_commands"))
-            {
-                commandList.add("addCommand " + player + " " + command);
-                putCommandList(self, (String[])commandList.toArray(new String[0]));
-            }
-            return SCRIPT_OVERRIDE;
-        }
-        else if (arg.equals("getPlayerInfo"))
-        {
-            if (st.countTokens() != 1)
-            {
-                if (debug)
-                {
-                    debugSpeakMsg(self, "[combat_simulator] " + validCommands[8]);
+                addBuff(self, playerId, attrib);
+                if (!hasObjVar(self, "combat_simulator.stop_accumulating_commands")) {
+                    commandList.add("giveBuff " + player + " " + attrib);
+                    putCommandList(self, (String[]) commandList.toArray(new String[0]));
                 }
                 return SCRIPT_OVERRIDE;
             }
-            String player = st.nextToken();
-            obj_id playerId = null;
-            Vector playerCommandList = new Vector();
-            if (player.equals("A"))
-            {
-                playerId = playerA;
-                playerCommandList = commandsA;
-            }
-            else if (player.equals("B"))
-            {
-                playerId = playerB;
-                playerCommandList = commandsB;
-            }
-            else if (player.equals("self"))
-            {
-                playerId = self;
-            }
-            else 
-            {
-                return SCRIPT_OVERRIDE;
-            }
-            if (playerId == null)
-            {
-                if (debug)
-                {
-                    debugSpeakMsg(self, "Cannot get info of a null player");
+            case "sendCombatInfo": {
+                if (playerA == null || playerB == null) {
+                    if (debug) {
+                        debugSpeakMsg(self, "need to have both players for combat simulator");
+                    }
+                    return SCRIPT_OVERRIDE;
+                }
+                if (commandsA.size() == 0) {
+                    commandsA.add("defaultAttack");
+                }
+                if (commandsB.size() == 0) {
+                    commandsB.add("defaultAttack");
+                }
+                if (!hasObjVar(self, "combat_simulator.first_shot")) {
+                    setObjVar(self, "combat_simulator.first_shot", "A");
+                }
+                String firstShotPlayer = getStringObjVar(self, "combat_simulator.first_shot");
+                if (firstShotPlayer.equals("A")) {
+                    if (debug) {
+                        debugSpeakMsg(self, "player A is getting info first");
+                    }
+                    setObjVar(playerA, "combat_simulator.owner", self);
+                    setObjVar(playerA, "combat_simulator.enemy", playerB);
+                    setObjVar(playerA, "combat_simulator.queue_commands", commandsA);
+                    if (!hasObjVar(playerA, "combat_simulator.is_creature")) {
+                        pvpMakeDeclared(playerA);
+                        pvpSetAlignedFaction(playerA, (370444368));
+                    }
+                    messageTo(playerA, "prepareForCombat", null, 0, false);
+                    setObjVar(playerB, "combat_simulator.owner", self);
+                    setObjVar(playerB, "combat_simulator.enemy", playerA);
+                    setObjVar(playerB, "combat_simulator.queue_commands", commandsB);
+                    if (!hasObjVar(playerB, "combat_simulator.is_creature")) {
+                        pvpMakeDeclared(playerB);
+                        pvpSetAlignedFaction(playerB, (-615855020));
+                    }
+                    messageTo(playerB, "prepareForCombat", null, 0, false);
+                } else if (firstShotPlayer.equals("B")) {
+                    if (debug) {
+                        debugSpeakMsg(self, "player B is getting info first");
+                    }
+                    setObjVar(playerB, "combat_simulator.owner", self);
+                    setObjVar(playerB, "combat_simulator.enemy", playerA);
+                    setObjVar(playerB, "combat_simulator.queue_commands", commandsB);
+                    if (!hasObjVar(playerB, "combat_simulator.is_creature")) {
+                        pvpMakeDeclared(playerB);
+                        pvpSetAlignedFaction(playerB, (-615855020));
+                    }
+                    messageTo(playerB, "prepareForCombat", null, 0, false);
+                    setObjVar(playerA, "combat_simulator.owner", self);
+                    setObjVar(playerA, "combat_simulator.enemy", playerB);
+                    setObjVar(playerA, "combat_simulator.queue_commands", commandsA);
+                    if (!hasObjVar(playerA, "combat_simulator.is_creature")) {
+                        pvpMakeDeclared(playerA);
+                        pvpSetAlignedFaction(playerA, (370444368));
+                    }
+                    messageTo(playerA, "prepareForCombat", null, 0, false);
+                }
+                if (debug) {
+                    debugSpeakMsg(self, "Combat info sent");
                 }
                 return SCRIPT_OVERRIDE;
             }
-            if (debug)
-            {
-                debugSpeakMsg(self, "Attributes:");
-            }
-            for (int x = HEALTH; x <= WILLPOWER; x++)
-            {
-                String aname = "";
-                switch (x)
-                {
-                    case 0:
-                    aname = "health";
-                    break;
-                    case 1:
-                    aname = "constitution";
-                    break;
-                    case 2:
-                    aname = "action";
-                    break;
-                    case 3:
-                    aname = "stamina";
-                    break;
-                    case 4:
-                    aname = "mind";
-                    break;
-                    case 5:
-                    aname = "willpower";
-                    break;
+            case "startCombat": {
+                if (playerA == null || playerB == null || label == null || label.equals("")) {
+                    if (debug) {
+                        debugSpeakMsg(self, "need to have both players and a label for combat simulator");
+                    }
+                    return SCRIPT_OVERRIDE;
                 }
-                String spaces = "   ";
-                if (x % 3 != 0)
-                {
-                    spaces = "      ";
+                setObjVar(self, "combat_simulator.combat_start_time", Long.toString(System.currentTimeMillis()));
+                if (!hasObjVar(self, "combat_simulator.rounds")) {
+                    setObjVar(self, "combat_simulator.rounds", 1);
                 }
-                if (debug)
-                {
-                    debugSpeakMsg(self, spaces + aname + ": " + getAttrib(playerId, x));
+                if (!hasObjVar(self, "combat_simulator.current_round")) {
+                    setObjVar(self, "combat_simulator.current_round", 1);
                 }
-            }
-            if (debug)
-            {
-                debugSpeakMsg(self, "Skills:");
-            }
-            String[] skills = getSkillListingForPlayer(playerId);
-            Arrays.sort(skills);
-            for (int i = 0; i < skills.length; ++i)
-            {
-                if (debug)
-                {
-                    debugSpeakMsg(self, "   " + skills[i]);
+                setObjVar(self, "combat_simulator.stop_accumulating_commands", 1);
+                if (!hasObjVar(self, "combat_simulator.first_shot")) {
+                    setObjVar(self, "combat_simulator.first_shot", "A");
                 }
-            }
-            if (debug)
-            {
-                debugSpeakMsg(self, "Commands:");
-            }
-            String[] commands = getCommandListingForPlayer(playerId);
-            Arrays.sort(commands);
-            for (int i = 0; i < commands.length; ++i)
-            {
-                if (debug)
-                {
-                    debugSpeakMsg(self, "   " + commands[i]);
+                String firstShotPlayer = getStringObjVar(self, "combat_simulator.first_shot");
+                if (firstShotPlayer.equals("A")) {
+                    if (debug) {
+                        debugSpeakMsg(self, "player A is going first");
+                    }
+                    messageTo(playerA, "startCombat", null, 0, false);
+                    messageTo(playerB, "startCombat", null, 0, false);
+                    setObjVar(self, "combat_simulator.first_shot", "B");
+                } else if (firstShotPlayer.equals("B")) {
+                    if (debug) {
+                        debugSpeakMsg(self, "player B is going first");
+                    }
+                    messageTo(playerB, "startCombat", null, 0, false);
+                    messageTo(playerA, "startCombat", null, 0, false);
+                    setObjVar(self, "combat_simulator.first_shot", "A");
                 }
-            }
-            if (debug)
-            {
-                debugSpeakMsg(self, "Command List:");
-            }
-            for (int i = 0; i < playerCommandList.size(); ++i)
-            {
-                if (debug)
-                {
-                    debugSpeakMsg(self, "   " + ((String)playerCommandList.get(i)));
-                }
-            }
-            obj_id objWeapon = getCurrentWeapon(playerId);
-            int intWeaponType = getWeaponType(objWeapon);
-            String strWeaponType = combat.getWeaponStringType(intWeaponType);
-            if (debug)
-            {
-                debugSpeakMsg(self, "Weapon: " + strWeaponType + " Id: " + objWeapon + " Type: " + intWeaponType);
-            }
-            return SCRIPT_OVERRIDE;
-        }
-        else if (arg.equals("setAttribWound"))
-        {
-            if (st.countTokens() != 3)
-            {
-                if (debug)
-                {
-                    debugSpeakMsg(self, "[combat_simulator] " + validCommands[9]);
+                if (debug) {
+                    if (utils.hasScriptVar(playerA, "inAlignedStructure")) {
+                        debugSpeakMsg(self, "player A has factional bonus");
+                    }
+                    if (utils.hasScriptVar(playerA, "inAlignedStructure")) {
+                        debugSpeakMsg(self, "player B has factional bonus");
+                    }
                 }
                 return SCRIPT_OVERRIDE;
             }
-            String player = st.nextToken();
-            String attrib = st.nextToken();
-            int value = utils.stringToInt(st.nextToken());
-            int attribNum;
-            obj_id playerId = null;
-            if (player.equals("A"))
-            {
-                playerId = playerA;
-            }
-            else if (player.equals("B"))
-            {
-                playerId = playerB;
-            }
-            else 
-            {
+            case "destroySim":
+                if (st.countTokens() != 1) {
+                    if (debug) {
+                        debugSpeakMsg(self, "[combat_simulator] " + "destroySim <obj_id>");
+                    }
+                    return SCRIPT_OVERRIDE;
+                }
+                obj_id target = utils.stringToObjId(st.nextToken());
+                detachAllScripts(target);
+                destroyObjectSimulator(target);
                 return SCRIPT_OVERRIDE;
-            }
-            if (attrib.equals("health"))
-            {
-                attribNum = 0;
-            }
-            else if (attrib.equals("constitution"))
-            {
-                attribNum = 1;
-            }
-            else if (attrib.equals("action"))
-            {
-                attribNum = 2;
-            }
-            else if (attrib.equals("stamina"))
-            {
-                attribNum = 3;
-            }
-            else if (attrib.equals("mind"))
-            {
-                attribNum = 4;
-            }
-            else if (attrib.equals("willpower"))
-            {
-                attribNum = 5;
-            }
-            else 
-            {
-                if (debug)
-                {
-                    debugSpeakMsg(self, attrib + " is not a valid attribute");
+            case "getIds":
+                if (debug) {
+                    debugSpeakMsg(self, "self id: " + self);
+                }
+                if (playerA != null) {
+                    if (debug) {
+                        debugSpeakMsg(self, "playerA id: " + playerA);
+                    }
+                }
+                if (playerB != null) {
+                    if (debug) {
+                        debugSpeakMsg(self, "playerB id: " + playerB);
+                    }
                 }
                 return SCRIPT_OVERRIDE;
-            }
-            if (!hasObjVar(self, "combat_simulator.stop_accumulating_commands"))
-            {
-                commandList.add("setAttribWound " + player + " " + attrib + " " + value);
-                putCommandList(self, (String[])commandList.toArray(new String[0]));
-            }
-            return SCRIPT_OVERRIDE;
-        }
-        else if (arg.equals("giveBuff"))
-        {
-            if (st.countTokens() != 2)
-            {
-                if (debug)
-                {
-                    debugSpeakMsg(self, "[combat_simulator] " + validCommands[10]);
+            case "reset":
+                reset();
+                removeObjVar(self, "combat_simulator.current_round");
+                removeObjVar(self, "combat_simulator.stop_accumulating_commands");
+                removeObjVar(self, "combat_simulator.first_shot");
+                removeCommandList(self);
+                return SCRIPT_OVERRIDE;
+            case "help":
+                if (debug) {
+                    debugSpeakMsg(self, "Available Commands:");
+                }
+                for (String validCommand : validCommands) {
+                    if (debug) {
+                        debugSpeakMsg(self, "[combat_simulator] " + validCommand);
+                    }
                 }
                 return SCRIPT_OVERRIDE;
-            }
-            String player = st.nextToken();
-            String attrib = st.nextToken();
-            if (!attrib.equals("health") && !attrib.equals("constitution") && !attrib.equals("action") && !attrib.equals("stamina") && !attrib.equals("mind") && !attrib.equals("willpower"))
-            {
-                if (debug)
-                {
-                    debugSpeakMsg(self, attrib + " is not a valid attribute to buff");
-                }
-            }
-            obj_id playerId = null;
-            if (player.equals("A"))
-            {
-                playerId = playerA;
-            }
-            else if (player.equals("B"))
-            {
-                playerId = playerB;
-            }
-            else 
-            {
-                return SCRIPT_OVERRIDE;
-            }
-            addBuff(self, playerId, attrib);
-            if (!hasObjVar(self, "combat_simulator.stop_accumulating_commands"))
-            {
-                commandList.add("giveBuff " + player + " " + attrib);
-                putCommandList(self, (String[])commandList.toArray(new String[0]));
-            }
-            return SCRIPT_OVERRIDE;
-        }
-        else if (arg.equals("sendCombatInfo"))
-        {
-            if (playerA == null || playerB == null)
-            {
-                if (debug)
-                {
-                    debugSpeakMsg(self, "need to have both players for combat simulator");
-                }
-                return SCRIPT_OVERRIDE;
-            }
-            if (commandsA.size() == 0)
-            {
-                commandsA.add("defaultAttack");
-            }
-            if (commandsB.size() == 0)
-            {
-                commandsB.add("defaultAttack");
-            }
-            if (!hasObjVar(self, "combat_simulator.first_shot"))
-            {
-                setObjVar(self, "combat_simulator.first_shot", "A");
-            }
-            String firstShotPlayer = getStringObjVar(self, "combat_simulator.first_shot");
-            if (firstShotPlayer.equals("A"))
-            {
-                if (debug)
-                {
-                    debugSpeakMsg(self, "player A is getting info first");
-                }
-                setObjVar(playerA, "combat_simulator.owner", self);
-                setObjVar(playerA, "combat_simulator.enemy", playerB);
-                setObjVar(playerA, "combat_simulator.queue_commands", commandsA);
-                if (!hasObjVar(playerA, "combat_simulator.is_creature"))
-                {
-                    pvpMakeDeclared(playerA);
-                    pvpSetAlignedFaction(playerA, (370444368));
-                }
-                messageTo(playerA, "prepareForCombat", null, 0, false);
-                setObjVar(playerB, "combat_simulator.owner", self);
-                setObjVar(playerB, "combat_simulator.enemy", playerA);
-                setObjVar(playerB, "combat_simulator.queue_commands", commandsB);
-                if (!hasObjVar(playerB, "combat_simulator.is_creature"))
-                {
-                    pvpMakeDeclared(playerB);
-                    pvpSetAlignedFaction(playerB, (-615855020));
-                }
-                messageTo(playerB, "prepareForCombat", null, 0, false);
-            }
-            else if (firstShotPlayer.equals("B"))
-            {
-                if (debug)
-                {
-                    debugSpeakMsg(self, "player B is getting info first");
-                }
-                setObjVar(playerB, "combat_simulator.owner", self);
-                setObjVar(playerB, "combat_simulator.enemy", playerA);
-                setObjVar(playerB, "combat_simulator.queue_commands", commandsB);
-                if (!hasObjVar(playerB, "combat_simulator.is_creature"))
-                {
-                    pvpMakeDeclared(playerB);
-                    pvpSetAlignedFaction(playerB, (-615855020));
-                }
-                messageTo(playerB, "prepareForCombat", null, 0, false);
-                setObjVar(playerA, "combat_simulator.owner", self);
-                setObjVar(playerA, "combat_simulator.enemy", playerB);
-                setObjVar(playerA, "combat_simulator.queue_commands", commandsA);
-                if (!hasObjVar(playerA, "combat_simulator.is_creature"))
-                {
-                    pvpMakeDeclared(playerA);
-                    pvpSetAlignedFaction(playerA, (370444368));
-                }
-                messageTo(playerA, "prepareForCombat", null, 0, false);
-            }
-            if (debug)
-            {
-                debugSpeakMsg(self, "Combat info sent");
-            }
-            return SCRIPT_OVERRIDE;
-        }
-        else if (arg.equals("startCombat"))
-        {
-            if (playerA == null || playerB == null || label == null || label.equals(""))
-            {
-                if (debug)
-                {
-                    debugSpeakMsg(self, "need to have both players and a label for combat simulator");
-                }
-                return SCRIPT_OVERRIDE;
-            }
-            setObjVar(self, "combat_simulator.combat_start_time", Long.toString(System.currentTimeMillis()));
-            if (!hasObjVar(self, "combat_simulator.rounds"))
-            {
-                setObjVar(self, "combat_simulator.rounds", 1);
-            }
-            if (!hasObjVar(self, "combat_simulator.current_round"))
-            {
-                setObjVar(self, "combat_simulator.current_round", 1);
-            }
-            setObjVar(self, "combat_simulator.stop_accumulating_commands", 1);
-            if (!hasObjVar(self, "combat_simulator.first_shot"))
-            {
-                setObjVar(self, "combat_simulator.first_shot", "A");
-            }
-            String firstShotPlayer = getStringObjVar(self, "combat_simulator.first_shot");
-            if (firstShotPlayer.equals("A"))
-            {
-                if (debug)
-                {
-                    debugSpeakMsg(self, "player A is going first");
-                }
-                messageTo(playerA, "startCombat", null, 0, false);
-                messageTo(playerB, "startCombat", null, 0, false);
-                setObjVar(self, "combat_simulator.first_shot", "B");
-            }
-            else if (firstShotPlayer.equals("B"))
-            {
-                if (debug)
-                {
-                    debugSpeakMsg(self, "player B is going first");
-                }
-                messageTo(playerB, "startCombat", null, 0, false);
-                messageTo(playerA, "startCombat", null, 0, false);
-                setObjVar(self, "combat_simulator.first_shot", "A");
-            }
-            if (debug)
-            {
-                if (utils.hasScriptVar(playerA, "inAlignedStructure"))
-                {
-                    debugSpeakMsg(self, "player A has factional bonus");
-                }
-                if (utils.hasScriptVar(playerA, "inAlignedStructure"))
-                {
-                    debugSpeakMsg(self, "player B has factional bonus");
-                }
-            }
-            return SCRIPT_OVERRIDE;
-        }
-        else if (arg.equals("destroySim"))
-        {
-            if (st.countTokens() != 1)
-            {
-                if (debug)
-                {
-                    debugSpeakMsg(self, "[combat_simulator] " + "destroySim <obj_id>");
-                }
-                return SCRIPT_OVERRIDE;
-            }
-            obj_id target = utils.stringToObjId(st.nextToken());
-            detachAllScripts(target);
-            destroyObjectSimulator(target);
-            return SCRIPT_OVERRIDE;
-        }
-        else if (arg.equals("getIds"))
-        {
-            if (debug)
-            {
-                debugSpeakMsg(self, "self id: " + self);
-            }
-            if (playerA != null)
-            {
-                if (debug)
-                {
-                    debugSpeakMsg(self, "playerA id: " + playerA);
-                }
-            }
-            if (playerB != null)
-            {
-                if (debug)
-                {
-                    debugSpeakMsg(self, "playerB id: " + playerB);
-                }
-            }
-            return SCRIPT_OVERRIDE;
-        }
-        else if (arg.equals("reset"))
-        {
-            reset();
-            removeObjVar(self, "combat_simulator.current_round");
-            removeObjVar(self, "combat_simulator.stop_accumulating_commands");
-            removeObjVar(self, "combat_simulator.first_shot");
-            removeCommandList(self);
-            return SCRIPT_OVERRIDE;
-        }
-        else if (arg.equals("help"))
-        {
-            if (debug)
-            {
-                debugSpeakMsg(self, "Available Commands:");
-            }
-            for (int i = 0; i < validCommands.length; ++i)
-            {
-                if (debug)
-                {
-                    debugSpeakMsg(self, "[combat_simulator] " + validCommands[i]);
-                }
-            }
-            return SCRIPT_OVERRIDE;
         }
         return SCRIPT_CONTINUE;
     }
@@ -1973,9 +1788,8 @@ public class combat_simulator_master extends script.base_script
             {
                 FileWriter writer = new FileWriter("combat_simulator." + label + ".info");
                 String[] commands = (String[])(getCommandList(self)).toArray(new String[0]);
-                for (int i = 0; i < commands.length; ++i)
-                {
-                    writer.write(commands[i] + "\n");
+                for (String command : commands) {
+                    writer.write(command + "\n");
                 }
                 writer.close();
             }
@@ -2028,9 +1842,8 @@ public class combat_simulator_master extends script.base_script
             debugSpeakMsg(self, "Cannot run simulator - null commands issued");
             return SCRIPT_CONTINUE;
         }
-        for (int i = 0; i < commands.length; ++i)
-        {
-            debugSpeakMsg(self, commands[i]);
+        for (String command : commands) {
+            debugSpeakMsg(self, command);
         }
         messageTo(self, "sendCombatInfo", null, 1.0f, false);
         return SCRIPT_CONTINUE;
@@ -2084,26 +1897,18 @@ public class combat_simulator_master extends script.base_script
         }
         else 
         {
-            for (int i = 0; i < children.length; ++i)
-            {
-                String filename = children[i];
+            for (String filename : children) {
                 File file = new File(filename);
-                if (file.isFile() && filename.startsWith(label) && !filename.endsWith(".info"))
-                {
-                    try
-                    {
+                if (file.isFile() && filename.startsWith(label) && !filename.endsWith(".info")) {
+                    try {
                         BufferedReader reader = new BufferedReader(new FileReader(filename));
                         String lineRead = reader.readLine();
-                        while ((lineRead = reader.readLine()) != null)
-                        {
+                        while ((lineRead = reader.readLine()) != null) {
                             output += (lineRead + "\n");
                         }
                         reader.close();
-                    }
-                    catch(Exception e)
-                    {
-                        if (debug)
-                        {
+                    } catch (Exception e) {
+                        if (debug) {
                             debugSpeakMsg(self, "failed to open " + filename + " : " + e);
                         }
                     }

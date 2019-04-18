@@ -8,6 +8,7 @@ package script;
 
 import java.util.Enumeration;
 import java.util.Hashtable;
+import java.util.Iterator;
 
 public class gcw_score
 {
@@ -36,11 +37,11 @@ public class gcw_score
 	
 		int size = m_GcwScoreCache.size();
 		String[][] allData = new String[m_GcwScoreCache.size()][10];
-		Enumeration e = m_GcwScoreCache.elements();
+        Iterator iterator = m_GcwScoreCache.values().iterator();
 		
-		for(int i = 0; e.hasMoreElements(); i++)
+		for(int i = 0; iterator.hasNext(); i++)
 		{
-			gcw_data playerGcwData = (gcw_data)e.nextElement();
+			gcw_data playerGcwData = (gcw_data) iterator.next();
 			
 			if(playerGcwData != null && i < size)
 			{

@@ -74,15 +74,12 @@ public class perform extends script.quest.task.ground.base_task
                 String questCrcString = (String)keys.nextElement();
                 int questCrc = utils.stringToInt(questCrcString);
                 int[] tasksForCurrentQuest = tasks.getIntArray(questCrcString);
-                for (int i = 0; i < tasksForCurrentQuest.length; ++i)
-                {
-                    int taskId = tasksForCurrentQuest[i];
+                for (int taskId : tasksForCurrentQuest) {
                     groundquests.questOutputDebugLog(taskType, "handleClientLogin", "Processing task " + taskId);
                     String baseObjVar = groundquests.getBaseObjVar(self, taskType, questGetQuestName(questCrc), taskId);
                     boolean isCurrentlyPerforming = getBooleanObjVar(self, baseObjVar + dot + performCurrentlyPerformingVarName);
                     boolean isVisible = groundquests.getTaskIntDataEntry(questCrc, taskId, dataTableColumnVisible) != 0;
-                    if (!isCurrentlyPerforming || !isVisible)
-                    {
+                    if (!isCurrentlyPerforming || !isVisible) {
                         continue;
                     }
                     int endTime = getIntObjVar(self, baseObjVar + dot + performEndTimeVarName);
@@ -105,43 +102,34 @@ public class perform extends script.quest.task.ground.base_task
                 String questCrcString = (String)keys.nextElement();
                 int questCrc = utils.stringToInt(questCrcString);
                 int[] tasksForCurrentQuest = tasks.getIntArray(questCrcString);
-                for (int i = 0; i < tasksForCurrentQuest.length; ++i)
-                {
-                    int taskId = tasksForCurrentQuest[i];
+                for (int taskId : tasksForCurrentQuest) {
                     groundquests.questOutputDebugLog(taskType, "startPerform", "Processing task " + taskId);
                     String baseObjVar = groundquests.getBaseObjVar(self, taskType, questGetQuestName(questCrc), taskId);
                     int desiredPerformType = groundquests.getTaskIntDataEntry(questCrc, taskId, dataTableColumnPerformType);
                     int currentPerformType = params.getInt(groundquests.PERFORM_TYPE);
                     boolean rightType = desiredPerformType == 0 || desiredPerformType == currentPerformType;
-                    if (!rightType)
-                    {
+                    if (!rightType) {
                         clearPerformObjVars(self, questCrc, taskId);
                         continue;
                     }
                     boolean rightLocation = true;
                     String cellname = groundquests.getTaskStringDataEntry(questCrc, taskId, dataTableColumnPerformCellname);
-                    if (cellname != null && cellname.length() != 0)
-                    {
+                    if (cellname != null && cellname.length() != 0) {
                         location playerLocation = getLocation(self);
                         rightLocation = (getCellName(playerLocation.cell)).equals(cellname);
-                    }
-                    else 
-                    {
+                    } else {
                         String building = groundquests.getTaskStringDataEntry(questCrc, taskId, dataTableColumnPerformBuilding);
-                        if (utils.stringToInt(building) != 0)
-                        {
+                        if (utils.stringToInt(building) != 0) {
                             obj_id buildingObjId = utils.stringToObjId(building);
                             rightLocation = performance.isInRightBuilding(self, buildingObjId);
                         }
                     }
-                    if (!rightLocation)
-                    {
+                    if (!rightLocation) {
                         clearPerformObjVars(self, questCrc, taskId);
                         continue;
                     }
                     int performDuration = groundquests.getTaskIntDataEntry(questCrc, taskId, dataTableColumnPerformDuration);
-                    if (performDuration <= 0)
-                    {
+                    if (performDuration <= 0) {
                         groundquests.questOutputDebugLog(taskType, "startPerform", "performDuration invalid, set to 10 seconds");
                         performDuration = 10;
                     }
@@ -151,8 +139,7 @@ public class perform extends script.quest.task.ground.base_task
                     setObjVar(self, baseObjVar + dot + performCurrentlyPerformingVarName, true);
                     sendCheckPerformanceComplete(self, questCrc, taskId, performDuration);
                     int isVisible = groundquests.getTaskIntDataEntry(questCrc, taskId, dataTableColumnVisible);
-                    if (isVisible != 0)
-                    {
+                    if (isVisible != 0) {
                         questSetQuestTaskTimer(self, questGetQuestName(questCrc), taskId, "quest/groundquests:timer_timertext", performEndTime);
                     }
                 }
@@ -217,13 +204,10 @@ public class perform extends script.quest.task.ground.base_task
                 String questCrcString = (String)keys.nextElement();
                 int questCrc = utils.stringToInt(questCrcString);
                 int[] tasksForCurrentQuest = tasks.getIntArray(questCrcString);
-                for (int i = 0; i < tasksForCurrentQuest.length; ++i)
-                {
-                    int taskId = tasksForCurrentQuest[i];
+                for (int taskId : tasksForCurrentQuest) {
                     clearPerformObjVars(player, questCrc, taskId);
                     boolean isVisible = groundquests.getTaskIntDataEntry(questCrc, taskId, dataTableColumnVisible) != 0;
-                    if (updateQuestTimer && isVisible)
-                    {
+                    if (updateQuestTimer && isVisible) {
                         questSetQuestTaskTimer(player, questGetQuestName(questCrc), taskId, "quest/groundquests:timer_timertext", performGetTime(player));
                     }
                 }

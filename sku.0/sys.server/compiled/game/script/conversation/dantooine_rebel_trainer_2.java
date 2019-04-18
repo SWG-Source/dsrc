@@ -56,10 +56,8 @@ public class dantooine_rebel_trainer_2 extends script.base_script
             "pilot_rebel_navy_droid_02"
         };
         int j = 0;
-        for (int i = 0; i < skills.length; i++)
-        {
-            if (hasSkill(player, skills[i]))
-            {
+        for (String skill : skills) {
+            if (hasSkill(player, skill)) {
                 j++;
             }
         }
@@ -115,10 +113,8 @@ public class dantooine_rebel_trainer_2 extends script.base_script
             "pilot_rebel_navy_droid_02"
         };
         int j = 0;
-        for (int i = 0; i < skills.length; i++)
-        {
-            if (hasSkill(player, skills[i]))
-            {
+        for (String skill : skills) {
+            if (hasSkill(player, skill)) {
                 j++;
             }
         }
@@ -163,10 +159,8 @@ public class dantooine_rebel_trainer_2 extends script.base_script
             "pilot_rebel_navy_droid_02"
         };
         int j = 0;
-        for (int i = 0; i < skills.length; i++)
-        {
-            if (hasSkill(player, skills[i]))
-            {
+        for (String skill : skills) {
+            if (hasSkill(player, skill)) {
                 j++;
             }
         }

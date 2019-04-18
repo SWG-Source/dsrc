@@ -276,11 +276,9 @@ public class battlefield extends script.base_script
                     region[] regs = getRegionsWithPvPAtPoint(loc, regionPvpType);
                     if (regs != null && regs.length > 0)
                     {
-                        for (int j = 0; j < regs.length; j++)
-                        {
-                            obj_id bf_object = getMasterObjectFromRegion(regs[j]);
-                            if (isIdValid(bf_object))
-                            {
+                        for (region reg : regs) {
+                            obj_id bf_object = getMasterObjectFromRegion(reg);
+                            if (isIdValid(bf_object)) {
                                 destroyBattlefield(bf_object);
                             }
                         }
@@ -404,8 +402,8 @@ public class battlefield extends script.base_script
         markers.setSize(0);
         for (float angle = 0.0f; angle < 2 * Math.PI; angle = angle + radian_incr)
         {
-            float x = radius * (float)Math.sin(angle) + bf_loc.x;
-            float z = radius * (float)Math.cos(angle) + bf_loc.z;
+            float x = radius * (float) StrictMath.sin(angle) + bf_loc.x;
+            float z = radius * (float) StrictMath.cos(angle) + bf_loc.z;
             float y = getHeightAtLocation(x, z);
             location loc = new location(x, y, z, getCurrentSceneName());
             obj_id marker = createObject(BATTLEFIELD_MARKER, loc);
@@ -515,10 +513,8 @@ public class battlefield extends script.base_script
         obj_id[] faction_team = getFactionTeam(master_object, faction);
         if (faction_team != null)
         {
-            for (int i = 0; i < faction_team.length; i++)
-            {
-                if (player == faction_team[i])
-                {
+            for (obj_id obj_id : faction_team) {
+                if (player == obj_id) {
                     return true;
                 }
             }
@@ -675,21 +671,16 @@ public class battlefield extends script.base_script
         int faction_size = 0;
         if (factions_allowed != null)
         {
-            for (int i = 0; i < factions_allowed.length; i++)
-            {
-                obj_id[] faction_team = getFactionTeam(master_object, factions_allowed[i]);
+            for (String s : factions_allowed) {
+                obj_id[] faction_team = getFactionTeam(master_object, s);
                 int size;
-                if (faction_team != null)
-                {
+                if (faction_team != null) {
                     size = faction_team.length;
-                }
-                else 
-                {
+                } else {
                     size = 0;
                 }
                 factions_allowed_sizes = utils.addElement(factions_allowed_sizes, size);
-                if (factions_allowed[i].equals(faction))
-                {
+                if (s.equals(faction)) {
                     faction_size = size;
                 }
             }
@@ -710,7 +701,7 @@ public class battlefield extends script.base_script
         {
             if (!factions_allowed[i].equals(faction))
             {
-                if (faction_size - ((Integer)factions_allowed_sizes.get(i)).intValue() > MAXIMUM_FACTION_SIZE_DIFFERENCE)
+                if (faction_size - (Integer) factions_allowed_sizes.get(i) > MAXIMUM_FACTION_SIZE_DIFFERENCE)
                 {
                     LOG("LOG_CHANNEL", player + " ->There are too many combantants on the " + faction + " faction to join at this list.");
                     sendSystemMessageTestingOnly(player, "There are too many combantants on the " + faction + " faction to join at this list.");
@@ -729,16 +720,13 @@ public class battlefield extends script.base_script
         obj_id[] objects = getObjectsInRange(loc, CONSTRUCTOR_RANGE);
         if (objects != null)
         {
-            for (int i = 0; i < objects.length; i++)
-            {
-                if (hasScript(objects[i], SCRIPT_BATTLEFIELD_CONSTRUCTOR))
-                {
+            for (obj_id object : objects) {
+                if (hasScript(object, SCRIPT_BATTLEFIELD_CONSTRUCTOR)) {
                     region bf = getRegionFromMasterObject(master_object);
-                    int obj_faction_id = pvpBattlefieldGetFaction(objects[i], bf);
+                    int obj_faction_id = pvpBattlefieldGetFaction(object, bf);
                     String obj_faction = factions.getFactionNameByHashCode(obj_faction_id);
-                    if (faction.equals(obj_faction))
-                    {
-                        LOG("LOG_CHANNEL", "constructor ->" + objects[i]);
+                    if (faction.equals(obj_faction)) {
+                        LOG("LOG_CHANNEL", "constructor ->" + object);
                         return true;
                     }
                 }
@@ -1131,9 +1119,8 @@ public class battlefield extends script.base_script
         if (hasObjVar(master_object, VAR_MARKERS))
         {
             obj_id[] markers = getObjIdArrayObjVar(master_object, VAR_MARKERS);
-            for (int i = 0; i < markers.length; i++)
-            {
-                destroyObject(markers[i]);
+            for (obj_id marker : markers) {
+                destroyObject(marker);
             }
         }
         destroyBaseObjects(master_object);
@@ -1159,11 +1146,9 @@ public class battlefield extends script.base_script
         obj_id[] base_objects = pvpBattlefieldGetParticipantsForFaction(reg, 0);
         if (base_objects != null)
         {
-            for (int i = 0; i < base_objects.length; i++)
-            {
-                if (hasScript(base_objects[i], SCRIPT_BATTLEFIELD_OBJECT))
-                {
-                    messageTo(base_objects[i], "msgDestroyBattlefieldObject", null, 30.0f, false);
+            for (obj_id base_object : base_objects) {
+                if (hasScript(base_object, SCRIPT_BATTLEFIELD_OBJECT)) {
+                    messageTo(base_object, "msgDestroyBattlefieldObject", null, 30.0f, false);
                 }
             }
             return true;
@@ -1628,14 +1613,11 @@ public class battlefield extends script.base_script
         faction_team.setSize(0);
         if (players != null)
         {
-            for (int i = 0; i < players.length; i++)
-            {
-                String player_faction = getPlayerTeamFaction(players[i]);
-                if (player_faction != null)
-                {
-                    if (player_faction.equals(faction))
-                    {
-                        faction_team = utils.addElement(faction_team, players[i]);
+            for (obj_id player : players) {
+                String player_faction = getPlayerTeamFaction(player);
+                if (player_faction != null) {
+                    if (player_faction.equals(faction)) {
+                        faction_team = utils.addElement(faction_team, player);
                     }
                 }
             }
@@ -1857,11 +1839,9 @@ public class battlefield extends script.base_script
         obj_id[] items = pvpBattlefieldGetParticipantsForFaction(bf, 0);
         if (items != null)
         {
-            for (int i = 0; i < items.length; i++)
-            {
-                if (hasObjVar(items[i], VAR_GAME_CRITICAL))
-                {
-                    critical_items = utils.addElement(critical_items, items[i]);
+            for (obj_id item : items) {
+                if (hasObjVar(item, VAR_GAME_CRITICAL)) {
+                    critical_items = utils.addElement(critical_items, item);
                 }
             }
         }
@@ -1893,17 +1873,12 @@ public class battlefield extends script.base_script
         obj_id[] items = getObjectsInRange(loc, radius);
         if (items != null)
         {
-            for (int i = 0; i < items.length; i++)
-            {
-                if (isPlayer(items[i]))
-                {
-                    players = utils.addElement(players, items[i]);
-                }
-                else if (player_structure.isBuilding(items[i]))
-                {
-                    obj_id[] player_building = player_structure.getPlayersInBuilding(items[i]);
-                    if (player_building != null)
-                    {
+            for (obj_id item : items) {
+                if (isPlayer(item)) {
+                    players = utils.addElement(players, item);
+                } else if (player_structure.isBuilding(item)) {
+                    obj_id[] player_building = player_structure.getPlayersInBuilding(item);
+                    if (player_building != null) {
                         players = utils.concatArrays(players, player_building);
                     }
                 }
@@ -2148,9 +2123,8 @@ public class battlefield extends script.base_script
             return null;
         }
         int total_weight = 0;
-        for (int i = 0; i < weight.length; i++)
-        {
-            total_weight = total_weight + weight[i];
+        for (int i1 : weight) {
+            total_weight = total_weight + i1;
         }
         if (total_weight < 1)
         {
@@ -2673,11 +2647,9 @@ public class battlefield extends script.base_script
                 obj_id[] base_objects = pvpBattlefieldGetParticipantsForFaction(bf, 0);
                 if (base_objects != null)
                 {
-                    for (int i = 0; i < base_objects.length; i++)
-                    {
-                        if (isBattlefieldSpawned(base_objects[i]))
-                        {
-                            destroyObject(base_objects[i]);
+                    for (obj_id base_object : base_objects) {
+                        if (isBattlefieldSpawned(base_object)) {
+                            destroyObject(base_object);
                         }
                     }
                 }
@@ -2704,9 +2676,8 @@ public class battlefield extends script.base_script
             obj_id[] faction_team = getFactionTeam(master_object, faction);
             if (faction_team != null)
             {
-                for (int i = 0; i < faction_team.length; i++)
-                {
-                    expelPlayerFromBattlefield(faction_team[i], master_object);
+                for (obj_id obj_id : faction_team) {
+                    expelPlayerFromBattlefield(obj_id, master_object);
                 }
             }
             sendBattlefieldMessage(master_object, "The " + faction + " faction has been eliminated from the battle.");
@@ -2724,9 +2695,8 @@ public class battlefield extends script.base_script
         obj_id[] players = getPlayersOnBattlefield(master_object);
         if (players != null)
         {
-            for (int i = 0; i < players.length; i++)
-            {
-                expelPlayerFromBattlefield(players[i], master_object);
+            for (obj_id player : players) {
+                expelPlayerFromBattlefield(player, master_object);
             }
         }
         int idx = getBattlefieldIndex(master_object, BATTLEFIELD_DATATABLE);
@@ -2746,9 +2716,8 @@ public class battlefield extends script.base_script
         {
             setObjVar(master_object, VAR_FACTIONS_AI_REMAINING, factions_ai);
         }
-        for (int i = 0; i < factions_allowed.length; i++)
-        {
-            String objVar_name = VAR_BUILD_POINTS + factions_allowed[i];
+        for (String s : factions_allowed) {
+            String objVar_name = VAR_BUILD_POINTS + s;
             setObjVar(master_object, objVar_name, STARTING_BUILD_POINTS);
         }
         messageTo(master_object, "msgGameTimePulse", null, (int)GAME_TIME_PULSE, false);
@@ -2766,20 +2735,18 @@ public class battlefield extends script.base_script
         if (participants != null)
         {
             region bf = getRegionFromMasterObject(master_object);
-            for (int i = 0; i < participants.length; i++)
-            {
+            for (obj_id participant : participants) {
                 dictionary end_params = new dictionary();
                 String chatroom = getChatRoomNameAllFactions(master_object);
                 end_params.put("chatroom", chatroom);
-                int faction_id = pvpBattlefieldGetFaction(participants[i], bf);
+                int faction_id = pvpBattlefieldGetFaction(participant, bf);
                 String faction = factions.getFactionNameByHashCode(faction_id);
-                if (faction != null)
-                {
+                if (faction != null) {
                     String chatroom_faction = getChatRoomNameFaction(master_object, faction);
                     end_params.put("chatroom_faction", chatroom_faction);
                 }
                 end_params.put("master_object", master_object);
-                messageTo(participants[i], "msgEndBattlefieldGame", end_params, 1.0f, true);
+                messageTo(participant, "msgEndBattlefieldGame", end_params, 1.0f, true);
             }
         }
         if (hasObjVar(master_object, VAR_GAME))
@@ -2797,7 +2764,7 @@ public class battlefield extends script.base_script
             int restart_max = getGameRestartMaximum(master_object);
             int restart_time = rand(restart_min, restart_max);
             setObjVar(master_object, VAR_NEXT_GAME, getGameTime() + restart_time);
-            messageTo(master_object, "msgStartGame", null, (float)restart_time, true);
+            messageTo(master_object, "msgStartGame", null, restart_time, true);
         }
         else 
         {
@@ -2952,7 +2919,7 @@ public class battlefield extends script.base_script
         String template = stats.getString("construction_template");
         int cost = stats.getInt("cost");
         float height = stats.getFloat("height");
-        float yaw = (float)(rotation * 90);
+        float yaw = (rotation * 90);
         region bf = getRegionFromMasterObject(master_object);
         int faction_id = pvpBattlefieldGetFaction(player, bf);
         String faction = factions.getFactionNameByHashCode(faction_id);

@@ -123,9 +123,8 @@ public class player_force_rank extends script.base_script
         {
             force_rank.makePlayerEnemyOfGroup(self, enemies);
             LOG("force_rank", "player_force_rank::PEFSynchResponse: -> (" + utils.getRealPlayerFirstName(self) + ") PEFd enemies from enclave.");
-            for (int i = 0; i < enemies.length; i++)
-            {
-                LOG("force_rank", "player_force_rank::PEFSynchResponse: -> [" + enemies[i] + "]");
+            for (obj_id enemy : enemies) {
+                LOG("force_rank", "player_force_rank::PEFSynchResponse: -> [" + enemy + "]");
             }
         }
         else 
@@ -169,17 +168,16 @@ public class player_force_rank extends script.base_script
             }
             string_id sid = null;
             obj_id target = actionTargets[0];
-            if (pvpAction.equals(force_rank.ACTION_BANISHMENT))
-            {
-                sid = new string_id("pvp_rating", "banishment_start");
-            }
-            else if (pvpAction.equals(force_rank.ACTION_PURGE_COUNCIL))
-            {
-                sid = new string_id("pvp_rating", "purge_start");
-            }
-            else if (pvpAction.equals(force_rank.ACTION_CANDIDATE_SUDDEN_DEATH))
-            {
-                sid = new string_id("pvp_rating", "sudden_death_start");
+            switch (pvpAction) {
+                case force_rank.ACTION_BANISHMENT:
+                    sid = new string_id("pvp_rating", "banishment_start");
+                    break;
+                case force_rank.ACTION_PURGE_COUNCIL:
+                    sid = new string_id("pvp_rating", "purge_start");
+                    break;
+                case force_rank.ACTION_CANDIDATE_SUDDEN_DEATH:
+                    sid = new string_id("pvp_rating", "sudden_death_start");
+                    break;
             }
             prose_package pp2 = prose.getPackage(sid, target);
             if (pp2 != null)
@@ -675,9 +673,8 @@ public class player_force_rank extends script.base_script
                     CustomerServiceLog("force_rank", "WARNING: msgFRSVoteStatusSelect winners array too large, size = " + winners.length);
                 }
                 dsrc.add("Awaiting Acceptance:");
-                for (int i = 0; i < winners.length; i++)
-                {
-                    dsrc.add("   " + winners[i]);
+                for (String winner : winners) {
+                    dsrc.add("   " + winner);
                 }
             }
             PROFILER_STOP("vote_select.winners");
@@ -935,9 +932,8 @@ public class player_force_rank extends script.base_script
             string_id body = new string_id(force_rank.STF_FILE, "vote_last_seat_taken_body");
             String rank_str = localize(new string_id(force_rank.STF_FILE, "rank" + (row_selected + 1)));
             prose_package pp = prose.getPackage(body, rank_str);
-            for (int i = 0; i < winners.size(); i++)
-            {
-                utils.sendMail(sub, pp, ((String)winners.get(i)), "Enclave Records");
+            for (Object winner : winners) {
+                utils.sendMail(sub, pp, ((String) winner), "Enclave Records");
             }
             sendSystemMessageProse(self, pp);
             return SCRIPT_CONTINUE;
@@ -972,9 +968,8 @@ public class player_force_rank extends script.base_script
                     body = new string_id(force_rank.STF_FILE, "vote_last_seat_taken_body");
                     rank_str = localize(new string_id(force_rank.STF_FILE, "rank" + (row_selected + 1)));
                     pp = prose.getPackage(body, rank_str);
-                    for (int i = 0; i < winners.size(); i++)
-                    {
-                        utils.sendMail(sub, pp, ((String)winners.get(i)), "Enclave Records");
+                    for (Object winner : winners) {
+                        utils.sendMail(sub, pp, ((String) winner), "Enclave Records");
                     }
                 }
             }

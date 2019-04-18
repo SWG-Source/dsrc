@@ -42,10 +42,8 @@ public class dynamic_region_master extends script.base_script
         obj_id[] myCreatures = getObjIdArrayObjVar(self, CREATURE_LIST);
         if (currentEpoch < (birth + maxDuration * 60) && myCreatures != null && myCreatures.length > 0)
         {
-            for (int i = 0; i < myCreatures.length; ++i)
-            {
-                if (isIdValid(myCreatures[i]) && ai_lib.isInCombat(myCreatures[i]))
-                {
+            for (obj_id myCreature : myCreatures) {
+                if (isIdValid(myCreature) && ai_lib.isInCombat(myCreature)) {
                     messageTo(self, "destroySelf", null, 60.0f, false);
                     return SCRIPT_CONTINUE;
                 }
@@ -53,11 +51,9 @@ public class dynamic_region_master extends script.base_script
         }
         if (myCreatures != null && myCreatures.length > 0)
         {
-            for (int i = 0; i < myCreatures.length; ++i)
-            {
-                if (isIdValid(myCreatures[i]))
-                {
-                    destroyObject(myCreatures[i]);
+            for (obj_id myCreature : myCreatures) {
+                if (isIdValid(myCreature)) {
+                    destroyObject(myCreature);
                 }
             }
         }

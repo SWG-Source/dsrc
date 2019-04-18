@@ -10,7 +10,7 @@ public class default_interface extends script.terminal.base.base_terminal
     public default_interface()
     {
     }
-    private static final float BET_RANGE = 15f;
+    private static final float BET_RANGE = 15.0f;
     private static final string_id MNU_JOIN = new string_id(gambling.STF_INTERFACE, "mnu_join");
     private static final string_id MNU_LEAVE = new string_id(gambling.STF_INTERFACE, "mnu_leave");
     private static final string_id STOP_GAMBLING = new string_id(gambling.STF_INTERFACE, "stop_gambling");
@@ -150,7 +150,7 @@ public class default_interface extends script.terminal.base.base_terminal
         }
         dictionary d = new dictionary();
         d.put("player", target);
-        messageTo(self, "handleBetFailed", d, 0f, false);
+        messageTo(self, "handleBetFailed", d, 0.0f, false);
         return SCRIPT_CONTINUE;
     }
 }

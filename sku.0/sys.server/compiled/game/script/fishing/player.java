@@ -110,7 +110,7 @@ public class player extends script.base_script
             return SCRIPT_CONTINUE;
         }
         float dist = getDistance(getLocation(self), getLocation(marker));
-        if (dist < 2f)
+        if (dist < 2.0f)
         {
             sendSystemMessage(self, new string_id(STF_FISH, "close_reel_in"));
             minigame.stopFishing(self);
@@ -202,7 +202,7 @@ public class player extends script.base_script
                 break;
             case minigame.FS_SNAG:
                 float snagFactor = utils.getFloatScriptVar(self, minigame.SCRIPTVAR_BONUS);
-                float minFree = 0f;
+                float minFree = 0.0f;
                 switch (action)
                 {
                     case minigame.FA_TUG_UP:
@@ -214,14 +214,14 @@ public class player extends script.base_script
                         minFree = 0.4f;
                         break;
                 }
-                float delta = rand(minFree, 1f) - snagFactor;
+                float delta = rand(minFree, 1.0f) - snagFactor;
                 if (delta > 0)
                 {
                     minigame.freeSnaggedLine(self);
                 }
                 else
                 {
-                    float snapRoll = rand(0f, 1f);
+                    float snapRoll = rand(0.0f, 1.0f);
                     if (snapRoll < minFree)
                     {
                         minigame.snapFishingLine(self);
@@ -296,11 +296,11 @@ public class player extends script.base_script
             minigame.loseCatch(self);
             return SCRIPT_CONTINUE;
         }
-        float delay = rand(3f, 10f);
+        float delay = rand(3.0f, 10.0f);
         location here = getLocation(self);
         float dist = getDistance(here, loc);
         LOG("fishing", "handleReelIn: dist = " + dist);
-        if (dist < 2f)
+        if (dist < 2.0f)
         {
             LOG("fishing", "handleReelIn: messaging HANDLER_CAUGHT_SOMETHING");
             messageTo(self, minigame.HANDLER_CAUGHT_SOMETHING, params, delay, false);
@@ -325,7 +325,7 @@ public class player extends script.base_script
             if (status == minigame.FS_CAUGHT)
             {
                 float theta = getYaw(marker);
-                float dTheta = rand(-45f, 45f);
+                float dTheta = rand(-45.0f, 45.0f);
                 if (rand(0, 9) > 7)
                 {
                     switch (rand(1, 3))
@@ -340,24 +340,24 @@ public class player extends script.base_script
                             doAnimationAction(self, "fishing_tug_left");
                             break;
                     }
-                    dTheta += 180f;
+                    dTheta += 180.0f;
                 }
                 else 
                 {
                     doAnimationAction(self, "fishing_reel");
                 }
                 LOG("fishing", "handleReelIn: theta = " + theta + " dTheta = " + dTheta);
-                float moveDist = rand(0f, 2f);
+                float moveDist = rand(0.0f, 2.0f);
                 LOG("fishing", "handleReelIn: moveDist = " + moveDist);
                 float uTheta = theta + dTheta;
                 LOG("fishing", "handleReelIn: uTheta = " + uTheta);
-                if (uTheta < -180f)
+                if (uTheta < -180.0f)
                 {
-                    uTheta += 360f;
+                    uTheta += 360.0f;
                 }
-                if (uTheta > 180f)
+                if (uTheta > 180.0f)
                 {
-                    uTheta -= 360f;
+                    uTheta -= 360.0f;
                 }
                 location updatedLoc = utils.rotatePointXZ(loc, moveDist, uTheta);
                 LOG("fishing", "handleReelIn: updatedLoc = " + updatedLoc.toString());
@@ -379,13 +379,13 @@ public class player extends script.base_script
                 }
                 else 
                 {
-                    if (Math.abs(dTheta) > 90f)
+                    if (Math.abs(dTheta) > 90.0f)
                     {
                         if (moveDist < 0.25f)
                         {
                             sendSystemMessage(self, minigame.SID_FISH_FIGHT_HARD);
                         }
-                        else if (moveDist > 1f)
+                        else if (moveDist > 1.0f)
                         {
                             sendSystemMessage(self, minigame.SID_FISH_RUN);
                         }
@@ -400,7 +400,7 @@ public class player extends script.base_script
                         {
                             sendSystemMessage(self, minigame.SID_FISH_FIGHT_EASY);
                         }
-                        else if (moveDist > 1f)
+                        else if (moveDist > 1.0f)
                         {
                             sendSystemMessage(self, minigame.SID_FISH_CHARGE);
                         }
@@ -422,7 +422,7 @@ public class player extends script.base_script
                 else if (!minigame.isLocationFishable(updatedLoc))
                 {
                     sendSystemMessage(self, minigame.SID_LOOT_BEACHED);
-                    messageTo(self, minigame.HANDLER_CAUGHT_SOMETHING, params, 1f, false);
+                    messageTo(self, minigame.HANDLER_CAUGHT_SOMETHING, params, 1.0f, false);
                     return SCRIPT_CONTINUE;
                 }
                 updatedLoc.y = getWaterTableHeight(updatedLoc);

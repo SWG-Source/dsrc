@@ -20,11 +20,9 @@ public class weakened_wall extends script.base_script
         messageTo(poiMaster, "wallDestroyed", null, 0, false);
         location loc = getLocation(self);
         obj_id players[] = getPlayerCreaturesInRange(loc, 40);
-        for (int i = 0; i < players.length; i++)
-        {
-            if ((players[i] != null) && (players[i] != obj_id.NULL_ID))
-            {
-                playClientEffectLoc(players[i], "clienteffect/combat_grenade_large_01.cef", loc, 0);
+        for (obj_id player : players) {
+            if ((player != null) && (player != obj_id.NULL_ID)) {
+                playClientEffectLoc(player, "clienteffect/combat_grenade_large_01.cef", loc, 0);
             }
         }
         destroyObject(self);
@@ -36,7 +34,7 @@ public class weakened_wall extends script.base_script
         hitpoints -= 200;
         setHitpoints(self, hitpoints);
         int max_hitpoints = getMaxHitpoints(self);
-        float percent_hp = (float)hitpoints / (float)max_hitpoints;
+        float percent_hp = (float)hitpoints / max_hitpoints;
         boolean wallDamaged = getBooleanObjVar(self, "wallDamaged");
         if (!wallDamaged)
         {

@@ -47,13 +47,10 @@ public class event_bossk_informant extends script.base_script
     public boolean event_bossk_informant_condition_hasBrokenGloves(obj_id player, obj_id npc) throws InterruptedException
     {
         obj_id inv[] = utils.getAllItemsInBankAndInventory(player);
-        for (int i = 0; i < inv.length; i++)
-        {
-            String thisItem = getTemplateName(inv[i]);
-            if (thisItem.equals("object/tangible/wearables/gloves/gloves_bossk_reward.iff"))
-            {
-                if (hasObjVar(inv[i], "skillmod.bonus.ranged_accuracy"))
-                {
+        for (obj_id obj_id : inv) {
+            String thisItem = getTemplateName(obj_id);
+            if (thisItem.equals("object/tangible/wearables/gloves/gloves_bossk_reward.iff")) {
+                if (hasObjVar(obj_id, "skillmod.bonus.ranged_accuracy")) {
                     return true;
                 }
             }
@@ -86,14 +83,11 @@ public class event_bossk_informant extends script.base_script
     public void event_bossk_informant_action_fixGloves(obj_id player, obj_id npc) throws InterruptedException
     {
         obj_id inv[] = utils.getAllItemsInBankAndInventory(player);
-        for (int i = 0; i < inv.length; i++)
-        {
-            String thisItem = getTemplateName(inv[i]);
-            if (thisItem.equals("object/tangible/wearables/gloves/gloves_bossk_reward.iff"))
-            {
-                if (hasObjVar(inv[i], "skillmod.bonus.ranged_accuracy"))
-                {
-                    destroyObject(inv[i]);
+        for (obj_id obj_id : inv) {
+            String thisItem = getTemplateName(obj_id);
+            if (thisItem.equals("object/tangible/wearables/gloves/gloves_bossk_reward.iff")) {
+                if (hasObjVar(obj_id, "skillmod.bonus.ranged_accuracy")) {
+                    destroyObject(obj_id);
                     obj_id playerInv = utils.getInventoryContainer(player);
                     obj_id reward = static_item.createNewItemFunction("item_event_microservo_gloves_03_01", playerInv);
                 }

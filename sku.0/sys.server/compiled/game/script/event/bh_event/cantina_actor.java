@@ -78,7 +78,7 @@ public class cantina_actor extends script.base_script
             destroyObject(self);
             return SCRIPT_CONTINUE;
         }
-        ai_lib.aiPathTo(self, new location(43.8f, .1f, 0.5f, getLocation(building).area, destinationCell));
+        ai_lib.aiPathTo(self, new location(43.8f, 0.1f, 0.5f, getLocation(building).area, destinationCell));
         messageTo(self, "goDie", null, 15, false);
         return SCRIPT_CONTINUE;
     }

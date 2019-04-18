@@ -34,9 +34,8 @@ public class tc_jedi extends script.base_script
             skillList = player_version.orderSkillListForRevoke(skillList);
             if ((skillList != null) && (skillList.length > 0))
             {
-                for (int x = 0; x < skillList.length; x++)
-                {
-                    revokeSkill(objPlayer, skillList[x]);
+                for (String s : skillList) {
+                    revokeSkill(objPlayer, s);
                 }
             }
             skillList = getSkillListingForPlayer(objPlayer);
@@ -57,12 +56,10 @@ public class tc_jedi extends script.base_script
         String xpList[] = xp.getXpTypes(objPlayer);
         if (xpList != null && xpList.length > 0)
         {
-            for (int i = 0; i < xpList.length; i++)
-            {
-                int xpAmount = getExperiencePoints(objPlayer, xpList[i]);
-                if (xpAmount > 0)
-                {
-                    grantExperiencePoints(objPlayer, xpList[i], -xpAmount);
+            for (String s : xpList) {
+                int xpAmount = getExperiencePoints(objPlayer, s);
+                if (xpAmount > 0) {
+                    grantExperiencePoints(objPlayer, s, -xpAmount);
                 }
             }
         }

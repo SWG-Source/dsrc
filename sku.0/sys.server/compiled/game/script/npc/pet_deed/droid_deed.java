@@ -621,13 +621,11 @@ public class droid_deed extends script.base_script
             String[] effects = pet_lib.getLightingEffects(self);
             if (effects != null)
             {
-                for (int i = 0; i < effects.length; i++)
-                {
-                    names[idx] = effects[i];
+                for (String effect : effects) {
+                    names[idx] = effect;
                     attribs[idx] = " installed";
                     idx++;
-                    if (idx >= names.length)
-                    {
+                    if (idx >= names.length) {
                         return SCRIPT_CONTINUE;
                     }
                 }
@@ -842,14 +840,12 @@ public class droid_deed extends script.base_script
             ranged_int_custom_var[] ri = hue.getPalcolorVars(deed);
             if (ri != null && ri.length > 0)
             {
-                for (int i = 0; i < ri.length; i++)
-                {
-                    int val = ri[i].getValue();
-                    if (val > -1)
-                    {
-                        String varpath = pet_lib.VAR_PALVAR_VARS + "." + ri[i].getVarName();
+                for (ranged_int_custom_var ranged_int_custom_var : ri) {
+                    int val = ranged_int_custom_var.getValue();
+                    if (val > -1) {
+                        String varpath = pet_lib.VAR_PALVAR_VARS + "." + ranged_int_custom_var.getVarName();
                         setObjVar(petControlDevice, varpath, val);
-                        hue.setColor(pet, ri[i].getVarName(), val);
+                        hue.setColor(pet, ranged_int_custom_var.getVarName(), val);
                     }
                 }
                 setObjVar(petControlDevice, pet_lib.VAR_PALVAR_CNT, pet_lib.CUSTOMIZATION_COUNT);

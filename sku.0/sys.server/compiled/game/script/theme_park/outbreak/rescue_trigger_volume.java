@@ -26,7 +26,7 @@ public class rescue_trigger_volume extends script.base_script
     public static final String QUEST_SIGNAL = "survivorHasBeenSpawned";
     public static final String WAYPOINT_LIST = "wayPointList";
     public static final String WAYPOINT_LOCS = "wayPtLocs";
-    public static final float TRIGGER_RADIUS = 3f;
+    public static final float TRIGGER_RADIUS = 3.0f;
     public static final int RADIUS = 300;
     public static final String[] MOB_FOR_QUEST = 
     {
@@ -151,14 +151,12 @@ public class rescue_trigger_volume extends script.base_script
             return SCRIPT_CONTINUE;
         }
         location[] wayPtLocs = new location[wayPointList.length];
-        for (int i = 0; i < wayPointList.length; i++)
-        {
-            int orderNumber = getIntObjVar(wayPointList[i], creatureType) - 1;
-            if (orderNumber < 0)
-            {
+        for (obj_id obj_id : wayPointList) {
+            int orderNumber = getIntObjVar(obj_id, creatureType) - 1;
+            if (orderNumber < 0) {
                 continue;
             }
-            wayPtLocs[orderNumber] = getLocation(wayPointList[i]);
+            wayPtLocs[orderNumber] = getLocation(obj_id);
         }
         if (wayPtLocs == null || wayPtLocs.length <= 0)
         {

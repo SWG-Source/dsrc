@@ -212,10 +212,8 @@ public class menu extends script.base_script
     }
     public boolean isSEGoggle(obj_id item) throws InterruptedException
     {
-        for (int i = 0; i < COLLECTOR_EDITION_ITEMS.length; i++)
-        {
-            if (getTemplateName(item) == COLLECTOR_EDITION_ITEMS[i])
-            {
+        for (String collectorEditionItem : COLLECTOR_EDITION_ITEMS) {
+            if (getTemplateName(item) == collectorEditionItem) {
                 return true;
             }
         }

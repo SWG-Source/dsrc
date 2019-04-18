@@ -130,20 +130,16 @@ public class hue extends script.base_script
             return null;
         }
         int count = 0;
-        for (int i = 0; i < allVars.length; i++)
-        {
-            if (allVars[i].isPalColor())
-            {
+        for (custom_var allVar1 : allVars) {
+            if (allVar1.isPalColor()) {
                 ++count;
             }
         }
         ranged_int_custom_var[] ret = new ranged_int_custom_var[count];
         int pos = 0;
-        for (int i = 0; i < allVars.length; i++)
-        {
-            if (allVars[i].isPalColor())
-            {
-                ranged_int_custom_var ri = (ranged_int_custom_var)(allVars[i]);
+        for (custom_var allVar : allVars) {
+            if (allVar.isPalColor()) {
+                ranged_int_custom_var ri = (ranged_int_custom_var) (allVar);
                 ret[pos++] = ri;
             }
         }
@@ -169,9 +165,7 @@ public class hue extends script.base_script
             return null;
         }
         dictionary d = new dictionary();
-        for (int i = 0; i < palColors.length; i++)
-        {
-            ranged_int_custom_var ri = palColors[i];
+        for (ranged_int_custom_var ri : palColors) {
             d.put(ri.getVarName(), ri.getValue());
         }
         PROFILER_STOP("hue.getPalcolorData");
@@ -192,13 +186,11 @@ public class hue extends script.base_script
         {
             return;
         }
-        for (int i = 0; i < palColors.length; i++)
-        {
-            String varName = palColors[i].getVarName();
-            if (colorData.containsKey(varName))
-            {
+        for (ranged_int_custom_var palColor : palColors) {
+            String varName = palColor.getVarName();
+            if (colorData.containsKey(varName)) {
                 int colorValue = colorData.getInt(varName);
-                palColors[i].setValue(colorValue);
+                palColor.setValue(colorValue);
             }
         }
     }
@@ -208,12 +200,11 @@ public class hue extends script.base_script
         ranged_int_custom_var[] c = getPalcolorVars(target);
         if (c != null)
         {
-            for (int i = 0; i < c.length; i++)
-            {
-                int min = c[i].getMinRangeInclusive();
-                int max = c[i].getMaxRangeInclusive();
+            for (ranged_int_custom_var ranged_int_custom_var : c) {
+                int min = ranged_int_custom_var.getMinRangeInclusive();
+                int max = ranged_int_custom_var.getMaxRangeInclusive();
                 int randVal = rand(min, max);
-                c[i].setValue(randVal);
+                ranged_int_custom_var.setValue(randVal);
             }
         }
         PROFILER_STOP("hue.hueObject");
@@ -224,9 +215,8 @@ public class hue extends script.base_script
         ranged_int_custom_var[] c = getPalcolorVars(target);
         if (c != null)
         {
-            for (int i = 0; i < c.length; i++)
-            {
-                c[i].setValue(color);
+            for (ranged_int_custom_var ranged_int_custom_var : c) {
+                ranged_int_custom_var.setValue(color);
             }
         }
         PROFILER_STOP("hue.hueObjectColor");
@@ -253,11 +243,9 @@ public class hue extends script.base_script
         }
         int n = 0;
         PROFILER_START("hue.getRangedIntVars.loopA." + allVars.length);
-        for (int i = 0; i < allVars.length; i++)
-        {
-            if (allVars[i].isRangedInt())
-            {
-                ri[n] = (ranged_int_custom_var)allVars[i];
+        for (custom_var allVar : allVars) {
+            if (allVar.isRangedInt()) {
+                ri[n] = (ranged_int_custom_var) allVar;
                 n++;
             }
         }
@@ -287,13 +275,12 @@ public class hue extends script.base_script
         ranged_int_custom_var[] c = getRangedIntVars(target);
         if (c != null)
         {
-            for (int i = 0; i < c.length; i++)
-            {
+            for (ranged_int_custom_var ranged_int_custom_var : c) {
                 PROFILER_START("hue.reshapeObject.innerLoop");
-                int min = c[i].getMinRangeInclusive();
-                int max = c[i].getMaxRangeInclusive();
+                int min = ranged_int_custom_var.getMinRangeInclusive();
+                int max = ranged_int_custom_var.getMaxRangeInclusive();
                 int randVal = rand(min, max);
-                c[i].setValue(randVal);
+                ranged_int_custom_var.setValue(randVal);
                 PROFILER_STOP("hue.reshapeObject.innerLoop");
             }
         }

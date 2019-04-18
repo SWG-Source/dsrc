@@ -30,15 +30,13 @@ public class trap_terminal_cell extends script.base_script
         obj_id[] players = trial.getPlayersInCellList(self, cells);
         if (players != null && players.length > 0)
         {
-            for (int i = 0; i < players.length; i++)
-            {
-                buff.applyBuff(players[i], "biological_suppression");
+            for (obj_id player1 : players) {
+                buff.applyBuff(player1, "biological_suppression");
             }
-            for (int k = 0; k < guardDroids.length; k++)
-            {
+            for (String guardDroid : guardDroids) {
                 obj_id player = players[rand(0, players.length - 1)];
                 location playerLoc = getLocation(player);
-                obj_id guard = create.object(guardDroids[k], playerLoc);
+                obj_id guard = create.object(guardDroid, playerLoc);
                 startCombat(guard, player);
             }
             messageTo(self, "clearTrapTrigger", null, 45, false);

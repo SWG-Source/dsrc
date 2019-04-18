@@ -21,11 +21,11 @@ public class sarlacc extends script.base_script
     {
         if (!hasTriggerVolume(self, "sarlaccBreach"))
         {
-            createTriggerVolume("sarlaccBreach", 30.f, true);
+            createTriggerVolume("sarlaccBreach", 30.0f, true);
         }
         if (!hasTriggerVolume(self, "sarlaccPreBreach"))
         {
-            createTriggerVolume("sarlaccPreBreach", 60.f, true);
+            createTriggerVolume("sarlaccPreBreach", 60.0f, true);
         }
         messageTo(self, "poisonArea", null, 300, false);
         return SCRIPT_CONTINUE;
@@ -40,7 +40,7 @@ public class sarlacc extends script.base_script
             }
             if (!utils.hasScriptVar(self, "bile.eject"))
             {
-                playClientEffectLoc(whoTriggeredMe, "clienteffect/cr_sarlacc_erupt.cef", getLocation(self), 3f);
+                playClientEffectLoc(whoTriggeredMe, "clienteffect/cr_sarlacc_erupt.cef", getLocation(self), 3.0f);
                 obj_id[] contents = getTriggerVolumeContents(self, "sarlaccBreach");
                 if (contents != null)
                 {
@@ -52,7 +52,7 @@ public class sarlacc extends script.base_script
                 }
             }
             utils.setScriptVar(self, "bile.eject", 1);
-            messageTo(self, "resetBileEject", null, 10.f, false);
+            messageTo(self, "resetBileEject", null, 10.0f, false);
             if (getEnhancedSkillStatisticModifierUncapped(whoTriggeredMe, "resistance_disease") < 24)
             {
                 sendSystemMessage(whoTriggeredMe, SID_SARLACC_DOT);
@@ -88,7 +88,7 @@ public class sarlacc extends script.base_script
                         playerHint = 1;
                         if (bile == 0) {
                             bile = 1;
-                            playClientEffectLoc(content, "clienteffect/cr_sarlacc_erupt.cef", getLocation(self), 3f);
+                            playClientEffectLoc(content, "clienteffect/cr_sarlacc_erupt.cef", getLocation(self), 3.0f);
                         }
                         if (getEnhancedSkillStatisticModifierUncapped(content, "resistance_disease") < 24) {
                             sendSystemMessage(content, SID_SARLACC_DOT);

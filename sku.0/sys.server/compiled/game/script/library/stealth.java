@@ -22,18 +22,18 @@ public class stealth extends script.base_script
     public static final String INVIS_UPKEEP_MSG_DISPATCHED = "invis_upkeep_dispatched";
     public static final String TRAP_PROXIMITY_VOLUME = "trap_proximity";
     public static final String SENSOR_PROXIMITY_VOLUME = "sensor_proximity";
-    public static final float INVIS_BREAK_MAX_FAR_DISTANCE = 20f;
-    public static final float INVIS_BREAK_NEAR_DISTANCE = 8f;
+    public static final float INVIS_BREAK_MAX_FAR_DISTANCE = 20.0f;
+    public static final float INVIS_BREAK_NEAR_DISTANCE = 8.0f;
     public static final int PASSIVE_BREACH_FAR = 2;
     public static final int PASSIVE_BREACH_NEAR = 1;
     public static final float PASSIVE_DETECT_CHANCE_FAR = 15.0f;
     public static final float PASSIVE_DETECT_CHANCE_NEAR = 45.0f;
     public static final float PASSIVE_DETECT_CHANCE_MOB = 20.0f;
     public static final String INCOGNITO_OLD_FACTION = "stealth.incognitoFaction";
-    public static final float MIN_CHANCE_TO_DETECT_HIDDEN = 1f;
-    public static final float MAX_CHANCE_TO_DETECT_HIDDEN = 99f;
-    public static final float PASSIVE_DETECT_CHANCE = 20f;
-    public static final float ACTIVE_DETECT_CHANCE = 50f;
+    public static final float MIN_CHANCE_TO_DETECT_HIDDEN = 1.0f;
+    public static final float MAX_CHANCE_TO_DETECT_HIDDEN = 99.0f;
+    public static final float PASSIVE_DETECT_CHANCE = 20.0f;
+    public static final float ACTIVE_DETECT_CHANCE = 50.0f;
     public static final float MAX_HIDING_DETECT_SCORE = 220;
     public static final int HEP_UPKEEP_COST = 10;
     public static final String HEP_BASE_POWER = "basePower";
@@ -89,8 +89,8 @@ public class stealth extends script.base_script
     public static final String BEACON_LAST_KNOWN_TARGET = "beacon.lastKnownTarget";
     public static final String SENSOR_ARMED_TIME = "sensor.armedTime";
     public static final String BUFF_NO_BREAK_INVIS = "no_break_invis";
-    public static final float SENSOR_RANGE = 10f;
-    public static final float BEACON_INTERVAL = 20f;
+    public static final float SENSOR_RANGE = 10.0f;
+    public static final float BEACON_INTERVAL = 20.0f;
     public static final int TRIGGER_TYPE_TIMER = 1;
     public static final int TRIGGER_TYPE_REMOTE = 2;
     public static final int TRIGGER_TYPE_PROXIMITY = 3;
@@ -111,12 +111,12 @@ public class stealth extends script.base_script
         TRIGGER_TYPE_REMOTE,
         TRIGGER_TYPE_PROXIMITY
     };
-    public static final float TRAP_MIN_DISTANCE_BETWEEN = 10f;
+    public static final float TRAP_MIN_DISTANCE_BETWEEN = 10.0f;
     public static final float TRAP_SELF_DESTRUCT_TIMEOUT = 60 * 10;
-    public static final float TRAP_HX2_BLAST_RADIUS = 15f;
-    public static final float TRAP_FLASHBANG_BLAST_RADIUS = 20f;
-    public static final float TRAP_CALTROP_BLAST_RADIUS = 10f;
-    public static final float TRAP_KAMINODART_BLAST_RADIUS = 10f;
+    public static final float TRAP_HX2_BLAST_RADIUS = 15.0f;
+    public static final float TRAP_FLASHBANG_BLAST_RADIUS = 20.0f;
+    public static final float TRAP_CALTROP_BLAST_RADIUS = 10.0f;
+    public static final float TRAP_KAMINODART_BLAST_RADIUS = 10.0f;
     public static final float KAMINODART_MAX_DURATION = 30;
     public static final float KAMINODART_MAX_POTENCY = 175;
     public static final float KAMINODART_MAX_STRENGTH = 175;
@@ -129,13 +129,13 @@ public class stealth extends script.base_script
     public static final float BASE_DETECT_CAMOUFLAGE_DISTANCE = 20;
     public static final int PLAYER_DETECT_SAFETY_INTERVAL = 60;
     public static final int MAX_INVIS_BUFF_TO_DETECT = 5;
-    public static final float BASE_DISARM_CHANCE = 55f;
-    public static final float MAX_CHANCE_TO_DISARM = 95f;
-    public static final float MIN_CHANCE_TO_DISARM = 10f;
-    public static final float PERCENT_EFFECT_MOD_DISARM_FAIL = 2f;
-    public static final float CHAFF_FLARE_DISTANCE = 15f;
+    public static final float BASE_DISARM_CHANCE = 55.0f;
+    public static final float MAX_CHANCE_TO_DISARM = 95.0f;
+    public static final float MIN_CHANCE_TO_DISARM = 10.0f;
+    public static final float PERCENT_EFFECT_MOD_DISARM_FAIL = 2.0f;
+    public static final float CHAFF_FLARE_DISTANCE = 15.0f;
     public static final float MAX_BIO_PROBE_STORAGE_TIME = 3600;
-    public static final float MAX_PROBE_DISTANCE = 10f;
+    public static final float MAX_PROBE_DISTANCE = 10.0f;
     public static final String[] TRAP_RESTRICTED_REGIONS = 
     {
         "dathomir_fs_village_unpassable"
@@ -250,7 +250,7 @@ public class stealth extends script.base_script
         float minPower = 500;
         float maxPower = 1000;
         float difference = maxPower - minPower;
-        float ratio = level / 100f;
+        float ratio = level / 100.0f;
         return (int)Math.ceil(minPower + (difference * ratio));
     }
     public static obj_id createHEPObject(obj_id container, int power, int count) throws InterruptedException
@@ -704,7 +704,7 @@ public class stealth extends script.base_script
         {
             chanceToDetect = MAX_CHANCE_TO_DISARM;
         }
-        if (rand(0f, 100f) < chanceToDetect)
+        if (rand(0.0f, 100.0f) < chanceToDetect)
         {
             if (hasObjVar(trap, stealth.TRAP_FREQUENCY))
             {
@@ -1519,7 +1519,7 @@ public class stealth extends script.base_script
                         {
                             break;
                         }
-                        int amt = (int)(getNpcCash(mark) * .2f);
+                        int amt = (int)(getNpcCash(mark) * 0.2f);
                         if (amt > 0)
                         {
                             dictionary d = new dictionary();
@@ -1862,7 +1862,7 @@ public class stealth extends script.base_script
                 }
             }
             float rslt = (1 / (1 + ((skill + 10) / 10)));
-            return (rand(0, 1f) > rslt);
+            return (rand(0, 1.0f) > rslt);
         }
         return true;
     }
@@ -2166,7 +2166,7 @@ public class stealth extends script.base_script
     public static boolean activeDetectHiddenTarget(obj_id target, obj_id detector, float baseChanceToDetect) throws InterruptedException
     {
         float finalChanceToDetect = getDetectChance(target, detector, baseChanceToDetect);
-        float roll = rand(0f, 100f);
+        float roll = rand(0.0f, 100.0f);
         return (roll < finalChanceToDetect);
     }
     public static boolean passiveDetectHiddenTarget(obj_id target, obj_id detector, int volume) throws InterruptedException
@@ -2500,7 +2500,7 @@ public class stealth extends script.base_script
     {
         if (breachDistance <= INVIS_BREAK_NEAR_DISTANCE)
         {
-            breachDistance = INVIS_BREAK_NEAR_DISTANCE + 1f;
+            breachDistance = INVIS_BREAK_NEAR_DISTANCE + 1.0f;
         }
         attachScript(player, "systems.skills.stealth.stealth_monitor");
         messageTo(player, "updatePassiveRevealList", null, 10, false);
@@ -2939,7 +2939,7 @@ public class stealth extends script.base_script
         {
             int sGuildId = getGuildId(player);
             boolean isInSameGuild = false;
-            obj_id[] stuff = getCreaturesInRange(player, 20f);
+            obj_id[] stuff = getCreaturesInRange(player, 20.0f);
             for (obj_id aStuff : stuff) {
                 if (isPlayer(aStuff) || ai_lib.isNpc(aStuff)) {
                     isInSameGuild = (sGuildId != 0) && (getGuildId(aStuff) == sGuildId);
@@ -3077,10 +3077,10 @@ public class stealth extends script.base_script
         if (isIdValid(hep) && exists(hep))
         {
             int power = getCount(hep);
-            float multiplier = .5f;
+            float multiplier = 0.5f;
             if (power > HEP_UPKEEP_COST)
             {
-                multiplier = .95f;
+                multiplier = 0.95f;
             }
             power = (int)(getIntObjVar(hep, HEP_BASE_POWER) * multiplier);
             setCount(hep, power);
@@ -3119,7 +3119,7 @@ public class stealth extends script.base_script
         float drainRatio = 10.0f;
         if (camouflage < 100.0f)
         {
-            drainRatio = 7.91f - (.1f / (.1f + ((camouflage) / 100.0f)));
+            drainRatio = 7.91f - (0.1f / (0.1f + ((camouflage) / 100.0f)));
         }
         int actionCost = (int)(getMaxAction(player) / drainRatio);
         int action = testDrainAttribute(player, ACTION, actionCost);
@@ -3132,7 +3132,7 @@ public class stealth extends script.base_script
         prose_package pp = new prose_package();
         pp = prose.setStringId(pp, strSpam);
         pp = prose.setDI(pp, -actionCost);
-        showFlyText(player, pp, 1f, colors.GREEN);
+        showFlyText(player, pp, 1.0f, colors.GREEN);
         return true;
     }
     public static boolean checkUrbanStealthUpkeep(obj_id player) throws InterruptedException
@@ -3327,7 +3327,7 @@ public class stealth extends script.base_script
         {
             return false;
         }
-        obj_id[] stuff = getNonCreaturesInRange(loc, 50f);
+        obj_id[] stuff = getNonCreaturesInRange(loc, 50.0f);
         int numStructures = 0;
         for (obj_id aStuff : stuff) {
             if (isGameObjectTypeOf(aStuff, GOT_building) || isGameObjectTypeOf(aStuff, GOT_installation)) {

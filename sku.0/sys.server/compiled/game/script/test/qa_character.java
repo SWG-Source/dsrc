@@ -145,8 +145,8 @@ public class qa_character extends script.base_script
         addSkillModModifier(self, "buildabuff_expertise_glancing_blow_all", "expertise_glancing_blow_all", 7, 3600, false, true);
         addSkillModModifier(self, "buildabuff_expertise_innate_protection_energy", "expertise_innate_protection_energy", 3750, 3600, false, true);
         addSkillModModifier(self, "buildabuff_expertise_innate_protection_kinetic", "expertise_innate_protection_kinetic", 3750, 3600, false, true);
-        messageTo(self, "recalcPools", null, .25f, false);
-        messageTo(self, "recalcArmor", null, .25f, false);
+        messageTo(self, "recalcPools", null, 0.25f, false);
+        messageTo(self, "recalcArmor", null, 0.25f, false);
         buff.applyBuff((recipientId), "me_buff_health_2", 3600);
         buff.applyBuff((recipientId), "me_buff_action_3", 3600);
         buff.applyBuff((recipientId), "me_buff_strength_3", 3600);
@@ -208,11 +208,8 @@ public class qa_character extends script.base_script
         {
             while (skillList.length > 0 && attempts > 0)
             {
-                for (int i = 0; i < skillList.length; i++)
-                {
-                    String skillName = skillList[i];
-                    if (!skillName.startsWith("species_") && !skillName.startsWith("social_language_") && !skillName.startsWith("utility_") && !skillName.startsWith("common_") && !skillName.startsWith("demo_") && !skillName.startsWith("force_title_") && !skillName.startsWith("force_sensitive_") && !skillName.startsWith("combat_melee_basic") && !skillName.startsWith("pilot_") && !skillName.startsWith("internal_expertise_") && !skillName.startsWith("combat_ranged_weapon_basic"))
-                    {
+                for (String skillName : skillList) {
+                    if (!skillName.startsWith("species_") && !skillName.startsWith("social_language_") && !skillName.startsWith("utility_") && !skillName.startsWith("common_") && !skillName.startsWith("demo_") && !skillName.startsWith("force_title_") && !skillName.startsWith("force_sensitive_") && !skillName.startsWith("combat_melee_basic") && !skillName.startsWith("pilot_") && !skillName.startsWith("internal_expertise_") && !skillName.startsWith("combat_ranged_weapon_basic")) {
                         skill.revokeSkillSilent(player, skillName);
                     }
                 }
@@ -265,13 +262,10 @@ public class qa_character extends script.base_script
         {
             while (pSkill.length > 0 && attempts > 0)
             {
-                for (int i = 0; i < pSkill.length; i++)
-                {
-                    String skillName = pSkill[i];
-                    if (skillName.startsWith("expertise_"))
-                    {
-                        temp = pSkill[i];
-                        sendSystemMessageTestingOnly(self, "Adding line: " + pSkill[i]);
+                for (String skillName : pSkill) {
+                    if (skillName.startsWith("expertise_")) {
+                        temp = skillName;
+                        sendSystemMessageTestingOnly(self, "Adding line: " + skillName);
                         template += "\n" + temp;
                     }
                     --attempts;

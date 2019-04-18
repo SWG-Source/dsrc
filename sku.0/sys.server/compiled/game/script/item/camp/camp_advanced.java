@@ -25,9 +25,8 @@ public class camp_advanced extends script.base_script
         {
             return SCRIPT_CONTINUE;
         }
-        for (int i = 0; i < modules.length; i++)
-        {
-            destroyObject(modules[i]);
+        for (obj_id module : modules) {
+            destroyObject(module);
         }
         return SCRIPT_CONTINUE;
     }
@@ -39,11 +38,9 @@ public class camp_advanced extends script.base_script
         {
             return SCRIPT_CONTINUE;
         }
-        for (int i = 0; i < objects.length; i++)
-        {
-            if (hasScript(objects[i], "terminal.terminal_camp"))
-            {
-                setObjVar(objects[i], "camp", self);
+        for (obj_id object : objects) {
+            if (hasScript(object, "terminal.terminal_camp")) {
+                setObjVar(object, "camp", self);
                 return SCRIPT_CONTINUE;
             }
         }

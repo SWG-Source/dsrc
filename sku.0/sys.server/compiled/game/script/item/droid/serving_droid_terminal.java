@@ -348,10 +348,8 @@ public class serving_droid_terminal extends script.base_script
         {
             return false;
         }
-        for (int i = 0; i < patrolLocations.length; ++i)
-        {
-            if (!isValidId(patrolLocations[i].cell))
-            {
+        for (location patrolLocation : patrolLocations) {
+            if (!isValidId(patrolLocation.cell)) {
                 removeObjVar(terminal, OBJVAR_DROID_PATROL_POINTS);
                 return false;
             }

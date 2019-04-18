@@ -29,25 +29,20 @@ public class medic extends script.base_script
         allies.setSize(0);
         Vector gods = new Vector();
         gods.setSize(0);
-        for (int i = 0; i < allObj.length; i++)
-        {
-            if (!isValidTarget(self, allObj[i]))
-            {
+        for (obj_id obj_id : allObj) {
+            if (!isValidTarget(self, obj_id)) {
                 continue;
             }
-            if (isGod(allObj[i]))
-            {
-                gods.add(allObj[i]);
+            if (isGod(obj_id)) {
+                gods.add(obj_id);
             }
-            if (utils.hasScriptVar(allObj[i], "squad"))
-            {
+            if (utils.hasScriptVar(obj_id, "squad")) {
                 continue;
             }
-            if (allObj[i] == self)
-            {
+            if (obj_id == self) {
                 continue;
             }
-            allies.add(allObj[i]);
+            allies.add(obj_id);
         }
         if (allies == null || allies.size() == 0)
         {
@@ -93,13 +88,11 @@ public class medic extends script.base_script
         obj_id[] targets = getObjectsInRange(getLocation(self), 25.0f);
         Vector toHeal = new Vector();
         toHeal.setSize(0);
-        for (int i = 0; i < targets.length; i++)
-        {
-            if (!isValidTarget(self, targets[i]))
-            {
+        for (obj_id target : targets) {
+            if (!isValidTarget(self, target)) {
                 continue;
             }
-            toHeal.add(targets[i]);
+            toHeal.add(target);
         }
         if (toHeal == null || toHeal.size() == 0)
         {
@@ -107,17 +100,15 @@ public class medic extends script.base_script
             return SCRIPT_CONTINUE;
         }
         int valueHealed = 0;
-        for (int q = 0; q < toHeal.size(); q++)
-        {
-            int curHealth = getHealth(((obj_id)toHeal.get(q)));
-            int maxHealth = getMaxHealth(((obj_id)toHeal.get(q)));
+        for (Object o : toHeal) {
+            int curHealth = getHealth(((obj_id) o));
+            int maxHealth = getMaxHealth(((obj_id) o));
             int difference = maxHealth - curHealth;
-            if (difference > 0)
-            {
+            if (difference > 0) {
                 int capIt = difference > 5000 ? 5000 : difference;
-                addToHealth(((obj_id)toHeal.get(q)), capIt);
+                addToHealth(((obj_id) o), capIt);
                 valueHealed += capIt;
-                playClientEffectLoc(((obj_id)toHeal.get(q)), "clienteffect/bacta_bomb.cef", getLocation(((obj_id)toHeal.get(q))), 0);
+                playClientEffectLoc(((obj_id) o), "clienteffect/bacta_bomb.cef", getLocation(((obj_id) o)), 0);
             }
         }
         if (valueHealed > 0)

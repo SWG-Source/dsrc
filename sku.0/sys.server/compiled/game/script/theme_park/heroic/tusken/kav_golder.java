@@ -25,22 +25,18 @@ public class kav_golder extends script.base_script
         obj_id[] allObj = getObjectsInRange(getLocation(self), 30.0f);
         Vector allies = new Vector();
         allies.setSize(0);
-        for (int i = 0; i < allObj.length; i++)
-        {
-            if (hasObjVar(allObj[i], "faction"))
-            {
-                
+        for (obj_id obj_id : allObj) {
+            if (hasObjVar(obj_id, "faction")) {
+
             }
-            
+
             {
-                String fac = factions.getFaction(allObj[i]);
-                if (fac == null || fac.equals(""))
-                {
+                String fac = factions.getFaction(obj_id);
+                if (fac == null || fac.equals("")) {
                     continue;
                 }
-                if (fac.equals("espa") || fac.equals("espa_guard"))
-                {
-                    allies.add(allObj[i]);
+                if (fac.equals("espa") || fac.equals("espa_guard")) {
+                    allies.add(obj_id);
                 }
             }
         }

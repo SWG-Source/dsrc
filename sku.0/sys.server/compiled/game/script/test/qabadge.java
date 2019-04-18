@@ -43,11 +43,9 @@ public class qabadge extends script.base_script
                 String[] badgePages = getAllCollectionPagesInBook("badge_book");
                 if ((badgePages != null) && (badgePages.length > 0))
                 {
-                    for (int i = 0; i < badgePages.length; ++i)
-                    {
-                        if (!badgePages[i].equals("bdg_accumulation"))
-                        {
-                            vectorMenuArray.addElement(badgePages[i]);
+                    for (String badgePage : badgePages) {
+                        if (!badgePage.equals("bdg_accumulation")) {
+                            vectorMenuArray.addElement(badgePage);
                         }
                     }
                 }
@@ -123,9 +121,8 @@ public class qabadge extends script.base_script
                     String[] allBadges = getAllCollectionSlotsInBook("badge_book");
                     if ((allBadges != null) && (allBadges.length > 0))
                     {
-                        for (int i = 0; i < allBadges.length; i++)
-                        {
-                            badge.grantBadge(player, allBadges[i]);
+                        for (String allBadge : allBadges) {
+                            badge.grantBadge(player, allBadge);
                         }
                     }
                     String[] mainMenuArray = utils.getStringArrayScriptVar(player, "qabadge.mainMenu");
@@ -138,9 +135,8 @@ public class qabadge extends script.base_script
                     String[] allBadges = getAllCollectionSlotsInBook("badge_book");
                     if ((allBadges != null) && (allBadges.length > 0))
                     {
-                        for (int i = 0; i < allBadges.length; i++)
-                        {
-                            badge.revokeBadge(player, allBadges[i], true);
+                        for (String allBadge : allBadges) {
+                            badge.revokeBadge(player, allBadge, true);
                         }
                     }
                     String[] mainMenuArray = utils.getStringArrayScriptVar(player, "qabadge.mainMenu");
@@ -238,11 +234,9 @@ public class qabadge extends script.base_script
         {
             int[] intExplorerBadges = dataTableGetIntColumn("datatables/badge/exploration_badges.iff", "intIndex");
             int intExplBadgeCount = 0;
-            for (int intI = 0; intI < intExplorerBadges.length; intI++)
-            {
-                String badgeName = getCollectionSlotName(intExplorerBadges[intI]);
-                if ((badgeName != null) && (badgeName.length() > 0) && badge.hasBadge(self, badgeName))
-                {
+            for (int intExplorerBadge : intExplorerBadges) {
+                String badgeName = getCollectionSlotName(intExplorerBadge);
+                if ((badgeName != null) && (badgeName.length() > 0) && badge.hasBadge(self, badgeName)) {
                     intExplBadgeCount = intExplBadgeCount + 1;
                 }
             }

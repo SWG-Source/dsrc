@@ -117,24 +117,20 @@ public class battlefield_utility extends script.base_script
         if (text.equals("nuke"))
         {
             obj_id[] objects = getObjectsInRange(loc, 20.0f);
-            for (int i = 0; i < objects.length; i++)
-            {
-                if (!isPlayer(objects[i]))
-                {
-                    LOG("LOG_CHANNEL", "object deleted ->" + objects[i]);
-                    destroyObject(objects[i]);
+            for (obj_id object : objects) {
+                if (!isPlayer(object)) {
+                    LOG("LOG_CHANNEL", "object deleted ->" + object);
+                    destroyObject(object);
                 }
             }
         }
         if (text.equals("meganuke"))
         {
             obj_id[] objects = getObjectsInRange(loc, 250.0f);
-            for (int i = 0; i < objects.length; i++)
-            {
-                if (!isPlayer(objects[i]))
-                {
-                    LOG("LOG_CHANNEL", "object deleted ->" + objects[i]);
-                    destroyObject(objects[i]);
+            for (obj_id object : objects) {
+                if (!isPlayer(object)) {
+                    LOG("LOG_CHANNEL", "object deleted ->" + object);
+                    destroyObject(object);
                 }
             }
         }
@@ -166,9 +162,9 @@ public class battlefield_utility extends script.base_script
             {
                 String planet = st.nextToken();
                 LOG("LOG_CHANNEL", "planet ->" + planet);
-                float x = (float)utils.stringToInt(st.nextToken());
-                float y = (float)utils.stringToInt(st.nextToken());
-                float z = (float)utils.stringToInt(st.nextToken());
+                float x = utils.stringToInt(st.nextToken());
+                float y = utils.stringToInt(st.nextToken());
+                float z = utils.stringToInt(st.nextToken());
                 LOG("LOG_CHANNEL", "loc ->" + x + "/" + y + "/" + z);
                 warpPlayer(self, planet, x, y, z, null, 0.0f, 0.0f, 0.0f);
             }

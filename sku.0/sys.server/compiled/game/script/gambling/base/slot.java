@@ -285,11 +285,11 @@ public class slot extends script.gambling.base.default_interface
         sendSystemMessageTestingOnly(player, msg);
         if (idx >= results.length)
         {
-            messageTo(self, "handleParseResults", params, 1f, false);
+            messageTo(self, "handleParseResults", params, 1.0f, false);
         }
         else 
         {
-            messageTo(self, "handleReelsSpinning", params, 3f, false);
+            messageTo(self, "handleReelsSpinning", params, 3.0f, false);
         }
         return SCRIPT_CONTINUE;
     }
@@ -335,7 +335,7 @@ public class slot extends script.gambling.base.default_interface
         {
             CustomerServiceLog("gambling", getGameTime() + ": (" + player + ") " + getName(player) + " lost");
             sendSystemMessageTestingOnly(player, "Sorry, you did not win this round. Please try again.");
-            messageTo(self, "handleDelayedRestart", params, 3f, false);
+            messageTo(self, "handleDelayedRestart", params, 3.0f, false);
         }
         return SCRIPT_CONTINUE;
     }
@@ -353,8 +353,8 @@ public class slot extends script.gambling.base.default_interface
         int payout = params.getInt("payout");
         sendSystemMessageProse(player, prose.getPackage(gambling.PROSE_PAYOUT, payout));
         CustomerServiceLog("gambling", getGameTime() + ": (" + player + ") " + getName(player) + " receives " + payout + "cr payout from (" + self + ") " + utils.getStringName(self));
-        showFlyText(self, gambling.FLY_WINNER, 2f, colors.RED);
-        messageTo(self, "handleDelayedRestart", params, 3f, false);
+        showFlyText(self, gambling.FLY_WINNER, 2.0f, colors.RED);
+        messageTo(self, "handleDelayedRestart", params, 3.0f, false);
         return SCRIPT_CONTINUE;
     }
     public int handleDelayedRestart(obj_id self, dictionary params) throws InterruptedException
@@ -443,7 +443,7 @@ public class slot extends script.gambling.base.default_interface
         dictionary d = new dictionary();
         d.put("player", player);
         d.put("stamp", now);
-        messageTo(self, "handleBetTimer", d, 60f, false);
+        messageTo(self, "handleBetTimer", d, 60.0f, false);
     }
     private void spinReels(obj_id self, obj_id player, int amt) throws InterruptedException
     {
@@ -471,7 +471,7 @@ public class slot extends script.gambling.base.default_interface
         d.put("idx", 0);
         d.put("reel", reel);
         sendSystemMessageTestingOnly(player, "You activate the machine and the reels start spinning...");
-        messageTo(self, "handleReelsSpinning", d, 5f, false);
+        messageTo(self, "handleReelsSpinning", d, 5.0f, false);
     }
     private void showPayoutSchedule(obj_id self, obj_id player) throws InterruptedException
     {

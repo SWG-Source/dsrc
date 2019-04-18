@@ -1,14 +1,11 @@
 package script.working.jfreeman;
 
-import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
-
+import script.dictionary;
 import script.library.utils;
+import script.location;
+import script.obj_id;
+
+import java.util.Vector;
 
 public class makemites extends script.base_script
 {
@@ -114,9 +111,8 @@ public class makemites extends script.base_script
     public void killAllMites(obj_id player) throws InterruptedException
     {
         obj_id[] mites = getObjIdArrayObjVar(player, "miteReg");
-        for (int i = 0; i < mites.length; i++)
-        {
-            destroyObject(mites[i]);
+        for (obj_id mite : mites) {
+            destroyObject(mite);
         }
         removeObjVar(player, "miteReg");
     }

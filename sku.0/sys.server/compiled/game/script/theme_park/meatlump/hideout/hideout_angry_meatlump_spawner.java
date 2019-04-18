@@ -108,21 +108,13 @@ public class hideout_angry_meatlump_spawner extends script.base_script
         obj_id[] cellList = getContents(hideout);
         if (cellList != null && cellList.length > 0)
         {
-            for (int i = 0; i < cellList.length; i++)
-            {
-                obj_id cell = cellList[i];
-                if ((getTemplateName(cell)).equals(structure.TEMPLATE_CELL))
-                {
+            for (obj_id cell : cellList) {
+                if ((getTemplateName(cell)).equals(structure.TEMPLATE_CELL)) {
                     obj_id[] cellContents = getContents(cell);
-                    if (cellContents != null && cellContents.length > 0)
-                    {
-                        for (int j = 0; j < cellContents.length; j++)
-                        {
-                            obj_id thing = cellContents[j];
-                            if (isMob(thing) && !isPlayer(thing))
-                            {
-                                if (hasObjVar(thing, ELIGIBLE_OBJVAR) && !buff.hasBuff(thing, "mtp_meatlump_angry") && !buff.hasBuff(thing, "mtp_meatlump_happy"))
-                                {
+                    if (cellContents != null && cellContents.length > 0) {
+                        for (obj_id thing : cellContents) {
+                            if (isMob(thing) && !isPlayer(thing)) {
+                                if (hasObjVar(thing, ELIGIBLE_OBJVAR) && !buff.hasBuff(thing, "mtp_meatlump_angry") && !buff.hasBuff(thing, "mtp_meatlump_happy")) {
                                     utils.addElement(eligibleMeatlumps, thing);
                                 }
                             }

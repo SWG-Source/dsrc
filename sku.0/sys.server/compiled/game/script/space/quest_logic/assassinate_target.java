@@ -12,7 +12,7 @@ public class assassinate_target extends script.base_script
     }
     public int OnAttach(obj_id self) throws InterruptedException
     {
-        messageTo(self, "warpOut", null, 1200.f, false);
+        messageTo(self, "warpOut", null, 1200.0f, false);
         return SCRIPT_CONTINUE;
     }
     public int warpOut(obj_id self, dictionary params) throws InterruptedException

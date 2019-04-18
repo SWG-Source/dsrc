@@ -60,18 +60,16 @@ public class mine_disarm_kit extends script.base_script
         playClientEffectObj(player, "appearance/pt_mine_disarm.prt", player, "");
         setObjVar(player, "clickItem.mine_disarm", (getGameTime() + 60));
         sendCooldownGroupTimingOnly(player, getStringCrc("mine_disarm"), 60);
-        obj_id[] objects = getNonCreaturesInRange(player, 40f);
+        obj_id[] objects = getNonCreaturesInRange(player, 40.0f);
         if (objects == null || objects.length == 0)
         {
             sendSystemMessage(player, SID_FOUND_NO_MINES);
             return;
         }
         obj_id minefield = obj_id.NULL_ID;
-        for (int i = 0; i < objects.length; i++)
-        {
-            if (isIdValid(objects[i]) && hasScript(objects[i], "faction_perk.minefield.advanced_minefield"))
-            {
-                minefield = objects[i];
+        for (obj_id object : objects) {
+            if (isIdValid(object) && hasScript(object, "faction_perk.minefield.advanced_minefield")) {
+                minefield = object;
                 break;
             }
         }
@@ -92,7 +90,7 @@ public class mine_disarm_kit extends script.base_script
             return;
         }
         float radius = hq.getMinefieldRadius(structure);
-        radius += 5f;
+        radius += 5.0f;
         if (getDistance(player, minefield) > radius)
         {
             sendSystemMessage(player, SID_FOUND_NO_MINES);
@@ -110,7 +108,7 @@ public class mine_disarm_kit extends script.base_script
             sendSystemMessage(player, SID_FOUND_NO_MINES);
             return;
         }
-        int chance = (int)((((float)currentMines / (float)maxMines) * 100f) * 0.75);
+        int chance = (int)((((float)currentMines / maxMines) * 100.0f) * 0.75);
         int roll = rand(1, 100);
         if (utils.hasScriptVar(player, "mine_found"))
         {
@@ -144,9 +142,9 @@ public class mine_disarm_kit extends script.base_script
             d.put("result", result);
             if (result > -1)
             {
-                playClientEffectLoc(player, DISARM_EFFECT[result], getLocation(player), 0f);
+                playClientEffectLoc(player, DISARM_EFFECT[result], getLocation(player), 0.0f);
             }
-            messageTo(self, "handleDisarmMine", d, 2f, false);
+            messageTo(self, "handleDisarmMine", d, 2.0f, false);
         }
         else 
         {
@@ -170,7 +168,7 @@ public class mine_disarm_kit extends script.base_script
             dictionary d = new dictionary();
             d.put("player", player);
             d.put("hq", structure);
-            messageTo(minefield, "handleAccidentalMineDetonation", d, 0f, false);
+            messageTo(minefield, "handleAccidentalMineDetonation", d, 0.0f, false);
             utils.removeScriptVar(player, "mine_found");
         }
         else if (result == 1)

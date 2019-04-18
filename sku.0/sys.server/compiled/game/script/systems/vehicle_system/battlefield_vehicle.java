@@ -198,9 +198,8 @@ public class battlefield_vehicle extends script.base_script
         obj_id[] players = getAllPlayers(getLocation(self), 5.0f);
         if (players != null && players.length > 0)
         {
-            for (int i = 0; i < players.length; i++)
-            {
-                sendSystemMessage(players[i], message, "");
+            for (obj_id player : players) {
+                sendSystemMessage(player, message, "");
             }
         }
     }
@@ -224,9 +223,8 @@ public class battlefield_vehicle extends script.base_script
         obj_id[] players = getAllPlayers(getLocation(self), 10.0f);
         if (players != null && players.length > 0)
         {
-            for (int i = 0; i < players.length; i++)
-            {
-                sendSystemMessage(players[i], message, "");
+            for (obj_id player : players) {
+                sendSystemMessage(player, message, "");
             }
         }
     }
@@ -254,10 +252,8 @@ public class battlefield_vehicle extends script.base_script
                 location here = getLocation(self);
                 String zone = here.area;
                 String[] allowedZones = split(allowedZonesString, ',');
-                for (int j = 0; j < allowedZones.length; j++)
-                {
-                    if (allowedZones[j].equals(zone))
-                    {
+                for (String allowedZone : allowedZones) {
+                    if (allowedZone.equals(zone)) {
                         allowedHere = true;
                     }
                 }
@@ -333,10 +329,8 @@ public class battlefield_vehicle extends script.base_script
         obj_id[] stuff = getContents(self);
         if (stuff != null && stuff.length > 0)
         {
-            for (int i = 0; i < stuff.length; i++)
-            {
-                if (isPlayer(stuff[i]))
-                {
+            for (obj_id obj_id : stuff) {
+                if (isPlayer(obj_id)) {
                     ++numPlayers;
                 }
             }

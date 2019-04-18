@@ -24,7 +24,7 @@ public class treasure_drum extends script.base_script
     public int cleanUpChest(obj_id self, dictionary params) throws InterruptedException
     {
         obj_id chest = self;
-        playClientEffectLoc(self, "clienteffect/lair_damage_light.cef", getLocation(self), 1f);
+        playClientEffectLoc(self, "clienteffect/lair_damage_light.cef", getLocation(self), 1.0f);
         destroyObject(chest);
         return SCRIPT_CONTINUE;
     }

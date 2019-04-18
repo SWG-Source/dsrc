@@ -47,9 +47,8 @@ public class configurable_group_dice extends script.item.dice.base.base_dice
             return SCRIPT_CONTINUE;
         }
         setObjVar(self, VAR_ROLL_RESULT, rollValues);
-        for (int i = 0; i < rollValues.length; ++i)
-        {
-            debug.debugAllMsg("DEBUG", self, "#############Roll Values: " + rollValues[i] + "############");
+        for (int rollValue : rollValues) {
+            debug.debugAllMsg("DEBUG", self, "#############Roll Values: " + rollValue + "############");
         }
         if (getBooleanObjVar(self, VAR_VALUE_INITIALIZED))
         {

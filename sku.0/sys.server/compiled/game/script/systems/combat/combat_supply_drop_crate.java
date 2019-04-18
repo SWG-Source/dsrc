@@ -24,10 +24,8 @@ public class combat_supply_drop_crate extends script.base_script
         }
         if (transferer != owner && isIdValid(ownerGroup) && ownerGroupMembers != null)
         {
-            for (int i = 0; i < ownerGroupMembers.length; i++)
-            {
-                if (ownerGroupMembers[i] == transferer)
-                {
+            for (obj_id ownerGroupMember : ownerGroupMembers) {
+                if (ownerGroupMember == transferer) {
                     return SCRIPT_CONTINUE;
                 }
             }

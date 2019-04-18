@@ -25,7 +25,7 @@ public class repair_droid extends script.base_script
     {
         detachScript(self, "ai.ai_combat");
         setName(self, "R2-F4 (a repair droid)");
-        messageTo(self, "handleGetTools", null, 10f, false);
+        messageTo(self, "handleGetTools", null, 10.0f, false);
         return SCRIPT_CONTINUE;
     }
     public int OnArrivedAtLocation(obj_id self, String name) throws InterruptedException
@@ -34,13 +34,13 @@ public class repair_droid extends script.base_script
         {
             spawnAttackWaveOne(self);
             setObjVar(self, "toolsReached", 1);
-            messageTo(self, "handleGoVentilation", null, 60f, false);
+            messageTo(self, "handleGoVentilation", null, 60.0f, false);
         }
         if (name.equals("fix") && !hasObjVar(self, "fixing"))
         {
             spawnAttackWaveTwo(self);
             setObjVar(self, "fixing", 1);
-            messageTo(self, "handleFix", null, 120f, false);
+            messageTo(self, "handleFix", null, 120.0f, false);
         }
         return SCRIPT_CONTINUE;
     }
@@ -69,7 +69,7 @@ public class repair_droid extends script.base_script
             }
             if (group.isGrouped(player))
             {
-                Vector members = group.getPCMembersInRange(player, 100f);
+                Vector members = group.getPCMembersInRange(player, 100.0f);
                 if (members != null && members.size() > 0)
                 {
                     int numInGroup = members.size();
@@ -77,9 +77,8 @@ public class repair_droid extends script.base_script
                     {
                         return SCRIPT_CONTINUE;
                     }
-                    for (int i = 0; i < numInGroup; i++)
-                    {
-                        obj_id thisMember = ((obj_id)members.get(i));
+                    for (Object member : members) {
+                        obj_id thisMember = ((obj_id) member);
                         sendSystemMessage(thisMember, REPAIR_FAILED);
                     }
                 }
@@ -159,7 +158,7 @@ public class repair_droid extends script.base_script
         }
         if (group.isGrouped(player))
         {
-            Vector members = group.getPCMembersInRange(player, 100f);
+            Vector members = group.getPCMembersInRange(player, 100.0f);
             if (members != null && members.size() > 0)
             {
                 int numInGroup = members.size();
@@ -167,9 +166,8 @@ public class repair_droid extends script.base_script
                 {
                     return SCRIPT_CONTINUE;
                 }
-                for (int i = 0; i < numInGroup; i++)
-                {
-                    obj_id thisMember = ((obj_id)members.get(i));
+                for (Object member : members) {
+                    obj_id thisMember = ((obj_id) member);
                     sendSystemMessage(thisMember, PROTECT_TOOLS);
                 }
             }
@@ -188,7 +186,7 @@ public class repair_droid extends script.base_script
         obj_id ventilation = getCellId(top, "filtrationroom65");
         location here = getLocation(self);
         String planet = here.area;
-        location attack2 = new location(-17f, 0, -61.5f, planet, ventilation);
+        location attack2 = new location(-17.0f, 0, -61.5f, planet, ventilation);
         ai_lib.aiPathTo(self, attack2);
         addLocationTarget("fix", attack2, 1);
         if (!isIncapacitated(self))
@@ -201,7 +199,7 @@ public class repair_droid extends script.base_script
             }
             if (group.isGrouped(player))
             {
-                Vector members = group.getPCMembersInRange(player, 100f);
+                Vector members = group.getPCMembersInRange(player, 100.0f);
                 if (members != null && members.size() > 0)
                 {
                     int numInGroup = members.size();
@@ -209,9 +207,8 @@ public class repair_droid extends script.base_script
                     {
                         return SCRIPT_CONTINUE;
                     }
-                    for (int i = 0; i < numInGroup; i++)
-                    {
-                        obj_id thisMember = ((obj_id)members.get(i));
+                    for (Object member : members) {
+                        obj_id thisMember = ((obj_id) member);
                         sendSystemMessage(thisMember, PROTECT_FIX);
                         CustomerServiceLog("DUNGEON_DeathWatchBunker", "*Death Watch Air Vent: %TU has turned the air vent back on.", thisMember);
                     }
@@ -235,8 +232,8 @@ public class repair_droid extends script.base_script
         setObjVar(player, "death_watch.air_vent_success", 1);
         setObjVar(self, "repair_completed", 1);
         setObjVar(structure, "death_watch.air_vent_on", 1);
-        messageTo(self, "handleCleanUp", null, 10f, false);
-        messageTo(structure, "handleAirVentOff", null, 1800f, false);
+        messageTo(self, "handleCleanUp", null, 10.0f, false);
+        messageTo(structure, "handleAirVentOff", null, 1800.0f, false);
         removeObjVar(structure, "death_watch.missionTaker");
         if (!group.isGrouped(player))
         {
@@ -245,7 +242,7 @@ public class repair_droid extends script.base_script
         }
         if (group.isGrouped(player))
         {
-            Vector members = group.getPCMembersInRange(player, 100f);
+            Vector members = group.getPCMembersInRange(player, 100.0f);
             if (members != null && members.size() > 0)
             {
                 int numInGroup = members.size();
@@ -253,9 +250,8 @@ public class repair_droid extends script.base_script
                 {
                     return SCRIPT_CONTINUE;
                 }
-                for (int i = 0; i < numInGroup; i++)
-                {
-                    obj_id thisMember = ((obj_id)members.get(i));
+                for (Object member : members) {
+                    obj_id thisMember = ((obj_id) member);
                     sendSystemMessage(thisMember, VENTILATION_REPAIR);
                 }
             }

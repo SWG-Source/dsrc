@@ -38,13 +38,10 @@ public class player_collection extends script.base_script
         boolean newCollection = true;
         boolean canResetCollection = false;
         prose_package pp = new prose_package();
-        for (int i = 0; i < collectionSlots.length; ++i)
-        {
-            if (!collectionSlots[i].equals(slotName))
-            {
-                long value = getCollectionSlotValue(self, collectionSlots[i]);
-                if (value > 0)
-                {
+        for (String collectionSlot : collectionSlots) {
+            if (!collectionSlot.equals(slotName)) {
+                long value = getCollectionSlotValue(self, collectionSlot);
+                if (value > 0) {
                     newCollection = false;
                     break;
                 }
@@ -67,20 +64,15 @@ public class player_collection extends script.base_script
         String[] catagories = getCollectionSlotCategoryInfo(slotName);
         if (catagories != null && catagories.length > 0)
         {
-            for (int i = 0; i < catagories.length; ++i)
-            {
-                if (catagories[i].equals(collection.REWARD_ON_UPDATE_CATEGORY))
-                {
+            for (String catagory : catagories) {
+                if (catagory.equals(collection.REWARD_ON_UPDATE_CATEGORY)) {
                     collection.grantCollectionReward(self, slotName, false);
                 }
-                if (catagories[i].startsWith(collection.CATEGORY_UPDATE_ON_COUNT))
-                {
-                    String[] splitUpdateCount = split(catagories[i], ':');
-                    if (splitUpdateCount != null && splitUpdateCount.length > 0)
-                    {
+                if (catagory.startsWith(collection.CATEGORY_UPDATE_ON_COUNT)) {
+                    String[] splitUpdateCount = split(catagory, ':');
+                    if (splitUpdateCount != null && splitUpdateCount.length > 0) {
                         int countToUpdateAt = utils.stringToInt(splitUpdateCount[1]);
-                        if ((countToUpdateAt == currentValue) && isCounterTypeSlot)
-                        {
+                        if ((countToUpdateAt == currentValue) && isCounterTypeSlot) {
                             collection.grantCollectionReward(self, slotName + ":" + splitUpdateCount[1], false);
                         }
                     }
@@ -92,22 +84,17 @@ public class player_collection extends script.base_script
             boolean giveMessage = true;
             if (catagories != null && catagories.length > 0)
             {
-                for (int i = 0; i < catagories.length; ++i)
-                {
-                    if (catagories[i].equals(collection.REWARD_ON_COMPLETE_CATEGORY))
-                    {
+                for (String catagory : catagories) {
+                    if (catagory.equals(collection.REWARD_ON_COMPLETE_CATEGORY)) {
                         collection.grantCollectionReward(self, slotName, false);
                     }
-                    if (catagories[i].equals(collection.NO_MESSAGE_CATEGORY))
-                    {
+                    if (catagory.equals(collection.NO_MESSAGE_CATEGORY)) {
                         giveMessage = false;
                     }
-                    if (bookName.equals("saga_relic_book"))
-                    {
+                    if (bookName.equals("saga_relic_book")) {
                         giveMessage = false;
                     }
-                    if (catagories[i].equals(collection.CLEAR_ON_COMPLETE) && hasCompletedCollection(self, collectionName))
-                    {
+                    if (catagory.equals(collection.CLEAR_ON_COMPLETE) && hasCompletedCollection(self, collectionName)) {
                         canResetCollection = true;
                     }
                 }

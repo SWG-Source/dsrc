@@ -179,30 +179,20 @@ public class master extends script.theme_park.poi.base
         else 
         {
             int j = 0;
-            for (int i = 0; i < children.length; i++)
-            {
-                obj_id child = children[i];
-                if ((child == null) || (child == obj_id.NULL_ID))
-                {
-                }
-                else 
-                {
+            for (obj_id child : children) {
+                if ((child == null) || (child == obj_id.NULL_ID)) {
+                } else {
                     String childname = getName(child);
-                    if ((childname != null) && childname.equals("battlefield:barbed_wall"))
-                    {
-                        if (j == 0)
-                        {
+                    if ((childname != null) && childname.equals("battlefield:barbed_wall")) {
+                        if (j == 0) {
                             String convo = getStringObjVar(self, scenario.VAR_SCENARIO_CONVO);
-                            if (convo.equals(""))
-                            {
+                            if (convo.equals("")) {
                                 return;
                             }
                             string_id wallName = new string_id(convo, "weakened_wall_name");
                             setName(child, getString(wallName));
                             attachScript(child, "poi.factoryliberation.weakened_wall");
-                        }
-                        else 
-                        {
+                        } else {
                             attachScript(child, "poi.factoryliberation.invulnerable_wall");
                         }
                         setObjVar(child, POI_BASE_OBJECT, self);
@@ -218,7 +208,7 @@ public class master extends script.theme_park.poi.base
         String type = getStringObjVar(self, ANTAGONIST_TYPE);
         String ident = "antagonist_0";
         location loc = getLocation(self);
-        loc.x += -3;
+        loc.x -= 3;
         loc.z += 12;
         obj_id antagonist = scenario.createTeamNpc(self, "antagonist", type, ident, loc);
         if ((antagonist == null) || (antagonist == obj_id.NULL_ID))
@@ -284,15 +274,15 @@ public class master extends script.theme_park.poi.base
             for (int i = 0; i < 3; i++)
             {
                 String ident = "mediator_" + (i + 1);
-                float xdelta = rand(1f, 3f);
+                float xdelta = rand(1.0f, 3.0f);
                 if (i % 2 == 1)
                 {
-                    xdelta *= -1f;
+                    xdelta *= -1.0f;
                 }
-                float zdelta = rand(1f, 3f);
+                float zdelta = rand(1.0f, 3.0f);
                 if (i % 2 == 0)
                 {
-                    zdelta *= -1f;
+                    zdelta *= -1.0f;
                 }
                 location loiterloc = new location(baseloc);
                 loiterloc.x += xdelta + 26;
@@ -345,7 +335,7 @@ public class master extends script.theme_park.poi.base
             {
                 continue;
             }
-            ai_lib.addToMentalStateToward(team[i], attacker, FEAR, 50f);
+            ai_lib.addToMentalStateToward(team[i], attacker, FEAR, 50.0f);
             startCombat(team[i], attacker);
         }
         return SCRIPT_CONTINUE;
@@ -359,10 +349,9 @@ public class master extends script.theme_park.poi.base
         }
         setObjVar(self, "wallHasBeenDestroyed", true);
         obj_id[] team = scenario.getTeamMembers(self, "mediator");
-        for (int i = 0; i < team.length; i++)
-        {
-            factions.setFaction(team[i], getStringObjVar(team[i], "oldFaction"));
-            ai_lib.setIgnoreCombat(team[i], false);
+        for (obj_id obj_id : team) {
+            factions.setFaction(obj_id, getStringObjVar(obj_id, "oldFaction"));
+            ai_lib.setIgnoreCombat(obj_id, false);
         }
         return SCRIPT_CONTINUE;
     }

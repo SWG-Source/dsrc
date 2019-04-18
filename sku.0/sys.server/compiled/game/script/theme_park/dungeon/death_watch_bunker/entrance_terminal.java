@@ -84,7 +84,7 @@ public class entrance_terminal extends script.base_script
         }
         if (group.isGrouped(player))
         {
-            Vector members = group.getPCMembersInRange(player, 100f);
+            Vector members = group.getPCMembersInRange(player, 100.0f);
             if (members != null && members.size() > 0)
             {
                 int numInGroup = members.size();
@@ -92,15 +92,14 @@ public class entrance_terminal extends script.base_script
                 {
                     return;
                 }
-                for (int i = 0; i < numInGroup; i++)
-                {
-                    obj_id thisMember = ((obj_id)members.get(i));
+                for (Object member : members) {
+                    obj_id thisMember = ((obj_id) member);
                     setObjVar(thisMember, "death_watch.entrancePass", 1);
                     obj_id openRoom = getCellId(structure, "smallroom2");
                     dictionary params = new dictionary();
                     params.put("player", thisMember);
                     params.put("room", openRoom);
-                    messageTo(openRoom, "addToList", params, 1f, false);
+                    messageTo(openRoom, "addToList", params, 1.0f, false);
                 }
             }
         }

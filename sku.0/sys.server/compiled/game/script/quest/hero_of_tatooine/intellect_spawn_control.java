@@ -252,10 +252,8 @@ public class intellect_spawn_control extends script.base_script
             return -1;
         }
         int count = 0;
-        for (int i = 0; i < status.length; i++)
-        {
-            if (status[i] == 1)
-            {
+        for (int status1 : status) {
+            if (status1 == 1) {
                 count++;
             }
         }

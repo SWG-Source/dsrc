@@ -64,16 +64,13 @@ public class quest_object_01 extends script.base_script
             {
                 return;
             }
-            for (int i = 0; i < members.length; i++)
-            {
-                if (members[i] != player)
-                {
+            for (obj_id member : members) {
+                if (member != player) {
                     prose_package pp = new prose_package();
                     pp = prose.setStringId(pp, new string_id("mustafar/old_republic_facility", "quest_object_01_msg_other"));
                     pp = prose.setTU(pp, player);
-                    if (!groundquests.isQuestActive(members[i], "som_story_arc_chapter_one_03"))
-                    {
-                        sendSystemMessageProse(members[i], pp);
+                    if (!groundquests.isQuestActive(member, "som_story_arc_chapter_one_03")) {
+                        sendSystemMessageProse(member, pp);
                     }
                 }
             }
@@ -90,11 +87,9 @@ public class quest_object_01 extends script.base_script
         {
             return SCRIPT_CONTINUE;
         }
-        for (int i = 0; i < members.length; i++)
-        {
-            if (isIdValid(members[i]))
-            {
-                groundquests.sendSignal(members[i], "mustafar_uplink_power");
+        for (obj_id member : members) {
+            if (isIdValid(member)) {
+                groundquests.sendSignal(member, "mustafar_uplink_power");
             }
         }
         return SCRIPT_CONTINUE;

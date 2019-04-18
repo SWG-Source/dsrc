@@ -231,6 +231,6 @@ public class squad_leader extends script.base_script
         {
             skillMod = 200;
         }
-        return (skillMod + 75f) / 200f;
+        return (skillMod + 75.0f) / 200.0f;
     }
 }

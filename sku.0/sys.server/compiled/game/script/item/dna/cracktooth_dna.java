@@ -1,8 +1,8 @@
 package script.item.dna;
 
 import script.dictionary;
-import script.library.*;
-import script.location;
+import script.library.static_item;
+import script.library.utils;
 import script.obj_id;
 
 public class cracktooth_dna extends script.base_script

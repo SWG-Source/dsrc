@@ -197,7 +197,7 @@ public class lottery_droid extends script.base_script
         }
         int[] payoutTable = dataTableGetIntColumn(DATATABLE, 1);
         int payout = payoutTable[idx];
-        float payoutFloat = (float)payout;
+        float payoutFloat = payout;
         setObjVar(self, "event_perk.lottery.payout_percent", payoutFloat);
         string_id payoutFeedback = new string_id("event_perk", "lottery_payout_feedback");
         string_id payoutSID = new string_id("event_perk", "lottery_payout_percent_" + payout);
@@ -269,10 +269,8 @@ public class lottery_droid extends script.base_script
         int totalMoney = getTotalMoney(player);
         int ticketCost = getIntObjVar(self, "event_perk.lottery.ticket_price");
         obj_id[] playerOIDList = getObjIdArrayObjVar(self, "event_perk.lottery.player_OID_list");
-        for (int i = 0; i < playerOIDList.length; i++)
-        {
-            if (playerOIDList[i] == player)
-            {
+        for (obj_id obj_id : playerOIDList) {
+            if (obj_id == player) {
                 sendSystemMessage(player, new string_id("event_perk", "lottery_reg_purchase_already"));
                 return SCRIPT_CONTINUE;
             }
@@ -571,10 +569,8 @@ public class lottery_droid extends script.base_script
         int ticketPrice = getIntObjVar(self, "event_perk.lottery.ticket_price");
         int totalMoney = getTotalMoney(player);
         obj_id[] playerOIDList = getObjIdArrayObjVar(self, "event_perk.lottery.player_OID_list");
-        for (int i = 0; i < playerOIDList.length; i++)
-        {
-            if (playerOIDList[i] == player)
-            {
+        for (obj_id obj_id : playerOIDList) {
+            if (obj_id == player) {
                 sendSystemMessage(player, new string_id("event_perk", "lottery_reg_purchase_already"));
                 return SCRIPT_CONTINUE;
             }

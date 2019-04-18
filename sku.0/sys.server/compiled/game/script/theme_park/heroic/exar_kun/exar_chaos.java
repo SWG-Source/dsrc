@@ -52,9 +52,8 @@ public class exar_chaos extends script.base_script
         {
             return SCRIPT_CONTINUE;
         }
-        for (int i = 0; i < players.length; i++)
-        {
-            queueCommand(self, (-50743325), players[i], "", COMMAND_PRIORITY_DEFAULT);
+        for (obj_id player : players) {
+            queueCommand(self, (-50743325), player, "", COMMAND_PRIORITY_DEFAULT);
         }
         executeHateSwap(self);
         messageTo(self, "chaos_zap", trial.getSessionDict(self, "zap"), 15.0f, false);

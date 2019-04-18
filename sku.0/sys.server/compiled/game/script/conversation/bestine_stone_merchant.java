@@ -70,14 +70,11 @@ public class bestine_stone_merchant extends script.base_script
                 obj_id[] objContents = utils.getContents(objInventory);
                 if (objContents != null)
                 {
-                    for (int intI = 0; intI < objContents.length; intI++)
-                    {
-                        if (isIdValid(objContents[intI]))
-                        {
-                            String strItemTemplate = getTemplateName(objContents[intI]);
-                            if (strItemTemplate.equals("object/tangible/loot/quest/carved_stone.iff"))
-                            {
-                                destroyObject(objContents[intI]);
+                    for (obj_id objContent : objContents) {
+                        if (isIdValid(objContent)) {
+                            String strItemTemplate = getTemplateName(objContent);
+                            if (strItemTemplate.equals("object/tangible/loot/quest/carved_stone.iff")) {
+                                destroyObject(objContent);
                                 obj_id item = createObject(REWARD, objInventory, "");
                                 setObjVar(player, "bestine.carvedstonereward", true);
                                 return;
@@ -100,14 +97,11 @@ public class bestine_stone_merchant extends script.base_script
                 obj_id[] objContents = utils.getContents(objInventory);
                 if (objContents != null)
                 {
-                    for (int intI = 0; intI < objContents.length; intI++)
-                    {
-                        if (isIdValid(objContents[intI]))
-                        {
-                            String strItemTemplate = getTemplateName(objContents[intI]);
-                            if (strItemTemplate.equals("object/tangible/loot/quest/smooth_stone.iff"))
-                            {
-                                destroyObject(objContents[intI]);
+                    for (obj_id objContent : objContents) {
+                        if (isIdValid(objContent)) {
+                            String strItemTemplate = getTemplateName(objContent);
+                            if (strItemTemplate.equals("object/tangible/loot/quest/smooth_stone.iff")) {
+                                destroyObject(objContent);
                                 obj_id item = weapons.createWeapon(REWARD, objInventory, rand(0.8f, 1.1f));
                                 setObjVar(player, "bestine.carvedstonereward", true);
                                 return;

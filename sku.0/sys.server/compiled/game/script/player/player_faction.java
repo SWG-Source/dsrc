@@ -59,21 +59,21 @@ public class player_faction extends script.base_script
         {
             pp = prose.setStringId(pp, SID_ON_LEAVE_TO_COVERT);
             commPlayer(self, self, pp, recruiter);
-            factions.goCovertWithDelay(self, 1f);
+            factions.goCovertWithDelay(self, 1.0f);
             return SCRIPT_CONTINUE;
         }
         if (pvpGetType(self) == PVPTYPE_DECLARED)
         {
             pp = prose.setStringId(pp, SID_OVERT_TO_COVERT);
             commPlayer(self, self, pp, recruiter);
-            factions.goCovertWithDelay(self, 300f);
+            factions.goCovertWithDelay(self, 300.0f);
             return SCRIPT_CONTINUE;
         }
         if (pvpGetType(self) == PVPTYPE_COVERT)
         {
             pp = prose.setStringId(pp, SID_COVERT_TO_OVERT);
             commPlayer(self, self, pp, recruiter);
-            factions.goOvertWithDelay(self, 30f);
+            factions.goOvertWithDelay(self, 30.0f);
             return SCRIPT_CONTINUE;
         }
         return SCRIPT_OVERRIDE;
@@ -106,30 +106,27 @@ public class player_faction extends script.base_script
                     return SCRIPT_CONTINUE;
                 }
             }
-            if (planet.equals("talus"))
-            {
-                baseLoc.x = -4938f;
-                baseLoc.y = 0f;
-                baseLoc.z = -3107f;
-                waypointName = "Weapons Depot";
-            }
-            else if (planet.equals("corellia"))
-            {
-                baseLoc.x = 4772f;
-                baseLoc.y = 0f;
-                baseLoc.z = -5233f;
-                waypointName = "Tactical Training Facility";
-            }
-            else if (planet.equals("naboo"))
-            {
-                baseLoc.x = 1019f;
-                baseLoc.y = 0f;
-                baseLoc.z = -1508f;
-                waypointName = "Weapons Development Facility";
-            }
-            else 
-            {
-                return SCRIPT_CONTINUE;
+            switch (planet) {
+                case "talus":
+                    baseLoc.x = -4938.0f;
+                    baseLoc.y = 0.0f;
+                    baseLoc.z = -3107.0f;
+                    waypointName = "Weapons Depot";
+                    break;
+                case "corellia":
+                    baseLoc.x = 4772.0f;
+                    baseLoc.y = 0.0f;
+                    baseLoc.z = -5233.0f;
+                    waypointName = "Tactical Training Facility";
+                    break;
+                case "naboo":
+                    baseLoc.x = 1019.0f;
+                    baseLoc.y = 0.0f;
+                    baseLoc.z = -1508.0f;
+                    waypointName = "Weapons Development Facility";
+                    break;
+                default:
+                    return SCRIPT_CONTINUE;
             }
             obj_id waypoint = createWaypointInDatapad(self, baseLoc);
             if (isIdValid(waypoint))
@@ -175,7 +172,7 @@ public class player_faction extends script.base_script
         {
             if ((pvpGetType(self) == PVPTYPE_DECLARED) || (pvpGetType(self) == PVPTYPE_COVERT))
             {
-                factions.goOnLeaveWithDelay(self, 0f);
+                factions.goOnLeaveWithDelay(self, 0.0f);
             }
         }
         pvp.clearPlayerDamageTracking(self);
@@ -428,41 +425,33 @@ public class player_faction extends script.base_script
             int rowSelected = sui.getListboxSelectedRow(params);
             if ((rowSelected >= 0) && (rowSelected < choices.length))
             {
-                if (choices[rowSelected].equals(factions.MERC_END_COVERT_IMPERIAL))
-                {
-                    sendSystemMessage(self, factions.SID_MERC_IMPERIAL_COMBATANT_END);
-                }
-                else if (choices[rowSelected].equals(factions.MERC_END_OVERT_IMPERIAL))
-                {
-                    sendSystemMessage(self, factions.SID_MERC_IMPERIAL_SF_END);
-                }
-                else if (choices[rowSelected].equals(factions.MERC_END_COVERT_REBEL))
-                {
-                    sendSystemMessage(self, factions.SID_MERC_REBEL_COMBATANT_END);
-                }
-                else if (choices[rowSelected].equals(factions.MERC_END_OVERT_REBEL))
-                {
-                    sendSystemMessage(self, factions.SID_MERC_REBEL_SF_END);
-                }
-                else if (choices[rowSelected].equals(factions.MERC_BEGIN_COVERT_IMPERIAL))
-                {
-                    sendSystemMessage(self, factions.SID_MERC_IMPERIAL_COMBATANT_BEGIN);
-                }
-                else if (choices[rowSelected].equals(factions.MERC_BEGIN_OVERT_IMPERIAL))
-                {
-                    sendSystemMessage(self, factions.SID_MERC_IMPERIAL_SF_BEGIN);
-                }
-                else if (choices[rowSelected].equals(factions.MERC_BEGIN_COVERT_REBEL))
-                {
-                    sendSystemMessage(self, factions.SID_MERC_REBEL_COMBATANT_BEGIN);
-                }
-                else if (choices[rowSelected].equals(factions.MERC_BEGIN_OVERT_REBEL))
-                {
-                    sendSystemMessage(self, factions.SID_MERC_REBEL_SF_BEGIN);
-                }
-                else 
-                {
-                    return SCRIPT_CONTINUE;
+                switch (choices[rowSelected]) {
+                    case factions.MERC_END_COVERT_IMPERIAL:
+                        sendSystemMessage(self, factions.SID_MERC_IMPERIAL_COMBATANT_END);
+                        break;
+                    case factions.MERC_END_OVERT_IMPERIAL:
+                        sendSystemMessage(self, factions.SID_MERC_IMPERIAL_SF_END);
+                        break;
+                    case factions.MERC_END_COVERT_REBEL:
+                        sendSystemMessage(self, factions.SID_MERC_REBEL_COMBATANT_END);
+                        break;
+                    case factions.MERC_END_OVERT_REBEL:
+                        sendSystemMessage(self, factions.SID_MERC_REBEL_SF_END);
+                        break;
+                    case factions.MERC_BEGIN_COVERT_IMPERIAL:
+                        sendSystemMessage(self, factions.SID_MERC_IMPERIAL_COMBATANT_BEGIN);
+                        break;
+                    case factions.MERC_BEGIN_OVERT_IMPERIAL:
+                        sendSystemMessage(self, factions.SID_MERC_IMPERIAL_SF_BEGIN);
+                        break;
+                    case factions.MERC_BEGIN_COVERT_REBEL:
+                        sendSystemMessage(self, factions.SID_MERC_REBEL_COMBATANT_BEGIN);
+                        break;
+                    case factions.MERC_BEGIN_OVERT_REBEL:
+                        sendSystemMessage(self, factions.SID_MERC_REBEL_SF_BEGIN);
+                        break;
+                    default:
+                        return SCRIPT_CONTINUE;
                 }
                 dictionary messageToParams = new dictionary();
                 messageToParams.put("mercenary_type", choices[rowSelected]);
@@ -496,49 +485,41 @@ public class player_faction extends script.base_script
         {
             return SCRIPT_CONTINUE;
         }
-        if (mercenary_type.equals(factions.MERC_END_COVERT_IMPERIAL))
-        {
-            pvpNeutralSetMercenaryFaction(self, 0, false);
-            sendSystemMessage(self, factions.SID_MERC_IMPERIAL_COMBATANT_TERMINATED);
-        }
-        else if (mercenary_type.equals(factions.MERC_END_OVERT_IMPERIAL))
-        {
-            pvpNeutralSetMercenaryFaction(self, 0, false);
-            sendSystemMessage(self, factions.SID_MERC_IMPERIAL_SF_TERMINATED);
-        }
-        else if (mercenary_type.equals(factions.MERC_END_COVERT_REBEL))
-        {
-            pvpNeutralSetMercenaryFaction(self, 0, false);
-            sendSystemMessage(self, factions.SID_MERC_REBEL_COMBATANT_TERMINATED);
-        }
-        else if (mercenary_type.equals(factions.MERC_END_OVERT_REBEL))
-        {
-            pvpNeutralSetMercenaryFaction(self, 0, false);
-            sendSystemMessage(self, factions.SID_MERC_REBEL_SF_TERMINATED);
-        }
-        else if (mercenary_type.equals(factions.MERC_BEGIN_COVERT_IMPERIAL))
-        {
-            pvpNeutralSetMercenaryFaction(self, (-615855020), false);
-            sendSystemMessage(self, factions.SID_MERC_IMPERIAL_COMBATANT_GRANTED);
-        }
-        else if (mercenary_type.equals(factions.MERC_BEGIN_OVERT_IMPERIAL))
-        {
-            pvpNeutralSetMercenaryFaction(self, (-615855020), true);
-            sendSystemMessage(self, factions.SID_MERC_IMPERIAL_SF_GRANTED);
-        }
-        else if (mercenary_type.equals(factions.MERC_BEGIN_COVERT_REBEL))
-        {
-            pvpNeutralSetMercenaryFaction(self, (370444368), false);
-            sendSystemMessage(self, factions.SID_MERC_REBEL_COMBATANT_GRANTED);
-        }
-        else if (mercenary_type.equals(factions.MERC_BEGIN_OVERT_REBEL))
-        {
-            pvpNeutralSetMercenaryFaction(self, (370444368), true);
-            sendSystemMessage(self, factions.SID_MERC_REBEL_SF_GRANTED);
-        }
-        else 
-        {
-            return SCRIPT_CONTINUE;
+        switch (mercenary_type) {
+            case factions.MERC_END_COVERT_IMPERIAL:
+                pvpNeutralSetMercenaryFaction(self, 0, false);
+                sendSystemMessage(self, factions.SID_MERC_IMPERIAL_COMBATANT_TERMINATED);
+                break;
+            case factions.MERC_END_OVERT_IMPERIAL:
+                pvpNeutralSetMercenaryFaction(self, 0, false);
+                sendSystemMessage(self, factions.SID_MERC_IMPERIAL_SF_TERMINATED);
+                break;
+            case factions.MERC_END_COVERT_REBEL:
+                pvpNeutralSetMercenaryFaction(self, 0, false);
+                sendSystemMessage(self, factions.SID_MERC_REBEL_COMBATANT_TERMINATED);
+                break;
+            case factions.MERC_END_OVERT_REBEL:
+                pvpNeutralSetMercenaryFaction(self, 0, false);
+                sendSystemMessage(self, factions.SID_MERC_REBEL_SF_TERMINATED);
+                break;
+            case factions.MERC_BEGIN_COVERT_IMPERIAL:
+                pvpNeutralSetMercenaryFaction(self, (-615855020), false);
+                sendSystemMessage(self, factions.SID_MERC_IMPERIAL_COMBATANT_GRANTED);
+                break;
+            case factions.MERC_BEGIN_OVERT_IMPERIAL:
+                pvpNeutralSetMercenaryFaction(self, (-615855020), true);
+                sendSystemMessage(self, factions.SID_MERC_IMPERIAL_SF_GRANTED);
+                break;
+            case factions.MERC_BEGIN_COVERT_REBEL:
+                pvpNeutralSetMercenaryFaction(self, (370444368), false);
+                sendSystemMessage(self, factions.SID_MERC_REBEL_COMBATANT_GRANTED);
+                break;
+            case factions.MERC_BEGIN_OVERT_REBEL:
+                pvpNeutralSetMercenaryFaction(self, (370444368), true);
+                sendSystemMessage(self, factions.SID_MERC_REBEL_SF_GRANTED);
+                break;
+            default:
+                return SCRIPT_CONTINUE;
         }
         return SCRIPT_CONTINUE;
     }

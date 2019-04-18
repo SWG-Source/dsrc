@@ -187,9 +187,8 @@ public class crafting_binary_load_lifter_droid extends script.systems.crafting.d
         if (skills != null)
         {
             int[] mods = getSkillStatisticModifiers(player, skills);
-            for (int i = 0; i < mods.length; ++i)
-            {
-                playerCustomizationMod += mods[i];
+            for (int mod : mods) {
+                playerCustomizationMod += mod;
             }
         }
         if (playerCustomizationMod < 32)
@@ -200,9 +199,8 @@ public class crafting_binary_load_lifter_droid extends script.systems.crafting.d
         {
             playerCustomizationMod = 64;
         }
-        for (int i = 0; i < customizations.length; ++i)
-        {
-            customizations[i].maxValue = (int)(playerCustomizationMod);
+        for (draft_schematic.custom customization : customizations) {
+            customization.maxValue = (int) (playerCustomizationMod);
         }
         return customizations;
     }

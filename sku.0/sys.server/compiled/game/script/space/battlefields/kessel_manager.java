@@ -43,17 +43,12 @@ public class kessel_manager extends script.base_script
         {
             boolean foundInList = false;
             String spawnerType = getStringObjVar(objTestObjects[intI], "strSpawnerType");
-            for (int j = 0; j < noReSpawnSpawnerNames.length; ++j)
-            {
-                if (hasObjVar(objTestObjects[intI], "strSpawnerName"))
-                {
-                    if (!spawnerType.equals("asteroid"))
-                    {
-                        if (exists(objTestObjects[intI]))
-                        {
+            for (String noReSpawnSpawnerName : noReSpawnSpawnerNames) {
+                if (hasObjVar(objTestObjects[intI], "strSpawnerName")) {
+                    if (!spawnerType.equals("asteroid")) {
+                        if (exists(objTestObjects[intI])) {
                             String spawnerName = getStringObjVar(objTestObjects[intI], "strSpawnerName");
-                            if (spawnerName.equals(noReSpawnSpawnerNames[j]))
-                            {
+                            if (spawnerName.equals(noReSpawnSpawnerName)) {
                                 foundInList = true;
                             }
                         }
@@ -65,25 +60,19 @@ public class kessel_manager extends script.base_script
                 messageTo(objTestObjects[intI], "startSpawning", null, intI, false);
             }
         }
-        for (int k = 0; k < objShips.length; ++k)
-        {
+        for (obj_id objShip : objShips) {
             boolean isNoDeleteShip = false;
-            if (hasObjVar(objShips[k], "ship.shipName"))
-            {
-                for (int l = 0; l < noDeleteShipTypes.length; ++l)
-                {
-                    if (exists(objShips[k]))
-                    {
-                        String shipName = getStringObjVar(objShips[k], "ship.shipName");
-                        if (shipName.equals(noDeleteShipTypes[l]))
-                        {
+            if (hasObjVar(objShip, "ship.shipName")) {
+                for (String noDeleteShipType : noDeleteShipTypes) {
+                    if (exists(objShip)) {
+                        String shipName = getStringObjVar(objShip, "ship.shipName");
+                        if (shipName.equals(noDeleteShipType)) {
                             isNoDeleteShip = true;
                         }
                     }
                 }
-                if (isNoDeleteShip == false)
-                {
-                    destroyObject(objShips[k]);
+                if (isNoDeleteShip == false) {
+                    destroyObject(objShip);
                 }
             }
         }

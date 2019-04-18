@@ -47,15 +47,12 @@ public class soldier_spawner_tracker extends script.base_script
         }
         Vector targets = new Vector();
         targets.setSize(0);
-        for (int i = 0; i < contents.length; i++)
-        {
-            if (isPlayer(contents[i]))
-            {
-                utils.addElement(targets, contents[i]);
+        for (obj_id content : contents) {
+            if (isPlayer(content)) {
+                utils.addElement(targets, content);
             }
-            if (hasScript(contents[i], "theme_park.dungeon.mustafar_trials.establish_the_link.droid_patrol_script"))
-            {
-                utils.addElement(targets, contents[i]);
+            if (hasScript(content, "theme_park.dungeon.mustafar_trials.establish_the_link.droid_patrol_script")) {
+                utils.addElement(targets, content);
             }
         }
         if (targets == null)
@@ -94,9 +91,8 @@ public class soldier_spawner_tracker extends script.base_script
             doLogging("nukeSelf", "No valid targets in blast radius");
             return SCRIPT_CONTINUE;
         }
-        for (int i = 0; i < targets.length; i++)
-        {
-            damage(targets[i], DAMAGE_ELEMENTAL_HEAT, HIT_LOCATION_BODY, 500);
+        for (obj_id target : targets) {
+            damage(target, DAMAGE_ELEMENTAL_HEAT, HIT_LOCATION_BODY, 500);
         }
         return SCRIPT_CONTINUE;
     }

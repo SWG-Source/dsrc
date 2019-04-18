@@ -31,11 +31,11 @@ public class combat_trigger_area extends script.base_script
         {
             obj_id groupId = getGroupObject(owner);
             obj_id[] groupMembers = getGroupMemberIds(groupId);
-            playClientEffectLoc(groupMembers, prtName, getLocation(self), 0f, buffName + "_" + prtName + "_" + owner);
+            playClientEffectLoc(groupMembers, prtName, getLocation(self), 0.0f, buffName + "_" + prtName + "_" + owner);
         }
         else 
         {
-            playClientEffectLoc(singleGroupMember, prtName, getLocation(self), 0f, buffName + "_" + prtName + "_" + owner);
+            playClientEffectLoc(singleGroupMember, prtName, getLocation(self), 0.0f, buffName + "_" + prtName + "_" + owner);
         }
         messageTo(self, "cleanUpTriggerBuff", null, expireTime, false);
         return SCRIPT_CONTINUE;
@@ -79,13 +79,10 @@ public class combat_trigger_area extends script.base_script
             owner
         };
         obj_id[] contents = getTriggerVolumeContents(self, triggerName);
-        for (int i = 0; i < contents.length; ++i)
-        {
-            if (buff.hasBuff(contents[i], buffName))
-            {
-                if (self == buff.getBuffCaster(contents[i], buffName))
-                {
-                    buff.removeBuff(contents[i], buffName);
+        for (obj_id content : contents) {
+            if (buff.hasBuff(content, buffName)) {
+                if (self == buff.getBuffCaster(content, buffName)) {
+                    buff.removeBuff(content, buffName);
                 }
             }
         }

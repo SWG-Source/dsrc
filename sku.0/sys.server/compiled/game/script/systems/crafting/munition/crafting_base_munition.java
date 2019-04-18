@@ -14,15 +14,12 @@ public class crafting_base_munition extends script.systems.crafting.crafting_bas
     public static final String VERSION = "v1.00.00";
     public void calcAndSetPrototypeProperties(obj_id prototype, draft_schematic.attribute[] itemAttributes, dictionary craftingValuesDictionary) throws InterruptedException
     {
-        for (int i = 0; i < itemAttributes.length; ++i)
-        {
-            if (itemAttributes[i] == null)
-            {
+        for (draft_schematic.attribute itemAttribute : itemAttributes) {
+            if (itemAttribute == null) {
                 continue;
             }
-            if (((itemAttributes[i].name).getAsciiId()).equals("attackSpeed") || ((itemAttributes[i].name).getAsciiId()).equals("attackCost"))
-            {
-                itemAttributes[i].currentValue = (itemAttributes[i].minValue + itemAttributes[i].maxValue) - itemAttributes[i].currentValue;
+            if (((itemAttribute.name).getAsciiId()).equals("attackSpeed") || ((itemAttribute.name).getAsciiId()).equals("attackCost")) {
+                itemAttribute.currentValue = (itemAttribute.minValue + itemAttribute.maxValue) - itemAttribute.currentValue;
             }
         }
         super.calcAndSetPrototypeProperties(prototype, itemAttributes, craftingValuesDictionary);
@@ -33,86 +30,66 @@ public class crafting_base_munition extends script.systems.crafting.crafting_bas
         int accuracy = 0;
         base_class.range_info rangeData = new base_class.range_info();
         debugServerConsoleMsg(null, "Beginning assembly-phase prototype property setting");
-        for (int i = 0; i < itemAttributes.length; ++i)
-        {
-            if (itemAttributes[i] == null)
-            {
+        for (draft_schematic.attribute itemAttribute : itemAttributes) {
+            if (itemAttribute == null) {
                 continue;
             }
-            if (!calcAndSetPrototypeProperty(prototype, itemAttributes[i]))
-            {
-                if (((itemAttributes[i].name).getAsciiId()).equals("minDamage"))
-                {
-                    setWeaponMinDamage(prototype, (int)itemAttributes[i].currentValue);
-                }
-                else if (((itemAttributes[i].name).getAsciiId()).equals("maxDamage"))
-                {
-                    setWeaponMaxDamage(prototype, (int)itemAttributes[i].currentValue);
-                }
-                else if (((itemAttributes[i].name).getAsciiId()).equals("attackSpeed"))
-                {
-                    float speed = itemAttributes[i].currentValue;
-                    if (speed >= 1000)
-                    {
-                        speed /= 100;
-                    }
-                    else 
-                    {
-                        speed /= 10;
-                    }
-                    setWeaponAttackSpeed(prototype, speed);
-                }
-                else if (((itemAttributes[i].name).getAsciiId()).equals("woundChance"))
-                {
-                    setWeaponWoundChance(prototype, itemAttributes[i].currentValue);
-                }
-                else if (((itemAttributes[i].name).getAsciiId()).equals("minRange"))
-                {
-                    rangeData.minRange = itemAttributes[i].currentValue;
-                }
-                else if (((itemAttributes[i].name).getAsciiId()).equals("maxRange"))
-                {
-                    rangeData.maxRange = itemAttributes[i].currentValue;
-                }
-                else if (((itemAttributes[i].name).getAsciiId()).equals("accuracy"))
-                {
-                    accuracy = (int)itemAttributes[i].currentValue;
-                }
-                else if (((itemAttributes[i].name).getAsciiId()).equals("reuseTimer"))
-                {
-                    setObjVar(prototype, "reuseTimer", (int)itemAttributes[i].currentValue);
-                }
-                else if (((itemAttributes[i].name).getAsciiId()).equals("attackCost"))
-                {
-                    attackCost = (int)itemAttributes[i].currentValue;
-                }
-                else if (((itemAttributes[i].name).getAsciiId()).equals("blindDuration"))
-                {
-                    setObjVar(prototype, "blindDuration", (int)itemAttributes[i].currentValue);
-                }
-                else if (((itemAttributes[i].name).getAsciiId()).equals("blindChance"))
-                {
-                    setObjVar(prototype, "blindChance", (int)itemAttributes[i].currentValue);
-                }
-                else if (((itemAttributes[i].name).getAsciiId()).equals("slowDuration"))
-                {
-                    setObjVar(prototype, "slowDuration", (int)itemAttributes[i].currentValue);
-                }
-                else if (((itemAttributes[i].name).getAsciiId()).equals("slowIntensity"))
-                {
-                    setObjVar(prototype, "slowIntensity", (int)itemAttributes[i].currentValue);
-                }
-                else if (((itemAttributes[i].name).getAsciiId()).equals("burnDuration"))
-                {
-                    setObjVar(prototype, "burnDuration", (int)itemAttributes[i].currentValue);
-                }
-                else if (((itemAttributes[i].name).getAsciiId()).equals("burnIntensity"))
-                {
-                    setObjVar(prototype, "burnIntensity", (int)itemAttributes[i].currentValue);
-                }
-                else 
-                {
-                    debugServerConsoleMsg(null, "Error. Unknown Attribute Read in. Attribute was " + itemAttributes[i].name + ".");
+            if (!calcAndSetPrototypeProperty(prototype, itemAttribute)) {
+                switch (((itemAttribute.name).getAsciiId())) {
+                    case "minDamage":
+                        setWeaponMinDamage(prototype, (int) itemAttribute.currentValue);
+                        break;
+                    case "maxDamage":
+                        setWeaponMaxDamage(prototype, (int) itemAttribute.currentValue);
+                        break;
+                    case "attackSpeed":
+                        float speed = itemAttribute.currentValue;
+                        if (speed >= 1000) {
+                            speed /= 100;
+                        } else {
+                            speed /= 10;
+                        }
+                        setWeaponAttackSpeed(prototype, speed);
+                        break;
+                    case "woundChance":
+                        setWeaponWoundChance(prototype, itemAttribute.currentValue);
+                        break;
+                    case "minRange":
+                        rangeData.minRange = itemAttribute.currentValue;
+                        break;
+                    case "maxRange":
+                        rangeData.maxRange = itemAttribute.currentValue;
+                        break;
+                    case "accuracy":
+                        accuracy = (int) itemAttribute.currentValue;
+                        break;
+                    case "reuseTimer":
+                        setObjVar(prototype, "reuseTimer", (int) itemAttribute.currentValue);
+                        break;
+                    case "attackCost":
+                        attackCost = (int) itemAttribute.currentValue;
+                        break;
+                    case "blindDuration":
+                        setObjVar(prototype, "blindDuration", (int) itemAttribute.currentValue);
+                        break;
+                    case "blindChance":
+                        setObjVar(prototype, "blindChance", (int) itemAttribute.currentValue);
+                        break;
+                    case "slowDuration":
+                        setObjVar(prototype, "slowDuration", (int) itemAttribute.currentValue);
+                        break;
+                    case "slowIntensity":
+                        setObjVar(prototype, "slowIntensity", (int) itemAttribute.currentValue);
+                        break;
+                    case "burnDuration":
+                        setObjVar(prototype, "burnDuration", (int) itemAttribute.currentValue);
+                        break;
+                    case "burnIntensity":
+                        setObjVar(prototype, "burnIntensity", (int) itemAttribute.currentValue);
+                        break;
+                    default:
+                        debugServerConsoleMsg(null, "Error. Unknown Attribute Read in. Attribute was " + itemAttribute.name + ".");
+                        break;
                 }
             }
         }

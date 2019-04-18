@@ -175,7 +175,7 @@ public class scout extends script.base_script
                 outparams.put("player", player);
             }
             outparams.put("creaturediff", level);
-            messageTo(npc, "handleMaskScentSneak", outparams, 0.f, false);
+            messageTo(npc, "handleMaskScentSneak", outparams, 0.0f, false);
             utils.setScriptVar(player, "scentmask.creatureDiff", level);
             utils.setScriptVar(player, "scentmask.time", getGameTime());
         }
@@ -192,7 +192,7 @@ public class scout extends script.base_script
         int remaskDelay = 70 - maskMod;
         dictionary params = new dictionary();
         params.put("remaskDelay", remaskDelay);
-        messageTo(player, "removeScentMaskNoNotify", params, 0.f, false);
+        messageTo(player, "removeScentMaskNoNotify", params, 0.0f, false);
         if (combat)
         {
             sendSystemMessage(player, SID_SYS_SCENTMASK_BREAK_COMBAT);
@@ -330,11 +330,11 @@ public class scout extends script.base_script
         {
             prose_package pp = prose.getPackage(SID_SYS_CONCEAL_APPLY, target);
             sendSystemMessageProse(self, pp);
-            messageTo(target, "concealEnable", outparams, 0.f, false);
+            messageTo(target, "concealEnable", outparams, 0.0f, false);
         }
         else 
         {
-            messageTo(self, "concealEnable", outparams, 0.f, false);
+            messageTo(self, "concealEnable", outparams, 0.0f, false);
         }
     }
 }

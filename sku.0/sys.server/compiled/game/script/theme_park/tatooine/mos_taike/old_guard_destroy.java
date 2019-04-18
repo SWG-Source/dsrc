@@ -135,7 +135,7 @@ public class old_guard_destroy extends script.base_script
         {
             location here = getLocation(self);
             region quest = locations.getCityRegion(here);
-            location questLoc = locations.getGoodLocationOutsideOfRegion(quest, 100f, 100f, 100f);
+            location questLoc = locations.getGoodLocationOutsideOfRegion(quest, 100.0f, 100.0f, 100.0f);
             if (questLoc != null)
             {
                 target = questLoc;
@@ -217,16 +217,12 @@ public class old_guard_destroy extends script.base_script
         String giveMe = dataTableGetString(datatable, 0, questNum);
         boolean hadIt = false;
         obj_id[] contents = getContents(inv);
-        for (int i = 0; i < contents.length; i++)
-        {
-            String itemInInventory = getTemplateName(contents[i]);
-            if (itemInInventory.equals(giveMe))
-            {
-                destroyObject(contents[i]);
+        for (obj_id content : contents) {
+            String itemInInventory = getTemplateName(content);
+            if (itemInInventory.equals(giveMe)) {
+                destroyObject(content);
                 hadIt = true;
-            }
-            else 
-            {
+            } else {
                 hadIt = false;
             }
         }

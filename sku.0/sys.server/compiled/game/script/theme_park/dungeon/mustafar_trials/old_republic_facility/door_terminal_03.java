@@ -80,14 +80,12 @@ public class door_terminal_03 extends script.base_script
             {
                 return;
             }
-            for (int i = 0; i < members.length; i++)
-            {
-                if (members[i] != player)
-                {
+            for (obj_id member : members) {
+                if (member != player) {
                     prose_package pp = new prose_package();
                     pp = prose.setStringId(pp, new string_id("mustafar/old_republic_facility", "door_terminal_03_msg_other"));
                     pp = prose.setTU(pp, player);
-                    sendSystemMessageProse(members[i], pp);
+                    sendSystemMessageProse(member, pp);
                 }
             }
         }

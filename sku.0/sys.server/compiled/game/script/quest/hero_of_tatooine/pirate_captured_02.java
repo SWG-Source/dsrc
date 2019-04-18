@@ -15,7 +15,7 @@ public class pirate_captured_02 extends script.base_script
         detachScript(self, "ai.ai_combat");
         setInvulnerable(self, true);
         setName(self, "Arian Vh`ra (a captured pirate)");
-        messageTo(self, "action01", null, 2f, false);
+        messageTo(self, "action01", null, 2.0f, false);
         return SCRIPT_CONTINUE;
     }
     public int OnArrivedAtLocation(obj_id self, String name) throws InterruptedException

@@ -2043,7 +2043,7 @@ public class outbreak_han_solo extends script.base_script
     public int findChewie(obj_id self, dictionary params) throws InterruptedException
     {
         CustomerServiceLog("outbreak_themepark", "outbreak_han_solo findChewie(): Initialized");
-        obj_id[] chewieList = getAllObjectsWithObjVar(getLocation(self), 3.f, "chewie");
+        obj_id[] chewieList = getAllObjectsWithObjVar(getLocation(self), 3.0f, "chewie");
         if (chewieList == null || chewieList.length <= 0)
         {
             CustomerServiceLog("outbreak_themepark", "outbreak_han_solo findChewie(): Failed to find chewie var on any objects within range.");

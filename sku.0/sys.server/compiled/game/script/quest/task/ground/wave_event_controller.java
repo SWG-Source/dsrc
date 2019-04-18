@@ -225,13 +225,10 @@ public class wave_event_controller extends script.base_script
                 String questCrcString = (String)keys.nextElement();
                 int tempQuestCrc = utils.stringToInt(questCrcString);
                 int[] tasksForCurrentQuest = tasks.getIntArray(questCrcString);
-                for (int i = 0; i < tasksForCurrentQuest.length; ++i)
-                {
-                    int tempTaskId = tasksForCurrentQuest[i];
+                for (int tempTaskId : tasksForCurrentQuest) {
                     String baseObjVar = groundquests.getBaseObjVar(player, TASK_TYPE, questGetQuestName(tempQuestCrc), tempTaskId);
                     String retrieveTemplateName = groundquests.getTaskStringDataEntry(tempQuestCrc, tempTaskId, "SERVER_TEMPLATE");
-                    if (retrieveTemplateName != null && itemTemplateName.equals(retrieveTemplateName))
-                    {
+                    if (retrieveTemplateName != null && itemTemplateName.equals(retrieveTemplateName)) {
                         questCrc = tempQuestCrc;
                         taskId = tempTaskId;
                         taskFound = true;
@@ -475,13 +472,9 @@ public class wave_event_controller extends script.base_script
         {
             return;
         }
-        for (int i = 0; i < objects.length; i++)
-        {
-            obj_id child = objects[i];
-            if (isIdValid(child) && child != self && !isPlayer(child))
-            {
-                if (!hasScript(child, "corpse.ai_corpse"))
-                {
+        for (obj_id child : objects) {
+            if (isIdValid(child) && child != self && !isPlayer(child)) {
+                if (!hasScript(child, "corpse.ai_corpse")) {
                     trial.cleanupObject(child);
                 }
             }

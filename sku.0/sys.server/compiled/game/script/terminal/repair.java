@@ -87,9 +87,8 @@ public class repair extends script.terminal.base.base_terminal
         }
         int[] costList = cloninglib.getItemRepairCostList(player, repairList);
         int totalCost = 0;
-        for (int i = 0; i < costList.length; i++)
-        {
-            totalCost += costList[i];
+        for (int i1 : costList) {
+            totalCost += i1;
         }
         utils.setScriptVar(player, "repair.itemList", repairList);
         utils.setScriptVar(player, "repair.costList", costList);
@@ -203,7 +202,7 @@ public class repair extends script.terminal.base.base_terminal
         obj_id[] repairList = utils.getObjIdArrayScriptVar(player, "repair.repairList");
         dictionary data = new dictionary();
         data.put("items", repairList);
-        messageTo(player, "handleRepairItems", data, 0f, true);
+        messageTo(player, "handleRepairItems", data, 0.0f, true);
         closeOldRepairSui(player);
         obj_id[] itemList = cloninglib.getAllRepairItems(player);
         if (itemList != null && itemList.length > 0)

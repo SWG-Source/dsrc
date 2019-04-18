@@ -156,10 +156,8 @@ public class control_performance extends script.base_script
             return SCRIPT_CONTINUE;
         }
         boolean plyNotFound = true;
-        for (int i = 0; i < contents.length; i++)
-        {
-            if (contents[i] == player)
-            {
+        for (obj_id content : contents) {
+            if (content == player) {
                 plyNotFound = false;
             }
         }
@@ -401,10 +399,8 @@ public class control_performance extends script.base_script
         {
             return false;
         }
-        for (int i = 0; i < list.size(); i++)
-        {
-            if ((((Integer)list.get(i))).intValue() == seat)
-            {
+        for (Object o : list) {
+            if ((Integer) o == seat) {
                 return true;
             }
         }
@@ -502,7 +498,7 @@ public class control_performance extends script.base_script
             break;
         }
         prose_package pp = new prose_package();
-        float rating = 100.0f * ((float)satisfaction / (float)threshold);
+        float rating = 100.0f * ((float)satisfaction / threshold);
         if (rating > 125.0f)
         {
             pp = prose.getPackage(AUDIENCE_REACTION, localize(REACTION_1));
@@ -550,7 +546,7 @@ public class control_performance extends script.base_script
             break;
         }
         String effectName = "";
-        float rating = 100.0f * ((float)satisfaction / (float)threshold);
+        float rating = 100.0f * ((float)satisfaction / threshold);
         if (rating >= 100.0f)
         {
             effectName = "clienteffect/perform_cheer.cef";
@@ -579,11 +575,9 @@ public class control_performance extends script.base_script
         {
             return;
         }
-        for (int i = 0; i < contents.length; i++)
-        {
-            if (hasScript(contents[i], "quest.crowd_pleaser.audience_member"))
-            {
-                destroyObject(contents[i]);
+        for (obj_id content : contents) {
+            if (hasScript(content, "quest.crowd_pleaser.audience_member")) {
+                destroyObject(content);
             }
         }
     }

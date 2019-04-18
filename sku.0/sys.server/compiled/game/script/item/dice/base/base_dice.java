@@ -182,11 +182,9 @@ public class base_dice extends script.base_script
         obj_id[] groupMembers = getGroupMemberIds(groupId);
         if (groupMembers != null)
         {
-            for (int i = 0; i < groupMembers.length; ++i)
-            {
-                if (groupMembers[i] != player && groupMembers[i].isLoaded())
-                {
-                    displayResults(player, groupMembers[i], die, rollValues, color);
+            for (obj_id groupMember : groupMembers) {
+                if (groupMember != player && groupMember.isLoaded()) {
+                    displayResults(player, groupMember, die, rollValues, color);
                 }
             }
         }
@@ -222,7 +220,7 @@ public class base_dice extends script.base_script
             }
             else 
             {
-                pp = prose.getPackage(new string_id(STF, "configurable_dice_result_other"), null, null, null, player, null, null, null, value, null, faceCount, 0f);
+                pp = prose.getPackage(new string_id(STF, "configurable_dice_result_other"), null, null, null, player, null, null, null, value, null, faceCount, 0.0f);
             }
             sendSystemMessageProse(target, pp);
             String messageStr = "Your " + faceCount + " sided die rolled a value of " + rollValues[0] + ".";
@@ -241,22 +239,22 @@ public class base_dice extends script.base_script
         {
             if (target == player)
             {
-                pp = prose.getPackage(new string_id(STF, "roll_one_self"), null, null, null, null, null, sidNumSides, null, rollStr, null, dieCount, 0f);
+                pp = prose.getPackage(new string_id(STF, "roll_one_self"), null, null, null, null, null, sidNumSides, null, rollStr, null, dieCount, 0.0f);
             }
             else 
             {
-                pp = prose.getPackage(new string_id(STF, "roll_one_other"), player, null, null, null, null, sidNumSides, null, rollStr, null, dieCount, 0f);
+                pp = prose.getPackage(new string_id(STF, "roll_one_other"), player, null, null, null, null, sidNumSides, null, rollStr, null, dieCount, 0.0f);
             }
         }
         else 
         {
             if (target == player)
             {
-                pp = prose.getPackage(new string_id(STF, "roll_many_self"), null, null, null, null, null, sidNumSides, null, rollStr, null, dieCount, 0f);
+                pp = prose.getPackage(new string_id(STF, "roll_many_self"), null, null, null, null, null, sidNumSides, null, rollStr, null, dieCount, 0.0f);
             }
             else 
             {
-                pp = prose.getPackage(new string_id(STF, "roll_many_other"), player, null, null, null, null, sidNumSides, null, rollStr, null, dieCount, 0f);
+                pp = prose.getPackage(new string_id(STF, "roll_many_other"), player, null, null, null, null, sidNumSides, null, rollStr, null, dieCount, 0.0f);
             }
         }
         sendSystemMessageProse(target, pp);

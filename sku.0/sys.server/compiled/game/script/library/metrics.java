@@ -161,31 +161,22 @@ public class metrics extends script.base_script
         {
             return;
         }
-        for (int i = 0; i < inv.length; i++)
-        {
-            int got = getGameObjectType(inv[i]);
-            if (isGameObjectTypeOf(got, GOT_armor))
-            {
-                int oldHp = utils.getIntScriptVar(inv[i], "metrics.armorHp");
-                int curHp = getHitpoints(inv[i]);
-                int maxHp = getMaxHitpoints(inv[i]);
-                if (oldHp == maxHp && curHp < maxHp)
-                {
-                    logArmorPiece(player, inv[i]);
+        for (obj_id obj_id : inv) {
+            int got = getGameObjectType(obj_id);
+            if (isGameObjectTypeOf(got, GOT_armor)) {
+                int oldHp = utils.getIntScriptVar(obj_id, "metrics.armorHp");
+                int curHp = getHitpoints(obj_id);
+                int maxHp = getMaxHitpoints(obj_id);
+                if (oldHp == maxHp && curHp < maxHp) {
+                    logArmorPiece(player, obj_id);
+                } else if (oldHp >= (maxHp / 4) * 3 && curHp < (maxHp / 4) * 3) {
+                    logArmorPiece(player, obj_id);
+                } else if (oldHp >= maxHp / 2 && curHp < maxHp / 2) {
+                    logArmorPiece(player, obj_id);
+                } else if (oldHp >= maxHp / 4 && curHp < maxHp / 4) {
+                    logArmorPiece(player, obj_id);
                 }
-                else if (oldHp >= (maxHp / 4) * 3 && curHp < (maxHp / 4) * 3)
-                {
-                    logArmorPiece(player, inv[i]);
-                }
-                else if (oldHp >= maxHp / 2 && curHp < maxHp / 2)
-                {
-                    logArmorPiece(player, inv[i]);
-                }
-                else if (oldHp >= maxHp / 4 && curHp < maxHp / 4)
-                {
-                    logArmorPiece(player, inv[i]);
-                }
-                utils.setScriptVar(inv[i], "metrics.armorHp", curHp);
+                utils.setScriptVar(obj_id, "metrics.armorHp", curHp);
             }
         }
     }
@@ -238,11 +229,9 @@ public class metrics extends script.base_script
             "earring_r"
         };
         Vector inv = new Vector();
-        for (int i = 0; i < wornSlots.length; i++)
-        {
-            obj_id item = getObjectInSlot(player, wornSlots[i]);
-            if (isIdValid(item) && !utils.isElementInArray(inv, item))
-            {
+        for (String wornSlot : wornSlots) {
+            obj_id item = getObjectInSlot(player, wornSlot);
+            if (isIdValid(item) && !utils.isElementInArray(inv, item)) {
                 inv = utils.addElement(inv, item);
             }
         }
@@ -269,13 +258,12 @@ public class metrics extends script.base_script
         {
             killLog += ";group;" + skill.getGroupLevel(killCredit);
             obj_id[] members = getGroupMemberIds(killCredit);
-            for (int i = 0; i < members.length; i++)
-            {
-                String playerName = getEncodedName(members[i]);
-                int playerLevel = getLevel(members[i]);
-                int dmgAmount = utils.getIntScriptVar(target, xp.VAR_ATTACKER_LIST + "." + members[i] + ".damage");
-                float dmgPercent = (float)((int)((float)dmgAmount / dmgTotal * 10000) / 100f);
-                killLog += ";" + members[i] + ";" + playerName + ";" + playerLevel + ";" + dmgAmount + ";" + dmgPercent;
+            for (obj_id member : members) {
+                String playerName = getEncodedName(member);
+                int playerLevel = getLevel(member);
+                int dmgAmount = utils.getIntScriptVar(target, xp.VAR_ATTACKER_LIST + "." + member + ".damage");
+                float dmgPercent = (float) ((int) ((float) dmgAmount / dmgTotal * 10000) / 100.0f);
+                killLog += ";" + member + ";" + playerName + ";" + playerLevel + ";" + dmgAmount + ";" + dmgPercent;
             }
         }
         else 
@@ -283,7 +271,7 @@ public class metrics extends script.base_script
             String playerName = getEncodedName(killCredit);
             int playerLevel = getLevel(killCredit);
             int dmgAmount = utils.getIntScriptVar(target, xp.VAR_ATTACKER_LIST + "." + killCredit + ".damage");
-            float dmgPercent = (float)((int)((float)dmgAmount / dmgTotal * 10000) / 100f);
+            float dmgPercent = (float)((int)((float)dmgAmount / dmgTotal * 10000) / 100.0f);
             killLog += ";solo;" + killCredit + ";" + playerName + ";" + playerLevel + ";" + dmgAmount + ";" + dmgPercent;
         }
         logBalance(killLog);
@@ -305,7 +293,7 @@ public class metrics extends script.base_script
         float xpRate = 0;
         if (startTime != curTime)
         {
-            xpRate = (float)((int)((float)xpTotal / ((curTime - startTime) / 3600f) * 100f) / 100f);
+            xpRate = (float)((int)(xpTotal / ((curTime - startTime) / 3600.0f) * 100.0f) / 100.0f);
         }
         String xpRateLog = "xpRate;" + curTime + ";" + player + ";" + playerName + ";" + playerLevel + ";" + lastTime + ";" + xpType + ";" + xpTotal + ";" + xpRate;
         logBalance(xpRateLog);

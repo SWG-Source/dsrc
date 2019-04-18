@@ -26,7 +26,7 @@ public class permanent_structure extends script.base_script
         dictionary params = new dictionary();
         params.put("sender", self);
         params.put("senderLoc", getLocation(self));
-        messageToRange(20f, "handleRequestCorpseMove", params, 0f);
+        messageToRange(20.0f, "handleRequestCorpseMove", params, 0.0f);
         return SCRIPT_CONTINUE;
     }
     public int OnInitialize(obj_id self) throws InterruptedException
@@ -71,13 +71,12 @@ public class permanent_structure extends script.base_script
             removeObjVar(self, "player_structure.maintanence.rate");
         }
         player_structure.convertPermissionsLists(self);
-        float fltDistance = 80f;
+        float fltDistance = 80.0f;
         obj_id[] objLairs = getAllObjectsWithTemplate(getLocation(self), fltDistance, "object/tangible/lair/npc_lair.iff");
         if (objLairs != null)
         {
-            for (int intI = 0; intI < objLairs.length; intI++)
-            {
-                messageTo(objLairs[intI], "proximityCleanup", null, 1, true);
+            for (obj_id objLair : objLairs) {
+                messageTo(objLair, "proximityCleanup", null, 1, true);
             }
         }
         LOG("LOG_CHANNEL", "permanent_structure::OnIntialize -- " + self);
@@ -514,7 +513,7 @@ public class permanent_structure extends script.base_script
         }
         boolean itemTransfer = false;
         String template = getTemplateName(self);
-        if (template.indexOf("cloning_") > -1 || template.indexOf("cityhall_") > -1)
+        if (template.contains("cloning_") || template.contains("cityhall_"))
         {
             itemTransfer = true;
             LOG("sissynoid", "City Hall/Cloning Center Found - itemTransfer == true");
@@ -641,7 +640,7 @@ public class permanent_structure extends script.base_script
             String template = getTemplateName(self);
             if ((template != null) || (!template.equals("")))
             {
-                if (template.indexOf("object/building/player/city/garden_") != -1)
+                if (template.contains("object/building/player/city/garden_"))
                 {
                     return SCRIPT_CONTINUE;
                 }
@@ -683,7 +682,7 @@ public class permanent_structure extends script.base_script
         else 
         {
             int cost = params.getInt("cost");
-            prose_package bodypp = prose.getPackage(city.STRUCTURE_DAMAGED_BODY, null, null, null, null, mayor_name, null, null, structure_name, null, cost, 0.f);
+            prose_package bodypp = prose.getPackage(city.STRUCTURE_DAMAGED_BODY, null, null, null, null, mayor_name, null, null, structure_name, null, cost, 0.0f);
             utils.sendMail(city.STRUCTURE_DAMAGED_SUBJECT, bodypp, mayor_name, "City Hall");
         }
         return SCRIPT_CONTINUE;
@@ -712,7 +711,7 @@ public class permanent_structure extends script.base_script
     {
         int rotation = params.getInt("rotation");
         player_structure.createStructureObjects(self, rotation);
-        float rot_float = (float)(90 * rotation);
+        float rot_float = (90 * rotation);
         player_structure.createStructureSign(self, rot_float);
         return SCRIPT_CONTINUE;
     }
@@ -915,7 +914,7 @@ public class permanent_structure extends script.base_script
             }
             else 
             {
-                if (assignedName != null && assignedName.indexOf(player_structure.ABANDONED_TEXT) != -1)
+                if (assignedName != null && assignedName.contains(player_structure.ABANDONED_TEXT))
                 {
                     assignedName = getStringObjVar(factory, "player_structure.name.original");
                 }
@@ -927,25 +926,22 @@ public class permanent_structure extends script.base_script
             if (assignedName == null || assignedName.length() == 0)
             {
                 String templateName = getTemplateName(factory);
-                if (templateName.equals("object/installation/manufacture/food_factory.iff"))
-                {
-                    assignedName = "Food and Chemical Factory";
-                }
-                else if (templateName.equals("object/installation/manufacture/clothing_factory.iff"))
-                {
-                    assignedName = "Wearables Factory";
-                }
-                else if (templateName.equals("object/installation/manufacture/weapon_factory.iff"))
-                {
-                    assignedName = "Equipment Factory";
-                }
-                else if (templateName.equals("object/installation/manufacture/structure_factory.iff"))
-                {
-                    assignedName = "Structure Factory";
-                }
-                else 
-                {
-                    assignedName = "Factory";
+                switch (templateName) {
+                    case "object/installation/manufacture/food_factory.iff":
+                        assignedName = "Food and Chemical Factory";
+                        break;
+                    case "object/installation/manufacture/clothing_factory.iff":
+                        assignedName = "Wearables Factory";
+                        break;
+                    case "object/installation/manufacture/weapon_factory.iff":
+                        assignedName = "Equipment Factory";
+                        break;
+                    case "object/installation/manufacture/structure_factory.iff":
+                        assignedName = "Structure Factory";
+                        break;
+                    default:
+                        assignedName = "Factory";
+                        break;
                 }
             }
             setName(factory, assignedName + player_structure.ABANDONED_TEXT);
@@ -972,13 +968,10 @@ public class permanent_structure extends script.base_script
                 if (adminList != null)
                 {
                     String admins = "";
-                    for (int i = 0; i < adminList.length; ++i)
-                    {
-                        if (adminList[i] != null && (adminList[i].toLowerCase()).indexOf("guild:") <= -1)
-                        {
-                            admins += "|" + getPlayerStationId(utils.stringToObjId(adminList[i]));
-                            if (admins.length() > 256)
-                            {
+                    for (String s : adminList) {
+                        if (s != null && !(s.toLowerCase()).contains("guild:")) {
+                            admins += "|" + getPlayerStationId(utils.stringToObjId(s));
+                            if (admins.length() > 256) {
                                 CustomerServiceLog("house_packup_adminlist", admins + "|");
                                 admins = "";
                             }
@@ -1002,7 +995,7 @@ public class permanent_structure extends script.base_script
                 if (player_structure.isFactory(self) && hasObjVar(self, "player_structure.name.original"))
                 {
                     final String assignedName = getAssignedName(self);
-                    if (assignedName != null && assignedName.indexOf(player_structure.ABANDONED_TEXT) != -1)
+                    if (assignedName != null && assignedName.contains(player_structure.ABANDONED_TEXT))
                     {
                         final String originalName = getStringObjVar(self, "player_structure.name.original");
                         setName(self, originalName);
@@ -1031,7 +1024,7 @@ public class permanent_structure extends script.base_script
                     if (player_structure.isFactory(self) && hasObjVar(self, "player_structure.name.original"))
                     {
                         final String assignedName = getAssignedName(self);
-                        if (assignedName != null && assignedName.indexOf(player_structure.ABANDONED_TEXT) != -1)
+                        if (assignedName != null && assignedName.contains(player_structure.ABANDONED_TEXT))
                         {
                             final String originalName = getStringObjVar(self, "player_structure.name.original");
                             setName(self, originalName);
@@ -1151,34 +1144,27 @@ public class permanent_structure extends script.base_script
         if (players != null)
         {
             blog("player_structure.finalizeAbandonedStructurePackUp Players are in the building that is about to be packed.");
-            for (int i = 0; i < players.length; i++)
-            {
-                expelFromBuilding(players[i]);
+            for (obj_id player1 : players) {
+                expelFromBuilding(player1);
             }
         }
         String[] cells = getCellNames(structure);
         if (cells != null)
         {
-            for (int i = 0; i < cells.length; i++)
-            {
-                obj_id cellid = getCellId(structure, cells[i]);
+            for (String cell : cells) {
+                obj_id cellid = getCellId(structure, cell);
                 obj_id contents[] = getContents(cellid);
-                if (contents != null)
-                {
-                    for (int j = 0; j < contents.length; j++)
-                    {
-                        if (hasCondition(contents[j], CONDITION_VENDOR))
-                        {
-                            obj_id owner = getObjIdObjVar(contents[j], "vendor_owner");
-                            if (!isIdValid(owner))
-                            {
-                                owner = getOwner(contents[j]);
+                if (contents != null) {
+                    for (obj_id content : contents) {
+                        if (hasCondition(content, CONDITION_VENDOR)) {
+                            obj_id owner = getObjIdObjVar(content, "vendor_owner");
+                            if (!isIdValid(owner)) {
+                                owner = getOwner(content);
                             }
-                            vendor_lib.finalizePackUp(owner, contents[j], player, isAbandoned);
+                            vendor_lib.finalizePackUp(owner, content, player, isAbandoned);
                         }
-                        if (isIdValid(contents[j]))
-                        {
-                            messageTo(contents[j], "OnPack", null, 1.0f, false);
+                        if (isIdValid(content)) {
+                            messageTo(content, "OnPack", null, 1.0f, false);
                         }
                     }
                 }
@@ -1309,35 +1295,28 @@ public class permanent_structure extends script.base_script
         if (players != null)
         {
             LOG("sissynoid", "cityMoveStructureToSCD: Ejecting Players from the house.");
-            for (int i = 0; i < players.length; i++)
-            {
-                expelFromBuilding(players[i]);
+            for (obj_id player1 : players) {
+                expelFromBuilding(player1);
             }
         }
         String[] cells = getCellNames(structure);
         if (cells != null)
         {
             LOG("sissynoid", "cityMoveStructureToSCD: Removing Vendors");
-            for (int i = 0; i < cells.length; i++)
-            {
-                obj_id cellid = getCellId(structure, cells[i]);
+            for (String cell : cells) {
+                obj_id cellid = getCellId(structure, cell);
                 obj_id contents[] = getContents(cellid);
-                if (contents != null)
-                {
-                    for (int j = 0; j < contents.length; j++)
-                    {
-                        if (hasCondition(contents[j], CONDITION_VENDOR))
-                        {
-                            obj_id owner = getObjIdObjVar(contents[j], "vendor_owner");
-                            if (!isIdValid(owner))
-                            {
-                                owner = getOwner(contents[j]);
+                if (contents != null) {
+                    for (obj_id content : contents) {
+                        if (hasCondition(content, CONDITION_VENDOR)) {
+                            obj_id owner = getObjIdObjVar(content, "vendor_owner");
+                            if (!isIdValid(owner)) {
+                                owner = getOwner(content);
                             }
-                            vendor_lib.finalizePackUp(owner, contents[j], player, isCityAbandoned);
+                            vendor_lib.finalizePackUp(owner, content, player, isCityAbandoned);
                         }
-                        if (isIdValid(contents[j]))
-                        {
-                            messageTo(contents[j], "OnPack", null, 1.0f, false);
+                        if (isIdValid(content)) {
+                            messageTo(content, "OnPack", null, 1.0f, false);
                         }
                     }
                 }
@@ -1496,7 +1475,7 @@ public class permanent_structure extends script.base_script
         else if (player_structure.isCivic(self))
         {
             location structureLocation = getLocation(self);
-            float cond = ((float)player_structure.getStructureCondition(self)) / ((float)player_structure.getMaxCondition(self));
+            float cond = ((float)player_structure.getStructureCondition(self)) / player_structure.getMaxCondition(self);
             int outcond = (int)(cond * 100);
             String structureName = getEncodedName(self) + " (Condition : " + outcond + "%)";
             dictionary dict = new dictionary();

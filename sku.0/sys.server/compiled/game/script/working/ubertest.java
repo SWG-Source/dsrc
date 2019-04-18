@@ -20,11 +20,9 @@ public class ubertest extends script.base_script
         if (strText.equals("cleanup"))
         {
             obj_id[] objStuff = getObjectsInRange(getLocation(self), 200);
-            for (int intI = 0; intI < objStuff.length; intI++)
-            {
-                if (objStuff[intI] != self)
-                {
-                    destroyObject(objStuff[intI]);
+            for (obj_id obj_id : objStuff) {
+                if (obj_id != self) {
+                    destroyObject(obj_id);
                 }
             }
         }

@@ -217,7 +217,7 @@ public class quests extends script.base_script
         location questLoc;
         while (x < 10)
         {
-            questLoc = locations.getGoodLocationOutsideOfRegion(locations.getCityRegion(getLocation(self)), 100f, 100f, 100f);
+            questLoc = locations.getGoodLocationOutsideOfRegion(locations.getCityRegion(getLocation(self)), 100.0f, 100.0f, 100.0f);
             if (questLoc != null)
             {
                 target = questLoc;
@@ -409,7 +409,7 @@ public class quests extends script.base_script
                     return null;
                 }
             }
-            questLoc = locations.getGoodLocationOutsideOfRegion(quest, 64f, 64f, 100f, false, true);
+            questLoc = locations.getGoodLocationOutsideOfRegion(quest, 64.0f, 64.0f, 100.0f, false, true);
             if (questLoc != null)
             {
                 target = questLoc;
@@ -750,7 +750,7 @@ public class quests extends script.base_script
         Object[] params = new Object[3];
         params[0] = player;
         params[1] = questName;
-        params[2] = new Boolean(succeeded);
+        params[2] = succeeded;
         script_entry.runScripts("OnForceSensitiveQuestCompleted", params);
         if (hasObjVar(player, "questlib." + questName))
         {
@@ -882,11 +882,9 @@ public class quests extends script.base_script
             {
                 LOG("newquests", "GET THEATER LOCATION TARGET: parsing parameter string: " + parameterString);
                 String[] params = split(parameterString, ':');
-                for (int i = 0; i < params.length; i++)
-                {
-                    if (Character.isDigit(params[i].charAt(0)))
-                    {
-                        parameter = utils.stringToFloat(params[i]);
+                for (String param : params) {
+                    if (Character.isDigit(param.charAt(0))) {
+                        parameter = utils.stringToFloat(param);
                         haveParameter = true;
                         LOG("newquests", "GET THEATER LOCATION TARGET: search radius parameter found: " + parameter);
                     }

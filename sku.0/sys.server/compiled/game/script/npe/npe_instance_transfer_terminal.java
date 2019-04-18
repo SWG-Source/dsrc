@@ -89,9 +89,8 @@ public class npe_instance_transfer_terminal extends script.base_script
                     populations.put(building_id.toString(), population_num);
                     locations.put(building_id.toString(), world_location);
                     indices.put(building_id.toString(), i);
-                    for (int j = 0; j < population_info.size(); ++j)
-                    {
-                        String player_name = getPlayerFullName((obj_id)population_info.get(j));
+                    for (Object o : population_info) {
+                        String player_name = getPlayerFullName((obj_id) o);
                         players.put(player_name, building_id);
                     }
                 }
@@ -152,7 +151,7 @@ public class npe_instance_transfer_terminal extends script.base_script
         while (keys.hasMoreElements())
         {
             String key = (String)keys.nextElement();
-            if ((key.toLowerCase()).indexOf(searchString.toLowerCase()) != -1)
+            if ((key.toLowerCase()).contains(searchString.toLowerCase()))
             {
                 players.add(key);
             }

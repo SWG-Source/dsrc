@@ -33,7 +33,7 @@ public class manufacture extends script.base_script
     {
         removeObjVar(self, OBJVAR_SCHEMATICS);
         String template = getTemplateName(self);
-        if (template != null && template.indexOf("weapon_factory.iff") >= 0)
+        if (template != null && template.contains("weapon_factory.iff"))
         {
             int craftingType = getIntObjVar(self, craftinglib.OBJVAR_CRAFTING_TYPE);
             craftingType &= ~CT_genericItem;

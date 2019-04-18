@@ -20,7 +20,7 @@ public class npe_commando extends script.base_script
     public boolean npe_commando_condition_isCommandoTemplate(obj_id player, obj_id npc) throws InterruptedException
     {
         String playerTemplate = getSkillTemplate(player);
-        if (playerTemplate.indexOf("commando") > -1)
+        if (playerTemplate.contains("commando"))
         {
             return true;
         }
@@ -77,15 +77,12 @@ public class npe_commando extends script.base_script
         }
         boolean hasItem = false;
         obj_id[] playerStuff = getInventoryAndEquipment(player);
-        for (int i = 0; i < playerStuff.length; i++)
-        {
-            String templateName = static_item.getStaticItemName(playerStuff[i]);
-            if (templateName != null)
-            {
-                if (templateName.equals("weapon_grenade_fragmentation_01_01"))
-                {
+        for (obj_id obj_id : playerStuff) {
+            String templateName = static_item.getStaticItemName(obj_id);
+            if (templateName != null) {
+                if (templateName.equals("weapon_grenade_fragmentation_01_01")) {
                     hasItem = true;
-                    newbieTutorialSetToolbarElement(player, 5, playerStuff[i]);
+                    newbieTutorialSetToolbarElement(player, 5, obj_id);
                     newbieTutorialHighlightUIElement(player, "/GroundHUD.Toolbar.volume.5", 5.0f);
                 }
             }

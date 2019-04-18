@@ -16,32 +16,25 @@ public class event_ls_cpt_dramont extends script.base_script
     public boolean event_ls_cpt_dramont_condition_hasSixCores(obj_id player, obj_id npc) throws InterruptedException
     {
         obj_id[] playerItems = getInventoryAndEquipment(player);
-        for (int i = 0; i < playerItems.length; i++)
-        {
-            String itemTemplate = getTemplateName(playerItems[i]);
-            if (itemTemplate.equals("object/tangible/loot/quest/lost_squadron_core_1.iff"))
-            {
-                utils.setScriptVar(player, "core_1", playerItems[i]);
+        for (obj_id playerItem : playerItems) {
+            String itemTemplate = getTemplateName(playerItem);
+            if (itemTemplate.equals("object/tangible/loot/quest/lost_squadron_core_1.iff")) {
+                utils.setScriptVar(player, "core_1", playerItem);
             }
-            if (itemTemplate.equals("object/tangible/loot/quest/lost_squadron_core_2.iff"))
-            {
-                utils.setScriptVar(player, "core_2", playerItems[i]);
+            if (itemTemplate.equals("object/tangible/loot/quest/lost_squadron_core_2.iff")) {
+                utils.setScriptVar(player, "core_2", playerItem);
             }
-            if (itemTemplate.equals("object/tangible/loot/quest/lost_squadron_core_3.iff"))
-            {
-                utils.setScriptVar(player, "core_3", playerItems[i]);
+            if (itemTemplate.equals("object/tangible/loot/quest/lost_squadron_core_3.iff")) {
+                utils.setScriptVar(player, "core_3", playerItem);
             }
-            if (itemTemplate.equals("object/tangible/loot/quest/lost_squadron_core_4.iff"))
-            {
-                utils.setScriptVar(player, "core_4", playerItems[i]);
+            if (itemTemplate.equals("object/tangible/loot/quest/lost_squadron_core_4.iff")) {
+                utils.setScriptVar(player, "core_4", playerItem);
             }
-            if (itemTemplate.equals("object/tangible/loot/quest/lost_squadron_core_5.iff"))
-            {
-                utils.setScriptVar(player, "core_5", playerItems[i]);
+            if (itemTemplate.equals("object/tangible/loot/quest/lost_squadron_core_5.iff")) {
+                utils.setScriptVar(player, "core_5", playerItem);
             }
-            if (itemTemplate.equals("object/tangible/loot/quest/lost_squadron_core_6.iff"))
-            {
-                utils.setScriptVar(player, "core_6", playerItems[i]);
+            if (itemTemplate.equals("object/tangible/loot/quest/lost_squadron_core_6.iff")) {
+                utils.setScriptVar(player, "core_6", playerItem);
             }
         }
         if (utils.hasScriptVar(player, "core_1") && utils.hasScriptVar(player, "core_2") && utils.hasScriptVar(player, "core_3") && utils.hasScriptVar(player, "core_4") && utils.hasScriptVar(player, "core_5") && utils.hasScriptVar(player, "core_6"))
@@ -81,31 +74,24 @@ public class event_ls_cpt_dramont extends script.base_script
     public boolean event_ls_cpt_dramont_condition_hasMin1core(obj_id player, obj_id npc) throws InterruptedException
     {
         obj_id[] playerItems = getInventoryAndEquipment(player);
-        for (int i = 0; i < playerItems.length; i++)
-        {
-            String itemTemplate = getTemplateName(playerItems[i]);
-            if (itemTemplate.equals("object/tangible/loot/quest/lost_squadron_core_1.iff"))
-            {
+        for (obj_id playerItem : playerItems) {
+            String itemTemplate = getTemplateName(playerItem);
+            if (itemTemplate.equals("object/tangible/loot/quest/lost_squadron_core_1.iff")) {
                 return true;
             }
-            if (itemTemplate.equals("object/tangible/loot/quest/lost_squadron_core_2.iff"))
-            {
+            if (itemTemplate.equals("object/tangible/loot/quest/lost_squadron_core_2.iff")) {
                 return true;
             }
-            if (itemTemplate.equals("object/tangible/loot/quest/lost_squadron_core_3.iff"))
-            {
+            if (itemTemplate.equals("object/tangible/loot/quest/lost_squadron_core_3.iff")) {
                 return true;
             }
-            if (itemTemplate.equals("object/tangible/loot/quest/lost_squadron_core_4.iff"))
-            {
+            if (itemTemplate.equals("object/tangible/loot/quest/lost_squadron_core_4.iff")) {
                 return true;
             }
-            if (itemTemplate.equals("object/tangible/loot/quest/lost_squadron_core_5.iff"))
-            {
+            if (itemTemplate.equals("object/tangible/loot/quest/lost_squadron_core_5.iff")) {
                 return true;
             }
-            if (itemTemplate.equals("object/tangible/loot/quest/lost_squadron_core_6.iff"))
-            {
+            if (itemTemplate.equals("object/tangible/loot/quest/lost_squadron_core_6.iff")) {
                 return true;
             }
         }
@@ -115,32 +101,25 @@ public class event_ls_cpt_dramont extends script.base_script
     {
         obj_id[] playerItems = getInventoryAndEquipment(player);
         obj_id mom = getObjIdObjVar(npc, "mom");
-        for (int i = 0; i < playerItems.length; i++)
-        {
-            String itemTemplate = getTemplateName(playerItems[i]);
-            if (itemTemplate.equals("object/tangible/loot/quest/lost_squadron_core_1.iff"))
-            {
-                utils.setScriptVar(player, "core_1", playerItems[i]);
+        for (obj_id playerItem : playerItems) {
+            String itemTemplate = getTemplateName(playerItem);
+            if (itemTemplate.equals("object/tangible/loot/quest/lost_squadron_core_1.iff")) {
+                utils.setScriptVar(player, "core_1", playerItem);
             }
-            if (itemTemplate.equals("object/tangible/loot/quest/lost_squadron_core_2.iff"))
-            {
-                utils.setScriptVar(player, "core_2", playerItems[i]);
+            if (itemTemplate.equals("object/tangible/loot/quest/lost_squadron_core_2.iff")) {
+                utils.setScriptVar(player, "core_2", playerItem);
             }
-            if (itemTemplate.equals("object/tangible/loot/quest/lost_squadron_core_3.iff"))
-            {
-                utils.setScriptVar(player, "core_3", playerItems[i]);
+            if (itemTemplate.equals("object/tangible/loot/quest/lost_squadron_core_3.iff")) {
+                utils.setScriptVar(player, "core_3", playerItem);
             }
-            if (itemTemplate.equals("object/tangible/loot/quest/lost_squadron_core_4.iff"))
-            {
-                utils.setScriptVar(player, "core_4", playerItems[i]);
+            if (itemTemplate.equals("object/tangible/loot/quest/lost_squadron_core_4.iff")) {
+                utils.setScriptVar(player, "core_4", playerItem);
             }
-            if (itemTemplate.equals("object/tangible/loot/quest/lost_squadron_core_5.iff"))
-            {
-                utils.setScriptVar(player, "core_5", playerItems[i]);
+            if (itemTemplate.equals("object/tangible/loot/quest/lost_squadron_core_5.iff")) {
+                utils.setScriptVar(player, "core_5", playerItem);
             }
-            if (itemTemplate.equals("object/tangible/loot/quest/lost_squadron_core_6.iff"))
-            {
-                utils.setScriptVar(player, "core_6", playerItems[i]);
+            if (itemTemplate.equals("object/tangible/loot/quest/lost_squadron_core_6.iff")) {
+                utils.setScriptVar(player, "core_6", playerItem);
             }
         }
         if (utils.hasScriptVar(player, "core_1") && utils.hasScriptVar(player, "core_2") && utils.hasScriptVar(player, "core_3") && utils.hasScriptVar(player, "core_4") && utils.hasScriptVar(player, "core_5") && utils.hasScriptVar(player, "core_6"))
@@ -196,32 +175,25 @@ public class event_ls_cpt_dramont extends script.base_script
     {
         obj_id[] playerItems = getInventoryAndEquipment(player);
         obj_id mom = getObjIdObjVar(npc, "mom");
-        for (int i = 0; i < playerItems.length; i++)
-        {
-            String itemTemplate = getTemplateName(playerItems[i]);
-            if (itemTemplate.equals("object/tangible/loot/quest/lost_squadron_core_1.iff"))
-            {
-                utils.setScriptVar(player, "core_1", playerItems[i]);
+        for (obj_id playerItem : playerItems) {
+            String itemTemplate = getTemplateName(playerItem);
+            if (itemTemplate.equals("object/tangible/loot/quest/lost_squadron_core_1.iff")) {
+                utils.setScriptVar(player, "core_1", playerItem);
             }
-            if (itemTemplate.equals("object/tangible/loot/quest/lost_squadron_core_2.iff"))
-            {
-                utils.setScriptVar(player, "core_2", playerItems[i]);
+            if (itemTemplate.equals("object/tangible/loot/quest/lost_squadron_core_2.iff")) {
+                utils.setScriptVar(player, "core_2", playerItem);
             }
-            if (itemTemplate.equals("object/tangible/loot/quest/lost_squadron_core_3.iff"))
-            {
-                utils.setScriptVar(player, "core_3", playerItems[i]);
+            if (itemTemplate.equals("object/tangible/loot/quest/lost_squadron_core_3.iff")) {
+                utils.setScriptVar(player, "core_3", playerItem);
             }
-            if (itemTemplate.equals("object/tangible/loot/quest/lost_squadron_core_4.iff"))
-            {
-                utils.setScriptVar(player, "core_4", playerItems[i]);
+            if (itemTemplate.equals("object/tangible/loot/quest/lost_squadron_core_4.iff")) {
+                utils.setScriptVar(player, "core_4", playerItem);
             }
-            if (itemTemplate.equals("object/tangible/loot/quest/lost_squadron_core_5.iff"))
-            {
-                utils.setScriptVar(player, "core_5", playerItems[i]);
+            if (itemTemplate.equals("object/tangible/loot/quest/lost_squadron_core_5.iff")) {
+                utils.setScriptVar(player, "core_5", playerItem);
             }
-            if (itemTemplate.equals("object/tangible/loot/quest/lost_squadron_core_6.iff"))
-            {
-                utils.setScriptVar(player, "core_6", playerItems[i]);
+            if (itemTemplate.equals("object/tangible/loot/quest/lost_squadron_core_6.iff")) {
+                utils.setScriptVar(player, "core_6", playerItem);
             }
         }
         if (utils.hasScriptVar(player, "core_1") && utils.hasScriptVar(player, "core_2") && utils.hasScriptVar(player, "core_3") && utils.hasScriptVar(player, "core_4") && utils.hasScriptVar(player, "core_5") && utils.hasScriptVar(player, "core_6"))
@@ -287,32 +259,25 @@ public class event_ls_cpt_dramont extends script.base_script
     {
         obj_id[] playerItems = getInventoryAndEquipment(player);
         obj_id mom = getObjIdObjVar(npc, "mom");
-        for (int i = 0; i < playerItems.length; i++)
-        {
-            String itemTemplate = getTemplateName(playerItems[i]);
-            if (itemTemplate.equals("object/tangible/loot/quest/lost_squadron_core_1.iff"))
-            {
-                utils.setScriptVar(player, "core_1", playerItems[i]);
+        for (obj_id playerItem : playerItems) {
+            String itemTemplate = getTemplateName(playerItem);
+            if (itemTemplate.equals("object/tangible/loot/quest/lost_squadron_core_1.iff")) {
+                utils.setScriptVar(player, "core_1", playerItem);
             }
-            if (itemTemplate.equals("object/tangible/loot/quest/lost_squadron_core_2.iff"))
-            {
-                utils.setScriptVar(player, "core_2", playerItems[i]);
+            if (itemTemplate.equals("object/tangible/loot/quest/lost_squadron_core_2.iff")) {
+                utils.setScriptVar(player, "core_2", playerItem);
             }
-            if (itemTemplate.equals("object/tangible/loot/quest/lost_squadron_core_3.iff"))
-            {
-                utils.setScriptVar(player, "core_3", playerItems[i]);
+            if (itemTemplate.equals("object/tangible/loot/quest/lost_squadron_core_3.iff")) {
+                utils.setScriptVar(player, "core_3", playerItem);
             }
-            if (itemTemplate.equals("object/tangible/loot/quest/lost_squadron_core_4.iff"))
-            {
-                utils.setScriptVar(player, "core_4", playerItems[i]);
+            if (itemTemplate.equals("object/tangible/loot/quest/lost_squadron_core_4.iff")) {
+                utils.setScriptVar(player, "core_4", playerItem);
             }
-            if (itemTemplate.equals("object/tangible/loot/quest/lost_squadron_core_5.iff"))
-            {
-                utils.setScriptVar(player, "core_5", playerItems[i]);
+            if (itemTemplate.equals("object/tangible/loot/quest/lost_squadron_core_5.iff")) {
+                utils.setScriptVar(player, "core_5", playerItem);
             }
-            if (itemTemplate.equals("object/tangible/loot/quest/lost_squadron_core_6.iff"))
-            {
-                utils.setScriptVar(player, "core_6", playerItems[i]);
+            if (itemTemplate.equals("object/tangible/loot/quest/lost_squadron_core_6.iff")) {
+                utils.setScriptVar(player, "core_6", playerItem);
             }
         }
         if (utils.hasScriptVar(player, "core_1") && utils.hasScriptVar(player, "core_2") && utils.hasScriptVar(player, "core_3") && utils.hasScriptVar(player, "core_4") && utils.hasScriptVar(player, "core_5") && utils.hasScriptVar(player, "core_6"))

@@ -53,10 +53,8 @@ public class core_rod_maker extends script.base_script
         obj_id[] contents = getContents(self);
         if (contents != null)
         {
-            for (int i = 0; i < contents.length; i++)
-            {
-                if (hasObjVar(contents[i], "warren.reactorControlRod"))
-                {
+            for (obj_id content : contents) {
+                if (hasObjVar(content, "warren.reactorControlRod")) {
                     return SCRIPT_CONTINUE;
                 }
             }

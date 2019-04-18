@@ -519,11 +519,8 @@ public class barn_lite_device extends script.base_script
                                         String[] storageList = tcg.getBarnBeastStorageSlots(self);
                                         if (storageList != null || storageList.length > 0)
                                         {
-                                            for (int i = 0; i < storageList.length; i++)
-                                            {
-                                                String bcdSlot = storageList[i];
-                                                if (hasObjVar(self, "barnStorage." + bcdSlot + "." + tcg.BEAST_ROAMING))
-                                                {
+                                            for (String bcdSlot : storageList) {
+                                                if (hasObjVar(self, "barnStorage." + bcdSlot + "." + tcg.BEAST_ROAMING)) {
                                                     storeDisplayedBeast(self, player, bcdSlot);
                                                 }
                                             }

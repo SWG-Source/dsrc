@@ -117,17 +117,14 @@ public class paired_object_movement extends script.base_script
         String testKey = getTransitionKey(self);
         Vector matches = new Vector();
         matches.setSize(0);
-        for (int i = 0; i < pairedObjects.length; i++)
-        {
-            if (!testKey.equals(getTransitionKey(pairedObjects[i])))
-            {
+        for (obj_id pairedObject : pairedObjects) {
+            if (!testKey.equals(getTransitionKey(pairedObject))) {
                 continue;
             }
-            if (pairedObjects[i] == self)
-            {
+            if (pairedObject == self) {
                 continue;
             }
-            matches.add(pairedObjects[i]);
+            matches.add(pairedObject);
         }
         if (matches == null || matches.size() == 0)
         {
@@ -149,10 +146,8 @@ public class paired_object_movement extends script.base_script
         {
             return true;
         }
-        for (int i = 0; i < MULTI_MENU.length; i++)
-        {
-            if (selection == MULTI_MENU[i])
-            {
+        for (int multiMenu : MULTI_MENU) {
+            if (selection == multiMenu) {
                 return true;
             }
         }

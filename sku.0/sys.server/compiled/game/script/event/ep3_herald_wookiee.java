@@ -20,7 +20,7 @@ public class ep3_herald_wookiee extends script.base_script
         while (x < 10)
         {
             location loc = utils.getRandomLocationInRing(here, 100, 500);
-            someLoc = locations.getGoodLocationAroundLocation(loc, 5f, 5f, 50f, 50f);
+            someLoc = locations.getGoodLocationAroundLocation(loc, 5.0f, 5.0f, 50.0f, 50.0f);
             if (someLoc != null)
             {
                 break;

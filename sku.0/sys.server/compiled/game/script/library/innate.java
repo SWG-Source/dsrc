@@ -10,13 +10,13 @@ public class innate extends script.base_script
     }
     public static final int ONE_HOUR = 3600;
     public static final int TWO_HOURS = ONE_HOUR * 2;
-    public static final float DURATION_REGEN = 300f;
-    public static final float DURATION_ROAR = 300f;
-    public static final float DURATION_VIT = 300f;
+    public static final float DURATION_REGEN = 300.0f;
+    public static final float DURATION_ROAR = 300.0f;
+    public static final float DURATION_VIT = 300.0f;
     public static final int VALUE_VIT_BUFF = 50;
     public static final int VALUE_EQUALIZE_AMOUNT = 250;
-    public static final float RAMP_REGEN = 30f;
-    public static final float RAMP_VIT = 0f;
+    public static final float RAMP_REGEN = 30.0f;
+    public static final float RAMP_VIT = 0.0f;
     public static final String VAR_INNATE_BASE = "innate";
     public static final String VAR_REGENERATION = VAR_INNATE_BASE + ".regeneration";
     public static final String VAR_ROAR = VAR_INNATE_BASE + ".roar";
@@ -54,11 +54,9 @@ public class innate extends script.base_script
         {
             return null;
         }
-        for (int i = 0; i < INNATE_CMD.length; i++)
-        {
-            if (INNATE_CMD[i].startsWith(txt))
-            {
-                return INNATE_CMD[i];
+        for (String s : INNATE_CMD) {
+            if (s.startsWith(txt)) {
+                return s;
             }
         }
         return null;

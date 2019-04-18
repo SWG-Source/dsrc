@@ -7,6 +7,7 @@ import script.location;
 import script.obj_id;
 import script.string_id;
 
+import java.util.Objects;
 import java.util.Vector;
 
 public class travel_player_space_dungeon_falcon extends script.base_script
@@ -116,13 +117,13 @@ public class travel_player_space_dungeon_falcon extends script.base_script
             }
             if (session_id < 1)
             {
-                potential_dungeons.add(new Integer(i));
+                potential_dungeons.add(i);
             }
         }
         if (potential_dungeons.size() > 0)
         {
             int randomPotentialDungeonsIndex = rand(0, potential_dungeons.size() - 1);
-            int dungeonIndex = (((Integer)potential_dungeons.get(randomPotentialDungeonsIndex))).intValue();
+            int dungeonIndex = (Integer) potential_dungeons.get(randomPotentialDungeonsIndex);
             dictionary dungeon = dungeon_data[dungeonIndex];
             obj_id dungeon_id = dungeon.getObjId("dungeon_id");
             int session_id = dungeon.getInt("session_id");
@@ -152,14 +153,7 @@ public class travel_player_space_dungeon_falcon extends script.base_script
         space_dungeon.removeDungeonTraveler(self, request_id);
         LIVE_LOG("npe", "Could not find a falcon instance for player " + self + " something has definately gone wrong! Maybe too many people are in the tutorial planet asking for falcon instances)");
         string_id success = space_dungeon_data.getDungeonFailureString(dungeon_name);
-        if (success == null)
-        {
-            sendSystemMessage(player, SID_UNABLE_TO_FIND_DUNGEON);
-        }
-        else 
-        {
-            sendSystemMessage(player, success);
-        }
+        sendSystemMessage(player, Objects.requireNonNullElse(success, SID_UNABLE_TO_FIND_DUNGEON));
         return SCRIPT_CONTINUE;
     }
     public int msgEjectedFromDungeon(obj_id self, dictionary params) throws InterruptedException

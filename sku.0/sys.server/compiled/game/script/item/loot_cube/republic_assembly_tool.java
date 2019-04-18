@@ -267,12 +267,9 @@ public class republic_assembly_tool extends script.base_script
         String template = getTemplateName(item);
         if (template.startsWith("object/tangible/component/weapon/mustafar/") || template.startsWith("object/tangible/component/structure/mustafar/"))
         {
-            for (int i = 0; i < BROKEN_COMPONENTS.length; i++)
-            {
-                if (template.equals(BROKEN_COMPONENTS[i]))
-                {
-                    if (!isCrafted(item))
-                    {
+            for (String brokenComponent : BROKEN_COMPONENTS) {
+                if (template.equals(brokenComponent)) {
+                    if (!isCrafted(item)) {
                         attachScript(item, "item.component.serialize");
                     }
                     break;

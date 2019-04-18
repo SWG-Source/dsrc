@@ -56,10 +56,8 @@ public class goodbye_letter_maker extends script.base_script
         obj_id[] contents = getContents(self);
         if (contents != null)
         {
-            for (int i = 0; i < contents.length; i++)
-            {
-                if (hasObjVar(contents[i], "warren.letter"))
-                {
+            for (obj_id content : contents) {
+                if (hasObjVar(content, "warren.letter")) {
                     return SCRIPT_CONTINUE;
                 }
             }
@@ -73,10 +71,8 @@ public class goodbye_letter_maker extends script.base_script
         obj_id[] contents = getContents(self);
         if (contents != null)
         {
-            for (int i = 0; i < contents.length; i++)
-            {
-                if (hasObjVar(contents[i], "warren.letter"))
-                {
+            for (obj_id content : contents) {
+                if (hasObjVar(content, "warren.letter")) {
                     return SCRIPT_CONTINUE;
                 }
             }
@@ -84,10 +80,8 @@ public class goodbye_letter_maker extends script.base_script
         contents = getContents(utils.getInventoryContainer(player));
         if (contents != null)
         {
-            for (int i = 0; i < contents.length; i++)
-            {
-                if (hasObjVar(contents[i], "warren.letter"))
-                {
+            for (obj_id content : contents) {
+                if (hasObjVar(content, "warren.letter")) {
                     return SCRIPT_CONTINUE;
                 }
             }

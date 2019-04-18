@@ -269,7 +269,7 @@ public final class vector implements Comparable, Serializable
 		coneAxis = coneAxis.normalize();
 		coneTestPoint = coneTestPoint.normalize();
 		
-		float cosAngle = (float)Math.cos(Math.toRadians(halfAngle));
+		float cosAngle = (float) StrictMath.cos(Math.toRadians(halfAngle));
 		float dot = coneTestPoint.dot(coneAxis);
 		boolean withinCone = (dot >= cosAngle);
 		
@@ -310,7 +310,7 @@ public final class vector implements Comparable, Serializable
 	 */
 	public float theta()
 	{
-		return (float)Math.atan2(x, z);
+		return (float) StrictMath.atan2(x, z);
 	}
 
 	// ----------------------------------------------------------------------
@@ -321,7 +321,7 @@ public final class vector implements Comparable, Serializable
 	 */
 	public float phi()
 	{
-		return (float)Math.atan2(-y, Math.sqrt(x*x+z*z));
+		return (float) StrictMath.atan2(-y, Math.sqrt(x*x+z*z));
 	}
 
 	// ----------------------------------------------------------------------
@@ -555,7 +555,7 @@ public final class vector implements Comparable, Serializable
 	 */
 	public static vector midpoint(vector v1, vector v2)
 	{
-		return new vector((v1.x+v2.x)*0.5f, (v1.y+v2.y)*0.5f, (v1.z+v2.z)*.05f);
+		return new vector((v1.x+v2.x)*0.5f, (v1.y+v2.y)*0.5f, (v1.z+v2.z)* 0.05f);
 	}
 
 	// ----------------------------------------------------------------------
@@ -583,7 +583,7 @@ public final class vector implements Comparable, Serializable
 		float lz = random.rand(-1.0f, 1.0f);
 		float t = random.rand(0.0f, (float)Math.PI*2.0f);
 		double r = Math.sqrt(1.0f-lz*lz);
-		return new vector((float)(r*Math.cos(t)), (float)(r*Math.sin(t)), lz);
+		return new vector((float)(r* StrictMath.cos(t)), (float)(r* StrictMath.sin(t)), lz);
 	}
 
 	// ----------------------------------------------------------------------

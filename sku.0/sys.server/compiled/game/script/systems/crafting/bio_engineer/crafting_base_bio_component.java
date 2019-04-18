@@ -35,77 +35,44 @@ public class crafting_base_bio_component extends script.systems.crafting.craftin
             0,
             0
         };
-        for (int i = 0; i < itemAttributes.length; ++i)
-        {
-            if (itemAttributes[i] == null)
-            {
+        for (draft_schematic.attribute itemAttribute : itemAttributes) {
+            if (itemAttribute == null) {
                 continue;
             }
-            if (!calcAndSetPrototypeProperty(prototype, itemAttributes[i]))
-            {
-                if (((itemAttributes[i].name).getAsciiId()).startsWith("mod_idx"))
-                {
-                    if (((itemAttributes[i].name).getAsciiId()).endsWith("one"))
-                    {
-                        effect_type[0] = (int)itemAttributes[i].currentValue;
+            if (!calcAndSetPrototypeProperty(prototype, itemAttribute)) {
+                if (((itemAttribute.name).getAsciiId()).startsWith("mod_idx")) {
+                    if (((itemAttribute.name).getAsciiId()).endsWith("one")) {
+                        effect_type[0] = (int) itemAttribute.currentValue;
+                    } else if (((itemAttribute.name).getAsciiId()).endsWith("two")) {
+                        effect_type[1] = (int) itemAttribute.currentValue;
+                    } else if (((itemAttribute.name).getAsciiId()).endsWith("three")) {
+                        effect_type[2] = (int) itemAttribute.currentValue;
+                    } else if (((itemAttribute.name).getAsciiId()).endsWith("four")) {
+                        effect_type[3] = (int) itemAttribute.currentValue;
+                    } else if (((itemAttribute.name).getAsciiId()).endsWith("five")) {
+                        effect_type[4] = (int) itemAttribute.currentValue;
+                    } else if (((itemAttribute.name).getAsciiId()).endsWith("six")) {
+                        effect_type[5] = (int) itemAttribute.currentValue;
                     }
-                    else if (((itemAttributes[i].name).getAsciiId()).endsWith("two"))
-                    {
-                        effect_type[1] = (int)itemAttributes[i].currentValue;
+                } else if (((itemAttribute.name).getAsciiId()).startsWith("mod_val")) {
+                    if (((itemAttribute.name).getAsciiId()).endsWith("one")) {
+                        effect_mod[0] = (int) itemAttribute.currentValue;
+                    } else if (((itemAttribute.name).getAsciiId()).endsWith("two")) {
+                        effect_mod[1] = (int) itemAttribute.currentValue;
+                    } else if (((itemAttribute.name).getAsciiId()).endsWith("three")) {
+                        effect_mod[2] = (int) itemAttribute.currentValue;
+                    } else if (((itemAttribute.name).getAsciiId()).endsWith("four")) {
+                        effect_mod[3] = (int) itemAttribute.currentValue;
+                    } else if (((itemAttribute.name).getAsciiId()).endsWith("five")) {
+                        effect_mod[4] = (int) itemAttribute.currentValue;
+                    } else if (((itemAttribute.name).getAsciiId()).endsWith("six")) {
+                        effect_mod[5] = (int) itemAttribute.currentValue;
                     }
-                    else if (((itemAttributes[i].name).getAsciiId()).endsWith("three"))
-                    {
-                        effect_type[2] = (int)itemAttributes[i].currentValue;
-                    }
-                    else if (((itemAttributes[i].name).getAsciiId()).endsWith("four"))
-                    {
-                        effect_type[3] = (int)itemAttributes[i].currentValue;
-                    }
-                    else if (((itemAttributes[i].name).getAsciiId()).endsWith("five"))
-                    {
-                        effect_type[4] = (int)itemAttributes[i].currentValue;
-                    }
-                    else if (((itemAttributes[i].name).getAsciiId()).endsWith("six"))
-                    {
-                        effect_type[5] = (int)itemAttributes[i].currentValue;
-                    }
-                }
-                else if (((itemAttributes[i].name).getAsciiId()).startsWith("mod_val"))
-                {
-                    if (((itemAttributes[i].name).getAsciiId()).endsWith("one"))
-                    {
-                        effect_mod[0] = (int)itemAttributes[i].currentValue;
-                    }
-                    else if (((itemAttributes[i].name).getAsciiId()).endsWith("two"))
-                    {
-                        effect_mod[1] = (int)itemAttributes[i].currentValue;
-                    }
-                    else if (((itemAttributes[i].name).getAsciiId()).endsWith("three"))
-                    {
-                        effect_mod[2] = (int)itemAttributes[i].currentValue;
-                    }
-                    else if (((itemAttributes[i].name).getAsciiId()).endsWith("four"))
-                    {
-                        effect_mod[3] = (int)itemAttributes[i].currentValue;
-                    }
-                    else if (((itemAttributes[i].name).getAsciiId()).endsWith("five"))
-                    {
-                        effect_mod[4] = (int)itemAttributes[i].currentValue;
-                    }
-                    else if (((itemAttributes[i].name).getAsciiId()).endsWith("six"))
-                    {
-                        effect_mod[5] = (int)itemAttributes[i].currentValue;
-                    }
-                }
-                else 
-                {
-                    if (itemAttributes[i].minValue == itemAttributes[i].maxValue)
-                    {
-                        setObjVar(prototype, craftinglib.COMPONENT_ATTRIBUTE_OBJVAR_NAME + "." + (itemAttributes[i].name).getAsciiId(), (int)itemAttributes[i].currentValue);
-                    }
-                    else 
-                    {
-                        setObjVar(prototype, craftinglib.COMPONENT_ATTRIBUTE_OBJVAR_NAME + "." + (itemAttributes[i].name).getAsciiId(), (float)itemAttributes[i].currentValue);
+                } else {
+                    if (itemAttribute.minValue == itemAttribute.maxValue) {
+                        setObjVar(prototype, craftinglib.COMPONENT_ATTRIBUTE_OBJVAR_NAME + "." + (itemAttribute.name).getAsciiId(), (int) itemAttribute.currentValue);
+                    } else {
+                        setObjVar(prototype, craftinglib.COMPONENT_ATTRIBUTE_OBJVAR_NAME + "." + (itemAttribute.name).getAsciiId(), (float) itemAttribute.currentValue);
                     }
                 }
             }

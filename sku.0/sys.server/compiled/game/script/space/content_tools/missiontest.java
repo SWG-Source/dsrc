@@ -24,12 +24,10 @@ public class missiontest extends script.base_script
             if (isIdValid(datapad))
             {
                 obj_id[] dpobjs = getContents(datapad);
-                for (int i = 0; i < dpobjs.length; i++)
-                {
-                    if (hasObjVar(dpobjs[i], space_quest.QUEST_TYPE))
-                    {
-                        String tname = getStringObjVar(dpobjs[i], space_quest.QUEST_TYPE);
-                        String qname = getStringObjVar(dpobjs[i], space_quest.QUEST_NAME);
+                for (obj_id dpobj : dpobjs) {
+                    if (hasObjVar(dpobj, space_quest.QUEST_TYPE)) {
+                        String tname = getStringObjVar(dpobj, space_quest.QUEST_TYPE);
+                        String qname = getStringObjVar(dpobj, space_quest.QUEST_NAME);
                         sendSystemMessageTestingOnly(self, "Found: " + tname + ":" + qname);
                     }
                 }

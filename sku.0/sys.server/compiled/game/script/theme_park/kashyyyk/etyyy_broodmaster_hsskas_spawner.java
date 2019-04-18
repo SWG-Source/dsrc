@@ -14,8 +14,8 @@ public class etyyy_broodmaster_hsskas_spawner extends script.base_script
     }
     public static final String triggerName = "triggerVolumeSpawnHsskas";
     public static final String actionTrigger = "triggerVolumeActionTrigger";
-    public static final float triggerRange = 100f;
-    public static final float actionRange = 50f;
+    public static final float triggerRange = 100.0f;
+    public static final float actionRange = 50.0f;
     public static final String hsskasSpawned = "spawned.podSpawned";
     public static final String hsskasId = "spawned.podId";
     public static final String hsskasOwner = "spawned.podOwner";

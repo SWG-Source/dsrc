@@ -74,66 +74,46 @@ public class collection_camera extends script.base_script
             return false;
         }
         String creatureName = getCreatureName(target);
-        if (creatureName.equals("durni"))
-        {
-            if (!hasCompletedCollectionSlot(player, "photo_durni_01"))
-            {
-                modifyCollectionSlotValue(player, "photo_durni_01", 1);
-                tagTheCreature(player, target);
-                return true;
-            }
-            else 
-            {
-                photoSlotComplete(player);
+        switch (creatureName) {
+            case "durni":
+                if (!hasCompletedCollectionSlot(player, "photo_durni_01")) {
+                    modifyCollectionSlotValue(player, "photo_durni_01", 1);
+                    tagTheCreature(player, target);
+                    return true;
+                } else {
+                    photoSlotComplete(player);
+                    return false;
+                }
+            case "corellia_durni_fiendish":
+                if (!hasCompletedCollectionSlot(player, "photo_durni_fiendish_01")) {
+                    modifyCollectionSlotValue(player, "photo_durni_fiendish_01", 1);
+                    tagTheCreature(player, target);
+                    return true;
+                } else {
+                    photoSlotComplete(player);
+                    return false;
+                }
+            case "crazed_durni":
+                if (!hasCompletedCollectionSlot(player, "photo_crazed_durni_01")) {
+                    modifyCollectionSlotValue(player, "photo_crazed_durni_01", 1);
+                    tagTheCreature(player, target);
+                    return true;
+                } else {
+                    photoSlotComplete(player);
+                    return false;
+                }
+            case "durni_vehement_warrior":
+                if (!hasCompletedCollectionSlot(player, "photo_durni_vehement_warrior_01")) {
+                    modifyCollectionSlotValue(player, "photo_durni_vehement_warrior_01", 1);
+                    tagTheCreature(player, target);
+                    return true;
+                } else {
+                    photoSlotComplete(player);
+                    return false;
+                }
+            default:
+                sendSystemMessage(player, SID_INVALID_TARGET);
                 return false;
-            }
-        }
-        else if (creatureName.equals("corellia_durni_fiendish"))
-        {
-            if (!hasCompletedCollectionSlot(player, "photo_durni_fiendish_01"))
-            {
-                modifyCollectionSlotValue(player, "photo_durni_fiendish_01", 1);
-                tagTheCreature(player, target);
-                return true;
-            }
-            else 
-            {
-                photoSlotComplete(player);
-                return false;
-            }
-        }
-        else if (creatureName.equals("crazed_durni"))
-        {
-            if (!hasCompletedCollectionSlot(player, "photo_crazed_durni_01"))
-            {
-                modifyCollectionSlotValue(player, "photo_crazed_durni_01", 1);
-                tagTheCreature(player, target);
-                return true;
-            }
-            else 
-            {
-                photoSlotComplete(player);
-                return false;
-            }
-        }
-        else if (creatureName.equals("durni_vehement_warrior"))
-        {
-            if (!hasCompletedCollectionSlot(player, "photo_durni_vehement_warrior_01"))
-            {
-                modifyCollectionSlotValue(player, "photo_durni_vehement_warrior_01", 1);
-                tagTheCreature(player, target);
-                return true;
-            }
-            else 
-            {
-                photoSlotComplete(player);
-                return false;
-            }
-        }
-        else 
-        {
-            sendSystemMessage(player, SID_INVALID_TARGET);
-            return false;
         }
     }
     public void tagTheCreature(obj_id player, obj_id photoTarget) throws InterruptedException

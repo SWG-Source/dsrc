@@ -140,7 +140,7 @@ public class gambling extends script.base_script
             CustomerServiceLog("gambling", getGameTime() + ": (" + player + ") " + getName(player) + " has joined (" + table + ") " + utils.getStringName(table));
             dictionary d = new dictionary();
             d.put("player", player);
-            messageTo(table, "handlePlayerAdded", d, 1f, false);
+            messageTo(table, "handlePlayerAdded", d, 1.0f, false);
         }
     }
     public static void removeTablePlayer(obj_id table, obj_id player, String params) throws InterruptedException
@@ -192,7 +192,7 @@ public class gambling extends script.base_script
         CustomerServiceLog("gambling", getGameTime() + ": (" + player + ") " + getName(player) + " has left (" + table + ") " + utils.getStringName(table));
         dictionary d = new dictionary();
         d.put("player", player);
-        messageTo(table, "handlePlayerRemoved", d, 1f, false);
+        messageTo(table, "handlePlayerRemoved", d, 1.0f, false);
     }
     public static boolean isTablePlayer(obj_id table, obj_id player) throws InterruptedException
     {
@@ -265,9 +265,8 @@ public class gambling extends script.base_script
             return -1;
         }
         String result = "";
-        for (int i = 0; i < results.length; i++)
-        {
-            result += Integer.toString(results[i]);
+        for (int result1 : results) {
+            result += Integer.toString(result1);
         }
         String[] schedule = dataTableGetStringColumnNoDefaults(tbl, "SCHEDULE");
         if (schedule == null || schedule.length == 0)
@@ -289,13 +288,10 @@ public class gambling extends script.base_script
                         {
                             Vector perms = new Vector();
                             perms.setSize(0);
-                            for (int x = 0; x < opt.length; x++)
-                            {
-                                for (int y = 0; y < opt.length; y++)
-                                {
-                                    for (int z = 0; z < opt.length; z++)
-                                    {
-                                        perms = utils.addElement(perms, opt[x] + opt[y] + opt[z]);
+                            for (String s2 : opt) {
+                                for (String s1 : opt) {
+                                    for (String s : opt) {
+                                        perms = utils.addElement(perms, s2 + s1 + s);
                                     }
                                 }
                             }

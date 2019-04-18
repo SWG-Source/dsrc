@@ -1,17 +1,12 @@
 package script.working.jfreeman;
 
-import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
-
 import script.library.create;
 import script.library.factions;
 import script.library.utils;
-import script.ai.ai_combat;
+import script.location;
+import script.obj_id;
+
+import java.util.Vector;
 
 public class wartest extends script.base_script
 {
@@ -25,25 +20,21 @@ public class wartest extends script.base_script
     }
     public int OnSpeaking(obj_id self, String txt) throws InterruptedException
     {
-        if (txt.equals("go"))
-        {
-            if (!utils.hasScriptVar(self, "myWarriors"))
-            {
-                spawnGroup(self, "group1", 20);
-                spawnGroup(self, "group2", -20);
-            }
-            else 
-            {
-                debugSpeakMsg(self, "already going");
-            }
-        }
-        else if (txt.equals("fight"))
-        {
-            startFight(self);
-        }
-        else if (txt.equals("stop"))
-        {
-            killWarriors(self);
+        switch (txt) {
+            case "go":
+                if (!utils.hasScriptVar(self, "myWarriors")) {
+                    spawnGroup(self, "group1", 20);
+                    spawnGroup(self, "group2", -20);
+                } else {
+                    debugSpeakMsg(self, "already going");
+                }
+                break;
+            case "fight":
+                startFight(self);
+                break;
+            case "stop":
+                killWarriors(self);
+                break;
         }
         return SCRIPT_CONTINUE;
     }
@@ -78,11 +69,9 @@ public class wartest extends script.base_script
             debugSpeakMsg(chris, "not done spawning yet " + warriors.length);
             return;
         }
-        for (int i = 0; i < warriors.length; i++)
-        {
-            if (exists(warriors[i]))
-            {
-                destroyObject(warriors[i]);
+        for (obj_id warrior : warriors) {
+            if (exists(warrior)) {
+                destroyObject(warrior);
             }
         }
         utils.removeScriptVar(chris, "myWarriors");

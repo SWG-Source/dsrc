@@ -90,26 +90,18 @@ public class imperial_lrg extends script.base_script
         Vector children = new Vector();
         children.setSize(0);
         location myLoc = getLocation(self);
-        for (int i = 0; i < SENTINEL.length; i++)
-        {
-            obj_id child = spawn(self, SENTINEL_GUARD, SENTINEL[i], ai_lib.BEHAVIOR_SENTINEL);
-            if ((child == null) || (child == obj_id.NULL_ID))
-            {
-            }
-            else 
-            {
+        for (String s1 : SENTINEL) {
+            obj_id child = spawn(self, SENTINEL_GUARD, s1, ai_lib.BEHAVIOR_SENTINEL);
+            if ((child == null) || (child == obj_id.NULL_ID)) {
+            } else {
                 children = utils.addElement(children, child);
                 ai_lib.setDefaultCalmBehavior(child, ai_lib.BEHAVIOR_SENTINEL);
             }
         }
-        for (int i = 0; i < PATROL.length; i++)
-        {
-            obj_id child = spawn(self, PATROL_GUARD, PATROL[i], ai_lib.BEHAVIOR_SENTINEL);
-            if ((child == null) || (child == obj_id.NULL_ID))
-            {
-            }
-            else 
-            {
+        for (String s : PATROL) {
+            obj_id child = spawn(self, PATROL_GUARD, s, ai_lib.BEHAVIOR_SENTINEL);
+            if ((child == null) || (child == obj_id.NULL_ID)) {
+            } else {
                 children = utils.addElement(children, child);
             }
         }
@@ -136,14 +128,9 @@ public class imperial_lrg extends script.base_script
         }
         else 
         {
-            for (int i = 0; i < children.length; i++)
-            {
-                obj_id child = children[i];
-                if ((child == null) || (child == obj_id.NULL_ID))
-                {
-                }
-                else 
-                {
+            for (obj_id child : children) {
+                if ((child == null) || (child == obj_id.NULL_ID)) {
+                } else {
                     destroyObject(child);
                 }
             }
@@ -157,7 +144,7 @@ public class imperial_lrg extends script.base_script
         {
             self = getSelf();
         }
-        if (sLoc.equals("") || sLoc.indexOf(":") < 0)
+        if (sLoc.equals("") || !sLoc.contains(":"))
         {
             return null;
         }

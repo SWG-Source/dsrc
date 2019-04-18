@@ -59,7 +59,7 @@ public class npe_force_sensitive extends script.base_script
     public boolean npe_force_sensitive_condition_isFSTemplate(obj_id player, obj_id npc) throws InterruptedException
     {
         String pTemplate = getSkillTemplate(player);
-        if (pTemplate.indexOf("force_sensitive") > -1)
+        if (pTemplate.contains("force_sensitive"))
         {
             return true;
         }

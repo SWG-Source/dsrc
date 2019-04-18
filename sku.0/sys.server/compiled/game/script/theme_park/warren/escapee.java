@@ -133,10 +133,8 @@ public class escapee extends script.base_script
         {
             return false;
         }
-        for (int i = 0; i < contents.length; i++)
-        {
-            if (hasObjVar(contents[i], "warren.keycode"))
-            {
+        for (obj_id content : contents) {
+            if (hasObjVar(content, "warren.keycode")) {
                 return true;
             }
         }

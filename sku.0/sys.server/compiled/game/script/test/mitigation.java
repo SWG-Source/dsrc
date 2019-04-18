@@ -223,7 +223,7 @@ public class mitigation extends script.base_script
                         hitData.damage = damageTotal;
                         hitData.success = true;
                         hitData.damageType = newWpnData.attackType;
-                        int blockedDamage = combat.applyArmorProtection(self, lookAtTarget, newWpnData, hitData, 0f);
+                        int blockedDamage = combat.applyArmorProtection(self, lookAtTarget, newWpnData, hitData, 0.0f);
                         testData += (i + 1) + "\t" + damageTotal + "\t" + blockedDamage + "\t" + WEAPON_DAMAGE_TYPE[newWpnData.attackType + 1] + "\n";
                     }
                     String topStrings = "Weapon OID: " + objWeapon + "\tAttack Location: " + MITIGATION_HIT_LOCATIONS[attackLocation] + "\tMinimum Damage: " + minDmg + "\tMaximum Damage: " + maxDmg + "\n\r";

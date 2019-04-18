@@ -58,20 +58,17 @@ public class beast_pathing extends script.base_script
         playClientEffectLoc(self, "clienteffect/combat_explosion_lair_large.cef", getLocation(self), 0.4f);
         if (playerTargets != null && playerTargets.length > 0)
         {
-            for (int i = 0; i < playerTargets.length; i++)
-            {
-                setPosture(playerTargets[i], POSTURE_INCAPACITATED);
-                int damageAmount = getAttrib(playerTargets[i], HEALTH) + 1000;
-                damage(playerTargets[i], DAMAGE_KINETIC, HIT_LOCATION_BODY, damageAmount);
+            for (obj_id playerTarget : playerTargets) {
+                setPosture(playerTarget, POSTURE_INCAPACITATED);
+                int damageAmount = getAttrib(playerTarget, HEALTH) + 1000;
+                damage(playerTarget, DAMAGE_KINETIC, HIT_LOCATION_BODY, damageAmount);
             }
         }
         if (npcTargets != null && npcTargets.length > 0)
         {
-            for (int a = 0; a < npcTargets.length; a++)
-            {
-                if ((factions.getFaction(npcTargets[a])).equals("afflicted"))
-                {
-                    setPosture(npcTargets[a], POSTURE_INCAPACITATED);
+            for (obj_id npcTarget : npcTargets) {
+                if ((factions.getFaction(npcTarget)).equals("afflicted")) {
+                    setPosture(npcTarget, POSTURE_INCAPACITATED);
                 }
             }
         }
@@ -158,9 +155,8 @@ public class beast_pathing extends script.base_script
         obj_id[] enemyArray = utils.getObjIdArrayScriptVar(self, ENEMY_LIST);
         if (enemyArray != null && enemyArray.length > 0)
         {
-            for (int i = 0; i < enemyArray.length; i++)
-            {
-                messageTo(enemyArray[i], "destroySelf", null, 1, false);
+            for (obj_id obj_id : enemyArray) {
+                messageTo(obj_id, "destroySelf", null, 1, false);
             }
         }
         destroyObject(self);
@@ -224,18 +220,14 @@ public class beast_pathing extends script.base_script
                     float smallestDist = 300;
                     location closestLoc = null;
                     boolean modified = false;
-                    for (int i = 0; i < waypointLocList.length; i++)
-                    {
-                        float npcAndWaypointDist = getDistance(getLocation(self), waypointLocList[i]);
-                        if (npcAndWaypointDist > smallestDist)
-                        {
+                    for (location location : waypointLocList) {
+                        float npcAndWaypointDist = getDistance(getLocation(self), location);
+                        if (npcAndWaypointDist > smallestDist) {
                             continue;
-                        }
-                        else 
-                        {
+                        } else {
                             CustomerServiceLog("outbreak_themepark", "beast_pathing.checkOwnerValidity() Mob: " + self + " is STUCK and has found a node that is closer than any previously found node.");
                             smallestDist = npcAndWaypointDist;
-                            closestLoc = waypointLocList[i];
+                            closestLoc = location;
                             modified = true;
                         }
                     }

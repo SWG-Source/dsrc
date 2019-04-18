@@ -99,7 +99,7 @@ public class gcw_supply_terminal extends script.base_script
                     int count = 1;
                     if (multiplier > 1)
                     {
-                        count = (int)((float)count * (float)multiplier);
+                        count = (int)(count * (float)multiplier);
                     }
                     if (count > 1)
                     {
@@ -124,7 +124,7 @@ public class gcw_supply_terminal extends script.base_script
                     int count = 1;
                     if (multiplier > 1)
                     {
-                        count = (int)((float)count * (float)multiplier);
+                        count = (int)(count * (float)multiplier);
                     }
                     if (count > 1)
                     {

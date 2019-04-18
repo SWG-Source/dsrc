@@ -25,7 +25,7 @@ public class retrieve_item_red_explosion extends script.base_script
                     {
                         return SCRIPT_CONTINUE;
                     }
-                    playClientEffectLoc(player, "clienteffect/npe_systems_terminal.cef", getLocation(self), 1f);
+                    playClientEffectLoc(player, "clienteffect/npe_systems_terminal.cef", getLocation(self), 1.0f);
                 }
             }
         }

@@ -304,7 +304,7 @@ public class regions extends script.base_script
             return false;
         }
         String regionName;
-        for (script.region region : regions) {
+        for (region region : regions) {
             regionName = region.getName();
             if (isIdValid(gcw.getPvpRegionControllerIdByName(object, regionName))) {
                 return true;

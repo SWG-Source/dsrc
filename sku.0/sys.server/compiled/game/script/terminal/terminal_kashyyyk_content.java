@@ -944,16 +944,14 @@ public class terminal_kashyyyk_content extends script.base_script
                     setObjVar(stimd, "healing.power", 1200);
                     flagForDestruction(stimd);
                 }
-                for (int i = 0; i < allTemplates.length; i++)
-                {
-                    obj_id enh = createObject("object/tangible/medicine/enhancer/enhancer_" + allTemplates[i] + ".iff", pInv, "");
-                    flagForDestruction(enh);
-                    if (isIdValid(enh))
-                    {
-                        setCount(enh, 150);
-                        setObjVar(enh, "healing.enhancement", 700);
+                    for (String allTemplate : allTemplates) {
+                        obj_id enh = createObject("object/tangible/medicine/enhancer/enhancer_" + allTemplate + ".iff", pInv, "");
+                        flagForDestruction(enh);
+                        if (isIdValid(enh)) {
+                            setCount(enh, 150);
+                            setObjVar(enh, "healing.enhancement", 700);
+                        }
                     }
-                }
                 warpPlayer(player, "kashyyyk_main", -568, 0, -100, null, 0, 0, 0, "", false);
                 break;
             }
@@ -988,10 +986,9 @@ public class terminal_kashyyyk_content extends script.base_script
                 case 0:
                 handleRevokeAllSkills(player);
                 nukeSelectedInventory(player);
-                for (int i = 0; i < BRAWLER.length; i++)
-                {
-                    skill.grantSkill(player, BRAWLER[i]);
-                }
+                    for (String s2 : BRAWLER) {
+                        skill.grantSkill(player, s2);
+                    }
                 skill.grantSkill(player, PIKEMAN[0]);
                 skill.grantSkill(player, PIKEMAN[1]);
                 skill.grantSkill(player, PIKEMAN[2]);
@@ -1022,10 +1019,9 @@ public class terminal_kashyyyk_content extends script.base_script
                 case 1:
                 handleRevokeAllSkills(player);
                 nukeSelectedInventory(player);
-                for (int i = 0; i < MARKSMAN.length; i++)
-                {
-                    skill.grantSkill(player, MARKSMAN[i]);
-                }
+                    for (String s1 : MARKSMAN) {
+                        skill.grantSkill(player, s1);
+                    }
                 skill.grantSkill(player, CARBINEER[0]);
                 skill.grantSkill(player, CARBINEER[1]);
                 skill.grantSkill(player, CARBINEER[2]);
@@ -1056,10 +1052,9 @@ public class terminal_kashyyyk_content extends script.base_script
                 case 2:
                 handleRevokeAllSkills(player);
                 nukeSelectedInventory(player);
-                for (int i = 0; i < MEDIC.length; i++)
-                {
-                    skill.grantSkill(player, MEDIC[i]);
-                }
+                    for (String s : MEDIC) {
+                        skill.grantSkill(player, s);
+                    }
                 skill.grantSkill(player, DOCTOR[0]);
                 skill.grantSkill(player, DOCTOR[1]);
                 skill.grantSkill(player, DOCTOR[2]);
@@ -1090,16 +1085,14 @@ public class terminal_kashyyyk_content extends script.base_script
                     setObjVar(stimd, "healing.power", 1200);
                     flagForDestruction(stimd);
                 }
-                for (int i = 0; i < allTemplates.length; i++)
-                {
-                    obj_id enh = createObject("object/tangible/medicine/enhancer/enhancer_" + allTemplates[i] + ".iff", pInv, "");
-                    if (isIdValid(enh))
-                    {
-                        setCount(enh, 150);
-                        flagForDestruction(enh);
-                        setObjVar(enh, "healing.enhancement", 700);
+                    for (String allTemplate : allTemplates) {
+                        obj_id enh = createObject("object/tangible/medicine/enhancer/enhancer_" + allTemplate + ".iff", pInv, "");
+                        if (isIdValid(enh)) {
+                            setCount(enh, 150);
+                            flagForDestruction(enh);
+                            setObjVar(enh, "healing.enhancement", 700);
+                        }
                     }
-                }
                 warpPlayer(player, "kashyyyk_dead_forest", 84, 26, -460, null, 0, 0, 0, "", false);
                 break;
             }
@@ -1134,18 +1127,15 @@ public class terminal_kashyyyk_content extends script.base_script
                 case 0:
                 handleRevokeAllSkills(player);
                 nukeSelectedInventory(player);
-                for (int i = 0; i < BRAWLER.length; i++)
-                {
-                    skill.grantSkill(player, BRAWLER[i]);
-                }
-                for (int i = 0; i < PIKEMAN.length; i++)
-                {
-                    skill.grantSkill(player, PIKEMAN[i]);
-                }
-                for (int i = 0; i < TKA.length; i++)
-                {
-                    skill.grantSkill(player, TKA[i]);
-                }
+                    for (String s7 : BRAWLER) {
+                        skill.grantSkill(player, s7);
+                    }
+                    for (String s6 : PIKEMAN) {
+                        skill.grantSkill(player, s6);
+                    }
+                    for (String s5 : TKA) {
+                        skill.grantSkill(player, s5);
+                    }
                 if (species == 4)
                 {
                     issueBattleArmorSet(player, ARMOR_SET_BATTLE_WOOKIEE);
@@ -1165,18 +1155,15 @@ public class terminal_kashyyyk_content extends script.base_script
                 case 1:
                 handleRevokeAllSkills(player);
                 nukeSelectedInventory(player);
-                for (int i = 0; i < MARKSMAN.length; i++)
-                {
-                    skill.grantSkill(player, MARKSMAN[i]);
-                }
-                for (int i = 0; i < CARBINEER.length; i++)
-                {
-                    skill.grantSkill(player, CARBINEER[i]);
-                }
-                for (int i = 0; i < PISTOL.length; i++)
-                {
-                    skill.grantSkill(player, PISTOL[i]);
-                }
+                    for (String s4 : MARKSMAN) {
+                        skill.grantSkill(player, s4);
+                    }
+                    for (String s3 : CARBINEER) {
+                        skill.grantSkill(player, s3);
+                    }
+                    for (String s2 : PISTOL) {
+                        skill.grantSkill(player, s2);
+                    }
                 if (species == 4)
                 {
                     issueBattleArmorSet(player, ARMOR_SET_BATTLE_WOOKIEE);
@@ -1196,14 +1183,12 @@ public class terminal_kashyyyk_content extends script.base_script
                 case 2:
                 handleRevokeAllSkills(player);
                 nukeSelectedInventory(player);
-                for (int i = 0; i < MEDIC.length; i++)
-                {
-                    skill.grantSkill(player, MEDIC[i]);
-                }
-                for (int i = 0; i < DOCTOR.length; i++)
-                {
-                    skill.grantSkill(player, DOCTOR[i]);
-                }
+                    for (String s1 : MEDIC) {
+                        skill.grantSkill(player, s1);
+                    }
+                    for (String s : DOCTOR) {
+                        skill.grantSkill(player, s);
+                    }
                 if (species == 4)
                 {
                     issueBattleArmorSet(player, ARMOR_SET_BATTLE_WOOKIEE);
@@ -1223,16 +1208,14 @@ public class terminal_kashyyyk_content extends script.base_script
                     setCount(stimd, 350);
                     setObjVar(stimd, "healing.power", 1200);
                 }
-                for (int i = 0; i < allTemplates.length; i++)
-                {
-                    obj_id enh = createObject("object/tangible/medicine/enhancer/enhancer_" + allTemplates[i] + ".iff", pInv, "");
-                    if (isIdValid(enh))
-                    {
-                        flagForDestruction(enh);
-                        setCount(enh, 150);
-                        setObjVar(enh, "healing.enhancement", 700);
+                    for (String allTemplate : allTemplates) {
+                        obj_id enh = createObject("object/tangible/medicine/enhancer/enhancer_" + allTemplate + ".iff", pInv, "");
+                        if (isIdValid(enh)) {
+                            flagForDestruction(enh);
+                            setCount(enh, 150);
+                            setObjVar(enh, "healing.enhancement", 700);
+                        }
                     }
-                }
                 warpPlayer(player, "kashyyyk_dead_forest", -242, 38, 302, null, 0, 0, 0, "", false);
                 break;
             }
@@ -1267,10 +1250,9 @@ public class terminal_kashyyyk_content extends script.base_script
                 case 0:
                 handleRevokeAllSkills(player);
                 nukeSelectedInventory(player);
-                for (int i = 0; i < BRAWLER.length; i++)
-                {
-                    skill.grantSkill(player, BRAWLER[i]);
-                }
+                    for (String s2 : BRAWLER) {
+                        skill.grantSkill(player, s2);
+                    }
                 skill.grantSkill(player, PIKEMAN[0]);
                 skill.grantSkill(player, PIKEMAN[1]);
                 skill.grantSkill(player, PIKEMAN[2]);
@@ -1305,10 +1287,9 @@ public class terminal_kashyyyk_content extends script.base_script
                 case 1:
                 handleRevokeAllSkills(player);
                 nukeSelectedInventory(player);
-                for (int i = 0; i < MARKSMAN.length; i++)
-                {
-                    skill.grantSkill(player, MARKSMAN[i]);
-                }
+                    for (String s1 : MARKSMAN) {
+                        skill.grantSkill(player, s1);
+                    }
                 skill.grantSkill(player, CARBINEER[0]);
                 skill.grantSkill(player, CARBINEER[1]);
                 skill.grantSkill(player, CARBINEER[2]);
@@ -1343,10 +1324,9 @@ public class terminal_kashyyyk_content extends script.base_script
                 case 2:
                 handleRevokeAllSkills(player);
                 nukeSelectedInventory(player);
-                for (int i = 0; i < MEDIC.length; i++)
-                {
-                    skill.grantSkill(player, MEDIC[i]);
-                }
+                    for (String s : MEDIC) {
+                        skill.grantSkill(player, s);
+                    }
                 skill.grantSkill(player, DOCTOR[0]);
                 skill.grantSkill(player, DOCTOR[1]);
                 skill.grantSkill(player, DOCTOR[2]);
@@ -1381,16 +1361,14 @@ public class terminal_kashyyyk_content extends script.base_script
                     setCount(stimd, 350);
                     setObjVar(stimd, "healing.power", 1200);
                 }
-                for (int i = 0; i < allTemplates.length; i++)
-                {
-                    obj_id enh = createObject("object/tangible/medicine/enhancer/enhancer_" + allTemplates[i] + ".iff", pInv, "");
-                    if (isIdValid(enh))
-                    {
-                        flagForDestruction(enh);
-                        setCount(enh, 150);
-                        setObjVar(enh, "healing.enhancement", 700);
+                    for (String allTemplate : allTemplates) {
+                        obj_id enh = createObject("object/tangible/medicine/enhancer/enhancer_" + allTemplate + ".iff", pInv, "");
+                        if (isIdValid(enh)) {
+                            flagForDestruction(enh);
+                            setCount(enh, 150);
+                            setObjVar(enh, "healing.enhancement", 700);
+                        }
                     }
-                }
                 warpPlayer(player, "kashyyyk_hunting", 658, 8, 666, null, 0, 0, 0, "", false);
                 break;
             }
@@ -1428,18 +1406,15 @@ public class terminal_kashyyyk_content extends script.base_script
                 case 0:
                 handleRevokeAllSkills(player);
                 nukeSelectedInventory(player);
-                for (int i = 0; i < BRAWLER.length; i++)
-                {
-                    skill.grantSkill(player, BRAWLER[i]);
-                }
-                for (int i = 0; i < PIKEMAN.length; i++)
-                {
-                    skill.grantSkill(player, PIKEMAN[i]);
-                }
-                for (int i = 0; i < TKA.length; i++)
-                {
-                    skill.grantSkill(player, TKA[i]);
-                }
+                    for (String s7 : BRAWLER) {
+                        skill.grantSkill(player, s7);
+                    }
+                    for (String s6 : PIKEMAN) {
+                        skill.grantSkill(player, s6);
+                    }
+                    for (String s5 : TKA) {
+                        skill.grantSkill(player, s5);
+                    }
                 if (species == 4)
                 {
                     issueBattleArmorSet(player, ARMOR_SET_BATTLE_WOOKIEE);
@@ -1461,18 +1436,15 @@ public class terminal_kashyyyk_content extends script.base_script
                 case 1:
                 handleRevokeAllSkills(player);
                 nukeSelectedInventory(player);
-                for (int i = 0; i < MARKSMAN.length; i++)
-                {
-                    skill.grantSkill(player, MARKSMAN[i]);
-                }
-                for (int i = 0; i < CARBINEER.length; i++)
-                {
-                    skill.grantSkill(player, CARBINEER[i]);
-                }
-                for (int i = 0; i < PISTOL.length; i++)
-                {
-                    skill.grantSkill(player, PISTOL[i]);
-                }
+                    for (String s4 : MARKSMAN) {
+                        skill.grantSkill(player, s4);
+                    }
+                    for (String s3 : CARBINEER) {
+                        skill.grantSkill(player, s3);
+                    }
+                    for (String s2 : PISTOL) {
+                        skill.grantSkill(player, s2);
+                    }
                 if (species == 4)
                 {
                     issueBattleArmorSet(player, ARMOR_SET_BATTLE_WOOKIEE);
@@ -1496,14 +1468,12 @@ public class terminal_kashyyyk_content extends script.base_script
                 case 2:
                 handleRevokeAllSkills(player);
                 nukeSelectedInventory(player);
-                for (int i = 0; i < MEDIC.length; i++)
-                {
-                    skill.grantSkill(player, MEDIC[i]);
-                }
-                for (int i = 0; i < DOCTOR.length; i++)
-                {
-                    skill.grantSkill(player, DOCTOR[i]);
-                }
+                    for (String s1 : MEDIC) {
+                        skill.grantSkill(player, s1);
+                    }
+                    for (String s : DOCTOR) {
+                        skill.grantSkill(player, s);
+                    }
                 if (species == 4)
                 {
                     issueBattleArmorSet(player, ARMOR_SET_BATTLE_WOOKIEE);
@@ -1523,16 +1493,14 @@ public class terminal_kashyyyk_content extends script.base_script
                     setCount(stimd, 350);
                     setObjVar(stimd, "healing.power", 1200);
                 }
-                for (int i = 0; i < allTemplates.length; i++)
-                {
-                    obj_id enh = createObject("object/tangible/medicine/enhancer/enhancer_" + allTemplates[i] + ".iff", pInv, "");
-                    if (isIdValid(enh))
-                    {
-                        flagForDestruction(enh);
-                        setCount(enh, 150);
-                        setObjVar(enh, "healing.enhancement", 700);
+                    for (String allTemplate : allTemplates) {
+                        obj_id enh = createObject("object/tangible/medicine/enhancer/enhancer_" + allTemplate + ".iff", pInv, "");
+                        if (isIdValid(enh)) {
+                            flagForDestruction(enh);
+                            setCount(enh, 150);
+                            setObjVar(enh, "healing.enhancement", 700);
+                        }
                     }
-                }
                 groundquests.clearQuest(player, "ep3_hunt_johnson_seek_kint");
                 groundquests.grantQuest(player, "ep3_hunt_johnson_seek_kint");
                 warpPlayer(player, "kashyyyk_hunting", -88, 23, -245, null, 0, 0, 0, "", false);
@@ -1569,18 +1537,15 @@ public class terminal_kashyyyk_content extends script.base_script
                 case 0:
                 handleRevokeAllSkills(player);
                 nukeSelectedInventory(player);
-                for (int i = 0; i < BRAWLER.length; i++)
-                {
-                    skill.grantSkill(player, BRAWLER[i]);
-                }
-                for (int i = 0; i < PIKEMAN.length; i++)
-                {
-                    skill.grantSkill(player, PIKEMAN[i]);
-                }
-                for (int i = 0; i < TKA.length; i++)
-                {
-                    skill.grantSkill(player, TKA[i]);
-                }
+                    for (String s7 : BRAWLER) {
+                        skill.grantSkill(player, s7);
+                    }
+                    for (String s6 : PIKEMAN) {
+                        skill.grantSkill(player, s6);
+                    }
+                    for (String s5 : TKA) {
+                        skill.grantSkill(player, s5);
+                    }
                 if (species == 4)
                 {
                     issueBattleArmorSet(player, ARMOR_SET_BATTLE_WOOKIEE);
@@ -1600,18 +1565,15 @@ public class terminal_kashyyyk_content extends script.base_script
                 case 1:
                 handleRevokeAllSkills(player);
                 nukeSelectedInventory(player);
-                for (int i = 0; i < MARKSMAN.length; i++)
-                {
-                    skill.grantSkill(player, MARKSMAN[i]);
-                }
-                for (int i = 0; i < CARBINEER.length; i++)
-                {
-                    skill.grantSkill(player, CARBINEER[i]);
-                }
-                for (int i = 0; i < PISTOL.length; i++)
-                {
-                    skill.grantSkill(player, PISTOL[i]);
-                }
+                    for (String s4 : MARKSMAN) {
+                        skill.grantSkill(player, s4);
+                    }
+                    for (String s3 : CARBINEER) {
+                        skill.grantSkill(player, s3);
+                    }
+                    for (String s2 : PISTOL) {
+                        skill.grantSkill(player, s2);
+                    }
                 if (species == 4)
                 {
                     issueBattleArmorSet(player, ARMOR_SET_BATTLE_WOOKIEE);
@@ -1633,14 +1595,12 @@ public class terminal_kashyyyk_content extends script.base_script
                 case 2:
                 handleRevokeAllSkills(player);
                 nukeInventory(player);
-                for (int i = 0; i < MEDIC.length; i++)
-                {
-                    skill.grantSkill(player, MEDIC[i]);
-                }
-                for (int i = 0; i < DOCTOR.length; i++)
-                {
-                    skill.grantSkill(player, DOCTOR[i]);
-                }
+                    for (String s1 : MEDIC) {
+                        skill.grantSkill(player, s1);
+                    }
+                    for (String s : DOCTOR) {
+                        skill.grantSkill(player, s);
+                    }
                 if (species == 4)
                 {
                     issueBattleArmorSet(player, ARMOR_SET_BATTLE_WOOKIEE);
@@ -1660,16 +1620,14 @@ public class terminal_kashyyyk_content extends script.base_script
                     setCount(stimd, 350);
                     setObjVar(stimd, "healing.power", 1200);
                 }
-                for (int i = 0; i < allTemplates.length; i++)
-                {
-                    obj_id enh = createObject("object/tangible/medicine/enhancer/enhancer_" + allTemplates[i] + ".iff", pInv, "");
-                    if (isIdValid(enh))
-                    {
-                        flagForDestruction(enh);
-                        setCount(enh, 150);
-                        setObjVar(enh, "healing.enhancement", 700);
+                    for (String allTemplate : allTemplates) {
+                        obj_id enh = createObject("object/tangible/medicine/enhancer/enhancer_" + allTemplate + ".iff", pInv, "");
+                        if (isIdValid(enh)) {
+                            flagForDestruction(enh);
+                            setCount(enh, 150);
+                            setObjVar(enh, "healing.enhancement", 700);
+                        }
                     }
-                }
                 warpPlayer(player, "kashyyyk_main", -67, 0, 808, null, 0, 0, 0, "", false);
                 break;
             }
@@ -1704,18 +1662,15 @@ public class terminal_kashyyyk_content extends script.base_script
                 case 0:
                 handleRevokeAllSkills(player);
                 nukeSelectedInventory(player);
-                for (int i = 0; i < BRAWLER.length; i++)
-                {
-                    skill.grantSkill(player, BRAWLER[i]);
-                }
-                for (int i = 0; i < PIKEMAN.length; i++)
-                {
-                    skill.grantSkill(player, PIKEMAN[i]);
-                }
-                for (int i = 0; i < TKA.length; i++)
-                {
-                    skill.grantSkill(player, TKA[i]);
-                }
+                    for (String s7 : BRAWLER) {
+                        skill.grantSkill(player, s7);
+                    }
+                    for (String s6 : PIKEMAN) {
+                        skill.grantSkill(player, s6);
+                    }
+                    for (String s5 : TKA) {
+                        skill.grantSkill(player, s5);
+                    }
                 if (species == 4)
                 {
                     issueBattleArmorSet(player, ARMOR_SET_BATTLE_WOOKIEE);
@@ -1737,18 +1692,15 @@ public class terminal_kashyyyk_content extends script.base_script
                 case 1:
                 handleRevokeAllSkills(player);
                 nukeSelectedInventory(player);
-                for (int i = 0; i < MARKSMAN.length; i++)
-                {
-                    skill.grantSkill(player, MARKSMAN[i]);
-                }
-                for (int i = 0; i < CARBINEER.length; i++)
-                {
-                    skill.grantSkill(player, CARBINEER[i]);
-                }
-                for (int i = 0; i < PISTOL.length; i++)
-                {
-                    skill.grantSkill(player, PISTOL[i]);
-                }
+                    for (String s4 : MARKSMAN) {
+                        skill.grantSkill(player, s4);
+                    }
+                    for (String s3 : CARBINEER) {
+                        skill.grantSkill(player, s3);
+                    }
+                    for (String s2 : PISTOL) {
+                        skill.grantSkill(player, s2);
+                    }
                 if (species == 4)
                 {
                     issueBattleArmorSet(player, ARMOR_SET_BATTLE_WOOKIEE);
@@ -1772,14 +1724,12 @@ public class terminal_kashyyyk_content extends script.base_script
                 case 2:
                 handleRevokeAllSkills(player);
                 nukeSelectedInventory(player);
-                for (int i = 0; i < MEDIC.length; i++)
-                {
-                    skill.grantSkill(player, MEDIC[i]);
-                }
-                for (int i = 0; i < DOCTOR.length; i++)
-                {
-                    skill.grantSkill(player, DOCTOR[i]);
-                }
+                    for (String s1 : MEDIC) {
+                        skill.grantSkill(player, s1);
+                    }
+                    for (String s : DOCTOR) {
+                        skill.grantSkill(player, s);
+                    }
                 if (species == 4)
                 {
                     issueBattleArmorSet(player, ARMOR_SET_BATTLE_WOOKIEE);
@@ -1799,16 +1749,14 @@ public class terminal_kashyyyk_content extends script.base_script
                     setCount(stimd, 350);
                     setObjVar(stimd, "healing.power", 1200);
                 }
-                for (int i = 0; i < allTemplates.length; i++)
-                {
-                    obj_id enh = createObject("object/tangible/medicine/enhancer/enhancer_" + allTemplates[i] + ".iff", pInv, "");
-                    if (isIdValid(enh))
-                    {
-                        flagForDestruction(enh);
-                        setCount(enh, 150);
-                        setObjVar(enh, "healing.enhancement", 700);
+                    for (String allTemplate : allTemplates) {
+                        obj_id enh = createObject("object/tangible/medicine/enhancer/enhancer_" + allTemplate + ".iff", pInv, "");
+                        if (isIdValid(enh)) {
+                            flagForDestruction(enh);
+                            setCount(enh, 150);
+                            setObjVar(enh, "healing.enhancement", 700);
+                        }
                     }
-                }
                 groundquests.clearQuest(player, "ep3_slaver_gursan_entry_quest");
                 groundquests.grantQuest(player, "ep3_slaver_gursan_entry_quest");
                 warpPlayer(player, "kashyyyk_main", 404, 18, 656, null, 0, 0, 0, "", false);
@@ -1845,18 +1793,15 @@ public class terminal_kashyyyk_content extends script.base_script
                 case 0:
                 handleRevokeAllSkills(player);
                 nukeSelectedInventory(player);
-                for (int i = 0; i < BRAWLER.length; i++)
-                {
-                    skill.grantSkill(player, BRAWLER[i]);
-                }
-                for (int i = 0; i < PIKEMAN.length; i++)
-                {
-                    skill.grantSkill(player, PIKEMAN[i]);
-                }
-                for (int i = 0; i < TKA.length; i++)
-                {
-                    skill.grantSkill(player, TKA[i]);
-                }
+                    for (String s7 : BRAWLER) {
+                        skill.grantSkill(player, s7);
+                    }
+                    for (String s6 : PIKEMAN) {
+                        skill.grantSkill(player, s6);
+                    }
+                    for (String s5 : TKA) {
+                        skill.grantSkill(player, s5);
+                    }
                 if (species == 4)
                 {
                     issueBattleArmorSet(player, ARMOR_SET_BATTLE_WOOKIEE);
@@ -1885,18 +1830,15 @@ public class terminal_kashyyyk_content extends script.base_script
                 case 1:
                 handleRevokeAllSkills(player);
                 nukeInventory(player);
-                for (int i = 0; i < MARKSMAN.length; i++)
-                {
-                    skill.grantSkill(player, MARKSMAN[i]);
-                }
-                for (int i = 0; i < CARBINEER.length; i++)
-                {
-                    skill.grantSkill(player, CARBINEER[i]);
-                }
-                for (int i = 0; i < PISTOL.length; i++)
-                {
-                    skill.grantSkill(player, PISTOL[i]);
-                }
+                    for (String s4 : MARKSMAN) {
+                        skill.grantSkill(player, s4);
+                    }
+                    for (String s3 : CARBINEER) {
+                        skill.grantSkill(player, s3);
+                    }
+                    for (String s2 : PISTOL) {
+                        skill.grantSkill(player, s2);
+                    }
                 if (species == 4)
                 {
                     issueBattleArmorSet(player, ARMOR_SET_BATTLE_WOOKIEE);
@@ -1927,14 +1869,12 @@ public class terminal_kashyyyk_content extends script.base_script
                 case 2:
                 handleRevokeAllSkills(player);
                 nukeInventory(player);
-                for (int i = 0; i < MEDIC.length; i++)
-                {
-                    skill.grantSkill(player, MEDIC[i]);
-                }
-                for (int i = 0; i < DOCTOR.length; i++)
-                {
-                    skill.grantSkill(player, DOCTOR[i]);
-                }
+                    for (String s1 : MEDIC) {
+                        skill.grantSkill(player, s1);
+                    }
+                    for (String s : DOCTOR) {
+                        skill.grantSkill(player, s);
+                    }
                 if (species == 4)
                 {
                     issueBattleArmorSet(player, ARMOR_SET_BATTLE_WOOKIEE);
@@ -1954,16 +1894,14 @@ public class terminal_kashyyyk_content extends script.base_script
                     setCount(stimd, 350);
                     setObjVar(stimd, "healing.power", 1200);
                 }
-                for (int i = 0; i < allTemplates.length; i++)
-                {
-                    obj_id enh = createObject("object/tangible/medicine/enhancer/enhancer_" + allTemplates[i] + ".iff", pInv, "");
-                    if (isIdValid(enh))
-                    {
-                        flagForDestruction(enh);
-                        setCount(enh, 150);
-                        setObjVar(enh, "healing.enhancement", 700);
+                    for (String allTemplate : allTemplates) {
+                        obj_id enh = createObject("object/tangible/medicine/enhancer/enhancer_" + allTemplate + ".iff", pInv, "");
+                        if (isIdValid(enh)) {
+                            flagForDestruction(enh);
+                            setCount(enh, 150);
+                            setObjVar(enh, "healing.enhancement", 700);
+                        }
                     }
-                }
                 groundquests.clearQuest(player, "ep3_trando_hssissk_zssik_10");
                 groundquests.grantQuest(player, "ep3_trando_hssissk_zssik_10");
                 obj_id newship3 = space_utils.createShipControlDevice(player, "xwing", true);
@@ -2008,10 +1946,9 @@ public class terminal_kashyyyk_content extends script.base_script
             switch (idx)
             {
                 case 0:
-                for (int i = 0; i < REBEL_PILOT.length; i++)
-                {
-                    skill.grantSkill(player, REBEL_PILOT[i]);
-                }
+                    for (String s2 : REBEL_PILOT) {
+                        skill.grantSkill(player, s2);
+                    }
                 obj_id clothing = createObjectOverloaded("object/tangible/wearables/bodysuit/rebel_bodysuit_s14.iff", objInventory);
                 obj_id rebboots = createObjectOverloaded("object/tangible/wearables/boots/boots_s03.iff", objInventory);
                 obj_id newship = space_utils.createShipControlDevice(player, "xwing", true);
@@ -2035,10 +1972,9 @@ public class terminal_kashyyyk_content extends script.base_script
                 }
                 break;
                 case 1:
-                for (int i = 0; i < IMPERIAL_PILOT.length; i++)
-                {
-                    skill.grantSkill(player, IMPERIAL_PILOT[i]);
-                }
+                    for (String s1 : IMPERIAL_PILOT) {
+                        skill.grantSkill(player, s1);
+                    }
                 obj_id impclothing = createObjectOverloaded("object/tangible/wearables/bodysuit/bodysuit_tie_fighter.iff", objInventory);
                 obj_id impboots = createObjectOverloaded("object/tangible/wearables/boots/boots_s03.iff", objInventory);
                 obj_id impship = space_utils.createShipControlDevice(player, "tieadvanced", true);
@@ -2062,10 +1998,9 @@ public class terminal_kashyyyk_content extends script.base_script
                 }
                 break;
                 case 2:
-                for (int i = 0; i < NEUTRAL_PILOT.length; i++)
-                {
-                    skill.grantSkill(player, NEUTRAL_PILOT[i]);
-                }
+                    for (String s : NEUTRAL_PILOT) {
+                        skill.grantSkill(player, s);
+                    }
                 obj_id neuclothing = createObjectOverloaded("object/tangible/wearables/bodysuit/bodysuit_bwing.iff", objInventory);
                 obj_id neuboots = createObjectOverloaded("object/tangible/wearables/boots/boots_s03.iff", objInventory);
                 obj_id neuship = space_utils.createShipControlDevice(player, "hutt_medium_s01", true);
@@ -2118,10 +2053,9 @@ public class terminal_kashyyyk_content extends script.base_script
             switch (idx)
             {
                 case 0:
-                for (int i = 0; i < REBEL_PILOT.length; i++)
-                {
-                    skill.grantSkill(player, REBEL_PILOT[i]);
-                }
+                    for (String s2 : REBEL_PILOT) {
+                        skill.grantSkill(player, s2);
+                    }
                 obj_id clothing = createObjectOverloaded("object/tangible/wearables/bodysuit/rebel_bodysuit_s14.iff", objInventory);
                 obj_id rebboots = createObjectOverloaded("object/tangible/wearables/boots/boots_s03.iff", objInventory);
                 obj_id newship = space_utils.createShipControlDevice(player, "xwing", true);
@@ -2149,10 +2083,9 @@ public class terminal_kashyyyk_content extends script.base_script
                 }
                 break;
                 case 1:
-                for (int i = 0; i < IMPERIAL_PILOT.length; i++)
-                {
-                    skill.grantSkill(player, IMPERIAL_PILOT[i]);
-                }
+                    for (String s1 : IMPERIAL_PILOT) {
+                        skill.grantSkill(player, s1);
+                    }
                 obj_id impclothing = createObjectOverloaded("object/tangible/wearables/bodysuit/bodysuit_tie_fighter.iff", objInventory);
                 obj_id impboots = createObjectOverloaded("object/tangible/wearables/boots/boots_s03.iff", objInventory);
                 obj_id impship = space_utils.createShipControlDevice(player, "tieinterceptor", true);
@@ -2178,10 +2111,9 @@ public class terminal_kashyyyk_content extends script.base_script
                 }
                 break;
                 case 2:
-                for (int i = 0; i < NEUTRAL_PILOT.length; i++)
-                {
-                    skill.grantSkill(player, NEUTRAL_PILOT[i]);
-                }
+                    for (String s : NEUTRAL_PILOT) {
+                        skill.grantSkill(player, s);
+                    }
                 obj_id neuclothing = createObjectOverloaded("object/tangible/wearables/bodysuit/bodysuit_bwing.iff", objInventory);
                 obj_id neuboots = createObjectOverloaded("object/tangible/wearables/boots/boots_s03.iff", objInventory);
                 obj_id neuship = space_utils.createShipControlDevice(player, "blacksun_medium_s03", true);
@@ -2217,11 +2149,9 @@ public class terminal_kashyyyk_content extends script.base_script
         obj_id[] contents = getInventoryAndEquipment(player);
         if (contents != null)
         {
-            for (int i = 0; i < contents.length; i++)
-            {
-                if (isIdValid(contents[i]))
-                {
-                    destroyObject(contents[i]);
+            for (obj_id content : contents) {
+                if (isIdValid(content)) {
+                    destroyObject(content);
                 }
             }
         }
@@ -2231,11 +2161,9 @@ public class terminal_kashyyyk_content extends script.base_script
         obj_id[] contents = getInventoryAndEquipment(player);
         if (contents != null)
         {
-            for (int i = 0; i < contents.length; i++)
-            {
-                if (isIdValid(contents[i]) && hasObjVar(contents[i], "frog.item"))
-                {
-                    destroyObject(contents[i]);
+            for (obj_id content : contents) {
+                if (isIdValid(content) && hasObjVar(content, "frog.item")) {
+                    destroyObject(content);
                 }
             }
         }
@@ -2247,15 +2175,12 @@ public class terminal_kashyyyk_content extends script.base_script
     public void issueReconArmorSet(obj_id player, String[] armorPieces) throws InterruptedException
     {
         obj_id pInv = utils.getInventoryContainer(player);
-        for (int j = 0; j < armorPieces.length; ++j)
-        {
-            String armorTemplate = ARMOR_SET_PREFIX + armorPieces[j];
+        for (String armorPiece : armorPieces) {
+            String armorTemplate = ARMOR_SET_PREFIX + armorPiece;
             obj_id armorItem = createObject(armorTemplate, pInv, "");
             flagForDestruction(armorItem);
-            if (isIdValid(armorItem))
-            {
-                if (!isGameObjectTypeOf(armorItem, GOT_armor_foot) && !isGameObjectTypeOf(armorItem, GOT_armor_hand))
-                {
+            if (isIdValid(armorItem)) {
+                if (!isGameObjectTypeOf(armorItem, GOT_armor_foot) && !isGameObjectTypeOf(armorItem, GOT_armor_hand)) {
                     armor.setArmorDataPercent(armorItem, 2, 0, GENERAL_PROTECTION, CONDITION);
                     armor.setArmorSpecialProtectionPercent(armorItem, armor.DATATABLE_RECON_LAYER, 1.0f);
                 }
@@ -2265,15 +2190,12 @@ public class terminal_kashyyyk_content extends script.base_script
     public void issueBattleArmorSet(obj_id player, String[] armorPieces) throws InterruptedException
     {
         obj_id pInv = utils.getInventoryContainer(player);
-        for (int j = 0; j < armorPieces.length; ++j)
-        {
-            String armorTemplate = ARMOR_SET_PREFIX + armorPieces[j];
+        for (String armorPiece : armorPieces) {
+            String armorTemplate = ARMOR_SET_PREFIX + armorPiece;
             obj_id armorItem = createObject(armorTemplate, pInv, "");
             flagForDestruction(armorItem);
-            if (isIdValid(armorItem))
-            {
-                if (!isGameObjectTypeOf(armorItem, GOT_armor_foot) && !isGameObjectTypeOf(armorItem, GOT_armor_hand))
-                {
+            if (isIdValid(armorItem)) {
+                if (!isGameObjectTypeOf(armorItem, GOT_armor_foot) && !isGameObjectTypeOf(armorItem, GOT_armor_hand)) {
                     armor.setArmorDataPercent(armorItem, 2, 1, GENERAL_PROTECTION, CONDITION);
                 }
             }
@@ -2282,15 +2204,12 @@ public class terminal_kashyyyk_content extends script.base_script
     public void issueAssaultArmorSet(obj_id player, String[] armorPieces) throws InterruptedException
     {
         obj_id pInv = utils.getInventoryContainer(player);
-        for (int j = 0; j < armorPieces.length; ++j)
-        {
-            String armorTemplate = ARMOR_SET_PREFIX + armorPieces[j];
+        for (String armorPiece : armorPieces) {
+            String armorTemplate = ARMOR_SET_PREFIX + armorPiece;
             obj_id armorItem = createObject(armorTemplate, pInv, "");
             flagForDestruction(armorItem);
-            if (isIdValid(armorItem))
-            {
-                if (!isGameObjectTypeOf(armorItem, GOT_armor_foot) && !isGameObjectTypeOf(armorItem, GOT_armor_hand))
-                {
+            if (isIdValid(armorItem)) {
+                if (!isGameObjectTypeOf(armorItem, GOT_armor_foot) && !isGameObjectTypeOf(armorItem, GOT_armor_hand)) {
                     armor.setArmorDataPercent(armorItem, 2, 2, GENERAL_PROTECTION, CONDITION);
                     armor.setArmorSpecialProtectionPercent(armorItem, armor.DATATABLE_ASSAULT_LAYER, 1.0f);
                 }
@@ -2307,16 +2226,12 @@ public class terminal_kashyyyk_content extends script.base_script
             {
                 while (skillList.length > 0 && attempts > 0)
                 {
-                    for (int i = 0; i < skillList.length; i++)
-                    {
-                        String skillName = skillList[i];
-                        if (skillName.startsWith("pilot_"))
-                        {
+                    for (String skillName : skillList) {
+                        if (skillName.startsWith("pilot_")) {
                             utils.setScriptVar(player, "revokePilotSkill", 1);
                             skill.revokeSkillSilent(player, skillName);
                         }
-                        if (!skillName.startsWith("species_") && !skillName.startsWith("social_language_") && !skillName.startsWith("utility_") && !skillName.startsWith("common_") && !skillName.startsWith("demo_") && !skillName.startsWith("force_title_") && !skillName.startsWith("force_sensitive_") && !skillName.startsWith("combat_melee_basic") && !skillName.startsWith("combat_ranged_weapon_basic"))
-                        {
+                        if (!skillName.startsWith("species_") && !skillName.startsWith("social_language_") && !skillName.startsWith("utility_") && !skillName.startsWith("common_") && !skillName.startsWith("demo_") && !skillName.startsWith("force_title_") && !skillName.startsWith("force_sensitive_") && !skillName.startsWith("combat_melee_basic") && !skillName.startsWith("combat_ranged_weapon_basic")) {
                             skill.revokeSkillSilent(player, skillName);
                         }
                     }
@@ -2343,20 +2258,15 @@ public class terminal_kashyyyk_content extends script.base_script
                 if (isIdValid(group))
                 {
                     obj_id[] groupMembers = getGroupMemberIds(group);
-                    for (int i = 0; i < groupMembers.length; ++i)
-                    {
-                        if (groupMembers[i] != player && exists(groupMembers[i]) && getLocation(groupMembers[i]).cell == playerLoc.cell && groupMemberApproved(membersApprovedByShipOwner, groupMembers[i]))
-                        {
+                    for (obj_id groupMember : groupMembers) {
+                        if (groupMember != player && exists(groupMember) && getLocation(groupMember).cell == playerLoc.cell && groupMemberApproved(membersApprovedByShipOwner, groupMember)) {
                             startIndex = getNextStartIndex(shipStartLocations, startIndex);
-                            if (startIndex <= shipStartLocations.size())
-                            {
-                                groupMembersToWarp = utils.addElement(groupMembersToWarp, groupMembers[i]);
+                            if (startIndex <= shipStartLocations.size()) {
+                                groupMembersToWarp = utils.addElement(groupMembersToWarp, groupMember);
                                 groupMemberStartIndex = utils.addElement(groupMemberStartIndex, startIndex);
-                            }
-                            else 
-                            {
+                            } else {
                                 string_id strSpam = new string_id("space/space_interaction", "no_space_expansion");
-                                sendSystemMessage(groupMembers[i], strSpam);
+                                sendSystemMessage(groupMember, strSpam);
                             }
                         }
                     }
@@ -2365,7 +2275,7 @@ public class terminal_kashyyyk_content extends script.base_script
         }
         for (int i = 0; i < groupMembersToWarp.size(); ++i)
         {
-            space_transition.setLaunchInfo(((obj_id)groupMembersToWarp.get(i)), ship, ((Integer)groupMemberStartIndex.get(i)).intValue(), groundLoc);
+            space_transition.setLaunchInfo(((obj_id)groupMembersToWarp.get(i)), ship, (Integer) groupMemberStartIndex.get(i), groundLoc);
             warpPlayer(((obj_id)groupMembersToWarp.get(i)), warpLocation.area, warpLocation.x, warpLocation.y, warpLocation.z, null, warpLocation.x, warpLocation.y, warpLocation.z);
         }
     }
@@ -2386,10 +2296,8 @@ public class terminal_kashyyyk_content extends script.base_script
     }
     public boolean groupMemberApproved(obj_id[] membersApprovedByShipOwner, obj_id memberToTest) throws InterruptedException
     {
-        for (int i = 0; i < membersApprovedByShipOwner.length; ++i)
-        {
-            if (membersApprovedByShipOwner[i] == memberToTest)
-            {
+        for (obj_id obj_id : membersApprovedByShipOwner) {
+            if (obj_id == memberToTest) {
                 return true;
             }
         }
@@ -2402,9 +2310,8 @@ public class terminal_kashyyyk_content extends script.base_script
         {
             return;
         }
-        for (int i = 0; i < CYBERNETIC_ITEMS.length; ++i)
-        {
-            createObject(CYBERNETIC_ITEMS[i], inv, "");
+        for (String cyberneticItem : CYBERNETIC_ITEMS) {
+            createObject(cyberneticItem, inv, "");
         }
         sendSystemMessageTestingOnly(player, "Cybernetics issued. Pay a cybernetic Engineer to install the items");
         sendSystemMessageTestingOnly(player, "Locate the cybernetic engineer on the 2nd floor of a medical center");

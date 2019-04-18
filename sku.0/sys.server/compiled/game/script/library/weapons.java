@@ -55,7 +55,7 @@ public class weapons extends script.base_script
     public static final int DEFAULT_VALUE = 10;
     public static final String WEAPONS = "weapons";
     public static final float MIN_AOE_PERCENT = 0.1f;
-    public static final float MAX_AOE_PERCENT = 1f;
+    public static final float MAX_AOE_PERCENT = 1.0f;
     public static final float MAX_WEAPON_RANGE = 64;
     public static final float MAX_STAT_VALIDATION_INTENSITY = 1.00f;
     public static final String OBJVAR_NEW_WP = "newWeapon";
@@ -78,7 +78,7 @@ public class weapons extends script.base_script
     public static final String OBJVAR_CRIT_BONUS_MELEE = OBJVAR_NEW_WP + ".critBonusMelee";
     public static final int NEW_COMPONENT_MODIFIER = 1000;
     public static final int WP_CORE_MODIFIER = 10;
-    public static final float NEW_COMPONENT_CAP = .075f;
+    public static final float NEW_COMPONENT_CAP = 0.075f;
     public static final float NEW_WP_DAMAGE_CAP = 1.50f;
     public static final String[] WEAPON_TYPES = 
     {
@@ -456,13 +456,13 @@ public class weapons extends script.base_script
     }
     public static void setWeaponAttributes(obj_id weapon, dictionary dat, float speedPercent, float damagePercent, float effeciencyPercent, float elementalValPercent) throws InterruptedException
     {
-        int damageLow = (int)((float)getMinDamageHighCap(dat) * damagePercent);
+        int damageLow = (int)(getMinDamageHighCap(dat) * damagePercent);
         int minDamageLow = getMinDamageLow(dat);
         if (damageLow < minDamageLow)
         {
             damageLow = minDamageLow;
         }
-        int damageHigh = (int)((float)getMaxDamageHighCap(dat) * damagePercent);
+        int damageHigh = (int)(getMaxDamageHighCap(dat) * damagePercent);
         int minDamageHigh = getMaxDamageLow(dat);
         if (damageHigh < minDamageHigh)
         {
@@ -477,19 +477,19 @@ public class weapons extends script.base_script
         {
             speed = minSpeed;
         }
-        int woundChance = (int)((float)getWoundChanceHigh(dat) * damagePercent);
+        int woundChance = (int)(getWoundChanceHigh(dat) * damagePercent);
         int minWoundChance = getWoundChanceLow(dat);
         if (woundChance < minWoundChance)
         {
             woundChance = minWoundChance;
         }
-        int hp = (int)((float)getHPHigh(dat) * 0.3f);
+        int hp = (int)(getHPHigh(dat) * 0.3f);
         int minHp = getHPLow(dat);
         if (hp < minHp)
         {
             hp = minHp;
         }
-        int accuracy = (int)((float)getAccuracyHigh(dat) * damagePercent);
+        int accuracy = (int)(getAccuracyHigh(dat) * damagePercent);
         int minAccuracy = getAccuracyLow(dat);
         if (accuracy < minAccuracy)
         {
@@ -498,10 +498,10 @@ public class weapons extends script.base_script
         int minAttackCost = getAttackCostLow(dat);
         int maxAttackCost = getAttackCostHigh(dat);
         int valueRange = maxAttackCost - minAttackCost;
-        valueRange = (int)((float)valueRange * effeciencyPercent);
+        valueRange = (int)(valueRange * effeciencyPercent);
         int attackCost = maxAttackCost - valueRange;
         int elementalType = getElementalType(dat);
-        int elementalValue = (int)((float)getElementalValueHigh(dat) * elementalValPercent);
+        int elementalValue = (int)(getElementalValueHigh(dat) * elementalValPercent);
         int minElementalValue = getElementalValueLow(dat);
         if (elementalValue < minElementalValue)
         {
@@ -514,8 +514,8 @@ public class weapons extends script.base_script
         }
         setWeaponMinDamage(weapon, damageLow);
         setWeaponMaxDamage(weapon, damageHigh);
-        setWeaponAttackSpeed(weapon, (float)speed / 100.0f);
-        setWeaponWoundChance(weapon, (float)woundChance / 10.0f);
+        setWeaponAttackSpeed(weapon, speed / 100.0f);
+        setWeaponWoundChance(weapon, woundChance / 10.0f);
         setMaxHitpoints(weapon, hp);
         setHitpoints(weapon, hp);
         setWeaponAccuracy(weapon, accuracy);
@@ -902,7 +902,7 @@ public class weapons extends script.base_script
         int clickMasterActionCost = getAttackCostLow(weaponDat);
         setWeaponAttackCost(weapon, clickMasterActionCost);
         int clickMasterWoundChance = getWoundChanceLow(weaponDat);
-        setWeaponWoundChance(weapon, (float)clickMasterWoundChance);
+        setWeaponWoundChance(weapon, clickMasterWoundChance);
         validateWeaponRange(weapon, weaponDat);
         validateWeaponDamageType(weapon, weaponDat);
         if (getWeaponElementalType(weapon) > 0)
@@ -956,8 +956,8 @@ public class weapons extends script.base_script
         int clickMasterLowMaxDamage = getMaxDamageLowCap(weaponDat);
         int finalMinDamage;
         int finalMaxDamage;
-        finalMinDamage = (int)(clickMasterLowMinDamage + ((clickMasterMinDamage - clickMasterLowMinDamage) * .99f));
-        finalMaxDamage = (int)(clickMasterLowMaxDamage + ((clickMasterMaxDamage - clickMasterLowMaxDamage) * .99f));
+        finalMinDamage = (int)(clickMasterLowMinDamage + ((clickMasterMinDamage - clickMasterLowMinDamage) * 0.99f));
+        finalMaxDamage = (int)(clickMasterLowMaxDamage + ((clickMasterMaxDamage - clickMasterLowMaxDamage) * 0.99f));
         setObjVar(saber, jedi.VAR_SABER_DEFAULT_STATS + "." + jedi.VAR_MIN_DMG, finalMinDamage);
         setObjVar(saber, jedi.VAR_SABER_DEFAULT_STATS + "." + jedi.VAR_MAX_DMG, finalMaxDamage);
         float clickMasterSpeed = getSpeedLow(weaponDat) / 100.0f;

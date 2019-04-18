@@ -163,11 +163,8 @@ public class prisoner extends script.base_script
             return SCRIPT_CONTINUE;
         }
         obj_id antagonists[] = scenario.getTeamMembers(poiMaster, "antagonist");
-        for (int i = 0; i < antagonists.length; i++)
-        {
-            obj_id found = antagonists[i];
-            if ((found == null) || (found == obj_id.NULL_ID))
-            {
+        for (obj_id found : antagonists) {
+            if ((found == null) || (found == obj_id.NULL_ID)) {
                 continue;
             }
             String oldFaction = getStringObjVar(found, "oldFaction");
@@ -213,11 +210,8 @@ public class prisoner extends script.base_script
         setPosture(self, POSTURE_PRONE);
         messageTo(poiMaster, "blowDroppedBomb", null, 5, false);
         obj_id antagonists[] = scenario.getTeamMembers(poiMaster, "antagonist");
-        for (int i = 0; i < antagonists.length; i++)
-        {
-            obj_id found = antagonists[i];
-            if ((found == null) || (found == obj_id.NULL_ID))
-            {
+        for (obj_id found : antagonists) {
+            if ((found == null) || (found == obj_id.NULL_ID)) {
                 continue;
             }
             String oldFaction = getStringObjVar(found, "oldFaction");

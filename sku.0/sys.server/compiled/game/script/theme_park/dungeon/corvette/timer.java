@@ -97,9 +97,7 @@ public class timer extends script.base_script
         {
             return;
         }
-        for (int i = 0; i < numInGroup; i++)
-        {
-            obj_id thisMember = members[i];
+        for (obj_id thisMember : members) {
             setObjVar(thisMember, objVarName, 1);
         }
         return;

@@ -154,72 +154,72 @@ public class jedi_base extends script.base_script
     {
         float fltAlignmentModifier = jedi.getJediAlignmentModifier(objPlayer, dctJediInfo);
         int intMinMindHeal = dctJediInfo.getInt("intMinMindHeal");
-        float fltTest = (float)intMinMindHeal;
+        float fltTest = intMinMindHeal;
         fltTest = fltTest * fltAlignmentModifier;
         intMinMindHeal = (int)fltTest;
         dctJediInfo.put("intMinMindHeal", intMinMindHeal);
         int intMaxMindHeal = dctJediInfo.getInt("intMaxMindHeal");
-        fltTest = (float)intMaxMindHeal;
+        fltTest = intMaxMindHeal;
         fltTest = fltTest * fltAlignmentModifier;
         intMaxMindHeal = (int)fltTest;
         dctJediInfo.put("intMaxMindHeal", intMaxMindHeal);
         int intMinMindWoundHeal = dctJediInfo.getInt("intMinMindWoundHeal");
-        fltTest = (float)intMinMindWoundHeal;
+        fltTest = intMinMindWoundHeal;
         fltTest = fltTest * fltAlignmentModifier;
         intMinMindWoundHeal = (int)fltTest;
         dctJediInfo.put("intMinMindWoundHeal", intMinMindWoundHeal);
         int intMaxMindWoundHeal = dctJediInfo.getInt("intMaxMindWoundHeal");
-        fltTest = (float)intMaxMindWoundHeal;
+        fltTest = intMaxMindWoundHeal;
         fltTest = fltTest * fltAlignmentModifier;
         intMaxMindWoundHeal = (int)fltTest;
         dctJediInfo.put("intMaxMindWoundHeal", intMaxMindWoundHeal);
         int intMinHealthHeal = dctJediInfo.getInt("intMinHealthHeal");
-        fltTest = (float)intMinHealthHeal;
+        fltTest = intMinHealthHeal;
         fltTest = fltTest * fltAlignmentModifier;
         intMinHealthHeal = (int)fltTest;
         dctJediInfo.put("intMinHealthHeal", intMinHealthHeal);
         int intMaxHealthHeal = dctJediInfo.getInt("intMaxHealthHeal");
-        fltTest = (float)intMaxHealthHeal;
+        fltTest = intMaxHealthHeal;
         fltTest = fltTest * fltAlignmentModifier;
         intMaxHealthHeal = (int)fltTest;
         dctJediInfo.put("intMaxHealthHeal", intMaxHealthHeal);
         int intMinHealthWoundHeal = dctJediInfo.getInt("intMinHealthWoundHeal");
-        fltTest = (float)intMinHealthWoundHeal;
+        fltTest = intMinHealthWoundHeal;
         fltTest = fltTest * fltAlignmentModifier;
         intMinHealthWoundHeal = (int)fltTest;
         dctJediInfo.put("intMinHealthWoundHeal", intMinHealthWoundHeal);
         int intMaxHealthWoundHeal = dctJediInfo.getInt("intMaxHealthWoundHeal");
-        fltTest = (float)intMaxHealthWoundHeal;
+        fltTest = intMaxHealthWoundHeal;
         fltTest = fltTest * fltAlignmentModifier;
         intMaxHealthWoundHeal = (int)fltTest;
         dctJediInfo.put("intMaxHealthWoundHeal", intMaxHealthWoundHeal);
         int intMinActionHeal = dctJediInfo.getInt("intMinActionHeal");
-        fltTest = (float)intMinActionHeal;
+        fltTest = intMinActionHeal;
         fltTest = fltTest * fltAlignmentModifier;
         intMinActionHeal = (int)fltTest;
         dctJediInfo.put("intMinActionHeal", intMinActionHeal);
         int intMaxActionHeal = dctJediInfo.getInt("intMaxActionHeal");
-        fltTest = (float)intMaxActionHeal;
+        fltTest = intMaxActionHeal;
         fltTest = fltTest * fltAlignmentModifier;
         intMaxActionHeal = (int)fltTest;
         dctJediInfo.put("intMaxActionHeal", intMaxActionHeal);
         int intMinActionWoundHeal = dctJediInfo.getInt("intMinActionWoundHeal");
-        fltTest = (float)intMinActionWoundHeal;
+        fltTest = intMinActionWoundHeal;
         fltTest = fltTest * fltAlignmentModifier;
         intMinActionWoundHeal = (int)fltTest;
         dctJediInfo.put("intMinActionWoundHeal", intMinActionWoundHeal);
         int intMaxActionWoundHeal = dctJediInfo.getInt("intMaxActionWoundHeal");
-        fltTest = (float)intMaxActionWoundHeal;
+        fltTest = intMaxActionWoundHeal;
         fltTest = fltTest * fltAlignmentModifier;
         intMaxActionWoundHeal = (int)fltTest;
         dctJediInfo.put("intMaxActionWoundHeal", intMaxActionWoundHeal);
         int intMinBattleFatigueHeal = dctJediInfo.getInt("intMinBattleFatigueHeal");
-        fltTest = (float)intMinBattleFatigueHeal;
+        fltTest = intMinBattleFatigueHeal;
         fltTest = fltTest * fltAlignmentModifier;
         intMinBattleFatigueHeal = (int)fltTest;
         dctJediInfo.put("intMinBattleFatigueHeal", intMinBattleFatigueHeal);
         int intMaxBattleFatigueHeal = dctJediInfo.getInt("intMaxBattleFatigueHeal");
-        fltTest = (float)intMaxBattleFatigueHeal;
+        fltTest = intMaxBattleFatigueHeal;
         fltTest = fltTest * fltAlignmentModifier;
         intMaxBattleFatigueHeal = (int)fltTest;
         dctJediInfo.put("intMaxBattleFatigueHeal", intMaxBattleFatigueHeal);
@@ -526,16 +526,14 @@ public class jedi_base extends script.base_script
         Vector mapLocations = new Vector();
         mapLocations.setSize(0);
         location testloc = new location();
-        for (int i = 0; i < rawMapLocations.length; i++)
-        {
-            testloc.x = rawMapLocations[i].getX();
-            testloc.z = rawMapLocations[i].getY();
+        for (map_location rawMapLocation : rawMapLocations) {
+            testloc.x = rawMapLocation.getX();
+            testloc.z = rawMapLocation.getY();
             testloc.area = getLocation(self).area;
-            if (getCityAtLocation(testloc, 0) > 0)
-            {
+            if (getCityAtLocation(testloc, 0) > 0) {
                 continue;
             }
-            mapLocations = utils.addElement(mapLocations, rawMapLocations[i]);
+            mapLocations = utils.addElement(mapLocations, rawMapLocation);
         }
         if ((mapLocations == null) || (mapLocations.size() == 0))
         {
@@ -545,15 +543,13 @@ public class jedi_base extends script.base_script
         locTest.y = 0;
         Vector locNewLocations = new Vector();
         locNewLocations.setSize(0);
-        for (int intI = 0; intI < mapLocations.size(); intI++)
-        {
+        for (Object mapLocation : mapLocations) {
             location locNewLocation = new location();
             locNewLocation.area = locTest.area;
-            locNewLocation.x = ((map_location)mapLocations.get(intI)).getX();
-            locNewLocation.z = ((map_location)mapLocations.get(intI)).getY();
+            locNewLocation.x = ((map_location) mapLocation).getX();
+            locNewLocation.z = ((map_location) mapLocation).getY();
             float fltDistance = getDistance(locTest, locNewLocation);
-            if (fltDistance > 128)
-            {
+            if (fltDistance > 128) {
                 locNewLocations = utils.addElement(locNewLocations, locNewLocation);
             }
         }

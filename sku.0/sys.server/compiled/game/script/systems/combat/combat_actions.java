@@ -15,7 +15,7 @@ public class combat_actions extends script.systems.combat.combat_base
     }
     public static String DEFAULT_EGG = "object/tangible/gravestone/gravestone05.tpf";
     public static final String COMBAT_TABLE = "datatables/combat/combat_data.iff";
-    public static final float DAMAGE_STRENGTH_CUTOFF = .5f;
+    public static final float DAMAGE_STRENGTH_CUTOFF = 0.5f;
     public int OnChangedPosture(obj_id self, int oldPosture, int newPosture) throws InterruptedException
     {
         if (newPosture == POSTURE_INCAPACITATED || newPosture == POSTURE_DEAD || newPosture == POSTURE_KNOCKED_DOWN)
@@ -611,7 +611,7 @@ public class combat_actions extends script.systems.combat.combat_base
         doDireAbility(self, target, 0);
         if (successfulFastAttack(self, "dm_cc"))
         {
-            setCommandTimerValue(self, TIMER_COOLDOWN, 0f);
+            setCommandTimerValue(self, TIMER_COOLDOWN, 0.0f);
         }
         return SCRIPT_CONTINUE;
     }
@@ -624,7 +624,7 @@ public class combat_actions extends script.systems.combat.combat_base
         doDireAbility(self, target, 0);
         if (successfulFastAttack(self, "dm_cc"))
         {
-            setCommandTimerValue(self, TIMER_COOLDOWN, 0f);
+            setCommandTimerValue(self, TIMER_COOLDOWN, 0.0f);
         }
         return SCRIPT_CONTINUE;
     }
@@ -637,7 +637,7 @@ public class combat_actions extends script.systems.combat.combat_base
         doDireAbility(self, target, 0);
         if (successfulFastAttack(self, "dm_cc"))
         {
-            setCommandTimerValue(self, TIMER_COOLDOWN, 0f);
+            setCommandTimerValue(self, TIMER_COOLDOWN, 0.0f);
         }
         return SCRIPT_CONTINUE;
     }
@@ -764,7 +764,7 @@ public class combat_actions extends script.systems.combat.combat_base
         }
         if (successfulFastAttack(self, "co_grenade"))
         {
-            setCommandTimerValue(self, TIMER_COOLDOWN, 0f);
+            setCommandTimerValue(self, TIMER_COOLDOWN, 0.0f);
         }
         return SCRIPT_CONTINUE;
     }
@@ -776,7 +776,7 @@ public class combat_actions extends script.systems.combat.combat_base
         }
         if (successfulFastAttack(self, "co_grenade"))
         {
-            setCommandTimerValue(self, TIMER_COOLDOWN, 0f);
+            setCommandTimerValue(self, TIMER_COOLDOWN, 0.0f);
         }
         return SCRIPT_CONTINUE;
     }
@@ -788,7 +788,7 @@ public class combat_actions extends script.systems.combat.combat_base
         }
         if (successfulFastAttack(self, "co_grenade"))
         {
-            setCommandTimerValue(self, TIMER_COOLDOWN, 0f);
+            setCommandTimerValue(self, TIMER_COOLDOWN, 0.0f);
         }
         return SCRIPT_CONTINUE;
     }
@@ -880,7 +880,7 @@ public class combat_actions extends script.systems.combat.combat_base
         }
         if (successfulFastAttack(self, "co_grenade"))
         {
-            setCommandTimerValue(self, TIMER_COOLDOWN, 0f);
+            setCommandTimerValue(self, TIMER_COOLDOWN, 0.0f);
         }
         return SCRIPT_CONTINUE;
     }
@@ -892,7 +892,7 @@ public class combat_actions extends script.systems.combat.combat_base
         }
         if (successfulFastAttack(self, "co_grenade"))
         {
-            setCommandTimerValue(self, TIMER_COOLDOWN, 0f);
+            setCommandTimerValue(self, TIMER_COOLDOWN, 0.0f);
         }
         return SCRIPT_CONTINUE;
     }
@@ -904,7 +904,7 @@ public class combat_actions extends script.systems.combat.combat_base
         }
         if (successfulFastAttack(self, "co_grenade"))
         {
-            setCommandTimerValue(self, TIMER_COOLDOWN, 0f);
+            setCommandTimerValue(self, TIMER_COOLDOWN, 0.0f);
         }
         return SCRIPT_CONTINUE;
     }
@@ -916,7 +916,7 @@ public class combat_actions extends script.systems.combat.combat_base
         }
         if (successfulFastAttack(self, "co_grenade"))
         {
-            setCommandTimerValue(self, TIMER_COOLDOWN, 0f);
+            setCommandTimerValue(self, TIMER_COOLDOWN, 0.0f);
         }
         return SCRIPT_CONTINUE;
     }
@@ -928,7 +928,7 @@ public class combat_actions extends script.systems.combat.combat_base
         }
         if (successfulFastAttack(self, "co_grenade"))
         {
-            setCommandTimerValue(self, TIMER_COOLDOWN, 0f);
+            setCommandTimerValue(self, TIMER_COOLDOWN, 0.0f);
         }
         return SCRIPT_CONTINUE;
     }
@@ -1092,9 +1092,8 @@ public class combat_actions extends script.systems.combat.combat_base
         int modifiedHealth = currentHealth - healthCost;
         attrib_mod[] healthMods = getHealthModifiers(self);
         int healthModsValue = 0;
-        for (int i = 0; i < healthMods.length; i++)
-        {
-            healthModsValue += healthMods[i].getValue();
+        for (attrib_mod healthMod : healthMods) {
+            healthModsValue += healthMod.getValue();
         }
         if (healthModsValue < 0)
         {
@@ -1639,7 +1638,7 @@ public class combat_actions extends script.systems.combat.combat_base
         }
         if (successfulFastAttack(self, "fs_powers", "fury_fly"))
         {
-            setCommandTimerValue(self, TIMER_COOLDOWN, 0f);
+            setCommandTimerValue(self, TIMER_COOLDOWN, 0.0f);
             return SCRIPT_CONTINUE;
         }
         float baseCooldownTime = getBaseCooldownTime("fs_ae_dm_cc_1");
@@ -1664,7 +1663,7 @@ public class combat_actions extends script.systems.combat.combat_base
         }
         if (successfulFastAttack(self, "fs_powers", "fury_fly"))
         {
-            setCommandTimerValue(self, TIMER_COOLDOWN, 0f);
+            setCommandTimerValue(self, TIMER_COOLDOWN, 0.0f);
             return SCRIPT_CONTINUE;
         }
         float baseCooldownTime = getBaseCooldownTime("fs_ae_dm_cc_2");
@@ -1689,7 +1688,7 @@ public class combat_actions extends script.systems.combat.combat_base
         }
         if (successfulFastAttack(self, "fs_powers", "fury_fly"))
         {
-            setCommandTimerValue(self, TIMER_COOLDOWN, 0f);
+            setCommandTimerValue(self, TIMER_COOLDOWN, 0.0f);
             return SCRIPT_CONTINUE;
         }
         float baseCooldownTime = getBaseCooldownTime("fs_ae_dm_cc_3");
@@ -1714,7 +1713,7 @@ public class combat_actions extends script.systems.combat.combat_base
         }
         if (successfulFastAttack(self, "fs_powers", "fury_fly"))
         {
-            setCommandTimerValue(self, TIMER_COOLDOWN, 0f);
+            setCommandTimerValue(self, TIMER_COOLDOWN, 0.0f);
             return SCRIPT_CONTINUE;
         }
         float baseCooldownTime = getBaseCooldownTime("fs_ae_dm_cc_4");
@@ -1739,7 +1738,7 @@ public class combat_actions extends script.systems.combat.combat_base
         }
         if (successfulFastAttack(self, "fs_powers", "fury_fly"))
         {
-            setCommandTimerValue(self, TIMER_COOLDOWN, 0f);
+            setCommandTimerValue(self, TIMER_COOLDOWN, 0.0f);
             return SCRIPT_CONTINUE;
         }
         float baseCooldownTime = getBaseCooldownTime("fs_ae_dm_cc_5");
@@ -1764,7 +1763,7 @@ public class combat_actions extends script.systems.combat.combat_base
         }
         if (successfulFastAttack(self, "fs_powers", "fury_fly"))
         {
-            setCommandTimerValue(self, TIMER_COOLDOWN, 0f);
+            setCommandTimerValue(self, TIMER_COOLDOWN, 0.0f);
             return SCRIPT_CONTINUE;
         }
         float baseCooldownTime = getBaseCooldownTime("fs_ae_dm_cc_6");
@@ -1789,7 +1788,7 @@ public class combat_actions extends script.systems.combat.combat_base
         }
         if (successfulFastAttack(self, "fs_powers", "fury_fly"))
         {
-            setCommandTimerValue(self, TIMER_COOLDOWN, 0f);
+            setCommandTimerValue(self, TIMER_COOLDOWN, 0.0f);
         }
         return SCRIPT_CONTINUE;
     }
@@ -1806,7 +1805,7 @@ public class combat_actions extends script.systems.combat.combat_base
         }
         if (successfulFastAttack(self, "fs_powers", "fury_fly"))
         {
-            setCommandTimerValue(self, TIMER_COOLDOWN, 0f);
+            setCommandTimerValue(self, TIMER_COOLDOWN, 0.0f);
         }
         return SCRIPT_CONTINUE;
     }
@@ -1823,7 +1822,7 @@ public class combat_actions extends script.systems.combat.combat_base
         }
         if (successfulFastAttack(self, "fs_powers", "fury_fly"))
         {
-            setCommandTimerValue(self, TIMER_COOLDOWN, 0f);
+            setCommandTimerValue(self, TIMER_COOLDOWN, 0.0f);
         }
         return SCRIPT_CONTINUE;
     }
@@ -1840,7 +1839,7 @@ public class combat_actions extends script.systems.combat.combat_base
         }
         if (successfulFastAttack(self, "fs_powers", "fury_fly"))
         {
-            setCommandTimerValue(self, TIMER_COOLDOWN, 0f);
+            setCommandTimerValue(self, TIMER_COOLDOWN, 0.0f);
         }
         return SCRIPT_CONTINUE;
     }
@@ -1857,7 +1856,7 @@ public class combat_actions extends script.systems.combat.combat_base
         }
         if (successfulFastAttack(self, "fs_powers", "fury_fly"))
         {
-            setCommandTimerValue(self, TIMER_COOLDOWN, 0f);
+            setCommandTimerValue(self, TIMER_COOLDOWN, 0.0f);
         }
         return SCRIPT_CONTINUE;
     }
@@ -2240,9 +2239,8 @@ public class combat_actions extends script.systems.combat.combat_base
         float actionRadius = actionData.coneLength;
         actionRadius += getEnhancedSkillStatisticModifierUncapped(self, "expertise_area_size_single_fs_mind_trick_2");
         obj_id[] defenders = pvpGetTargetsInRange(self, target, actionRadius);
-        for (int i = 0; i < defenders.length; i++)
-        {
-            ai_lib.mindTrick(self, defenders[i]);
+        for (obj_id defender : defenders) {
+            ai_lib.mindTrick(self, defender);
         }
         return SCRIPT_CONTINUE;
     }
@@ -2332,7 +2330,7 @@ public class combat_actions extends script.systems.combat.combat_base
         }
         if (successfulFastAttack(self, "fs_powers", "fury_fly"))
         {
-            setCommandTimerValue(self, TIMER_COOLDOWN, 0f);
+            setCommandTimerValue(self, TIMER_COOLDOWN, 0.0f);
             return SCRIPT_CONTINUE;
         }
         float baseCooldownTime = getBaseCooldownTime("fs_dm_cc_crit_1");
@@ -2352,7 +2350,7 @@ public class combat_actions extends script.systems.combat.combat_base
         }
         if (successfulFastAttack(self, "fs_powers", "fury_fly"))
         {
-            setCommandTimerValue(self, TIMER_COOLDOWN, 0f);
+            setCommandTimerValue(self, TIMER_COOLDOWN, 0.0f);
             return SCRIPT_CONTINUE;
         }
         float baseCooldownTime = getBaseCooldownTime("fs_dm_cc_crit_2");
@@ -2372,7 +2370,7 @@ public class combat_actions extends script.systems.combat.combat_base
         }
         if (successfulFastAttack(self, "fs_powers", "fury_fly"))
         {
-            setCommandTimerValue(self, TIMER_COOLDOWN, 0f);
+            setCommandTimerValue(self, TIMER_COOLDOWN, 0.0f);
             return SCRIPT_CONTINUE;
         }
         float baseCooldownTime = getBaseCooldownTime("fs_dm_cc_crit_3");
@@ -2392,7 +2390,7 @@ public class combat_actions extends script.systems.combat.combat_base
         }
         if (successfulFastAttack(self, "fs_powers", "fury_fly"))
         {
-            setCommandTimerValue(self, TIMER_COOLDOWN, 0f);
+            setCommandTimerValue(self, TIMER_COOLDOWN, 0.0f);
             return SCRIPT_CONTINUE;
         }
         float baseCooldownTime = getBaseCooldownTime("fs_dm_cc_crit_4");
@@ -2412,7 +2410,7 @@ public class combat_actions extends script.systems.combat.combat_base
         }
         if (successfulFastAttack(self, "fs_powers", "fury_fly"))
         {
-            setCommandTimerValue(self, TIMER_COOLDOWN, 0f);
+            setCommandTimerValue(self, TIMER_COOLDOWN, 0.0f);
             return SCRIPT_CONTINUE;
         }
         float baseCooldownTime = getBaseCooldownTime("fs_dm_cc_crit_5");
@@ -2575,7 +2573,7 @@ public class combat_actions extends script.systems.combat.combat_base
         }
         if (successfulFastAttack(self, "me_dm"))
         {
-            setCommandTimerValue(self, TIMER_COOLDOWN, 0f);
+            setCommandTimerValue(self, TIMER_COOLDOWN, 0.0f);
         }
         return SCRIPT_CONTINUE;
     }
@@ -2587,7 +2585,7 @@ public class combat_actions extends script.systems.combat.combat_base
         }
         if (successfulFastAttack(self, "me_dm"))
         {
-            setCommandTimerValue(self, TIMER_COOLDOWN, 0f);
+            setCommandTimerValue(self, TIMER_COOLDOWN, 0.0f);
         }
         return SCRIPT_CONTINUE;
     }
@@ -2599,7 +2597,7 @@ public class combat_actions extends script.systems.combat.combat_base
         }
         if (successfulFastAttack(self, "me_dm"))
         {
-            setCommandTimerValue(self, TIMER_COOLDOWN, 0f);
+            setCommandTimerValue(self, TIMER_COOLDOWN, 0.0f);
         }
         return SCRIPT_CONTINUE;
     }
@@ -2611,7 +2609,7 @@ public class combat_actions extends script.systems.combat.combat_base
         }
         if (successfulFastAttack(self, "me_dm"))
         {
-            setCommandTimerValue(self, TIMER_COOLDOWN, 0f);
+            setCommandTimerValue(self, TIMER_COOLDOWN, 0.0f);
         }
         return SCRIPT_CONTINUE;
     }
@@ -2623,7 +2621,7 @@ public class combat_actions extends script.systems.combat.combat_base
         }
         if (successfulFastAttack(self, "me_dm"))
         {
-            setCommandTimerValue(self, TIMER_COOLDOWN, 0f);
+            setCommandTimerValue(self, TIMER_COOLDOWN, 0.0f);
         }
         return SCRIPT_CONTINUE;
     }
@@ -2635,7 +2633,7 @@ public class combat_actions extends script.systems.combat.combat_base
         }
         if (successfulFastAttack(self, "me_dm"))
         {
-            setCommandTimerValue(self, TIMER_COOLDOWN, 0f);
+            setCommandTimerValue(self, TIMER_COOLDOWN, 0.0f);
         }
         return SCRIPT_CONTINUE;
     }
@@ -2647,7 +2645,7 @@ public class combat_actions extends script.systems.combat.combat_base
         }
         if (successfulFastAttack(self, "me_dm"))
         {
-            setCommandTimerValue(self, TIMER_COOLDOWN, 0f);
+            setCommandTimerValue(self, TIMER_COOLDOWN, 0.0f);
         }
         return SCRIPT_CONTINUE;
     }
@@ -2853,7 +2851,7 @@ public class combat_actions extends script.systems.combat.combat_base
         }
         if (successfulFastAttack(self, "me_revive", "quick_revive_fly"))
         {
-            setCommandTimerValue(self, TIMER_COOLDOWN, 0f);
+            setCommandTimerValue(self, TIMER_COOLDOWN, 0.0f);
             return SCRIPT_CONTINUE;
         }
         float baseCooldownTime = getBaseCooldownTime("me_rv_ooc");
@@ -2877,7 +2875,7 @@ public class combat_actions extends script.systems.combat.combat_base
         }
         if (successfulFastAttack(self, "me_revive", "quick_revive_fly"))
         {
-            setCommandTimerValue(self, TIMER_COOLDOWN, 0f);
+            setCommandTimerValue(self, TIMER_COOLDOWN, 0.0f);
             return SCRIPT_CONTINUE;
         }
         float baseCooldownTime = getBaseCooldownTime("me_rv_area");
@@ -2897,7 +2895,7 @@ public class combat_actions extends script.systems.combat.combat_base
         }
         if (successfulFastAttack(self, "me_revive", "quick_revive_fly"))
         {
-            setCommandTimerValue(self, TIMER_COOLDOWN, 0f);
+            setCommandTimerValue(self, TIMER_COOLDOWN, 0.0f);
             return SCRIPT_CONTINUE;
         }
         float baseCooldownTime = getBaseCooldownTime("me_rv_combat");
@@ -2921,7 +2919,7 @@ public class combat_actions extends script.systems.combat.combat_base
         }
         if (successfulFastAttack(self, "me_revive", "quick_revive_fly"))
         {
-            setCommandTimerValue(self, TIMER_COOLDOWN, 0f);
+            setCommandTimerValue(self, TIMER_COOLDOWN, 0.0f);
             return SCRIPT_CONTINUE;
         }
         float baseCooldownTime = getBaseCooldownTime("me_rv_pvp_single");
@@ -2945,7 +2943,7 @@ public class combat_actions extends script.systems.combat.combat_base
         }
         if (successfulFastAttack(self, "me_revive", "quick_revive_fly"))
         {
-            setCommandTimerValue(self, TIMER_COOLDOWN, 0f);
+            setCommandTimerValue(self, TIMER_COOLDOWN, 0.0f);
             return SCRIPT_CONTINUE;
         }
         float baseCooldownTime = getBaseCooldownTime("me_rv_pvp_area");
@@ -3009,7 +3007,7 @@ public class combat_actions extends script.systems.combat.combat_base
         }
         if (target != self && pvpCanHelp(self, target) && successfulFastAttack(self, "me_heal", "quick_heal_fly"))
         {
-            setCommandTimerValue(self, TIMER_COOLDOWN, 0f);
+            setCommandTimerValue(self, TIMER_COOLDOWN, 0.0f);
             return SCRIPT_CONTINUE;
         }
         return SCRIPT_CONTINUE;
@@ -3026,7 +3024,7 @@ public class combat_actions extends script.systems.combat.combat_base
         }
         if (target != self && pvpCanHelp(self, target) && successfulFastAttack(self, "me_heal", "quick_heal_fly"))
         {
-            setCommandTimerValue(self, TIMER_COOLDOWN, 0f);
+            setCommandTimerValue(self, TIMER_COOLDOWN, 0.0f);
             return SCRIPT_CONTINUE;
         }
         return SCRIPT_CONTINUE;
@@ -3043,7 +3041,7 @@ public class combat_actions extends script.systems.combat.combat_base
         }
         if (target != self && pvpCanHelp(self, target) && successfulFastAttack(self, "me_heal", "quick_heal_fly"))
         {
-            setCommandTimerValue(self, TIMER_COOLDOWN, 0f);
+            setCommandTimerValue(self, TIMER_COOLDOWN, 0.0f);
             return SCRIPT_CONTINUE;
         }
         return SCRIPT_CONTINUE;
@@ -3060,7 +3058,7 @@ public class combat_actions extends script.systems.combat.combat_base
         }
         if (target != self && pvpCanHelp(self, target) && successfulFastAttack(self, "me_heal", "quick_heal_fly"))
         {
-            setCommandTimerValue(self, TIMER_COOLDOWN, 0f);
+            setCommandTimerValue(self, TIMER_COOLDOWN, 0.0f);
             return SCRIPT_CONTINUE;
         }
         return SCRIPT_CONTINUE;
@@ -3077,7 +3075,7 @@ public class combat_actions extends script.systems.combat.combat_base
         }
         if (target != self && pvpCanHelp(self, target) && successfulFastAttack(self, "me_heal", "quick_heal_fly"))
         {
-            setCommandTimerValue(self, TIMER_COOLDOWN, 0f);
+            setCommandTimerValue(self, TIMER_COOLDOWN, 0.0f);
             return SCRIPT_CONTINUE;
         }
         return SCRIPT_CONTINUE;
@@ -3094,7 +3092,7 @@ public class combat_actions extends script.systems.combat.combat_base
         }
         if (target != self && pvpCanHelp(self, target) && successfulFastAttack(self, "me_heal", "quick_heal_fly"))
         {
-            setCommandTimerValue(self, TIMER_COOLDOWN, 0f);
+            setCommandTimerValue(self, TIMER_COOLDOWN, 0.0f);
             return SCRIPT_CONTINUE;
         }
         return SCRIPT_CONTINUE;
@@ -3111,7 +3109,7 @@ public class combat_actions extends script.systems.combat.combat_base
         }
         if (target != self && pvpCanHelp(self, target) && successfulFastAttack(self, "me_heal", "quick_heal_fly"))
         {
-            setCommandTimerValue(self, TIMER_COOLDOWN, 0f);
+            setCommandTimerValue(self, TIMER_COOLDOWN, 0.0f);
             return SCRIPT_CONTINUE;
         }
         return SCRIPT_CONTINUE;
@@ -3128,7 +3126,7 @@ public class combat_actions extends script.systems.combat.combat_base
         }
         if (target != self && pvpCanHelp(self, target) && successfulFastAttack(self, "me_heal", "quick_heal_fly"))
         {
-            setCommandTimerValue(self, TIMER_COOLDOWN, 0f);
+            setCommandTimerValue(self, TIMER_COOLDOWN, 0.0f);
             return SCRIPT_CONTINUE;
         }
         return SCRIPT_CONTINUE;
@@ -3145,7 +3143,7 @@ public class combat_actions extends script.systems.combat.combat_base
         }
         if (target != self && pvpCanHelp(self, target) && successfulFastAttack(self, "me_heal", "quick_heal_fly"))
         {
-            setCommandTimerValue(self, TIMER_COOLDOWN, 0f);
+            setCommandTimerValue(self, TIMER_COOLDOWN, 0.0f);
             return SCRIPT_CONTINUE;
         }
         return SCRIPT_CONTINUE;
@@ -3162,7 +3160,7 @@ public class combat_actions extends script.systems.combat.combat_base
         }
         if (target != self && pvpCanHelp(self, target) && successfulFastAttack(self, "me_heal", "quick_heal_fly"))
         {
-            setCommandTimerValue(self, TIMER_COOLDOWN, 0f);
+            setCommandTimerValue(self, TIMER_COOLDOWN, 0.0f);
             return SCRIPT_CONTINUE;
         }
         return SCRIPT_CONTINUE;
@@ -3179,7 +3177,7 @@ public class combat_actions extends script.systems.combat.combat_base
         }
         if (target != self && pvpCanHelp(self, target) && successfulFastAttack(self, "me_heal", "quick_heal_fly"))
         {
-            setCommandTimerValue(self, TIMER_COOLDOWN, 0f);
+            setCommandTimerValue(self, TIMER_COOLDOWN, 0.0f);
             return SCRIPT_CONTINUE;
         }
         return SCRIPT_CONTINUE;
@@ -3220,7 +3218,7 @@ public class combat_actions extends script.systems.combat.combat_base
         }
         if (target != self && pvpCanHelp(self, target) && successfulFastAttack(self, "me_heal", "quick_heal_fly"))
         {
-            setCommandTimerValue(self, TIMER_COOLDOWN, 0f);
+            setCommandTimerValue(self, TIMER_COOLDOWN, 0.0f);
             return SCRIPT_CONTINUE;
         }
         return SCRIPT_CONTINUE;
@@ -3237,7 +3235,7 @@ public class combat_actions extends script.systems.combat.combat_base
         }
         if (target != self && pvpCanHelp(self, target) && successfulFastAttack(self, "me_heal", "quick_heal_fly"))
         {
-            setCommandTimerValue(self, TIMER_COOLDOWN, 0f);
+            setCommandTimerValue(self, TIMER_COOLDOWN, 0.0f);
             return SCRIPT_CONTINUE;
         }
         return SCRIPT_CONTINUE;
@@ -3254,7 +3252,7 @@ public class combat_actions extends script.systems.combat.combat_base
         }
         if (target != self && pvpCanHelp(self, target) && successfulFastAttack(self, "me_heal", "quick_heal_fly"))
         {
-            setCommandTimerValue(self, TIMER_COOLDOWN, 0f);
+            setCommandTimerValue(self, TIMER_COOLDOWN, 0.0f);
             return SCRIPT_CONTINUE;
         }
         return SCRIPT_CONTINUE;
@@ -3271,7 +3269,7 @@ public class combat_actions extends script.systems.combat.combat_base
         }
         if (target != self && pvpCanHelp(self, target) && successfulFastAttack(self, "me_heal", "quick_heal_fly"))
         {
-            setCommandTimerValue(self, TIMER_COOLDOWN, 0f);
+            setCommandTimerValue(self, TIMER_COOLDOWN, 0.0f);
             return SCRIPT_CONTINUE;
         }
         return SCRIPT_CONTINUE;
@@ -3288,7 +3286,7 @@ public class combat_actions extends script.systems.combat.combat_base
         }
         if (target != self && pvpCanHelp(self, target) && successfulFastAttack(self, "me_heal", "quick_heal_fly"))
         {
-            setCommandTimerValue(self, TIMER_COOLDOWN, 0f);
+            setCommandTimerValue(self, TIMER_COOLDOWN, 0.0f);
             return SCRIPT_CONTINUE;
         }
         return SCRIPT_CONTINUE;
@@ -3560,7 +3558,7 @@ public class combat_actions extends script.systems.combat.combat_base
         doDoom(self, target);
         if (successfulFastAttack(self, "me_debuff", "fast_attack_fly"))
         {
-            setCommandTimerValue(self, TIMER_COOLDOWN, 0f);
+            setCommandTimerValue(self, TIMER_COOLDOWN, 0.0f);
         }
         return SCRIPT_CONTINUE;
     }
@@ -3577,7 +3575,7 @@ public class combat_actions extends script.systems.combat.combat_base
         doDoom(self, target);
         if (successfulFastAttack(self, "me_debuff", "fast_attack_fly"))
         {
-            setCommandTimerValue(self, TIMER_COOLDOWN, 0f);
+            setCommandTimerValue(self, TIMER_COOLDOWN, 0.0f);
         }
         return SCRIPT_CONTINUE;
     }
@@ -3594,7 +3592,7 @@ public class combat_actions extends script.systems.combat.combat_base
         doDoom(self, target);
         if (successfulFastAttack(self, "me_debuff", "fast_attack_fly"))
         {
-            setCommandTimerValue(self, TIMER_COOLDOWN, 0f);
+            setCommandTimerValue(self, TIMER_COOLDOWN, 0.0f);
         }
         return SCRIPT_CONTINUE;
     }
@@ -3615,7 +3613,7 @@ public class combat_actions extends script.systems.combat.combat_base
         }
         if (successfulFastAttack(self, "me_debuff", "fast_attack_fly"))
         {
-            setCommandTimerValue(self, TIMER_COOLDOWN, 0f);
+            setCommandTimerValue(self, TIMER_COOLDOWN, 0.0f);
         }
         return SCRIPT_CONTINUE;
     }
@@ -3636,7 +3634,7 @@ public class combat_actions extends script.systems.combat.combat_base
         }
         if (successfulFastAttack(self, "me_debuff", "fast_attack_fly"))
         {
-            setCommandTimerValue(self, TIMER_COOLDOWN, 0f);
+            setCommandTimerValue(self, TIMER_COOLDOWN, 0.0f);
         }
         return SCRIPT_CONTINUE;
     }
@@ -3657,7 +3655,7 @@ public class combat_actions extends script.systems.combat.combat_base
         }
         if (successfulFastAttack(self, "me_debuff", "fast_attack_fly"))
         {
-            setCommandTimerValue(self, TIMER_COOLDOWN, 0f);
+            setCommandTimerValue(self, TIMER_COOLDOWN, 0.0f);
         }
         return SCRIPT_CONTINUE;
     }
@@ -3678,7 +3676,7 @@ public class combat_actions extends script.systems.combat.combat_base
         }
         if (successfulFastAttack(self, "me_debuff", "fast_attack_fly"))
         {
-            setCommandTimerValue(self, TIMER_COOLDOWN, 0f);
+            setCommandTimerValue(self, TIMER_COOLDOWN, 0.0f);
         }
         return SCRIPT_CONTINUE;
     }
@@ -3700,7 +3698,7 @@ public class combat_actions extends script.systems.combat.combat_base
         doDoom(self, target);
         if (successfulFastAttack(self, "me_debuff", "fast_attack_fly"))
         {
-            setCommandTimerValue(self, TIMER_COOLDOWN, 0f);
+            setCommandTimerValue(self, TIMER_COOLDOWN, 0.0f);
         }
         return SCRIPT_CONTINUE;
     }
@@ -3717,7 +3715,7 @@ public class combat_actions extends script.systems.combat.combat_base
         doDoom(self, target);
         if (successfulFastAttack(self, "me_debuff", "fast_attack_fly"))
         {
-            setCommandTimerValue(self, TIMER_COOLDOWN, 0f);
+            setCommandTimerValue(self, TIMER_COOLDOWN, 0.0f);
         }
         return SCRIPT_CONTINUE;
     }
@@ -4235,7 +4233,7 @@ public class combat_actions extends script.systems.combat.combat_base
         }
         if (successfulFastAttack(self, "of_aoe"))
         {
-            setCommandTimerValue(self, TIMER_COOLDOWN, 0f);
+            setCommandTimerValue(self, TIMER_COOLDOWN, 0.0f);
         }
         return SCRIPT_CONTINUE;
     }
@@ -4247,7 +4245,7 @@ public class combat_actions extends script.systems.combat.combat_base
         }
         if (successfulFastAttack(self, "of_aoe"))
         {
-            setCommandTimerValue(self, TIMER_COOLDOWN, 0f);
+            setCommandTimerValue(self, TIMER_COOLDOWN, 0.0f);
         }
         return SCRIPT_CONTINUE;
     }
@@ -4259,7 +4257,7 @@ public class combat_actions extends script.systems.combat.combat_base
         }
         if (successfulFastAttack(self, "of_aoe"))
         {
-            setCommandTimerValue(self, TIMER_COOLDOWN, 0f);
+            setCommandTimerValue(self, TIMER_COOLDOWN, 0.0f);
         }
         doInspiredAction(self);
         return SCRIPT_CONTINUE;
@@ -4276,10 +4274,10 @@ public class combat_actions extends script.systems.combat.combat_base
             return SCRIPT_OVERRIDE;
         }
         prose_package p = prose.getPackage(new string_id("spam", "artillery_coming"));
-        commPlayers(self, "object/mobile/npe/npe_hutt_minion.iff", "sound/sys_comm_other.snd", 5f, self, p);
+        commPlayers(self, "object/mobile/npe/npe_hutt_minion.iff", "sound/sys_comm_other.snd", 5.0f, self, p);
         if (successfulFastAttack(self, "of_aoe"))
         {
-            setCommandTimerValue(self, TIMER_COOLDOWN, 0f);
+            setCommandTimerValue(self, TIMER_COOLDOWN, 0.0f);
         }
         return SCRIPT_CONTINUE;
     }
@@ -4295,11 +4293,11 @@ public class combat_actions extends script.systems.combat.combat_base
             return SCRIPT_OVERRIDE;
         }
         prose_package p = prose.getPackage(new string_id("spam", "hailfire_coming"));
-        commPlayers(self, "object/mobile/npe/npe_hutt_minion.iff", "sound/sys_comm_other.snd", 5f, self, p);
+        commPlayers(self, "object/mobile/npe/npe_hutt_minion.iff", "sound/sys_comm_other.snd", 5.0f, self, p);
         playClientEffectLoc(self, "clienteffect/combat_pt_aerialstrike.cef", getLocation(target), 0);
         if (successfulFastAttack(self, "of_aoe"))
         {
-            setCommandTimerValue(self, TIMER_COOLDOWN, 0f);
+            setCommandTimerValue(self, TIMER_COOLDOWN, 0.0f);
         }
         return SCRIPT_CONTINUE;
     }
@@ -4315,11 +4313,11 @@ public class combat_actions extends script.systems.combat.combat_base
             return SCRIPT_OVERRIDE;
         }
         prose_package p = prose.getPackage(new string_id("spam", "orbitalstrike_coming"));
-        commPlayers(self, "object/mobile/npe/npe_hutt_minion.iff", "sound/sys_comm_other.snd", 5f, self, p);
+        commPlayers(self, "object/mobile/npe/npe_hutt_minion.iff", "sound/sys_comm_other.snd", 5.0f, self, p);
         playClientEffectLoc(self, "clienteffect/combat_pt_orbitalstrike.cef", getLocation(target), 0);
         if (successfulFastAttack(self, "of_aoe"))
         {
-            setCommandTimerValue(self, TIMER_COOLDOWN, 0f);
+            setCommandTimerValue(self, TIMER_COOLDOWN, 0.0f);
         }
         doInspiredAction(self);
         return SCRIPT_CONTINUE;
@@ -4332,7 +4330,7 @@ public class combat_actions extends script.systems.combat.combat_base
         }
         if (successfulFastAttack(self, "of_aoe"))
         {
-            setCommandTimerValue(self, TIMER_COOLDOWN, 0f);
+            setCommandTimerValue(self, TIMER_COOLDOWN, 0.0f);
         }
         return SCRIPT_CONTINUE;
     }
@@ -4344,7 +4342,7 @@ public class combat_actions extends script.systems.combat.combat_base
         }
         if (successfulFastAttack(self, "of_aoe"))
         {
-            setCommandTimerValue(self, TIMER_COOLDOWN, 0f);
+            setCommandTimerValue(self, TIMER_COOLDOWN, 0.0f);
         }
         return SCRIPT_CONTINUE;
     }
@@ -4356,7 +4354,7 @@ public class combat_actions extends script.systems.combat.combat_base
         }
         if (successfulFastAttack(self, "of_aoe"))
         {
-            setCommandTimerValue(self, TIMER_COOLDOWN, 0f);
+            setCommandTimerValue(self, TIMER_COOLDOWN, 0.0f);
         }
         doInspiredAction(self);
         return SCRIPT_CONTINUE;
@@ -4369,7 +4367,7 @@ public class combat_actions extends script.systems.combat.combat_base
         }
         if (successfulFastAttack(self, "of_aoe"))
         {
-            setCommandTimerValue(self, TIMER_COOLDOWN, 0f);
+            setCommandTimerValue(self, TIMER_COOLDOWN, 0.0f);
         }
         return SCRIPT_CONTINUE;
     }
@@ -4438,9 +4436,8 @@ public class combat_actions extends script.systems.combat.combat_base
             prose.setTT(pp, self);
             if (members != null && members.length > 0)
             {
-                for (int i = 0; i < members.length; ++i)
-                {
-                    combat.sendCombatSpamMessageProse(members[i], pp);
+                for (obj_id member : members) {
+                    combat.sendCombatSpamMessageProse(member, pp);
                 }
             }
             squad_leader.sendSquadLeaderCommand(self, "Rallypoint has been set!");
@@ -4492,9 +4489,8 @@ public class combat_actions extends script.systems.combat.combat_base
             prose.setTT(pp, self);
             if (members != null && members.length > 0)
             {
-                for (int i = 0; i < members.length; ++i)
-                {
-                    combat.sendCombatSpamMessageProse(members[i], pp);
+                for (obj_id member : members) {
+                    combat.sendCombatSpamMessageProse(member, pp);
                 }
             }
             squad_leader.sendSquadLeaderCommand(self, "Rallypoint has been set!");
@@ -4641,7 +4637,7 @@ public class combat_actions extends script.systems.combat.combat_base
         }
         if (successfulFastAttack(self, "of_heal", "quick_heal_fly"))
         {
-            setCommandTimerValue(self, TIMER_COOLDOWN, 0f);
+            setCommandTimerValue(self, TIMER_COOLDOWN, 0.0f);
             return SCRIPT_CONTINUE;
         }
         float baseCooldownTime = getBaseCooldownTime("of_sh_0");
@@ -4666,7 +4662,7 @@ public class combat_actions extends script.systems.combat.combat_base
         }
         if (successfulFastAttack(self, "of_heal", "quick_heal_fly"))
         {
-            setCommandTimerValue(self, TIMER_COOLDOWN, 0f);
+            setCommandTimerValue(self, TIMER_COOLDOWN, 0.0f);
             return SCRIPT_CONTINUE;
         }
         float baseCooldownTime = getBaseCooldownTime("of_sh_1");
@@ -4691,7 +4687,7 @@ public class combat_actions extends script.systems.combat.combat_base
         }
         if (successfulFastAttack(self, "of_heal", "quick_heal_fly"))
         {
-            setCommandTimerValue(self, TIMER_COOLDOWN, 0f);
+            setCommandTimerValue(self, TIMER_COOLDOWN, 0.0f);
             return SCRIPT_CONTINUE;
         }
         float baseCooldownTime = getBaseCooldownTime("of_sh_2");
@@ -4717,7 +4713,7 @@ public class combat_actions extends script.systems.combat.combat_base
         doInspiredAction(self);
         if (successfulFastAttack(self, "of_heal", "quick_heal_fly"))
         {
-            setCommandTimerValue(self, TIMER_COOLDOWN, 0f);
+            setCommandTimerValue(self, TIMER_COOLDOWN, 0.0f);
             return SCRIPT_CONTINUE;
         }
         float baseCooldownTime = getBaseCooldownTime("of_sh_3");
@@ -6164,7 +6160,7 @@ public class combat_actions extends script.systems.combat.combat_base
         }
         if (successfulFastAttack(self, "sm_dm"))
         {
-            setCommandTimerValue(self, TIMER_COOLDOWN, 0f);
+            setCommandTimerValue(self, TIMER_COOLDOWN, 0.0f);
             return SCRIPT_CONTINUE;
         }
         float baseCooldownTime = getBaseCooldownTime("sm_dm_1");
@@ -6184,7 +6180,7 @@ public class combat_actions extends script.systems.combat.combat_base
         }
         if (successfulFastAttack(self, "sm_dm"))
         {
-            setCommandTimerValue(self, TIMER_COOLDOWN, 0f);
+            setCommandTimerValue(self, TIMER_COOLDOWN, 0.0f);
             return SCRIPT_CONTINUE;
         }
         float baseCooldownTime = getBaseCooldownTime("sm_dm_1");
@@ -6204,7 +6200,7 @@ public class combat_actions extends script.systems.combat.combat_base
         }
         if (successfulFastAttack(self, "sm_dm"))
         {
-            setCommandTimerValue(self, TIMER_COOLDOWN, 0f);
+            setCommandTimerValue(self, TIMER_COOLDOWN, 0.0f);
             return SCRIPT_CONTINUE;
         }
         float baseCooldownTime = getBaseCooldownTime("sm_dm_1");
@@ -6224,7 +6220,7 @@ public class combat_actions extends script.systems.combat.combat_base
         }
         if (successfulFastAttack(self, "sm_dm"))
         {
-            setCommandTimerValue(self, TIMER_COOLDOWN, 0f);
+            setCommandTimerValue(self, TIMER_COOLDOWN, 0.0f);
             return SCRIPT_CONTINUE;
         }
         float baseCooldownTime = getBaseCooldownTime("sm_dm_1");
@@ -6244,7 +6240,7 @@ public class combat_actions extends script.systems.combat.combat_base
         }
         if (successfulFastAttack(self, "sm_dm"))
         {
-            setCommandTimerValue(self, TIMER_COOLDOWN, 0f);
+            setCommandTimerValue(self, TIMER_COOLDOWN, 0.0f);
             return SCRIPT_CONTINUE;
         }
         float baseCooldownTime = getBaseCooldownTime("sm_dm_1");
@@ -6264,7 +6260,7 @@ public class combat_actions extends script.systems.combat.combat_base
         }
         if (successfulFastAttack(self, "sm_dm"))
         {
-            setCommandTimerValue(self, TIMER_COOLDOWN, 0f);
+            setCommandTimerValue(self, TIMER_COOLDOWN, 0.0f);
             return SCRIPT_CONTINUE;
         }
         float baseCooldownTime = getBaseCooldownTime("sm_dm_1");
@@ -6284,7 +6280,7 @@ public class combat_actions extends script.systems.combat.combat_base
         }
         if (successfulFastAttack(self, "sm_dm"))
         {
-            setCommandTimerValue(self, TIMER_COOLDOWN, 0f);
+            setCommandTimerValue(self, TIMER_COOLDOWN, 0.0f);
             return SCRIPT_CONTINUE;
         }
         float baseCooldownTime = getBaseCooldownTime("sm_dm_1");
@@ -6312,7 +6308,7 @@ public class combat_actions extends script.systems.combat.combat_base
         }
         if (successfulFastAttack(self, "sm_dm"))
         {
-            setCommandTimerValue(self, TIMER_COOLDOWN, 0f);
+            setCommandTimerValue(self, TIMER_COOLDOWN, 0.0f);
             return SCRIPT_CONTINUE;
         }
         float baseCooldownTime = getBaseCooldownTime("sm_dm_melee_1");
@@ -6332,7 +6328,7 @@ public class combat_actions extends script.systems.combat.combat_base
         }
         if (successfulFastAttack(self, "sm_dm"))
         {
-            setCommandTimerValue(self, TIMER_COOLDOWN, 0f);
+            setCommandTimerValue(self, TIMER_COOLDOWN, 0.0f);
             return SCRIPT_CONTINUE;
         }
         float baseCooldownTime = getBaseCooldownTime("sm_dm_melee_2");
@@ -6352,7 +6348,7 @@ public class combat_actions extends script.systems.combat.combat_base
         }
         if (successfulFastAttack(self, "sm_dm"))
         {
-            setCommandTimerValue(self, TIMER_COOLDOWN, 0f);
+            setCommandTimerValue(self, TIMER_COOLDOWN, 0.0f);
             return SCRIPT_CONTINUE;
         }
         float baseCooldownTime = getBaseCooldownTime("sm_dm_melee_3");
@@ -6372,7 +6368,7 @@ public class combat_actions extends script.systems.combat.combat_base
         }
         if (successfulFastAttack(self, "sm_dm"))
         {
-            setCommandTimerValue(self, TIMER_COOLDOWN, 0f);
+            setCommandTimerValue(self, TIMER_COOLDOWN, 0.0f);
             return SCRIPT_CONTINUE;
         }
         float baseCooldownTime = getBaseCooldownTime("sm_dm_melee_4");
@@ -6392,7 +6388,7 @@ public class combat_actions extends script.systems.combat.combat_base
         }
         if (successfulFastAttack(self, "sm_dm"))
         {
-            setCommandTimerValue(self, TIMER_COOLDOWN, 0f);
+            setCommandTimerValue(self, TIMER_COOLDOWN, 0.0f);
             return SCRIPT_CONTINUE;
         }
         float baseCooldownTime = getBaseCooldownTime("sm_dm_melee_5");
@@ -6412,7 +6408,7 @@ public class combat_actions extends script.systems.combat.combat_base
         }
         if (successfulFastAttack(self, "sm_dm"))
         {
-            setCommandTimerValue(self, TIMER_COOLDOWN, 0f);
+            setCommandTimerValue(self, TIMER_COOLDOWN, 0.0f);
             return SCRIPT_CONTINUE;
         }
         float baseCooldownTime = getBaseCooldownTime("sm_dm_melee_6");
@@ -6432,7 +6428,7 @@ public class combat_actions extends script.systems.combat.combat_base
         }
         if (successfulFastAttack(self, "sm_dm"))
         {
-            setCommandTimerValue(self, TIMER_COOLDOWN, 0f);
+            setCommandTimerValue(self, TIMER_COOLDOWN, 0.0f);
             return SCRIPT_CONTINUE;
         }
         float baseCooldownTime = getBaseCooldownTime("sm_dm_melee_7");
@@ -7322,11 +7318,8 @@ public class combat_actions extends script.systems.combat.combat_base
             pp.stringId = new string_id("bounty_hunter", "sm_bounty_amount_target_with_bounties");
             prose.setDI(pp, amount);
             sendSystemMessageProse(infoTarget, pp);
-            for (int i = 0; i < bounties.length; i++)
-            {
-                obj_id bountyHunter = bounties[i];
-                if (isIdValid(bountyHunter))
-                {
+            for (obj_id bountyHunter : bounties) {
+                if (isIdValid(bountyHunter)) {
                     dictionary messageParams = new dictionary();
                     messageParams.put("smuggler", infoTarget);
                     messageTo(bountyHunter, "handleSmugglerGetLocationInfo", messageParams, 1.0f, false);
@@ -7501,13 +7494,13 @@ public class combat_actions extends script.systems.combat.combat_base
             messageTo(self, "withoutTraceTimerExpired", blankMsg, 30, false);
             if (successfulFastAttack(self, "sp_perfect", "perfect_opportunity_fly"))
             {
-                setCommandTimerValue(self, TIMER_COOLDOWN, 0f);
+                setCommandTimerValue(self, TIMER_COOLDOWN, 0.0f);
                 buff.applyBuff(self, self, "sp_set_perfect_opportunity");
                 return SCRIPT_CONTINUE;
             }
             if (successfulFastAttack(self, "sp_smoke", "flawless_getaway_fly"))
             {
-                setCommandTimerValue(self, TIMER_COOLDOWN, 0f);
+                setCommandTimerValue(self, TIMER_COOLDOWN, 0.0f);
                 return SCRIPT_CONTINUE;
             }
             float baseCooldownTime = getBaseCooldownTime("sp_buff_invis_1");
@@ -7531,13 +7524,13 @@ public class combat_actions extends script.systems.combat.combat_base
         messageTo(self, "smokeBombTimerExpired", blankMsg, 10, false);
         if (successfulFastAttack(self, "sp_perfect", "perfect_opportunity_fly"))
         {
-            setCommandTimerValue(self, TIMER_COOLDOWN, 0f);
+            setCommandTimerValue(self, TIMER_COOLDOWN, 0.0f);
             buff.applyBuff(self, self, "sp_set_perfect_opportunity");
             return SCRIPT_CONTINUE;
         }
         if (successfulFastAttack(self, "sp_smoke", "flawless_getaway_fly"))
         {
-            setCommandTimerValue(self, TIMER_COOLDOWN, 0f);
+            setCommandTimerValue(self, TIMER_COOLDOWN, 0.0f);
             return SCRIPT_CONTINUE;
         }
         float baseCooldownTime = getBaseCooldownTime("sp_buff_invis_1");
@@ -7656,27 +7649,21 @@ public class combat_actions extends script.systems.combat.combat_base
             }
             return SCRIPT_CONTINUE;
         }
-        for (int i = 0; i < haters.length; i++)
-        {
-            if (!isIdValid(haters[i]) || !exists(haters[i]))
-            {
+        for (obj_id hater : haters) {
+            if (!isIdValid(hater) || !exists(hater)) {
                 continue;
             }
-            obj_id[] hateList = getHateList(haters[i]);
-            if (hateList == null || hateList.length == 0)
-            {
+            obj_id[] hateList = getHateList(hater);
+            if (hateList == null || hateList.length == 0) {
                 continue;
             }
-            for (int k = 0; k < hateList.length; k++)
-            {
-                if (!isIdValid(hateList[k]) || !exists(hateList[k]))
-                {
+            for (obj_id obj_id : hateList) {
+                if (!isIdValid(obj_id) || !exists(obj_id)) {
                     continue;
                 }
-                if (hateList[k] == self)
-                {
-                    setHate(haters[i], decoy, getHate(haters[i], self) * 2);
-                    setTarget(haters[i], decoy);
+                if (obj_id == self) {
+                    setHate(hater, decoy, getHate(hater, self) * 2);
+                    setTarget(hater, decoy);
                 }
             }
         }
@@ -7752,7 +7739,7 @@ public class combat_actions extends script.systems.combat.combat_base
         }
         if (successfulFastAttack(self, "sp_dm"))
         {
-            setCommandTimerValue(self, TIMER_COOLDOWN, 0f);
+            setCommandTimerValue(self, TIMER_COOLDOWN, 0.0f);
             return SCRIPT_CONTINUE;
         }
         float baseCooldownTime = getBaseCooldownTime("sp_dm_1");
@@ -7772,7 +7759,7 @@ public class combat_actions extends script.systems.combat.combat_base
         }
         if (successfulFastAttack(self, "sp_dm"))
         {
-            setCommandTimerValue(self, TIMER_COOLDOWN, 0f);
+            setCommandTimerValue(self, TIMER_COOLDOWN, 0.0f);
             return SCRIPT_CONTINUE;
         }
         float baseCooldownTime = getBaseCooldownTime("sp_dm_2");
@@ -7792,7 +7779,7 @@ public class combat_actions extends script.systems.combat.combat_base
         }
         if (successfulFastAttack(self, "sp_dm"))
         {
-            setCommandTimerValue(self, TIMER_COOLDOWN, 0f);
+            setCommandTimerValue(self, TIMER_COOLDOWN, 0.0f);
             return SCRIPT_CONTINUE;
         }
         float baseCooldownTime = getBaseCooldownTime("sp_dm_3");
@@ -7812,7 +7799,7 @@ public class combat_actions extends script.systems.combat.combat_base
         }
         if (successfulFastAttack(self, "sp_dm"))
         {
-            setCommandTimerValue(self, TIMER_COOLDOWN, 0f);
+            setCommandTimerValue(self, TIMER_COOLDOWN, 0.0f);
             return SCRIPT_CONTINUE;
         }
         float baseCooldownTime = getBaseCooldownTime("sp_dm_4");
@@ -7832,7 +7819,7 @@ public class combat_actions extends script.systems.combat.combat_base
         }
         if (successfulFastAttack(self, "sp_dm"))
         {
-            setCommandTimerValue(self, TIMER_COOLDOWN, 0f);
+            setCommandTimerValue(self, TIMER_COOLDOWN, 0.0f);
             return SCRIPT_CONTINUE;
         }
         float baseCooldownTime = getBaseCooldownTime("sp_dm_5");
@@ -7852,7 +7839,7 @@ public class combat_actions extends script.systems.combat.combat_base
         }
         if (successfulFastAttack(self, "sp_dm"))
         {
-            setCommandTimerValue(self, TIMER_COOLDOWN, 0f);
+            setCommandTimerValue(self, TIMER_COOLDOWN, 0.0f);
             return SCRIPT_CONTINUE;
         }
         float baseCooldownTime = getBaseCooldownTime("sp_dm_6");
@@ -7872,7 +7859,7 @@ public class combat_actions extends script.systems.combat.combat_base
         }
         if (successfulFastAttack(self, "sp_dm"))
         {
-            setCommandTimerValue(self, TIMER_COOLDOWN, 0f);
+            setCommandTimerValue(self, TIMER_COOLDOWN, 0.0f);
             return SCRIPT_CONTINUE;
         }
         float baseCooldownTime = getBaseCooldownTime("sp_dm_7");
@@ -7892,7 +7879,7 @@ public class combat_actions extends script.systems.combat.combat_base
         }
         if (successfulFastAttack(self, "sp_dm"))
         {
-            setCommandTimerValue(self, TIMER_COOLDOWN, 0f);
+            setCommandTimerValue(self, TIMER_COOLDOWN, 0.0f);
             return SCRIPT_CONTINUE;
         }
         float baseCooldownTime = getBaseCooldownTime("sp_dm_8");
@@ -9460,7 +9447,7 @@ public class combat_actions extends script.systems.combat.combat_base
         Long lngId;
         try
         {
-            lngId = new Long(params);
+            lngId = Long.valueOf(params);
         }
         catch(NumberFormatException err)
         {
@@ -9505,7 +9492,7 @@ public class combat_actions extends script.systems.combat.combat_base
         Long lngId;
         try
         {
-            lngId = new Long(params);
+            lngId = Long.valueOf(params);
         }
         catch(NumberFormatException err)
         {
@@ -9894,7 +9881,7 @@ public class combat_actions extends script.systems.combat.combat_base
             return SCRIPT_OVERRIDE;
         }
         prose_package p = prose.getPackage(new string_id("spam", "pvp_airstrike_imperial"));
-        commPlayers(self, "object/mobile/space_comm_imperial_tiefighter_01.iff", "sound/sys_comm_other.snd", 5f, self, p);
+        commPlayers(self, "object/mobile/space_comm_imperial_tiefighter_01.iff", "sound/sys_comm_other.snd", 5.0f, self, p);
         playClientEffectLoc(self, "clienteffect/pvp_imperial_airstrike.cef", getLocation(target), 0);
         return SCRIPT_CONTINUE;
     }
@@ -9910,7 +9897,7 @@ public class combat_actions extends script.systems.combat.combat_base
             return SCRIPT_OVERRIDE;
         }
         prose_package p = prose.getPackage(new string_id("spam", "pvp_airstrike_rebel"));
-        commPlayers(self, "object/mobile/space_comm_rebel_xwing_02.iff", "sound/sys_comm_other.snd", 5f, self, p);
+        commPlayers(self, "object/mobile/space_comm_rebel_xwing_02.iff", "sound/sys_comm_other.snd", 5.0f, self, p);
         playClientEffectLoc(self, "clienteffect/pvp_rebel_airstrike.cef", getLocation(target), 0);
         return SCRIPT_CONTINUE;
     }
@@ -10374,20 +10361,20 @@ public class combat_actions extends script.systems.combat.combat_base
         obj_id beast = beast_lib.getBeastOnPlayer(self);
         if (!exists(beast) || isIdNull(beast))
         {
-            setCommandTimerValue(self, TIMER_COOLDOWN, 0f);
+            setCommandTimerValue(self, TIMER_COOLDOWN, 0.0f);
             sendSystemMessage(self, new string_id("spam", "no_beast_out"));
             return SCRIPT_OVERRIDE;
         }
         target = beast;
         if (!isDead(beast) == false)
         {
-            setCommandTimerValue(self, TIMER_COOLDOWN, 0f);
+            setCommandTimerValue(self, TIMER_COOLDOWN, 0.0f);
             sendSystemMessage(self, new string_id("spam", "pet_beyond_healing"));
             return SCRIPT_OVERRIDE;
         }
         if (!combatStandardAction("bm_soothing_comfort_1", self, target, params, "", ""))
         {
-            setCommandTimerValue(self, TIMER_COOLDOWN, 0f);
+            setCommandTimerValue(self, TIMER_COOLDOWN, 0.0f);
             return SCRIPT_OVERRIDE;
         }
         return SCRIPT_CONTINUE;
@@ -10398,13 +10385,13 @@ public class combat_actions extends script.systems.combat.combat_base
         if (!exists(beast) || isIdNull(beast))
         {
             sendSystemMessage(self, new string_id("spam", "no_beast_out"));
-            setCommandTimerValue(self, TIMER_COOLDOWN, 0f);
+            setCommandTimerValue(self, TIMER_COOLDOWN, 0.0f);
             return SCRIPT_OVERRIDE;
         }
         target = beast;
         if (isDead(beast))
         {
-            setCommandTimerValue(self, TIMER_COOLDOWN, 0f);
+            setCommandTimerValue(self, TIMER_COOLDOWN, 0.0f);
             sendSystemMessage(self, new string_id("spam", "pet_beyond_healing"));
             return SCRIPT_OVERRIDE;
         }
@@ -10414,7 +10401,7 @@ public class combat_actions extends script.systems.combat.combat_base
         }
         if (!combatStandardAction("bm_mend_pet_1", self, target, params, "", ""))
         {
-            setCommandTimerValue(self, TIMER_COOLDOWN, 0f);
+            setCommandTimerValue(self, TIMER_COOLDOWN, 0.0f);
             return SCRIPT_OVERRIDE;
         }
         int toHeal = dataTableGetInt(COMBAT_TABLE, "bm_mend_pet_1", "addedDamage");
@@ -10427,13 +10414,13 @@ public class combat_actions extends script.systems.combat.combat_base
         if (!exists(beast) || isIdNull(beast))
         {
             sendSystemMessage(self, new string_id("spam", "no_beast_out"));
-            setCommandTimerValue(self, TIMER_COOLDOWN, 0f);
+            setCommandTimerValue(self, TIMER_COOLDOWN, 0.0f);
             return SCRIPT_OVERRIDE;
         }
         target = beast;
         if (isDead(beast))
         {
-            setCommandTimerValue(self, TIMER_COOLDOWN, 0f);
+            setCommandTimerValue(self, TIMER_COOLDOWN, 0.0f);
             sendSystemMessage(self, new string_id("spam", "pet_beyond_healing"));
             return SCRIPT_OVERRIDE;
         }
@@ -10443,7 +10430,7 @@ public class combat_actions extends script.systems.combat.combat_base
         }
         if (!combatStandardAction("bm_mend_pet_2", self, target, params, "", ""))
         {
-            setCommandTimerValue(self, TIMER_COOLDOWN, 0f);
+            setCommandTimerValue(self, TIMER_COOLDOWN, 0.0f);
             return SCRIPT_OVERRIDE;
         }
         int toHeal = dataTableGetInt(COMBAT_TABLE, "bm_mend_pet_2", "addedDamage");
@@ -10456,13 +10443,13 @@ public class combat_actions extends script.systems.combat.combat_base
         if (!exists(beast) || isIdNull(beast))
         {
             sendSystemMessage(self, new string_id("spam", "no_beast_out"));
-            setCommandTimerValue(self, TIMER_COOLDOWN, 0f);
+            setCommandTimerValue(self, TIMER_COOLDOWN, 0.0f);
             return SCRIPT_OVERRIDE;
         }
         target = beast;
         if (isDead(beast))
         {
-            setCommandTimerValue(self, TIMER_COOLDOWN, 0f);
+            setCommandTimerValue(self, TIMER_COOLDOWN, 0.0f);
             sendSystemMessage(self, new string_id("spam", "pet_beyond_healing"));
             return SCRIPT_OVERRIDE;
         }
@@ -10472,7 +10459,7 @@ public class combat_actions extends script.systems.combat.combat_base
         }
         if (!combatStandardAction("bm_mend_pet_3", self, target, params, "", ""))
         {
-            setCommandTimerValue(self, TIMER_COOLDOWN, 0f);
+            setCommandTimerValue(self, TIMER_COOLDOWN, 0.0f);
             return SCRIPT_OVERRIDE;
         }
         int toHeal = dataTableGetInt(COMBAT_TABLE, "bm_mend_pet_3", "addedDamage");
@@ -10485,25 +10472,25 @@ public class combat_actions extends script.systems.combat.combat_base
         if (!exists(beast) || isIdNull(beast))
         {
             sendSystemMessage(self, new string_id("spam", "no_beast_out"));
-            setCommandTimerValue(self, TIMER_COOLDOWN, 0f);
+            setCommandTimerValue(self, TIMER_COOLDOWN, 0.0f);
             return SCRIPT_OVERRIDE;
         }
         target = beast;
         if (!isDead(beast))
         {
             sendSystemMessage(self, new string_id("spam", "beast_not_dead"));
-            setCommandTimerValue(self, TIMER_COOLDOWN, 0f);
+            setCommandTimerValue(self, TIMER_COOLDOWN, 0.0f);
             return SCRIPT_OVERRIDE;
         }
         if (getDistance(getLocation(self), getLocation(beast)) > 7.0f)
         {
             sendSystemMessage(self, new string_id("spam", "stand_next_to_corpse"));
-            setCommandTimerValue(self, TIMER_COOLDOWN, 0f);
+            setCommandTimerValue(self, TIMER_COOLDOWN, 0.0f);
             return SCRIPT_OVERRIDE;
         }
         if (!combatStandardAction("bm_revive_pet_1", self, target, params, "", ""))
         {
-            setCommandTimerValue(self, TIMER_COOLDOWN, 0f);
+            setCommandTimerValue(self, TIMER_COOLDOWN, 0.0f);
             return SCRIPT_OVERRIDE;
         }
         messageTo(self, "channelRevivePet", null, 0, false);
@@ -10561,22 +10548,18 @@ public class combat_actions extends script.systems.combat.combat_base
             return SCRIPT_CONTINUE;
         }
         prose_package pp = new prose_package();
-        for (int i = 0; i < buffList.length; i++)
-        {
-            if (movement.isStunEffect(buff.getBuffNameFromCrc(buffList[i])))
-            {
+        for (int i1 : buffList) {
+            if (movement.isStunEffect(buff.getBuffNameFromCrc(i1))) {
                 effectActive = true;
                 pp = prose.setStringId(pp, new string_id("combat_effects", "go_stunned"));
                 showFlyTextPrivateProseWithFlags(self, self, pp, 1.5f, colors.LAWNGREEN, FLY_TEXT_FLAG_IS_SNARE);
             }
-            if (movement.isRoot(buffList[i]))
-            {
+            if (movement.isRoot(i1)) {
                 effectActive = true;
                 pp = prose.setStringId(pp, new string_id("combat_effects", "go_rooted"));
                 showFlyTextPrivateProseWithFlags(self, self, pp, 1.5f, colors.LAWNGREEN, FLY_TEXT_FLAG_IS_SNARE);
             }
-            if (movement.isSnare(buffList[i]))
-            {
+            if (movement.isSnare(i1)) {
                 effectActive = true;
                 pp = prose.setStringId(pp, new string_id("combat_effects", "go_snare"));
                 showFlyTextPrivateProseWithFlags(self, self, pp, 1.5f, colors.LAWNGREEN, FLY_TEXT_FLAG_IS_SNARE);
@@ -10584,7 +10567,7 @@ public class combat_actions extends script.systems.combat.combat_base
         }
         if (effectActive)
         {
-            messageTo(self, "updateCrowdControlEffect", null, 4f, false);
+            messageTo(self, "updateCrowdControlEffect", null, 4.0f, false);
         }
         return SCRIPT_CONTINUE;
     }
@@ -10735,20 +10718,17 @@ public class combat_actions extends script.systems.combat.combat_base
     public int creatureAreaDiseaseSuccess(obj_id self, dictionary params) throws InterruptedException
     {
         obj_id[] defenders = params.getObjIdArray("defenders");
-        for (int i = 0; i < defenders.length; i++)
-        {
-            dot.applyDotEffect(defenders[i], self, dot.DOT_DISEASE, "creatureDiseaseAttack", HEALTH, 100, 300, 300);
+        for (obj_id defender : defenders) {
+            dot.applyDotEffect(defender, self, dot.DOT_DISEASE, "creatureDiseaseAttack", HEALTH, 100, 300, 300);
         }
         return SCRIPT_CONTINUE;
     }
     public int creatureAreaPoisonSuccess(obj_id self, dictionary params) throws InterruptedException
     {
         obj_id[] defenders = params.getObjIdArray("defenders");
-        for (int i = 0; i < defenders.length; i++)
-        {
-            if (dot.canApplyDotType(defenders[i], dot.DOT_POISON))
-            {
-                dot.applyDotEffect(defenders[i], self, dot.DOT_POISON, "creaturePoisonAttack", HEALTH, 100, 150, 300);
+        for (obj_id defender : defenders) {
+            if (dot.canApplyDotType(defender, dot.DOT_POISON)) {
+                dot.applyDotEffect(defender, self, dot.DOT_POISON, "creaturePoisonAttack", HEALTH, 100, 150, 300);
             }
         }
         return SCRIPT_CONTINUE;
@@ -12044,11 +12024,9 @@ public class combat_actions extends script.systems.combat.combat_base
             return SCRIPT_CONTINUE;
         }
         obj_id gorvo = null;
-        for (int i = 0; i < spawn_id.length; i++)
-        {
-            if ((getStringObjVar(spawn_id[i], "spawn_id")).equals("gorvo"))
-            {
-                gorvo = spawn_id[i];
+        for (obj_id obj_id : spawn_id) {
+            if ((getStringObjVar(obj_id, "spawn_id")).equals("gorvo")) {
+                gorvo = obj_id;
             }
         }
         if (!isIdValid(gorvo) || ai_lib.isDead(gorvo))
@@ -12056,7 +12034,7 @@ public class combat_actions extends script.systems.combat.combat_base
             return SCRIPT_CONTINUE;
         }
         int healingReduction = getEnhancedSkillStatisticModifierUncapped(gorvo, "expertise_healing_reduction");
-        float redux = (float)healingReduction / ((float)healingReduction + 75.0f);
+        float redux = healingReduction / (healingReduction + 75.0f);
         int toHeal = (int)(50000.0f - (50000.0f * redux));
         toHeal = toHeal < 1 ? 1 : toHeal;
         healing.healDamage(gorvo, HEALTH, toHeal);
@@ -12137,11 +12115,9 @@ public class combat_actions extends script.systems.combat.combat_base
         filteredDefenders.setSize(0);
         if (defenders != null && defenders.length > 0)
         {
-            for (int i = 0; i < defenders.length; i++)
-            {
-                if (isIdValid(defenders[i]) && !isDead(defenders[i]) && isPlayer(defenders[i]))
-                {
-                    filteredDefenders = utils.addElement(filteredDefenders, defenders[i]);
+            for (obj_id defender : defenders) {
+                if (isIdValid(defender) && !isDead(defender) && isPlayer(defender)) {
+                    filteredDefenders = utils.addElement(filteredDefenders, defender);
                 }
             }
         }
@@ -12167,11 +12143,9 @@ public class combat_actions extends script.systems.combat.combat_base
         filteredDefenders.setSize(0);
         if (defenders != null && defenders.length > 0)
         {
-            for (int i = 0; i < defenders.length; i++)
-            {
-                if (isIdValid(defenders[i]) && !isDead(defenders[i]) && isPlayer(defenders[i]))
-                {
-                    filteredDefenders = utils.addElement(filteredDefenders, defenders[i]);
+            for (obj_id defender : defenders) {
+                if (isIdValid(defender) && !isDead(defender) && isPlayer(defender)) {
+                    filteredDefenders = utils.addElement(filteredDefenders, defender);
                 }
             }
         }
@@ -12215,10 +12189,10 @@ public class combat_actions extends script.systems.combat.combat_base
         }
         playClientEffectObj(self, "appearance/pt_gcw_rocket_launch.prt", self, "");
         playClientEffectObj(self, "sound/wep_heavy_rocket_launcher.snd", self, "");
-        playClientEffectLoc(target, "appearance/pt_ig88_rocket_target.prt", getLocation(target), 0f);
+        playClientEffectLoc(target, "appearance/pt_ig88_rocket_target.prt", getLocation(target), 0.0f);
         dictionary rocketParams = new dictionary();
         rocketParams.put("loc", getLocation(target));
-        messageTo(self, "gcw_rocket_hit", rocketParams, 2f, false);
+        messageTo(self, "gcw_rocket_hit", rocketParams, 2.0f, false);
         removeObjVar(self, "ai.combat.oneShotAction");
         removeObjVar(self, "oneShotActionComplete");
         return SCRIPT_CONTINUE;
@@ -12234,7 +12208,7 @@ public class combat_actions extends script.systems.combat.combat_base
     public int gcw_rocket_hit(obj_id self, dictionary params) throws InterruptedException
     {
         location loc = params.getLocation("loc");
-        playClientEffectLoc(self, "appearance/pt_gcw_rocket_hit.prt", loc, 0f);
+        playClientEffectLoc(self, "appearance/pt_gcw_rocket_hit.prt", loc, 0.0f);
         return SCRIPT_CONTINUE;
     }
     public int ig88_rocket_launch(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException
@@ -12248,10 +12222,10 @@ public class combat_actions extends script.systems.combat.combat_base
         }
         playClientEffectObj(self, "appearance/pt_ig88_rocket_launch.prt", self, "");
         playClientEffectObj(self, "sound/wep_heavy_rocket_launcher.snd", self, "");
-        playClientEffectLoc(target, "appearance/pt_ig88_rocket_target.prt", getLocation(target), 0f);
+        playClientEffectLoc(target, "appearance/pt_ig88_rocket_target.prt", getLocation(target), 0.0f);
         dictionary rocketParams = new dictionary();
         rocketParams.put("loc", getLocation(target));
-        messageTo(self, "ig88_rocket_hit", rocketParams, 2f, false);
+        messageTo(self, "ig88_rocket_hit", rocketParams, 2.0f, false);
         removeObjVar(self, "ai.combat.oneShotAction");
         removeObjVar(self, "oneShotActionComplete");
         return SCRIPT_CONTINUE;
@@ -12267,7 +12241,7 @@ public class combat_actions extends script.systems.combat.combat_base
     public int ig88_rocket_hit(obj_id self, dictionary params) throws InterruptedException
     {
         location loc = params.getLocation("loc");
-        playClientEffectLoc(self, "appearance/pt_ig88_rocket_hit.prt", loc, 0f);
+        playClientEffectLoc(self, "appearance/pt_ig88_rocket_hit.prt", loc, 0.0f);
         return SCRIPT_CONTINUE;
     }
     public int ig88_shockwave(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException
@@ -12328,9 +12302,9 @@ public class combat_actions extends script.systems.combat.combat_base
     public int kimaru_generate_storm(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException
     {
         obj_id[] hateList = getHateList(self);
-        location loc1 = new location(-63.6f, 16.f, 36.4f, "dungeon1", getCellId(trial.getTop(self), "r2"));
+        location loc1 = new location(-63.6f, 16.0f, 36.4f, "dungeon1", getCellId(trial.getTop(self), "r2"));
         location loc2 = new location(-69.8f, 15.0f, 9.6f, "dungeon1", getCellId(trial.getTop(self), "r2"));
-        location loc3 = new location(-44.4f, 9f, 1.5f, "dungeon1", getCellId(trial.getTop(self), "r2"));
+        location loc3 = new location(-44.4f, 9.0f, 1.5f, "dungeon1", getCellId(trial.getTop(self), "r2"));
         location loc4 = new location(-42.7f, 10.3f, 20.9f, "dungeon1", getCellId(trial.getTop(self), "r2"));
         location[] locList = 
         {
@@ -12507,11 +12481,9 @@ public class combat_actions extends script.systems.combat.combat_base
         {
             return SCRIPT_CONTINUE;
         }
-        for (int i = 0; i < hateList.length; i++)
-        {
-            if (hateList[i] != topHate && !buff.hasBuff(hateList[i], "axkva_crystalize"))
-            {
-                targets.add(hateList[i]);
+        for (obj_id obj_id : hateList) {
+            if (obj_id != topHate && !buff.hasBuff(obj_id, "axkva_crystalize")) {
+                targets.add(obj_id);
             }
         }
         if (targets == null || targets.size() == 0)
@@ -12623,7 +12595,7 @@ public class combat_actions extends script.systems.combat.combat_base
         {
             return SCRIPT_OVERRIDE;
         }
-        playClientEffectLoc(target, "appearance/pt_sd_kenkirk_hallway_strike.prt", getLocation(target), 0f);
+        playClientEffectLoc(target, "appearance/pt_sd_kenkirk_hallway_strike.prt", getLocation(target), 0.0f);
         return SCRIPT_CONTINUE;
     }
     public int sd_obliterate(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException
@@ -13464,21 +13436,17 @@ public class combat_actions extends script.systems.combat.combat_base
             play2dNonLoopingSound(self, "sound/hoth_snowspeeder_blaster_fire_01.snd");
             return SCRIPT_CONTINUE;
         }
-        for (int i = 0; i < allTar.length; i++)
-        {
-            if (allTar[i] == self || allTar[i] == speeder)
-            {
+        for (obj_id obj_id : allTar) {
+            if (obj_id == self || obj_id == speeder) {
                 continue;
             }
-            if (!pvpCanAttack(self, allTar[i]))
-            {
+            if (!pvpCanAttack(self, obj_id)) {
                 continue;
             }
-            if (isDead(allTar[i]))
-            {
+            if (isDead(obj_id)) {
                 continue;
             }
-            validTargets.add(allTar[i]);
+            validTargets.add(obj_id);
         }
         if (validTargets == null || validTargets.size() == 0)
         {
@@ -13488,11 +13456,9 @@ public class combat_actions extends script.systems.combat.combat_base
             return SCRIPT_CONTINUE;
         }
         float minRange = height * 3.0f;
-        for (int i = 0; i < validTargets.size(); i++)
-        {
-            if (ai_lib.isVehicle(((obj_id)validTargets.get(i))) && getDistance(speeder, target) > minRange)
-            {
-                target = ((obj_id)validTargets.get(i));
+        for (Object validTarget : validTargets) {
+            if (ai_lib.isVehicle(((obj_id) validTarget)) && getDistance(speeder, target) > minRange) {
+                target = ((obj_id) validTarget);
                 break;
             }
         }
@@ -13882,14 +13848,11 @@ public class combat_actions extends script.systems.combat.combat_base
         else 
         {
             obj_id[] members = getGroupMemberIds(sgId);
-            for (int i = 0; i < members.length; i++)
-            {
-                if (isIdValid(members[i]) && exists(members[i]) && !isDead(members[i]) && canSee(medic, members[i]) && getDistance(medic, members[i]) < 72.0f)
-                {
-                    performed_buff |= combatStandardAction(buffName, medic, members[i], params, "", "");
-                    obj_id beast = beast_lib.getBeastOnPlayer(members[i]);
-                    if (isIdValid(beast) && exists(beast) && !isDead(beast) && getDistance(medic, beast) < 72.0f)
-                    {
+            for (obj_id member : members) {
+                if (isIdValid(member) && exists(member) && !isDead(member) && canSee(medic, member) && getDistance(medic, member) < 72.0f) {
+                    performed_buff |= combatStandardAction(buffName, medic, member, params, "", "");
+                    obj_id beast = beast_lib.getBeastOnPlayer(member);
+                    if (isIdValid(beast) && exists(beast) && !isDead(beast) && getDistance(medic, beast) < 72.0f) {
                         performed_buff |= combatStandardAction(buffName, medic, beast, params, "", "");
                     }
                 }
@@ -14444,7 +14407,7 @@ public class combat_actions extends script.systems.combat.combat_base
         }
         if (successfulFastAttack(self, "of_aoe"))
         {
-            setCommandTimerValue(self, TIMER_COOLDOWN, 0f);
+            setCommandTimerValue(self, TIMER_COOLDOWN, 0.0f);
         }
         doInspiredAction(self);
         return SCRIPT_CONTINUE;
@@ -14463,7 +14426,7 @@ public class combat_actions extends script.systems.combat.combat_base
         playClientEffectLoc(self, "clienteffect/combat_pt_orbitalstrike_low_pt.cef", getLocation(target), 0);
         if (successfulFastAttack(self, "of_aoe"))
         {
-            setCommandTimerValue(self, TIMER_COOLDOWN, 0f);
+            setCommandTimerValue(self, TIMER_COOLDOWN, 0.0f);
         }
         doInspiredAction(self);
         return SCRIPT_CONTINUE;

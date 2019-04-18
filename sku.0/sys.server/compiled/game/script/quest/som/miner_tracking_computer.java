@@ -40,7 +40,7 @@ public class miner_tracking_computer extends script.base_script
                 playClientEffectObj(self, "clienteffect/survey_effect.cef", self, "");
                 dictionary dict = new dictionary();
                 dict.put("target", player);
-                messageTo(self, "handleMinerTrack", dict, 10f, false);
+                messageTo(self, "handleMinerTrack", dict, 10.0f, false);
                 return SCRIPT_CONTINUE;
             }
             if (groundquests.isTaskActive(player, "som_poison_miners", "mustafar_poison_miners_two_b"))

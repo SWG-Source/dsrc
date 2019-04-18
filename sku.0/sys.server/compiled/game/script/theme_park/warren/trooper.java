@@ -99,10 +99,8 @@ public class trooper extends script.base_script
             startCombat(self, attackers[rand(0, attackers.length - 1)]);
             return SCRIPT_CONTINUE;
         }
-        for (int i = 0; i < attackers.length; i++)
-        {
-            if (hasScript(attackers[i], "theme_park.warren.trooper"))
-            {
+        for (obj_id attacker : attackers) {
+            if (hasScript(attacker, "theme_park.warren.trooper")) {
                 startCombat(self, defender);
                 return SCRIPT_OVERRIDE;
             }

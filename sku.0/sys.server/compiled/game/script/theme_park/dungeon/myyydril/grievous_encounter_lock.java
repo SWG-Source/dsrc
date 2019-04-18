@@ -47,20 +47,15 @@ public class grievous_encounter_lock extends script.base_script
     public void clearEncounterCells(obj_id dungeon) throws InterruptedException
     {
         obj_id[] cellIds = getEncounterCellIds(dungeon);
-        for (int i = 0; i < cellIds.length; i++)
-        {
-            obj_id[] cellContents = getContents(cellIds[i]);
-            if (cellContents != null && cellContents.length > 0)
-            {
-                for (int k = 0; k < cellContents.length; k++)
-                {
-                    if (isPlayer(cellContents[k]))
-                    {
-                        ejectPlayersFromEncounter(cellContents[k], dungeon);
+        for (obj_id cellId : cellIds) {
+            obj_id[] cellContents = getContents(cellId);
+            if (cellContents != null && cellContents.length > 0) {
+                for (obj_id cellContent : cellContents) {
+                    if (isPlayer(cellContent)) {
+                        ejectPlayersFromEncounter(cellContent, dungeon);
                     }
-                    if ((getTemplateName(cellContents[k])).equals(encounter_manager))
-                    {
-                        messageTo(cellContents[k], "handleEndEncounter", null, 0, false);
+                    if ((getTemplateName(cellContent)).equals(encounter_manager)) {
+                        messageTo(cellContent, "handleEndEncounter", null, 0, false);
                     }
                 }
             }
@@ -71,16 +66,12 @@ public class grievous_encounter_lock extends script.base_script
         obj_id[] cellIds = getEncounterCellIds(dungeon);
         Vector players = new Vector();
         players.setSize(0);
-        for (int i = 0; i < cellIds.length; i++)
-        {
-            obj_id[] cellContents = getContents(cellIds[i]);
-            if (cellContents != null && cellContents.length > 0)
-            {
-                for (int k = 0; k < cellContents.length; k++)
-                {
-                    if (isPlayer(cellContents[k]))
-                    {
-                        players = utils.addElement(players, cellContents[k]);
+        for (obj_id cellId : cellIds) {
+            obj_id[] cellContents = getContents(cellId);
+            if (cellContents != null && cellContents.length > 0) {
+                for (obj_id cellContent : cellContents) {
+                    if (isPlayer(cellContent)) {
+                        players = utils.addElement(players, cellContent);
                     }
                 }
             }
@@ -109,18 +100,13 @@ public class grievous_encounter_lock extends script.base_script
         obj_id[] cellIds = getCellIds(dungeon);
         Vector eventPlayers = new Vector();
         eventPlayers.setSize(0);
-        for (int i = 0; i < cellIds.length; i++)
-        {
-            obj_id[] contents = getContents(cellIds[i]);
-            if (contents != null && contents.length > 0)
-            {
-                for (int k = 0; k < contents.length; k++)
-                {
-                    if (isPlayer(contents[k]) && hasScript(contents[k], "theme_park.dungeon.myyydril.grievous_player"))
-                    {
-                        if (validatePlayerSessionId(contents[k], dungeon))
-                        {
-                            eventPlayers = utils.addElement(eventPlayers, contents[k]);
+        for (obj_id cellId : cellIds) {
+            obj_id[] contents = getContents(cellId);
+            if (contents != null && contents.length > 0) {
+                for (obj_id content : contents) {
+                    if (isPlayer(content) && hasScript(content, "theme_park.dungeon.myyydril.grievous_player")) {
+                        if (validatePlayerSessionId(content, dungeon)) {
+                            eventPlayers = utils.addElement(eventPlayers, content);
                         }
                     }
                 }
@@ -194,11 +180,9 @@ public class grievous_encounter_lock extends script.base_script
         else 
         {
             obj_id[] groupMembers = getGroupMemberIds(groupObject);
-            for (int i = 0; i < groupMembers.length; i++)
-            {
-                if (isIdValid(groupMembers[i]) && getContainedBy(groupMembers[i]) == cell)
-                {
-                    moveSinglePlayerIntoEncounter(groupMembers[i], dungeon, sessionId);
+            for (obj_id groupMember : groupMembers) {
+                if (isIdValid(groupMember) && getContainedBy(groupMember) == cell) {
+                    moveSinglePlayerIntoEncounter(groupMember, dungeon, sessionId);
                 }
             }
         }
@@ -246,11 +230,9 @@ public class grievous_encounter_lock extends script.base_script
         }
         if (players != null && players.length > 0)
         {
-            for (int i = 0; i < players.length; i++)
-            {
-                if (!validatePlayerSessionId(players[i], dungeon))
-                {
-                    ejectPlayersFromEncounter(players[i], dungeon);
+            for (obj_id player : players) {
+                if (!validatePlayerSessionId(player, dungeon)) {
+                    ejectPlayersFromEncounter(player, dungeon);
                 }
             }
         }
@@ -386,10 +368,8 @@ public class grievous_encounter_lock extends script.base_script
         obj_id[] players = getPlayersInEncounterArea(self);
         if (players != null && players.length > 0)
         {
-            for (int i = 0; i < players.length; i++)
-            {
-                if (players[i] == item)
-                {
+            for (obj_id player : players) {
+                if (player == item) {
                     doLogging("OnRecievedItem", "Player(" + getName(item) + "/" + item + ") has entered encounter area, validating");
                     messageTo(self, "validatePlayersInEvent", null, 0, false);
                 }
@@ -458,11 +438,9 @@ public class grievous_encounter_lock extends script.base_script
         obj_id[] players = getPlayersInEncounterArea(self);
         if (players != null && players.length > 0)
         {
-            for (int i = 0; i < players.length; i++)
-            {
-                if (!validatePlayerSessionId(players[i], self))
-                {
-                    ejectPlayersFromEncounter(players[i], self);
+            for (obj_id player : players) {
+                if (!validatePlayerSessionId(player, self)) {
+                    ejectPlayersFromEncounter(player, self);
                 }
             }
         }

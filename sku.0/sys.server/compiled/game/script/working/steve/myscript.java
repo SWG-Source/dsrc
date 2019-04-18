@@ -185,7 +185,7 @@ public class myscript extends script.base_script
                 {
                     int maxhp = getMaxHitpoints(house);
                     int current = getHitpoints(house);
-                    int hp = current - (int)(maxhp * .1f);
+                    int hp = current - (int)(maxhp * 0.1f);
                     if (hp < 0)
                     {
                         hp = 0;
@@ -522,8 +522,8 @@ public class myscript extends script.base_script
             for (int i = 0; i < 100; ++i)
             {
                 templates[i] = "object/tangible/wearables/dress/nightsister_dress.iff";
-                x = (float)(Math.cos(arc * i)) * 20.0f;
-                z = (float)(Math.sin(arc * i)) * 20.0f;
+                x = (float)(StrictMath.cos(arc * i)) * 20.0f;
+                z = (float)(StrictMath.sin(arc * i)) * 20.0f;
                 positions[i] = new location(x, 0, z);
             }
             obj_id theater = createTheater("datatables/theater/test.iff", mypos, "steve.theater_test");
@@ -594,9 +594,8 @@ public class myscript extends script.base_script
             String[] scripts = schematicData.getScripts();
             if (scripts != null)
             {
-                for (int i = 0; i < scripts.length; ++i)
-                {
-                    debugSpeakMsg(self, "Script = " + scripts[i]);
+                for (String script : scripts) {
+                    debugSpeakMsg(self, "Script = " + script);
                 }
             }
             else 
@@ -897,9 +896,8 @@ public class myscript extends script.base_script
             obj_id[] objects = getNonCreaturesInRange(getLocation(self), 100.0f);
             if (objects != null)
             {
-                for (int i = 0; i < objects.length; ++i)
-                {
-                    debugConsoleMsg(self, "" + objects[i]);
+                for (obj_id object : objects) {
+                    debugConsoleMsg(self, "" + object);
                 }
             }
         }
@@ -1031,15 +1029,12 @@ public class myscript extends script.base_script
                 oldQuest = QUEST_3_STEP_02;
                 questScript = QUEST_3_SCRIPT;
             }
-            for (int i = 0; i < QUESTS.length; ++i)
-            {
-                int id = quests.getQuestId(QUESTS[i]);
-                if (isQuestActive(self, id))
-                {
+            for (String quest : QUESTS) {
+                int id = quests.getQuestId(quest);
+                if (isQuestActive(self, id)) {
                     deactivateQuest(self, id);
                 }
-                if (isQuestComplete(self, id))
-                {
+                if (isQuestComplete(self, id)) {
                     clearCompletedQuest(self, id);
                 }
             }
@@ -1063,16 +1058,13 @@ public class myscript extends script.base_script
                 QUEST_3_STEP_01,
                 QUEST_3_STEP_02
             };
-            for (int i = 0; i < QUESTS.length; ++i)
-            {
-                int id = quests.getQuestId(QUESTS[i]);
-                if (isQuestActive(self, id))
-                {
-                    debugConsoleMsg(self, "quest " + QUESTS[i] + " active");
+            for (String quest : QUESTS) {
+                int id = quests.getQuestId(quest);
+                if (isQuestActive(self, id)) {
+                    debugConsoleMsg(self, "quest " + quest + " active");
                 }
-                if (isQuestComplete(self, id))
-                {
-                    debugConsoleMsg(self, "quest " + QUESTS[i] + " complete");
+                if (isQuestComplete(self, id)) {
+                    debugConsoleMsg(self, "quest " + quest + " complete");
                 }
             }
         }
@@ -1400,9 +1392,8 @@ public class myscript extends script.base_script
             int[] buffs = buff.getAllBuffs(target);
             if (buffs != null && buffs.length > 0)
             {
-                for (int i = 0; i < buffs.length; ++i)
-                {
-                    debugSpeakMsg(self, "Buff = " + buff.getBuffNameFromCrc(buffs[i]));
+                for (int b : buffs) {
+                    debugSpeakMsg(self, "Buff = " + buff.getBuffNameFromCrc(b));
                 }
             }
             else 
@@ -1516,9 +1507,8 @@ public class myscript extends script.base_script
                 obj_id[] points = getObjIdArrayObjVar(target, "pathpoints");
                 if (points != null)
                 {
-                    for (int i = 0; i < points.length; ++i)
-                    {
-                        destroyObject(points[i]);
+                    for (obj_id point : points) {
+                        destroyObject(point);
                     }
                 }
             }
@@ -1620,9 +1610,8 @@ public class myscript extends script.base_script
             obj_id[] hatelist = getHateList(target);
             if (hatelist != null && hatelist.length > 0)
             {
-                for (int i = 0; i < hatelist.length; ++i)
-                {
-                    debugSpeakMsg(self, "hate " + hatelist[i]);
+                for (obj_id obj_id : hatelist) {
+                    debugSpeakMsg(self, "hate " + obj_id);
                 }
             }
             else 

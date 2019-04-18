@@ -760,14 +760,10 @@ public class ai extends script.base_script
         {
             if (pet_lib.isPet(self) && pet_lib.isGuarding(self, defender))
             {
-                for (int i = 0; i < attackers.length; ++i)
-                {
-                    final obj_id attacker = attackers[i];
-                    if (isIdValid(attacker))
-                    {
+                for (final obj_id attacker : attackers) {
+                    if (isIdValid(attacker)) {
                         startCombat(self, attacker);
-                        if (!ai_lib.isInCombat(self) && (defender == getMaster(self)))
-                        {
+                        if (!ai_lib.isInCombat(self) && (defender == getMaster(self))) {
                             ai_lib.barkString(self, "ally");
                         }
                     }
@@ -1057,14 +1053,11 @@ public class ai extends script.base_script
             break;
         }
         int delayCount = 0;
-        for (int i = 0, j = pks.length; i < j; i++)
-        {
-            if (isIdValid(pks[i]) && (corpseLevel + 5 < getLevel(pks[i]) || utils.isFreeTrial(pks[i])))
-            {
+        for (obj_id pk1 : pks) {
+            if (isIdValid(pk1) && (corpseLevel + 5 < getLevel(pk1) || utils.isFreeTrial(pk1))) {
                 doNotDropCard = true;
             }
-            if (isIdValid(pks[i]) && scheduled_drop.hasCardDelay(pks[i], sourceSystem))
-            {
+            if (isIdValid(pk1) && scheduled_drop.hasCardDelay(pk1, sourceSystem)) {
                 delayCount++;
             }
         }
@@ -1073,21 +1066,16 @@ public class ai extends script.base_script
             doNotDropCard = true;
         }
         boolean canDrop = scheduled_drop.canDropCard(sourceSystem);
-        for (int i = 0, j = pks.length; i < j; i++)
-        {
-            if (isIdValid(pks[i]))
-            {
-                utils.setScriptVar(pks[i], scheduled_drop.PLAYER_SCRIPTVAR_DROP_TIME, getGameTime());
-                if (isGod(pks[i]) && hasObjVar(pks[i], "qa_tcg_always_drop"))
-                {
-                    if (!doNotDropCard)
-                    {
+        for (obj_id pk : pks) {
+            if (isIdValid(pk)) {
+                utils.setScriptVar(pk, scheduled_drop.PLAYER_SCRIPTVAR_DROP_TIME, getGameTime());
+                if (isGod(pk) && hasObjVar(pk, "qa_tcg_always_drop")) {
+                    if (!doNotDropCard) {
                         canDrop = true;
                     }
                 }
-                if (isGod(pks[i]) && hasObjVar(pks[i], "qa_tcg"))
-                {
-                    sendSystemMessageTestingOnly(pks[i], "QA TCG COMBAT.  Do not drop card? " + doNotDropCard + " hasCardDelay? " + scheduled_drop.hasCardDelay(pks[i], sourceSystem) + " isTrial? " + utils.isFreeTrial(pks[i]) + " bad level? " + (corpseLevel + 5 < getLevel(pks[i])));
+                if (isGod(pk) && hasObjVar(pk, "qa_tcg")) {
+                    sendSystemMessageTestingOnly(pk, "QA TCG COMBAT.  Do not drop card? " + doNotDropCard + " hasCardDelay? " + scheduled_drop.hasCardDelay(pk, sourceSystem) + " isTrial? " + utils.isFreeTrial(pk) + " bad level? " + (corpseLevel + 5 < getLevel(pk)));
                 }
             }
         }
@@ -1760,12 +1748,12 @@ public class ai extends script.base_script
             }
         }
         utils.setScriptVar(self, "trapmod.enable", 1);
-        messageTo(self, "removeModTrap", params, 60.f, false);
+        messageTo(self, "removeModTrap", params, 60.0f, false);
         String prefix = params.getString("prefix");
         showFlyText(self, new string_id("trap/trap", prefix + "_on"), 1.2f, colors.ORANGERED);
-        obj_id[] players = getPlayerCreaturesInRange(self, 50.f);
+        obj_id[] players = getPlayerCreaturesInRange(self, 50.0f);
         for (obj_id player : players) {
-            playClientEffectLoc(player, "clienteffect/combat_trap_" + prefix + ".cef", getLocation(self), 0f);
+            playClientEffectLoc(player, "clienteffect/combat_trap_" + prefix + ".cef", getLocation(self), 0.0f);
         }
         return SCRIPT_CONTINUE;
     }
@@ -1897,7 +1885,7 @@ public class ai extends script.base_script
         float milkStunModified = 0.0f;
         if (buff.hasBuff(player, "creature_milking_buff") || buff.hasBuff(player, "drink_starshine_surprise"))
         {
-            milkStunModified += ((float)getEnhancedSkillStatisticModifierUncapped(player, "milk_stun_modified"));
+            milkStunModified += getEnhancedSkillStatisticModifierUncapped(player, "milk_stun_modified");
             CustomerServiceLog("milking_and_lair_search", "handleMilking: Player: " + getName(player) + " OID: " + player + " has a buff that gives a stun chance of: " + milkStunModified + ".");
         }
         if (milkStunModified > 0)
@@ -1965,9 +1953,9 @@ public class ai extends script.base_script
             {
                 CustomerServiceLog("buff", "creature_milking_buff Buff used by player: " + player + " Name: " + getName(player) + " has drink_starshine_surprise buff ");
             }
-            milkExceptionalModified += ((float)getEnhancedSkillStatisticModifierUncapped(player, "milk_exceptional_modified"));
+            milkExceptionalModified += getEnhancedSkillStatisticModifierUncapped(player, "milk_exceptional_modified");
             CustomerServiceLog("buff", "creature_milking_buff Buff used by player: " + player + " Name: " + getName(player) + " has a exceptional milk modifier of: " + milkExceptionalModified);
-            milkQuantityModified += ((float)getEnhancedSkillStatisticModifierUncapped(player, "milk_quantity_modified"));
+            milkQuantityModified += getEnhancedSkillStatisticModifierUncapped(player, "milk_quantity_modified");
             CustomerServiceLog("buff", "creature_milking_buff Buff used by player: " + player + " Name: " + getName(player) + " has a milk quantity modifier of: " + milkQuantityModified);
             shortenAttempts = true;
         }
@@ -2052,11 +2040,10 @@ public class ai extends script.base_script
                 CustomerServiceLog("milking_and_lair_search", "handleMilking: Player: " + getName(player) + " OID: " + player + " attempted to milk but could not retrieve location data while milking " + self + " " + getName(self));
                 return SCRIPT_CONTINUE;
             }
-            for (int i = 0; i < resourceList.length; i++)
-            {
-                blog("" + resourceList[i]);
-                setLocation(resourceList[i], curloc);
-                putIn(resourceList[i], pInv, player);
+            for (obj_id obj_id : resourceList) {
+                blog("" + obj_id);
+                setLocation(obj_id, curloc);
+                putIn(obj_id, pInv, player);
             }
             sendSystemMessage(player, SID_MILK_SUCCESS);
             utils.setScriptVar(self, "milk.lasttime", getGameTime());

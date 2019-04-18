@@ -10,7 +10,7 @@ public class defense_manager extends script.base_script
     public defense_manager()
     {
     }
-    private static final float RESOURCE_REPAIR_RATIO = .5f;
+    private static final float RESOURCE_REPAIR_RATIO = 0.5f;
     public int OnAttach(obj_id self) throws InterruptedException
     {
         if (!isInvulnerable(self))
@@ -26,7 +26,7 @@ public class defense_manager extends script.base_script
         {
             setInvulnerable(self, true);
         }
-        messageTo(self, "handleDefenseValidation", null, 10f, false);
+        messageTo(self, "handleDefenseValidation", null, 10.0f, false);
         return SCRIPT_CONTINUE;
     }
     public int OnDestroy(obj_id self) throws InterruptedException
@@ -42,7 +42,7 @@ public class defense_manager extends script.base_script
     }
     public int OnMaintenanceLoop(obj_id self, dictionary params) throws InterruptedException
     {
-        messageTo(self, "handleRepairDefenses", null, 10f, false);
+        messageTo(self, "handleRepairDefenses", null, 10.0f, false);
         return SCRIPT_CONTINUE;
     }
     public int handleRepairDefenses(obj_id self, dictionary params) throws InterruptedException
@@ -54,10 +54,10 @@ public class defense_manager extends script.base_script
         int ireserve = getIntObjVar(self, hq.VAR_HQ_RESOURCE_CNT);
         if (ireserve < 1)
         {
-            messageTo(self, "handleDefenseValidation", null, 10f, false);
+            messageTo(self, "handleDefenseValidation", null, 10.0f, false);
             return SCRIPT_CONTINUE;
         }
-        float reserve = (float)ireserve;
+        float reserve = ireserve;
         obj_var_list ovl = getObjVarList(self, hq.VAR_DEFENSE_BASE);
         if (ovl == null)
         {
@@ -68,7 +68,7 @@ public class defense_manager extends script.base_script
         obj_id[] defenses;
         for (int i = 0; i < numType; i++)
         {
-            if (reserve < 1f)
+            if (reserve < 1.0f)
             {
                 break;
             }
@@ -99,7 +99,7 @@ public class defense_manager extends script.base_script
                                 break;
                             }
                             setObjVar(self, hq.VAR_HQ_RESOURCE_CNT, total);
-                            if (curres < 1f) {
+                            if (curres < 1.0f) {
                                 break;
                             }
                         }
@@ -107,7 +107,7 @@ public class defense_manager extends script.base_script
                 }
             }
         }
-        messageTo(self, "handleDefenseValidation", null, 10f, false);
+        messageTo(self, "handleDefenseValidation", null, 10.0f, false);
         return SCRIPT_CONTINUE;
     }
     public int handleAddDefense(obj_id self, dictionary params) throws InterruptedException
@@ -195,33 +195,33 @@ public class defense_manager extends script.base_script
             int turretMinDam = 3500;
             int turretMaxDam = 4500;
             int turretHitpoints = 200000;
-            float turretRange = 64f;
-            float turretSpeed = 2f;
+            float turretRange = 64.0f;
+            float turretSpeed = 2.0f;
             if (template.contains("tower"))
             {
                 turretType = advanced_turret.TYPE_TOWER;
                 turretMinDam = 5000;
                 turretMaxDam = 7000;
-                turretSpeed = 3f;
+                turretSpeed = 3.0f;
             }
             else if (template.contains("dish"))
             {
                 turretType = advanced_turret.TYPE_DISH;
                 turretMinDam = 1750;
                 turretMaxDam = 2250;
-                turretSpeed = 1f;
+                turretSpeed = 1.0f;
             }
             else if (template.contains("lg"))
             {
                 turretSize = advanced_turret.SIZE_LARGE;
                 turretHitpoints = 600000;
-                turretRange = 96f;
+                turretRange = 96.0f;
             }
             else if (template.contains("med"))
             {
                 turretSize = advanced_turret.SIZE_MEDIUM;
                 turretHitpoints = 400000;
-                turretRange = 80f;
+                turretRange = 80.0f;
             }
             defense = advanced_turret.createTurret(there, (yaw + dyaw), turretType, turretSize, DAMAGE_ENERGY, turretMinDam, turretMaxDam, turretHitpoints, turretRange, turretSpeed, myFacName);
         }
@@ -339,7 +339,7 @@ public class defense_manager extends script.base_script
                 }
             }
         }
-        messageTo(self, "handleCreateMinefield", null, 5f, false);
+        messageTo(self, "handleCreateMinefield", null, 5.0f, false);
         setObjVar(self, "mines", new int[hq.MAX_MINE_TYPES]);
         return SCRIPT_CONTINUE;
     }

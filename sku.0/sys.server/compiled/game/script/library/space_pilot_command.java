@@ -38,35 +38,30 @@ public class space_pilot_command extends script.base_script
         int targetSquadId = ship_ai.unitGetSquadId(target);
         obj_id[] targetSquaddyList = ship_ai.squadGetUnitList(targetSquadId);
         int highestTierValue = 1;
-        for (int i = 0; i < targetSquaddyList.length; i++)
-        {
+        for (obj_id obj_id : targetSquaddyList) {
             int targetTier = 0;
-            String targetName = utils.getTemplateFilenameNoPath(targetSquaddyList[i]);
+            String targetName = utils.getTemplateFilenameNoPath(obj_id);
             String[] targetNameDecode = split(targetName, '_');
             int lastIndex = (targetNameDecode.length) - 1;
             String tier = targetNameDecode[lastIndex];
-            if (tier.equals("tier2.iff"))
-            {
-                targetTier = 2;
+            switch (tier) {
+                case "tier2.iff":
+                    targetTier = 2;
+                    break;
+                case "tier3.iff":
+                    targetTier = 3;
+                    break;
+                case "tier4.iff":
+                    targetTier = 4;
+                    break;
+                case "tier5.iff":
+                    targetTier = 5;
+                    break;
+                default:
+                    targetTier = 1;
+                    break;
             }
-            else if (tier.equals("tier3.iff"))
-            {
-                targetTier = 3;
-            }
-            else if (tier.equals("tier4.iff"))
-            {
-                targetTier = 4;
-            }
-            else if (tier.equals("tier5.iff"))
-            {
-                targetTier = 5;
-            }
-            else 
-            {
-                targetTier = 1;
-            }
-            if (targetTier > highestTierValue)
-            {
+            if (targetTier > highestTierValue) {
                 highestTierValue = targetTier;
             }
         }
@@ -137,19 +132,18 @@ public class space_pilot_command extends script.base_script
         }
         int successLevel = 5;
         setShipCapacitorEnergyCurrent(ship, 5.0f);
-        if (cmdLevel.equals("e_pulse_one"))
-        {
-            successLevel = space_combat.doPilotCommandSkillCheck(commander, "level2command");
-        }
-        else if (cmdLevel.equals("e_pulse_two"))
-        {
-            successLevel = space_combat.doPilotCommandSkillCheck(commander, "level4command");
-        }
-        else if (cmdLevel.equals("e_pulse_three"))
-        {
-            setShipShieldHitpointsFrontCurrent(ship, 5.0f);
-            setShipShieldHitpointsBackCurrent(ship, 5.0f);
-            successLevel = space_combat.doPilotCommandSkillCheck(commander, "level6command");
+        switch (cmdLevel) {
+            case "e_pulse_one":
+                successLevel = space_combat.doPilotCommandSkillCheck(commander, "level2command");
+                break;
+            case "e_pulse_two":
+                successLevel = space_combat.doPilotCommandSkillCheck(commander, "level4command");
+                break;
+            case "e_pulse_three":
+                setShipShieldHitpointsFrontCurrent(ship, 5.0f);
+                setShipShieldHitpointsBackCurrent(ship, 5.0f);
+                successLevel = space_combat.doPilotCommandSkillCheck(commander, "level6command");
+                break;
         }
         if (successLevel > 4)
         {
@@ -210,61 +204,41 @@ public class space_pilot_command extends script.base_script
         float componentDamageAmount = 10.0f;
         int numDamagedShipComponents = 0;
         int numStunnedShipComponents = 0;
-        for (int j = 0; j < attackable_targets.size(); j++)
-        {
-            obj_id attackableTarget = (obj_id) attackable_targets.get(j);
-            if(!isValidId(attackableTarget) || ship_ai.isDead(attackableTarget)) continue;
-            if (attackableTarget.equals(ship))
-            {
-                if (cmdLevel.equals("e_pulse_three"))
-                {
-                    if (percentCharged > 75)
-                    {
-                        numDamagedShipComponents = (int)(2 * (rand(0, (4 - successLevel))));
-                        numStunnedShipComponents = (int)((rand(0, (4 - successLevel))) / 2);
+        for (Object attackable_target : attackable_targets) {
+            obj_id attackableTarget = (obj_id) attackable_target;
+            if (!isValidId(attackableTarget) || ship_ai.isDead(attackableTarget)) continue;
+            if (attackableTarget.equals(ship)) {
+                if (cmdLevel.equals("e_pulse_three")) {
+                    if (percentCharged > 75) {
+                        numDamagedShipComponents = (int) (2 * (rand(0, (4 - successLevel))));
+                        numStunnedShipComponents = (int) ((rand(0, (4 - successLevel))) / 2);
+                    } else {
+                        numDamagedShipComponents = (int) (2 * (rand(0, (4 - successLevel))));
                     }
-                    else 
-                    {
-                        numDamagedShipComponents = (int)(2 * (rand(0, (4 - successLevel))));
-                    }
-                }
-                else if (cmdLevel.equals("e_pulse_two"))
-                {
-                    if (rand(0, 100) > CHANCE_OF_EXTRADMG_LVL2)
-                    {
-                        if (percentCharged > 75)
-                        {
-                            numDamagedShipComponents = (int)(2 * (rand(0, (4 - successLevel))));
-                            numStunnedShipComponents = (int)((rand(0, (4 - successLevel))) / 2);
+                } else if (cmdLevel.equals("e_pulse_two")) {
+                    if (rand(0, 100) > CHANCE_OF_EXTRADMG_LVL2) {
+                        if (percentCharged > 75) {
+                            numDamagedShipComponents = (int) (2 * (rand(0, (4 - successLevel))));
+                            numStunnedShipComponents = (int) ((rand(0, (4 - successLevel))) / 2);
+                        } else {
+                            numDamagedShipComponents = (int) (2 * (rand(0, (4 - successLevel))));
                         }
-                        else 
-                        {
-                            numDamagedShipComponents = (int)(2 * (rand(0, (4 - successLevel))));
-                        }
-                    }
-                    else if (rand(0, 100) > CHANCE_OF_EXTRADMG_LVL1)
-                    {
-                        if (percentCharged > 75)
-                        {
-                            numDamagedShipComponents = (int)(rand(0, (4 - successLevel)));
+                    } else if (rand(0, 100) > CHANCE_OF_EXTRADMG_LVL1) {
+                        if (percentCharged > 75) {
+                            numDamagedShipComponents = (int) (rand(0, (4 - successLevel)));
                         }
                     }
                 }
-                if (numStunnedShipComponents == 0)
-                {
-                    if (space_utils.isPlayerControlledShip(attackableTarget))
-                    {
+                if (numStunnedShipComponents == 0) {
+                    if (space_utils.isPlayerControlledShip(attackableTarget)) {
                         playClientEffectObj(ship, "clienteffect/space_command/cbt_impact_emp_lght.cef", attackableTarget, "");
-                    }
-                    else 
-                    {
+                    } else {
                         playClientEffectObj(ship, "clienteffect/space_command/cbt_impact_emp_lght_noshake.cef", attackableTarget, "");
                     }
                 }
                 float damageAmount = totalCurrentEnergy;
                 float distanceToBlast = Math.abs(getDistance(ship, attackableTarget));
-                if (distanceToBlast < space_pilot_command.MAX_EPULSE_RANGE)
-                {
+                if (distanceToBlast < space_pilot_command.MAX_EPULSE_RANGE) {
                     debugServerConsoleMsg(null, "SPACE_COMBAT.readyForEnergyPulse *************** UNMODIFIED normal damage amount is: " + damageAmount);
                     debugServerConsoleMsg(null, "SPACE_COMBAT.readyForEnergyPulse *************** DISTANCE TO TARGET is: " + distanceToBlast);
                     damageAmount = totalCurrentEnergy * (((MAX_EPULSE_RANGE - distanceToBlast) / MAX_EPULSE_RANGE) * EPULSE_DAMAGE_MULTIPLIER);
@@ -272,16 +246,14 @@ public class space_pilot_command extends script.base_script
                     debugServerConsoleMsg(null, "SPACE_COMBAT.readyForEnergyPulse *************** num of damaged components was: " + numDamagedShipComponents);
                     debugServerConsoleMsg(null, "SPACE_COMBAT.readyForEnergyPulse *************** RANGE-MODIFIED damage amount is: " + damageAmount);
                     doRandomSubSystemDamage(attackableTarget, numDamagedShipComponents, componentDamageAmount);
-                    if (numStunnedShipComponents > 0)
-                    {
+                    if (numStunnedShipComponents > 0) {
                         doRandomSubSystemStun(attackableTarget, numStunnedShipComponents);
                     }
                     doNormalDamage(ship, attackableTarget, damageAmount);
                 }
                 dictionary outparams = new dictionary();
                 outparams.put("attacker", commander);
-                if (space_utils.isPlayerControlledShip(ship) && isValidId(attackableTarget))
-                {
+                if (space_utils.isPlayerControlledShip(ship) && isValidId(attackableTarget)) {
                     space_utils.notifyObject(attackableTarget, "ePulseVictimized", outparams);
                 }
             }
@@ -291,7 +263,7 @@ public class space_pilot_command extends script.base_script
     public static int randomComponentSelector(obj_id targetShip) throws InterruptedException
     {
         Vector slots = space_crafting.getAllInstalledComponents(targetShip);
-        int componentToDamage = ((Integer)slots.get(rand(0, slots.size() - 1))).intValue();
+        int componentToDamage = (Integer) slots.get(rand(0, slots.size() - 1));
         return componentToDamage;
     }
     public static void doRandomSubSystemDamage(obj_id shipDamaged, int numComponentsDamaged, float damageAmount) throws InterruptedException
@@ -393,7 +365,7 @@ public class space_pilot_command extends script.base_script
         transform defenderTransform_w = getTransform_o2w(self);
         vector hitDirection_o = defenderTransform_w.rotateTranslate_p2l(attackerTransform_w.getPosition_p());
         int intSide = 0;
-        if (hitDirection_o.z < 0.f)
+        if (hitDirection_o.z < 0.0f)
         {
             intSide = 1;
         }
@@ -407,7 +379,7 @@ public class space_pilot_command extends script.base_script
                 return;
             }
         }
-        if (fltDamage > 0.f)
+        if (fltDamage > 0.0f)
         {
             if (self != objAttacker)
             {
@@ -543,9 +515,7 @@ public class space_pilot_command extends script.base_script
     {
         float hitpointsSum = 0.0f;
         int[] installedSlots = space_crafting.getShipInstalledSlots(shipId);
-        for (int i = 0; i < installedSlots.length; i++)
-        {
-            int chassisSlot = installedSlots[i];
+        for (int chassisSlot : installedSlots) {
             hitpointsSum += getShipComponentHitpointsCurrent(shipId, chassisSlot);
         }
         return hitpointsSum * (percentage / 100.0f);
@@ -554,9 +524,7 @@ public class space_pilot_command extends script.base_script
     {
         float hitpointsSum = 0.0f;
         int[] installedSlots = space_crafting.getShipInstalledSlots(shipId);
-        for (int i = 0; i < installedSlots.length; i++)
-        {
-            int chassisSlot = installedSlots[i];
+        for (int chassisSlot : installedSlots) {
             hitpointsSum += getShipComponentHitpointsMaximum(shipId, chassisSlot);
         }
         return hitpointsSum;
@@ -586,12 +554,9 @@ public class space_pilot_command extends script.base_script
         float highestDamagePercentage = 0.0f;
         int mostDamagedShipComponent = -1;
         int[] installedSlots = space_crafting.getShipInstalledSlots(shipId);
-        for (int i = 0; i < installedSlots.length; i++)
-        {
-            int chassisSlot = installedSlots[i];
+        for (int chassisSlot : installedSlots) {
             float damagePercentage = calcShipComponentPercentDamaged(shipId, chassisSlot);
-            if (damagePercentage >= highestDamagePercentage)
-            {
+            if (damagePercentage >= highestDamagePercentage) {
                 highestDamagePercentage = damagePercentage;
                 mostDamagedShipComponent = chassisSlot;
             }
@@ -602,15 +567,12 @@ public class space_pilot_command extends script.base_script
     {
         float totalDamage = 0;
         int[] installedSlots = space_crafting.getShipInstalledSlots(shipId);
-        for (int i = 0; i < installedSlots.length; i++)
-        {
-            int chassisSlot = installedSlots[i];
+        for (int chassisSlot : installedSlots) {
             float maxHP = getShipComponentHitpointsMaximum(shipId, chassisSlot);
             float damage = maxHP * (percentToDamage / 100.0f);
             totalDamage += damage;
             maxHP -= damage;
-            if (maxHP < 1)
-            {
+            if (maxHP < 1) {
                 maxHP = 1;
                 CustomerServiceLog("space_repair", "damageAllShipComponents resulted in <1 HP on component " + chassisSlot + ". Adjusted to 1. Ship=" + shipId + " Owner=%TU", getOwner(shipId));
             }
@@ -796,14 +758,11 @@ public class space_pilot_command extends script.base_script
         doNormalDamage(firingShip, firingShip, (nominalYield * selfDamageRatio));
         debugServerConsoleMsg(null, "damage yield to self is: " + (nominalYield * selfDamageRatio));
         obj_id[] targetShips = getAllObjectsWithScript(getLocation(firingShip), 150.0f, "space.combat.combat_ship");
-        for (int i = 0; i < targetShips.length; i++)
-        {
-            if ((!isIdValid(targetShips[i])) && (targetShips[i] != firingShip))
-            {
-                float distanceToBlast = Math.abs(getDistance(firingShip, targetShips[i]));
-                if (distanceToBlast < space_pilot_command.MAX_NPULSE_RANGE)
-                {
-                    space_pilot_command.nblastDamageTarget(firingShip, targetShips[i], targetDamageYield, distanceToBlast);
+        for (obj_id targetShip : targetShips) {
+            if ((!isIdValid(targetShip)) && (targetShip != firingShip)) {
+                float distanceToBlast = Math.abs(getDistance(firingShip, targetShip));
+                if (distanceToBlast < space_pilot_command.MAX_NPULSE_RANGE) {
+                    space_pilot_command.nblastDamageTarget(firingShip, targetShip, targetDamageYield, distanceToBlast);
                 }
             }
         }
@@ -977,99 +936,78 @@ public class space_pilot_command extends script.base_script
         }
         float donorEnergyUsed = recipientTotalEnergyNeeds;
         float runoffEnergy = 0.0f;
-        if (cmdLevel.equals("jstart_one"))
-        {
-            if (donorCapacitorCurrent - donorEnergyUsed < 5.0f)
-            {
-                setShipCapacitorEnergyCurrent(ship, 5.0f);
-            }
-            else 
-            {
-                setShipCapacitorEnergyCurrent(ship, (donorCapacitorCurrent - donorEnergyUsed) * 8);
-            }
-        }
-        else if (cmdLevel.equals("jstart_two"))
-        {
-            if (donorEnergyUsed > donorCapacitorCurrent)
-            {
-                donorEnergyUsed = (donorEnergyUsed - donorCapacitorCurrent) / 2.0f;
-                setShipCapacitorEnergyCurrent(ship, 5.0f);
-                if (donorEnergyUsed > donorAvailableFrontShieldEnergy)
-                {
-                    donorEnergyUsed = (donorEnergyUsed - donorAvailableFrontShieldEnergy);
-                    setShipShieldHitpointsFrontCurrent(ship, (donorFrontShieldMax * CMD_LEVEL_TWO_MIN_SHIELD));
-                    setShipShieldHitpointsBackCurrent(ship, (donorBackShieldCurrent - donorEnergyUsed));
+        switch (cmdLevel) {
+            case "jstart_one":
+                if (donorCapacitorCurrent - donorEnergyUsed < 5.0f) {
+                    setShipCapacitorEnergyCurrent(ship, 5.0f);
+                } else {
+                    setShipCapacitorEnergyCurrent(ship, (donorCapacitorCurrent - donorEnergyUsed) * 8);
                 }
-                else if (donorEnergyUsed > donorAvailableBackShieldEnergy)
-                {
-                    donorEnergyUsed = (donorEnergyUsed - donorAvailableBackShieldEnergy);
-                    setShipShieldHitpointsBackCurrent(ship, (donorBackShieldMax * CMD_LEVEL_TWO_MIN_SHIELD));
-                    setShipShieldHitpointsFrontCurrent(ship, (donorFrontShieldCurrent - donorEnergyUsed));
+                break;
+            case "jstart_two":
+                if (donorEnergyUsed > donorCapacitorCurrent) {
+                    donorEnergyUsed = (donorEnergyUsed - donorCapacitorCurrent) / 2.0f;
+                    setShipCapacitorEnergyCurrent(ship, 5.0f);
+                    if (donorEnergyUsed > donorAvailableFrontShieldEnergy) {
+                        donorEnergyUsed = (donorEnergyUsed - donorAvailableFrontShieldEnergy);
+                        setShipShieldHitpointsFrontCurrent(ship, (donorFrontShieldMax * CMD_LEVEL_TWO_MIN_SHIELD));
+                        setShipShieldHitpointsBackCurrent(ship, (donorBackShieldCurrent - donorEnergyUsed));
+                    } else if (donorEnergyUsed > donorAvailableBackShieldEnergy) {
+                        donorEnergyUsed = (donorEnergyUsed - donorAvailableBackShieldEnergy);
+                        setShipShieldHitpointsBackCurrent(ship, (donorBackShieldMax * CMD_LEVEL_TWO_MIN_SHIELD));
+                        setShipShieldHitpointsFrontCurrent(ship, (donorFrontShieldCurrent - donorEnergyUsed));
+                    } else {
+                        setShipShieldHitpointsFrontCurrent(ship, (donorFrontShieldCurrent - donorEnergyUsed));
+                        setShipShieldHitpointsBackCurrent(ship, (donorBackShieldCurrent - donorEnergyUsed));
+                    }
                 }
-                else 
-                {
-                    setShipShieldHitpointsFrontCurrent(ship, (donorFrontShieldCurrent - donorEnergyUsed));
-                    setShipShieldHitpointsBackCurrent(ship, (donorBackShieldCurrent - donorEnergyUsed));
+                break;
+            case "jstart_three":
+                if (donorEnergyUsed > donorCapacitorCurrent) {
+                    debugServerConsoleMsg(null, "space_pilot_commands.executeJstart ---------    donorEnergyUsed > donorCapacitorCurrent ");
+                    debugServerConsoleMsg(null, "space_pilot_commands.executeJstart ---------    donorCapacitorCurrent = " + donorCapacitorCurrent);
+                    donorEnergyUsed = (donorEnergyUsed - donorCapacitorCurrent) / 2.0f;
+                    debugServerConsoleMsg(null, "space_pilot_commands.executeJstart ---------    donorEnergyUsed #11 = " + donorEnergyUsed);
+                    setShipCapacitorEnergyCurrent(ship, 5.0f);
+                    if (donorEnergyUsed > donorAvailableFrontShieldEnergy) {
+                        debugServerConsoleMsg(null, "space_pilot_commands.executeJstart ---------    donorEnergyUsed > donorAvailableFrontShieldEnergy ");
+                        donorEnergyUsed = (donorEnergyUsed - donorAvailableFrontShieldEnergy);
+                        debugServerConsoleMsg(null, "space_pilot_commands.executeJstart ---------    donorEnergyUsed #12 = " + donorEnergyUsed);
+                        setShipShieldHitpointsFrontCurrent(ship, (donorFrontShieldMax * CMD_LEVEL_THREE_MIN_SHIELD));
+                        debugServerConsoleMsg(null, "space_pilot_commands.executeJstart ---------    setting donor front shield to = " + (donorFrontShieldMax * CMD_LEVEL_THREE_MIN_SHIELD));
+                        setShipShieldHitpointsBackCurrent(ship, (donorBackShieldCurrent - donorEnergyUsed));
+                        debugServerConsoleMsg(null, "space_pilot_commands.executeJstart ---------    setting donor back shield to = " + (donorBackShieldCurrent - donorEnergyUsed));
+                    } else if (donorEnergyUsed > donorAvailableBackShieldEnergy) {
+                        debugServerConsoleMsg(null, "space_pilot_commands.executeJstart ---------    donorEnergyUsed > donorAvailableBackShieldEnergy ");
+                        donorEnergyUsed = (donorEnergyUsed - donorAvailableBackShieldEnergy);
+                        debugServerConsoleMsg(null, "space_pilot_commands.executeJstart ---------    donorEnergyUsed #13 = " + donorEnergyUsed);
+                        setShipShieldHitpointsBackCurrent(ship, (donorBackShieldMax * CMD_LEVEL_THREE_MIN_SHIELD));
+                        debugServerConsoleMsg(null, "space_pilot_commands.executeJstart ---------    setting donor back shield to = " + (donorBackShieldMax * CMD_LEVEL_THREE_MIN_SHIELD));
+                        setShipShieldHitpointsFrontCurrent(ship, (donorFrontShieldCurrent - donorEnergyUsed));
+                        debugServerConsoleMsg(null, "space_pilot_commands.executeJstart ---------    setting donor front shield to = " + (donorFrontShieldCurrent - donorEnergyUsed));
+                    } else {
+                        setShipShieldHitpointsFrontCurrent(ship, (donorFrontShieldCurrent - donorEnergyUsed));
+                        setShipShieldHitpointsBackCurrent(ship, (donorBackShieldCurrent - donorEnergyUsed));
+                    }
+                } else {
+                    setShipCapacitorEnergyCurrent(ship, ((donorCapacitorCurrent) - donorEnergyUsed) * 8);
                 }
-            }
-        }
-        else if (cmdLevel.equals("jstart_three"))
-        {
-            if (donorEnergyUsed > donorCapacitorCurrent)
-            {
-                debugServerConsoleMsg(null, "space_pilot_commands.executeJstart ---------    donorEnergyUsed > donorCapacitorCurrent ");
-                debugServerConsoleMsg(null, "space_pilot_commands.executeJstart ---------    donorCapacitorCurrent = " + donorCapacitorCurrent);
-                donorEnergyUsed = (donorEnergyUsed - donorCapacitorCurrent) / 2.0f;
-                debugServerConsoleMsg(null, "space_pilot_commands.executeJstart ---------    donorEnergyUsed #11 = " + donorEnergyUsed);
-                setShipCapacitorEnergyCurrent(ship, 5.0f);
-                if (donorEnergyUsed > donorAvailableFrontShieldEnergy)
-                {
-                    debugServerConsoleMsg(null, "space_pilot_commands.executeJstart ---------    donorEnergyUsed > donorAvailableFrontShieldEnergy ");
-                    donorEnergyUsed = (donorEnergyUsed - donorAvailableFrontShieldEnergy);
-                    debugServerConsoleMsg(null, "space_pilot_commands.executeJstart ---------    donorEnergyUsed #12 = " + donorEnergyUsed);
-                    setShipShieldHitpointsFrontCurrent(ship, (donorFrontShieldMax * CMD_LEVEL_THREE_MIN_SHIELD));
-                    debugServerConsoleMsg(null, "space_pilot_commands.executeJstart ---------    setting donor front shield to = " + (donorFrontShieldMax * CMD_LEVEL_THREE_MIN_SHIELD));
-                    setShipShieldHitpointsBackCurrent(ship, (donorBackShieldCurrent - donorEnergyUsed));
-                    debugServerConsoleMsg(null, "space_pilot_commands.executeJstart ---------    setting donor back shield to = " + (donorBackShieldCurrent - donorEnergyUsed));
-                }
-                else if (donorEnergyUsed > donorAvailableBackShieldEnergy)
-                {
-                    debugServerConsoleMsg(null, "space_pilot_commands.executeJstart ---------    donorEnergyUsed > donorAvailableBackShieldEnergy ");
-                    donorEnergyUsed = (donorEnergyUsed - donorAvailableBackShieldEnergy);
-                    debugServerConsoleMsg(null, "space_pilot_commands.executeJstart ---------    donorEnergyUsed #13 = " + donorEnergyUsed);
-                    setShipShieldHitpointsBackCurrent(ship, (donorBackShieldMax * CMD_LEVEL_THREE_MIN_SHIELD));
-                    debugServerConsoleMsg(null, "space_pilot_commands.executeJstart ---------    setting donor back shield to = " + (donorBackShieldMax * CMD_LEVEL_THREE_MIN_SHIELD));
-                    setShipShieldHitpointsFrontCurrent(ship, (donorFrontShieldCurrent - donorEnergyUsed));
-                    debugServerConsoleMsg(null, "space_pilot_commands.executeJstart ---------    setting donor front shield to = " + (donorFrontShieldCurrent - donorEnergyUsed));
-                }
-                else 
-                {
-                    setShipShieldHitpointsFrontCurrent(ship, (donorFrontShieldCurrent - donorEnergyUsed));
-                    setShipShieldHitpointsBackCurrent(ship, (donorBackShieldCurrent - donorEnergyUsed));
-                }
-            }
-            else 
-            {
-                setShipCapacitorEnergyCurrent(ship, ((donorCapacitorCurrent) - donorEnergyUsed) * 8);
-            }
-        }
-        else 
-        {
-            debugServerConsoleMsg(null, "crazy wack-ness! Dumping out of jumpstart activation due to unknown command level");
-            return false;
+                break;
+            default:
+                debugServerConsoleMsg(null, "crazy wack-ness! Dumping out of jumpstart activation due to unknown command level");
+                return false;
         }
         int successLevel = 5;
-        if (cmdLevel.equals("jstart_one"))
-        {
-            successLevel = space_combat.doPilotCommandSkillCheck(commander, "level2command");
-        }
-        else if (cmdLevel.equals("jstart_two"))
-        {
-            successLevel = space_combat.doPilotCommandSkillCheck(commander, "level4command");
-        }
-        else if (cmdLevel.equals("jstart_three"))
-        {
-            successLevel = space_combat.doPilotCommandSkillCheck(commander, "level6command");
+        switch (cmdLevel) {
+            case "jstart_one":
+                successLevel = space_combat.doPilotCommandSkillCheck(commander, "level2command");
+                break;
+            case "jstart_two":
+                successLevel = space_combat.doPilotCommandSkillCheck(commander, "level4command");
+                break;
+            case "jstart_three":
+                successLevel = space_combat.doPilotCommandSkillCheck(commander, "level6command");
+                break;
         }
         debugServerConsoleMsg(null, "SPACE_COMBAT.executeJstart SUCCESSLEVEL WAS " + successLevel);
         if (successLevel > 4)
@@ -1222,17 +1160,16 @@ public class space_pilot_command extends script.base_script
         dictionary outparams = new dictionary();
         outparams.put("pilot", commander);
         outparams.put("ship", ship);
-        if (command_type.equals("repair"))
-        {
-            space_pilot_command.doRepair(commander, ship, repairShip, closestStation);
-        }
-        else if (command_type.equals("reload"))
-        {
-            space_pilot_command.doReload(commander, ship, repairShip, closestStation);
-        }
-        else if (command_type.equals("repairAndReload"))
-        {
-            space_pilot_command.doRepairAndReload(commander, ship, repairShip, closestStation);
+        switch (command_type) {
+            case "repair":
+                space_pilot_command.doRepair(commander, ship, repairShip, closestStation);
+                break;
+            case "reload":
+                space_pilot_command.doReload(commander, ship, repairShip, closestStation);
+                break;
+            case "repairAndReload":
+                space_pilot_command.doRepairAndReload(commander, ship, repairShip, closestStation);
+                break;
         }
         return;
     }
@@ -1243,9 +1180,8 @@ public class space_pilot_command extends script.base_script
         if (myAttackers.length != 0)
         {
             debugServerConsoleMsg(null, "SPACE_COMBAT.shipissafe: ----------------  WHOOPS! Looks like there are things targeting me!");
-            for (int i = 0; i < myAttackers.length; i++)
-            {
-                debugServerConsoleMsg(null, "SPACE_COMBAT.shipissafe: ----------------  obj_id: " + myAttackers[i] + " is targeting me! It is called: " + getName(myAttackers[i]));
+            for (obj_id myAttacker : myAttackers) {
+                debugServerConsoleMsg(null, "SPACE_COMBAT.shipissafe: ----------------  obj_id: " + myAttacker + " is targeting me! It is called: " + getName(myAttacker));
             }
             return false;
         }
@@ -1270,12 +1206,12 @@ public class space_pilot_command extends script.base_script
         string_id strSpam = new string_id("space/space_interaction", "repair_arrive_hyperspace");
         sendSystemMessage(pilot, strSpam);
         transform gloc = getTransform_o2w(ship);
-        float dist = rand(600.f, 700.f);
+        float dist = rand(600.0f, 700.0f);
         vector n = ((gloc.getLocalFrameK_p()).normalize()).multiply(dist);
         gloc = gloc.move_p(n);
         gloc = gloc.yaw_l(3.14f);
-        vector vi = ((gloc.getLocalFrameI_p()).normalize()).multiply(rand(-150.f, 150.f));
-        vector vj = ((gloc.getLocalFrameJ_p()).normalize()).multiply(rand(-150.f, 150.f));
+        vector vi = ((gloc.getLocalFrameI_p()).normalize()).multiply(rand(-150.0f, 150.0f));
+        vector vj = ((gloc.getLocalFrameJ_p()).normalize()).multiply(rand(-150.0f, 150.0f));
         vector vd = vi.add(vj);
         gloc = gloc.move_p(vd);
         String[] possibleRepairShips = dataTableGetStringColumnNoDefaults(REPAIR_EQUIPMENT_DATATABLE, command_type);
@@ -1293,11 +1229,11 @@ public class space_pilot_command extends script.base_script
         attachScript(newship, "space.command.player_cmd_repair_reload_ship");
         playClientEffectObj(pilot, "clienteffect/space_command/shp_dock_repair_loop.cef", newship, "");
         int repairSquadId = ship_ai.unitGetSquadId(newship);
-        transform newLoc = space_utils.getRandomPositionInSphere(getTransform_o2p(ship), 50f, 90f, false);
+        transform newLoc = space_utils.getRandomPositionInSphere(getTransform_o2p(ship), 50.0f, 90.0f, false);
         if (space_utils.isShipWithInterior(ship))
         {
             debugServerConsoleMsg(null, "SPACE_PILOT_COMMAND.spawnrepairship ***** picking a location to move the freighter to that is a bit further out");
-            newLoc = space_utils.getRandomPositionInSphere(getTransform_o2p(ship), 150f, 180f, false);
+            newLoc = space_utils.getRandomPositionInSphere(getTransform_o2p(ship), 150.0f, 180.0f, false);
         }
         ship_ai.squadMoveTo(repairSquadId, newLoc);
         return true;
@@ -1460,23 +1396,17 @@ public class space_pilot_command extends script.base_script
         int missileReloadCount = 0;
         int countermeasureReloadCount = 0;
         int[] slots = space_crafting.getShipInstalledSlots(ship);
-        for (int i = 0; i < slots.length; i++)
-        {
-            if (space_crafting.isMissileSlot(ship, slots[i]))
-            {
-                int currentShipWeaponAmmoMaximum = getShipWeaponAmmoMaximum(ship, slots[i]);
-                int currentShipWeaponAmmoCurrent = getShipWeaponAmmoCurrent(ship, slots[i]);
-                if (currentShipWeaponAmmoCurrent <= (int)(currentShipWeaponAmmoMaximum / 2))
-                {
+        for (int slot : slots) {
+            if (space_crafting.isMissileSlot(ship, slot)) {
+                int currentShipWeaponAmmoMaximum = getShipWeaponAmmoMaximum(ship, slot);
+                int currentShipWeaponAmmoCurrent = getShipWeaponAmmoCurrent(ship, slot);
+                if (currentShipWeaponAmmoCurrent <= (int) (currentShipWeaponAmmoMaximum / 2)) {
                     missileReloadCount += (currentShipWeaponAmmoMaximum - currentShipWeaponAmmoCurrent);
                 }
-            }
-            else if (space_crafting.isCounterMeasureSlot(ship, slots[i]))
-            {
-                int currentShipWeaponAmmoMaximum = getShipWeaponAmmoMaximum(ship, slots[i]);
-                int currentShipWeaponAmmoCurrent = getShipWeaponAmmoCurrent(ship, slots[i]);
-                if (currentShipWeaponAmmoCurrent <= (int)(currentShipWeaponAmmoMaximum / 2))
-                {
+            } else if (space_crafting.isCounterMeasureSlot(ship, slot)) {
+                int currentShipWeaponAmmoMaximum = getShipWeaponAmmoMaximum(ship, slot);
+                int currentShipWeaponAmmoCurrent = getShipWeaponAmmoCurrent(ship, slot);
+                if (currentShipWeaponAmmoCurrent <= (int) (currentShipWeaponAmmoMaximum / 2)) {
                     countermeasureReloadCount += (currentShipWeaponAmmoMaximum - currentShipWeaponAmmoCurrent);
                 }
             }
@@ -1542,15 +1472,11 @@ public class space_pilot_command extends script.base_script
             }
             utils.moneyOutMetric(commander, "REPAIR_SHIP_RELOAD", totalCost);
             int[] slots = space_crafting.getShipInstalledSlots(ship);
-            for (int i = 0; i < slots.length; i++)
-            {
-                if (space_crafting.isMissileSlot(ship, slots[i]))
-                {
-                    weaponLauncherSpaceReload(ship, commander, slots[i]);
-                }
-                else if (space_crafting.isCounterMeasureSlot(ship, slots[i]))
-                {
-                    countermeasureLauncherSpaceReload(ship, commander, slots[i]);
+            for (int slot : slots) {
+                if (space_crafting.isMissileSlot(ship, slot)) {
+                    weaponLauncherSpaceReload(ship, commander, slot);
+                } else if (space_crafting.isCounterMeasureSlot(ship, slot)) {
+                    countermeasureLauncherSpaceReload(ship, commander, slot);
                 }
             }
         }
@@ -1636,22 +1562,17 @@ public class space_pilot_command extends script.base_script
         if (isIdValid(ship))
         {
             int[] slots = space_crafting.getShipInstalledSlots(ship);
-            for (int i = 0; i < slots.length; i++)
-            {
-                debugServerConsoleMsg(null, "SPACE_PILOT_COMMAND.allPurposeShipComponentReset  ***  working with slots[i], which is currently: " + slots[i]);
-                if (isShipSlotInstalled(ship, slots[i]))
-                {
-                    space_utils.setComponentDisabled(ship, slots[i], false);
-                    space_combat.setEfficiencyModifier(slots[i], ship, 1.0f, 1.0f);
-                    space_combat.recalculateEfficiency(slots[i], ship);
-                    if (slots[i] == ship_chassis_slot_type.SCST_shield_0)
-                    {
+            for (int slot : slots) {
+                debugServerConsoleMsg(null, "SPACE_PILOT_COMMAND.allPurposeShipComponentReset  ***  working with slots[i], which is currently: " + slot);
+                if (isShipSlotInstalled(ship, slot)) {
+                    space_utils.setComponentDisabled(ship, slot, false);
+                    space_combat.setEfficiencyModifier(slot, ship, 1.0f, 1.0f);
+                    space_combat.recalculateEfficiency(slot, ship);
+                    if (slot == ship_chassis_slot_type.SCST_shield_0) {
                         space_combat.simpleShieldRatioRebalance(ship);
                     }
-                }
-                else 
-                {
-                    debugServerConsoleMsg(null, "SPACE_PILOT_COMMAND.allPurposeShipComponentReset  ***  WTH! we just tried to work with an uninstalled slot! It was: " + slots[i]);
+                } else {
+                    debugServerConsoleMsg(null, "SPACE_PILOT_COMMAND.allPurposeShipComponentReset  ***  WTH! we just tried to work with an uninstalled slot! It was: " + slot);
                 }
             }
         }
@@ -1681,23 +1602,17 @@ public class space_pilot_command extends script.base_script
     public static int getCurrentlyUsedProgramMemory(obj_id[] programs) throws InterruptedException
     {
         int currentlyUsedProgramMemory = 0;
-        for (int i = 0; i < programs.length; i++)
-        {
+        for (obj_id program : programs) {
             String programName = "";
-            if (hasObjVar(programs[i], "strDroidCommand"))
-            {
-                programName = getStringObjVar(programs[i], "strDroidCommand");
+            if (hasObjVar(program, "strDroidCommand")) {
+                programName = getStringObjVar(program, "strDroidCommand");
             }
-            if (hasObjVar(programs[i], "programSize"))
-            {
-                currentlyUsedProgramMemory += getIntObjVar(programs[i], "programSize");
-            }
-            else 
-            {
-                if (hasObjVar(programs[i], "strDroidCommand"))
-                {
-                    programName = getStringObjVar(programs[i], "strDroidCommand");
-                    int droidProgramSize = getDroidProgramSize(programName, programs[i]);
+            if (hasObjVar(program, "programSize")) {
+                currentlyUsedProgramMemory += getIntObjVar(program, "programSize");
+            } else {
+                if (hasObjVar(program, "strDroidCommand")) {
+                    programName = getStringObjVar(program, "strDroidCommand");
+                    int droidProgramSize = getDroidProgramSize(programName, program);
                     currentlyUsedProgramMemory += droidProgramSize;
                 }
             }
@@ -1707,15 +1622,12 @@ public class space_pilot_command extends script.base_script
     public static boolean hasDuplicateProgram(obj_id[] programs, String newProgramName) throws InterruptedException
     {
         int currentlyUsedProgramMemory = 0;
-        for (int i = 0; i < programs.length; i++)
-        {
+        for (obj_id program : programs) {
             String programName = "";
-            if (hasObjVar(programs[i], "strDroidCommand"))
-            {
-                programName = getStringObjVar(programs[i], "strDroidCommand");
+            if (hasObjVar(program, "strDroidCommand")) {
+                programName = getStringObjVar(program, "strDroidCommand");
             }
-            if (newProgramName.equals(programName))
-            {
+            if (newProgramName.equals(programName)) {
                 return true;
             }
         }

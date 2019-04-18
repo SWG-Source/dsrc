@@ -19,27 +19,20 @@ public class crafting_base_tieaggressor_chassis extends script.systems.crafting.
         debugServerConsoleMsg(null, "Beginning assembly-phase prototype property setting");
         setObjVar(prototype, "isShipDeed", true);
         setObjVar(prototype, "shiptype", "tieaggressor");
-        for (int i = 0; i < itemAttributes.length; ++i)
-        {
-            if (itemAttributes[i] == null)
-            {
+        for (draft_schematic.attribute itemAttribute : itemAttributes) {
+            if (itemAttribute == null) {
                 continue;
             }
-            if (!calcAndSetPrototypeProperty(prototype, itemAttributes[i]))
-            {
-                if (((itemAttributes[i].name).getAsciiId()).equals("massMax"))
-                {
+            if (!calcAndSetPrototypeProperty(prototype, itemAttribute)) {
+                if (((itemAttribute.name).getAsciiId()).equals("massMax")) {
                     String OBJVAR_NAME = "ship_chassis.mass";
-                    setObjVar(prototype, OBJVAR_NAME, (float)itemAttributes[i].currentValue);
+                    setObjVar(prototype, OBJVAR_NAME, (float) itemAttribute.currentValue);
                 }
-                if (((itemAttributes[i].name).getAsciiId()).equals("hp"))
-                {
+                if (((itemAttribute.name).getAsciiId()).equals("hp")) {
                     String OBJVAR_NAME = "ship_chassis.hp";
-                    setObjVar(prototype, OBJVAR_NAME, (float)itemAttributes[i].currentValue);
-                }
-                else 
-                {
-                    setObjVar(prototype, craftinglib.COMPONENT_ATTRIBUTE_OBJVAR_NAME + "." + (itemAttributes[i].name).getAsciiId(), itemAttributes[i].currentValue);
+                    setObjVar(prototype, OBJVAR_NAME, (float) itemAttribute.currentValue);
+                } else {
+                    setObjVar(prototype, craftinglib.COMPONENT_ATTRIBUTE_OBJVAR_NAME + "." + (itemAttribute.name).getAsciiId(), itemAttribute.currentValue);
                 }
             }
         }

@@ -282,7 +282,7 @@ public class player_utility extends script.base_script
         if (retCode != money.RET_SUCCESS)
         {
             obj_id payer = params.getObjId(money.DICT_PLAYER_ID);
-            messageTo(payer, "handleTurnstilePayFail", null, 0.f, false);
+            messageTo(payer, "handleTurnstilePayFail", null, 0.0f, false);
             return SCRIPT_CONTINUE;
         }
         obj_id player = params.getObjId(money.DICT_PLAYER_ID);
@@ -400,12 +400,10 @@ public class player_utility extends script.base_script
         {
             return SCRIPT_CONTINUE;
         }
-        for (int i = 0; i < enemies.length; i++)
-        {
-            if (isIdValid(enemies[i]) && !isPlayer(enemies[i]))
-            {
-                setMentalStateToward(enemies[i], self, FEAR, 0.0f);
-                setMentalStateToward(enemies[i], self, ANGER, 0.0f);
+        for (obj_id enemy : enemies) {
+            if (isIdValid(enemy) && !isPlayer(enemy)) {
+                setMentalStateToward(enemy, self, FEAR, 0.0f);
+                setMentalStateToward(enemy, self, ANGER, 0.0f);
             }
         }
         return SCRIPT_CONTINUE;
@@ -659,18 +657,13 @@ public class player_utility extends script.base_script
                     {
                         utils.removeScriptVar(self, "forage.listOfAlreadyForagedLocs");
                     }
-                    for (int i = 0; i < oldListOfLocs.length; ++i)
-                    {
-                        if (isIdValid(oldListOfLocs[i].cell))
-                        {
+                    for (location oldListOfLoc : oldListOfLocs) {
+                        if (isIdValid(oldListOfLoc.cell)) {
                             distance = 5.0f;
+                        } else {
+                            distance = getDistance(curLoc, oldListOfLoc);
                         }
-                        else 
-                        {
-                            distance = getDistance(curLoc, oldListOfLocs[i]);
-                        }
-                        if (distance < 5.0f)
-                        {
+                        if (distance < 5.0f) {
                             string_id tooClose = new string_id("player/player_utility", "forage_already_done_here");
                             sendSystemMessage(self, tooClose);
                             return SCRIPT_OVERRIDE;
@@ -698,14 +691,12 @@ public class player_utility extends script.base_script
         {
             return SCRIPT_CONTINUE;
         }
-        for (int i = 0; i < allAppearanceItems.length; i++)
-        {
-            if (!hasObjVar(allAppearanceItems[i], NON_ENHANCEMENT_BUFF))
-            {
+        for (obj_id allAppearanceItem : allAppearanceItems) {
+            if (!hasObjVar(allAppearanceItem, NON_ENHANCEMENT_BUFF)) {
                 continue;
             }
-            static_item.removeWornBuffs(allAppearanceItems[i], self);
-            static_item.checkForRemoveSetBonus(allAppearanceItems[i], self);
+            static_item.removeWornBuffs(allAppearanceItem, self);
+            static_item.checkForRemoveSetBonus(allAppearanceItem, self);
         }
         return SCRIPT_CONTINUE;
     }
@@ -716,14 +707,12 @@ public class player_utility extends script.base_script
         {
             return SCRIPT_CONTINUE;
         }
-        for (int i = 0; i < allAppearanceItems.length; i++)
-        {
-            if (!hasObjVar(allAppearanceItems[i], NON_ENHANCEMENT_BUFF))
-            {
+        for (obj_id allAppearanceItem : allAppearanceItems) {
+            if (!hasObjVar(allAppearanceItem, NON_ENHANCEMENT_BUFF)) {
                 continue;
             }
-            static_item.applyWornBuffs(allAppearanceItems[i], self);
-            static_item.checkForAddSetBonus(allAppearanceItems[i], self);
+            static_item.applyWornBuffs(allAppearanceItem, self);
+            static_item.checkForAddSetBonus(allAppearanceItem, self);
         }
         return SCRIPT_CONTINUE;
     }
@@ -780,7 +769,7 @@ public class player_utility extends script.base_script
             return SCRIPT_CONTINUE;
         }
         String originalParams = params;
-        if (params.indexOf(" ") > -1)
+        if (params.contains(" "))
         {
             java.util.StringTokenizer tmpSt = new java.util.StringTokenizer(params);
             params = "";
@@ -809,29 +798,21 @@ public class player_utility extends script.base_script
         String[] catList = dataTableGetStringColumnNoDefaults("datatables/player/planet_map_cat.iff", "name");
         if ((catList != null) && (catList.length > 0))
         {
-            for (int i = 0; i < catList.length; i++)
-            {
-                if (catList[i].equals(cat))
-                {
+            for (String s1 : catList) {
+                if (s1.equals(cat)) {
                     break;
-                }
-                else if (catList[i].startsWith(cat))
-                {
-                    cat = catList[i];
+                } else if (s1.startsWith(cat)) {
+                    cat = s1;
                     break;
                 }
             }
             if ((sub != null) && (!sub.equals("")))
             {
-                for (int i = 0; i < catList.length; i++)
-                {
-                    if (catList[i].equals(sub))
-                    {
+                for (String s : catList) {
+                    if (s.equals(sub)) {
                         break;
-                    }
-                    else if (catList[i].startsWith(sub))
-                    {
-                        sub = catList[i];
+                    } else if (s.startsWith(sub)) {
+                        sub = s;
                         break;
                     }
                 }
@@ -856,11 +837,9 @@ public class player_utility extends script.base_script
                     }
                     Vector subLocs = new Vector();
                     subLocs.setSize(0);
-                    for (int x = 0; x < subCats.length; x++)
-                    {
-                        map_location[] tmpLocs = getPlanetaryMapLocations(cat, subCats[x]);
-                        if ((tmpLocs != null) || (tmpLocs.length > 0))
-                        {
+                    for (String subCat : subCats) {
+                        map_location[] tmpLocs = getPlanetaryMapLocations(cat, subCat);
+                        if ((tmpLocs != null) || (tmpLocs.length > 0)) {
                             subLocs.addAll(Arrays.asList(tmpLocs));
                         }
                     }
@@ -877,13 +856,13 @@ public class player_utility extends script.base_script
             }
             float min = Float.POSITIVE_INFINITY;
             int locIdx = -1;
-            float x = 0f;
-            float z = 0f;
+            float x = 0.0f;
+            float z = 0.0f;
             location there = new location();
             for (int n = 0; n < map_locs.length; n++)
             {
-                x = (float)(map_locs[n].getX());
-                z = (float)(map_locs[n].getY());
+                x = (map_locs[n].getX());
+                z = (map_locs[n].getY());
                 location tmpLoc = new location(x, 0, z);
                 float dist = utils.getDistance2D(here, tmpLoc);
                 if (dist < min)
@@ -962,18 +941,14 @@ public class player_utility extends script.base_script
                         if (hereCity != null && hereCity.length > 0 && thereCity != null && thereCity.length > 0)
                         {
                             boolean areInSameCity = false;
-                            for (int a = 0; a < hereCity.length; a++)
-                            {
-                                for (int b = 0; b < thereCity.length; b++)
-                                {
-                                    if (((hereCity[a].getName())).equals(thereCity[b].getName()))
-                                    {
+                            for (region region1 : hereCity) {
+                                for (region region : thereCity) {
+                                    if (((region1.getName())).equals(region.getName())) {
                                         areInSameCity = true;
                                         break;
                                     }
                                 }
-                                if (areInSameCity)
-                                {
+                                if (areInSameCity) {
                                     break;
                                 }
                             }
@@ -2284,42 +2259,33 @@ public class player_utility extends script.base_script
         }
         location here = getLocation(player);
         obj_id[] potentialSigns = getObjectsInRange(here, 10.0f);
-        for (int i = 0; i < potentialSigns.length; i++)
-        {
-            if (!hasScript(potentialSigns[i], "systems.sign.sign"))
-            {
+        for (obj_id potentialSign : potentialSigns) {
+            if (!hasScript(potentialSign, "systems.sign.sign")) {
                 continue;
-            }
-            else 
-            {
-                if (!utils.hasScriptVar(potentialSigns[i], "player_structure.parent"))
-                {
+            } else {
+                if (!utils.hasScriptVar(potentialSign, "player_structure.parent")) {
                     sendSystemMessage(player, new string_id(STF_FILE, "unknown_city_packup_error"));
-                    CustomerServiceLog("playerStructure", "Player(" + player + ") attempted to use the Remote City Packup Command but the House Sign(" + potentialSigns[i] + ") has invalid data.");
+                    CustomerServiceLog("playerStructure", "Player(" + player + ") attempted to use the Remote City Packup Command but the House Sign(" + potentialSign + ") has invalid data.");
                     LOG("sissynoid", "Invalid Sign - No Parent ObjVar - fail");
                     return SCRIPT_CONTINUE;
                 }
-                obj_id structure = utils.getObjIdScriptVar(potentialSigns[i], "player_structure.parent");
-                if (!isIdValid(structure))
-                {
+                obj_id structure = utils.getObjIdScriptVar(potentialSign, "player_structure.parent");
+                if (!isIdValid(structure)) {
                     LOG("sissynoid", "Invalid Structure ID: " + structure);
                     CustomerServiceLog("playerStructure", "Player(" + player + ") attempted to use the Remote City Packup Command but the House Obj ID has invalid.");
                     return SCRIPT_CONTINUE;
                 }
-                if (!player_structure.isCityAbandoned(structure))
-                {
+                if (!player_structure.isCityAbandoned(structure)) {
                     sendSystemMessage(player, new string_id(STF_FILE, "structure_not_city_abandoned"));
                     CustomerServiceLog("playerStructure", "Player(" + player + ") attempted to use the Remote City Packup Command but the House(" + structure + ") was not City Abandoned.");
                     LOG("sissynoid", "This structure is not City Abandoned - fail");
                     return SCRIPT_CONTINUE;
-                }
-                else 
-                {
-                    LOG("sissynoid", "I found a sign: " + potentialSigns[i]);
+                } else {
+                    LOG("sissynoid", "I found a sign: " + potentialSign);
                     dictionary dict = new dictionary();
                     dict.put("player", player);
-                    dict.put("sign", potentialSigns[i]);
-                    messageTo(potentialSigns[i], "handleRemoteCommandCityHousePackup", dict, 1.0f, false);
+                    dict.put("sign", potentialSign);
+                    messageTo(potentialSign, "handleRemoteCommandCityHousePackup", dict, 1.0f, false);
                 }
             }
         }
@@ -2582,13 +2548,11 @@ public class player_utility extends script.base_script
             if (!groundquests.isQuestActive(self, questName))
             {
                 CustomerServiceLog("outbreak_themepark", "player_utility.recalculateCampDefenseUndeadArray() Player " + self + " did not have the appropriate quest active. Destroying all enemies.");
-                for (int i = 0; i < enemies.length; i++)
-                {
-                    if ((!isIdValid(enemies[i])) || !exists(enemies[i]) || isDead(enemies[i]))
-                    {
+                for (obj_id enemy : enemies) {
+                    if ((!isIdValid(enemy)) || !exists(enemy) || isDead(enemy)) {
                         continue;
                     }
-                    destroyObject(enemies[i]);
+                    destroyObject(enemy);
                 }
                 utils.removeScriptVar(self, "enemyList");
                 return SCRIPT_CONTINUE;
@@ -2604,13 +2568,11 @@ public class player_utility extends script.base_script
             return SCRIPT_CONTINUE;
         }
         Vector latestGuardList = new Vector();
-        for (int i = 0; i < enemies.length; i++)
-        {
-            if ((isIdNull(enemies[i])) || !exists(enemies[i]) || isDead(enemies[i]))
-            {
+        for (obj_id enemy : enemies) {
+            if ((isIdNull(enemy)) || !exists(enemy) || isDead(enemy)) {
                 continue;
             }
-            utils.addElement(latestGuardList, enemies[i]);
+            utils.addElement(latestGuardList, enemy);
         }
         obj_id[] newGuardArray = new obj_id[latestGuardList.size()];
         if (newGuardArray == null || newGuardArray.length == 0)
@@ -3086,7 +3048,7 @@ public class player_utility extends script.base_script
         {
             if (maxHp > 0)
             {
-                double dmg = maxHp * .2;
+                double dmg = maxHp * 0.2;
                 if (dmg < currentHp)
                 {
                     setHitpoints(patrolPoint, (currentHp - (int)dmg));
@@ -3210,7 +3172,7 @@ public class player_utility extends script.base_script
             sound = "sound/sys_comm_rebel_male.snd";
             prose.setStringId(pp, new string_id(stringFile, neutralAnnouncement + planetName + "_" + cityName));
         }
-        commPlayers(self, npc, sound, 12f, self, pp);
+        commPlayers(self, npc, sound, 12.0f, self, pp);
         gcw.gcwTutorialCheck(self);
         return SCRIPT_CONTINUE;
     }
@@ -3312,62 +3274,56 @@ public class player_utility extends script.base_script
         total = 0;
         if ((citiesRebel != null) && (citiesRebel.length > 0))
         {
-            for (int i = 0; i < citiesRebel.length; ++i)
-            {
-                final String cityName = cityGetName(citiesRebel[i]);
+            for (int i1 : citiesRebel) {
+                final String cityName = cityGetName(i1);
                 rowData[total][0] = ((cityName == null) ? "" : cityName);
                 rowData[total][1] = "";
                 rowData[total][2] = "/Styles.Icon.Faction.rebel_logo";
-                final int timeJoinedGcwDefenderRegion = cityGetTimeJoinedGcwDefenderRegion(citiesRebel[i]);
+                final int timeJoinedGcwDefenderRegion = cityGetTimeJoinedGcwDefenderRegion(i1);
                 rowData[total][3] = ((timeJoinedGcwDefenderRegion > 0) ? getCalendarTimeStringLocal_YYYYMMDDHHMMSS(timeJoinedGcwDefenderRegion) : "");
                 ++total;
             }
         }
         if ((guildsRebel != null) && (guildsRebel.length > 0))
         {
-            for (int i = 0; i < guildsRebel.length; ++i)
-            {
+            for (int i1 : guildsRebel) {
                 rowData[total][0] = "";
-                final String guildName = guildGetName(guildsRebel[i]);
+                final String guildName = guildGetName(i1);
                 rowData[total][1] = ((guildName == null) ? "" : guildName);
-                final String guildAbbrev = guildGetAbbrev(guildsRebel[i]);
-                if ((guildAbbrev != null) && (guildAbbrev.length() > 0))
-                {
+                final String guildAbbrev = guildGetAbbrev(i1);
+                if ((guildAbbrev != null) && (guildAbbrev.length() > 0)) {
                     rowData[total][1] += (" (" + guildAbbrev + ")");
                 }
                 rowData[total][2] = "/Styles.Icon.Faction.rebel_logo";
-                final int timeJoinedGcwDefenderRegion = guildGetTimeJoinedCurrentGcwDefenderRegion(guildsRebel[i]);
+                final int timeJoinedGcwDefenderRegion = guildGetTimeJoinedCurrentGcwDefenderRegion(i1);
                 rowData[total][3] = ((timeJoinedGcwDefenderRegion > 0) ? getCalendarTimeStringLocal_YYYYMMDDHHMMSS(timeJoinedGcwDefenderRegion) : "");
                 ++total;
             }
         }
         if ((citiesImperial != null) && (citiesImperial.length > 0))
         {
-            for (int i = 0; i < citiesImperial.length; ++i)
-            {
-                final String cityName = cityGetName(citiesImperial[i]);
+            for (int i1 : citiesImperial) {
+                final String cityName = cityGetName(i1);
                 rowData[total][0] = ((cityName == null) ? "" : cityName);
                 rowData[total][1] = "";
                 rowData[total][2] = "/Styles.Icon.Faction.imperial_logo";
-                final int timeJoinedGcwDefenderRegion = cityGetTimeJoinedGcwDefenderRegion(citiesImperial[i]);
+                final int timeJoinedGcwDefenderRegion = cityGetTimeJoinedGcwDefenderRegion(i1);
                 rowData[total][3] = ((timeJoinedGcwDefenderRegion > 0) ? getCalendarTimeStringLocal_YYYYMMDDHHMMSS(timeJoinedGcwDefenderRegion) : "");
                 ++total;
             }
         }
         if ((guildsImperial != null) && (guildsImperial.length > 0))
         {
-            for (int i = 0; i < guildsImperial.length; ++i)
-            {
+            for (int i1 : guildsImperial) {
                 rowData[total][0] = "";
-                final String guildName = guildGetName(guildsImperial[i]);
+                final String guildName = guildGetName(i1);
                 rowData[total][1] = ((guildName == null) ? "" : guildName);
-                final String guildAbbrev = guildGetAbbrev(guildsImperial[i]);
-                if ((guildAbbrev != null) && (guildAbbrev.length() > 0))
-                {
+                final String guildAbbrev = guildGetAbbrev(i1);
+                if ((guildAbbrev != null) && (guildAbbrev.length() > 0)) {
                     rowData[total][1] += (" (" + guildAbbrev + ")");
                 }
                 rowData[total][2] = "/Styles.Icon.Faction.imperial_logo";
-                final int timeJoinedGcwDefenderRegion = guildGetTimeJoinedCurrentGcwDefenderRegion(guildsImperial[i]);
+                final int timeJoinedGcwDefenderRegion = guildGetTimeJoinedCurrentGcwDefenderRegion(i1);
                 rowData[total][3] = ((timeJoinedGcwDefenderRegion > 0) ? getCalendarTimeStringLocal_YYYYMMDDHHMMSS(timeJoinedGcwDefenderRegion) : "");
                 ++total;
             }
@@ -3622,7 +3578,7 @@ public class player_utility extends script.base_script
         }
         prose_package pp = new prose_package();
         prose.setStringId(pp, new string_id(stringFile, kudosText));
-        commPlayers(self, npc, sound, 12f, self, pp);
+        commPlayers(self, npc, sound, 12.0f, self, pp);
         return SCRIPT_CONTINUE;
     }
     public int handleCityGcwRegionDefenderChoice(obj_id self, dictionary params) throws InterruptedException

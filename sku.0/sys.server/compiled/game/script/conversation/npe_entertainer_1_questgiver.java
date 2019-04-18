@@ -32,7 +32,7 @@ public class npe_entertainer_1_questgiver extends script.base_script
     public boolean npe_entertainer_1_questgiver_condition_notEntertainer(obj_id player, obj_id npc) throws InterruptedException
     {
         String pTemplate = getSkillTemplate(player);
-        if (pTemplate.indexOf("entertainer") > -1)
+        if (pTemplate.contains("entertainer"))
         {
             return false;
         }
@@ -48,7 +48,7 @@ public class npe_entertainer_1_questgiver extends script.base_script
     public boolean npe_entertainer_1_questgiver_condition_startingconversation(obj_id player, obj_id npc) throws InterruptedException
     {
         String pTemplate = getSkillTemplate(player);
-        if (pTemplate.indexOf("entertainer") > -1)
+        if (pTemplate.contains("entertainer"))
         {
             return true;
         }
@@ -80,7 +80,7 @@ public class npe_entertainer_1_questgiver extends script.base_script
         newbieTutorialSetToolbarElement(player, 10, "/StopDance");
         newbieTutorialHighlightUIElement(player, "/GroundHUD.Toolbar.volume.9", 5.0f);
         newbieTutorialHighlightUIElement(player, "/GroundHUD.Toolbar.volume.10", 5.0f);
-        if (pTemplate.indexOf("entertainer") > -1)
+        if (pTemplate.contains("entertainer"))
         {
             newbieTutorialSetToolbarElement(player, 4, "/flourish+1");
             newbieTutorialSetToolbarElement(player, 5, "/flourish+2");

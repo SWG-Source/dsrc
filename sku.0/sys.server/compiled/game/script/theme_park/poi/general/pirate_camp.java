@@ -40,17 +40,16 @@ public class pirate_camp extends script.theme_park.poi.base
             poiCreateObject("object/tangible/camp/camp_tent_s1.iff", 1.5f, -10.7f);
         }
         int numGuards = 5;
-        if (diff.equals("medium"))
-        {
-            numGuards += 2;
-        }
-        else if (diff.equals("hard"))
-        {
-            numGuards += 4;
-        }
-        else if (diff.equals("veryHard"))
-        {
-            numGuards += 6;
+        switch (diff) {
+            case "medium":
+                numGuards += 2;
+                break;
+            case "hard":
+                numGuards += 4;
+                break;
+            case "veryHard":
+                numGuards += 6;
+                break;
         }
         dictionary params = new dictionary();
         for (int i = 0; i < numGuards; i++)

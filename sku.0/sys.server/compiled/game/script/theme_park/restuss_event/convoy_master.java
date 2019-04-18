@@ -29,44 +29,40 @@ public class convoy_master extends script.base_script
             {
                 debugSpeakMsg(self, "Points was null or zero");
             }
-            for (int i = 0; i < points.length; i++)
-            {
-                int value = getIntObjVar(points[i], "restuss_imperial_ambush");
-                switch (value)
-                {
+            for (obj_id point : points) {
+                int value = getIntObjVar(point, "restuss_imperial_ambush");
+                switch (value) {
                     case 1:
-                    patrolPoints[0] = getLocation(points[i]);
-                    break;
+                        patrolPoints[0] = getLocation(point);
+                        break;
                     case 2:
-                    patrolPoints[1] = getLocation(points[i]);
-                    break;
+                        patrolPoints[1] = getLocation(point);
+                        break;
                     case 3:
-                    patrolPoints[2] = getLocation(points[i]);
-                    break;
+                        patrolPoints[2] = getLocation(point);
+                        break;
                     case 4:
-                    patrolPoints[3] = getLocation(points[i]);
+                        patrolPoints[3] = getLocation(point);
                 }
             }
         }
         if (faction.equals("rebel"))
         {
             obj_id[] points = getAllObjectsWithObjVar(getLocation(self), 600.0f, "restuss_rebel_ambush");
-            for (int i = 0; i < points.length; i++)
-            {
-                int value = getIntObjVar(points[i], "restuss_rebel_ambush");
-                switch (value)
-                {
+            for (obj_id point : points) {
+                int value = getIntObjVar(point, "restuss_rebel_ambush");
+                switch (value) {
                     case 1:
-                    patrolPoints[0] = getLocation(points[i]);
-                    break;
+                        patrolPoints[0] = getLocation(point);
+                        break;
                     case 2:
-                    patrolPoints[1] = getLocation(points[i]);
-                    break;
+                        patrolPoints[1] = getLocation(point);
+                        break;
                     case 3:
-                    patrolPoints[2] = getLocation(points[i]);
-                    break;
+                        patrolPoints[2] = getLocation(point);
+                        break;
                     case 4:
-                    patrolPoints[3] = getLocation(points[i]);
+                        patrolPoints[3] = getLocation(point);
                 }
             }
         }

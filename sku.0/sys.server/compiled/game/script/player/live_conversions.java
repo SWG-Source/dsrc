@@ -258,11 +258,9 @@ public class live_conversions extends script.base_script
             {
                 Vector newConsentTo = new Vector();
                 newConsentTo.setSize(0);
-                for (int i = 0; i < consentTo.length; ++i)
-                {
-                    if (isPlayer(consentTo[i]))
-                    {
-                        newConsentTo = utils.addElement(newConsentTo, consentTo[i]);
+                for (obj_id consentTo1 : consentTo) {
+                    if (isPlayer(consentTo1)) {
+                        newConsentTo = utils.addElement(newConsentTo, consentTo1);
                     }
                 }
                 if (newConsentTo.size() > 0)
@@ -283,11 +281,9 @@ public class live_conversions extends script.base_script
             {
                 Vector newConsentFrom = new Vector();
                 newConsentFrom.setSize(0);
-                for (int i = 0; i < consentFrom.length; ++i)
-                {
-                    if (isPlayer(consentFrom[i]))
-                    {
-                        newConsentFrom = utils.addElement(newConsentFrom, consentFrom[i]);
+                for (obj_id obj_id : consentFrom) {
+                    if (isPlayer(obj_id)) {
+                        newConsentFrom = utils.addElement(newConsentFrom, obj_id);
                     }
                 }
                 if (newConsentFrom.size() > 0)
@@ -453,11 +449,9 @@ public class live_conversions extends script.base_script
         String[] allSkills = getSkillListingForPlayer(player);
         if (allSkills != null && allSkills.length > 0)
         {
-            for (int i = 0; i < allSkills.length; i++)
-            {
-                if (allSkills[i].endsWith("_master"))
-                {
-                    badge.grantMasterSkillBadge(player, allSkills[i]);
+            for (String allSkill : allSkills) {
+                if (allSkill.endsWith("_master")) {
+                    badge.grantMasterSkillBadge(player, allSkill);
                 }
             }
         }
@@ -537,15 +531,11 @@ public class live_conversions extends script.base_script
         boolean updatedQuestsFound = false;
         if (oldQuests != null && oldQuests.length > 0)
         {
-            for (int i = 0; i < oldQuests.length; i++)
-            {
-                String oldQuestName = oldQuests[i];
-                if (groundquests.isQuestActive(player, oldQuestName))
-                {
+            for (String oldQuestName : oldQuests) {
+                if (groundquests.isQuestActive(player, oldQuestName)) {
                     String newQuestName = dataTableGetString(datatable, oldQuestName, newQuestColumn);
                     groundquests.clearQuest(player, oldQuestName);
-                    if (!newQuestName.equals("delete"))
-                    {
+                    if (!newQuestName.equals("delete")) {
                         updatedQuestsFound = true;
                         groundquests.grantQuestNoAcceptUI(player, newQuestName, false);
                         String questlistDatatable = "questlist";
@@ -691,7 +681,7 @@ public class live_conversions extends script.base_script
         if (player == currentCityMayor)
         {
             setHouseId(player, obj_id.NULL_ID);
-            messageTo(structure, "removeResidentVar", null, 0.f, true);
+            messageTo(structure, "removeResidentVar", null, 0.0f, true);
         }
         else 
         {
@@ -783,21 +773,16 @@ public class live_conversions extends script.base_script
         String[] collectionList = dataTableGetStringColumn(UPDATE_COLLECTION_DATATABLE, UPDATE_COLLECTION_NAME_COLUMN);
         if (collectionList != null && collectionList.length > 0)
         {
-            for (int i = 0; i < collectionList.length; i++)
-            {
-                if (hasCompletedCollection(player, collectionList[i]))
-                {
-                    String slotToGrant = dataTableGetString(UPDATE_COLLECTION_DATATABLE, collectionList[i], UPDATE_COLLECTION_SLOT_TO_GRANT);
+            for (String s1 : collectionList) {
+                if (hasCompletedCollection(player, s1)) {
+                    String slotToGrant = dataTableGetString(UPDATE_COLLECTION_DATATABLE, s1, UPDATE_COLLECTION_SLOT_TO_GRANT);
                     String[] slotList = split(slotToGrant, ',');
-                    if (slotList != null & slotList.length > 0)
-                    {
-                        for (int j = 0; j < slotList.length; j++)
-                        {
-                            if (!hasCompletedCollectionSlot(player, slotList[j]))
-                            {
-                                int incrementAmount = dataTableGetInt(UPDATE_COLLECTION_DATATABLE, collectionList[i], UPDATE_COLLECTION_INCREMENT_AMOUNT);
-                                modifyCollectionSlotValue(player, slotList[j], incrementAmount);
-                                CustomerServiceLog("Collection:", " onInitialize Collection Update: player " + getFirstName(player) + "(" + player + ") received a Collection Slot Update on Login for Collection" + collectionList[i] + " : Slot(s) Name: " + slotToGrant + ".");
+                    if (slotList != null & slotList.length > 0) {
+                        for (String s : slotList) {
+                            if (!hasCompletedCollectionSlot(player, s)) {
+                                int incrementAmount = dataTableGetInt(UPDATE_COLLECTION_DATATABLE, s1, UPDATE_COLLECTION_INCREMENT_AMOUNT);
+                                modifyCollectionSlotValue(player, s, incrementAmount);
+                                CustomerServiceLog("Collection:", " onInitialize Collection Update: player " + getFirstName(player) + "(" + player + ") received a Collection Slot Update on Login for Collection" + s1 + " : Slot(s) Name: " + slotToGrant + ".");
                             }
                         }
                     }

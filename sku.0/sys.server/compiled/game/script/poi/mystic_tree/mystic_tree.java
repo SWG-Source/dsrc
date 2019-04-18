@@ -37,7 +37,7 @@ public class mystic_tree extends script.base_script
                 {
                     sendSystemMessage(player, TRANSFORM);
                     location selfLoc = getLocation(self);
-                    playClientEffectLoc(player, "clienteffect/healing_tree.cef", selfLoc, 0.f);
+                    playClientEffectLoc(player, "clienteffect/healing_tree.cef", selfLoc, 0.0f);
                     destroyObject(hasMedicine);
                     messageTo(self, "spawnHealthyTree", null, 1.5f, true);
                     utils.setScriptVar(self, "playerId", player);

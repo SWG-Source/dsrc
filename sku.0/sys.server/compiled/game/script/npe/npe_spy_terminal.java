@@ -109,11 +109,9 @@ public class npe_spy_terminal extends script.base_script
     {
         obj_id building = getTopMostContainer(self);
         Vector alarms = utils.getResizeableObjIdArrayScriptVar(building, "objAlarms");
-        for (int i = 0; i < alarms.size(); i++)
-        {
-            if (isIdValid(((obj_id)alarms.get(i))))
-            {
-                setCondition(((obj_id)alarms.get(i)), CONDITION_ON);
+        for (Object alarm : alarms) {
+            if (isIdValid(((obj_id) alarm))) {
+                setCondition(((obj_id) alarm), CONDITION_ON);
                 messageTo(self, "turnAlarmsOff", null, 10, false);
             }
         }
@@ -122,11 +120,9 @@ public class npe_spy_terminal extends script.base_script
     {
         obj_id building = getTopMostContainer(self);
         Vector alarms = utils.getResizeableObjIdArrayScriptVar(building, "objAlarms");
-        for (int i = 0; i < alarms.size(); i++)
-        {
-            if (isIdValid(((obj_id)alarms.get(i))))
-            {
-                clearCondition(((obj_id)alarms.get(i)), CONDITION_ON);
+        for (Object alarm : alarms) {
+            if (isIdValid(((obj_id) alarm))) {
+                clearCondition(((obj_id) alarm), CONDITION_ON);
             }
         }
         return SCRIPT_CONTINUE;

@@ -185,15 +185,15 @@ public class rebel_research_defend extends script.base_script
     public void explodeFacility(obj_id self, obj_id player) throws InterruptedException
     {
         location death = getLocation(self);
-        playClientEffectLoc(player, "clienteffect/combat_explosion_lair_large.cef", death, 10f);
+        playClientEffectLoc(player, "clienteffect/combat_explosion_lair_large.cef", death, 10.0f);
         death.x = death.x + 5;
-        playClientEffectLoc(player, "clienteffect/combat_explosion_lair_large.cef", death, 10f);
+        playClientEffectLoc(player, "clienteffect/combat_explosion_lair_large.cef", death, 10.0f);
         death.z = death.z + 5;
-        playClientEffectLoc(player, "clienteffect/combat_explosion_lair_large.cef", death, 10f);
+        playClientEffectLoc(player, "clienteffect/combat_explosion_lair_large.cef", death, 10.0f);
         death.x = death.x - 10;
-        playClientEffectLoc(player, "clienteffect/combat_explosion_lair_large.cef", death, 10f);
+        playClientEffectLoc(player, "clienteffect/combat_explosion_lair_large.cef", death, 10.0f);
         death.z = death.z - 10;
-        playClientEffectLoc(player, "clienteffect/combat_explosion_lair_large.cef", death, 10f);
+        playClientEffectLoc(player, "clienteffect/combat_explosion_lair_large.cef", death, 10.0f);
     }
     public int cleanup(obj_id self, dictionary params) throws InterruptedException
     {
@@ -203,21 +203,17 @@ public class rebel_research_defend extends script.base_script
     public int OnDestroy(obj_id self) throws InterruptedException
     {
         Vector objectList = getResizeableObjIdArrayObjVar(self, "coa3.rebel.obj_list");
-        for (int i = 0; i < objectList.size(); i++)
-        {
-            if (isIdValid(((obj_id)objectList.get(i))))
-            {
-                destroyObject(((obj_id)objectList.get(i)));
+        for (Object o1 : objectList) {
+            if (isIdValid(((obj_id) o1))) {
+                destroyObject(((obj_id) o1));
             }
         }
         Vector enemyList = getResizeableObjIdArrayObjVar(self, "coa3.rebel.enemyList");
         if (enemyList != null)
         {
-            for (int i = 0; i < enemyList.size(); i++)
-            {
-                if (isIdValid(((obj_id)enemyList.get(i))))
-                {
-                    destroyObject(((obj_id)enemyList.get(i)));
+            for (Object o : enemyList) {
+                if (isIdValid(((obj_id) o))) {
+                    destroyObject(((obj_id) o));
                 }
             }
         }
@@ -353,7 +349,7 @@ public class rebel_research_defend extends script.base_script
         while (x < 10)
         {
             location loc = utils.getRandomLocationInRing(center, 100, 150);
-            spawnLoc = locations.getGoodLocationAroundLocation(loc, 5f, 5f, 50f, 50f);
+            spawnLoc = locations.getGoodLocationAroundLocation(loc, 5.0f, 5.0f, 50.0f, 50.0f);
             if (spawnLoc != null)
             {
                 break;

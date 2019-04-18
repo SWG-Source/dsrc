@@ -189,12 +189,10 @@ public class player_battlefield extends script.base_script
                         obj_id[] waypoint_list = getObjIdArrayObjVar(self, battlefield.VAR_WAYPOINTS);
                         if (waypoint_list != null)
                         {
-                            for (int i = 0; i < waypoint_list.length; i++)
-                            {
-                                LOG("LOG_CHANNEL", "player_battlefield::msgEndBattlefieldGame -- waypoint " + waypoint_list[i] + "removed.");
-                                if (isIdValid(waypoint_list[i]))
-                                {
-                                    destroyWaypointInDatapad(waypoint_list[i], self);
+                            for (obj_id obj_id : waypoint_list) {
+                                LOG("LOG_CHANNEL", "player_battlefield::msgEndBattlefieldGame -- waypoint " + obj_id + "removed.");
+                                if (isIdValid(obj_id)) {
+                                    destroyWaypointInDatapad(obj_id, self);
                                 }
                             }
                         }
@@ -490,10 +488,9 @@ public class player_battlefield extends script.base_script
             time = battlefield.getGameTimeRemaining(bf);
             time_starting = "ending in";
             String[] factions_allowed = battlefield.getFactionsAllowed(bf);
-            for (int i = 0; i < factions_allowed.length; i++)
-            {
-                obj_id[] faction_team = battlefield.getFactionTeam(bf, factions_allowed[i]);
-                num_factions = utils.addElement(num_factions, factions_allowed[i] + " Team: " + faction_team.length);
+            for (String s : factions_allowed) {
+                obj_id[] faction_team = battlefield.getFactionTeam(bf, s);
+                num_factions = utils.addElement(num_factions, s + " Team: " + faction_team.length);
             }
         }
         else 
@@ -680,12 +677,9 @@ public class player_battlefield extends script.base_script
             obj_id[] waypoint_list = getObjIdArrayObjVar(player, battlefield.VAR_WAYPOINTS);
             if (waypoint_list != null)
             {
-                for (int i = 0; i < waypoint_list.length; i++)
-                {
-                    obj_id waypoint = waypoint_list[i];
+                for (obj_id waypoint : waypoint_list) {
                     LOG("LOG_CHANNEL", "player_battlefield::cleanPlayer -- waypoint " + waypoint + "removed.");
-                    if (isIdValid(waypoint))
-                    {
+                    if (isIdValid(waypoint)) {
                         destroyWaypointInDatapad(waypoint, player);
                     }
                 }

@@ -64,10 +64,8 @@ public class end_point_monitor extends script.base_script
         else 
         {
             boolean living = false;
-            for (int i = 0; i < droids.length; i++)
-            {
-                if (!isDead(droids[i]) && !ai_lib.isInCombat(droids[i]))
-                {
+            for (obj_id droid : droids) {
+                if (!isDead(droid) && !ai_lib.isInCombat(droid)) {
                     living = true;
                 }
             }

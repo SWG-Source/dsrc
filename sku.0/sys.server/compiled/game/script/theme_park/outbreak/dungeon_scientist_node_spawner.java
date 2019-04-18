@@ -20,7 +20,7 @@ public class dungeon_scientist_node_spawner extends script.base_script
     public static final String NODE_SCIENTIST_PATH = "scientist_rescue";
     public static final String NODE_STORMTROOPER_PATH = "stormtrooper_guard";
     public static final String STORMTROOPER_GUARD_CREATURE = "outbreak_facility_stormtrooper_survivor";
-    public static final float SEARCH_RADIUS = 100f;
+    public static final float SEARCH_RADIUS = 100.0f;
     public int spawnRescuedActor(obj_id self, dictionary params) throws InterruptedException
     {
         CustomerServiceLog("outbreak_themepark", "dungeon_scientist_node_spawners.spawnRescuedActor() Initialized Message Handler for node: " + self);
@@ -69,15 +69,13 @@ public class dungeon_scientist_node_spawner extends script.base_script
         }
         CustomerServiceLog("outbreak_themepark", "survivor_pathing.startSurvivorPathing() wayPointList received");
         location[] wayPtLocs = new location[wayPointList.length];
-        for (int i = 0; i < wayPointList.length; i++)
-        {
-            int orderNumber = getIntObjVar(wayPointList[i], objVarSearch) - 1;
-            if (orderNumber < 0)
-            {
-                CustomerServiceLog("outbreak_themepark", "dungeon_scientist_node_spawners.spawnRescuedActor() the NPC waypoint location was invalid for waypoint: " + wayPointList[i]);
+        for (obj_id obj_id : wayPointList) {
+            int orderNumber = getIntObjVar(obj_id, objVarSearch) - 1;
+            if (orderNumber < 0) {
+                CustomerServiceLog("outbreak_themepark", "dungeon_scientist_node_spawners.spawnRescuedActor() the NPC waypoint location was invalid for waypoint: " + obj_id);
                 continue;
             }
-            wayPtLocs[orderNumber] = getLocation(wayPointList[i]);
+            wayPtLocs[orderNumber] = getLocation(obj_id);
         }
         int delay = getIntObjVar(self, NODE_PATH_DELAY);
         if (delay < 0)

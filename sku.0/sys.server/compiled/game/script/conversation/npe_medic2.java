@@ -18,13 +18,10 @@ public class npe_medic2 extends script.base_script
         boolean needsItem = false;
         boolean hasItem = false;
         obj_id[] playerStuff = getInventoryAndEquipment(player);
-        for (int i = 0; i < playerStuff.length; i++)
-        {
-            String templateName = static_item.getStaticItemName(playerStuff[i]);
-            if (templateName != null)
-            {
-                if (templateName.equals("item_bactapack_01_01"))
-                {
+        for (obj_id obj_id : playerStuff) {
+            String templateName = static_item.getStaticItemName(obj_id);
+            if (templateName != null) {
+                if (templateName.equals("item_bactapack_01_01")) {
                     hasItem = true;
                 }
             }
@@ -50,13 +47,10 @@ public class npe_medic2 extends script.base_script
     public boolean npe_medic2_condition_hasPack(obj_id player, obj_id npc) throws InterruptedException
     {
         obj_id[] playerStuff = getInventoryAndEquipment(player);
-        for (int i = 0; i < playerStuff.length; i++)
-        {
-            String templateName = static_item.getStaticItemName(playerStuff[i]);
-            if (templateName != null)
-            {
-                if (templateName.equals("item_bactapack_01_01"))
-                {
+        for (obj_id obj_id : playerStuff) {
+            String templateName = static_item.getStaticItemName(obj_id);
+            if (templateName != null) {
+                if (templateName.equals("item_bactapack_01_01")) {
                     return true;
                 }
             }
@@ -86,7 +80,7 @@ public class npe_medic2 extends script.base_script
     public boolean npe_medic2_condition_isMedTemplate(obj_id player, obj_id npc) throws InterruptedException
     {
         String pTemplate = getSkillTemplate(player);
-        if (pTemplate.indexOf("medic") > -1)
+        if (pTemplate.contains("medic"))
         {
             return true;
         }

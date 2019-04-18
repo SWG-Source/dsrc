@@ -39,7 +39,7 @@ public class npe_station_inaldra2 extends script.base_script
     public boolean npe_station_inaldra2_condition_isBH(obj_id player, obj_id npc) throws InterruptedException
     {
         String pTemplate = getSkillTemplate(player);
-        if (pTemplate.indexOf("bounty_hunter") > -1)
+        if (pTemplate.contains("bounty_hunter"))
         {
             return true;
         }

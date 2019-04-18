@@ -238,15 +238,12 @@ public class enzyme_crafting_base extends script.base_script
         obj_id[] contents = getContents(getSelf());
         boolean hasTray = false;
         boolean hasUnprocessedEnzyme = false;
-        for (int i = 0; i < contents.length; i++)
-        {
-            String objectTemplate = getTemplateName(contents[i]);
-            if (objectTemplate.equals(ENZYME_TYPE_3) && !isEnzymeProcessed(contents[i]))
-            {
+        for (obj_id content : contents) {
+            String objectTemplate = getTemplateName(content);
+            if (objectTemplate.equals(ENZYME_TYPE_3) && !isEnzymeProcessed(content)) {
                 hasUnprocessedEnzyme = true;
             }
-            if (objectTemplate.equals(CENTRIFUGE_USE))
-            {
+            if (objectTemplate.equals(CENTRIFUGE_USE)) {
                 hasTray = true;
             }
         }
@@ -257,15 +254,12 @@ public class enzyme_crafting_base extends script.base_script
         obj_id[] contents = getContents(getSelf());
         boolean hasCapsule = false;
         boolean hasElement = false;
-        for (int i = 0; i < contents.length; i++)
-        {
-            String objectTemplate = getTemplateName(contents[i]);
-            if (objectTemplate.indexOf("enzyme_3_element") > -1 && !isElementProcessed(contents[i]))
-            {
+        for (obj_id content : contents) {
+            String objectTemplate = getTemplateName(content);
+            if (objectTemplate.contains("enzyme_3_element") && !isElementProcessed(content)) {
                 hasElement = true;
             }
-            if (objectTemplate.equals(PROCESSOR_USE))
-            {
+            if (objectTemplate.equals(PROCESSOR_USE)) {
                 hasCapsule = true;
             }
         }
@@ -277,31 +271,24 @@ public class enzyme_crafting_base extends script.base_script
         boolean hasMold = false;
         boolean hasFiveElements = false;
         int fiveElements = 11111;
-        for (int i = 0; i < contents.length; i++)
-        {
-            String objectTemplate = getTemplateName(contents[i]);
-            if (objectTemplate.equals(COMBINER_USE))
-            {
+        for (obj_id content : contents) {
+            String objectTemplate = getTemplateName(content);
+            if (objectTemplate.equals(COMBINER_USE)) {
                 hasMold = true;
             }
-            if (objectTemplate.equals(ENZYME_ELEMENT_LIST[0]))
-            {
+            if (objectTemplate.equals(ENZYME_ELEMENT_LIST[0])) {
                 fiveElements -= 1;
             }
-            if (objectTemplate.equals(ENZYME_ELEMENT_LIST[1]))
-            {
+            if (objectTemplate.equals(ENZYME_ELEMENT_LIST[1])) {
                 fiveElements -= 10;
             }
-            if (objectTemplate.equals(ENZYME_ELEMENT_LIST[2]))
-            {
+            if (objectTemplate.equals(ENZYME_ELEMENT_LIST[2])) {
                 fiveElements -= 100;
             }
-            if (objectTemplate.equals(ENZYME_ELEMENT_LIST[3]))
-            {
+            if (objectTemplate.equals(ENZYME_ELEMENT_LIST[3])) {
                 fiveElements -= 1000;
             }
-            if (objectTemplate.equals(ENZYME_ELEMENT_LIST[4]))
-            {
+            if (objectTemplate.equals(ENZYME_ELEMENT_LIST[4])) {
                 fiveElements -= 10000;
             }
         }
@@ -477,9 +464,8 @@ public class enzyme_crafting_base extends script.base_script
     public float averagePurityFromElements() throws InterruptedException
     {
         float total = 0.0f;
-        for (int i = 0; i < ENZYME_ELEMENT_LIST.length; i++)
-        {
-            obj_id element = getObjIdByTemplate(ENZYME_ELEMENT_LIST[i]);
+        for (String s : ENZYME_ELEMENT_LIST) {
+            obj_id element = getObjIdByTemplate(s);
             total += getFloatObjVar(element, ENZYME_PURITY);
         }
         return (total / ENZYME_ELEMENT_LIST.length);
@@ -487,9 +473,8 @@ public class enzyme_crafting_base extends script.base_script
     public float averageMutagenFromElements() throws InterruptedException
     {
         float total = 0.0f;
-        for (int i = 0; i < ENZYME_ELEMENT_LIST.length; i++)
-        {
-            obj_id element = getObjIdByTemplate(ENZYME_ELEMENT_LIST[i]);
+        for (String s : ENZYME_ELEMENT_LIST) {
+            obj_id element = getObjIdByTemplate(s);
             total += getFloatObjVar(element, ENZYME_MUTAGEN);
         }
         return (total / ENZYME_ELEMENT_LIST.length);
@@ -501,9 +486,8 @@ public class enzyme_crafting_base extends script.base_script
         {
             return;
         }
-        for (int i = 0; i < contents.length; i++)
-        {
-            destroyObject(contents[i]);
+        for (obj_id content : contents) {
+            destroyObject(content);
         }
     }
     public obj_id getObjIdByTemplate(String template) throws InterruptedException
@@ -513,12 +497,10 @@ public class enzyme_crafting_base extends script.base_script
         {
             return null;
         }
-        for (int i = 0; i < contents.length; i++)
-        {
-            String objectTemplate = getTemplateName(contents[i]);
-            if (objectTemplate.equals(template))
-            {
-                return contents[i];
+        for (obj_id content : contents) {
+            String objectTemplate = getTemplateName(content);
+            if (objectTemplate.equals(template)) {
+                return content;
             }
         }
         return null;

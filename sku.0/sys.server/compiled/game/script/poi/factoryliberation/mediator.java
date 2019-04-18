@@ -258,15 +258,11 @@ public class mediator extends script.poi.base.scenario_actor
             }
             else 
             {
-                for (int n = 0; n < members.length; n++)
-                {
-                    if (!badge.hasBadge(members[n], "poi_factoryliberation"))
-                    {
-                        badge.grantBadge(members[n], "poi_factoryliberation");
-                    }
-                    else 
-                    {
-                        badge.notifyHasBadge(members[n], "poi_factoryliberation");
+                for (obj_id member : members) {
+                    if (!badge.hasBadge(member, "poi_factoryliberation")) {
+                        badge.grantBadge(member, "poi_factoryliberation");
+                    } else {
+                        badge.notifyHasBadge(member, "poi_factoryliberation");
                     }
                 }
             }
@@ -287,9 +283,8 @@ public class mediator extends script.poi.base.scenario_actor
         {
             return;
         }
-        for (int i = 0; i < team.length; i++)
-        {
-            messageTo(team[i], "celebrateFreedom", null, 0, false);
+        for (obj_id obj_id : team) {
+            messageTo(obj_id, "celebrateFreedom", null, 0, false);
         }
         messageTo(self, "runForFreedom", null, 10, false);
     }
@@ -309,16 +304,14 @@ public class mediator extends script.poi.base.scenario_actor
         {
             return SCRIPT_CONTINUE;
         }
-        for (int i = 0; i < team.length; i++)
-        {
-            if (team[i] == self)
-            {
+        for (obj_id obj_id : team) {
+            if (obj_id == self) {
                 continue;
             }
             location myDest = locations.getGoodLocationAroundLocation(dest, 1, 1, 10, 10);
-            setMovementRun(team[i]);
-            ai_lib.pathTo(team[i], myDest);
-            setHomeLocation(team[i], dest);
+            setMovementRun(obj_id);
+            ai_lib.pathTo(obj_id, myDest);
+            setHomeLocation(obj_id, dest);
         }
         return SCRIPT_CONTINUE;
     }

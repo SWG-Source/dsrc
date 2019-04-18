@@ -543,10 +543,8 @@ public class terminal_gcw_publish_gift extends script.terminal.base.base_termina
             return null;
         }
         int terminal_one = terminalArray[0];
-        for (int i = 0; i < terminalArray.length; i++)
-        {
-            if (terminal_one != terminalArray[i])
-            {
+        for (int i1 : terminalArray) {
+            if (terminal_one != i1) {
                 return BASE_BEING_CAPTURED;
             }
         }

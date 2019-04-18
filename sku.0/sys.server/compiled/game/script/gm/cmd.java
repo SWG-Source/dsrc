@@ -64,7 +64,7 @@ public class cmd extends script.base_script
             sendSystemMessageTestingOnly(self, "[Syntax] /forceCommand -target <command> <params> (with lookat target)");
             return SCRIPT_CONTINUE;
         }
-        if (params.indexOf(gm.KEYWORD_TARGET) > -1)
+        if (params.contains(gm.KEYWORD_TARGET))
         {
             params = gm.removeKeyword(params, gm.KEYWORD_TARGET);
         }
@@ -201,9 +201,9 @@ public class cmd extends script.base_script
     {
         final float MAX_RANGE = 256.0f;
         final String KEYWORD_RANGE = "-range:";
-        float range = 0f;
+        float range = 0.0f;
         String message = "";
-        if (params.indexOf(KEYWORD_RANGE) > -1)
+        if (params.contains(KEYWORD_RANGE))
         {
             dictionary d = parseRange(params);
             range = d.getFloat("range");
@@ -238,11 +238,9 @@ public class cmd extends script.base_script
             sendSystemMessageTestingOnly(self, "[Error] /broadcastArea: No players within range");
             return SCRIPT_CONTINUE;
         }
-        for (int i = 0; i < players.length; i++)
-        {
-            if (isIdValid(players[i]) && isPlayer(players[i]))
-            {
-                sendSystemMessageTestingOnly(players[i], message);
+        for (obj_id player : players) {
+            if (isIdValid(player) && isPlayer(player)) {
+                sendSystemMessageTestingOnly(player, message);
             }
         }
         return SCRIPT_CONTINUE;
@@ -290,7 +288,7 @@ public class cmd extends script.base_script
             sendSystemMessageTestingOnly(self, "/kill: you must have a valid creature target to use this command");
             return SCRIPT_CONTINUE;
         }
-        if (params.indexOf(gm.KEYWORD_TARGET) > -1)
+        if (params.contains(gm.KEYWORD_TARGET))
         {
             params = gm.removeKeyword(params, gm.KEYWORD_TARGET);
         }
@@ -319,7 +317,7 @@ public class cmd extends script.base_script
             sendSystemMessageTestingOnly(self, "/killPlayer: you must have a valid, alive player target to use this command");
             return SCRIPT_CONTINUE;
         }
-        if (params.indexOf(gm.KEYWORD_TARGET) > -1)
+        if (params.contains(gm.KEYWORD_TARGET))
         {
             params = gm.removeKeyword(params, gm.KEYWORD_TARGET);
         }
@@ -334,7 +332,7 @@ public class cmd extends script.base_script
     }
     public int cmdFreezePlayer(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException
     {
-        if (params.indexOf(gm.KEYWORD_ID) > -1)
+        if (params.contains(gm.KEYWORD_ID))
         {
             dictionary ret = gm.parseObjId(params);
             target = ret.getObjId("oid");
@@ -355,7 +353,7 @@ public class cmd extends script.base_script
     }
     public int cmdUnfreezePlayer(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException
     {
-        if (params.indexOf(gm.KEYWORD_ID) > -1)
+        if (params.contains(gm.KEYWORD_ID))
         {
             dictionary ret = gm.parseObjId(params);
             target = ret.getObjId("oid");
@@ -414,13 +412,13 @@ public class cmd extends script.base_script
         {
             target = self;
         }
-        if (params.indexOf(gm.KEYWORD_TARGET) > -1)
+        if (params.contains(gm.KEYWORD_TARGET))
         {
             params = gm.removeKeyword(params, gm.KEYWORD_TARGET);
         }
         else
         {
-            if (params.indexOf(gm.KEYWORD_ID) > -1)
+            if (params.contains(gm.KEYWORD_ID))
             {
                 dictionary d = gm.parseObjId(params);
                 obj_id tmpTarget = d.getObjId("oid");
@@ -441,7 +439,7 @@ public class cmd extends script.base_script
             }
         }
         boolean isAdHoc = false;
-        if (params.indexOf(gm.KEYWORD_ADHOC) > -1)
+        if (params.contains(gm.KEYWORD_ADHOC))
         {
             params = gm.removeKeyword(params, gm.KEYWORD_ADHOC);
             isAdHoc = true;
@@ -577,7 +575,7 @@ public class cmd extends script.base_script
         {
             target = self;
         }
-        if (params.indexOf(gm.KEYWORD_TARGET) > -1)
+        if (params.contains(gm.KEYWORD_TARGET))
         {
             params = gm.removeKeyword(params, gm.KEYWORD_TARGET);
         }
@@ -743,7 +741,7 @@ public class cmd extends script.base_script
         {
             target = self;
         }
-        if (params.indexOf(gm.KEYWORD_TARGET) > -1)
+        if (params.contains(gm.KEYWORD_TARGET))
         {
             params = gm.removeKeyword(params, gm.KEYWORD_TARGET);
         }
@@ -768,7 +766,7 @@ public class cmd extends script.base_script
         {
             target = self;
         }
-        if (params.indexOf(gm.KEYWORD_TARGET) > -1)
+        if (params.contains(gm.KEYWORD_TARGET))
         {
             params = gm.removeKeyword(params, gm.KEYWORD_TARGET);
         }
@@ -807,12 +805,10 @@ public class cmd extends script.base_script
     {
         Vector entries = new Vector();
         entries.setSize(0);
-        for (int i = 0; i < skills.length; i++)
-        {
-            String stringname = getString(new string_id("skl_n", skills[i]));
-            if (stringname != null && !stringname.equalsIgnoreCase(""))
-            {
-                String linedata = "(" + stringname + ") " + skills[i];
+        for (String skill : skills) {
+            String stringname = getString(new string_id("skl_n", skill));
+            if (stringname != null && !stringname.equalsIgnoreCase("")) {
+                String linedata = "(" + stringname + ") " + skill;
                 entries = utils.addElement(entries, linedata);
             }
         }
@@ -902,7 +898,7 @@ public class cmd extends script.base_script
         {
             target = self;
         }
-        if (params.indexOf(gm.KEYWORD_TARGET) > -1)
+        if (params.contains(gm.KEYWORD_TARGET))
         {
             params = gm.removeKeyword(params, gm.KEYWORD_TARGET);
         }
@@ -934,17 +930,17 @@ public class cmd extends script.base_script
             sendSystemMessageTestingOnly(self, "[Syntax] /setSpeed [-target] <speed multiplier>");
             return SCRIPT_CONTINUE;
         }
-        float multiplier = 1f;
+        float multiplier = 1.0f;
         StringTokenizer st = new StringTokenizer(params);
         while (st.hasMoreTokens())
         {
             float tmp = utils.stringToFloat(st.nextToken());
-            if (tmp > 0f)
+            if (tmp > 0.0f)
             {
                 multiplier = tmp;
             }
         }
-        if (multiplier > 0f && multiplier <= 10f)
+        if (multiplier > 0.0f && multiplier <= 10.0f)
         {
             setMovementPercent(target, multiplier);
         }
@@ -958,7 +954,7 @@ public class cmd extends script.base_script
         {
             target = self;
         }
-        if (params.indexOf(gm.KEYWORD_TARGET) > -1)
+        if (params.contains(gm.KEYWORD_TARGET))
         {
             params = gm.removeKeyword(params, gm.KEYWORD_TARGET);
         }
@@ -980,7 +976,7 @@ public class cmd extends script.base_script
         {
             target = self;
         }
-        if (params.indexOf(gm.KEYWORD_TARGET) > -1)
+        if (params.contains(gm.KEYWORD_TARGET))
         {
             params = gm.removeKeyword(params, gm.KEYWORD_TARGET);
         }
@@ -998,7 +994,7 @@ public class cmd extends script.base_script
             sendSystemMessageTestingOnly(self, "[Syntax] /setFirstName [-target] <new first name>");
             return SCRIPT_CONTINUE;
         }
-        if (params.indexOf(" ") > -1)
+        if (params.contains(" "))
         {
             sendSystemMessageTestingOnly(self, "/setFirstName: spaces are not allowed in a first name");
             return SCRIPT_CONTINUE;
@@ -1035,7 +1031,7 @@ public class cmd extends script.base_script
         {
             target = self;
         }
-        if (params.indexOf(gm.KEYWORD_TARGET) > -1)
+        if (params.contains(gm.KEYWORD_TARGET))
         {
             params = gm.removeKeyword(params, gm.KEYWORD_TARGET);
         }
@@ -1084,7 +1080,7 @@ public class cmd extends script.base_script
         {
             target = self;
         }
-        if (params.indexOf(gm.KEYWORD_TARGET) > -1)
+        if (params.contains(gm.KEYWORD_TARGET))
         {
             params = gm.removeKeyword(params, gm.KEYWORD_TARGET);
         }
@@ -1133,7 +1129,7 @@ public class cmd extends script.base_script
         {
             target = self;
         }
-        if (params.indexOf(gm.KEYWORD_TARGET) > -1)
+        if (params.contains(gm.KEYWORD_TARGET))
         {
             params = gm.removeKeyword(params, gm.KEYWORD_TARGET);
         }
@@ -1208,7 +1204,7 @@ public class cmd extends script.base_script
         {
             target = self;
         }
-        if (params.indexOf(gm.KEYWORD_TARGET) > -1)
+        if (params.contains(gm.KEYWORD_TARGET))
         {
             params = gm.removeKeyword(params, gm.KEYWORD_TARGET);
         }
@@ -1236,12 +1232,10 @@ public class cmd extends script.base_script
         {
             Vector entries = new Vector();
             entries.setSize(0);
-            for (int i = 0; i < xpTypes.length; i++)
-            {
-                String stringname = getString(new string_id("exp_n", xpTypes[i]));
-                if (stringname != null && !stringname.equalsIgnoreCase(""))
-                {
-                    String linedata = "(" + stringname + ") " + xpTypes[i];
+            for (String xpType : xpTypes) {
+                String stringname = getString(new string_id("exp_n", xpType));
+                if (stringname != null && !stringname.equalsIgnoreCase("")) {
+                    String linedata = "(" + stringname + ") " + xpType;
                     entries = utils.addElement(entries, linedata);
                 }
             }
@@ -1380,7 +1374,7 @@ public class cmd extends script.base_script
         {
             target = self;
         }
-        if (params.indexOf(gm.KEYWORD_TARGET) > -1)
+        if (params.contains(gm.KEYWORD_TARGET))
         {
             params = gm.removeKeyword(params, gm.KEYWORD_TARGET);
         }
@@ -1489,7 +1483,7 @@ public class cmd extends script.base_script
         boolean parseTarget = false;
         if (!isIdValid(target))
         {
-            if (params.indexOf(gm.KEYWORD_ID) > -1)
+            if (params.contains(gm.KEYWORD_ID))
             {
                 dictionary ret = gm.parseObjId(params);
                 target = ret.getObjId("oid");
@@ -1503,7 +1497,7 @@ public class cmd extends script.base_script
         }
         else
         {
-            if (params.indexOf(gm.KEYWORD_TARGET) > -1)
+            if (params.contains(gm.KEYWORD_TARGET))
             {
                 params = gm.removeKeyword(params, gm.KEYWORD_TARGET);
             }
@@ -1625,7 +1619,7 @@ public class cmd extends script.base_script
                 Long id;
                 try
                 {
-                    id = new Long(oid);
+                    id = Long.valueOf(oid);
                 }
                 catch(NumberFormatException err)
                 {
@@ -1654,7 +1648,7 @@ public class cmd extends script.base_script
             sendSystemMessageTestingOnly(self, "[Syntax] /setPlayerState -target (with lookat target)");
             return SCRIPT_CONTINUE;
         }
-        if (params.indexOf(gm.KEYWORD_TARGET) > -1)
+        if (params.contains(gm.KEYWORD_TARGET))
         {
             params = gm.removeKeyword(params, gm.KEYWORD_TARGET);
         }
@@ -1671,7 +1665,7 @@ public class cmd extends script.base_script
     {
         if (!isIdValid(target))
         {
-            if (params.indexOf(gm.KEYWORD_ID) > -1)
+            if (params.contains(gm.KEYWORD_ID))
             {
                 dictionary ret = gm.parseObjId(params);
                 target = ret.getObjId("oid");
@@ -1684,11 +1678,11 @@ public class cmd extends script.base_script
         }
         else
         {
-            if (params.indexOf(gm.KEYWORD_TARGET) > -1)
+            if (params.contains(gm.KEYWORD_TARGET))
             {
                 params = gm.removeKeyword(params, gm.KEYWORD_TARGET);
             }
-            else if (params.indexOf(gm.KEYWORD_ID) > -1)
+            else if (params.contains(gm.KEYWORD_ID))
             {
                 dictionary ret = gm.parseObjId(params);
                 target = ret.getObjId("oid");
@@ -1760,7 +1754,7 @@ public class cmd extends script.base_script
             sendSystemMessageTestingOnly(self, "[Error] /setTEF: You must target a declared member of a PVP faction to use this command");
             return SCRIPT_CONTINUE;
         }
-        if (params != null && !params.equalsIgnoreCase("") && (params.indexOf(gm.KEYWORD_TARGET) > -1))
+        if (params != null && !params.equalsIgnoreCase("") && (params.contains(gm.KEYWORD_TARGET)))
         {
             params = gm.removeKeyword(params, gm.KEYWORD_TARGET);
         }
@@ -1933,9 +1927,8 @@ public class cmd extends script.base_script
                 return SCRIPT_CONTINUE;
             }
             sendSystemMessageTestingOnly(self, "Weapon type IDs matching your query (" + kind + ") are:");
-            for (int i = 0; i < names.size(); i++)
-            {
-                sendSystemMessageTestingOnly(self, (String)names.get(i));
+            for (Object name : names) {
+                sendSystemMessageTestingOnly(self, (String) name);
             }
             sendSystemMessageTestingOnly(self, "Done listing " + names.size() + " matches.");
             return SCRIPT_CONTINUE;
@@ -1963,7 +1956,7 @@ public class cmd extends script.base_script
                     sendSystemMessageTestingOnly(self, "	create <weapon_id> <percent 1-100> -- Creates the indicated weapon with all values at the given percent intensity");
                     return SCRIPT_CONTINUE;
                 }
-                intensity = ((float)tempIntensity / 100.0f);
+                intensity = (tempIntensity / 100.0f);
             }
             if (intensity > 1.25f)
             {
@@ -2166,9 +2159,8 @@ public class cmd extends script.base_script
                 if (names.indexOf(key) < 0)
                 {
                     sendSystemMessageTestingOnly(self, "'" + key + "' is not a valid camp name.  Valid camp names are:");
-                    for (int i = 0; i < names.size(); i++)
-                    {
-                        sendSystemMessageTestingOnly(self, (String)names.get(i));
+                    for (Object name : names) {
+                        sendSystemMessageTestingOnly(self, (String) name);
                     }
                     return SCRIPT_CONTINUE;
                 }
@@ -2358,9 +2350,8 @@ public class cmd extends script.base_script
             obj_id resource = createObject(template, inventory, "");
             if (!isIdNull(resource))
             {
-                for (int i = 0; i < attribs.size(); ++i)
-                {
-                    setObjVar(resource, (String)(attribs.get(i)), rand(500, 1000));
+                for (Object attrib : attribs) {
+                    setObjVar(resource, (String) attrib, rand(500, 1000));
                 }
             }
             else
@@ -3208,7 +3199,7 @@ public class cmd extends script.base_script
             default:
                 return -1;
         }
-        return (Integer.valueOf(milestone)).intValue();
+        return Integer.valueOf(milestone);
     }
     public int cmdResetJedi(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException
     {
@@ -3217,7 +3208,7 @@ public class cmd extends script.base_script
             sendSystemMessageTestingOnly(self, "[Syntax] /resetJedi -target (with lookat target)");
             return SCRIPT_CONTINUE;
         }
-        if (params.indexOf(gm.KEYWORD_TARGET) > -1)
+        if (params.contains(gm.KEYWORD_TARGET))
         {
             params = gm.removeKeyword(params, gm.KEYWORD_TARGET);
         }
@@ -3463,11 +3454,8 @@ public class cmd extends script.base_script
                 };
         fs_quests.makeVillageEligible(self);
         setJediState(self, JEDI_STATE_FORCE_SENSITIVE);
-        for (int i = 0; i < fs_skills.length; i++)
-        {
-            String skill = fs_skills[i];
-            if (!hasSkill(self, skill))
-            {
+        for (String skill : fs_skills) {
+            if (!hasSkill(self, skill)) {
                 grantSkill(self, skill);
             }
         }
@@ -3568,7 +3556,7 @@ public class cmd extends script.base_script
         }
         java.util.StringTokenizer st = new java.util.StringTokenizer(params);
         int tokens = st.countTokens();
-        float bonus = (Float.valueOf(st.nextToken())).floatValue();
+        float bonus = Float.valueOf(st.nextToken());
         if (bonus <= 0)
         {
             sendSystemMessageTestingOnly(self, "You must specify an argument that is a positive xp bonus. (i.e.: 0.033)");
@@ -3591,11 +3579,9 @@ public class cmd extends script.base_script
             sendSystemMessageTestingOnly(self, "You have to be in a group with other players to set a test group xp bonus.");
             return SCRIPT_CONTINUE;
         }
-        for (int i = 0; i < members.length; i++)
-        {
-            if (members[i].isLoaded() && isPlayer(members[i]))
-            {
-                utils.setScriptVar(members[i], "__groupXPBonus", bonus);
+        for (obj_id member : members) {
+            if (member.isLoaded() && isPlayer(member)) {
+                utils.setScriptVar(member, "__groupXPBonus", bonus);
             }
         }
         sendSystemMessageTestingOnly(self, "Test group XP bonus set to " + bonus);
@@ -3641,7 +3627,7 @@ public class cmd extends script.base_script
             if (staticItemData.containsKey("scripts"))
             {
                 String staticItemScriptList = staticItemData.getString("scripts");
-                if (staticItemScriptList != null && staticItemScriptList.length() > 0 && staticItemScriptList.indexOf("autostack") > -1)
+                if (staticItemScriptList != null && staticItemScriptList.length() > 0 && staticItemScriptList.contains("autostack"))
                 {
                     canAutoStack = true;
                 }
@@ -3887,9 +3873,8 @@ public class cmd extends script.base_script
                 String combinedQuestList = "";
                 if (listQuests != null)
                 {
-                    for (int i = 0; i < listQuests.length; i++)
-                    {
-                        combinedQuestList += listQuests[i] + "\n";
+                    for (String listQuest : listQuests) {
+                        combinedQuestList += listQuest + "\n";
                     }
                     if (!combinedQuestList.equals(""))
                     {

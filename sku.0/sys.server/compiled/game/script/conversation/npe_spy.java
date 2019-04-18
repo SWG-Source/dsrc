@@ -55,7 +55,7 @@ public class npe_spy extends script.base_script
     public boolean npe_spy_condition_isSYTemplate(obj_id player, obj_id npc) throws InterruptedException
     {
         String pTemplate = getSkillTemplate(player);
-        if (pTemplate.indexOf("spy") > -1)
+        if (pTemplate.contains("spy"))
         {
             return true;
         }

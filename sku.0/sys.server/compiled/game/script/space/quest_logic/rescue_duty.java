@@ -37,7 +37,7 @@ public class rescue_duty extends script.space.quest_logic.rescue
         {
             dictionary outparams = new dictionary();
             outparams.put("player", player);
-            messageTo(self, "initializedQuestPlayer", outparams, 1.f, false);
+            messageTo(self, "initializedQuestPlayer", outparams, 1.0f, false);
         }
         return SCRIPT_CONTINUE;
     }
@@ -159,7 +159,7 @@ public class rescue_duty extends script.space.quest_logic.rescue
         string_id abort = new string_id("spacequest/" + questType + "/" + questName, "complete");
         prose_package pp = prose.getPackage(abort, 0);
         space_quest.groupTaunt(ship, player, pp);
-        messageTo(self, "cleanupShipsMsg", null, 2.f, false);
+        messageTo(self, "cleanupShipsMsg", null, 2.0f, false);
         int reward = getIntObjVar(self, "reward");
         int rewardships = getIntObjVar(self, "rewardships");
         removeObjVar(self, "rewardships");
@@ -176,7 +176,7 @@ public class rescue_duty extends script.space.quest_logic.rescue
         {
             dictionary outparams = new dictionary();
             outparams.put("player", player);
-            messageTo(self, "initializedQuestPlayer", outparams, 10.f, false);
+            messageTo(self, "initializedQuestPlayer", outparams, 10.0f, false);
         }
         return SCRIPT_OVERRIDE;
     }

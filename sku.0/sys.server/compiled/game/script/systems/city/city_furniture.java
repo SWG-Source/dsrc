@@ -217,20 +217,17 @@ public class city_furniture extends script.base_script
             }
         }
         String name = getTemplateName(self);
-        if (name.indexOf("streetlamp") < 0)
+        if (!name.contains("streetlamp"))
         {
             obj_id[] structures = cityGetStructureIds(city_id);
-            for (int i = 0; i < structures.length; i++)
-            {
-                if (city.isSkillTrainer(city_id, structures[i]) || city.isMissionTerminal(city_id, structures[i]) || city.isDecoration(city_id, structures[i]))
-                {
+            for (obj_id structure1 : structures) {
+                if (city.isSkillTrainer(city_id, structure1) || city.isMissionTerminal(city_id, structure1) || city.isDecoration(city_id, structure1)) {
                     continue;
                 }
-                location oloc = getLocation(structures[i]);
+                location oloc = getLocation(structure1);
                 float dist = utils.getDistance2D(loc, oloc);
-                if ((dist < 25) && (dist > 0))
-                {
-                    prose_package pp = prose.getPackage(SID_DECO_TOO_CLOSE, localize(getNameStringId(structures[i])));
+                if ((dist < 25) && (dist > 0)) {
+                    prose_package pp = prose.getPackage(SID_DECO_TOO_CLOSE, localize(getNameStringId(structure1)));
                     sendSystemMessageProse(player, pp);
                     return;
                 }

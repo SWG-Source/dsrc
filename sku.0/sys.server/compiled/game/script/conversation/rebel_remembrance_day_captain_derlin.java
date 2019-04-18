@@ -230,16 +230,14 @@ public class rebel_remembrance_day_captain_derlin extends script.base_script
         if (rebel_remembrance_day_captain_derlin_condition_hasCompletedResistanceCollection(player, npc) && rebel_remembrance_day_captain_derlin_condition_hasCompletedVandalCollection(player, npc))
         {
             String[] resistanceSlotsInCollection = getAllCollectionSlotsInCollection(holiday.REBEL_RESISTANCE_COLLECTION);
-            for (int i = 0; i < resistanceSlotsInCollection.length; i++)
-            {
-                long collectionSlotValue = getCollectionSlotValue(player, resistanceSlotsInCollection[i]) * -1;
-                modifyCollectionSlotValue(player, resistanceSlotsInCollection[i], collectionSlotValue);
+            for (String s1 : resistanceSlotsInCollection) {
+                long collectionSlotValue = getCollectionSlotValue(player, s1) * -1;
+                modifyCollectionSlotValue(player, s1, collectionSlotValue);
             }
             String[] slotsInCollection = getAllCollectionSlotsInCollection(holiday.REBEL_VANDAL_COLLECTION);
-            for (int i = 0; i < slotsInCollection.length; i++)
-            {
-                long collectionSlotValue = getCollectionSlotValue(player, slotsInCollection[i]) * -1;
-                modifyCollectionSlotValue(player, slotsInCollection[i], collectionSlotValue);
+            for (String s : slotsInCollection) {
+                long collectionSlotValue = getCollectionSlotValue(player, s) * -1;
+                modifyCollectionSlotValue(player, s, collectionSlotValue);
             }
             rebel_remembrance_day_captain_derlin_action_setResistanceCollectionStarterSlot(player, npc);
             rebel_remembrance_day_captain_derlin_action_setVandalCollectionStarterSlot(player, npc);

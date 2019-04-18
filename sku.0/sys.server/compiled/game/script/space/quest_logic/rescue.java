@@ -57,7 +57,7 @@ public class rescue extends script.space.quest_logic.recovery
         {
             dictionary outparams = new dictionary();
             outparams.put("player", player);
-            messageTo(self, "initializedQuestPlayer", outparams, 1.f, false);
+            messageTo(self, "initializedQuestPlayer", outparams, 1.0f, false);
         }
         int questid = questGetQuestId("spacequest/" + questType + "/" + questName);
         if (questid != 0)
@@ -152,23 +152,23 @@ public class rescue extends script.space.quest_logic.recovery
         }
         setObjVar(ship, "damageMultiplier", dmult);
         float maxspeed = getShipEngineSpeedMaximum(ship);
-        if (maxspeed < 15.f)
+        if (maxspeed < 15.0f)
         {
-            setShipEngineSpeedMaximum(ship, 15.f + rand() * 10.f);
+            setShipEngineSpeedMaximum(ship, 15.0f + rand() * 10.0f);
         }
-        else if (maxspeed > 25.f)
+        else if (maxspeed > 25.0f)
         {
-            setShipEngineSpeedMaximum(ship, 23.f + rand() * 5.f);
+            setShipEngineSpeedMaximum(ship, 23.0f + rand() * 5.0f);
         }
         dictionary outp = new dictionary();
         outp.put("objShip", space_transition.getContainingShip(player));
-        messageTo(ship, "disableSelf", outp, 1.f, false);
+        messageTo(ship, "disableSelf", outp, 1.0f, false);
         String rescueAppearance = getStringObjVar(self, "rescueAppearance");
         if (rescueAppearance != null)
         {
             setObjVar(ship, "convo.appearance", rescueAppearance);
         }
-        messageTo(self, "updateTargetWaypoint", null, 1.f, false);
+        messageTo(self, "updateTargetWaypoint", null, 1.0f, false);
         String questName = getStringObjVar(self, space_quest.QUEST_NAME);
         String questType = getStringObjVar(self, space_quest.QUEST_TYPE);
         string_id status_update = new string_id("spacequest/" + questType + "/" + questName, "arrival_phase_2");
@@ -230,7 +230,7 @@ public class rescue extends script.space.quest_logic.recovery
             }
         }
         utils.removeScriptVar(ship, "dockable");
-        messageTo(self, "startCapturedShipPathing", null, 10.f, false);
+        messageTo(self, "startCapturedShipPathing", null, 10.0f, false);
         return SCRIPT_OVERRIDE;
     }
     public String getCapturePhrase2(obj_id self) throws InterruptedException
@@ -260,8 +260,8 @@ public class rescue extends script.space.quest_logic.recovery
         string_id abort = new string_id("spacequest/" + questType + "/" + questName, getCompletePhrase(self));
         prose_package pp = prose.getPackage(abort, 0);
         space_quest.groupTaunt(ship, player, pp);
-        messageTo(self, "cleanupShipsMsg", null, 2.f, false);
-        messageTo(self, "completeQuestMsg", null, 3.f, false);
+        messageTo(self, "cleanupShipsMsg", null, 2.0f, false);
+        messageTo(self, "completeQuestMsg", null, 3.0f, false);
         return SCRIPT_OVERRIDE;
     }
 }

@@ -114,27 +114,19 @@ public class event_perk extends script.base_script
         }
         else 
         {
-            for (int i = 0; i < objs.length; i++)
-            {
-                obj_id item = objs[i];
-                if (hasObjVar(item, "event_perk.lifeSpan"))
-                {
+            for (obj_id item : objs) {
+                if (hasObjVar(item, "event_perk.lifeSpan")) {
                     numPerkObjects++;
-                    if (numPerkObjects > 25)
-                    {
+                    if (numPerkObjects > 25) {
                         sendSystemMessage(player, new string_id(STF_FILE, "too_many_perks"));
                         return true;
                     }
                 }
             }
-            for (int i = 0; i < objNPCs.length; i++)
-            {
-                obj_id item = objNPCs[i];
-                if (hasObjVar(item, "event_perk.lifeSpan"))
-                {
+            for (obj_id item : objNPCs) {
+                if (hasObjVar(item, "event_perk.lifeSpan")) {
                     numPerkObjects++;
-                    if (numPerkObjects > 25)
-                    {
+                    if (numPerkObjects > 25) {
                         sendSystemMessage(player, new string_id(STF_FILE, "too_many_perks"));
                         return true;
                     }

@@ -69,14 +69,14 @@ public class player_travel extends script.base_script
             }
         }
         obj_id starport = travel.getStarportFromTerminal(terminal);
-        if (arriveTravelPointName.indexOf("gcwstaticbase") > -1)
+        if (arriveTravelPointName.contains("gcwstaticbase"))
         {
-            if ((arriveTravelPointName.indexOf("rebel") > -1) && !factions.isRebel(self))
+            if ((arriveTravelPointName.contains("rebel")) && !factions.isRebel(self))
             {
                 sendSystemMessage(self, new string_id("gcw", "static_base_shuttle_beacon_cant_not_rebel"));
                 return SCRIPT_CONTINUE;
             }
-            else if ((arriveTravelPointName.indexOf("imperial") > -1) && !factions.isImperial(self))
+            else if ((arriveTravelPointName.contains("imperial")) && !factions.isImperial(self))
             {
                 sendSystemMessage(self, new string_id("gcw", "static_base_shuttle_beacon_cant_not_imperial"));
                 return SCRIPT_CONTINUE;
@@ -839,14 +839,11 @@ public class player_travel extends script.base_script
             valid_tickets.setSize(0);
             obj_id inventory = getObjectInSlot(self, "inventory");
             obj_id[] inv_contents = utils.getContents(inventory, false);
-            for (int i = 0; i < inv_contents.length; i++)
-            {
-                if (travel.isTravelTicketValid(inv_contents[i], planet, depart_point))
-                {
-                    String ticket_planet = travel.getTicketArrivalPlanet(inv_contents[i]);
-                    String ticket_point = travel.getTicketArrivalPoint(inv_contents[i]);
-                    if (ticket_planet.equals("kashyyyk_main"))
-                    {
+            for (obj_id inv_content : inv_contents) {
+                if (travel.isTravelTicketValid(inv_content, planet, depart_point)) {
+                    String ticket_planet = travel.getTicketArrivalPlanet(inv_content);
+                    String ticket_point = travel.getTicketArrivalPoint(inv_content);
+                    if (ticket_planet.equals("kashyyyk_main")) {
                         ticket_planet = "kashyyyk";
                     }
                     ticket_planet = (ticket_planet.substring(0, 1)).toUpperCase() + (ticket_planet.substring(1)).toLowerCase();
@@ -855,7 +852,7 @@ public class player_travel extends script.base_script
                     prose.setTO(ppLoc, ticket_point);
                     String loc = " \0" + packOutOfBandProsePackage(null, ppLoc);
                     dsrc = utils.addElement(dsrc, loc);
-                    valid_tickets = utils.addElement(valid_tickets, inv_contents[i]);
+                    valid_tickets = utils.addElement(valid_tickets, inv_content);
                 }
             }
             if (dsrc.size() < 1)
@@ -1148,7 +1145,7 @@ public class player_travel extends script.base_script
             return false;
         }
         location here = getLocation(player);
-        location spawnLoc = locations.getGoodLocationAroundLocation(here, 1f, 1f, 4f, 4f);
+        location spawnLoc = locations.getGoodLocationAroundLocation(here, 1.0f, 1.0f, 4.0f, 4.0f);
         if (spawnLoc == null)
         {
             sendSystemMessage(player, SID_LOCATION_NOGOOD_FOR_PICKUP);
@@ -1161,7 +1158,7 @@ public class player_travel extends script.base_script
             if (playerFactionID == (-615855020))
             {
                 pickupCraftType = "object/tangible/terminal/terminal_travel_instant_tie.iff";
-                spawnLoc.y += 5f;
+                spawnLoc.y += 5.0f;
             }
         }
         else if (type == SHIP_TYPE_INSTANT_PRIVATEER)

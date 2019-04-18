@@ -95,8 +95,8 @@ public class consumable extends script.base_script
         String medicinerebuff = healing.SCRIPT_VAR_MEDICINE_REBUFF;
         if (healing.isRangedMedicine(item))
         {
-            float healing_range = (float)healing.getHealingRange(item);
-            float healing_range_mod = (float)getSkillStatMod(player, "healing_range");
+            float healing_range = healing.getHealingRange(item);
+            float healing_range_mod = getSkillStatMod(player, "healing_range");
             healing_range = healing_range + ((16 * healing_range_mod) / 100.0f);
             if (getDistance(player, target) > healing_range)
             {
@@ -259,7 +259,7 @@ public class consumable extends script.base_script
                             return false;
                         }
                         float shock_effect = final_multiplier / multiplier;
-                        if (shock_effect < .3f)
+                        if (shock_effect < 0.3f)
                         {
                             sendSystemMessage(player, SID_SHOCK_EFFECT_HIGH);
                             if (player != target)
@@ -267,7 +267,7 @@ public class consumable extends script.base_script
                                 sendSystemMessage(target, SID_SHOCK_EFFECT_HIGH_TARGET);
                             }
                         }
-                        else if (shock_effect < .5f)
+                        else if (shock_effect < 0.5f)
                         {
                             sendSystemMessage(player, SID_SHOCK_EFFECT_MEDIUM);
                             if (player != target)
@@ -275,7 +275,7 @@ public class consumable extends script.base_script
                                 sendSystemMessage(target, SID_SHOCK_EFFECT_MEDIUM_TARGET);
                             }
                         }
-                        else if (shock_effect < .8f)
+                        else if (shock_effect < 0.8f)
                         {
                             sendSystemMessage(player, SID_SHOCK_EFFECT_LOW);
                             if (player != target)
@@ -285,7 +285,7 @@ public class consumable extends script.base_script
                         }
                         if (am[0].getAttribute() > 8)
                         {
-                            final_multiplier = 1f;
+                            final_multiplier = 1.0f;
                         }
                         attrib_mod[] am_new = healing.modifyMedicineAttributes(am, final_multiplier);
                         am = (attrib_mod[])am_new.clone();
@@ -428,16 +428,13 @@ public class consumable extends script.base_script
                     if (am != null)
                     {
                         boolean isBuff = false;
-                        for (int i = 0; i < am.length; i++)
-                        {
-                            debugServerConsoleMsg(target, ">>>>>>>>>>>> PREPARING TO APPLY MOD TO ATTRIBUTE: " + am[i].getAttribute());
-                            if (am[i].getAttribute() == HEALTH)
-                            {
-                                debugServerConsoleMsg(target, ">>>>>>>>>>>> ATTEMPTING TO APPLY MOD -- " + am[i].getAttribute() + " LOOKS LIKE HEALTH TO ME!");
-                                utils.addAttribMod(target, am[i]);
+                        for (attrib_mod attrib_mod : am) {
+                            debugServerConsoleMsg(target, ">>>>>>>>>>>> PREPARING TO APPLY MOD TO ATTRIBUTE: " + attrib_mod.getAttribute());
+                            if (attrib_mod.getAttribute() == HEALTH) {
+                                debugServerConsoleMsg(target, ">>>>>>>>>>>> ATTEMPTING TO APPLY MOD -- " + attrib_mod.getAttribute() + " LOOKS LIKE HEALTH TO ME!");
+                                utils.addAttribMod(target, attrib_mod);
                             }
-                            if (am[i].getDuration() > 0)
-                            {
+                            if (attrib_mod.getDuration() > 0) {
                                 isBuff = true;
                             }
                         }
@@ -511,8 +508,8 @@ public class consumable extends script.base_script
         {
             return null;
         }
-        float modval = 1f;
-        float moddur = 1f;
+        float modval = 1.0f;
+        float moddur = 1.0f;
         int species = getSpecies(target);
         if ((species == SPECIES_TWILEK) && (am != null))
         {
@@ -531,13 +528,13 @@ public class consumable extends script.base_script
                 }
             }
         }
-        if (modval != 1f || moddur != 1f)
+        if (modval != 1.0f || moddur != 1.0f)
         {
             for (int x = 0; x < am.length; x++)
             {
                 float atk = am[x].getAttack();
                 float decay = am[x].getDecay();
-                if (moddur != 1f && atk >= 0f && decay >= 0f)
+                if (moddur != 1.0f && atk >= 0.0f && decay >= 0.0f)
                 {
                     attrib_mod tmp = new attrib_mod(am[x].getAttribute(), am[x].getValue(), am[x].getDuration() * moddur, atk, decay);
                     if (tmp != null)
@@ -545,7 +542,7 @@ public class consumable extends script.base_script
                         am[x] = tmp;
                     }
                 }
-                if (modval != 1f && (atk == healing.AM_HEAL_WOUND || atk == healing.AM_HEAL_SHOCK || decay == MOD_ANTIDOTE))
+                if (modval != 1.0f && (atk == healing.AM_HEAL_WOUND || atk == healing.AM_HEAL_SHOCK || decay == MOD_ANTIDOTE))
                 {
                     attrib_mod tmp = new attrib_mod(am[x].getAttribute(), (int)(am[x].getValue() * modval), am[x].getDuration(), atk, decay);
                     if (tmp != null)
@@ -648,11 +645,9 @@ public class consumable extends script.base_script
         {
             return false;
         }
-        for (int i = 0; i < device.length; i++)
-        {
-            if ((getTemplateName(device[i])).equals(template) && hasObjVar(device[i], objvar))
-            {
-                decrementCount(device[i]);
+        for (obj_id obj_id : device) {
+            if ((getTemplateName(obj_id)).equals(template) && hasObjVar(obj_id, objvar)) {
+                decrementCount(obj_id);
                 return true;
             }
         }
@@ -666,11 +661,9 @@ public class consumable extends script.base_script
         {
             return false;
         }
-        for (int i = 0; i < inventoryContents.length; i++)
-        {
-            if ((getTemplateName(inventoryContents[i])).equals(template) && hasObjVar(inventoryContents[i], objvar))
-            {
-                decrementCount(inventoryContents[i]);
+        for (obj_id inventoryContent : inventoryContents) {
+            if ((getTemplateName(inventoryContent)).equals(template) && hasObjVar(inventoryContent, objvar)) {
+                decrementCount(inventoryContent);
                 return true;
             }
         }
@@ -684,11 +677,9 @@ public class consumable extends script.base_script
         {
             return false;
         }
-        for (int i = 0; i < device.length; i++)
-        {
-            if ((getTemplateName(device[i])).equals(template))
-            {
-                decrementCount(device[i]);
+        for (obj_id obj_id : device) {
+            if ((getTemplateName(obj_id)).equals(template)) {
+                decrementCount(obj_id);
                 return true;
             }
         }
@@ -820,7 +811,7 @@ public class consumable extends script.base_script
             addBuffIcon(target, "food." + type, 3600);
             dictionary outparams = new dictionary();
             outparams.put("type", type);
-            messageTo(target, "removeDelayedFoodEffect", outparams, 3600f, false);
+            messageTo(target, "removeDelayedFoodEffect", outparams, 3600.0f, false);
         }
         else if (hasObjVar(item, "duration"))
         {

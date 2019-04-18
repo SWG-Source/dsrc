@@ -52,22 +52,17 @@ public class retrieve_item extends script.quest.task.ground.base_task
                 String questCrcString = (String)keys.nextElement();
                 int questCrc = utils.stringToInt(questCrcString);
                 int[] tasksForCurrentQuest = tasks.getIntArray(questCrcString);
-                for (int i = 0; i < tasksForCurrentQuest.length; ++i)
-                {
-                    int taskId = tasksForCurrentQuest[i];
+                for (int taskId : tasksForCurrentQuest) {
                     String baseObjVar = groundquests.getBaseObjVar(self, taskType, questGetQuestName(questCrc), taskId);
                     String retrieveTemplateName = groundquests.getTaskStringDataEntry(questCrc, taskId, dataTableColumnServerTemplate);
-                    if (sourceTemplateName.equals(retrieveTemplateName))
-                    {
+                    if (sourceTemplateName.equals(retrieveTemplateName)) {
                         Vector retrievedItemsResizable = new Vector();
                         retrievedItemsResizable.setSize(0);
                         String objvarRetrievedFull = baseObjVar + dot + objvarRetrieved;
-                        if (hasObjVar(self, objvarRetrievedFull))
-                        {
+                        if (hasObjVar(self, objvarRetrievedFull)) {
                             obj_id[] itemsAlreadyRetrieved = getObjIdArrayObjVar(self, objvarRetrievedFull);
-                            for (int k = 0; k < itemsAlreadyRetrieved.length; ++k)
-                            {
-                                utils.addElement(retrievedItemsResizable, itemsAlreadyRetrieved[k]);
+                            for (obj_id obj_id : itemsAlreadyRetrieved) {
+                                utils.addElement(retrievedItemsResizable, obj_id);
                             }
                         }
                         utils.addElement(retrievedItemsResizable, source);
@@ -75,25 +70,20 @@ public class retrieve_item extends script.quest.task.ground.base_task
                         int dropPercent = groundquests.getTaskIntDataEntry(questCrc, taskId, dataTableColumnDropPercent);
                         int roll = rand(1, 100);
                         boolean guaranteedSuccess = groundquests.checkForGuaranteedSuccess(self, baseObjVar);
-                        if (roll <= dropPercent || guaranteedSuccess)
-                        {
+                        if (roll <= dropPercent || guaranteedSuccess) {
                             String objvarNameCount = baseObjVar + dot + objvarCount;
-                            if (hasObjVar(self, objvarNameCount))
-                            {
+                            if (hasObjVar(self, objvarNameCount)) {
                                 int lootedCount = getIntObjVar(self, objvarNameCount);
                                 ++lootedCount;
                                 int itemsTotal = groundquests.getTaskIntDataEntry(questCrc, taskId, dataTableColumnNumRequired);
-                                if (lootedCount > itemsTotal)
-                                {
+                                if (lootedCount > itemsTotal) {
                                     lootedCount = itemsTotal;
                                 }
-                                if (groundquests.isTaskVisible(questCrc, taskId))
-                                {
+                                if (groundquests.isTaskVisible(questCrc, taskId)) {
                                     String itemName = groundquests.getTaskStringDataEntry(questCrc, taskId, dataTableColumnItemName);
                                     string_id message = new string_id("quest/groundquests", "retrieve_item_success");
                                     prose_package pp = prose.getPackage(message, self, self);
-                                    if (itemName != null && itemName.length() > 0)
-                                    {
+                                    if (itemName != null && itemName.length() > 0) {
                                         message = new string_id("quest/groundquests", "retrieve_item_success_named");
                                         pp = prose.getPackage(message, self, self);
                                         prose.setTO(pp, itemName);
@@ -102,12 +92,9 @@ public class retrieve_item extends script.quest.task.ground.base_task
                                     sendSystemMessageProse(self, pp);
                                     play2dNonLoopingSound(self, RETRIEVE_ITEM_MUSIC);
                                 }
-                                if (lootedCount == itemsTotal)
-                                {
+                                if (lootedCount == itemsTotal) {
                                     questCompleteTask(questCrc, taskId, self);
-                                }
-                                else 
-                                {
+                                } else {
                                     questSetQuestTaskCounter(self, questGetQuestName(questCrc), taskId, "quest/groundquests:retrieve_item_counter", lootedCount, itemsTotal);
                                     play2dNonLoopingSound(self, groundquests.MUSIC_QUEST_INCREMENT_COUNTER);
                                     setObjVar(self, objvarNameCount, lootedCount);
@@ -115,12 +102,9 @@ public class retrieve_item extends script.quest.task.ground.base_task
                                     groundquests.questOutputDebugInfo(self, questCrc, taskId, taskType, "questRetrieveItemObjectFound", "Retrieved " + lootedCount + "/" + itemsTotal);
                                 }
                             }
-                        }
-                        else 
-                        {
+                        } else {
                             groundquests.questOutputDebugInfo(self, taskType, "questRetrieveItemObjectFound", "Didn't find one.");
-                            if (groundquests.isTaskVisible(questCrc, taskId))
-                            {
+                            if (groundquests.isTaskVisible(questCrc, taskId)) {
                                 String itemName = groundquests.getTaskStringDataEntry(questCrc, taskId, dataTableColumnItemName);
                                 string_id message = new string_id("quest/groundquests", "retrieve_item_fail");
                                 prose_package pp = prose.getPackage(message, self, self);
@@ -162,13 +146,10 @@ public class retrieve_item extends script.quest.task.ground.base_task
                 String questCrcString = (String)keys.nextElement();
                 int questCrc = utils.stringToInt(questCrcString);
                 int[] tasksForCurrentQuest = tasks.getIntArray(questCrcString);
-                for (int i = 0; i < tasksForCurrentQuest.length; ++i)
-                {
-                    int taskId = tasksForCurrentQuest[i];
+                for (int taskId : tasksForCurrentQuest) {
                     String baseObjVar = groundquests.getBaseObjVar(self, taskType, questGetQuestName(questCrc), taskId);
                     String objvarNameCount = baseObjVar + dot + objvarCount;
-                    if (hasObjVar(self, objvarNameCount))
-                    {
+                    if (hasObjVar(self, objvarNameCount)) {
                         int lootedCount = getIntObjVar(self, objvarNameCount);
                         int itemsTotal = groundquests.getTaskIntDataEntry(questCrc, taskId, dataTableColumnNumRequired);
                         questSetQuestTaskCounter(self, questGetQuestName(questCrc), taskId, "quest/groundquests:retrieve_item_counter", lootedCount, itemsTotal);

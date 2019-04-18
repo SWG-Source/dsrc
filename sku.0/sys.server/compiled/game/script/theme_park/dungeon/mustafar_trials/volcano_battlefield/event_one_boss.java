@@ -63,11 +63,9 @@ public class event_one_boss extends script.base_script
     }
     public void clearDamageBuff(obj_id self) throws InterruptedException
     {
-        for (int i = 0; i < BUFF_LIST.length; i++)
-        {
-            if (buff.hasBuff(self, BUFF_LIST[i]))
-            {
-                buff.removeBuff(self, BUFF_LIST[i]);
+        for (String s : BUFF_LIST) {
+            if (buff.hasBuff(self, s)) {
+                buff.removeBuff(self, s);
             }
         }
     }
@@ -79,12 +77,10 @@ public class event_one_boss extends script.base_script
             doLogging("clearAllAdds", "There are no objects in range");
             return;
         }
-        for (int i = 0; i < objects.length; i++)
-        {
-            obj_id parent = getObjIdObjVar(objects[i], "boss");
-            if (parent == self)
-            {
-                trial.cleanupNpc(objects[i]);
+        for (obj_id object : objects) {
+            obj_id parent = getObjIdObjVar(object, "boss");
+            if (parent == self) {
+                trial.cleanupNpc(object);
             }
         }
     }

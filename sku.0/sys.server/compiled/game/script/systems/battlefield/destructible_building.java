@@ -137,9 +137,8 @@ public class destructible_building extends script.base_script
             obj_id[] players = battlefield.getPlayersOnBattlefield(master_object);
             if (players != null)
             {
-                for (int i = 0; i < players.length; i++)
-                {
-                    playClientEffectLoc(players[i], "clienteffect/lair_med_damage_smoke.cef", loc, 0);
+                for (obj_id player : players) {
+                    playClientEffectLoc(player, "clienteffect/lair_med_damage_smoke.cef", loc, 0);
                 }
             }
             messageTo(self, "msgRefreshSmoke", null, 5.0f, true);
@@ -149,9 +148,8 @@ public class destructible_building extends script.base_script
             obj_id[] players = battlefield.getPlayersOnBattlefield(master_object);
             if (players != null)
             {
-                for (int i = 0; i < players.length; i++)
-                {
-                    playClientEffectLoc(players[i], "clienteffect/lair_hvy_damage_fire.cef", loc, 0);
+                for (obj_id player : players) {
+                    playClientEffectLoc(player, "clienteffect/lair_hvy_damage_fire.cef", loc, 0);
                 }
             }
             messageTo(self, "msgRefreshSmoke", null, 8.0f, true);
@@ -171,8 +169,8 @@ public class destructible_building extends script.base_script
         String faction = factions.getFactionNameByHashCode(faction_id);
         String name = params.getString("name");
         int repair_cost = params.getInt("cost") / 10;
-        float hitpoints = (float)getHitpoints(self);
-        float maxHitpoints = (float)getMaxHitpoints(self);
+        float hitpoints = getHitpoints(self);
+        float maxHitpoints = getMaxHitpoints(self);
         int percent = (int)((hitpoints / maxHitpoints) * 100.0f);
         if (percent < 5)
         {
@@ -215,12 +213,12 @@ public class destructible_building extends script.base_script
         setHitpoints(self, hitpoints);
         if (hasObjVar(self, VAR_SMOKE_LEVEL))
         {
-            float percent_hp = (float)hitpoints / (float)max_hitpoints;
-            if (percent_hp > .5)
+            float percent_hp = (float)hitpoints / max_hitpoints;
+            if (percent_hp > 0.5)
             {
                 removeObjVar(self, VAR_SMOKE_LEVEL);
             }
-            if ((percent_hp <= .5) && (percent_hp > .25))
+            if ((percent_hp <= 0.5) && (percent_hp > 0.25))
             {
                 setObjVar(self, VAR_SMOKE_LEVEL, 1);
             }

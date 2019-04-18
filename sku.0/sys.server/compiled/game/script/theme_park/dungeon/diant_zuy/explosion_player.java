@@ -15,12 +15,12 @@ public class explosion_player extends script.base_script
     public static final string_id BUNKER_EXPLODING = new string_id("dungeon/diant_bunker", "bunker_exploding");
     public int OnAttach(obj_id self) throws InterruptedException
     {
-        messageTo(self, "handleExplodingBunker", null, 30f, false);
+        messageTo(self, "handleExplodingBunker", null, 30.0f, false);
         return SCRIPT_CONTINUE;
     }
     public int OnInitialize(obj_id self) throws InterruptedException
     {
-        messageTo(self, "handleExplodingBunker", null, 30f, false);
+        messageTo(self, "handleExplodingBunker", null, 30.0f, false);
         return SCRIPT_CONTINUE;
     }
     public int OnLogin(obj_id self) throws InterruptedException
@@ -57,13 +57,13 @@ public class explosion_player extends script.base_script
         }
         if (isDead(self) || isIncapacitated(self))
         {
-            messageTo(self, "handleExplodingBunker", null, 30f, false);
+            messageTo(self, "handleExplodingBunker", null, 30.0f, false);
             return SCRIPT_CONTINUE;
         }
         sendSystemMessage(self, BUNKER_EXPLODING);
         obj_id top = getTopMostContainer(self);
-        double intensity = (double)getFloatObjVar(top, "diant.explosionIntensity");
-        double healthcostDbl = Math.pow(85, intensity);
+        double intensity = getFloatObjVar(top, "diant.explosionIntensity");
+        double healthcostDbl = StrictMath.pow(85, intensity);
         int healthcost = (int)healthcostDbl;
         int dmgLocation = 0;
         int hitLoc = rand(1, 5);
@@ -90,8 +90,8 @@ public class explosion_player extends script.base_script
         }
         damage(self, DAMAGE_BLAST, dmgLocation, healthcost);
         location playerLoc = getLocation(self);
-        playClientEffectLoc(self, "clienteffect/combat_explosion_lair_large.cef", playerLoc, 10f);
-        messageTo(self, "handleExplodingBunker", null, 20f, false);
+        playClientEffectLoc(self, "clienteffect/combat_explosion_lair_large.cef", playerLoc, 10.0f);
+        messageTo(self, "handleExplodingBunker", null, 20.0f, false);
         return SCRIPT_CONTINUE;
     }
 }

@@ -46,7 +46,7 @@ public class gating extends script.base_script
         {
             return quests.hasCompletedQuest(player, TALMONT_QUEST_1);
         }
-        if (factions.getFactionStanding(player, factions.FACTION_HUTT) < 500f)
+        if (factions.getFactionStanding(player, factions.FACTION_HUTT) < 500.0f)
         {
             if (quests.canInfiltrate(player, DERA_QUEST_1) == false && quests.canInfiltrate(player, TALMONT_QUEST_1) == false)
             {

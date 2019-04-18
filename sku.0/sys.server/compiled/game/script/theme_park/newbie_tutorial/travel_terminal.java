@@ -32,14 +32,12 @@ public class travel_terminal extends script.theme_park.newbie_tutorial.tutorial_
         }
         obj_id playerInv = utils.getInventoryContainer(player);
         obj_id[] contents = getContents(playerInv);
-        for (int i = 0; i < contents.length; i++)
-        {
-            if (isWeapon(contents[i]))
-            {
-                String templateName = getTemplateName(contents[i]);
+        for (obj_id content : contents) {
+            if (isWeapon(content)) {
+                String templateName = getTemplateName(content);
                 obj_id weapon = weapons.createWeapon(templateName, playerInv, 0.75f);
                 equip(weapon, player);
-                destroyObject(contents[i]);
+                destroyObject(content);
                 break;
             }
         }
@@ -86,14 +84,12 @@ public class travel_terminal extends script.theme_park.newbie_tutorial.tutorial_
         }
         obj_id playerInv = utils.getInventoryContainer(player);
         obj_id[] contents = getContents(playerInv);
-        for (int i = 0; i < contents.length; i++)
-        {
-            if (isWeapon(contents[i]))
-            {
-                String templateName = getTemplateName(contents[i]);
+        for (obj_id content : contents) {
+            if (isWeapon(content)) {
+                String templateName = getTemplateName(content);
                 obj_id weapon = weapons.createWeapon(templateName, playerInv, 0.75f);
                 equip(weapon, player);
-                destroyObject(contents[i]);
+                destroyObject(content);
                 break;
             }
         }

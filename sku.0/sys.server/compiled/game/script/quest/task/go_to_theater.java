@@ -95,15 +95,11 @@ public class go_to_theater extends script.base_script
             if (parameterString != null && !parameterString.equals(""))
             {
                 String[] params = split(parameterString, ':');
-                for (int i = 0; i < params.length; i++)
-                {
-                    if ("flat" == params[i])
-                    {
+                for (String param : params) {
+                    if ("flat" == param) {
                         theaterLocationType = TLT_flatten;
                         break;
-                    }
-                    else if ("atloc" == params[i])
-                    {
+                    } else if ("atloc" == param) {
                         theaterLocationType = TLT_none;
                         break;
                     }

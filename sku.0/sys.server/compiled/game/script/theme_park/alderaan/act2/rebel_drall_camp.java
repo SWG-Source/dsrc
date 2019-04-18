@@ -208,7 +208,7 @@ public class rebel_drall_camp extends script.base_script
                 count++;
                 utils.setScriptVar(self, "coa2.imperial.guards", count);
                 ai_lib.setDefaultCalmBehavior(newObject, ai_lib.BEHAVIOR_LOITER);
-                ai_lib.setLoiterRanges(newObject, 10f, 48f);
+                ai_lib.setLoiterRanges(newObject, 10.0f, 48.0f);
                 if (count > 5)
                 {
                     String name = getName(newObject);
@@ -258,11 +258,9 @@ public class rebel_drall_camp extends script.base_script
     public int cleanup(obj_id self, dictionary params) throws InterruptedException
     {
         Vector objectList = getResizeableObjIdArrayObjVar(self, "coa2.imperial.obj_list");
-        for (int i = 0; i < objectList.size(); i++)
-        {
-            if (isIdValid(((obj_id)objectList.get(i))))
-            {
-                destroyObject(((obj_id)objectList.get(i)));
+        for (Object o : objectList) {
+            if (isIdValid(((obj_id) o))) {
+                destroyObject(((obj_id) o));
             }
         }
         destroyObject(self);

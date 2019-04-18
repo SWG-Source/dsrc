@@ -9,17 +9,17 @@ public class minefield_util extends script.base_script
     public minefield_util()
     {
     }
-    public static final float WARNING_BUFFER = 16f;
+    public static final float WARNING_BUFFER = 16.0f;
     public static final float MINE_ACTION_RADIUS = 1.4f;
-    public static final float TIME_DELAY = 8f;
-    public static final float DESTROY_DELAY = 12f;
+    public static final float TIME_DELAY = 8.0f;
+    public static final float DESTROY_DELAY = 12.0f;
     public static final int WARNING_COUNT = 10;
     public static final int WIDTH_OF_FIELD = 8;
     public static final int LENGTH_OF_FIELD = 8;
     public static final int MINE_DAMAGE = 5;
     public static final int NUMBER_OF_MINES = 5;
     public static final int AMOUNT_OWNER_CAN_MAKE = 4;
-    public static final float MINE_DAMAGE_RADIUS = 6f;
+    public static final float MINE_DAMAGE_RADIUS = 6.0f;
     public static final String VAR_AMOUNT_OWNER_CAN_MAKE = "amount_owner_can_make";
     public static final String VAR_BREACHED_LIST = "breached_list";
     public static final String VAR_OWNED_LIST = "owned_list";
@@ -103,14 +103,14 @@ public class minefield_util extends script.base_script
         {
             for (int i = 0; i < numberOfMines; ++i)
             {
-                mineLocations[i] = new location(((float)rand((int)upperLeft.x, (int)lowerRight.x)), markerLoc.y, ((float)rand((int)lowerRight.z, (int)upperLeft.z)), markerLoc.area);
+                mineLocations[i] = new location(rand((int)upperLeft.x, (int)lowerRight.x), markerLoc.y, rand((int)lowerRight.z, (int)upperLeft.z), markerLoc.area);
             }
             isCreated = setObjVar(marker, VAR_MINE_LOCATIONS, mineLocations);
         }
         else 
         {
             int totalLength = 2 * length;
-            float separation = (float)totalLength / (float)numberOfMines;
+            float separation = (float)totalLength / numberOfMines;
             float mineSpot = markerLoc.x - length;
             for (int i = 0; i < numberOfMines; ++i)
             {
@@ -163,20 +163,18 @@ public class minefield_util extends script.base_script
     }
     public static void damageAdjuster(obj_id[] creatures, obj_id whoDoneIt, float damageRadius, int damage, obj_id owner) throws InterruptedException
     {
-        for (int i = 0; i < creatures.length; ++i)
-        {
-            float distance = getDistance(creatures[i], whoDoneIt);
-            debugSpeakMsg(whoDoneIt, "#####" + creatures[i] + " Distance from detonator: " + distance + "##############");
-            if (creatures[i] != whoDoneIt && distance < damageRadius && pvpIsEnemy(owner, creatures[i]))
-            {
+        for (obj_id creature : creatures) {
+            float distance = getDistance(creature, whoDoneIt);
+            debugSpeakMsg(whoDoneIt, "#####" + creature + " Distance from detonator: " + distance + "##############");
+            if (creature != whoDoneIt && distance < damageRadius && pvpIsEnemy(owner, creature)) {
                 float percentDamage = 1 - (distance / damageRadius);
-                debugSpeakMsg(creatures[i], "#####" + creatures[i] + " Percent Damage: " + percentDamage + "##############");
-                int health = getHealth(creatures[i]);
+                debugSpeakMsg(creature, "#####" + creature + " Percent Damage: " + percentDamage + "##############");
+                int health = getHealth(creature);
                 health -= damage * percentDamage;
-                setHealth(creatures[i], health);
+                setHealth(creature, health);
                 string_id msg = new string_id("cbt_spam", "damage_message_single");
-                combat.sendCombatSpamMessage(creatures[i], msg);
-                sendSystemMessage(creatures[i], msg);
+                combat.sendCombatSpamMessage(creature, msg);
+                sendSystemMessage(creature, msg);
             }
         }
     }

@@ -21,7 +21,7 @@ public class crazed_miner extends script.base_script
     {
         setAnimationMood(self, "nervous");
         setName(self, "Haldo (a crazed miner)");
-        messageTo(self, "handleHaldoTimeOut", null, 1800f, false);
+        messageTo(self, "handleHaldoTimeOut", null, 1800.0f, false);
         return SCRIPT_CONTINUE;
     }
     public int OnCreatureDamaged(obj_id self, obj_id attacker, obj_id wpn, int[] damage) throws InterruptedException

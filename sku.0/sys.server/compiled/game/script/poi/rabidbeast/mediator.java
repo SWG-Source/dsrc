@@ -87,17 +87,12 @@ public class mediator extends script.poi.base.scenario_actor
                     }
                     else 
                     {
-                        for (int n = 0; n < members.length; n++)
-                        {
-                            if (scenario.hasKillCredit(poiMaster, "antagonist", members[n]))
-                            {
-                                if (!badge.hasBadge(members[n], "poi_rabidbeast"))
-                                {
-                                    badge.grantBadge(members[n], "poi_rabidbeast");
-                                }
-                                else 
-                                {
-                                    badge.notifyHasBadge(members[n], "poi_rabidbeast");
+                        for (obj_id member : members) {
+                            if (scenario.hasKillCredit(poiMaster, "antagonist", member)) {
+                                if (!badge.hasBadge(member, "poi_rabidbeast")) {
+                                    badge.grantBadge(member, "poi_rabidbeast");
+                                } else {
+                                    badge.notifyHasBadge(member, "poi_rabidbeast");
                                 }
                             }
                         }
@@ -160,36 +155,36 @@ public class mediator extends script.poi.base.scenario_actor
         Vector responses = new Vector();
         responses.setSize(0);
         npcSetConversationResponses(speaker, responses);
-        if ((aId.equals("r_m_greet")))
-        {
-            npcSpeak(speaker, new string_id(convo, "m_studying"));
-            responses = utils.addElement(responses, new string_id(convo, "r_m_studying"));
-            npcSetConversationResponses(speaker, responses);
-        }
-        else if ((aId.equals("r_m_studying")))
-        {
-            npcSpeak(speaker, new string_id(convo, "m_thebeast"));
-            responses = utils.addElement(responses, new string_id(convo, "r_m_thebeast_help"));
-            responses = utils.addElement(responses, new string_id(convo, "r_m_thebeast_nohelp"));
-            npcSetConversationResponses(speaker, responses);
-        }
-        else if ((aId.equals("r_m_thebeast_help")))
-        {
-            npcEndConversation(speaker);
-            poi.quickSay(self, "m_hereitcomes_help");
-            setObjVar(self, "attacked", true);
-            dictionary params = new dictionary();
-            params.put("target", speaker);
-            messageTo(poiMaster, "startAttack", params, 2, true);
-        }
-        else if ((aId.equals("r_m_thebeast_nohelp")))
-        {
-            npcEndConversation(speaker);
-            poi.quickSay(self, "m_hereitcomes_nohelp");
-            setObjVar(self, "attacked", true);
-            dictionary params = new dictionary();
-            params.put("target", speaker);
-            messageTo(poiMaster, "startAttack", params, 2, true);
+        switch (aId) {
+            case "r_m_greet":
+                npcSpeak(speaker, new string_id(convo, "m_studying"));
+                responses = utils.addElement(responses, new string_id(convo, "r_m_studying"));
+                npcSetConversationResponses(speaker, responses);
+                break;
+            case "r_m_studying":
+                npcSpeak(speaker, new string_id(convo, "m_thebeast"));
+                responses = utils.addElement(responses, new string_id(convo, "r_m_thebeast_help"));
+                responses = utils.addElement(responses, new string_id(convo, "r_m_thebeast_nohelp"));
+                npcSetConversationResponses(speaker, responses);
+                break;
+            case "r_m_thebeast_help": {
+                npcEndConversation(speaker);
+                poi.quickSay(self, "m_hereitcomes_help");
+                setObjVar(self, "attacked", true);
+                dictionary params = new dictionary();
+                params.put("target", speaker);
+                messageTo(poiMaster, "startAttack", params, 2, true);
+                break;
+            }
+            case "r_m_thebeast_nohelp": {
+                npcEndConversation(speaker);
+                poi.quickSay(self, "m_hereitcomes_nohelp");
+                setObjVar(self, "attacked", true);
+                dictionary params = new dictionary();
+                params.put("target", speaker);
+                messageTo(poiMaster, "startAttack", params, 2, true);
+                break;
+            }
         }
         return SCRIPT_CONTINUE;
     }

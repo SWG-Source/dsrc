@@ -114,18 +114,15 @@ public class unity extends script.base_script
         }
         Vector entries = new Vector();
         entries.setSize(0);
-        for (int i = 0; i < rings.length; i++)
-        {
+        for (obj_id ring : rings) {
             String entry = null;
-            if (static_item.isStaticItem(rings[i]))
-            {
-                if (!static_item.canEquip(self, rings[i]))
-                {
+            if (static_item.isStaticItem(ring)) {
+                if (!static_item.canEquip(self, ring)) {
                     continue;
                 }
             }
             prose_package ppSpec = prose.getPackage(SID_SUI_RING_EQUIP);
-            prose.setTT(ppSpec, getNameStringId(rings[i]));
+            prose.setTT(ppSpec, getNameStringId(ring));
             entry = " \0" + packOutOfBandProsePackage(null, ppSpec);
             entries = utils.addElement(entries, entry);
         }

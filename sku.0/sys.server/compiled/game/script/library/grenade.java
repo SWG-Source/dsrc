@@ -33,36 +33,30 @@ public class grenade extends script.base_script
         resultData.posture = currentPosture;
         String grenadeEffectClass = getStringObjVar(grenade, "effect_class");
         combat.combatLog(grenade, defender, "applyGrenadeEffects", "Applying grenade effects of class [" + grenadeEffectClass + "] to " + defender);
-        if (grenadeEffectClass.equals("fragmentation"))
-        {
-            resultData = applyFragmentationEffects(defender, grenade, range, resultData);
-        }
-        else if (grenadeEffectClass.equals("cryoban"))
-        {
-            resultData = applyCryobanEffects(defender, grenade, range, resultData);
-        }
-        else if (grenadeEffectClass.equals("glop"))
-        {
-            resultData = applyGlopEffects(defender, grenade, range, resultData);
-        }
-        else if (grenadeEffectClass.equals("imperial_detonator"))
-        {
-            resultData = applyImperialDetonatorEffects(defender, grenade, range, resultData);
-        }
-        else if (grenadeEffectClass.equals("proton"))
-        {
-            resultData = applyProtonEffects(defender, grenade, range, resultData);
-        }
-        else if (grenadeEffectClass.equals("thermal_detonator"))
-        {
-            resultData = applyThermalDetonatorEffects(defender, grenade, range, resultData);
-        }
-        else if (grenadeEffectClass.equals("bug"))
-        {
-            resultData = applyBugBombEffects(defender, grenade, range, resultData);
-        }
-        else 
-        {
+        switch (grenadeEffectClass) {
+            case "fragmentation":
+                resultData = applyFragmentationEffects(defender, grenade, range, resultData);
+                break;
+            case "cryoban":
+                resultData = applyCryobanEffects(defender, grenade, range, resultData);
+                break;
+            case "glop":
+                resultData = applyGlopEffects(defender, grenade, range, resultData);
+                break;
+            case "imperial_detonator":
+                resultData = applyImperialDetonatorEffects(defender, grenade, range, resultData);
+                break;
+            case "proton":
+                resultData = applyProtonEffects(defender, grenade, range, resultData);
+                break;
+            case "thermal_detonator":
+                resultData = applyThermalDetonatorEffects(defender, grenade, range, resultData);
+                break;
+            case "bug":
+                resultData = applyBugBombEffects(defender, grenade, range, resultData);
+                break;
+            default:
+                break;
         }
         if (resultData.posture != currentPosture)
         {

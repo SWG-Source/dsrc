@@ -62,72 +62,57 @@ public class boss_nyms_themepark extends script.base_script
         if (attackerList != null && attackerList.length > 0)
         {
             CustomerServiceLog("nyms_themepark", "boss_nyms_themepark.OnAboutToBeIncapacitated() Boss Mob attackerList = " + attackerList.length);
-            for (int i = 0; i < attackerList.length; i++)
-            {
-                if (!isIdValid(attackerList[i]))
-                {
+            for (obj_id obj_id : attackerList) {
+                if (!isIdValid(obj_id)) {
                     continue;
                 }
-                if (hasCompletedCollectionSlot(attackerList[i], bossQuestSlot))
-                {
-                    CustomerServiceLog("nyms_themepark", "boss_nyms_themepark.OnAboutToBeIncapacitated() attackerList player " + attackerList[i] + " already has the collection slot for this enemy completed. This player does NOT GET CREDIT.");
+                if (hasCompletedCollectionSlot(obj_id, bossQuestSlot)) {
+                    CustomerServiceLog("nyms_themepark", "boss_nyms_themepark.OnAboutToBeIncapacitated() attackerList player " + obj_id + " already has the collection slot for this enemy completed. This player does NOT GET CREDIT.");
                     continue;
                 }
-                if (!groundquests.isQuestActive(attackerList[i], bossQuest))
-                {
-                    CustomerServiceLog("nyms_themepark", "boss_nyms_themepark.OnAboutToBeIncapacitated() attackerList player " + attackerList[i] + " did not have the quest active. This player does NOT GET CREDIT.");
+                if (!groundquests.isQuestActive(obj_id, bossQuest)) {
+                    CustomerServiceLog("nyms_themepark", "boss_nyms_themepark.OnAboutToBeIncapacitated() attackerList player " + obj_id + " did not have the quest active. This player does NOT GET CREDIT.");
                     continue;
                 }
-                if (hasObjVar(self, "theme_park_task") && bossQuestTask != null)
-                {
-                    if (!groundquests.isTaskActive(attackerList[i], bossQuest, bossQuestTask))
-                    {
-                        CustomerServiceLog("nyms_themepark", "boss_nyms_themepark.OnAboutToBeIncapacitated() Boss Mob attacker: " + attackerList[i] + " did not have boss quest task: " + bossQuestTask);
+                if (hasObjVar(self, "theme_park_task") && bossQuestTask != null) {
+                    if (!groundquests.isTaskActive(obj_id, bossQuest, bossQuestTask)) {
+                        CustomerServiceLog("nyms_themepark", "boss_nyms_themepark.OnAboutToBeIncapacitated() Boss Mob attacker: " + obj_id + " did not have boss quest task: " + bossQuestTask);
                         continue;
                     }
                 }
-                if (!hasCompletedCollectionSlotPrereq(attackerList[i], bossQuestSlot))
-                {
-                    CustomerServiceLog("nyms_themepark", "boss_nyms_themepark.OnAboutToBeIncapacitated() attackerList player " + attackerList[i] + " did not have the collection prerequisite for this boss. This player does NOT GET CREDIT.");
+                if (!hasCompletedCollectionSlotPrereq(obj_id, bossQuestSlot)) {
+                    CustomerServiceLog("nyms_themepark", "boss_nyms_themepark.OnAboutToBeIncapacitated() attackerList player " + obj_id + " did not have the collection prerequisite for this boss. This player does NOT GET CREDIT.");
                     continue;
                 }
-                CustomerServiceLog("nyms_themepark", "boss_nyms_themepark.OnAboutToBeIncapacitated() attackerList player " + attackerList[i] + " had all prerequisites for the boss collection. This player received credit.");
-                modifyCollectionSlotValue(attackerList[i], bossQuestSlot, 1);
-                if (group.isGrouped(attackerList[i]))
-                {
-                    obj_id groupObj = getGroupObject(attackerList[i]);
+                CustomerServiceLog("nyms_themepark", "boss_nyms_themepark.OnAboutToBeIncapacitated() attackerList player " + obj_id + " had all prerequisites for the boss collection. This player received credit.");
+                modifyCollectionSlotValue(obj_id, bossQuestSlot, 1);
+                if (group.isGrouped(obj_id)) {
+                    obj_id groupObj = getGroupObject(obj_id);
                     obj_id[] groupMembers = getGroupMemberIds(groupObj);
-                    for (int j = 0; j < groupMembers.length; j++)
-                    {
-                        if (!isIdValid(groupMembers[j]))
-                        {
+                    for (obj_id groupMember : groupMembers) {
+                        if (!isIdValid(groupMember)) {
                             continue;
                         }
-                        if (!groundquests.isQuestActive(groupMembers[j], bossQuest))
-                        {
-                            CustomerServiceLog("nyms_themepark", "boss_nyms_themepark.OnAboutToBeIncapacitated() attackerList player " + attackerList[i] + " did not have the quest active. This player does NOT GET CREDIT.");
+                        if (!groundquests.isQuestActive(groupMember, bossQuest)) {
+                            CustomerServiceLog("nyms_themepark", "boss_nyms_themepark.OnAboutToBeIncapacitated() attackerList player " + obj_id + " did not have the quest active. This player does NOT GET CREDIT.");
                             continue;
                         }
-                        if (hasObjVar(self, "theme_park_task") && bossQuestTask != null)
-                        {
-                            if (!groundquests.isTaskActive(groupMembers[j], bossQuest, bossQuestTask))
-                            {
-                                CustomerServiceLog("nyms_themepark", "boss_nyms_themepark.OnAboutToBeIncapacitated() Boss Mob attacker: " + attackerList[i] + " did not have boss quest task: " + bossQuestTask);
+                        if (hasObjVar(self, "theme_park_task") && bossQuestTask != null) {
+                            if (!groundquests.isTaskActive(groupMember, bossQuest, bossQuestTask)) {
+                                CustomerServiceLog("nyms_themepark", "boss_nyms_themepark.OnAboutToBeIncapacitated() Boss Mob attacker: " + obj_id + " did not have boss quest task: " + bossQuestTask);
                                 continue;
                             }
                         }
-                        if (hasCompletedCollectionSlot(groupMembers[j], bossQuestSlot))
-                        {
-                            CustomerServiceLog("nyms_themepark", "boss_nyms_themepark.OnAboutToBeIncapacitated() attackerList player " + attackerList[i] + " already has the collection slot for this enemy completed. This player does NOT GET CREDIT.");
+                        if (hasCompletedCollectionSlot(groupMember, bossQuestSlot)) {
+                            CustomerServiceLog("nyms_themepark", "boss_nyms_themepark.OnAboutToBeIncapacitated() attackerList player " + obj_id + " already has the collection slot for this enemy completed. This player does NOT GET CREDIT.");
                             continue;
                         }
-                        if (!hasCompletedCollectionSlotPrereq(groupMembers[j], bossQuestSlot))
-                        {
-                            CustomerServiceLog("nyms_themepark", "boss_nyms_themepark.OnAboutToBeIncapacitated() attackerList player " + attackerList[i] + " did not have the collection prerequisite for this boss. This player does NOT GET CREDIT.");
+                        if (!hasCompletedCollectionSlotPrereq(groupMember, bossQuestSlot)) {
+                            CustomerServiceLog("nyms_themepark", "boss_nyms_themepark.OnAboutToBeIncapacitated() attackerList player " + obj_id + " did not have the collection prerequisite for this boss. This player does NOT GET CREDIT.");
                             continue;
                         }
-                        CustomerServiceLog("nyms_themepark", "boss_nyms_themepark.OnAboutToBeIncapacitated() attackerList player " + attackerList[i] + " had all prerequisites for the boss collection. This player received credit.");
-                        modifyCollectionSlotValue(groupMembers[j], bossQuestSlot, 1);
+                        CustomerServiceLog("nyms_themepark", "boss_nyms_themepark.OnAboutToBeIncapacitated() attackerList player " + obj_id + " had all prerequisites for the boss collection. This player received credit.");
+                        modifyCollectionSlotValue(groupMember, bossQuestSlot, 1);
                     }
                 }
             }
@@ -166,14 +151,12 @@ public class boss_nyms_themepark extends script.base_script
         obj_id[] players = getPlayerCreaturesInRange(self, maxDist);
         if (players != null && players.length > 0)
         {
-            for (int i = 0; i < players.length; i++)
-            {
-                if (!isIdValid(players[i]) && !exists(players[i]) || isIncapacitated(players[i]) || !isDead(players[i]))
-                {
+            for (obj_id player : players) {
+                if (!isIdValid(player) && !exists(player) || isIncapacitated(player) || !isDead(player)) {
                     continue;
                 }
-                addHate(self, players[i], 1000.0f);
-                startCombat(self, players[i]);
+                addHate(self, player, 1000.0f);
+                startCombat(self, player);
             }
         }
         messageTo(self, "handleBossDistanceCheck", null, 3, false);
@@ -285,13 +268,11 @@ public class boss_nyms_themepark extends script.base_script
                 if (isValidId(myGroup))
                 {
                     obj_id[] members = getGroupMemberIds(myGroup);
-                    for (int i = 0; i < members.length; i++)
-                    {
-                        if (!isIdValid(members[i]))
-                        {
+                    for (obj_id member : members) {
+                        if (!isIdValid(member)) {
                             continue;
                         }
-                        sendSystemMessage(members[i], SID_SYS_TOO_FAR);
+                        sendSystemMessage(member, SID_SYS_TOO_FAR);
                     }
                 }
             }
@@ -332,24 +313,20 @@ public class boss_nyms_themepark extends script.base_script
             messageTo(parent, "defaultEventReset", webster, 2, false);
             return false;
         }
-        for (int i = 0; i < targets.length; i++)
-        {
-            if (!isIdValid(targets[i]))
-            {
+        for (obj_id target : targets) {
+            if (!isIdValid(target)) {
                 continue;
             }
-            if (!isPlayer(targets[i]))
-            {
+            if (!isPlayer(target)) {
                 continue;
             }
             location a = getLocation(self);
-            location b = getLocation(targets[i]);
-            if (a.cell != b.cell)
-            {
+            location b = getLocation(target);
+            if (a.cell != b.cell) {
                 continue;
             }
-            startCombat(self, targets[i]);
-            CustomerServiceLog("nyms_themepark", "boss_nyms_themepark.getRandomCombatTarget(): Player " + targets[i] + " was found as a valid target. Boss Mob: " + self + " attacking player.");
+            startCombat(self, target);
+            CustomerServiceLog("nyms_themepark", "boss_nyms_themepark.getRandomCombatTarget(): Player " + target + " was found as a valid target. Boss Mob: " + self + " attacking player.");
             return true;
         }
         CustomerServiceLog("nyms_themepark", "boss_nyms_themepark.getRandomCombatTarget(): Boss Mob: " + self + " failed to find a player to attack.");
@@ -447,13 +424,11 @@ public class boss_nyms_themepark extends script.base_script
             if (isValidId(myGroup))
             {
                 obj_id[] members = getGroupMemberIds(myGroup);
-                for (int i = 0; i < members.length; i++)
-                {
-                    if (!isIdValid(members[i]))
-                    {
+                for (obj_id member : members) {
+                    if (!isIdValid(member)) {
                         continue;
                     }
-                    sendSystemMessage(members[i], SID_SYS_ONE_MINUTE_WARNING);
+                    sendSystemMessage(member, SID_SYS_ONE_MINUTE_WARNING);
                 }
             }
         }

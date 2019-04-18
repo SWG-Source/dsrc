@@ -47,7 +47,7 @@ public class survival extends script.base_script
         {
             dictionary outparams = new dictionary();
             outparams.put("player", player);
-            messageTo(self, "initializedQuestPlayer", outparams, 1.f, false);
+            messageTo(self, "initializedQuestPlayer", outparams, 1.0f, false);
         }
         int questid = questGetQuestId("spacequest/" + questType + "/" + questName);
         if (questid != 0)
@@ -174,7 +174,7 @@ public class survival extends script.base_script
         }
         messageTo(self, "beginTransmission", params, getIntObjVar(self, "transStart"), false);
         messageTo(self, "launchFirstAttack", params, getIntObjVar(self, "delayToAttack"), false);
-        messageTo(self, "validateDistance", null, 30.f, false);
+        messageTo(self, "validateDistance", null, 30.0f, false);
         return SCRIPT_CONTINUE;
     }
     public int beginTransmission(obj_id self, dictionary params) throws InterruptedException
@@ -213,8 +213,8 @@ public class survival extends script.base_script
         if (updates < getIntObjVar(self, "numUpdates"))
         {
             time += fifth;
-            float pct_received = (float)time / (float)total;
-            int ipct_received = (int)(pct_received * 100.f);
+            float pct_received = (float)time / total;
+            int ipct_received = (int)(pct_received * 100.0f);
             string_id trans_update = new string_id("spacequest/" + questType + "/" + questName, "trans_update");
             prose_package pp = prose.getPackage(trans_update, ipct_received);
             space_quest.sendQuestMessage(player, pp);
@@ -226,7 +226,7 @@ public class survival extends script.base_script
         {
             string_id transmissionReceived = new string_id("spacequest/" + questType + "/" + questName, "transmission_received");
             space_quest.sendQuestMessage(player, transmissionReceived);
-            messageTo(self, "endMission", null, 5.f, false);
+            messageTo(self, "endMission", null, 5.0f, false);
         }
         return SCRIPT_CONTINUE;
     }
@@ -257,7 +257,7 @@ public class survival extends script.base_script
         location loc = getLocationObjVar(self, "locl");
         float dist = getDistance(getLocation(pship), loc);
         boolean ok = true;
-        if (dist > 2000.f)
+        if (dist > 2000.0f)
         {
             ok = false;
         }
@@ -283,7 +283,7 @@ public class survival extends script.base_script
                 setObjVar(self, "outofrange", 1);
             }
         }
-        messageTo(self, "validateDistance", null, 30.f, false);
+        messageTo(self, "validateDistance", null, 30.0f, false);
         return SCRIPT_CONTINUE;
     }
     public void clearMissionWaypoint(obj_id self) throws InterruptedException
@@ -417,12 +417,12 @@ public class survival extends script.base_script
         for (int i = k; i < count + k; i++)
         {
             transform gloc = getTransform_o2w(space_transition.getContainingShip(player));
-            float dist = rand(1000.f, 1200.f);
+            float dist = rand(1000.0f, 1200.0f);
             vector n = ((gloc.getLocalFrameK_p()).normalize()).multiply(dist);
             gloc = gloc.move_p(n);
             gloc = gloc.yaw_l(3.14f);
-            vector vi = ((gloc.getLocalFrameI_p()).normalize()).multiply(rand(-150.f, 150.f));
-            vector vj = ((gloc.getLocalFrameJ_p()).normalize()).multiply(rand(-150.f, 150.f));
+            vector vi = ((gloc.getLocalFrameI_p()).normalize()).multiply(rand(-150.0f, 150.0f));
+            vector vj = ((gloc.getLocalFrameJ_p()).normalize()).multiply(rand(-150.0f, 150.0f));
             vector vd = vi.add(vj);
             gloc = gloc.move_p(vd);
             obj_id newship = space_create.createShipHyperspace(shipList[j], gloc);
@@ -477,27 +477,21 @@ public class survival extends script.base_script
         obj_id targets[] = getObjIdArrayObjVar(self, "targets");
         int deadships = getIntObjVar(self, "deadships");
         boolean launchWave = false;
-        for (int i = 0; i < targets.length; i++)
-        {
-            if (deadship == targets[i])
-            {
+        for (obj_id target : targets) {
+            if (deadship == target) {
                 deadships++;
                 setObjVar(self, "deadships", deadships);
                 space_quest._removeMissionCriticalShip(player, self, deadship);
                 int shipswave = getIntObjVar(deadship, "wave");
                 int wavecount = getIntObjVar(self, "wave" + shipswave);
                 wavecount--;
-                if (wavecount <= 0)
-                {
+                if (wavecount <= 0) {
                     removeObjVar(self, "wave" + shipswave);
                     launchWave = true;
-                }
-                else 
-                {
+                } else {
                     setObjVar(self, "wave" + shipswave, wavecount);
                 }
-                if (deadships == targets.length)
-                {
+                if (deadships == targets.length) {
                     playClientEffectObj(player, SOUND_DESTROYED_WAVE, player, "");
                     int rewardships = getIntObjVar(self, "rewardships");
                     rewardships += deadships;
@@ -546,11 +540,9 @@ public class survival extends script.base_script
         obj_id[] targets = getObjIdArrayObjVar(self, "targets");
         if (targets != null)
         {
-            for (int i = 0; i < targets.length; i++)
-            {
-                if (isIdValid(targets[i]) && exists(targets[i]))
-                {
-                    destroyObjectHyperspace(targets[i]);
+            for (obj_id target : targets) {
+                if (isIdValid(target) && exists(target)) {
+                    destroyObjectHyperspace(target);
                 }
             }
         }

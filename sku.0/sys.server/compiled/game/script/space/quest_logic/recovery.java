@@ -3,6 +3,8 @@ package script.space.quest_logic;
 import script.*;
 import script.library.*;
 
+import java.util.StringTokenizer;
+
 public class recovery extends script.base_script
 {
     public recovery()
@@ -66,7 +68,7 @@ public class recovery extends script.base_script
         {
             dictionary outparams = new dictionary();
             outparams.put("player", player);
-            messageTo(self, "initializedQuestPlayer", outparams, 1.f, false);
+            messageTo(self, "initializedQuestPlayer", outparams, 1.0f, false);
         }
         int questid = questGetQuestId("spacequest/" + questType + "/" + questName);
         if (questid != 0)
@@ -186,15 +188,15 @@ public class recovery extends script.base_script
         }
         setObjVar(ship, "damageMultiplier", dmult);
         float maxspeed = getShipEngineSpeedMaximum(ship);
-        if (maxspeed < 15.f)
+        if (maxspeed < 15.0f)
         {
-            setShipEngineSpeedMaximum(ship, 15.f + rand() * 10.f);
+            setShipEngineSpeedMaximum(ship, 15.0f + rand() * 10.0f);
         }
-        else if (maxspeed > 25.f)
+        else if (maxspeed > 25.0f)
         {
-            setShipEngineSpeedMaximum(ship, 23.f + rand() * 5.f);
+            setShipEngineSpeedMaximum(ship, 23.0f + rand() * 5.0f);
         }
-        messageTo(self, "updateTargetWaypoint", null, 1.f, false);
+        messageTo(self, "updateTargetWaypoint", null, 1.0f, false);
         transform[] translist = getPathTransforms(self, true);
         ship_ai.unitAddPatrolPath(ship, translist);
         dictionary outparams = new dictionary();
@@ -202,7 +204,7 @@ public class recovery extends script.base_script
         outparams.put("loc", getLocationObjVar(self, "last_loc"));
         outparams.put("player", player);
         outparams.put("dest", "escape");
-        messageTo(ship, "registerDestination", outparams, 1.f, false);
+        messageTo(ship, "registerDestination", outparams, 1.0f, false);
         playClientEffectObj(player, SOUND_SPAWN_ESCORT, player, "");
         String[] shipTypes = getStringArrayObjVar(self, "escortShips");
         if (shipTypes != null)
@@ -263,21 +265,18 @@ public class recovery extends script.base_script
         for (int j = 0; j < pathPoints.length; j++)
         {
             boolean found = false;
-            for (int i = 0; i < points.length; i++)
-            {
-                String pointName = getStringObjVar(points[i], "nav_name");
+            for (obj_id point : points) {
+                String pointName = getStringObjVar(point, "nav_name");
                 String eName = pathPoints[j];
-                java.util.StringTokenizer st = new java.util.StringTokenizer(eName, ":");
+                StringTokenizer st = new StringTokenizer(eName, ":");
                 String scene = st.nextToken();
                 eName = st.nextToken();
-                if ((pointName != null) && pointName.equals(eName))
-                {
+                if ((pointName != null) && pointName.equals(eName)) {
                     found = true;
                     b++;
-                    translist[j] = getTransform_o2w(points[i]);
-                    if (j + 1 == pathPoints.length)
-                    {
-                        setObjVar(self, "last_loc", getLocation(points[i]));
+                    translist[j] = getTransform_o2w(point);
+                    if (j + 1 == pathPoints.length) {
+                        setObjVar(self, "last_loc", getLocation(point));
                     }
                     break;
                 }
@@ -363,9 +362,8 @@ public class recovery extends script.base_script
         obj_id[] targets = ship_ai.unitGetAttackTargetList(ship);
         if (targets != null)
         {
-            for (int i = 0; i < targets.length; i++)
-            {
-                ship_ai.spaceStopAttack(ship, targets[i]);
+            for (obj_id target : targets) {
+                ship_ai.spaceStopAttack(ship, target);
             }
         }
         if (hasObjVar(self, "recoverFaction"))
@@ -387,7 +385,7 @@ public class recovery extends script.base_script
                 questCompleteTask(questid, 2, player);
             }
         }
-        messageTo(self, "startCapturedShipPathing", null, 10.f, false);
+        messageTo(self, "startCapturedShipPathing", null, 10.0f, false);
         return SCRIPT_CONTINUE;
     }
     public String getCapturePhrase2(obj_id self) throws InterruptedException
@@ -404,13 +402,13 @@ public class recovery extends script.base_script
         ship_ai.unitClearPatrolPath(ship);
         ship_ai.unitAddPatrolPath(ship, translist);
         ship_ai.unitSetAttackOrders(ship, ship_ai.ATTACK_ORDERS_HOLD_FIRE);
-        space_utils.matchEngineSpeed(player, ship, .5f, true);
+        space_utils.matchEngineSpeed(player, ship, 0.5f, true);
         dictionary outparams = new dictionary();
         outparams.put("quest", self);
         outparams.put("loc", getLocationObjVar(self, "last_loc"));
         outparams.put("player", player);
         outparams.put("dest", "recovery");
-        messageTo(ship, "registerDestination", outparams, 1.f, false);
+        messageTo(ship, "registerDestination", outparams, 1.0f, false);
         setObjVar(ship, "intNoPlayerDamage", 1);
         setObjVar(self, "attacksok", 1);
         int attackPeriod = getIntObjVar(self, "attackPeriod");
@@ -445,8 +443,8 @@ public class recovery extends script.base_script
         string_id abort = new string_id("spacequest/" + questType + "/" + questName, getCompletePhrase(self));
         prose_package pp = prose.getPackage(abort, 0);
         space_quest.groupTaunt(ship, player, pp);
-        messageTo(self, "cleanupShipsMsg", null, 2.f, false);
-        messageTo(self, "completeQuestMsg", null, 3.f, false);
+        messageTo(self, "cleanupShipsMsg", null, 2.0f, false);
+        messageTo(self, "completeQuestMsg", null, 3.0f, false);
         return SCRIPT_CONTINUE;
     }
     public String getCompletePhrase(obj_id self) throws InterruptedException
@@ -504,7 +502,7 @@ public class recovery extends script.base_script
         String questName = getStringObjVar(self, space_quest.QUEST_NAME);
         String questType = getStringObjVar(self, space_quest.QUEST_TYPE);
         questSetQuestTaskLocation(player, "spacequest/" + questType + "/" + questName, taskId, loc);
-        messageTo(self, "updateTargetWaypoint", null, 30.f, false);
+        messageTo(self, "updateTargetWaypoint", null, 30.0f, false);
         return SCRIPT_CONTINUE;
     }
     public void clearMissionWaypoint(obj_id self) throws InterruptedException
@@ -570,20 +568,18 @@ public class recovery extends script.base_script
                 string_id abort = new string_id("spacequest/" + questType + "/" + questName, "abort");
                 prose_package pp = prose.getPackage(abort, 0);
                 space_quest.groupTaunt(ship, player, pp);
-                messageTo(ship, "missionAbort", null, 2.f, false);
+                messageTo(ship, "missionAbort", null, 2.0f, false);
             }
             else 
             {
-                messageTo(ship, "missionAbort", null, 10.f, false);
+                messageTo(ship, "missionAbort", null, 10.0f, false);
             }
             obj_id[] escorts = getObjIdArrayObjVar(self, "escorts");
             if (escorts != null)
             {
-                for (int i = 0; i < escorts.length; i++)
-                {
-                    if (isIdValid(escorts[i]) && exists(escorts[i]))
-                    {
-                        messageTo(escorts[i], "missionAbort", null, 10.f, false);
+                for (obj_id escort : escorts) {
+                    if (isIdValid(escort) && exists(escort)) {
+                        messageTo(escort, "missionAbort", null, 10.0f, false);
                     }
                 }
             }
@@ -742,12 +738,12 @@ public class recovery extends script.base_script
         for (int i = k; i < count + k; i++)
         {
             transform gloc = getTransform_o2w(ship);
-            float dist = rand(1000.f, 1200.f);
+            float dist = rand(1000.0f, 1200.0f);
             vector n = ((gloc.getLocalFrameK_p()).normalize()).multiply(dist);
             gloc = gloc.move_p(n);
             gloc = gloc.yaw_l(3.14f);
-            vector vi = ((gloc.getLocalFrameI_p()).normalize()).multiply(rand(-150.f, 150.f));
-            vector vj = ((gloc.getLocalFrameJ_p()).normalize()).multiply(rand(-150.f, 150.f));
+            vector vi = ((gloc.getLocalFrameI_p()).normalize()).multiply(rand(-150.0f, 150.0f));
+            vector vj = ((gloc.getLocalFrameJ_p()).normalize()).multiply(rand(-150.0f, 150.0f));
             vector vd = vi.add(vj);
             gloc = gloc.move_p(vd);
             obj_id newship = space_create.createShipHyperspace(shipList[j], gloc);
@@ -755,7 +751,7 @@ public class recovery extends script.base_script
             if (hasObjVar(newship, "hateModifier"))
             {
                 int hateMod = getIntObjVar(newship, "hateModifier");
-                fltHateMod = (float)(hateMod);
+                fltHateMod = (hateMod);
                 if (fltHateMod <= 0)
                 {
                     fltHateMod = 500.0f;

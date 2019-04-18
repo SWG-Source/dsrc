@@ -45,18 +45,13 @@ public class boss_loot extends script.base_script
             else 
             {
                 obj_id looter = null;
-                for (int i = 0; i < permitted.length; i++)
-                {
-                    looter = permitted[i];
-                    if (looter != null)
-                    {
-                        if (hasObjVar(looter, "death_watch_herald.imperialquest"))
-                        {
+                for (obj_id obj_id : permitted) {
+                    looter = obj_id;
+                    if (looter != null) {
+                        if (hasObjVar(looter, "death_watch_herald.imperialquest")) {
                             createTheirLoot(self);
                             return SCRIPT_CONTINUE;
-                        }
-                        else 
-                        {
+                        } else {
                             createJetpackLoot(self);
                         }
                     }

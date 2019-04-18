@@ -68,9 +68,7 @@ public class zone_transition extends script.base_script
         zone_population.setSize(0);
         String destination = dataTableGetString(dataTable, transit, "destination");
         String[] parse = split(destination, ':');
-        for (int i = 0; i < data.length; i++)
-        {
-            dictionary dungeon = data[i];
+        for (dictionary dungeon : data) {
             building_ids = utils.addElement(building_ids, dungeon.getObjId("building_id"));
             zone_population = utils.addElement(zone_population, dungeon.getInt("population"));
         }
@@ -95,7 +93,7 @@ public class zone_transition extends script.base_script
         int k = 1;
         for (int i = 0; i < building_ids.size(); i++)
         {
-            zoneList[i] = "@" + transition.getZoneTransitionString(getSelf()) + " " + k + " - " + getColorCodedPopIndex(((obj_id)building_ids.get(i)), ((Integer)zone_population.get(i)).intValue());
+            zoneList[i] = "@" + transition.getZoneTransitionString(getSelf()) + " " + k + " - " + getColorCodedPopIndex(((obj_id)building_ids.get(i)), (Integer) zone_population.get(i));
             k++;
         }
         if (building_ids != null && building_ids.size() > 0)

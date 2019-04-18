@@ -119,55 +119,35 @@ public class qa_quest_skipper extends script.base_script
                 {
                     String[] previousMainMenuArray = utils.getStringArrayScriptVar(self, "qaquest.qaquestMenu");
                     String previousSelection = previousMainMenuArray[idx];
-                    if (previousSelection.equals(QUEST_TOOL_MENU[0]))
-                    {
+                    if (QUEST_TOOL_MENU[0].equals(previousSelection)) {
                         qa.createInputBox(self, MANUAL_ADD_GROUND_PROMPT, MANUAL_ADD_GROUND_TITLE, "handleAddGroundQuestManually", "qaquest.pid");
-                    }
-                    else if (previousSelection.equals(QUEST_TOOL_MENU[1]))
-                    {
+                    } else if (QUEST_TOOL_MENU[1].equals(previousSelection)) {
                         qa.createInputBox(self, MANUAL_ADD_SPACE_PROMPT, MANUAL_ADD_SPACE_TITLE, "handleAddSpaceQuestManually", "qaquest.pid");
-                    }
-                    else if (previousSelection.equals(QUEST_TOOL_MENU[2]))
-                    {
+                    } else if (QUEST_TOOL_MENU[2].equals(previousSelection)) {
                         boolean receivedTestQuests = getTestQuests(self);
-                        if (receivedTestQuests)
-                        {
+                        if (receivedTestQuests) {
                             sendSystemMessageTestingOnly(self, "Test quests received.");
-                        }
-                        else 
-                        {
+                        } else {
                             sendSystemMessageTestingOnly(self, "There was a problem giving the test character test quests.");
                         }
                         showToolMainMenu(self);
-                    }
-                    else if (previousSelection.equals(QUEST_TOOL_MENU[3]))
-                    {
+                    } else if (QUEST_TOOL_MENU[3].equals(previousSelection)) {
                         sendSystemMessageTestingOnly(self, "Type or paste quests into the window separated with a semicolon (;).");
-                        if (!utils.hasScriptVar(self, "qaquest.textData"))
-                        {
+                        if (!utils.hasScriptVar(self, "qaquest.textData")) {
                             bulkGrantAndCompleteQuestUi(self, "");
-                        }
-                        else 
-                        {
+                        } else {
                             String textData = utils.getStringScriptVar(self, "qaquest.textData");
                             bulkGrantAndCompleteQuestUi(self, textData);
                         }
-                    }
-                    else if (previousSelection.equals(QUEST_TOOL_MENU[4]))
-                    {
+                    } else if (QUEST_TOOL_MENU[4].equals(previousSelection)) {
                         sendSystemMessageTestingOnly(self, "Type or paste quests into the window separated with a semicolon (;).");
-                        if (!utils.hasScriptVar(self, "qaquest.textData"))
-                        {
+                        if (!utils.hasScriptVar(self, "qaquest.textData")) {
                             bulkGrantQuestUi(self, "");
-                        }
-                        else 
-                        {
+                        } else {
                             String textData = utils.getStringScriptVar(self, "qaquest.textData");
                             bulkGrantQuestUi(self, textData);
                         }
-                    }
-                    else 
-                    {
+                    } else {
                         utils.setScriptVar(self, "qaquest.questString", previousSelection);
                         String[] subMenu = getCorrectMenu(self, previousSelection);
                         utils.setScriptVar(self, "qaquest.menu", subMenu);
@@ -427,15 +407,11 @@ public class qa_quest_skipper extends script.base_script
     }
     public boolean getTestQuests(obj_id self) throws InterruptedException
     {
-        for (int i = 0; i < QUEST_DEMO_QUESTS.length; i++)
-        {
-            if (QUEST_DEMO_QUESTS[i].indexOf("spacequest/") == 0)
-            {
-                boolean successGrant = qa.evalSpaceQuestThenGrant(self, QUEST_DEMO_QUESTS[i]);
-            }
-            else 
-            {
-                qa.grantGroundQuest(self, QUEST_DEMO_QUESTS[i]);
+        for (String questDemoQuest : QUEST_DEMO_QUESTS) {
+            if (questDemoQuest.indexOf("spacequest/") == 0) {
+                boolean successGrant = qa.evalSpaceQuestThenGrant(self, questDemoQuest);
+            } else {
+                qa.grantGroundQuest(self, questDemoQuest);
             }
         }
         return true;
@@ -529,43 +505,31 @@ public class qa_quest_skipper extends script.base_script
     {
         if (allData.length > 0)
         {
-            for (int i = 0; i < allData.length; i++)
-            {
-                if (!allData[i].equals(""))
-                {
-                    if (allData[i].indexOf("spacequest/") == 0)
-                    {
-                        boolean questAttained = qa.evalSpaceQuestThenGrant(self, allData[i]);
-                        if (!questAttained)
-                        {
-                            sendSystemMessageTestingOnly(self, "Quest " + allData[i] + " could not be granted.");
+            for (String allDatum : allData) {
+                if (!allDatum.equals("")) {
+                    if (allDatum.indexOf("spacequest/") == 0) {
+                        boolean questAttained = qa.evalSpaceQuestThenGrant(self, allDatum);
+                        if (!questAttained) {
+                            sendSystemMessageTestingOnly(self, "Quest " + allDatum + " could not be granted.");
                         }
-                        if (completeFlag)
-                        {
+                        if (completeFlag) {
                             messageTo(self, "delay", null, 1, false);
-                            boolean completed = qa.completeActiveQuest(self, allData[i]);
-                            if (!completed)
-                            {
-                                sendSystemMessageTestingOnly(self, "Quest " + allData[i] + " could not be completed.");
+                            boolean completed = qa.completeActiveQuest(self, allDatum);
+                            if (!completed) {
+                                sendSystemMessageTestingOnly(self, "Quest " + allDatum + " could not be completed.");
                             }
                         }
-                    }
-                    else if (allData[i].indexOf("quest/") == 0)
-                    {
-                        qa.grantGroundQuest(self, allData[i]);
-                        if (completeFlag)
-                        {
+                    } else if (allDatum.indexOf("quest/") == 0) {
+                        qa.grantGroundQuest(self, allDatum);
+                        if (completeFlag) {
                             messageTo(self, "delay", null, 1, false);
-                            boolean completed = qa.completeActiveQuest(self, allData[i]);
-                            if (!completed)
-                            {
-                                sendSystemMessageTestingOnly(self, "Quest " + allData[i] + " could not be granted.");
+                            boolean completed = qa.completeActiveQuest(self, allDatum);
+                            if (!completed) {
+                                sendSystemMessageTestingOnly(self, "Quest " + allDatum + " could not be granted.");
                             }
                         }
-                    }
-                    else 
-                    {
-                        sendSystemMessageTestingOnly(self, "Unknown quest string: " + allData[i]);
+                    } else {
+                        sendSystemMessageTestingOnly(self, "Unknown quest string: " + allDatum);
                     }
                 }
             }
@@ -575,47 +539,32 @@ public class qa_quest_skipper extends script.base_script
     {
         if (allData.length > 0)
         {
-            for (int i = 0; i < allData.length; i++)
-            {
-                if (!allData[i].equals(""))
-                {
-                    if (allData[i].indexOf("spacequest/") == 0)
-                    {
-                        String questName = qa.getSpaceQuestName(self, allData[i]);
-                        if (!questName.equals(""))
-                        {
-                            String questType = qa.getSpaceQuestType(self, allData[i]);
-                            if (!questType.equals(""))
-                            {
-                                boolean completed = qa.clearQuest(self, allData[i]);
+            for (String allDatum : allData) {
+                if (!allDatum.equals("")) {
+                    if (allDatum.indexOf("spacequest/") == 0) {
+                        String questName = qa.getSpaceQuestName(self, allDatum);
+                        if (!questName.equals("")) {
+                            String questType = qa.getSpaceQuestType(self, allDatum);
+                            if (!questType.equals("")) {
+                                boolean completed = qa.clearQuest(self, allDatum);
                                 messageTo(self, "delay", null, 1, false);
-                                if (!completed)
-                                {
-                                    sendSystemMessageTestingOnly(self, "Quest " + allData[i] + " could not be cleared.");
+                                if (!completed) {
+                                    sendSystemMessageTestingOnly(self, "Quest " + allDatum + " could not be cleared.");
                                 }
+                            } else {
+                                sendSystemMessageTestingOnly(self, "Unknown quest string: " + allDatum);
                             }
-                            else 
-                            {
-                                sendSystemMessageTestingOnly(self, "Unknown quest string: " + allData[i]);
-                            }
+                        } else {
+                            sendSystemMessageTestingOnly(self, "Unknown quest string: " + allDatum);
                         }
-                        else 
-                        {
-                            sendSystemMessageTestingOnly(self, "Unknown quest string: " + allData[i]);
-                        }
-                    }
-                    else if (allData[i].indexOf("quest/") == 0)
-                    {
-                        boolean completed = qa.clearQuest(self, allData[i]);
+                    } else if (allDatum.indexOf("quest/") == 0) {
+                        boolean completed = qa.clearQuest(self, allDatum);
                         messageTo(self, "delay", null, 1, false);
-                        if (!completed)
-                        {
-                            sendSystemMessageTestingOnly(self, "Quest " + allData[i] + " could not be cleared.");
+                        if (!completed) {
+                            sendSystemMessageTestingOnly(self, "Quest " + allDatum + " could not be cleared.");
                         }
-                    }
-                    else 
-                    {
-                        sendSystemMessageTestingOnly(self, "Unknown quest string: " + allData[i]);
+                    } else {
+                        sendSystemMessageTestingOnly(self, "Unknown quest string: " + allDatum);
                     }
                 }
             }

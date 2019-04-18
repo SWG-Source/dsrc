@@ -33,7 +33,7 @@ public class commerce_trainer_spawner extends script.base_script
         obj_id room = getCellId(self, "meetingd");
         location artisanloc = new location(0.05f, 1.13f, -14.56f, "tatooine", room);
         obj_id artisan = create.object("trainer_artisan", artisanloc);
-        create.addDestroyMessage(artisan, "artisanDied", 10f, self);
+        create.addDestroyMessage(artisan, "artisanDied", 10.0f, self);
         setCreatureStatic(artisan, true);
         setInvulnerable(artisan, true);
         setYaw(artisan, 5);
@@ -44,7 +44,7 @@ public class commerce_trainer_spawner extends script.base_script
         obj_id room = getCellId(self, "meetingd");
         location surveyloc = new location(3.29f, 1.13f, -9.58f, "tatooine", room);
         obj_id surveyor = create.object("miner", surveyloc);
-        create.addDestroyMessage(surveyor, "surveyorDied", 10f, self);
+        create.addDestroyMessage(surveyor, "surveyorDied", 10.0f, self);
         String[] strTest = new String[1];
         strTest[0] = "mission.objSurveyMission";
         setObjVar(surveyor, "mission.strMissionTypes", strTest);
@@ -61,7 +61,7 @@ public class commerce_trainer_spawner extends script.base_script
         obj_id room = getCellId(self, "meetinge");
         location foodStationLoc = new location(-11.04f, 1.13f, -14.49f, "tatooine", room);
         obj_id foodStation = create.object("object/tangible/crafting/station/public_food_station.iff", foodStationLoc);
-        create.addDestroyMessage(foodStation, "foodStationDied", 10f, self);
+        create.addDestroyMessage(foodStation, "foodStationDied", 10.0f, self);
         setYaw(foodStation, 0);
         return;
     }
@@ -70,7 +70,7 @@ public class commerce_trainer_spawner extends script.base_script
         obj_id room = getCellId(self, "meetingc");
         location clothingStationLoc = new location(11.07f, 1.13f, -14.25f, "tatooine", room);
         obj_id clothingStation = create.object("object/tangible/crafting/station/public_clothing_station.iff", clothingStationLoc);
-        create.addDestroyMessage(clothingStation, "clothingStationDied", 10f, self);
+        create.addDestroyMessage(clothingStation, "clothingStationDied", 10.0f, self);
         setYaw(clothingStation, 90);
         return;
     }
@@ -79,7 +79,7 @@ public class commerce_trainer_spawner extends script.base_script
         obj_id room = getCellId(self, "mainroom");
         location contractorloc = new location(-3.69f, 1.13f, -6.0f, "tatooine", room);
         obj_id contractor = create.object("crafting_contractor", contractorloc);
-        create.addDestroyMessage(contractor, "contractorDied", 10f, self);
+        create.addDestroyMessage(contractor, "contractorDied", 10.0f, self);
         setCreatureStatic(contractor, true);
         setInvulnerable(contractor, true);
         setYaw(contractor, 11);

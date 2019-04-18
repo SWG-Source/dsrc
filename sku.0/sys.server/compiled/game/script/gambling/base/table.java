@@ -260,7 +260,7 @@ public class table extends script.gambling.base.default_interface
         }
         dictionary d = new dictionary();
         d.put("stamp", stampTime);
-        messageTo(self, "handleBetTimer", d, 30f, false);
+        messageTo(self, "handleBetTimer", d, 30.0f, false);
     }
     public void startTableGame(obj_id self) throws InterruptedException
     {
@@ -285,7 +285,7 @@ public class table extends script.gambling.base.default_interface
         }
         dictionary d = new dictionary();
         d.put("player", player);
-        messageTo(table, "handleRequestUpdatedUI", d, 0f, false);
+        messageTo(table, "handleRequestUpdatedUI", d, 0.0f, false);
         return true;
     }
     public boolean closeBetSUI(obj_id table, obj_id player) throws InterruptedException

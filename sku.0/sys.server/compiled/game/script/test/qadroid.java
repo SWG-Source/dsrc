@@ -93,23 +93,19 @@ public class qadroid extends script.base_script
                 }
                 else 
                 {
-                    for (int i = 0; i < DROID_TEMPLATE_ARRAY.length; i++)
-                    {
-                        obj_id newObj = createObject(DROID_TEMPLATE_ARRAY[i], inventory, "");
+                    for (String s : DROID_TEMPLATE_ARRAY) {
+                        obj_id newObj = createObject(s, inventory, "");
                         int SourceSchematic = 0;
                         attachScript(newObj, "npc.pet_deed.droid_deed");
                         boolean myBool = utils.setScriptVar(newObj, "crafting.creator.xp", 90);
                         sendSystemMessageTestingOnly(player, toString(newObj));
-                        for (int j = 0; j < STRING_ARRAY.length; j++)
-                        {
+                        for (int j = 0; j < STRING_ARRAY.length; j++) {
                             setObjVar(newObj, STRING_ARRAY[j], STRING_VALUES[j]);
                         }
-                        for (int k = 0; k < ATTRIB_ARRAY.length; k++)
-                        {
+                        for (int k = 0; k < ATTRIB_ARRAY.length; k++) {
                             setObjVar(newObj, ATTRIB_ARRAY[k], INT_VALUES[k]);
                         }
-                        for (int m = 0; m < ATTRIB_DOUBLE_ARRAY.length; m++)
-                        {
+                        for (int m = 0; m < ATTRIB_DOUBLE_ARRAY.length; m++) {
                             setObjVar(newObj, ATTRIB_DOUBLE_ARRAY[m], DOUBLE_VALUES[m]);
                         }
                         setObjVar(newObj, SOURCE_SCHEMATIC, SourceSchematic);

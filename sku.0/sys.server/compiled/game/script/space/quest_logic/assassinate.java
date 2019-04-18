@@ -48,7 +48,7 @@ public class assassinate extends script.space.quest_logic.recovery
         {
             dictionary outparams = new dictionary();
             outparams.put("player", player);
-            messageTo(self, "initializedQuestPlayer", outparams, 1.f, false);
+            messageTo(self, "initializedQuestPlayer", outparams, 1.0f, false);
         }
         int questid = questGetQuestId("spacequest/" + questType + "/" + questName);
         if (questid != 0)
@@ -94,7 +94,7 @@ public class assassinate extends script.space.quest_logic.recovery
         playClientEffectObj(player, SOUND_SPAWN_ENEMY, player, "");
         setObjVar(ship, "objMissionOwner", player);
         ship_ai.unitAddExclusiveAggro(ship, player);
-        messageTo(self, "updateTargetWaypoint", null, 1.f, false);
+        messageTo(self, "updateTargetWaypoint", null, 1.0f, false);
         transform[] translist = getPathTransforms(self, true);
         ship_ai.unitAddPatrolPath(ship, translist);
         dictionary outparams = new dictionary();
@@ -102,7 +102,7 @@ public class assassinate extends script.space.quest_logic.recovery
         outparams.put("loc", getLocationObjVar(self, "last_loc"));
         outparams.put("player", player);
         outparams.put("dest", "escape");
-        messageTo(ship, "registerDestination", outparams, 1.f, false);
+        messageTo(ship, "registerDestination", outparams, 1.0f, false);
         String[] shipTypes = getStringArrayObjVar(self, "escortShips");
         if (shipTypes != null)
         {
@@ -177,7 +177,7 @@ public class assassinate extends script.space.quest_logic.recovery
             }
             string_id update = new string_id("spacequest/" + questType + "/" + questName, "assassinate_success");
             questUpdate(self, update);
-            messageTo(self, "completeQuestMsg", null, 2.f, false);
+            messageTo(self, "completeQuestMsg", null, 2.0f, false);
         }
         return SCRIPT_CONTINUE;
     }
@@ -243,7 +243,7 @@ public class assassinate extends script.space.quest_logic.recovery
                         {
                             questCompleteQuest(questid, player);
                         }
-                        messageTo(self, "completeQuestMsg", null, 2.f, false);
+                        messageTo(self, "completeQuestMsg", null, 2.0f, false);
                     }
                     else 
                     {

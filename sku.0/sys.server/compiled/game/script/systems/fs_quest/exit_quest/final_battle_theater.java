@@ -22,19 +22,14 @@ public class final_battle_theater extends script.base_script
             red_stones.setSize(0);
             Vector green_stones = new Vector();
             green_stones.setSize(0);
-            for (int i = 0; i < objects.length; i++)
-            {
-                setObjVar(objects[i], theater.VAR_PARENT, self);
-                setObjVar(objects[i], "questOwner", player);
-                if (hasScript(objects[i], "systems.fs_quest.exit_quest.power_shrine"))
-                {
-                    if (hasObjVar(objects[i], "fs_quest.red_shrine"))
-                    {
-                        red_stones.add(objects[i]);
-                    }
-                    else 
-                    {
-                        green_stones.add(objects[i]);
+            for (obj_id object : objects) {
+                setObjVar(object, theater.VAR_PARENT, self);
+                setObjVar(object, "questOwner", player);
+                if (hasScript(object, "systems.fs_quest.exit_quest.power_shrine")) {
+                    if (hasObjVar(object, "fs_quest.red_shrine")) {
+                        red_stones.add(object);
+                    } else {
+                        green_stones.add(object);
                     }
                 }
             }
@@ -79,11 +74,9 @@ public class final_battle_theater extends script.base_script
         {
             existingNPCs = utils.getResizeableObjIdBatchObjVar(self, "fs_quest.final_battle_npcs");
             obj_id NPC = null;
-            for (int x = 0; x < existingNPCs.size(); x++)
-            {
-                NPC = (obj_id)existingNPCs.get(x);
-                if ((isIdValid(NPC)) && (exists(NPC)))
-                {
+            for (Object existingNPC : existingNPCs) {
+                NPC = (obj_id) existingNPC;
+                if ((isIdValid(NPC)) && (exists(NPC))) {
                     destroyObject(NPC);
                 }
             }

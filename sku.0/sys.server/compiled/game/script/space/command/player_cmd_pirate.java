@@ -46,9 +46,8 @@ public class player_cmd_pirate extends script.base_script
         {
             return SCRIPT_CONTINUE;
         }
-        for (int i = 0; i < squaddyList.length; i++)
-        {
-            space_combat.destroyObjectHyperspace(squaddyList[i]);
+        for (obj_id obj_id : squaddyList) {
+            space_combat.destroyObjectHyperspace(obj_id);
         }
         return SCRIPT_CONTINUE;
     }

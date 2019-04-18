@@ -103,132 +103,106 @@ public class antagonist extends script.poi.base.scenario_actor
         Vector responses = new Vector();
         responses.setSize(0);
         npcSetConversationResponses(speaker, responses);
-        if ((aId.equals("r_a_greet")))
-        {
-            npcSpeak(speaker, new string_id(convo, "a_lookingformark"));
-            responses = utils.addElement(responses, new string_id(convo, "r_a_lookingformark"));
-            npcSetConversationResponses(speaker, responses);
-        }
-        else if ((aId.equals("r_a_lookingformark")))
-        {
-            npcSpeak(speaker, new string_id(convo, "a_thatstheproblem"));
-            responses = utils.addElement(responses, new string_id(convo, "r_a_thatstheproblem"));
-            npcSetConversationResponses(speaker, responses);
-        }
-        else if ((aId.equals("r_a_thatstheproblem")))
-        {
-            npcSpeak(speaker, new string_id(convo, "a_clues"));
-            responses = utils.addElement(responses, new string_id(convo, "r_a_clues"));
-            npcSetConversationResponses(speaker, responses);
-        }
-        else if ((aId.equals("r_a_clues")))
-        {
-            npcSpeak(speaker, new string_id(convo, "a_imnotdumb"));
-            responses = utils.addElement(responses, new string_id(convo, "r_a_imnotdumb"));
-            npcSetConversationResponses(speaker, responses);
-        }
-        else if ((aId.equals("r_a_imnotdumb")))
-        {
-            npcSpeak(speaker, new string_id(convo, "a_questioned"));
-            responses = utils.addElement(responses, new string_id(convo, "r_a_questioned"));
-            npcSetConversationResponses(speaker, responses);
-        }
-        else if ((aId.equals("r_a_questioned")))
-        {
-            npcSpeak(speaker, new string_id(convo, "a_questioned2"));
-            responses = utils.addElement(responses, new string_id(convo, "r_a_questioned2"));
-            npcSetConversationResponses(speaker, responses);
-        }
-        else if ((aId.equals("r_a_questioned2")))
-        {
-            npcSpeak(speaker, new string_id(convo, "a_goahead"));
-            scenario.setPlayerProgress(speaker, CONV_LOOKING);
-        }
-        else if ((aId.equals("r_a_whoisit")))
-        {
-            npcSpeak(speaker, new string_id(convo, "a_keeplooking"));
-        }
-        else if ((aId.equals("r_a_ithinkso")))
-        {
-            npcSpeak(speaker, new string_id(convo, "a_greatwho"));
-            deltadictionary dctScriptVars = speaker.getScriptVars();
-            prose_package ppa[] = new prose_package[6];
-            int names[] = new int[6];
-            for (int i = 0; i < 6; i++)
-            {
-                names[i] = i;
+        switch (aId) {
+            case "r_a_greet":
+                npcSpeak(speaker, new string_id(convo, "a_lookingformark"));
+                responses = utils.addElement(responses, new string_id(convo, "r_a_lookingformark"));
+                npcSetConversationResponses(speaker, responses);
+                break;
+            case "r_a_lookingformark":
+                npcSpeak(speaker, new string_id(convo, "a_thatstheproblem"));
+                responses = utils.addElement(responses, new string_id(convo, "r_a_thatstheproblem"));
+                npcSetConversationResponses(speaker, responses);
+                break;
+            case "r_a_thatstheproblem":
+                npcSpeak(speaker, new string_id(convo, "a_clues"));
+                responses = utils.addElement(responses, new string_id(convo, "r_a_clues"));
+                npcSetConversationResponses(speaker, responses);
+                break;
+            case "r_a_clues":
+                npcSpeak(speaker, new string_id(convo, "a_imnotdumb"));
+                responses = utils.addElement(responses, new string_id(convo, "r_a_imnotdumb"));
+                npcSetConversationResponses(speaker, responses);
+                break;
+            case "r_a_imnotdumb":
+                npcSpeak(speaker, new string_id(convo, "a_questioned"));
+                responses = utils.addElement(responses, new string_id(convo, "r_a_questioned"));
+                npcSetConversationResponses(speaker, responses);
+                break;
+            case "r_a_questioned":
+                npcSpeak(speaker, new string_id(convo, "a_questioned2"));
+                responses = utils.addElement(responses, new string_id(convo, "r_a_questioned2"));
+                npcSetConversationResponses(speaker, responses);
+                break;
+            case "r_a_questioned2":
+                npcSpeak(speaker, new string_id(convo, "a_goahead"));
+                scenario.setPlayerProgress(speaker, CONV_LOOKING);
+                break;
+            case "r_a_whoisit":
+                npcSpeak(speaker, new string_id(convo, "a_keeplooking"));
+                break;
+            case "r_a_ithinkso": {
+                npcSpeak(speaker, new string_id(convo, "a_greatwho"));
+                deltadictionary dctScriptVars = speaker.getScriptVars();
+                prose_package ppa[] = new prose_package[6];
+                int names[] = new int[6];
+                for (int i = 0; i < 6; i++) {
+                    names[i] = i;
+                }
+                int j = 0;
+                for (int i = 5; i >= 0; --i) {
+                    int index = rand(0, i);
+                    int name = names[index];
+                    names[index] = names[i];
+                    names[i] = -1;
+                    String liarName = getLiarName(poiMaster, name);
+                    dctScriptVars.put("poiTwoLiars.liars." + (j + 1), liarName);
+                    string_id str = new string_id(convo, "prose_implicate_" + j);
+                    ppa[j++] = prose.getPackage(str, liarName);
+                }
+                npcSetConversationResponses(speaker, ppa);
+                break;
             }
-            int j = 0;
-            for (int i = 5; i >= 0; --i)
-            {
-                int index = rand(0, i);
-                int name = names[index];
-                names[index] = names[i];
-                names[i] = -1;
-                String liarName = getLiarName(poiMaster, name);
-                dctScriptVars.put("poiTwoLiars.liars." + (j + 1), liarName);
-                string_id str = new string_id(convo, "prose_implicate_" + j);
-                ppa[j++] = prose.getPackage(str, liarName);
-            }
-            npcSetConversationResponses(speaker, ppa);
-        }
-        else 
-        {
-            deltadictionary dctScriptVars = speaker.getScriptVars();
-            for (int i = 0; i < 6; i++)
-            {
-                String name = getStringObjVar(poiMaster, "m_" + i);
-                String res = getString(response);
-                String index = res.substring(0, 1);
-                String liarName = dctScriptVars.getString("poiTwoLiars.liars." + index);
-                if (liarName.equals(name))
-                {
-                    if (i == 3)
-                    {
-                        npcSpeak(speaker, new string_id(convo, "a_rightanswer"));
-                        scenario.setPlayerProgress(speaker, CONV_WIN);
-                        if (group.isGroupObject(speaker))
-                        {
-                            obj_id[] members = getGroupMemberIds(speaker);
-                            if ((members == null) || (members.length == 0))
-                            {
-                            }
-                            else 
-                            {
-                                for (int n = 0; n < members.length; n++)
-                                {
-                                    if (!badge.hasBadge(members[n], "poi_twoliars"))
-                                    {
-                                        badge.grantBadge(members[n], "poi_twoliars");
-                                    }
-                                    else 
-                                    {
-                                        badge.notifyHasBadge(members[n], "poi_twoliars");
+            default: {
+                deltadictionary dctScriptVars = speaker.getScriptVars();
+                for (int i = 0; i < 6; i++) {
+                    String name = getStringObjVar(poiMaster, "m_" + i);
+                    String res = getString(response);
+                    String index = res.substring(0, 1);
+                    String liarName = dctScriptVars.getString("poiTwoLiars.liars." + index);
+                    if (liarName.equals(name)) {
+                        if (i == 3) {
+                            npcSpeak(speaker, new string_id(convo, "a_rightanswer"));
+                            scenario.setPlayerProgress(speaker, CONV_WIN);
+                            if (group.isGroupObject(speaker)) {
+                                obj_id[] members = getGroupMemberIds(speaker);
+                                if ((members == null) || (members.length == 0)) {
+                                } else {
+                                    for (obj_id member : members) {
+                                        if (!badge.hasBadge(member, "poi_twoliars")) {
+                                            badge.grantBadge(member, "poi_twoliars");
+                                        } else {
+                                            badge.notifyHasBadge(member, "poi_twoliars");
+                                        }
                                     }
                                 }
+                            } else {
+                                if (!badge.hasBadge(speaker, "poi_twoliars")) {
+                                    badge.grantBadge(speaker, "poi_twoliars");
+                                } else {
+                                    badge.notifyHasBadge(speaker, "poi_twoliars");
+                                }
                             }
+                            scenario.complete();
+                            return SCRIPT_CONTINUE;
+                        } else {
+                            npcSpeak(speaker, new string_id(convo, "a_wronganswer"));
+                            scenario.setPlayerProgress(speaker, CONV_LOSS);
+                            return SCRIPT_CONTINUE;
                         }
-                        else 
-                        {
-                            if (!badge.hasBadge(speaker, "poi_twoliars"))
-                            {
-                                badge.grantBadge(speaker, "poi_twoliars");
-                            }
-                            else 
-                            {
-                                badge.notifyHasBadge(speaker, "poi_twoliars");
-                            }
-                        }
-                        scenario.complete();
-                        return SCRIPT_CONTINUE;
-                    }
-                    else 
-                    {
-                        npcSpeak(speaker, new string_id(convo, "a_wronganswer"));
-                        scenario.setPlayerProgress(speaker, CONV_LOSS);
-                        return SCRIPT_CONTINUE;
                     }
                 }
+                break;
             }
         }
         return SCRIPT_CONTINUE;

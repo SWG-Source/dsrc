@@ -62,7 +62,7 @@ public class spice extends script.base_script
                 attribs[idx] = "";
             }
             attribs[idx] += (int)value;
-            if (param.indexOf("percent") >= 0)
+            if (param.contains("percent"))
             {
                 attribs[idx] += "%";
             }

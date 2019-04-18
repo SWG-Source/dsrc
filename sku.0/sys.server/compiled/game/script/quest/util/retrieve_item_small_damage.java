@@ -25,7 +25,7 @@ public class retrieve_item_small_damage extends script.base_script
                     {
                         return SCRIPT_CONTINUE;
                     }
-                    playClientEffectLoc(player, "clienteffect/lair_damage_light.cef", getLocation(self), 1f);
+                    playClientEffectLoc(player, "clienteffect/lair_damage_light.cef", getLocation(self), 1.0f);
                 }
             }
         }

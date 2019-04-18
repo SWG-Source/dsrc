@@ -18,7 +18,7 @@ public class rancher extends script.base_script
         detachScript(self, "ai.ai_combat");
         setInvulnerable(self, true);
         setName(self, "Roric Goldenfield (a rancher)");
-        messageTo(self, "action01", null, 1f, false);
+        messageTo(self, "action01", null, 1.0f, false);
         return SCRIPT_CONTINUE;
     }
     public int OnArrivedAtLocation(obj_id self, String name) throws InterruptedException

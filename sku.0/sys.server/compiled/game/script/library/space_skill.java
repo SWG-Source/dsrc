@@ -74,11 +74,9 @@ public class space_skill extends script.base_script
     public static void retire(obj_id player, String profession) throws InterruptedException
     {
         utils.setScriptVar(player, "revokePilotSkill", 1);
-        for (int i = 0; i < SKILL_NAMES.length; i++)
-        {
-            String skill = profession + SKILL_NAMES[i];
-            if (hasSkill(player, skill))
-            {
+        for (String skillName : SKILL_NAMES) {
+            String skill = profession + skillName;
+            if (hasSkill(player, skill)) {
                 revokeSkill(player, skill);
             }
         }
@@ -89,19 +87,19 @@ public class space_skill extends script.base_script
         String prompt = "";
         String wp_name = "";
         location loc = new location();
-        if (skill.indexOf("rebel") >= 0)
+        if (skill.contains("rebel"))
         {
             prompt = REBEL_WARNING;
             wp_name = REBEL_WP_NAME;
             loc = new location(-5072.0f, 0.0f, -2343.0f, "corellia");
         }
-        else if (skill.indexOf("imperial") >= 0)
+        else if (skill.contains("imperial"))
         {
             prompt = IMPERIAL_WARNING;
             wp_name = IMPERIAL_WP_NAME;
             loc = new location(-5516.0f, 0.0f, 4403.0f, "naboo");
         }
-        else if (skill.indexOf("neutral") >= 0)
+        else if (skill.contains("neutral"))
         {
             prompt = NEUTRAL_WARNING;
             wp_name = NEUTRAL_WP_NAME;
@@ -127,15 +125,15 @@ public class space_skill extends script.base_script
     public static void revokeExperienceForRetire(obj_id player, String skill) throws InterruptedException
     {
         String prestigeXpName = "";
-        if (skill.indexOf("rebel") >= 0)
+        if (skill.contains("rebel"))
         {
             prestigeXpName = xp.SPACE_PRESTIGE_REBEL;
         }
-        else if (skill.indexOf("imperial") >= 0)
+        else if (skill.contains("imperial"))
         {
             prestigeXpName = xp.SPACE_PRESTIGE_IMPERIAL;
         }
-        else if (skill.indexOf("neutral") >= 0)
+        else if (skill.contains("neutral"))
         {
             prestigeXpName = xp.SPACE_PRESTIGE_PILOT;
         }

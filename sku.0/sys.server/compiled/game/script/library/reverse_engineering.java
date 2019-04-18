@@ -218,7 +218,7 @@ public class reverse_engineering extends script.base_script
     {
         if ((mod.startsWith("constitution")) || (mod.startsWith("stamina")))
         {
-            messageTo(player, "recalcPools", null, .25f, false);
+            messageTo(player, "recalcPools", null, 0.25f, false);
         }
         combat.cacheCombatData(player);
         trial.bumpSession(player, "displayDefensiveMods");
@@ -226,12 +226,12 @@ public class reverse_engineering extends script.base_script
     }
     public static void addModsAndScript(obj_id player, obj_id powerUp, obj_id itemToPowerUp) throws InterruptedException
     {
-        addModsAndScript(player, powerUp, itemToPowerUp, 0f);
+        addModsAndScript(player, powerUp, itemToPowerUp, 0.0f);
     }
     public static void addModsAndScript(obj_id player, obj_id powerUp, obj_id itemToPowerUp, float remainingTime) throws InterruptedException
     {
         float timeStamp = getGameTime();
-        if (remainingTime > 0f)
+        if (remainingTime > 0.0f)
         {
             timeStamp = remainingTime;
         }

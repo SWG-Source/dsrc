@@ -28,100 +28,91 @@ public class msivertson_test extends script.base_script
         {
             String command = tok.nextToken();
             debugConsoleMsg(self, "command is: " + command);
-            if (command.equals("ms_setSkillMod"))
-            {
-                String mod = tok.nextToken();
-                String amountStr = tok.nextToken();
-                int amount = Integer.parseInt(amountStr);
-                applySkillStatisticModifier(self, mod, amount);
-            }
-            else if (command.equals("ms_fillContainer"))
-            {
-                String amountStr = tok.nextToken();
-                int amount = Integer.parseInt(amountStr);
-                obj_id target = getLookAtTarget(self);
-                for (int i = 0; i < amount; ++i)
-                {
-                    createObject("object/tangible/food/fruit_melon.iff", target, "");
-                }
-            }
-            else if (command.equals("ms_setVendorSlotsUsed"))
-            {
-                String amountStr = tok.nextToken();
-                int amount = Integer.parseInt(amountStr);
-                setObjVar(self, "used_vendor_slots", amount);
-            }
-            else if (command.equals("ms_logBalance"))
-            {
-                String comment = tok.nextToken();
-                logBalance(comment);
-            }
-            else if (command.equals("ms_maxStats"))
-            {
-                maxStats(self);
-            }
-            else if (command.equals("ms_money"))
-            {
-                StringBuffer output = new StringBuffer();
-                if (tok.hasMoreTokens())
-                {
+            switch (command) {
+                case "ms_setSkillMod": {
+                    String mod = tok.nextToken();
                     String amountStr = tok.nextToken();
                     int amount = Integer.parseInt(amountStr);
-                    if (amount > 0)
-                    {
-                        money.bankTo(money.ACCT_CHARACTER_CREATION, self, amount);
+                    applySkillStatisticModifier(self, mod, amount);
+                    break;
+                }
+                case "ms_fillContainer": {
+                    String amountStr = tok.nextToken();
+                    int amount = Integer.parseInt(amountStr);
+                    obj_id target = getLookAtTarget(self);
+                    for (int i = 0; i < amount; ++i) {
+                        createObject("object/tangible/food/fruit_melon.iff", target, "");
                     }
-                    else 
-                    {
-                        money.bankTo(self, money.ACCT_CHARACTER_CREATION, -amount);
+                    break;
+                }
+                case "ms_setVendorSlotsUsed": {
+                    String amountStr = tok.nextToken();
+                    int amount = Integer.parseInt(amountStr);
+                    setObjVar(self, "used_vendor_slots", amount);
+                    break;
+                }
+                case "ms_logBalance":
+                    String comment = tok.nextToken();
+                    logBalance(comment);
+                    break;
+                case "ms_maxStats":
+                    maxStats(self);
+                    break;
+                case "ms_money":
+                    StringBuilder output = new StringBuilder();
+                    if (tok.hasMoreTokens()) {
+                        String amountStr = tok.nextToken();
+                        int amount = Integer.parseInt(amountStr);
+                        if (amount > 0) {
+                            money.bankTo(money.ACCT_CHARACTER_CREATION, self, amount);
+                        } else {
+                            money.bankTo(self, money.ACCT_CHARACTER_CREATION, -amount);
+                        }
                     }
+                    break;
+                case "ms_ownVendor": {
+                    obj_id target = getLookAtTarget(self);
+                    if (target != null) {
+                        createVendorMarket(self, target, 0);
+                    }
+                    break;
                 }
-            }
-            else if (command.equals("ms_ownVendor"))
-            {
-                obj_id target = getLookAtTarget(self);
-                if (target != null)
-                {
-                    createVendorMarket(self, target, 0);
+                case "ms_valueVendor": {
+                    obj_id target = getLookAtTarget(self);
+                    if (target != null) {
+                        updateVendorValue(target);
+                    }
+                    break;
                 }
-            }
-            else if (command.equals("ms_valueVendor"))
-            {
-                obj_id target = getLookAtTarget(self);
-                if (target != null)
-                {
-                    updateVendorValue(target);
+                case "ms_createRoomPrivate": {
+                    String name = tok.nextToken();
+                    String title = tok.nextToken();
+                    chatCreateRoom(false, name, title);
+                    break;
                 }
-            }
-            else if (command.equals("ms_createRoomPrivate"))
-            {
-                String name = tok.nextToken();
-                String title = tok.nextToken();
-                chatCreateRoom(false, name, title);
-            }
-            else if (command.equals("ms_createRoomPublic"))
-            {
-                String name = tok.nextToken();
-                String title = tok.nextToken();
-                chatCreateRoom(true, name, title);
-            }
-            else if (command.equals("ms_joinRoom"))
-            {
-                String name = tok.nextToken();
-                chatEnterRoom(name);
-            }
-            else if (command.equals("ms_leaveRoom"))
-            {
-                String name = tok.nextToken();
-                chatExitRoom(name);
-            }
-            else if (command.equals("ms_speak"))
-            {
-                String avatarName = getChatName(self);
-                String roomName = tok.nextToken();
-                String msg = tok.nextToken();
-                String oob = new String();
-                chatSendToRoom(roomName, msg, oob);
+                case "ms_createRoomPublic": {
+                    String name = tok.nextToken();
+                    String title = tok.nextToken();
+                    chatCreateRoom(true, name, title);
+                    break;
+                }
+                case "ms_joinRoom": {
+                    String name = tok.nextToken();
+                    chatEnterRoom(name);
+                    break;
+                }
+                case "ms_leaveRoom": {
+                    String name = tok.nextToken();
+                    chatExitRoom(name);
+                    break;
+                }
+                case "ms_speak":
+                    String avatarName = getChatName(self);
+                    String roomName = tok.nextToken();
+                    String msg = tok.nextToken();
+                    String oob = new String();
+                    chatSendToRoom(roomName, msg, oob);
+                    break;
             }
         }
         return SCRIPT_CONTINUE;

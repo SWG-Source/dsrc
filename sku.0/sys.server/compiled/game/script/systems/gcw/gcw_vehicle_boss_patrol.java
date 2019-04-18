@@ -158,7 +158,7 @@ public class gcw_vehicle_boss_patrol extends script.base_script
         playClientEffectObj(killer, "clienteffect/combat_explosion_lair_large.cef", self, "");
         playClientEffectLoc(killer, "clienteffect/combat_explosion_lair_large.cef", death, 0);
         setInvulnerable(self, true);
-        messageTo(self, "destroyGCWPatrol", null, 1f, false);
+        messageTo(self, "destroyGCWPatrol", null, 1.0f, false);
         return;
     }
 }

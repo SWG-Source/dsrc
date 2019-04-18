@@ -38,7 +38,7 @@ public class listen extends script.base_script
                     int total = 1;
                     for (int i = 0; i < keywords.length; i++)
                     {
-                        if ((toLower(text)).indexOf(toLower(keywords[i])) > -1)
+                        if ((toLower(text)).contains(toLower(keywords[i])))
                         {
                             total += dataTableGetInt(TBL_KEYWORDS, i, "value");
                         }

@@ -17,69 +17,58 @@ public class crafting_base_lightsaber extends script.systems.crafting.crafting_b
     public static final String SABER_BLADE_INDEX = "private/index_color_blade";
     public void calcAndSetPrototypeProperties(obj_id prototype, draft_schematic.attribute[] itemAttributes, dictionary craftingValuesDictionary) throws InterruptedException
     {
-        for (int i = 0; i < itemAttributes.length; ++i)
-        {
-            if (itemAttributes[i] == null)
-            {
+        for (draft_schematic.attribute itemAttribute : itemAttributes) {
+            if (itemAttribute == null) {
                 continue;
             }
-            if (((itemAttributes[i].name).getAsciiId()).equals("attackSpeed"))
-            {
-                itemAttributes[i].currentValue = (itemAttributes[i].minValue + itemAttributes[i].maxValue) - itemAttributes[i].currentValue;
+            if (((itemAttribute.name).getAsciiId()).equals("attackSpeed")) {
+                itemAttribute.currentValue = (itemAttribute.minValue + itemAttribute.maxValue) - itemAttribute.currentValue;
             }
         }
         super.calcAndSetPrototypeProperties(prototype, itemAttributes, craftingValuesDictionary);
     }
     public void calcAndSetPrototypeProperties(obj_id prototype, draft_schematic.attribute[] itemAttributes) throws InterruptedException
     {
-        float weaponMinDamage = 0f;
-        float weaponMaxDamage = 0f;
-        float weaponAttackSpeed = 0f;
-        float weaponWoundChance = 0f;
-        float weaponForceCost = 0f;
+        float weaponMinDamage = 0.0f;
+        float weaponMaxDamage = 0.0f;
+        float weaponAttackSpeed = 0.0f;
+        float weaponWoundChance = 0.0f;
+        float weaponForceCost = 0.0f;
         int attackCost = 0;
         int accuracy = 0;
         base_class.range_info rangeData = new base_class.range_info();
         rangeData.minRange = 0.0f;
         rangeData.maxRange = 5.0f;
         debugServerConsoleMsg(null, "Beginning assembly-phase prototype property setting for CRAFTING_BASE_LIGHTSABER");
-        for (int i = 0; i < itemAttributes.length; ++i)
-        {
-            if (itemAttributes[i] == null)
-            {
+        for (draft_schematic.attribute itemAttribute : itemAttributes) {
+            if (itemAttribute == null) {
                 continue;
             }
-            if (!calcAndSetPrototypeProperty(prototype, itemAttributes[i]))
-            {
-                if (((itemAttributes[i].name).getAsciiId()).equals("minDamage"))
-                {
-                    weaponMinDamage = (int)(itemAttributes[i].currentValue);
-                    if (weaponMinDamage < 1)
-                    {
-                        weaponMinDamage = 1;
-                    }
-                }
-                else if (((itemAttributes[i].name).getAsciiId()).equals("maxDamage"))
-                {
-                    weaponMaxDamage = (int)(itemAttributes[i].currentValue);
-                    if (weaponMaxDamage < 2)
-                    {
-                        weaponMaxDamage = 2;
-                    }
-                }
-                else if (((itemAttributes[i].name).getAsciiId()).equals("attackSpeed"))
-                {
-                    weaponAttackSpeed = (itemAttributes[i].currentValue / 100.0f);
-                    if (weaponAttackSpeed < 0.25f)
-                    {
-                        weaponAttackSpeed = 0.25f;
-                    }
-                    setWeaponAttackSpeed(prototype, weaponAttackSpeed);
-                }
-                else 
-                {
-                    LOG("saberscrafting", "Error. Unknown Attribute Read in. Attribute was " + itemAttributes[i].name + ".");
-                    debugServerConsoleMsg(null, "Error. Unknown Attribute Read in. Attribute was " + itemAttributes[i].name + ".");
+            if (!calcAndSetPrototypeProperty(prototype, itemAttribute)) {
+                switch (((itemAttribute.name).getAsciiId())) {
+                    case "minDamage":
+                        weaponMinDamage = (int) (itemAttribute.currentValue);
+                        if (weaponMinDamage < 1) {
+                            weaponMinDamage = 1;
+                        }
+                        break;
+                    case "maxDamage":
+                        weaponMaxDamage = (int) (itemAttribute.currentValue);
+                        if (weaponMaxDamage < 2) {
+                            weaponMaxDamage = 2;
+                        }
+                        break;
+                    case "attackSpeed":
+                        weaponAttackSpeed = (itemAttribute.currentValue / 100.0f);
+                        if (weaponAttackSpeed < 0.25f) {
+                            weaponAttackSpeed = 0.25f;
+                        }
+                        setWeaponAttackSpeed(prototype, weaponAttackSpeed);
+                        break;
+                    default:
+                        LOG("saberscrafting", "Error. Unknown Attribute Read in. Attribute was " + itemAttribute.name + ".");
+                        debugServerConsoleMsg(null, "Error. Unknown Attribute Read in. Attribute was " + itemAttribute.name + ".");
+                        break;
                 }
             }
         }
@@ -101,9 +90,8 @@ public class crafting_base_lightsaber extends script.systems.crafting.crafting_b
         {
             int sockets = 0;
             int experimentModTotal = 0;
-            for (int j = 0; j < mods.length; ++j)
-            {
-                experimentModTotal += mods[j];
+            for (int mod : mods) {
+                experimentModTotal += mod;
             }
             if (experimentModTotal > craftinglib.socketThreshold)
             {

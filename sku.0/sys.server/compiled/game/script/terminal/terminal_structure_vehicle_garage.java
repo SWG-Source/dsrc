@@ -184,10 +184,9 @@ public class terminal_structure_vehicle_garage extends script.base_script
                 names[idx] = "vehicles_in_garage_amount";
                 attribs[idx] = "" + storedVehicles.length;
                 idx++;
-                for (int j = 0; j < storedVehicleNames.length; ++j)
-                {
+                for (String storedVehicleName : storedVehicleNames) {
                     names[idx] = "vehicle_in_garage";
-                    attribs[idx] = storedVehicleNames[j];
+                    attribs[idx] = storedVehicleName;
                     idx++;
                 }
             }

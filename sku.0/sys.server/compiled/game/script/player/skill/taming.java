@@ -19,14 +19,12 @@ public class taming extends script.base_script
             return SCRIPT_CONTINUE;
         }
         obj_id[] callableList = callable.getCallables(self);
-        for (int i = 0; i < callableList.length; i++)
-        {
-            if (getDistance(callableList[i], self) < 200.0f && !ai_lib.aiIsDead(callableList[i]) && !beast_lib.isBeast(callableList[i]))
-            {
+        for (obj_id obj_id : callableList) {
+            if (getDistance(obj_id, self) < 200.0f && !ai_lib.aiIsDead(obj_id) && !beast_lib.isBeast(obj_id)) {
                 dictionary parms = new dictionary();
                 parms.put("text", params);
                 parms.put("master", self);
-                messageTo(callableList[i], "handleTellPet", parms, 0, false);
+                messageTo(obj_id, "handleTellPet", parms, 0, false);
             }
         }
         return SCRIPT_CONTINUE;
@@ -38,11 +36,9 @@ public class taming extends script.base_script
             obj_id[] callableList = callable.getCallables(self);
             if (callableList.length > 0 && callableList != null)
             {
-                for (int i = 0; i < callableList.length; i++)
-                {
-                    if (getDistance(callableList[i], self) < 200.0f && !ai_lib.aiIsDead(callableList[i]) && !beast_lib.isBeast(callableList[i]))
-                    {
-                        pet_lib.doCommandNum(callableList[i], pet_lib.COMMAND_ATTACK, self);
+                for (obj_id obj_id : callableList) {
+                    if (getDistance(obj_id, self) < 200.0f && !ai_lib.aiIsDead(obj_id) && !beast_lib.isBeast(obj_id)) {
+                        pet_lib.doCommandNum(obj_id, pet_lib.COMMAND_ATTACK, self);
                     }
                 }
             }
@@ -56,11 +52,9 @@ public class taming extends script.base_script
             obj_id[] callableList = callable.getCallables(self);
             if (callableList.length > 0 && callableList != null)
             {
-                for (int i = 0; i < callableList.length; i++)
-                {
-                    if (getDistance(callableList[i], self) < 200.0f && !ai_lib.aiIsDead(callableList[i]) && !beast_lib.isBeast(callableList[i]))
-                    {
-                        pet_lib.doCommandNum(callableList[i], pet_lib.COMMAND_FOLLOW, self);
+                for (obj_id obj_id : callableList) {
+                    if (getDistance(obj_id, self) < 200.0f && !ai_lib.aiIsDead(obj_id) && !beast_lib.isBeast(obj_id)) {
+                        pet_lib.doCommandNum(obj_id, pet_lib.COMMAND_FOLLOW, self);
                     }
                 }
             }
@@ -268,11 +262,9 @@ public class taming extends script.base_script
             obj_id[] passengerList = utils.getAllRidersInVehicle(self, mount);
             if (passengerList != null && passengerList.length > 0)
             {
-                for (int i = 0; i < passengerList.length; ++i)
-                {
-                    if (isIdValid(passengerList[i]))
-                    {
-                        dismountCreature(passengerList[i]);
+                for (obj_id obj_id : passengerList) {
+                    if (isIdValid(obj_id)) {
+                        dismountCreature(obj_id);
                     }
                 }
             }

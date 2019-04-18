@@ -287,7 +287,7 @@ public class npc_controller extends script.base_script
         String myCreatureName = getCreatureName(prop_controller);
         if (myCreatureName.equals("storyteller_vendor"))
         {
-            cleanup_time = 1 * 60 * 60;
+            cleanup_time = 60 * 60;
             return cleanup_time;
         }
         if (hasObjVar(prop_controller, "storytellerCleanUpTime"))

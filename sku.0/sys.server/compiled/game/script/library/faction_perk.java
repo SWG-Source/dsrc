@@ -2,6 +2,7 @@ package script.library;
 
 import script.*;
 
+import java.util.StringTokenizer;
 import java.util.Vector;
 
 public class faction_perk extends script.base_script
@@ -15,8 +16,8 @@ public class faction_perk extends script.base_script
     public static final String VAR_COVERT_DETECTOR_FACTION = VAR_COVERT_DETECTOR + ".faction";
     public static final String VAR_COVERT_DETECTOR_RANGE = VAR_COVERT_DETECTOR + ".range";
     public static final String VAR_COVERT_DETECTOR_SPEED = VAR_COVERT_DETECTOR + ".speed";
-    public static final float BASE_COVERT_DETECT_TIME = 5f;
-    public static final float DETECTOR_NOTIFY_RANGE = 128f;
+    public static final float BASE_COVERT_DETECT_TIME = 5.0f;
+    public static final float DETECTOR_NOTIFY_RANGE = 128.0f;
     public static final string_id PROSE_COVERT_UNCLOAK = new string_id("base_player", "prose_covert_uncloak");
     public static final String VAR_MINEFIELD_BASE = "minefield";
     public static final String VAR_MINEFIELD_SIZE = VAR_MINEFIELD_BASE + ".size";
@@ -29,9 +30,9 @@ public class faction_perk extends script.base_script
     public static final String VAR_MINEFIELD_MIN_Z = VAR_MINEFIELD_EXTENTS_BASE + ".minZ";
     public static final String VAR_MINEFIELD_MAX_X = VAR_MINEFIELD_EXTENTS_BASE + ".maxX";
     public static final String VAR_MINEFIELD_MAX_Z = VAR_MINEFIELD_EXTENTS_BASE + ".maxZ";
-    public static final float BASE_MINEFIELD_TICK = 1f;
+    public static final float BASE_MINEFIELD_TICK = 1.0f;
     public static final int CHANCE_PER_METER = 25;
-    public static final float MINE_DAMAGE_RADIUS = 6f;
+    public static final float MINE_DAMAGE_RADIUS = 6.0f;
     public static final String STF_PERK = "faction_perk";
     public static final string_id MNU_DEPLOY = new string_id(STF_PERK, "deploy");
     public static final string_id MNU_PACKUP = new string_id(STF_PERK, "packup");
@@ -48,7 +49,7 @@ public class faction_perk extends script.base_script
         new string_id("faction_recruiter", "option_purchase_weapons_armor"),
         new string_id("faction_recruiter", "option_purchase_installation")
     };
-    public static final float FACTION_LOSING_COST_MODIFIER = .70f;
+    public static final float FACTION_LOSING_COST_MODIFIER = 0.70f;
     public static final String VAR_FACTION = "faction_recruiter.faction";
     public static final String SCRIPT_FACTION_RECRUITER = "npc.faction_recruiter.faction_recruiter";
     public static final String SCRIPT_PLAYER_RECRUITER = "npc.faction_recruiter.player_recruiter";
@@ -198,21 +199,17 @@ public class faction_perk extends script.base_script
                 String[] tefs = pvpGetEnemyFlags(player);
                 if (tefs != null && tefs.length > 0)
                 {
-                    for (int i = 0; i < tefs.length; i++)
-                    {
-                        java.util.StringTokenizer st = new java.util.StringTokenizer(tefs[i]);
+                    for (String tef : tefs) {
+                        StringTokenizer st = new StringTokenizer(tef);
                         String sTarget = st.nextToken();
                         String sTefFac = st.nextToken();
                         String sExpiration = st.nextToken();
                         int iTefFac = utils.stringToInt(sTefFac);
                         String tefFac = factions.getFactionNameByHashCode(iTefFac);
-                        if (tefFac != null && !tefFac.equals(""))
-                        {
-                            if (tefFac.equals(dFacName))
-                            {
+                        if (tefFac != null && !tefFac.equals("")) {
+                            if (tefFac.equals(dFacName)) {
                                 obj_id target = utils.stringToObjId(sTarget);
-                                if (!isIdValid(target))
-                                {
+                                if (!isIdValid(target)) {
                                     hasGlobalTef = true;
                                     break;
                                 }
@@ -237,11 +234,9 @@ public class faction_perk extends script.base_script
                     {
                         dictionary d = new dictionary();
                         d.put("target", player);
-                        for (int i = 0; i < inRange.length; i++)
-                        {
-                            if (getGameObjectType(inRange[i]) == GOT_installation_turret)
-                            {
-                                messageTo(inRange[i], "enemyDecloaked", d, 3, false);
+                        for (obj_id obj_id : inRange) {
+                            if (getGameObjectType(obj_id) == GOT_installation_turret) {
+                                messageTo(obj_id, "enemyDecloaked", d, 3, false);
                             }
                         }
                     }
@@ -503,7 +498,7 @@ public class faction_perk extends script.base_script
                         {
                             if (isIdValid(objRecruiter))
                             {
-                                float fltCost = (float)cost;
+                                float fltCost = cost;
                                 fltCost = faction_perk.getModifiedGCWCost(fltCost, objRecruiter, faction);
                                 cost = (int)(fltCost);
                             }
@@ -523,19 +518,19 @@ public class faction_perk extends script.base_script
             sendSystemMessageProse(player, pp);
             return false;
         }
-        float totalMultiplier = 1f;
+        float totalMultiplier = 1.0f;
         if (!factions.isFactionWinning(faction))
         {
             totalMultiplier *= faction_perk.FACTION_LOSING_COST_MODIFIER;
         }
-        if (systemMultiplier != 1f)
+        if (systemMultiplier != 1.0f)
         {
             totalMultiplier *= systemMultiplier;
         }
         String prompt = getString(new string_id("faction_recruiter", "select_item_purchase"));
-        if (totalMultiplier != 1f)
+        if (totalMultiplier != 1.0f)
         {
-            int delta = (int)((totalMultiplier - 1f) * 100);
+            int delta = (int)((totalMultiplier - 1.0f) * 100);
             prompt += "\n\nCost modifier at this time: " + delta + "%";
         }
         String myHandler = "msgFactionItemPurchaseSelected";
@@ -555,9 +550,9 @@ public class faction_perk extends script.base_script
     }
     public static float getModifiedGCWCost(float fltCost, obj_id objNPC, String strFaction) throws InterruptedException
     {
-        float MINIMUM_MODIFIER = .50f;
+        float MINIMUM_MODIFIER = 0.50f;
         float MAXIMUM_MODIFIER = 1.50f;
-        float fltRatio = 0f;
+        float fltRatio = 0.0f;
         if (strFaction.equals("Imperial"))
         {
             fltRatio = gcw.getRebelRatio(objNPC);
@@ -676,7 +671,7 @@ public class faction_perk extends script.base_script
         {
             cost = base_cost;
         }
-        float fltCost = (float)cost;
+        float fltCost = cost;
         fltCost = faction_perk.getModifiedGCWCost(fltCost, self, faction);
         cost = (int)(fltCost);
         cost *= systemMultiplier;
@@ -910,11 +905,11 @@ public class faction_perk extends script.base_script
     public static void giveBonusBaseDeeds(obj_id player, obj_id inv, String item_template, String faction, int declared) throws InterruptedException
     {
         int level = 1;
-        if (item_template.indexOf("object/tangible/deed/faction_perk/hq/hq_s03") != -1)
+        if (item_template.contains("object/tangible/deed/faction_perk/hq/hq_s03"))
         {
             level = 2;
         }
-        else if (item_template.indexOf("object/tangible/deed/faction_perk/hq/hq_s04") != -1)
+        else if (item_template.contains("object/tangible/deed/faction_perk/hq/hq_s04"))
         {
             level = 3;
         }

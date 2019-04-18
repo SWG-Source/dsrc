@@ -26,7 +26,7 @@ public class e3_corvette_stormtrooper extends script.base_script
             {
                 faceTo(self, getLocation(breacher));
                 setState(breacher, STATE_SHIP_INTERIOR, false);
-                messageTo(self, "doSalute", null, .5f, false);
+                messageTo(self, "doSalute", null, 0.5f, false);
             }
         }
         return SCRIPT_CONTINUE;
@@ -34,7 +34,7 @@ public class e3_corvette_stormtrooper extends script.base_script
     public int doSalute(obj_id self, dictionary params) throws InterruptedException
     {
         doAnimationAction(self, anims.PLAYER_SALUTE2);
-        messageTo(self, "sendMessage", null, 1f, false);
+        messageTo(self, "sendMessage", null, 1.0f, false);
         return SCRIPT_CONTINUE;
     }
     public int sendMessage(obj_id self, dictionary params) throws InterruptedException

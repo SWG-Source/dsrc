@@ -42,11 +42,9 @@ public class grievous_ai extends script.base_script
     {
         location selfLocation = getLocation(self);
         obj_id[] objectsInRange = getObjectsInRange(selfLocation, 200.0f);
-        for (int i = 0; i < objectsInRange.length; i++)
-        {
-            if (hasObjVar(objectsInRange[i], "grievous_encounter.isPowerCell"))
-            {
-                obj_id powerCell = objectsInRange[i];
+        for (obj_id obj_id : objectsInRange) {
+            if (hasObjVar(obj_id, "grievous_encounter.isPowerCell")) {
+                obj_id powerCell = obj_id;
                 ai_lib.aiFollow(self, powerCell);
                 return powerCell;
             }
@@ -147,7 +145,7 @@ public class grievous_ai extends script.base_script
                 playClientEffectObj(self, "appearance/pt_grievious_powerup.prt", self, "");
                 int hp = getMaxAttrib(self, 0);
                 debugSpeakMsg(self, "My hitpoints are at: " + hp);
-                setMaxAttrib(self, 0, hp + (int)(.10 * hp));
+                setMaxAttrib(self, 0, hp + (int)(0.10 * hp));
                 int newHp = getMaxAttrib(self, 0);
                 setAttrib(self, 0, newHp);
             }

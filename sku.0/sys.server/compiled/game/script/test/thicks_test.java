@@ -509,18 +509,16 @@ public class thicks_test extends script.base_script
     }
     public void showHelp() throws InterruptedException
     {
-        for (int i = 0; i < OPTIONS.length; i++)
-        {
-            sendSystemMessageTestingOnly(getSelf(), OPTIONS[i]);
+        for (String option : OPTIONS) {
+            sendSystemMessageTestingOnly(getSelf(), option);
         }
     }
     public void listScripts(obj_id self) throws InterruptedException
     {
         obj_id target = getLookAtTarget(self);
         String[] scriptList = getScriptList(target);
-        for (int i = 0; i < scriptList.length; i++)
-        {
-            debugSpeakMsg(self, scriptList[i]);
+        for (String s : scriptList) {
+            debugSpeakMsg(self, s);
         }
     }
     public void clearScript(obj_id self) throws InterruptedException
@@ -641,15 +639,12 @@ public class thicks_test extends script.base_script
         if (parse[1].equals("object"))
         {
             obj_id[] objects = getObjectsInRange(self, 32000);
-            for (int i = 0; i < objects.length; i++)
-            {
-                if ((getTemplateName(objects[i])).equals(parse[2]) && objects[i] != self)
-                {
-                    float range = getDistance(self, objects[i]);
-                    if (range < distance)
-                    {
+            for (obj_id object : objects) {
+                if ((getTemplateName(object)).equals(parse[2]) && object != self) {
+                    float range = getDistance(self, object);
+                    if (range < distance) {
                         distance = range;
-                        closest = objects[i];
+                        closest = object;
                     }
                 }
             }
@@ -664,15 +659,12 @@ public class thicks_test extends script.base_script
             obj_id[] objects = getObjectsInRange(self, 32000);
             obj_id passedObject = utils.stringToObjId(parse[2]);
             debugSpeakMsg(self, "Passed obj_id was: " + passedObject);
-            for (int i = 0; i < objects.length; i++)
-            {
-                if (objects[i] == passedObject)
-                {
-                    float range = getDistance(self, objects[i]);
-                    if (range < distance)
-                    {
+            for (obj_id object : objects) {
+                if (object == passedObject) {
+                    float range = getDistance(self, object);
+                    if (range < distance) {
                         distance = range;
-                        closest = objects[i];
+                        closest = object;
                     }
                 }
             }
@@ -685,15 +677,12 @@ public class thicks_test extends script.base_script
         if (parse[1].equals("indexOf"))
         {
             obj_id[] objects = getObjectsInRange(self, 32000);
-            for (int i = 0; i < objects.length; i++)
-            {
-                if ((getTemplateName(objects[i])).indexOf(parse[2]) > -1 && objects[i] != self)
-                {
-                    float range = getDistance(self, objects[i]);
-                    if (range < distance)
-                    {
+            for (obj_id object : objects) {
+                if ((getTemplateName(object)).contains(parse[2]) && object != self) {
+                    float range = getDistance(self, object);
+                    if (range < distance) {
                         distance = range;
-                        closest = objects[i];
+                        closest = object;
                     }
                 }
             }
@@ -707,17 +696,14 @@ public class thicks_test extends script.base_script
         {
             obj_id[] objects = getObjectsInRange(self, 32000);
             location foundLoc;
-            for (int i = 0; i < objects.length; i++)
-            {
-                if ((getTemplateName(objects[i])).indexOf(parse[2]) > -1 && objects[i] != self)
-                {
-                    float range = getDistance(self, objects[i]);
-                    foundLoc = getLocation(objects[i]);
-                    sendSystemMessageTestingOnly(self, "Object(" + getTemplateName(objects[i]) + "/" + objects[i] + ") found at: " + foundLoc);
-                    if (range < distance)
-                    {
+            for (obj_id object : objects) {
+                if ((getTemplateName(object)).contains(parse[2]) && object != self) {
+                    float range = getDistance(self, object);
+                    foundLoc = getLocation(object);
+                    sendSystemMessageTestingOnly(self, "Object(" + getTemplateName(object) + "/" + object + ") found at: " + foundLoc);
+                    if (range < distance) {
                         distance = range;
-                        closest = objects[i];
+                        closest = object;
                     }
                 }
             }
@@ -744,15 +730,13 @@ public class thicks_test extends script.base_script
             obj_id[] spawnIdObjects = trial.getObjectsInInstanceBySpawnId(instance_id, parse[2]);
             if (spawnIdObjects != null && spawnIdObjects.length > 0)
             {
-                for (int i = 0; i < spawnIdObjects.length; i++)
-                {
-                    float range = getDistance(self, spawnIdObjects[i]);
-                    foundLoc = getLocation(spawnIdObjects[i]);
-                    sendSystemMessage(self, "Object( " + getTemplateName(spawnIdObjects[i]) + " / " + spawnIdObjects[i] + " ) found at: " + foundLoc, "");
-                    if (range < distance)
-                    {
+                for (obj_id spawnIdObject : spawnIdObjects) {
+                    float range = getDistance(self, spawnIdObject);
+                    foundLoc = getLocation(spawnIdObject);
+                    sendSystemMessage(self, "Object( " + getTemplateName(spawnIdObject) + " / " + spawnIdObject + " ) found at: " + foundLoc, "");
+                    if (range < distance) {
                         distance = range;
-                        closest = spawnIdObjects[i];
+                        closest = spawnIdObject;
                     }
                 }
                 foundLoc = getLocation(closest);
@@ -962,26 +946,20 @@ public class thicks_test extends script.base_script
         {
             return;
         }
-        for (int q = 0; q < objects.length; q++)
-        {
-            if (!isIdValid(objects[q]))
-            {
+        for (obj_id object : objects) {
+            if (!isIdValid(object)) {
                 continue;
             }
-            obj_id target = objects[q];
+            obj_id target = object;
             String message = parse[1];
-            if (parse.length > 2)
-            {
+            if (parse.length > 2) {
                 dictionary dict = new dictionary();
-                for (int i = 2; i < parse.length; i += 2)
-                {
+                for (int i = 2; i < parse.length; i += 2) {
                     int k = i + 1;
                     dict.put(parse[i], parse[k]);
                 }
                 messageTo(target, message, dict, 0, false);
-            }
-            else 
-            {
+            } else {
                 messageTo(target, message, null, 0, false);
             }
         }
@@ -1255,13 +1233,11 @@ public class thicks_test extends script.base_script
             {
                 return;
             }
-            for (int i = 0; i < objects.length; i++)
-            {
-                if ((getTemplateName(objects[i])).equals(deleteString))
-                {
-                    trial.cleanupObject(objects[i]);
+                for (obj_id object1 : objects) {
+                    if ((getTemplateName(object1)).equals(deleteString)) {
+                        trial.cleanupObject(object1);
+                    }
                 }
-            }
             return;
             case 3:
             if (!parse[1].equals("indexOf"))
@@ -1273,17 +1249,14 @@ public class thicks_test extends script.base_script
             {
                 return;
             }
-            for (int j = 0; j < objects.length; j++)
-            {
-                if (!isIdValid(objects[j]))
-                {
-                    continue;
+                for (obj_id object : objects) {
+                    if (!isIdValid(object)) {
+                        continue;
+                    }
+                    if ((getTemplateName(object)).contains(parse[2])) {
+                        trial.cleanupObject(object);
+                    }
                 }
-                if ((getTemplateName(objects[j])).indexOf(parse[2]) > -1)
-                {
-                    trial.cleanupObject(objects[j]);
-                }
-            }
             return;
         }
     }
@@ -1332,19 +1305,16 @@ public class thicks_test extends script.base_script
         {
             return;
         }
-        for (int i = 0; i < objects.length; i++)
-        {
-            if ((getTemplateName(objects[i])).indexOf("invis") < 1 && !isPlayer(objects[i]))
-            {
-                obj_id top = trial.getTop(objects[i]);
-                if (top == objects[i])
-                {
-                    location objLoc = getLocation(objects[i]);
+        for (obj_id object : objects) {
+            if ((getTemplateName(object)).indexOf("invis") < 1 && !isPlayer(object)) {
+                obj_id top = trial.getTop(object);
+                if (top == object) {
+                    location objLoc = getLocation(object);
                     float x = objLoc.x - recordLoc.x;
                     float y = objLoc.y - recordLoc.y;
                     float z = objLoc.z - recordLoc.z;
-                    String name = getTemplateName(objects[i]);
-                    float yaw = getYaw(objects[i]);
+                    String name = getTemplateName(object);
+                    float yaw = getYaw(object);
                     sendSystemMessageTestingOnly(self, "Object(" + name + ") Location(" + x + ", " + y + ", " + z + ") yaw(" + yaw + ")");
                     dictionary dctRow = new dictionary();
                     dctRow.put("object", name);
@@ -1434,11 +1404,9 @@ public class thicks_test extends script.base_script
                     String[] nameList = dataTableGetStringColumn(creatureTable, "creatureName");
                     Vector indexList = new Vector();
                     indexList.setSize(0);
-                    for (int i = 0; i < nameList.length; i++)
-                    {
-                        if (nameList[i].indexOf(parse[3]) > -1)
-                        {
-                            utils.addElement(indexList, nameList[i]);
+                    for (String s : nameList) {
+                        if (s.contains(parse[3])) {
+                            utils.addElement(indexList, s);
                         }
                     }
                     if (indexList == null || indexList.size() == 0)
@@ -1682,18 +1650,14 @@ public class thicks_test extends script.base_script
             buff.applyBuff(self, "invis_sp_diversion_stealth");
             return;
         }
-        for (int i = 0; i < haters.length; i++)
-        {
-            obj_id[] hateList = getHateList(haters[i]);
-            if (hateList == null || hateList.length == 0)
-            {
+        for (obj_id hater : haters) {
+            obj_id[] hateList = getHateList(hater);
+            if (hateList == null || hateList.length == 0) {
                 continue;
             }
-            for (int k = 0; k < hateList.length; k++)
-            {
-                if (hateList[k] == self)
-                {
-                    setHate(haters[i], decoy, getHate(haters[i], self) * 2);
+            for (obj_id obj_id : hateList) {
+                if (obj_id == self) {
+                    setHate(hater, decoy, getHate(hater, self) * 2);
                 }
             }
         }
@@ -1731,11 +1695,9 @@ public class thicks_test extends script.base_script
         {
             return;
         }
-        for (int i = 0; i < creatures.length; i++)
-        {
-            if (creatures[i] != target)
-            {
-                addHate(creatures[i], target, 1);
+        for (obj_id creature : creatures) {
+            if (creature != target) {
+                addHate(creature, target, 1);
             }
         }
     }
@@ -1795,19 +1757,16 @@ public class thicks_test extends script.base_script
         {
             return;
         }
-        for (int i = 0; i < objects.length; i++)
-        {
-            if ((getTemplateName(objects[i])).indexOf("furniture") > -1)
-            {
-                obj_id top = trial.getTop(objects[i]);
-                if (top == objects[i])
-                {
-                    location objLoc = getLocation(objects[i]);
+        for (obj_id object : objects) {
+            if ((getTemplateName(object)).contains("furniture")) {
+                obj_id top = trial.getTop(object);
+                if (top == object) {
+                    location objLoc = getLocation(object);
                     float x = objLoc.x - recordLoc.x;
                     float y = objLoc.y - recordLoc.y;
                     float z = objLoc.z - recordLoc.z;
-                    String name = getTemplateName(objects[i]);
-                    float yaw = getYaw(objects[i]);
+                    String name = getTemplateName(object);
+                    float yaw = getYaw(object);
                     sendSystemMessageTestingOnly(self, "Object(" + name + ") Location(" + x + ", " + y + ", " + z + ") yaw(" + yaw + ")");
                     dictionary dctRow = new dictionary();
                     dctRow.put("object", name);
@@ -1863,18 +1822,16 @@ public class thicks_test extends script.base_script
             debugSpeakMsg(self, "Fail");
             return;
         }
-        for (int i = 0; i < commandList.length; i++)
-        {
-            debugSpeakMsg(self, "Command: " + commandList[i]);
+        for (String s : commandList) {
+            debugSpeakMsg(self, "Command: " + s);
         }
     }
     public void runGetCellList(obj_id self, String[] parse) throws InterruptedException
     {
         obj_id pob = utils.stringToObjId(parse[1]);
         String[] list = getCellNames(pob);
-        for (int i = 0; i < list.length; i++)
-        {
-            debugSpeakMsg(self, "" + list[i]);
+        for (String s : list) {
+            debugSpeakMsg(self, "" + s);
         }
     }
     public void runEnterCell(obj_id self, String[] parse) throws InterruptedException
@@ -1987,7 +1944,7 @@ public class thicks_test extends script.base_script
             min = _max;
             max = _min;
         }
-        float rank = (float)(level - levelMin) / (float)(levelMax - levelMin);
+        float rank = (float)(level - levelMin) / (levelMax - levelMin);
         float mid = min + ((max - min) * rank);
         if (mid < min)
         {
@@ -2182,51 +2139,45 @@ public class thicks_test extends script.base_script
         int parseLength = parse.length;
         if (parseLength >= 2)
         {
-            if ((toLower(parse[1])).equals("find"))
-            {
-                if (parseLength < 3)
-                {
-                    sendSystemMessage(self, "Syntax: staticItem find [keyword] [optional sub-keyword]", "");
-                    return;
-                }
-                String[] data = new String[parse.length - 1];
-                int dataIndex = 0;
-                for (int i = 0; i < parse.length; i++)
-                {
-                    if (i != 1)
-                    {
-                        data[dataIndex] = parse[i];
-                        ++dataIndex;
+            switch ((toLower(parse[1]))) {
+                case "find": {
+                    if (parseLength < 3) {
+                        sendSystemMessage(self, "Syntax: staticItem find [keyword] [optional sub-keyword]", "");
+                        return;
                     }
-                }
-                runStaticItemFind(self, data);
-            }
-            else if ((toLower(parse[1])).equals("create"))
-            {
-                if (parseLength < 3)
-                {
-                    sendSystemMessage(self, "Syntax: staticItem create [list index or static item name]", "");
-                    return;
-                }
-                String[] data = new String[parse.length - 1];
-                int dataIndex = 0;
-                for (int i = 0; i < parse.length; i++)
-                {
-                    if (i != 1)
-                    {
-                        data[dataIndex] = parse[i];
-                        ++dataIndex;
+                    String[] data = new String[parse.length - 1];
+                    int dataIndex = 0;
+                    for (int i = 0; i < parse.length; i++) {
+                        if (i != 1) {
+                            data[dataIndex] = parse[i];
+                            ++dataIndex;
+                        }
                     }
+                    runStaticItemFind(self, data);
+                    break;
                 }
-                runStaticItemCreate(self, data);
-            }
-            else if ((toLower(parse[1])).equals("list"))
-            {
-                runStaticItemShowList(self);
-            }
-            else if ((toLower(parse[1])).equals("clear"))
-            {
-                runStaticItemClearList(self);
+                case "create": {
+                    if (parseLength < 3) {
+                        sendSystemMessage(self, "Syntax: staticItem create [list index or static item name]", "");
+                        return;
+                    }
+                    String[] data = new String[parse.length - 1];
+                    int dataIndex = 0;
+                    for (int i = 0; i < parse.length; i++) {
+                        if (i != 1) {
+                            data[dataIndex] = parse[i];
+                            ++dataIndex;
+                        }
+                    }
+                    runStaticItemCreate(self, data);
+                    break;
+                }
+                case "list":
+                    runStaticItemShowList(self);
+                    break;
+                case "clear":
+                    runStaticItemClearList(self);
+                    break;
             }
         }
         else 
@@ -2256,27 +2207,20 @@ public class thicks_test extends script.base_script
         String output = "";
         int index = 0;
         String[] allStaticItems = dataTableGetStringColumn(static_item.MASTER_ITEM_TABLE, "name");
-        for (int i = 0; i < allStaticItems.length; i++)
-        {
+        for (String allStaticItem : allStaticItems) {
             boolean matchFound = false;
-            String staticItemName = allStaticItems[i];
+            String staticItemName = allStaticItem;
             int stringCheck = staticItemName.indexOf(staticItemWanted);
-            if (stringCheck > -1)
-            {
-                if (subString != null && subString.length() > 0)
-                {
+            if (stringCheck > -1) {
+                if (subString != null && subString.length() > 0) {
                     int subStringCheck = staticItemName.indexOf(subString);
-                    if (subStringCheck > -1)
-                    {
+                    if (subStringCheck > -1) {
                         matchFound = true;
                     }
-                }
-                else 
-                {
+                } else {
                     matchFound = true;
                 }
-                if (matchFound)
-                {
+                if (matchFound) {
                     utils.addElement(matchingStaticItems, staticItemName);
                     output += index + " - " + staticItemName + " \n";
                     ++index;
@@ -2411,9 +2355,8 @@ public class thicks_test extends script.base_script
         obj_id[] waypoints = getWaypointsInDatapad(self);
         if (waypoints != null && waypoints.length > 0)
         {
-            for (int i = 0; i < waypoints.length; i++)
-            {
-                destroyWaypointInDatapad(waypoints[i], self);
+            for (obj_id waypoint : waypoints) {
+                destroyWaypointInDatapad(waypoint, self);
             }
         }
     }

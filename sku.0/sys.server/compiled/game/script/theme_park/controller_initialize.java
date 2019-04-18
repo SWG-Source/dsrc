@@ -14,14 +14,12 @@ public class controller_initialize extends script.base_script
     public int OnInitialize(obj_id self) throws InterruptedException
     {
         location selfLoc = getLocation(self);
-        obj_id objects[] = getObjectsInRange(selfLoc, .1f);
+        obj_id objects[] = getObjectsInRange(selfLoc, 0.1f);
         boolean exists = false;
         if (objects != null || objects.length > 0)
         {
-            for (int i = 0; i < objects.length; i++)
-            {
-                if ((getTemplateName(objects[i])).equals(CONTROLLER))
-                {
+            for (obj_id object : objects) {
+                if ((getTemplateName(object)).equals(CONTROLLER)) {
                     exists = true;
                 }
             }
@@ -62,9 +60,8 @@ public class controller_initialize extends script.base_script
             return;
         }
         String[] scripts = split(scriptString, ';');
-        for (int q = 0; q < scripts.length; q++)
-        {
-            attachScript(subject, scripts[q]);
+        for (String script : scripts) {
+            attachScript(subject, script);
         }
     }
     public void setObjVarString(obj_id newObject, String objVarString) throws InterruptedException
@@ -87,24 +84,19 @@ public class controller_initialize extends script.base_script
             String[] nameValueSplit = split(data, '=');
             String name = nameValueSplit[0];
             String value = nameValueSplit[1];
-            if (type.equals("int"))
-            {
+            if (type.equals("int")) {
                 setObjVar(newObject, name, utils.stringToInt(value));
             }
-            if (type.equals("float"))
-            {
+            if (type.equals("float")) {
                 setObjVar(newObject, name, utils.stringToFloat(value));
             }
-            if (type.equals("string"))
-            {
+            if (type.equals("string")) {
                 setObjVar(newObject, name, value);
             }
-            if (type.equals("boolean") && (value.equals("true") || value.equals("1")))
-            {
+            if (type.equals("boolean") && (value.equals("true") || value.equals("1"))) {
                 setObjVar(newObject, name, true);
             }
-            if (type.equals("boolean") && (value.equals("false") || value.equals("0")))
-            {
+            if (type.equals("boolean") && (value.equals("false") || value.equals("0"))) {
                 setObjVar(newObject, name, false);
             }
         }

@@ -48,9 +48,8 @@ public class exar_harmony extends script.base_script
         {
             return SCRIPT_CONTINUE;
         }
-        for (int i = 0; i < players.length; i++)
-        {
-            queueCommand(self, (1874028555), players[i], "", COMMAND_PRIORITY_DEFAULT);
+        for (obj_id player : players) {
+            queueCommand(self, (1874028555), player, "", COMMAND_PRIORITY_DEFAULT);
         }
         messageTo(self, "order_zap", trial.getSessionDict(self, "zap"), 8.0f, false);
         return SCRIPT_CONTINUE;

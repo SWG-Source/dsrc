@@ -24,7 +24,7 @@ public class defense_object extends script.base_script
             obj_id player = utils.getObjIdScriptVar(self, "hq.defense.remover");
             if (isIdValid(player))
             {
-                utils.sendDelayedSystemMessage(player, "HQ defense removal complete.", 2f);
+                utils.sendDelayedSystemMessage(player, "HQ defense removal complete.", 2.0f);
             }
         }
         return SCRIPT_CONTINUE;

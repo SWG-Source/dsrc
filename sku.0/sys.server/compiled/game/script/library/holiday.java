@@ -235,8 +235,8 @@ public class holiday extends script.base_script
     public static final int GCW_AMOUNT_COMBATANT = 5;
     public static final int DAILY_TIME = 10;
     public static final int MAX_NUMBER_OF_PLANET_HIGH_SCORES = 5;
-    public static final float VOL_TRIGGER_RADIUS = 20f;
-    public static final float EMPIRE_DAY_EVENT_START_DELAY = 700.f;
+    public static final float VOL_TRIGGER_RADIUS = 20.0f;
+    public static final float EMPIRE_DAY_EVENT_START_DELAY = 700.0f;
     public static final String LOVEDAY_CUPID_MANAGER_NAME = "loveday_cupid_manager";
     public static final String LOVEDAY_CUPID_ELEMENT_NAME = "loveday_cupid_spawner_";
     public static final String LOVEDAY_CUPID_SPAWNER_CITY_VAR = "loveday_city";
@@ -449,13 +449,9 @@ public class holiday extends script.base_script
             obj_id[] dataItems = getContents(datapad);
             if (dataItems != null || dataItems.length > 0)
             {
-                for (int i = 0; i < dataItems.length; i++)
-                {
-                    obj_id dataItem = dataItems[i];
-                    if (hasObjVar(dataItem, "pet.creatureName"))
-                    {
-                        if ((getStringObjVar(dataItem, "pet.creatureName")).startsWith("loveday_romance_seeker_familiar"))
-                        {
+                for (obj_id dataItem : dataItems) {
+                    if (hasObjVar(dataItem, "pet.creatureName")) {
+                        if ((getStringObjVar(dataItem, "pet.creatureName")).startsWith("loveday_romance_seeker_familiar")) {
                             return dataItem;
                         }
                     }
@@ -675,9 +671,8 @@ public class holiday extends script.base_script
         if (originalListSize <= maxEmpireDayWinners)
         {
             CustomerServiceLog("holidayEvent", "holiday.getEmpireDayWinningPlayers: There is less than " + maxEmpireDayWinners + " or exactly " + maxEmpireDayWinners + " winning players");
-            for (int i = 0; i < eligiblePlayers.size(); ++i)
-            {
-                CustomerServiceLog("holidayEvent", "holiday.getEmpireDayWinningPlayers: Player " + getPlayerName(((obj_id)eligiblePlayers.get(i))) + "(" + ((obj_id)eligiblePlayers.get(i)) + ") was selected for badge.");
+            for (Object eligiblePlayer : eligiblePlayers) {
+                CustomerServiceLog("holidayEvent", "holiday.getEmpireDayWinningPlayers: Player " + getPlayerName(((obj_id) eligiblePlayer)) + "(" + ((obj_id) eligiblePlayer) + ") was selected for badge.");
             }
             obj_id[] _eligiblePlayers = new obj_id[0];
             if (eligiblePlayers != null)
@@ -712,7 +707,7 @@ public class holiday extends script.base_script
                 CustomerServiceLog("holidayEvent", "holiday.getEmpireDayWinningPlayers: Error with eligiblePlayers list. It did not remove a player on iteration: " + i);
                 break;
             }
-            else if (winningPlayers.size() <= (0 + i))
+            else if (winningPlayers.size() <= (i))
             {
                 CustomerServiceLog("holidayEvent", "holiday.getEmpireDayWinningPlayers: Error with winningPlayers list. Did not add a player properly on iteration: " + i);
                 break;
@@ -836,13 +831,10 @@ public class holiday extends script.base_script
             return null;
         }
         obj_id[] objects = getObjectsInRange(loc, range);
-        for (int i = 0; i < objects.length; i++)
-        {
-            if (isIdValid(objects[i]))
-            {
-                if (hasObjVar(objects[i], waypoint))
-                {
-                    obj_id waypointObjId = objects[i];
+        for (obj_id object1 : objects) {
+            if (isIdValid(object1)) {
+                if (hasObjVar(object1, waypoint)) {
+                    obj_id waypointObjId = object1;
                     return waypointObjId;
                 }
             }
@@ -853,13 +845,10 @@ public class holiday extends script.base_script
     {
         location loc = getLocation(self);
         obj_id[] objects = getObjectsInRange(loc, OBJECT_NEAR_CHECK_RANGE_100M);
-        for (int i = 0; i < objects.length; i++)
-        {
-            if (isIdValid(objects[i]))
-            {
-                if (hasObjVar(objects[i], "emperorsday.master"))
-                {
-                    obj_id masterObjId = objects[i];
+        for (obj_id object : objects) {
+            if (isIdValid(object)) {
+                if (hasObjVar(object, "emperorsday.master")) {
+                    obj_id masterObjId = object;
                     return masterObjId;
                 }
             }
@@ -890,21 +879,17 @@ public class holiday extends script.base_script
         {
             return false;
         }
-        for (int i = 0; i < allMobsCombat.length; i++)
-        {
-            if (allMobsCombat[i] == player)
-            {
+        for (obj_id obj_id : allMobsCombat) {
+            if (obj_id == player) {
                 continue;
             }
-            if (isInvulnerable(allMobsCombat[i]))
-            {
+            if (isInvulnerable(obj_id)) {
                 continue;
             }
-            if (!pvpCanAttack(allMobsCombat[i], player))
-            {
+            if (!pvpCanAttack(obj_id, player)) {
                 continue;
             }
-            startCombat(allMobsCombat[i], player);
+            startCombat(obj_id, player);
         }
         return true;
     }
@@ -1018,7 +1003,7 @@ public class holiday extends script.base_script
             trial.cleanupObject(eventObject);
             return false;
         }
-        float respawnTime = 20.f;
+        float respawnTime = 20.0f;
         if (hasObjVar(eventObject, "fltRespawnTime"))
         {
             respawnTime = getFloatObjVar(eventObject, "fltRespawnTime");

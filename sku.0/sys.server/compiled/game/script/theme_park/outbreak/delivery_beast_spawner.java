@@ -35,7 +35,7 @@ public class delivery_beast_spawner extends script.base_script
     public static final String QUEST_GAMMA = "camp_gamma_delivery_01";
     public static final String QUEST_DELTA = "camp_delta_delivery_01";
     public static final int WAIT_DELAY = 5;
-    public static final float TRIGGER_RADIUS = 5f;
+    public static final float TRIGGER_RADIUS = 5.0f;
     public static final int RADIUS = 2000;
     public int OnInitialize(obj_id self) throws InterruptedException
     {
@@ -232,21 +232,19 @@ public class delivery_beast_spawner extends script.base_script
             return SCRIPT_CONTINUE;
         }
         String locationDataTable = "";
-        if (questName.equals(QUEST_ALPHA))
-        {
-            locationDataTable = ALPHA_LOCATIONS;
-        }
-        else if (questName.equals(QUEST_BETA))
-        {
-            locationDataTable = BETA_LOCATIONS;
-        }
-        else if (questName.equals(QUEST_GAMMA))
-        {
-            locationDataTable = GAMMA_LOCATIONS;
-        }
-        else if (questName.equals(QUEST_DELTA))
-        {
-            locationDataTable = DELTA_LOCATIONS;
+        switch (questName) {
+            case QUEST_ALPHA:
+                locationDataTable = ALPHA_LOCATIONS;
+                break;
+            case QUEST_BETA:
+                locationDataTable = BETA_LOCATIONS;
+                break;
+            case QUEST_GAMMA:
+                locationDataTable = GAMMA_LOCATIONS;
+                break;
+            case QUEST_DELTA:
+                locationDataTable = DELTA_LOCATIONS;
+                break;
         }
         if (locationDataTable == null || locationDataTable.length() <= 0)
         {

@@ -18,11 +18,9 @@ public class expertise extends script.base_script
         String[] skillModList = getSkillStatModListingForPlayer(player);
         Vector expertiseProcReacList = new Vector();
         expertiseProcReacList.setSize(0);
-        for (int i = 0; i < skillModList.length; ++i)
-        {
-            if ((skillModList[i].startsWith("expertise_") || skillModList[i].startsWith("kill_meter_")) && (skillModList[i].endsWith("_proc") || skillModList[i].endsWith("_reac")))
-            {
-                expertiseProcReacList.addElement(skillModList[i]);
+        for (String s : skillModList) {
+            if ((s.startsWith("expertise_") || s.startsWith("kill_meter_")) && (s.endsWith("_proc") || s.endsWith("_reac"))) {
+                expertiseProcReacList.addElement(s);
             }
         }
         if (expertiseProcReacList.size() > 0)
@@ -68,10 +66,8 @@ public class expertise extends script.base_script
         String[] skillList = getSkillListingForPlayer(player);
         if (skillList != null)
         {
-            for (int i = 0; i < skillList.length; ++i)
-            {
-                if (skillList[i].startsWith("expertise_"))
-                {
+            for (String s : skillList) {
+                if (s.startsWith("expertise_")) {
                     return true;
                 }
             }
@@ -93,11 +89,9 @@ public class expertise extends script.base_script
         resizeExpertiseAllocated.setSize(0);
         if (skillList != null)
         {
-            for (int i = 0; i < skillList.length; ++i)
-            {
-                if (skillList[i].startsWith("expertise_"))
-                {
-                    resizeExpertiseAllocated = utils.addElement(resizeExpertiseAllocated, skillList[i]);
+            for (String s : skillList) {
+                if (s.startsWith("expertise_")) {
+                    resizeExpertiseAllocated = utils.addElement(resizeExpertiseAllocated, s);
                 }
             }
         }

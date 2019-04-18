@@ -215,7 +215,7 @@ public class stolen_fighter extends script.base_script
         int randThug = rand(0, 2);
         int wittyPhrase = rand(1, 3);
         location here = getLocation(self);
-        here.x += -18;
+        here.x -= 18;
         for (int i = 0; i < numThugs; i++)
         {
             int levelMod = rand(-2, 2);

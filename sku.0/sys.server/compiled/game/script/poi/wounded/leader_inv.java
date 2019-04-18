@@ -102,9 +102,8 @@ public class leader_inv extends script.item.container.add_only
                         }
                         else 
                         {
-                            for (int n = 0; n < mods.length; n++)
-                            {
-                                amt += mods[n].getValue();
+                            for (attrib_mod mod : mods) {
+                                amt += mod.getValue();
                             }
                         }
                         amt *= cnt;

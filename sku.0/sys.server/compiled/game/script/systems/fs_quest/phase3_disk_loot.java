@@ -15,7 +15,7 @@ public class phase3_disk_loot extends script.base_script
     public static final int LIFE_SPAN = 1000;
     public int OnAttach(obj_id self) throws InterruptedException
     {
-        messageTo(self, "msgSelfDestruct", null, (float)LIFE_SPAN, false);
+        messageTo(self, "msgSelfDestruct", null, LIFE_SPAN, false);
         return SCRIPT_CONTINUE;
     }
     public int msgSelfDestruct(obj_id self, dictionary params) throws InterruptedException

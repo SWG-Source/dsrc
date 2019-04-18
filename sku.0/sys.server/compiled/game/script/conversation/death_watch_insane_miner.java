@@ -31,11 +31,9 @@ public class death_watch_insane_miner extends script.base_script
             obj_id[] objContents = utils.getContents(objInventory);
             if (objContents != null)
             {
-                for (int intI = 0; intI < objContents.length; intI++)
-                {
-                    String strItemTemplate = getTemplateName(objContents[intI]);
-                    if (strItemTemplate.equals("object/tangible/dungeon/death_watch_bunker/crazed_miner_medicine.iff"))
-                    {
+                for (obj_id objContent : objContents) {
+                    String strItemTemplate = getTemplateName(objContent);
+                    if (strItemTemplate.equals("object/tangible/dungeon/death_watch_bunker/crazed_miner_medicine.iff")) {
                         return true;
                     }
                 }
@@ -59,11 +57,9 @@ public class death_watch_insane_miner extends script.base_script
             obj_id[] objContents = utils.getContents(objInventory);
             if (objContents != null)
             {
-                for (int intI = 0; intI < objContents.length; intI++)
-                {
-                    String strItemTemplate = getTemplateName(objContents[intI]);
-                    if (strItemTemplate.equals("object/tangible/dungeon/death_watch_bunker/crazed_miner_medicine.iff"))
-                    {
+                for (obj_id objContent : objContents) {
+                    String strItemTemplate = getTemplateName(objContent);
+                    if (strItemTemplate.equals("object/tangible/dungeon/death_watch_bunker/crazed_miner_medicine.iff")) {
                         return false;
                     }
                 }
@@ -82,7 +78,7 @@ public class death_watch_insane_miner extends script.base_script
     public void death_watch_insane_miner_action_getMedicine(obj_id player, obj_id npc) throws InterruptedException
     {
         setObjVar(player, "death_watch.medicine", 1);
-        messageTo(npc, "handleCrazedCleanup", null, 1800f, false);
+        messageTo(npc, "handleCrazedCleanup", null, 1800.0f, false);
         return;
     }
     public void death_watch_insane_miner_action_removeMedicine(obj_id player, obj_id npc) throws InterruptedException
@@ -93,12 +89,10 @@ public class death_watch_insane_miner extends script.base_script
             obj_id[] objContents = utils.getContents(objInventory);
             if (objContents != null)
             {
-                for (int intI = 0; intI < objContents.length; intI++)
-                {
-                    String strItemTemplate = getTemplateName(objContents[intI]);
-                    if (strItemTemplate.equals("object/tangible/dungeon/death_watch_bunker/crazed_miner_medicine.iff"))
-                    {
-                        destroyObject(objContents[intI]);
+                for (obj_id objContent : objContents) {
+                    String strItemTemplate = getTemplateName(objContent);
+                    if (strItemTemplate.equals("object/tangible/dungeon/death_watch_bunker/crazed_miner_medicine.iff")) {
+                        destroyObject(objContent);
                         return;
                     }
                 }
@@ -114,12 +108,10 @@ public class death_watch_insane_miner extends script.base_script
             obj_id[] objContents = utils.getContents(objInventory);
             if (objContents != null)
             {
-                for (int intI = 0; intI < objContents.length; intI++)
-                {
-                    String strItemTemplate = getTemplateName(objContents[intI]);
-                    if (strItemTemplate.equals("object/tangible/dungeon/death_watch_bunker/crazed_miner_medicine.iff"))
-                    {
-                        destroyObject(objContents[intI]);
+                for (obj_id objContent : objContents) {
+                    String strItemTemplate = getTemplateName(objContent);
+                    if (strItemTemplate.equals("object/tangible/dungeon/death_watch_bunker/crazed_miner_medicine.iff")) {
+                        destroyObject(objContent);
                     }
                 }
             }
@@ -136,7 +128,7 @@ public class death_watch_insane_miner extends script.base_script
                     removeObjVar(player, "death_watch.medicine");
                 }
             }
-            messageTo(npc, "handleCrazedCleanup", null, 30f, false);
+            messageTo(npc, "handleCrazedCleanup", null, 30.0f, false);
         }
         return;
     }
@@ -145,7 +137,7 @@ public class death_watch_insane_miner extends script.base_script
         setObjVar(npc, "death_watch.noHelp", player);
         dictionary params = new dictionary();
         params.put("player", player);
-        messageTo(npc, "handleCrazedAttack", params, 1f, false);
+        messageTo(npc, "handleCrazedAttack", params, 1.0f, false);
         return;
     }
     public int death_watch_insane_miner_handleBranch1(obj_id player, obj_id npc, string_id response) throws InterruptedException

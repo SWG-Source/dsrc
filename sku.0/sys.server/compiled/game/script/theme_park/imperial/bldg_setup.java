@@ -12,7 +12,7 @@ public class bldg_setup extends script.base_script
     public int OnAttach(obj_id self) throws InterruptedException
     {
         debugSpeakMsg(self, "ATTACHING");
-        createTriggerVolume("guards", 20f, true);
+        createTriggerVolume("guards", 20.0f, true);
         messageTo(self, "spawnTerminal", null, 10, true);
         return SCRIPT_CONTINUE;
     }
@@ -39,7 +39,7 @@ public class bldg_setup extends script.base_script
     {
         debugSpeakMsg(self, "MAKING A TERMINAL");
         obj_id room = getCellId(self, "mainhall");
-        location termLoc = new location(0.1f, .13f, -5.46f, "tatooine", room);
+        location termLoc = new location(0.1f, 0.13f, -5.46f, "tatooine", room);
         obj_id destructor = createObject("object/tangible/furniture/imperial/data_terminal_s1.iff", termLoc);
         setObjVar(self, "DESTRUCTOR", destructor);
         attachScript(destructor, "theme_park.bldg_destroy");

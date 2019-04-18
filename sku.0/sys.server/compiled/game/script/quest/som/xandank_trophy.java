@@ -38,7 +38,7 @@ public class xandank_trophy extends script.base_script
                     doAnimationAction(player, "search");
                     dictionary dict = new dictionary();
                     dict.put("target", player);
-                    messageTo(self, "handleFindTrackOne", dict, 5f, false);
+                    messageTo(self, "handleFindTrackOne", dict, 5.0f, false);
                     return SCRIPT_CONTINUE;
                 }
                 else 
@@ -54,7 +54,7 @@ public class xandank_trophy extends script.base_script
                     doAnimationAction(player, "search");
                     dictionary dict = new dictionary();
                     dict.put("target", player);
-                    messageTo(self, "handleFindTrackTwo", dict, 5f, false);
+                    messageTo(self, "handleFindTrackTwo", dict, 5.0f, false);
                     return SCRIPT_CONTINUE;
                 }
                 else 

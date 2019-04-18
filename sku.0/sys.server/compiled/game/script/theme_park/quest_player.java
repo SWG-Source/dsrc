@@ -96,8 +96,8 @@ public class quest_player extends script.base_script
         while (x <= maxTotal)
         {
             String extra = dataTableGetString(datatable, x, questNum);
-            spawn.x = spawn.x + rand(1f, 3f);
-            spawn.z = spawn.z + rand(1f, 3f);
+            spawn.x = spawn.x + rand(1.0f, 3.0f);
+            spawn.z = spawn.z + rand(1.0f, 3.0f);
             obj_id npc = create.object(extra, spawn);
             x = x + 1;
         }

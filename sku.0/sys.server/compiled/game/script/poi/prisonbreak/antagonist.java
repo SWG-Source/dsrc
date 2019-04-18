@@ -147,34 +147,31 @@ public class antagonist extends script.poi.base.scenario_actor
         Vector responses = new Vector();
         responses.setSize(0);
         npcSetConversationResponses(speaker, responses);
-        if ((aId.equals("r_greet_tellstory")))
-        {
-            npcSpeak(speaker, new string_id(convo, "a_mystory"));
-            responses = utils.addElement(responses, new string_id(convo, "r_mystory_howhorrible"));
-            responses = utils.addElement(responses, new string_id(convo, "r_mystory_looklikefarmers"));
-            npcSetConversationResponses(speaker, responses);
-        }
-        else if ((aId.equals("r_mystory_howhorrible")))
-        {
-            npcSpeak(speaker, new string_id(convo, "a_couldusehelp_horrible"));
-            responses = utils.addElement(responses, new string_id(convo, "r_couldusehelp_yeshelp"));
-            responses = utils.addElement(responses, new string_id(convo, "r_couldusehelp_nohelp"));
-            npcSetConversationResponses(speaker, responses);
-        }
-        else if ((aId.equals("r_mystory_looklikefarmers")))
-        {
-            npcSpeak(speaker, new string_id(convo, "a_angrylooklikefarmers"));
-            scenario.setPlayerProgress(speaker, CONV_INSULT);
-        }
-        else if ((aId.equals("r_couldusehelp_yeshelp")))
-        {
-            npcSpeak(speaker, new string_id(convo, "a_please_distractguard"));
-            scenario.setPlayerProgress(speaker, CONV_YESHELP);
-        }
-        else if ((aId.equals("r_couldusehelp_nohelp")))
-        {
-            npcSpeak(speaker, new string_id(convo, "a_angrynohelp"));
-            scenario.setPlayerProgress(speaker, CONV_NOHELP);
+        switch (aId) {
+            case "r_greet_tellstory":
+                npcSpeak(speaker, new string_id(convo, "a_mystory"));
+                responses = utils.addElement(responses, new string_id(convo, "r_mystory_howhorrible"));
+                responses = utils.addElement(responses, new string_id(convo, "r_mystory_looklikefarmers"));
+                npcSetConversationResponses(speaker, responses);
+                break;
+            case "r_mystory_howhorrible":
+                npcSpeak(speaker, new string_id(convo, "a_couldusehelp_horrible"));
+                responses = utils.addElement(responses, new string_id(convo, "r_couldusehelp_yeshelp"));
+                responses = utils.addElement(responses, new string_id(convo, "r_couldusehelp_nohelp"));
+                npcSetConversationResponses(speaker, responses);
+                break;
+            case "r_mystory_looklikefarmers":
+                npcSpeak(speaker, new string_id(convo, "a_angrylooklikefarmers"));
+                scenario.setPlayerProgress(speaker, CONV_INSULT);
+                break;
+            case "r_couldusehelp_yeshelp":
+                npcSpeak(speaker, new string_id(convo, "a_please_distractguard"));
+                scenario.setPlayerProgress(speaker, CONV_YESHELP);
+                break;
+            case "r_couldusehelp_nohelp":
+                npcSpeak(speaker, new string_id(convo, "a_angrynohelp"));
+                scenario.setPlayerProgress(speaker, CONV_NOHELP);
+                break;
         }
         return SCRIPT_CONTINUE;
     }
@@ -206,32 +203,24 @@ public class antagonist extends script.poi.base.scenario_actor
         obj_id[] players = getObjIdArrayObjVar(poiMaster, scenario.VAR_SCENARIO_PLAYERS);
         obj_id[] mediators = scenario.getTeamMembers(poiMaster, "mediator");
         obj_id[] antagonists = scenario.getTeamMembers(poiMaster, "antagonist");
-        for (int i = 0; i < antagonists.length; i++)
-        {
-            obj_id found = antagonists[i];
-            if ((found == null) || (found == obj_id.NULL_ID))
-            {
+        for (obj_id found : antagonists) {
+            if ((found == null) || (found == obj_id.NULL_ID)) {
                 continue;
             }
-            if (isIncapacitated(found) || isDead(found))
-            {
+            if (isIncapacitated(found) || isDead(found)) {
                 continue;
             }
             obj_id enemy = mediators[rand(0, mediators.length - 1)];
             startCombat(found, enemy);
             LOG(LOG_NAME, "Pirate: " + found + " attacking Farmer: " + enemy);
             LOG(LOG_NAME, "Pirate: " + found + " can attack Farmer: " + enemy + ": " + pvpCanAttack(found, enemy));
-            for (int j = 0; j < mediators.length; j++)
-            {
-                ai_lib.addToMentalStateToward(found, mediators[j], ANGER, 100f);
+            for (obj_id mediator : mediators) {
+                ai_lib.addToMentalStateToward(found, mediator, ANGER, 100.0f);
             }
-            if (players != null)
-            {
-                for (int j = 0; j < players.length; j++)
-                {
-                    if ((players[j] != null) && (players[j] != obj_id.NULL_ID))
-                    {
-                        ai_lib.addToMentalStateToward(found, players[j], ANGER, 100f, BEHAVIOR_ATTACK);
+            if (players != null) {
+                for (obj_id player : players) {
+                    if ((player != null) && (player != obj_id.NULL_ID)) {
+                        ai_lib.addToMentalStateToward(found, player, ANGER, 100.0f, BEHAVIOR_ATTACK);
                     }
                 }
             }
@@ -260,9 +249,8 @@ public class antagonist extends script.poi.base.scenario_actor
             startCombat(found, enemy);
             LOG(LOG_NAME, "Farmer: " + found + " attacking Pirate: " + enemy);
             LOG(LOG_NAME, "Farmer: " + found + " can attack Pirate: " + enemy + ": " + pvpCanAttack(found, enemy));
-            for (int j = 0; j < antagonists.length; j++)
-            {
-                ai_lib.addToMentalStateToward(found, antagonists[j], ANGER, 100f);
+            for (obj_id antagonist : antagonists) {
+                ai_lib.addToMentalStateToward(found, antagonist, ANGER, 100.0f);
             }
         }
         return SCRIPT_CONTINUE;
@@ -281,10 +269,8 @@ public class antagonist extends script.poi.base.scenario_actor
         obj_id[] mediators = scenario.getTeamMembers(poiMaster, "mediator");
         obj_id[] antagonists = scenario.getTeamMembers(poiMaster, "antagonist");
         boolean antagonistAttacked = false;
-        for (int i = 0; i < antagonists.length; i++)
-        {
-            if (defender == antagonists[i])
-            {
+        for (obj_id antagonist : antagonists) {
+            if (defender == antagonist) {
                 antagonistAttacked = true;
             }
         }
@@ -293,12 +279,9 @@ public class antagonist extends script.poi.base.scenario_actor
             return SCRIPT_CONTINUE;
         }
         boolean mediatorAttacking = false;
-        for (int i = 0; i < mediators.length; i++)
-        {
-            for (int j = 0; j < attackers.length; j++)
-            {
-                if (attackers[j] == mediators[i])
-                {
+        for (obj_id mediator : mediators) {
+            for (obj_id attacker : attackers) {
+                if (attacker == mediator) {
                     mediatorAttacking = true;
                 }
             }

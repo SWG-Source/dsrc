@@ -46,10 +46,10 @@ public class space_content extends script.base_script
             float groundX = dataTableGetFloat(LAUNCH_LOCATION_DATATABLE_NAME, row, LAUNCH_LOCATION_COLUMN_GROUND_X);
             float groundY = dataTableGetFloat(LAUNCH_LOCATION_DATATABLE_NAME, row, LAUNCH_LOCATION_COLUMN_GROUND_Y);
             float groundZ = dataTableGetFloat(LAUNCH_LOCATION_DATATABLE_NAME, row, LAUNCH_LOCATION_COLUMN_GROUND_Z);
-            float theta = rand() * (2.f * (float)Math.PI);
-            float radius = 2.f + rand() * 3.f;
-            groundX += radius * Math.cos(theta);
-            groundZ += radius * Math.sin(theta);
+            float theta = rand() * (2.0f * (float)Math.PI);
+            float radius = 2.0f + rand() * 3.0f;
+            groundX += radius * StrictMath.cos(theta);
+            groundZ += radius * StrictMath.sin(theta);
             warpPlayer(objPlayer, groundScene, groundX, groundY, groundZ, null, groundX, groundY, groundZ);
         }
     }
@@ -109,7 +109,7 @@ public class space_content extends script.base_script
             }
             String groundScene = getStringObjVar(objPlayer, "homingBeacon.planet");
             location houseLoc = getLocationObjVar(objPlayer, "homingBeacon.houseLoc");
-            location landingSpot = locations.getGoodLocationAroundLocation(houseLoc, 30f, 30f, 30f, 30f);
+            location landingSpot = locations.getGoodLocationAroundLocation(houseLoc, 30.0f, 30.0f, 30.0f, 30.0f);
             // Note: The Y location cannot be accurately calculated due to issue with the server code (see
             landingSpot.y = houseLoc.y - 5;
             obj_id house = getObjIdObjVar(objPlayer, "homingBeacon.houseId");

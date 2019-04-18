@@ -29,15 +29,11 @@ public class crafting_bug_habitat extends script.systems.crafting.crafting_base
     {
         draft_schematic.slot[] schslots = schematic.getSlots();
         int type = 0;
-        for (int i = 0; i < schslots.length; i++)
-        {
-            if (schslots[i] != null)
-            {
-                for (int j = 0; j < schslots[i].ingredients.length; j++)
-                {
-                    if (hasObjVar(schslots[i].ingredients[j].ingredient, "bugsample"))
-                    {
-                        type = getIntObjVar(schslots[i].ingredients[j].ingredient, "bugsample");
+        for (draft_schematic.slot schslot : schslots) {
+            if (schslot != null) {
+                for (int j = 0; j < schslot.ingredients.length; j++) {
+                    if (hasObjVar(schslot.ingredients[j].ingredient, "bugsample")) {
+                        type = getIntObjVar(schslot.ingredients[j].ingredient, "bugsample");
                         setObjVar(prototype, "bugsample", type);
                     }
                 }

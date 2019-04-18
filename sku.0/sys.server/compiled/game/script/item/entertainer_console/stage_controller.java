@@ -292,11 +292,9 @@ public class stage_controller extends script.terminal.base.base_terminal
         int idx = sui.getListboxSelectedRow(params);
         if (idx == 0)
         {
-            for (int i = 0; i < smokeObjectList.size(); i++)
-            {
-                if (isIdValid(((obj_id)smokeObjectList.get(i))))
-                {
-                    boolean playEffect = playSmokeEffect(((obj_id)smokeObjectList.get(i)));
+            for (Object o : smokeObjectList) {
+                if (isIdValid(((obj_id) o))) {
+                    boolean playEffect = playSmokeEffect(((obj_id) o));
                 }
             }
         }
@@ -342,11 +340,9 @@ public class stage_controller extends script.terminal.base.base_terminal
         int idx = sui.getListboxSelectedRow(params);
         if (idx == 0)
         {
-            for (int i = 0; i < pyroObjectList.size(); i++)
-            {
-                if (isIdValid(((obj_id)pyroObjectList.get(i))))
-                {
-                    boolean playEffect = playFireEffect(((obj_id)pyroObjectList.get(i)));
+            for (Object o : pyroObjectList) {
+                if (isIdValid(((obj_id) o))) {
+                    boolean playEffect = playFireEffect(((obj_id) o));
                 }
             }
         }
@@ -392,11 +388,9 @@ public class stage_controller extends script.terminal.base.base_terminal
         int idx = sui.getListboxSelectedRow(params);
         if (idx == 0)
         {
-            for (int i = 0; i < fogObjectList.size(); i++)
-            {
-                if (isIdValid(((obj_id)fogObjectList.get(i))))
-                {
-                    boolean playEffect = startFogEffect(((obj_id)fogObjectList.get(i)));
+            for (Object o : fogObjectList) {
+                if (isIdValid(((obj_id) o))) {
+                    boolean playEffect = startFogEffect(((obj_id) o));
                 }
             }
         }
@@ -491,11 +485,9 @@ public class stage_controller extends script.terminal.base.base_terminal
         }
         if (propSelection == 0)
         {
-            for (int i = 0; i < backdropList.size(); i++)
-            {
-                if (isIdValid(((obj_id)backdropList.get(i))))
-                {
-                    boolean changed = changeBackdrop(((obj_id)backdropList.get(i)), backdropObjectString, backdropNumber);
+            for (Object o : backdropList) {
+                if (isIdValid(((obj_id) o))) {
+                    boolean changed = changeBackdrop(((obj_id) o), backdropObjectString, backdropNumber);
                 }
             }
         }
@@ -567,9 +559,8 @@ public class stage_controller extends script.terminal.base.base_terminal
         obj_id[] players = getAllPlayers(loc, 20.0f);
         if (players != null)
         {
-            for (int i = 0; i < players.length; i++)
-            {
-                playClientEffectLoc(players[i], "appearance/pt_partydroid_fogmachine.prt", loc, 0);
+            for (obj_id player : players) {
+                playClientEffectLoc(player, "appearance/pt_partydroid_fogmachine.prt", loc, 0);
             }
         }
         return true;
@@ -592,9 +583,8 @@ public class stage_controller extends script.terminal.base.base_terminal
         obj_id[] players = getAllPlayers(loc, 20.0f);
         if (players != null)
         {
-            for (int i = 0; i < players.length; i++)
-            {
-                playClientEffectLoc(players[i], "clienteffect/stage_controller_explosion_1.cef", loc, 0);
+            for (obj_id player : players) {
+                playClientEffectLoc(player, "clienteffect/stage_controller_explosion_1.cef", loc, 0);
             }
         }
         return true;
@@ -617,9 +607,8 @@ public class stage_controller extends script.terminal.base.base_terminal
         obj_id[] players = getAllPlayers(loc, 20.0f);
         if (players != null)
         {
-            for (int i = 0; i < players.length; i++)
-            {
-                playClientEffectLoc(players[i], "clientdata/item/client_shared_item_treasure_gem_red_s01.cdf", loc, 0);
+            for (obj_id player : players) {
+                playClientEffectLoc(player, "clientdata/item/client_shared_item_treasure_gem_red_s01.cdf", loc, 0);
             }
         }
         return true;

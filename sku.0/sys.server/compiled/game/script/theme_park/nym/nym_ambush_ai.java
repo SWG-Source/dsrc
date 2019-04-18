@@ -95,38 +95,30 @@ public class nym_ambush_ai extends script.base_script
             return false;
         }
         String myFaction = factions.getFaction(self);
-        for (int i = 0; i < targets.length; i++)
-        {
-            if (!isIdValid(targets[i]))
-            {
+        for (obj_id target : targets) {
+            if (!isIdValid(target)) {
                 continue;
             }
-            if (targets[i] == self)
-            {
+            if (target == self) {
                 continue;
             }
-            if (isInvulnerable(targets[i]))
-            {
+            if (isInvulnerable(target)) {
                 continue;
             }
-            if (hasScript(targets[i], "theme_park.nym.nym_ambush_ai"))
-            {
+            if (hasScript(target, "theme_park.nym.nym_ambush_ai")) {
                 continue;
             }
-            if (ai_lib.isDead(targets[i]))
-            {
+            if (ai_lib.isDead(target)) {
                 continue;
             }
-            String targetFaction = factions.getFaction(targets[i]);
-            if (targetFaction == null || targetFaction.length() <= 0)
-            {
+            String targetFaction = factions.getFaction(target);
+            if (targetFaction == null || targetFaction.length() <= 0) {
                 continue;
             }
-            if (factions.areCreaturesAllied(self, targets[i]))
-            {
+            if (factions.areCreaturesAllied(self, target)) {
                 continue;
             }
-            startCombat(self, targets[i]);
+            startCombat(self, target);
             return true;
         }
         return false;

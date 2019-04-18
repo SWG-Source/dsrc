@@ -13,19 +13,15 @@ public class crafting_base_space_weapon extends script.systems.crafting.crafting
     }
     public void calcAndSetPrototypeProperties(obj_id prototype, draft_schematic.attribute[] itemAttributes, dictionary craftingValuesDictionary) throws InterruptedException
     {
-        for (int i = 0; i < itemAttributes.length; ++i)
-        {
-            if (itemAttributes[i] == null)
-            {
+        for (draft_schematic.attribute itemAttribute : itemAttributes) {
+            if (itemAttribute == null) {
                 continue;
             }
-            if (((itemAttributes[i].name).getAsciiId()).equals("mass") || ((itemAttributes[i].name).getAsciiId()).equals("energy_maintenance") || ((itemAttributes[i].name).getAsciiId()).equals("energy_per_shot") || ((itemAttributes[i].name).getAsciiId()).equals("refire_rate"))
-            {
-                itemAttributes[i].currentValue = (itemAttributes[i].minValue + itemAttributes[i].maxValue) - itemAttributes[i].currentValue;
+            if (((itemAttribute.name).getAsciiId()).equals("mass") || ((itemAttribute.name).getAsciiId()).equals("energy_maintenance") || ((itemAttribute.name).getAsciiId()).equals("energy_per_shot") || ((itemAttribute.name).getAsciiId()).equals("refire_rate")) {
+                itemAttribute.currentValue = (itemAttribute.minValue + itemAttribute.maxValue) - itemAttribute.currentValue;
             }
-            if (((itemAttributes[i].name).getAsciiId()).equals("refire_rate") || ((itemAttributes[i].name).getAsciiId()).equals("effective_shields") || ((itemAttributes[i].name).getAsciiId()).equals("effective_armor"))
-            {
-                itemAttributes[i].currentValue = (itemAttributes[i].currentValue * 0.001f);
+            if (((itemAttribute.name).getAsciiId()).equals("refire_rate") || ((itemAttribute.name).getAsciiId()).equals("effective_shields") || ((itemAttribute.name).getAsciiId()).equals("effective_armor")) {
+                itemAttribute.currentValue = (itemAttribute.currentValue * 0.001f);
             }
         }
         super.calcAndSetPrototypeProperties(prototype, itemAttributes, craftingValuesDictionary);
@@ -46,9 +42,9 @@ public class crafting_base_space_weapon extends script.systems.crafting.crafting
             if (((itemAttributes[i].name).getAsciiId()).equals("effective_shields") || ((itemAttributes[i].name).getAsciiId()).equals("effective_armor"))
             {
                 LOG("VALUE", "current value " + itemAttributes[i].currentValue);
-                if (itemAttributes[i].currentValue > 1.f)
+                if (itemAttributes[i].currentValue > 1.0f)
                 {
-                    itemAttributes[i].currentValue = 1.f;
+                    itemAttributes[i].currentValue = 1.0f;
                 }
                 else if (itemAttributes[i].currentValue < 0.01f)
                 {
@@ -72,73 +68,55 @@ public class crafting_base_space_weapon extends script.systems.crafting.crafting
             itemAttributes[damage_max_i].currentValue = damage_min;
         }
         debugServerConsoleMsg(null, "Beginning assembly-phase prototype property setting");
-        for (int i = 0; i < itemAttributes.length; ++i)
-        {
-            if (itemAttributes[i] == null)
-            {
+        for (draft_schematic.attribute itemAttribute : itemAttributes) {
+            if (itemAttribute == null) {
                 continue;
             }
-            if (!calcAndSetPrototypeProperty(prototype, itemAttributes[i]))
-            {
-                if (((itemAttributes[i].name).getAsciiId()).equals("hitPointsMax"))
-                {
+            if (!calcAndSetPrototypeProperty(prototype, itemAttribute)) {
+                if (((itemAttribute.name).getAsciiId()).equals("hitPointsMax")) {
                     setObjVar(prototype, "ship_comp.weapon.ammo_current", 0);
                     setObjVar(prototype, "ship_comp.weapon.ammo_maximum", 0);
-                    space_crafting.setComponentMaximumHitpoints(prototype, (float)itemAttributes[i].currentValue);
-                    space_crafting.setComponentCurrentHitpoints(prototype, (float)itemAttributes[i].currentValue);
+                    space_crafting.setComponentMaximumHitpoints(prototype, (float) itemAttribute.currentValue);
+                    space_crafting.setComponentCurrentHitpoints(prototype, (float) itemAttribute.currentValue);
                 }
-                if (((itemAttributes[i].name).getAsciiId()).equals("efficiency"))
-                {
-                    space_crafting.setComponentGeneralEfficiency(prototype, (float)itemAttributes[i].currentValue);
+                if (((itemAttribute.name).getAsciiId()).equals("efficiency")) {
+                    space_crafting.setComponentGeneralEfficiency(prototype, (float) itemAttribute.currentValue);
                 }
-                if (((itemAttributes[i].name).getAsciiId()).equals("mass"))
-                {
-                    space_crafting.setComponentMass(prototype, (float)itemAttributes[i].currentValue);
+                if (((itemAttribute.name).getAsciiId()).equals("mass")) {
+                    space_crafting.setComponentMass(prototype, (float) itemAttribute.currentValue);
                 }
-                if (((itemAttributes[i].name).getAsciiId()).equals("armorHpMax"))
-                {
-                    space_crafting.setComponentMaximumArmorHitpoints(prototype, (float)itemAttributes[i].currentValue);
-                    space_crafting.setComponentCurrentArmorHitpoints(prototype, (float)itemAttributes[i].currentValue);
+                if (((itemAttribute.name).getAsciiId()).equals("armorHpMax")) {
+                    space_crafting.setComponentMaximumArmorHitpoints(prototype, (float) itemAttribute.currentValue);
+                    space_crafting.setComponentCurrentArmorHitpoints(prototype, (float) itemAttribute.currentValue);
                 }
-                if (((itemAttributes[i].name).getAsciiId()).equals("energy_efficiency"))
-                {
-                    space_crafting.setComponentEnergyEfficiency(prototype, (float)itemAttributes[i].currentValue);
+                if (((itemAttribute.name).getAsciiId()).equals("energy_efficiency")) {
+                    space_crafting.setComponentEnergyEfficiency(prototype, (float) itemAttribute.currentValue);
                 }
-                if (((itemAttributes[i].name).getAsciiId()).equals("energy_maintenance"))
-                {
-                    space_crafting.setComponentEnergyMaintenance(prototype, (float)itemAttributes[i].currentValue);
+                if (((itemAttribute.name).getAsciiId()).equals("energy_maintenance")) {
+                    space_crafting.setComponentEnergyMaintenance(prototype, (float) itemAttribute.currentValue);
                 }
-                if (((itemAttributes[i].name).getAsciiId()).equals("damage_max"))
-                {
-                    space_crafting.setWeaponMaximumDamage(prototype, (float)itemAttributes[i].currentValue);
+                if (((itemAttribute.name).getAsciiId()).equals("damage_max")) {
+                    space_crafting.setWeaponMaximumDamage(prototype, (float) itemAttribute.currentValue);
                 }
-                if (((itemAttributes[i].name).getAsciiId()).equals("damage_min"))
-                {
-                    space_crafting.setWeaponMinimumDamage(prototype, (float)itemAttributes[i].currentValue);
+                if (((itemAttribute.name).getAsciiId()).equals("damage_min")) {
+                    space_crafting.setWeaponMinimumDamage(prototype, (float) itemAttribute.currentValue);
                 }
-                if (((itemAttributes[i].name).getAsciiId()).equals("effective_shields"))
-                {
-                    space_crafting.setWeaponShieldEffectiveness(prototype, (float)itemAttributes[i].currentValue);
+                if (((itemAttribute.name).getAsciiId()).equals("effective_shields")) {
+                    space_crafting.setWeaponShieldEffectiveness(prototype, (float) itemAttribute.currentValue);
                 }
-                if (((itemAttributes[i].name).getAsciiId()).equals("effective_armor"))
-                {
-                    space_crafting.setWeaponArmorEffectiveness(prototype, (float)itemAttributes[i].currentValue);
+                if (((itemAttribute.name).getAsciiId()).equals("effective_armor")) {
+                    space_crafting.setWeaponArmorEffectiveness(prototype, (float) itemAttribute.currentValue);
                 }
-                if (((itemAttributes[i].name).getAsciiId()).equals("energy_per_shot"))
-                {
-                    space_crafting.setWeaponEnergyPerShot(prototype, (float)itemAttributes[i].currentValue);
+                if (((itemAttribute.name).getAsciiId()).equals("energy_per_shot")) {
+                    space_crafting.setWeaponEnergyPerShot(prototype, (float) itemAttribute.currentValue);
                 }
-                if (((itemAttributes[i].name).getAsciiId()).equals("refire_rate"))
-                {
-                    space_crafting.setWeaponRefireRate(prototype, (float)itemAttributes[i].currentValue);
+                if (((itemAttribute.name).getAsciiId()).equals("refire_rate")) {
+                    space_crafting.setWeaponRefireRate(prototype, (float) itemAttribute.currentValue);
                 }
-                if (((itemAttributes[i].name).getAsciiId()).equals("projectile_speed"))
-                {
-                    space_crafting.setWeaponProjectileSpeed(prototype, (float)itemAttributes[i].currentValue);
-                }
-                else 
-                {
-                    setObjVar(prototype, craftinglib.COMPONENT_ATTRIBUTE_OBJVAR_NAME + "." + (itemAttributes[i].name).getAsciiId(), itemAttributes[i].currentValue);
+                if (((itemAttribute.name).getAsciiId()).equals("projectile_speed")) {
+                    space_crafting.setWeaponProjectileSpeed(prototype, (float) itemAttribute.currentValue);
+                } else {
+                    setObjVar(prototype, craftinglib.COMPONENT_ATTRIBUTE_OBJVAR_NAME + "." + (itemAttribute.name).getAsciiId(), itemAttribute.currentValue);
                 }
             }
         }

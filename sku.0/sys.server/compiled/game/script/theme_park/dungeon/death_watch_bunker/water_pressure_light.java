@@ -13,7 +13,7 @@ public class water_pressure_light extends script.base_script
     public static final string_id MNU_WATER_VALVE = new string_id("dungeon/death_watch", "mnu_water_valve");
     public int OnInitialize(obj_id self) throws InterruptedException
     {
-        messageTo(self, "handleLightObjVar", null, 1f, false);
+        messageTo(self, "handleLightObjVar", null, 1.0f, false);
         return SCRIPT_CONTINUE;
     }
     public int handleLightObjVar(obj_id self, dictionary params) throws InterruptedException

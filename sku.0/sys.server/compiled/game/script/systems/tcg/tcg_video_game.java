@@ -123,11 +123,10 @@ public class tcg_video_game extends script.base_script
         {
             return false;
         }
-        for (int i = 0; i < TCG_MAHJONG_LAYOUTS.length; i++)
-        {
+        for (String tcgMahjongLayout : TCG_MAHJONG_LAYOUTS) {
             int idx = rand(0, tcg.DEFAULT_HIGH_SCORE_MODIFIER.length - 1);
             float modifier = tcg.DEFAULT_HIGH_SCORE_MODIFIER[idx];
-            setUpLayOutScores(table, TCG_MAHJONG_LAYOUTS[i], modifier);
+            setUpLayOutScores(table, tcgMahjongLayout, modifier);
         }
         return true;
     }
@@ -239,11 +238,9 @@ public class tcg_video_game extends script.base_script
         String[] removalSpaces = split(layout, ' ');
         layout = removalSpaces[0].trim();
         layout = toLower(layout);
-        for (int i = 0; i < TCG_MAHJONG_LAYOUTS.length; i++)
-        {
-            if (TCG_MAHJONG_LAYOUTS[i].startsWith(layout))
-            {
-                return TCG_MAHJONG_LAYOUTS[i];
+        for (String tcgMahjongLayout : TCG_MAHJONG_LAYOUTS) {
+            if (tcgMahjongLayout.startsWith(layout)) {
+                return tcgMahjongLayout;
             }
         }
         return null;

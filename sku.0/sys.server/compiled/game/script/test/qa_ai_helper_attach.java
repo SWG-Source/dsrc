@@ -1733,9 +1733,8 @@ public class qa_ai_helper_attach extends script.base_script
     }
     public boolean getEntertainerSkills(obj_id self, obj_id tester) throws InterruptedException
     {
-        for (int i = 0; i < ENTERTAINER_SKILLS.length; i++)
-        {
-            grantSkill(self, ENTERTAINER_SKILLS[i]);
+        for (String entertainerSkill : ENTERTAINER_SKILLS) {
+            grantSkill(self, entertainerSkill);
         }
         return true;
     }

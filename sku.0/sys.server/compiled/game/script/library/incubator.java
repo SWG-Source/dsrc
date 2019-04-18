@@ -785,7 +785,7 @@ public class incubator extends script.base_script
         {
             int expertiseQualityBonus = getEnhancedSkillStatisticModifierUncapped(player, "expertise_bm_dna_harvesting_1");
             blog("BEAST_DNA", "expertiseQualityBonus " + expertiseQualityBonus);
-            float modifiedExpertiseBonus = (expertiseQualityBonus * .01f) * 50;
+            float modifiedExpertiseBonus = (expertiseQualityBonus * 0.01f) * 50;
             blog("BEAST_DNA", "modifiedExpertiseBonus " + modifiedExpertiseBonus);
             float min_range = MIN_QUALITY_RANGE + modifiedExpertiseBonus;
             blog("BEAST_DNA", "min_range " + min_range);
@@ -1484,7 +1484,7 @@ public class incubator extends script.base_script
         }
         template = convertHashTemplateToString(hashTemplate, station);
         blog("INCUBATOR", "template " + template);
-        int powerPercentage = Math.round(((float)stationPowerAmount / (float)RESOURCE_POWER_AMOUNT_CAP) * MAX_GUI_POWER);
+        int powerPercentage = Math.round(((float)stationPowerAmount / RESOURCE_POWER_AMOUNT_CAP) * MAX_GUI_POWER);
         blog("INCUBATOR", "powerPercentage = (" + stationPowerAmount + " / " + RESOURCE_POWER_AMOUNT_CAP + ") * " + MAX_GUI_POWER);
         blog("INCUBATOR", "powerPercentage " + powerPercentage);
         incubatorStart(session, player, station, powerPercentage, initialPointsSurvival, initialPointsBeastialResilience, initialPointsCunning, initialPointsIntelligence, initialPointsAggression, initialPointsHuntersInstinct, tempGaugeSliderPos, nutGaugeSliderPos, initialCreatureColorIndex, template);
@@ -1735,7 +1735,7 @@ public class incubator extends script.base_script
     public static String cleanAppearanceOfHueTag(String appearance) throws InterruptedException
     {
         blog("BEAST_DNA_CLEAN_HUE", "appearance = " + appearance);
-        if (appearance.indexOf("_hue") > -1)
+        if (appearance.contains("_hue"))
         {
             String[] splitAppearance = split(appearance, '_');
             blog("BEAST_DNA_CLEAN_HUE", "splitAppearance.length = " + splitAppearance.length);
@@ -1753,7 +1753,7 @@ public class incubator extends script.base_script
             blog("BEAST_DNA_CLEAN_HUE", "FinalAappearance = " + appearance);
             return appearance;
         }
-        else if (appearance.indexOf(".iff") > -1)
+        else if (appearance.contains(".iff"))
         {
             String[] splitAppearance = split(appearance, '.');
             blog("BEAST_DNA_CLEAN_HUE", "splitAppearance.length = " + splitAppearance.length);
@@ -2441,7 +2441,7 @@ public class incubator extends script.base_script
         int index = rand(0, (attributes.length - 1));
         int bonusAmt = rand(1, 10);
         incubator.blog("INCUBATOR", attributes[index] + " Before " + attributesUpdateAmount[index]);
-        attributesUpdateAmount[index] += (float)bonusAmt;
+        attributesUpdateAmount[index] += bonusAmt;
         float attrib = 0.0f;
         if (attributes[index].equals("Health Bonus"))
         {
@@ -2449,7 +2449,7 @@ public class incubator extends script.base_script
         }
         else 
         {
-            attrib = attributesUpdateAmount[index] * .1f;
+            attrib = attributesUpdateAmount[index] * 0.1f;
         }
         attrib = utils.roundFloatByDecimal(attrib);
         incubator.blog("INCUBATOR", attributes[index] + " After " + attributesUpdateAmount[index]);

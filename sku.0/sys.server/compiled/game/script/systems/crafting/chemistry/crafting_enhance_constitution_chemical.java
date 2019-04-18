@@ -29,33 +29,27 @@ public class crafting_enhance_constitution_chemical extends script.systems.craft
             0
         };
         debugServerConsoleMsg(null, "Beginning assembly-phase prototype property setting");
-        for (int i = 0; i < itemAttributes.length; ++i)
-        {
-            if (itemAttributes[i] == null)
-            {
+        for (draft_schematic.attribute itemAttribute : itemAttributes) {
+            if (itemAttribute == null) {
                 continue;
             }
-            if (!calcAndSetPrototypeProperty(prototype, itemAttributes[i]))
-            {
-                if (((itemAttributes[i].name).getAsciiId()).equals("power"))
-                {
-                    tempPower = (int)(itemAttributes[i].currentValue);
-                }
-                else if (((itemAttributes[i].name).getAsciiId()).equals("charges"))
-                {
-                    tempCharges = (int)(itemAttributes[i].currentValue);
-                }
-                else if (((itemAttributes[i].name).getAsciiId()).equals("skillModMin"))
-                {
-                    tempSkill_req = (int)((itemAttributes[i].maxValue + itemAttributes[i].minValue) - itemAttributes[i].currentValue);
-                }
-                else if (((itemAttributes[i].name).getAsciiId()).equals("duration"))
-                {
-                    tempDuration = (int)(itemAttributes[i].currentValue);
-                }
-                else 
-                {
-                    setObjVar(prototype, craftinglib.COMPONENT_ATTRIBUTE_OBJVAR_NAME + "." + (itemAttributes[i].name).getAsciiId(), itemAttributes[i].currentValue);
+            if (!calcAndSetPrototypeProperty(prototype, itemAttribute)) {
+                switch (((itemAttribute.name).getAsciiId())) {
+                    case "power":
+                        tempPower = (int) (itemAttribute.currentValue);
+                        break;
+                    case "charges":
+                        tempCharges = (int) (itemAttribute.currentValue);
+                        break;
+                    case "skillModMin":
+                        tempSkill_req = (int) ((itemAttribute.maxValue + itemAttribute.minValue) - itemAttribute.currentValue);
+                        break;
+                    case "duration":
+                        tempDuration = (int) (itemAttribute.currentValue);
+                        break;
+                    default:
+                        setObjVar(prototype, craftinglib.COMPONENT_ATTRIBUTE_OBJVAR_NAME + "." + (itemAttribute.name).getAsciiId(), itemAttribute.currentValue);
+                        break;
                 }
             }
         }

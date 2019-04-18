@@ -40,16 +40,12 @@ public class obiwan_event_manager extends script.base_script
             debugLogging("clearEventArea", "Dungeon was empty, return");
             return;
         }
-        for (int i = 0; i < contents.length; i++)
-        {
-            if (isPlayer(contents[i]))
-            {
-                debugLogging("clearEventArea", "Validating player(" + getName(contents[i]) + "/" + contents[i] + ") from event area");
-            }
-            else 
-            {
-                debugLogging("clearEventArea", "Destroying object(" + getName(contents[i]) + "/" + contents[i] + ")");
-                trial.cleanupNpc(contents[i]);
+        for (obj_id content : contents) {
+            if (isPlayer(content)) {
+                debugLogging("clearEventArea", "Validating player(" + getName(content) + "/" + content + ") from event area");
+            } else {
+                debugLogging("clearEventArea", "Destroying object(" + getName(content) + "/" + content + ")");
+                trial.cleanupNpc(content);
             }
         }
         cleanupDungeonScriptvars();
@@ -474,7 +470,7 @@ public class obiwan_event_manager extends script.base_script
         location here = getLocation(self);
         String planet = here.area;
         debugLogging("moveThatBossReally: ", ">>>>  planet: " + planet + " destination: " + destination);
-        location home = new location(53f, 0f, 5f, planet, destination);
+        location home = new location(53.0f, 0.0f, 5.0f, planet, destination);
         ai_lib.aiPathTo(darkJedi, home);
         setHomeLocation(darkJedi, home);
         return SCRIPT_CONTINUE;
@@ -487,7 +483,7 @@ public class obiwan_event_manager extends script.base_script
         location here = getLocation(self);
         String planet = here.area;
         debugLogging("moveThatBossReally: ", ">>>>  planet: " + planet + " destination: " + destination);
-        location home = new location(31, 0f, 6f, planet, destination);
+        location home = new location(31, 0.0f, 6.0f, planet, destination);
         ai_lib.aiPathTo(darkJedi, home);
         setHomeLocation(darkJedi, home);
         return SCRIPT_CONTINUE;
@@ -541,8 +537,8 @@ public class obiwan_event_manager extends script.base_script
         location here = getLocation(self);
         String planet = here.area;
         debugLogging("moveMinionIntoRoom: ", ">>>>  planet: " + planet + " destination: " + destination);
-        location home = new location(55, 0f, 6f, planet, destination);
-        location newDestination = utils.getRandomAwayLocation(home, 1f, 4f);
+        location home = new location(55, 0.0f, 6.0f, planet, destination);
+        location newDestination = utils.getRandomAwayLocation(home, 1.0f, 4.0f);
         ai_lib.aiPathTo(minion, newDestination);
         setHomeLocation(minion, newDestination);
         return SCRIPT_CONTINUE;
@@ -569,7 +565,7 @@ public class obiwan_event_manager extends script.base_script
         location here = getLocation(self);
         String planet = here.area;
         debugLogging("moveObiwanOuttaTheWay: ", ">>>>  planet: " + planet + " destination: " + destination);
-        location home = new location(48f, 0f, 9f, planet, destination);
+        location home = new location(48.0f, 0.0f, 9.0f, planet, destination);
         ai_lib.aiPathTo(obiwan, home);
         setHomeLocation(obiwan, home);
         messageTo(obiwan, "obiwanFacePlayer", null, 6, false);

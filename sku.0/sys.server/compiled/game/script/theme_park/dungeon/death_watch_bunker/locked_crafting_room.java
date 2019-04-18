@@ -46,13 +46,9 @@ public class locked_crafting_room extends script.base_script
             obj_id groupObj = getGroupObject(player);
             obj_id[] groupMembers = getGroupMemberIds(groupObj);
             int numGroupMembers = groupMembers.length;
-            for (int f = 0; f < numGroupMembers; f++)
-            {
-                obj_id groupie = groupMembers[f];
-                if (isIdValid(groupie))
-                {
-                    if (groupie != player)
-                    {
+            for (obj_id groupie : groupMembers) {
+                if (isIdValid(groupie)) {
+                    if (groupie != player) {
                         String firstName = getFirstName(groupie);
                         permissionsAddAllowed(self, firstName);
                     }
@@ -71,9 +67,7 @@ public class locked_crafting_room extends script.base_script
         int listNum = currentList.length;
         if (listNum > 0)
         {
-            for (int i = 0; i < listNum; i++)
-            {
-                String thisMember = currentList[i];
+            for (String thisMember : currentList) {
                 permissionsRemoveAllowed(self, thisMember);
             }
         }
@@ -145,13 +139,9 @@ public class locked_crafting_room extends script.base_script
             obj_id groupObj = getGroupObject(player);
             obj_id[] groupMembers = getGroupMemberIds(groupObj);
             int numGroupMembers = groupMembers.length;
-            for (int f = 0; f < numGroupMembers; f++)
-            {
-                obj_id groupie = groupMembers[f];
-                if (isIdValid(groupie))
-                {
-                    if (groupie != player)
-                    {
+            for (obj_id groupie : groupMembers) {
+                if (isIdValid(groupie)) {
+                    if (groupie != player) {
                         utils.warpPlayer(groupie, exitPoint);
                         detachScript(groupie, "theme_park.dungeon.death_watch_bunker.death_script");
                     }

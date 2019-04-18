@@ -30,7 +30,7 @@ public class group extends script.base_script
     public static final string_id PROSE_NOTIFY_OPTION_OFF = new string_id("group", "notify_option_off");
     public static final string_id PROSE_SPLIT_COINS_SELF = new string_id("group", "prose_split_coins_self");
     public static final string_id PROSE_SPLIT_COINS_MISSION = new string_id("group", "prose_split_coins_mission");
-    public static final float SPLIT_RANGE = 200f;
+    public static final float SPLIT_RANGE = 200.0f;
     public static final String HANDLER_SPLIT_SUCCESS = "handleSplitSuccess";
     public static final String HANDLER_SPLIT_FAILURE = "handleSplitFailure";
     public static final int FREE_FOR_ALL = 0;
@@ -208,18 +208,14 @@ public class group extends script.base_script
         if (members != null && members.length > 0)
         {
             int faction = factions.FACTION_FLAG_UNKNOWN;
-            for (int i = 0, j = members.length; i < j; i++)
-            {
-                if (!isIdValid(members[i]) || !exists(members[i]))
-                {
+            for (obj_id member : members) {
+                if (!isIdValid(member) || !exists(member)) {
                     continue;
                 }
-                if (faction == factions.FACTION_FLAG_UNKNOWN)
-                {
-                    faction = factions.getFactionFlag(members[i]);
+                if (faction == factions.FACTION_FLAG_UNKNOWN) {
+                    faction = factions.getFactionFlag(member);
                 }
-                if (faction != factions.getFactionFlag(members[i]))
-                {
+                if (faction != factions.getFactionFlag(member)) {
                     return true;
                 }
             }
@@ -255,14 +251,10 @@ public class group extends script.base_script
         if (members != null && members.length > 0)
         {
             location here = getWorldLocation(actor);
-            for (int i = 0; i < members.length; i++)
-            {
-                obj_id member = members[i];
-                if (isIdValid(member) && member.isLoaded() && isPlayer(member))
-                {
+            for (obj_id member : members) {
+                if (isIdValid(member) && member.isLoaded() && isPlayer(member)) {
                     location there = getWorldLocation(member);
-                    if (getDistance(here, there) <= range)
-                    {
+                    if (getDistance(here, there) <= range) {
                         targets = utils.addElement(targets, member);
                     }
                 }
@@ -280,7 +272,7 @@ public class group extends script.base_script
     }
     public static Vector getPCMembersInRange(obj_id actor) throws InterruptedException
     {
-        return getPCMembersInRange(actor, 200f);
+        return getPCMembersInRange(actor, 200.0f);
     }
     public static void notifyCoinLoot(obj_id gid, obj_id actor, obj_id target, int amt) throws InterruptedException
     {
@@ -330,9 +322,8 @@ public class group extends script.base_script
         }
         prose_package ppSingleLoot = prose.getPackage(PROSE_NOTIFY_SINGLE_LOOT, actor, getName(actor), null, target, getAssignedName(target), getNameStringId(target), item, getAssignedName(item), getNameStringId(item), 0, 0.0f);
         obj_id[] objMembersWhoExist = utils.getLocalGroupMemberIds(gid);
-        for (int x = 0; x < objMembersWhoExist.length; x++)
-        {
-            sendSystemMessageProse(objMembersWhoExist[x], ppSingleLoot);
+        for (obj_id obj_id : objMembersWhoExist) {
+            sendSystemMessageProse(obj_id, ppSingleLoot);
         }
     }
     public static void notifyItemLoot(obj_id gid, obj_id actor, obj_id target, obj_id[] items, int leftCount) throws InterruptedException
@@ -351,9 +342,8 @@ public class group extends script.base_script
             int cnt = items.length;
             prose_package ppItemLoot = prose.getPackage(PROSE_NOTIFY_ITEM_LOOT, actor, getName(actor), null, target, getAssignedName(target), getNameStringId(target), null, null, null, cnt, 0.0f);
             sendSystemMessageProse(gid, ppItemLoot);
-            for (int i = 0; i < items.length; i++)
-            {
-                notifyItemLoot(gid, actor, target, items[i]);
+            for (obj_id item : items) {
+                notifyItemLoot(gid, actor, target, item);
             }
         }
         if (leftCount > 0)
@@ -446,11 +436,9 @@ public class group extends script.base_script
             params.put("amt", dividend);
             if (isDepositSafe(targets, dividend))
             {
-                for (int i = 0; i < targets.size(); i++)
-                {
-                    if (((obj_id)targets.get(i)) != actor)
-                    {
-                        messageTo(((obj_id)targets.get(i)), "handleRequestSplitShare", params, 0, false);
+                for (Object target : targets) {
+                    if (((obj_id) target) != actor) {
+                        messageTo(((obj_id) target), "handleRequestSplitShare", params, 0, false);
                         totalDividends += dividend;
                     }
                 }
@@ -463,13 +451,11 @@ public class group extends script.base_script
                 obj_id[] lowMoney = getUnsafeMoney(targets, dividend);
                 if (lowMoney.length > 0 && lowMoney != null)
                 {
-                    for (int j = 0; j < lowMoney.length; j++)
-                    {
-                        toPay = getSafeDifference(lowMoney[j], dividend);
-                        if (lowMoney[j] != actor)
-                        {
+                    for (obj_id obj_id : lowMoney) {
+                        toPay = getSafeDifference(obj_id, dividend);
+                        if (obj_id != actor) {
                             params.put("amt", toPay);
-                            messageTo(lowMoney[j], "handleRequestSplitShare", params, 0, false);
+                            messageTo(obj_id, "handleRequestSplitShare", params, 0, false);
                             totalDividends += toPay;
                             placeHolder -= toPay;
                         }
@@ -487,11 +473,9 @@ public class group extends script.base_script
                 params.put("amt", remainder);
                 if (safeMoney.length > 0 && safeMoney != null)
                 {
-                    for (int k = 0; k < safeMoney.length; k++)
-                    {
-                        if (safeMoney[k] != actor)
-                        {
-                            messageTo(safeMoney[k], "handleRequestSplitShares", params, 0, false);
+                    for (obj_id obj_id : safeMoney) {
+                        if (obj_id != actor) {
+                            messageTo(obj_id, "handleRequestSplitShares", params, 0, false);
                             totalDividends += remainder;
                         }
                     }
@@ -531,14 +515,10 @@ public class group extends script.base_script
             {
                 if (targets != null && targets.size() > 0)
                 {
-                    for (int i = 0; i < targets.size(); i++)
-                    {
-                        if (((obj_id)targets.get(i)) != actor)
-                        {
-                            messageTo(((obj_id)targets.get(i)), "handleRequestPayoutShare", params, 0, false);
-                        }
-                        else 
-                        {
+                    for (Object target : targets) {
+                        if (((obj_id) target) != actor) {
+                            messageTo(((obj_id) target), "handleRequestPayoutShare", params, 0, false);
+                        } else {
                             messageTo(actor, HANDLER_SPLIT_SUCCESS, params, 0, false);
                         }
                     }
@@ -576,11 +556,9 @@ public class group extends script.base_script
                 messageTo(actor, HANDLER_SPLIT_SUCCESS, params, 0, false);
                 if (safeMoney != null && safeMoney.length > 0)
                 {
-                    for (int k = 0; k < safeMoney.length; k++)
-                    {
-                        if (safeMoney[k] != actor)
-                        {
-                            messageTo(safeMoney[k], "handleRequestPayoutShare", params, 0, false);
+                    for (obj_id obj_id : safeMoney) {
+                        if (obj_id != actor) {
+                            messageTo(obj_id, "handleRequestPayoutShare", params, 0, false);
                         }
                     }
                 }
@@ -593,14 +571,11 @@ public class group extends script.base_script
     }
     public static boolean isDepositSafe(Vector members, int money) throws InterruptedException
     {
-        for (int i = 0; i < members.size(); i++)
-        {
-            if (utils.isFreeTrial(((obj_id)members.get(i))))
-            {
-                int math = getTotalMoney(((obj_id)members.get(i)));
+        for (Object member : members) {
+            if (utils.isFreeTrial(((obj_id) member))) {
+                int math = getTotalMoney(((obj_id) member));
                 int quickCheck = math + money;
-                if (quickCheck > 50000)
-                {
+                if (quickCheck > 50000) {
                     return false;
                 }
             }
@@ -611,11 +586,9 @@ public class group extends script.base_script
     {
         Vector returnArray = new Vector();
         returnArray.setSize(0);
-        for (int i = 0; i < members.size(); i++)
-        {
-            if (!utils.isFreeTrial(((obj_id)members.get(i))))
-            {
-                utils.addElement(returnArray, ((obj_id)members.get(i)));
+        for (Object member : members) {
+            if (!utils.isFreeTrial(((obj_id) member))) {
+                utils.addElement(returnArray, ((obj_id) member));
             }
         }
         obj_id[] _returnArray = new obj_id[0];
@@ -630,11 +603,9 @@ public class group extends script.base_script
     {
         Vector returnArray = new Vector();
         returnArray.setSize(0);
-        for (int i = 0; i < members.size(); i++)
-        {
-            if (utils.isFreeTrial(((obj_id)members.get(i))))
-            {
-                utils.addElement(returnArray, ((obj_id)members.get(i)));
+        for (Object member : members) {
+            if (utils.isFreeTrial(((obj_id) member))) {
+                utils.addElement(returnArray, ((obj_id) member));
             }
         }
         obj_id[] _returnArray = new obj_id[0];
@@ -737,12 +708,10 @@ public class group extends script.base_script
                 obj_id[] gmembers = group.getGroupMemberIds(gid);
                 if (gmembers != null && gmembers.length > 0)
                 {
-                    for (int i = 0; i < gmembers.length; ++i)
-                    {
-                        sendSystemMessage(gmembers[i], reasonId);
-                        if (!allReceived)
-                        {
-                            sendSystemMessage(gmembers[i], partialPayment);
+                    for (obj_id gmember : gmembers) {
+                        sendSystemMessage(gmember, reasonId);
+                        if (!allReceived) {
+                            sendSystemMessage(gmember, partialPayment);
                         }
                     }
                 }
@@ -822,11 +791,9 @@ public class group extends script.base_script
         Vector targets = getPCMembersInRange(player, range);
         if (targets != null && targets.size() > 0)
         {
-            for (int i = 0; i < targets.size(); i++)
-            {
-                if (missions.isDestroyMission(objMissionData) && missions.canEarnDailyMissionXp(((obj_id)targets.get(i))))
-                {
-                    xp.grantMissionXp(((obj_id)targets.get(i)), missionLevel);
+            for (Object target : targets) {
+                if (missions.isDestroyMission(objMissionData) && missions.canEarnDailyMissionXp(((obj_id) target))) {
+                    xp.grantMissionXp(((obj_id) target), missionLevel);
                 }
             }
         }

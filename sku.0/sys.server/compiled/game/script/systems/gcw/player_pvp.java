@@ -3,6 +3,7 @@ package script.systems.gcw;
 import script.*;
 import script.library.*;
 
+import java.util.Objects;
 import java.util.Vector;
 
 public class player_pvp extends script.base_script
@@ -174,7 +175,7 @@ public class player_pvp extends script.base_script
     public int OnEnteredCombat(obj_id self) throws InterruptedException
     {
         float ratio = getHealth(self) / getMaxHealth(self);
-        if (ratio > .9)
+        if (ratio > 0.9)
         {
             gcw.clearCreditForKills(self);
         }
@@ -1275,9 +1276,8 @@ public class player_pvp extends script.base_script
             return SCRIPT_CONTINUE;
         }
         int combinedDamage = 0;
-        for (int i = 0; i < damage.length; i++)
-        {
-            combinedDamage += damage[i];
+        for (int i1 : damage) {
+            combinedDamage += i1;
         }
         Vector attackList = new Vector();
         attackList.setSize(0);
@@ -1323,21 +1323,14 @@ public class player_pvp extends script.base_script
     public int invalidBattlefieldPlayer(obj_id self, dictionary params) throws InterruptedException
     {
         location loc = params.getLocation("kickOutLocation");
-        location goodLoc = locations.getGoodLocationAroundLocation(loc, 1f, 1f, 1.5f, 1.5f);
+        location goodLoc = locations.getGoodLocationAroundLocation(loc, 1.0f, 1.0f, 1.5f, 1.5f);
         if (isGod(self))
         {
             sendSystemMessage(self, SID_PVP_BATTLEFIELD_KICK_OUT_GODMODE);
             return SCRIPT_CONTINUE;
         }
         sendSystemMessage(self, SID_PVP_BATTLEFIELD_KICK_OUT_INVALID);
-        if (goodLoc != null)
-        {
-            utils.warpPlayer(self, goodLoc);
-        }
-        else 
-        {
-            utils.warpPlayer(self, loc);
-        }
+        utils.warpPlayer(self, Objects.requireNonNullElse(goodLoc, loc));
         return SCRIPT_CONTINUE;
     }
     public int createBattlefieldWaypoint(obj_id self, dictionary params) throws InterruptedException

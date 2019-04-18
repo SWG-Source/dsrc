@@ -24,50 +24,40 @@ public class crafting_base_dot_chemical extends script.systems.crafting.crafting
             0
         };
         debugServerConsoleMsg(null, "Beginning assembly-phase prototype property setting");
-        for (int i = 0; i < itemAttributes.length; ++i)
-        {
-            if (itemAttributes[i] == null)
-            {
+        for (draft_schematic.attribute itemAttribute : itemAttributes) {
+            if (itemAttribute == null) {
                 continue;
             }
-            if (!calcAndSetPrototypeProperty(prototype, itemAttributes[i]))
-            {
-                if (((itemAttributes[i].name).getAsciiId()).equals("power"))
-                {
-                    setObjVar(prototype, "healing.dot_power", (int)itemAttributes[i].currentValue);
-                }
-                else if (((itemAttributes[i].name).getAsciiId()).equals("charges"))
-                {
-                    setCount(prototype, (int)itemAttributes[i].currentValue);
-                }
-                else if (((itemAttributes[i].name).getAsciiId()).equals("skillModMin"))
-                {
-                    skill_value[0] = (int)((itemAttributes[i].maxValue + itemAttributes[i].minValue) - itemAttributes[i].currentValue);
-                }
-                else if (((itemAttributes[i].name).getAsciiId()).equals("range"))
-                {
-                    int range = (int)itemAttributes[i].currentValue;
-                    if (range > 48)
-                    {
-                        range = 48;
-                    }
-                    setObjVar(prototype, "healing.range", range);
-                }
-                else if (((itemAttributes[i].name).getAsciiId()).equals("area"))
-                {
-                    setObjVar(prototype, "healing.area", (int)itemAttributes[i].currentValue);
-                }
-                else if (((itemAttributes[i].name).getAsciiId()).equals("potency"))
-                {
-                    setObjVar(prototype, "healing.dot_potency", (int)itemAttributes[i].currentValue);
-                }
-                else if (((itemAttributes[i].name).getAsciiId()).equals("duration"))
-                {
-                    setObjVar(prototype, "healing.dot_duration", (int)itemAttributes[i].currentValue);
-                }
-                else 
-                {
-                    setObjVar(prototype, craftinglib.COMPONENT_ATTRIBUTE_OBJVAR_NAME + "." + (itemAttributes[i].name).getAsciiId(), itemAttributes[i].currentValue);
+            if (!calcAndSetPrototypeProperty(prototype, itemAttribute)) {
+                switch (((itemAttribute.name).getAsciiId())) {
+                    case "power":
+                        setObjVar(prototype, "healing.dot_power", (int) itemAttribute.currentValue);
+                        break;
+                    case "charges":
+                        setCount(prototype, (int) itemAttribute.currentValue);
+                        break;
+                    case "skillModMin":
+                        skill_value[0] = (int) ((itemAttribute.maxValue + itemAttribute.minValue) - itemAttribute.currentValue);
+                        break;
+                    case "range":
+                        int range = (int) itemAttribute.currentValue;
+                        if (range > 48) {
+                            range = 48;
+                        }
+                        setObjVar(prototype, "healing.range", range);
+                        break;
+                    case "area":
+                        setObjVar(prototype, "healing.area", (int) itemAttribute.currentValue);
+                        break;
+                    case "potency":
+                        setObjVar(prototype, "healing.dot_potency", (int) itemAttribute.currentValue);
+                        break;
+                    case "duration":
+                        setObjVar(prototype, "healing.dot_duration", (int) itemAttribute.currentValue);
+                        break;
+                    default:
+                        setObjVar(prototype, craftinglib.COMPONENT_ATTRIBUTE_OBJVAR_NAME + "." + (itemAttribute.name).getAsciiId(), itemAttribute.currentValue);
+                        break;
                 }
             }
         }

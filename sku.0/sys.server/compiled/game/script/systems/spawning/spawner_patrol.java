@@ -212,13 +212,13 @@ public class spawner_patrol extends script.base_script
         }
         else if (fltOriginalSize <= 80.0f)
         {
-            return 80f;
+            return 80.0f;
         }
         else if (fltOriginalSize <= 96.0f)
         {
-            return 96f;
+            return 96.0f;
         }
-        return 32f;
+        return 32.0f;
     }
     public boolean createMob(String creature, obj_id locationObject, location spawnLoc, float spawnRadius, obj_id self) throws InterruptedException
     {

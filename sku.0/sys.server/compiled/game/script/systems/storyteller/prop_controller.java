@@ -168,7 +168,7 @@ public class prop_controller extends script.base_script
         playClientEffectObj(killer, "clienteffect/combat_explosion_lair_large.cef", self, "");
         playClientEffectLoc(killer, "clienteffect/combat_explosion_lair_large.cef", death, 0);
         setInvulnerable(self, true);
-        messageTo(self, "cleanupProp", null, 1f, false);
+        messageTo(self, "cleanupProp", null, 1.0f, false);
         return SCRIPT_CONTINUE;
     }
     public int OnObjectDamaged(obj_id self, obj_id attacker, obj_id weapon, int damage) throws InterruptedException

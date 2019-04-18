@@ -60,9 +60,8 @@ public class cts_test2 extends script.base_script
                             {
                                 fos = new FileOutputStream(file);
                                 dos = new DataOutputStream(fos);
-                                for (int i = 0; i < dictPacked.length; ++i)
-                                {
-                                    dos.writeByte(dictPacked[i]);
+                                for (byte b : dictPacked) {
+                                    dos.writeByte(b);
                                 }
                                 fos.close();
                                 fos = null;

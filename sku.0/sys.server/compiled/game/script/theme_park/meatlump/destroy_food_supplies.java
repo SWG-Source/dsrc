@@ -128,7 +128,7 @@ public class destroy_food_supplies extends script.base_script
         setSUIProperty(pid, "description.attempts", "Text", CALIBRATION_ATTEMPTS_REMAINING + " 100%");
         for (int i = 0; i < goal.length; i++)
         {
-            float pct = (float)goal[i] / 100.0f;
+            float pct = goal[i] / 100.0f;
             int dec = (int)(255 * pct);
             String hex = Integer.toHexString(dec);
             if (hex.length() == 1)
@@ -196,7 +196,7 @@ public class destroy_food_supplies extends script.base_script
             {
                 win = false;
             }
-            float pct = (float)current[i] / 100.0f;
+            float pct = current[i] / 100.0f;
             int dec = (int)(255 * pct);
             String hex = Integer.toHexString(dec);
             if (hex.length() == 1)
@@ -208,7 +208,7 @@ public class destroy_food_supplies extends script.base_script
         }
         blog("gyroReceiverPuzzleCallback - loop finish");
         tries--;
-        int integrity = (int)(((float)tries / (float)max_tries) * 100);
+        int integrity = (int)(((float)tries / max_tries) * 100);
         if (win)
         {
             blog("gyroReceiverPuzzleCallback - YOU WIN");
@@ -225,7 +225,7 @@ public class destroy_food_supplies extends script.base_script
             setSUIProperty(pid, "description.desc", "Text", CALIBRATION_FAILURE);
             for (int i = 0; i < current.length; i++)
             {
-                float pct = (float)current[i] / 100.0f;
+                float pct = current[i] / 100.0f;
                 int dec = (int)(255 * pct);
                 String hex = Integer.toHexString(dec);
                 if (hex.length() == 1)

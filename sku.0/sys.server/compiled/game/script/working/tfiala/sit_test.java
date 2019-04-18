@@ -46,7 +46,7 @@ public class sit_test extends script.base_script
         Long lngId = null;
         try
         {
-            lngId = new Long(objectIdAsString);
+            lngId = Long.valueOf(objectIdAsString);
         }
         catch(NumberFormatException err)
         {

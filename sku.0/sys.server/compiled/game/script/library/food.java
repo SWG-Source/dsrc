@@ -20,29 +20,25 @@ public class food extends script.base_script
         }
         int v1 = getIntObjVar(item, "instant.v1");
         int v2 = getIntObjVar(item, "instant.v2");
-        if (type.equals("burst_run"))
-        {
-            instantBurstRun(target, item, v1, v2);
-        }
-        else if (type.equals("wookiee_roar"))
-        {
-            instantWookieeRoar(target, item, v1, v2);
-        }
-        else if (type.equals("slow_dot"))
-        {
-            instantSlowDot(target, item, v1, v2);
-        }
-        else if (type.equals("cure_fire"))
-        {
-            instantCureFire(target, item, v1, v2);
-        }
-        else if (type.equals("enhanced_regen"))
-        {
-            instantEnhancedRegen(target, item, v1, v2);
-        }
-        else if (type.equals("food_reduce"))
-        {
-            instantFoodReduce(target, item, v1, v2);
+        switch (type) {
+            case "burst_run":
+                instantBurstRun(target, item, v1, v2);
+                break;
+            case "wookiee_roar":
+                instantWookieeRoar(target, item, v1, v2);
+                break;
+            case "slow_dot":
+                instantSlowDot(target, item, v1, v2);
+                break;
+            case "cure_fire":
+                instantCureFire(target, item, v1, v2);
+                break;
+            case "enhanced_regen":
+                instantEnhancedRegen(target, item, v1, v2);
+                break;
+            case "food_reduce":
+                instantFoodReduce(target, item, v1, v2);
+                break;
         }
     }
     public static void petEatFood(obj_id self, obj_id master, obj_id item, obj_id player) throws InterruptedException
@@ -94,13 +90,12 @@ public class food extends script.base_script
                 return;
             }
         }
-        float mod = 1f - (v1 / 100f);
+        float mod = 1.0f - (v1 / 100.0f);
         String[] dots = dot.getAllDots(target);
         if (dots != null)
         {
-            for (int i = 0; i < dots.length; i++)
-            {
-                String varName = dot.VAR_DOT_ROOT + dots[i] + dot.VAR_DURATION;
+            for (String d : dots) {
+                String varName = dot.VAR_DOT_ROOT + d + dot.VAR_DURATION;
                 int duration = utils.getIntScriptVar(target, varName);
                 duration *= mod;
                 utils.setScriptVar(target, varName, duration);

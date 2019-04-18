@@ -185,10 +185,8 @@ public class restuss_event extends script.base_script
             "restuss_imperial_first",
             "restuss_imperial_second"
         };
-        for (int k = 0; k < badgeList.length; k++)
-        {
-            if (badge.hasBadge(player, badgeList[k]))
-            {
+        for (String s : badgeList) {
+            if (badge.hasBadge(player, s)) {
                 return false;
             }
         }
@@ -198,24 +196,17 @@ public class restuss_event extends script.base_script
         {
             return false;
         }
-        for (int i = 0; i < quests.length; i++)
-        {
-            if (quests[i].indexOf("rebel") > -1)
-            {
-                if (factions.isRebel(player))
-                {
-                    if (groundquests.hasCompletedQuest(player, quests[i]))
-                    {
+        for (String quest : quests) {
+            if (quest.contains("rebel")) {
+                if (factions.isRebel(player)) {
+                    if (groundquests.hasCompletedQuest(player, quest)) {
                         eligable = true;
                     }
                 }
             }
-            if (quests[i].indexOf("imperial") > -1)
-            {
-                if (factions.isImperial(player))
-                {
-                    if (groundquests.hasCompletedQuest(player, quests[i]))
-                    {
+            if (quest.contains("imperial")) {
+                if (factions.isImperial(player)) {
+                    if (groundquests.hasCompletedQuest(player, quest)) {
                         eligable = true;
                     }
                 }
@@ -260,11 +251,9 @@ public class restuss_event extends script.base_script
         {
             return false;
         }
-        for (int i = 0; i < controller_id.length; i++)
-        {
-            if ((getStringObjVar(controller_id[i], "element")).equals("ph1_restuss_master"))
-            {
-                restuss_controller = controller_id[i];
+        for (obj_id obj_id : controller_id) {
+            if ((getStringObjVar(obj_id, "element")).equals("ph1_restuss_master")) {
+                restuss_controller = obj_id;
                 break;
             }
         }
@@ -290,11 +279,9 @@ public class restuss_event extends script.base_script
         {
             return -1;
         }
-        for (int i = 0; i < controller_id.length; i++)
-        {
-            if ((getStringObjVar(controller_id[i], "element")).equals("ph1_restuss_master"))
-            {
-                restuss_controller = controller_id[i];
+        for (obj_id obj_id : controller_id) {
+            if ((getStringObjVar(obj_id, "element")).equals("ph1_restuss_master")) {
+                restuss_controller = obj_id;
                 break;
             }
         }

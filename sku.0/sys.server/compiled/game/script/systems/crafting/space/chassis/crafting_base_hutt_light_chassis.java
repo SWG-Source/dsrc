@@ -17,29 +17,22 @@ public class crafting_base_hutt_light_chassis extends script.systems.crafting.cr
     public void calcAndSetPrototypeProperties(obj_id prototype, draft_schematic.attribute[] itemAttributes) throws InterruptedException
     {
         debugServerConsoleMsg(null, "Beginning assembly-phase prototype property setting");
-        for (int i = 0; i < itemAttributes.length; ++i)
-        {
+        for (draft_schematic.attribute itemAttribute : itemAttributes) {
             setObjVar(prototype, "isShipDeed", true);
             setObjVar(prototype, "shiptype", "hutt_light_s01");
-            if (itemAttributes[i] == null)
-            {
+            if (itemAttribute == null) {
                 continue;
             }
-            if (!calcAndSetPrototypeProperty(prototype, itemAttributes[i]))
-            {
-                if (((itemAttributes[i].name).getAsciiId()).equals("massMax"))
-                {
+            if (!calcAndSetPrototypeProperty(prototype, itemAttribute)) {
+                if (((itemAttribute.name).getAsciiId()).equals("massMax")) {
                     String OBJVAR_NAME = "ship_chassis.mass";
-                    setObjVar(prototype, OBJVAR_NAME, (float)itemAttributes[i].currentValue);
+                    setObjVar(prototype, OBJVAR_NAME, (float) itemAttribute.currentValue);
                 }
-                if (((itemAttributes[i].name).getAsciiId()).equals("hp"))
-                {
+                if (((itemAttribute.name).getAsciiId()).equals("hp")) {
                     String OBJVAR_NAME = "ship_chassis.hp";
-                    setObjVar(prototype, OBJVAR_NAME, (float)itemAttributes[i].currentValue);
-                }
-                else 
-                {
-                    setObjVar(prototype, craftinglib.COMPONENT_ATTRIBUTE_OBJVAR_NAME + "." + (itemAttributes[i].name).getAsciiId(), itemAttributes[i].currentValue);
+                    setObjVar(prototype, OBJVAR_NAME, (float) itemAttribute.currentValue);
+                } else {
+                    setObjVar(prototype, craftinglib.COMPONENT_ATTRIBUTE_OBJVAR_NAME + "." + (itemAttribute.name).getAsciiId(), itemAttribute.currentValue);
                 }
             }
         }

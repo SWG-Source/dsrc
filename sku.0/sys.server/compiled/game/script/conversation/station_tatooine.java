@@ -15,15 +15,15 @@ public class station_tatooine extends script.base_script
     }
     public boolean station_tatooine_condition_canAfford50(obj_id player, obj_id npc) throws InterruptedException
     {
-        return space_crafting.canAffordShipRepairs(player, npc, .50f);
+        return space_crafting.canAffordShipRepairs(player, npc, 0.50f);
     }
     public boolean station_tatooine_condition_canAfford25(obj_id player, obj_id npc) throws InterruptedException
     {
-        return (space_crafting.canAffordShipRepairs(player, npc, .25f) && space_crafting.isDamaged(player));
+        return (space_crafting.canAffordShipRepairs(player, npc, 0.25f) && space_crafting.isDamaged(player));
     }
     public boolean station_tatooine_condition_canAfford75(obj_id player, obj_id npc) throws InterruptedException
     {
-        return space_crafting.canAffordShipRepairs(player, npc, .75f);
+        return space_crafting.canAffordShipRepairs(player, npc, 0.75f);
     }
     public boolean station_tatooine_condition_canAfford100(obj_id player, obj_id npc) throws InterruptedException
     {
@@ -176,15 +176,15 @@ public class station_tatooine extends script.base_script
     }
     public void station_tatooine_action_fix25(obj_id player, obj_id npc) throws InterruptedException
     {
-        space_crafting.doStationToShipRepairs(player, npc, .25f);
+        space_crafting.doStationToShipRepairs(player, npc, 0.25f);
     }
     public void station_tatooine_action_fix50(obj_id player, obj_id npc) throws InterruptedException
     {
-        space_crafting.doStationToShipRepairs(player, npc, .50f);
+        space_crafting.doStationToShipRepairs(player, npc, 0.50f);
     }
     public void station_tatooine_action_fix75(obj_id player, obj_id npc) throws InterruptedException
     {
-        space_crafting.doStationToShipRepairs(player, npc, .75f);
+        space_crafting.doStationToShipRepairs(player, npc, 0.75f);
     }
     public void station_tatooine_action_fix100(obj_id player, obj_id npc) throws InterruptedException
     {
@@ -256,15 +256,15 @@ public class station_tatooine extends script.base_script
     }
     public int station_tatooine_tokenDI_getStationRepairCost25(obj_id player, obj_id npc) throws InterruptedException
     {
-        return space_crafting.getStationRepairCost(player, npc, .25f);
+        return space_crafting.getStationRepairCost(player, npc, 0.25f);
     }
     public int station_tatooine_tokenDI_getStationRepairCost50(obj_id player, obj_id npc) throws InterruptedException
     {
-        return space_crafting.getStationRepairCost(player, npc, .50f);
+        return space_crafting.getStationRepairCost(player, npc, 0.50f);
     }
     public int station_tatooine_tokenDI_getStationRepairCost75(obj_id player, obj_id npc) throws InterruptedException
     {
-        return space_crafting.getStationRepairCost(player, npc, .75f);
+        return space_crafting.getStationRepairCost(player, npc, 0.75f);
     }
     public int station_tatooine_tokenDI_getStationRepairCost100(obj_id player, obj_id npc) throws InterruptedException
     {

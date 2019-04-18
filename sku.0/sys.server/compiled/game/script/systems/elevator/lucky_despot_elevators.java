@@ -20,7 +20,7 @@ public class lucky_despot_elevators extends script.base_script
             here.cell = elevator1;
             obj_id elevatorTerminalA1 = createObject("object/tangible/terminal/terminal_elevator_down.iff", here);
             here.x = -7.53f;
-            here.y = .01f;
+            here.y = 0.01f;
             here.z = -21.44f;
             here.cell = elevator1;
             obj_id elevatorTerminalB1 = createObject("object/tangible/terminal/terminal_elevator_up.iff", here);
@@ -40,7 +40,7 @@ public class lucky_despot_elevators extends script.base_script
             here.cell = elevator2;
             obj_id elevatorTerminalA2 = createObject("object/tangible/terminal/terminal_elevator_down.iff", here);
             here.x = -3.45f;
-            here.y = .01f;
+            here.y = 0.01f;
             here.z = -21.44f;
             here.cell = elevator2;
             obj_id elevatorTerminalB2 = createObject("object/tangible/terminal/terminal_elevator_up.iff", here);
@@ -54,13 +54,13 @@ public class lucky_despot_elevators extends script.base_script
         obj_id elevator3 = getCellId(self, "elevator03");
         if (isIdValid(elevator3))
         {
-            here.x = .5f;
+            here.x = 0.5f;
             here.y = 9.01f;
             here.z = -21.44f;
             here.cell = elevator3;
             obj_id elevatorTerminalA3 = createObject("object/tangible/terminal/terminal_elevator_down.iff", here);
-            here.x = .5f;
-            here.y = .01f;
+            here.x = 0.5f;
+            here.y = 0.01f;
             here.z = -21.44f;
             here.cell = elevator3;
             obj_id elevatorTerminalB3 = createObject("object/tangible/terminal/terminal_elevator_up.iff", here);

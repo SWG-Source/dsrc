@@ -167,9 +167,8 @@ public class magic extends script.base_script
         {
             String[] commands = getCommandListingForPlayer(getLookAtTarget(self));
             sendSystemMessageTestingOnly(self, "Commands:");
-            for (int i = 0; i < commands.length; i++)
-            {
-                sendSystemMessageTestingOnly(self, "'" + commands[i] + "'");
+            for (String command : commands) {
+                sendSystemMessageTestingOnly(self, "'" + command + "'");
             }
         }
         if ((toLower(text)).startsWith("incapcount"))
@@ -198,28 +197,23 @@ public class magic extends script.base_script
             String amountStr = st.nextToken();
             attribute[] attrib = getAttribs(target);
             int amount = utils.stringToInt(amountStr);
-            if (attribStr.equals("health"))
-            {
-                attrib[HEALTH] = new attribute(attrib[HEALTH].getType(), (attrib[HEALTH].getValue() - amount));
-            }
-            else if (attribStr.equals("action"))
-            {
-                attrib[ACTION] = new attribute(attrib[ACTION].getType(), (attrib[ACTION].getValue() - amount));
-            }
-            else if (attribStr.equals("mind"))
-            {
-                attrib[MIND] = new attribute(attrib[MIND].getType(), (attrib[MIND].getValue() - amount));
-            }
-            else if (attribStr.equals("all"))
-            {
-                for (int i = 0; i < attrib.length; i += NUM_ATTRIBUTES_PER_GROUP)
-                {
-                    attrib[i] = new attribute(attrib[i].getType(), (attrib[i].getValue() - amount));
-                }
-            }
-            else 
-            {
-                return SCRIPT_CONTINUE;
+            switch (attribStr) {
+                case "health":
+                    attrib[HEALTH] = new attribute(attrib[HEALTH].getType(), (attrib[HEALTH].getValue() - amount));
+                    break;
+                case "action":
+                    attrib[ACTION] = new attribute(attrib[ACTION].getType(), (attrib[ACTION].getValue() - amount));
+                    break;
+                case "mind":
+                    attrib[MIND] = new attribute(attrib[MIND].getType(), (attrib[MIND].getValue() - amount));
+                    break;
+                case "all":
+                    for (int i = 0; i < attrib.length; i += NUM_ATTRIBUTES_PER_GROUP) {
+                        attrib[i] = new attribute(attrib[i].getType(), (attrib[i].getValue() - amount));
+                    }
+                    break;
+                default:
+                    return SCRIPT_CONTINUE;
             }
             for (int j = 0; j < attrib.length; j += NUM_ATTRIBUTES_PER_GROUP)
             {
@@ -269,9 +263,8 @@ public class magic extends script.base_script
         {
             obj_id dp = utils.getPlayerDatapad(self);
             obj_id[] things = getContents(dp);
-            for (int i = 0; i < things.length; i++)
-            {
-                destroyObject(things[i]);
+            for (obj_id thing : things) {
+                destroyObject(thing);
             }
             sendSystemMessageTestingOnly(self, "DP cleaned.");
         }

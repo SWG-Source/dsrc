@@ -74,7 +74,7 @@ public class advanced_turret_ai extends script.systems.combat.combat_base
         {
             range = params.getFloat("range");
         }
-        float interval = range / (float)INTERVAL_MAX;
+        float interval = range / INTERVAL_MAX;
         for (int i = 0; i < INTERVAL_MAX; i++)
         {
             createTriggerVolume(advanced_turret.ALERT_VOLUME_NAME + i, interval * (i + 1), true);

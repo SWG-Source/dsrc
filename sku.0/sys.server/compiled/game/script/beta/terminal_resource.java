@@ -50,11 +50,9 @@ public class terminal_resource extends script.terminal.base.terminal_add_use
         }
         int use = -1;
         menu_info_data[] root = mi.getRootMenuItems();
-        for (int i = 0; i < root.length; i++)
-        {
-            if (root[i].getType() == menu_info_types.ITEM_USE)
-            {
-                use = root[i].getId();
+        for (menu_info_data menu_info_data : root) {
+            if (menu_info_data.getType() == menu_info_types.ITEM_USE) {
+                use = menu_info_data.getId();
             }
         }
         if (use != -1)
@@ -273,33 +271,26 @@ public class terminal_resource extends script.terminal.base.terminal_add_use
         resourceTree.setSize(0);
         if (resources != null)
         {
-            for (int i = 0; i < resources.length; i++)
-            {
-                if (!isResourceDerivedFrom(resources[i].getResourceType(), topParent))
-                {
+            for (resource_density resource : resources) {
+                if (!isResourceDerivedFrom(resource.getResourceType(), topParent)) {
                     continue;
                 }
-                String parent = getResourceClass(resources[i].getResourceType());
+                String parent = getResourceClass(resource.getResourceType());
                 String child = null;
-                if (parent == null)
-                {
+                if (parent == null) {
                     continue;
                 }
-                while (!parent.equals(topParent))
-                {
+                while (!parent.equals(topParent)) {
                     child = parent;
                     parent = getResourceParentClass(child);
                 }
-                if (child == null)
-                {
-                    child = "\\#pcontrast1 " + getResourceName(resources[i].getResourceType()) + "\\#.";
+                if (child == null) {
+                    child = "\\#pcontrast1 " + getResourceName(resource.getResourceType()) + "\\#.";
                 }
-                for (int j = 0; j < branchLevel; j++)
-                {
+                for (int j = 0; j < branchLevel; j++) {
                     child = "    " + child;
                 }
-                if (resourceTree.indexOf(child) == -1)
-                {
+                if (resourceTree.indexOf(child) == -1) {
                     resourceTree.add(child);
                 }
             }
@@ -308,9 +299,8 @@ public class terminal_resource extends script.terminal.base.terminal_add_use
         {
             String parent = ((String)resourceTree.get(i)).trim();
             String[] childBranch = buildSortedResourceTree(resources, parent, branchLevel + 1);
-            for (int j = 0; j < childBranch.length; j++)
-            {
-                resourceTree.add(++i, childBranch[j]);
+            for (String childBranch1 : childBranch) {
+                resourceTree.add(++i, childBranch1);
             }
         }
         String[] _resourceTree = new String[0];

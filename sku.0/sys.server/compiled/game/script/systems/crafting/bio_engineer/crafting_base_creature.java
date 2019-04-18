@@ -37,15 +37,12 @@ public class crafting_base_creature extends script.systems.crafting.crafting_bas
             0
         };
         float dnaAttrib = 0;
-        for (int i = 0; i < itemAttributes.length; ++i)
-        {
-            if (itemAttributes[i] == null)
-            {
+        for (draft_schematic.attribute itemAttribute : itemAttributes) {
+            if (itemAttribute == null) {
                 continue;
             }
-            if (!calcAndSetPrototypeProperty(prototype, itemAttributes[i]))
-            {
-                setObjVar(prototype, craftinglib.COMPONENT_ATTRIBUTE_OBJVAR_NAME + "." + (itemAttributes[i].name).getAsciiId(), itemAttributes[i].currentValue);
+            if (!calcAndSetPrototypeProperty(prototype, itemAttribute)) {
+                setObjVar(prototype, craftinglib.COMPONENT_ATTRIBUTE_OBJVAR_NAME + "." + (itemAttribute.name).getAsciiId(), itemAttribute.currentValue);
             }
         }
         setObjVar(prototype, "creature_attribs.type", getCreatureName());
@@ -110,7 +107,7 @@ public class crafting_base_creature extends script.systems.crafting.crafting_bas
         {
             level = minLevel;
         }
-        float levelRank = 1 - ((float)(maxLevel - level) / levelRange);
+        float levelRank = 1 - ((maxLevel - level) / levelRange);
         LOG("creature_crafting", "Level Rank = " + levelRank);
         float finalScale = minScale + (scaleRange * levelRank);
         setObjVar(prototype, "creature_attribs.scale", finalScale);
@@ -140,63 +137,52 @@ public class crafting_base_creature extends script.systems.crafting.crafting_bas
             obj_attributes[i] = (objectAttribs[i].name).getAsciiId();
         }
         debugServerConsoleMsg(self, "Ingredient slot info (" + slots.length + " slots):");
-        for (int i = 0; i < slots.length; ++i)
-        {
-            debugServerConsoleMsg(self, "\tslot " + slots[i].name + ", ingredient " + slots[i].ingredients[0].ingredient + ", amount = " + slots[i].ingredients[0].count);
+        for (draft_schematic.slot slot : slots) {
+            debugServerConsoleMsg(self, "\tslot " + slot.name + ", ingredient " + slot.ingredients[0].ingredient + ", amount = " + slot.ingredients[0].count);
         }
         debugServerConsoleMsg(self, "Item attribute info (" + objectAttribs.length + " attribs):");
         craftingValuesDictionary.put("craftingType", schematic.getCategory());
-        for (int i = 0; i < objectAttribs.length; ++i)
-        {
-            if (((objectAttribs[i].name).getAsciiId()).equals("complexity"))
-            {
-                craftingValuesDictionary.put("itemDefaultComplexity", objectAttribs[i].minValue);
-                craftingValuesDictionary.put("itemCurrentComplexity", objectAttribs[i].currentValue);
-            }
-            else if (((objectAttribs[i].name).getAsciiId()).equals("armorSpecialType"))
-            {
-                craftingValuesDictionary.put("itemDefaultArmorSpecialType", objectAttribs[i].minValue);
-                craftingValuesDictionary.put("itemCurrentArmorSpecialType", objectAttribs[i].currentValue);
-            }
-            else if (((objectAttribs[i].name).getAsciiId()).equals("sockets"))
-            {
-                int[] mods = getEnhancedSkillStatisticModifiers(player, getExperimentSkillMods());
-                if (mods != null)
-                {
-                    int experimentModTotal = 0;
-                    for (int j = 0; j < mods.length; ++j)
-                    {
-                        experimentModTotal += mods[j];
-                    }
-                    if (experimentModTotal > craftinglib.socketThreshold)
-                    {
-                        int sockets = 0;
-                        int chances = 1 + (experimentModTotal - craftinglib.socketThreshold) / craftinglib.socketDelta;
-                        for (int j = 0; j < chances; ++j)
-                        {
-                            if (rand(1, 100) > craftinglib.socketChance)
-                            {
-                                ++sockets;
+        for (draft_schematic.attribute objectAttrib : objectAttribs) {
+            switch (((objectAttrib.name).getAsciiId())) {
+                case "complexity":
+                    craftingValuesDictionary.put("itemDefaultComplexity", objectAttrib.minValue);
+                    craftingValuesDictionary.put("itemCurrentComplexity", objectAttrib.currentValue);
+                    break;
+                case "armorSpecialType":
+                    craftingValuesDictionary.put("itemDefaultArmorSpecialType", objectAttrib.minValue);
+                    craftingValuesDictionary.put("itemCurrentArmorSpecialType", objectAttrib.currentValue);
+                    break;
+                case "sockets":
+                    int[] mods = getEnhancedSkillStatisticModifiers(player, getExperimentSkillMods());
+                    if (mods != null) {
+                        int experimentModTotal = 0;
+                        for (int mod : mods) {
+                            experimentModTotal += mod;
+                        }
+                        if (experimentModTotal > craftinglib.socketThreshold) {
+                            int sockets = 0;
+                            int chances = 1 + (experimentModTotal - craftinglib.socketThreshold) / craftinglib.socketDelta;
+                            for (int j = 0; j < chances; ++j) {
+                                if (rand(1, 100) > craftinglib.socketChance) {
+                                    ++sockets;
+                                }
+                            }
+                            if (sockets > craftinglib.maxSockets) {
+                                sockets = craftinglib.maxSockets;
+                            }
+                            objectAttrib.minValue = sockets;
+                            objectAttrib.maxValue = sockets;
+                            objectAttrib.currentValue = sockets;
+                            if (sockets > 0) {
+                                setCondition(prototype, CONDITION_MAGIC_ITEM);
                             }
                         }
-                        if (sockets > craftinglib.maxSockets)
-                        {
-                            sockets = craftinglib.maxSockets;
-                        }
-                        objectAttribs[i].minValue = sockets;
-                        objectAttribs[i].maxValue = sockets;
-                        objectAttribs[i].currentValue = sockets;
-                        if (sockets > 0)
-                        {
-                            setCondition(prototype, CONDITION_MAGIC_ITEM);
-                        }
                     }
-                }
+                    break;
+                default:
+                    break;
             }
-            else 
-            {
-            }
-            debugServerConsoleMsg(self, "\tattrib " + objectAttribs[i].name + ", values = " + objectAttribs[i].minValue + ".." + objectAttribs[i].maxValue);
+            debugServerConsoleMsg(self, "\tattrib " + objectAttrib.name + ", values = " + objectAttrib.minValue + ".." + objectAttrib.maxValue);
         }
         grantExperience(player, slots);
         int assemblySuccess = craftinglib.calcAssemblyPhaseAttributes(player, slots, objectAttribs, craftingValuesDictionary, getAssemblySkillMods(), getResourceMaxResourceWeights(), getAssemblyResourceWeights());

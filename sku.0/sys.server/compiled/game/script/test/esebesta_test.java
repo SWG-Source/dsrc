@@ -94,240 +94,188 @@ public class esebesta_test extends script.base_script
             {
                 String command = tok.nextToken();
                 debugConsoleMsg(self, "command is: " + command);
-                if (command.equals("eas_harvest"))
-                {
-                    if (tok.hasMoreTokens())
-                    {
-                        String harvesterIdString = tok.nextToken();
-                        obj_id harvester = obj_id.getObjId(java.lang.Long.parseLong(harvesterIdString));
-                        activateHarvesterExtractionPage(self, harvester);
+                switch (command) {
+                    case "eas_harvest":
+                        if (tok.hasMoreTokens()) {
+                            String harvesterIdString = tok.nextToken();
+                            obj_id harvester = obj_id.getObjId(Long.parseLong(harvesterIdString));
+                            activateHarvesterExtractionPage(self, harvester);
+                        } else {
+                            debugSpeakMsg(self, "Not enough arguments: eas_harvest <harvester_id>");
+                        }
+                        break;
+                    case "eas_wphere":
+                        debugConsoleMsg(self, "hit eas_wphere");
+                        obj_id wp = createWaypointInDatapad(self, getLocation(self));
+                        _setWaypointColorNative(wp, "space");
+                        break;
+                    case "eas_setShipWingName":
+                        debugConsoleMsg(self, "hit eas_setShipWingName");
+                        obj_id ship = getLookAtTarget(self);
+                        setShipWingName(ship, "test_wing");
+                        break;
+                    case "eas_giveTestQuest": {
+                        debugConsoleMsg(self, "hit eas_giveTestQuest");
+                        int questId = questGetQuestId("quest/kill_3_womprats");
+                        questActivateQuest(questId, self, self);
+                        break;
                     }
-                    else 
-                    {
-                        debugSpeakMsg(self, "Not enough arguments: eas_harvest <harvester_id>");
-                    }
-                }
-                else if (command.equals("eas_wphere"))
-                {
-                    debugConsoleMsg(self, "hit eas_wphere");
-                    obj_id wp = createWaypointInDatapad(self, getLocation(self));
-                    _setWaypointColorNative(wp, "space");
-                }
-                else if (command.equals("eas_setShipWingName"))
-                {
-                    debugConsoleMsg(self, "hit eas_setShipWingName");
-                    obj_id ship = getLookAtTarget(self);
-                    setShipWingName(ship, "test_wing");
-                }
-                else if (command.equals("eas_giveTestQuest"))
-                {
-                    debugConsoleMsg(self, "hit eas_giveTestQuest");
-                    int questId = questGetQuestId("quest/kill_3_womprats");
-                    questActivateQuest(questId, self, self);
-                }
-                else if (command.equals("eas_clearTestQuest"))
-                {
-                    debugConsoleMsg(self, "hit eas_clearTestQuest");
-                    int questId = questGetQuestId("quest/kill_3_womprats");
-                    questClearQuest(questId, self);
-                }
-                else if (command.equals("eas_giveTestQuest2"))
-                {
-                    debugConsoleMsg(self, "hit eas_giveTestQuest2");
-                    int questId = questGetQuestId("quest/kill_3_valarian_assassins");
-                    questActivateQuest(questId, self, self);
-                }
-                else if (command.equals("eas_clearTestQuest2"))
-                {
-                    debugConsoleMsg(self, "hit eas_clearTestQuest2");
-                    int questId = questGetQuestId("quest/kill_3_valarian_assassins");
-                    questClearQuest(questId, self);
-                }
-                else if (command.equals("eas_giveQuest"))
-                {
-                    debugConsoleMsg(self, "hit eas_giveQuest");
-                    if (tok.hasMoreTokens())
-                    {
-                        String questName = tok.nextToken();
-                        int questId = questGetQuestId(questName);
-                        int result = questActivateQuest(questId, self, self);
-                        if (result == 1)
-                        {
-                            String s = "Error: Quest already active.";
-                            debugSpeakMsg(self, s);
-                        }
-                        else if (result == 2)
-                        {
-                            String s = "Error: No such quest.";
-                            debugSpeakMsg(self, s);
-                        }
-                        else if (result == 3)
-                        {
-                            String s = "Error: No such task.";
-                            debugSpeakMsg(self, s);
-                        }
-                        else if (result == 4)
-                        {
-                            String s = "Error: Quest already completed, and not repeatable.";
-                            debugSpeakMsg(self, s);
-                        }
-                        else if (result == 5)
-                        {
-                            String s = "Error: Failed prerequisites.";
-                            debugSpeakMsg(self, s);
-                        }
-                        else if (result == 6)
-                        {
-                            String s = "Error: Failed exclusions.";
-                            debugSpeakMsg(self, s);
-                        }
-                        else if (result == 7)
-                        {
-                            String s = "Error: Quest Not active.";
-                            debugSpeakMsg(self, s);
-                        }
-                        else if (result == 8)
-                        {
-                            String s = "Error: Task not active.";
-                            debugSpeakMsg(self, s);
-                        }
-                        else if (result == 9)
-                        {
-                            String s = "Error: No such player.";
-                            debugSpeakMsg(self, s);
-                        }
-                    }
-                    else 
-                    {
-                        debugConsoleMsg(self, "Usage: eas_giveQuest <questname>. i.e. \"eas_giveQuest quest/loot_5_widgets\"");
-                        debugSpeakMsg(self, "Usage: eas_giveQuest <questname>. i.e. \"eas_giveQuest quest/loot_5_widgets\"");
-                    }
-                }
-                else if (command.equals("eas_clearQuest"))
-                {
-                    debugConsoleMsg(self, "hit eas_clearQuest");
-                    if (tok.hasMoreTokens())
-                    {
-                        String questName = tok.nextToken();
-                        int questId = questGetQuestId(questName);
+                    case "eas_clearTestQuest": {
+                        debugConsoleMsg(self, "hit eas_clearTestQuest");
+                        int questId = questGetQuestId("quest/kill_3_womprats");
                         questClearQuest(questId, self);
+                        break;
                     }
-                    else 
-                    {
-                        debugConsoleMsg(self, "Usage: eas_clearQuest <questname>. i.e. \"eas_giveQuest quest/loot_5_widgets\"");
-                        debugSpeakMsg(self, "Usage: eas_clearQuest <questname>. i.e. \"eas_giveQuest quest/loot_5_widgets\"");
+                    case "eas_giveTestQuest2": {
+                        debugConsoleMsg(self, "hit eas_giveTestQuest2");
+                        int questId = questGetQuestId("quest/kill_3_valarian_assassins");
+                        questActivateQuest(questId, self, self);
+                        break;
                     }
-                }
-                else if (command.equals("eas_completeTask"))
-                {
-                    debugConsoleMsg(self, "hit eas_completeTask");
-                    if (tok.hasMoreTokens())
-                    {
-                        String questName = tok.nextToken();
-                        int questId = questGetQuestId(questName);
-                        int taskId = utils.stringToInt(tok.nextToken());
-                        questCompleteTask(questId, taskId, self);
+                    case "eas_clearTestQuest2": {
+                        debugConsoleMsg(self, "hit eas_clearTestQuest2");
+                        int questId = questGetQuestId("quest/kill_3_valarian_assassins");
+                        questClearQuest(questId, self);
+                        break;
                     }
-                    else 
-                    {
-                        debugConsoleMsg(self, "Usage: eas_completeTask <questname> <taskid>. i.e. \"eas_completeTask quest/loot_5_widgets 0\"");
-                        debugSpeakMsg(self, "Usage: eas_completeTask <questname> <taskid>. i.e. \"eas_completeTask quest/loot_5_widgets 0\"");
-                    }
-                }
-                else if (command.equals("eas_emitSignal"))
-                {
-                    if (tok.hasMoreTokens())
-                    {
-                        String signal = tok.nextToken();
-                        groundquests.sendSignal(self, signal);
-                    }
-                }
-                else if (command.equals("eas_testWaitForSignal"))
-                {
-                    debugConsoleMsg(self, "hit eas_testWaitForSignal");
-                    groundquests.sendSignal(self, "testsignal");
-                }
-                else if (command.equals("eas_testTaskNames"))
-                {
-                    debugConsoleMsg(self, "hit eas_testTaskNames");
-                    String questName = "quest/test_encounter";
-                    if (groundquests.isValidQuestName(questName))
-                    {
-                        debugConsoleMsg(self, "valid quest name");
-                    }
-                    int questCrc = questGetQuestId(questName);
-                    int taskId = groundquests.getTaskId(questCrc, "killed_them_rats");
-                    debugConsoleMsg(self, "questCrc=[" + questCrc + "] taskId=[" + taskId + "]");
-                    if (questIsTaskComplete(questCrc, taskId, self))
-                    {
-                        groundquests.sendSignal(self, "testSignal");
-                        debugConsoleMsg(self, "sending signal");
-                    }
-                    else 
-                    {
-                        debugConsoleMsg(self, "not sending signal");
-                    }
-                }
-                else if (command.equals("eas_testRandomLocation"))
-                {
-                    for (int i = 0; i < 50; ++i)
-                    {
-                        location l = groundquests.getRandom2DLocationAroundPlayer(self, 3, 5);
-                        obj_id object = create.object("object/tangible/gravestone/gravestone01.iff", l);
-                    }
-                }
-                else if (command.equals("eas_setPendingEscortTarget"))
-                {
-                    if (tok.hasMoreTokens())
-                    {
-                        String targetString = tok.nextToken();
-                        obj_id target = obj_id.getObjId(java.lang.Long.parseLong(targetString));
-                        if (!groundquests.isEscortTargetReadyForStaticEscortTask(target))
-                        {
-                            debugConsoleMsg(self, "target busy");
+                    case "eas_giveQuest":
+                        debugConsoleMsg(self, "hit eas_giveQuest");
+                        if (tok.hasMoreTokens()) {
+                            String questName = tok.nextToken();
+                            int questId = questGetQuestId(questName);
+                            int result = questActivateQuest(questId, self, self);
+                            if (result == 1) {
+                                String s = "Error: Quest already active.";
+                                debugSpeakMsg(self, s);
+                            } else if (result == 2) {
+                                String s = "Error: No such quest.";
+                                debugSpeakMsg(self, s);
+                            } else if (result == 3) {
+                                String s = "Error: No such task.";
+                                debugSpeakMsg(self, s);
+                            } else if (result == 4) {
+                                String s = "Error: Quest already completed, and not repeatable.";
+                                debugSpeakMsg(self, s);
+                            } else if (result == 5) {
+                                String s = "Error: Failed prerequisites.";
+                                debugSpeakMsg(self, s);
+                            } else if (result == 6) {
+                                String s = "Error: Failed exclusions.";
+                                debugSpeakMsg(self, s);
+                            } else if (result == 7) {
+                                String s = "Error: Quest Not active.";
+                                debugSpeakMsg(self, s);
+                            } else if (result == 8) {
+                                String s = "Error: Task not active.";
+                                debugSpeakMsg(self, s);
+                            } else if (result == 9) {
+                                String s = "Error: No such player.";
+                                debugSpeakMsg(self, s);
+                            }
+                        } else {
+                            debugConsoleMsg(self, "Usage: eas_giveQuest <questname>. i.e. \"eas_giveQuest quest/loot_5_widgets\"");
+                            debugSpeakMsg(self, "Usage: eas_giveQuest <questname>. i.e. \"eas_giveQuest quest/loot_5_widgets\"");
                         }
-                        else 
-                        {
-                            groundquests.setPendingStaticEscortTarget(self, target);
-                            debugConsoleMsg(self, "target target set");
+                        break;
+                    case "eas_clearQuest":
+                        debugConsoleMsg(self, "hit eas_clearQuest");
+                        if (tok.hasMoreTokens()) {
+                            String questName = tok.nextToken();
+                            int questId = questGetQuestId(questName);
+                            questClearQuest(questId, self);
+                        } else {
+                            debugConsoleMsg(self, "Usage: eas_clearQuest <questname>. i.e. \"eas_giveQuest quest/loot_5_widgets\"");
+                            debugSpeakMsg(self, "Usage: eas_clearQuest <questname>. i.e. \"eas_giveQuest quest/loot_5_widgets\"");
                         }
+                        break;
+                    case "eas_completeTask":
+                        debugConsoleMsg(self, "hit eas_completeTask");
+                        if (tok.hasMoreTokens()) {
+                            String questName = tok.nextToken();
+                            int questId = questGetQuestId(questName);
+                            int taskId = utils.stringToInt(tok.nextToken());
+                            questCompleteTask(questId, taskId, self);
+                        } else {
+                            debugConsoleMsg(self, "Usage: eas_completeTask <questname> <taskid>. i.e. \"eas_completeTask quest/loot_5_widgets 0\"");
+                            debugSpeakMsg(self, "Usage: eas_completeTask <questname> <taskid>. i.e. \"eas_completeTask quest/loot_5_widgets 0\"");
+                        }
+                        break;
+                    case "eas_emitSignal":
+                        if (tok.hasMoreTokens()) {
+                            String signal = tok.nextToken();
+                            groundquests.sendSignal(self, signal);
+                        }
+                        break;
+                    case "eas_testWaitForSignal":
+                        debugConsoleMsg(self, "hit eas_testWaitForSignal");
+                        groundquests.sendSignal(self, "testsignal");
+                        break;
+                    case "eas_testTaskNames":
+                        debugConsoleMsg(self, "hit eas_testTaskNames");
+                        String questName = "quest/test_encounter";
+                        if (groundquests.isValidQuestName(questName)) {
+                            debugConsoleMsg(self, "valid quest name");
+                        }
+                        int questCrc = questGetQuestId(questName);
+                        int taskId = groundquests.getTaskId(questCrc, "killed_them_rats");
+                        debugConsoleMsg(self, "questCrc=[" + questCrc + "] taskId=[" + taskId + "]");
+                        if (questIsTaskComplete(questCrc, taskId, self)) {
+                            groundquests.sendSignal(self, "testSignal");
+                            debugConsoleMsg(self, "sending signal");
+                        } else {
+                            debugConsoleMsg(self, "not sending signal");
+                        }
+                        break;
+                    case "eas_testRandomLocation":
+                        for (int i = 0; i < 50; ++i) {
+                            location l = groundquests.getRandom2DLocationAroundPlayer(self, 3, 5);
+                            obj_id object = create.object("object/tangible/gravestone/gravestone01.iff", l);
+                        }
+                        break;
+                    case "eas_setPendingEscortTarget":
+                        if (tok.hasMoreTokens()) {
+                            String targetString = tok.nextToken();
+                            obj_id target = obj_id.getObjId(Long.parseLong(targetString));
+                            if (!groundquests.isEscortTargetReadyForStaticEscortTask(target)) {
+                                debugConsoleMsg(self, "target busy");
+                            } else {
+                                groundquests.setPendingStaticEscortTarget(self, target);
+                                debugConsoleMsg(self, "target target set");
+                            }
+                        } else {
+                            debugSpeakMsg(self, "Usage: eas_setPendingEscortTarget <targetid>");
+                        }
+                        break;
+                    case "eas_prose1":
+                        debugSpeakMsg(self, "hit eas_prose1");
+                        obj_id target = getLookAtTarget(self);
+                        prose_package pp = prose.getPackage(pet_lib.SID_SYS_CANT_CALL_YET, 5);
+                        showFlyText(target, pp, 1.0f, 255, 0, 0);
+                        prose_package pp2 = prose.getPackage(pet_lib.SID_SYS_CANT_CALL_YET, 10);
+                        showCombatText(target, self, pp2, 1.0f, 0, 0, 255);
+                        break;
+                    case "eas_requestActivateQuest": {
+                        debugSpeakMsg(self, "hit eas_requestActivateQuest");
+                        int questId = questGetQuestId("quest/ep3_gursan_slay_hsskas");
+                        requestActivateQuest(questId, self, self);
+                        break;
                     }
-                    else 
-                    {
-                        debugSpeakMsg(self, "Usage: eas_setPendingEscortTarget <targetid>");
+                    case "eas_requestCompleteQuest": {
+                        debugSpeakMsg(self, "hit eas_requestCompleteQuest");
+                        int questId = questGetQuestId("quest/ep3_gursan_slay_hsskas");
+                        requestCompleteQuest(questId, self);
+                        break;
                     }
-                }
-                else if (command.equals("eas_prose1"))
-                {
-                    debugSpeakMsg(self, "hit eas_prose1");
-                    obj_id target = getLookAtTarget(self);
-                    prose_package pp = prose.getPackage(pet_lib.SID_SYS_CANT_CALL_YET, 5);
-                    showFlyText(target, pp, 1.0f, 255, 0, 0);
-                    prose_package pp2 = prose.getPackage(pet_lib.SID_SYS_CANT_CALL_YET, 10);
-                    showCombatText(target, self, pp2, 1.0f, 0, 0, 255);
-                }
-                else if (command.equals("eas_requestActivateQuest"))
-                {
-                    debugSpeakMsg(self, "hit eas_requestActivateQuest");
-                    int questId = questGetQuestId("quest/ep3_gursan_slay_hsskas");
-                    requestActivateQuest(questId, self, self);
-                }
-                else if (command.equals("eas_requestCompleteQuest"))
-                {
-                    debugSpeakMsg(self, "hit eas_requestCompleteQuest");
-                    int questId = questGetQuestId("quest/ep3_gursan_slay_hsskas");
-                    requestCompleteQuest(questId, self);
-                }
-                else if (command.equals("eas_cancelQuest"))
-                {
-                    debugSpeakMsg(self, "hit eas_cancelQuest");
-                    int questId = questGetQuestId("quest/ep3_gursan_slay_hsskas");
-                    questClearQuest(questId, self);
-                }
-                else if (command.equals("eas_showroadmap"))
-                {
-                    debugSpeakMsg(self, "hit eas_showroadmap");
-                    newbieTutorialHighlightUIElement(self, "/GroundHUD.RoadMap", 7.0f);
+                    case "eas_cancelQuest": {
+                        debugSpeakMsg(self, "hit eas_cancelQuest");
+                        int questId = questGetQuestId("quest/ep3_gursan_slay_hsskas");
+                        questClearQuest(questId, self);
+                        break;
+                    }
+                    case "eas_showroadmap":
+                        debugSpeakMsg(self, "hit eas_showroadmap");
+                        newbieTutorialHighlightUIElement(self, "/GroundHUD.RoadMap", 7.0f);
+                        break;
                 }
             }
         }
@@ -516,21 +464,15 @@ public class esebesta_test extends script.base_script
         debugSpeakMsg(self, "params: droidControlDevice[" + droidControlDevice + "]\n");
         obj_id objDataPad = utils.getDatapad(droidControlDevice);
         debugSpeakMsg(self, "commands:");
-        for (int i = 0; i < commands.length; ++i)
-        {
-            String command = commands[i];
+        for (String command : commands) {
             debugSpeakMsg(self, "[" + command + "]");
         }
         debugSpeakMsg(self, "\nchipsToAdd:");
-        for (int i = 0; i < chipsToAdd.length; ++i)
-        {
-            obj_id chip = chipsToAdd[i];
+        for (obj_id chip : chipsToAdd) {
             debugSpeakMsg(self, "[" + chip + "]");
         }
         debugSpeakMsg(self, "\nchipsToRemove:");
-        for (int i = 0; i < chipsToRemove.length; ++i)
-        {
-            obj_id chip = chipsToRemove[i];
+        for (obj_id chip : chipsToRemove) {
             debugSpeakMsg(self, "[" + chip + "]");
         }
         return SCRIPT_CONTINUE;

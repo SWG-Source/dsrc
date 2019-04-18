@@ -69,7 +69,7 @@ public class mediator_structure extends script.theme_park.poi.base
         {
             return SCRIPT_CONTINUE;
         }
-        location loc = locations.getGoodLocationAroundLocation(myLoc, 2f, 2f, 10f, 10f);
+        location loc = locations.getGoodLocationAroundLocation(myLoc, 2.0f, 2.0f, 10.0f, 10.0f);
         float dx = loc.x - baseLoc.x;
         float dz = loc.z - baseLoc.z;
         String myName = scenario.MEDIATOR + "_0";
@@ -94,7 +94,7 @@ public class mediator_structure extends script.theme_park.poi.base
             for (int i = 0; i < roll; i++)
             {
                 myName = scenario.MEDIATOR + "_" + (i + 1);
-                loc = locations.getGoodLocationAroundLocation(myLoc, 2f, 2f, 10f, 10f);
+                loc = locations.getGoodLocationAroundLocation(myLoc, 2.0f, 2.0f, 10.0f, 10.0f);
                 dx = loc.x - baseLoc.x;
                 dz = loc.z - baseLoc.z;
                 obj_id m = poi.createNpc(poiMaster, myName, minionType, dx, dz);

@@ -45,53 +45,40 @@ public class kusak_nyms_themepark extends script.base_script
         if (attackerList != null && attackerList.length > 0)
         {
             CustomerServiceLog("nyms_themepark", "boss_nyms_themepark.OnAboutToBeIncapacitated() Boss Mob attackerList = " + attackerList.length);
-            for (int i = 0; i < attackerList.length; i++)
-            {
-                if (!isIdValid(attackerList[i]))
-                {
+            for (obj_id obj_id : attackerList) {
+                if (!isIdValid(obj_id)) {
                     continue;
                 }
-                if (group.isGroupObject(attackerList[i]))
-                {
-                    obj_id[] members = getGroupMemberIds(attackerList[i]);
-                    for (int j = 0, k = members.length; j < k; j++)
-                    {
-                        if (isIdValid(members[j]))
-                        {
-                            if (!groundquests.isQuestActive(attackerList[i], bossQuest))
-                            {
-                                CustomerServiceLog("nyms_themepark", "boss_nyms_themepark.OnAboutToBeIncapacitated() Boss Mob attacker: " + attackerList[i] + " did not have boss quest: " + bossQuest);
+                if (group.isGroupObject(obj_id)) {
+                    obj_id[] members = getGroupMemberIds(obj_id);
+                    for (obj_id member : members) {
+                        if (isIdValid(member)) {
+                            if (!groundquests.isQuestActive(obj_id, bossQuest)) {
+                                CustomerServiceLog("nyms_themepark", "boss_nyms_themepark.OnAboutToBeIncapacitated() Boss Mob attacker: " + obj_id + " did not have boss quest: " + bossQuest);
                                 continue;
                             }
-                            if (hasCompletedCollectionSlot(attackerList[i], bossQuestSlot))
-                            {
-                                CustomerServiceLog("nyms_themepark", "boss_nyms_themepark.OnAboutToBeIncapacitated() Boss Mob attacker: " + attackerList[i] + " has already attained: " + bossQuestSlot);
+                            if (hasCompletedCollectionSlot(obj_id, bossQuestSlot)) {
+                                CustomerServiceLog("nyms_themepark", "boss_nyms_themepark.OnAboutToBeIncapacitated() Boss Mob attacker: " + obj_id + " has already attained: " + bossQuestSlot);
                                 continue;
                             }
-                            if (!hasCompletedCollectionSlotPrereq(attackerList[i], bossQuestSlot))
-                            {
-                                CustomerServiceLog("nyms_themepark", "boss_nyms_themepark.OnAboutToBeIncapacitated() Boss Mob attacker: " + attackerList[i] + " hasn't fulfilled the prerequisite for boss slot/: " + bossQuestSlot);
+                            if (!hasCompletedCollectionSlotPrereq(obj_id, bossQuestSlot)) {
+                                CustomerServiceLog("nyms_themepark", "boss_nyms_themepark.OnAboutToBeIncapacitated() Boss Mob attacker: " + obj_id + " hasn't fulfilled the prerequisite for boss slot/: " + bossQuestSlot);
                                 continue;
                             }
-                            modifyCollectionSlotValue(attackerList[i], bossQuestSlot, 1);
+                            modifyCollectionSlotValue(obj_id, bossQuestSlot, 1);
                         }
                     }
-                }
-                else 
-                {
-                    if (!groundquests.isQuestActive(attackerList[i], bossQuest))
-                    {
+                } else {
+                    if (!groundquests.isQuestActive(obj_id, bossQuest)) {
                         continue;
                     }
-                    if (hasCompletedCollectionSlot(attackerList[i], bossQuestSlot))
-                    {
+                    if (hasCompletedCollectionSlot(obj_id, bossQuestSlot)) {
                         continue;
                     }
-                    if (!hasCompletedCollectionSlotPrereq(attackerList[i], bossQuestSlot))
-                    {
+                    if (!hasCompletedCollectionSlotPrereq(obj_id, bossQuestSlot)) {
                         continue;
                     }
-                    modifyCollectionSlotValue(attackerList[i], bossQuestSlot, 1);
+                    modifyCollectionSlotValue(obj_id, bossQuestSlot, 1);
                 }
             }
         }
@@ -122,14 +109,12 @@ public class kusak_nyms_themepark extends script.base_script
         obj_id[] players = getPlayerCreaturesInRange(self, maxDist);
         if (players != null && players.length > 0)
         {
-            for (int i = 0; i < players.length; i++)
-            {
-                if (!isIdValid(players[i]) && !exists(players[i]) || isIncapacitated(players[i]) || !isDead(players[i]))
-                {
+            for (obj_id player : players) {
+                if (!isIdValid(player) && !exists(player) || isIncapacitated(player) || !isDead(player)) {
                     continue;
                 }
-                addHate(self, players[i], 1000.0f);
-                startCombat(self, players[i]);
+                addHate(self, player, 1000.0f);
+                startCombat(self, player);
             }
         }
         messageTo(self, "handleBossDistanceCheck", null, 3, false);
@@ -265,14 +250,12 @@ public class kusak_nyms_themepark extends script.base_script
             messageTo(parent, "defaultEventReset", webster, 2, false);
             return false;
         }
-        for (int i = 0; i < targets.length; i++)
-        {
-            if (!isIdValid(targets[i]))
-            {
+        for (obj_id target : targets) {
+            if (!isIdValid(target)) {
                 continue;
             }
-            startCombat(self, targets[i]);
-            CustomerServiceLog("nyms_themepark", "boss_nyms_themepark.getRandomCombatTarget(): Player " + targets[i] + " was found as a valid target. Boss Mob: " + self + " attacking player.");
+            startCombat(self, target);
+            CustomerServiceLog("nyms_themepark", "boss_nyms_themepark.getRandomCombatTarget(): Player " + target + " was found as a valid target. Boss Mob: " + self + " attacking player.");
             return true;
         }
         CustomerServiceLog("nyms_themepark", "boss_nyms_themepark.getRandomCombatTarget(): Boss Mob: " + self + " failed to find a player to attack.");

@@ -294,11 +294,9 @@ public class rancor_boss_fight_controller extends script.base_script
             }
             return SCRIPT_CONTINUE;
         }
-        for (int i = 0; i < groupMembersInRange.length; i++)
-        {
-            if (!hasCompletedCollectionSlot(groupMembersInRange[i], "undead_rancor_killed"))
-            {
-                modifyCollectionSlotValue(groupMembersInRange[i], "undead_rancor_killed", 1);
+        for (obj_id obj_id : groupMembersInRange) {
+            if (!hasCompletedCollectionSlot(obj_id, "undead_rancor_killed")) {
+                modifyCollectionSlotValue(obj_id, "undead_rancor_killed", 1);
             }
         }
         return SCRIPT_CONTINUE;

@@ -201,36 +201,30 @@ public class dot extends script.base_script
         float expertiseDotIncrease = getEnhancedSkillStatisticModifierUncapped(attacker, "expertise_dot_increase");
         if (expertiseDotIncrease > 0.0f)
         {
-            strength += (int)((float)strength * (expertiseDotIncrease / 100.0f));
+            strength += (int)(strength * (expertiseDotIncrease / 100.0f));
         }
         int dissipation_mod;
-        if (type.equals(DOT_BLEEDING))
-        {
-            dissipation_mod = getEnhancedSkillStatisticModifier(target, "dissipation_bleeding");
-        }
-        else if (type.equals(DOT_POISON))
-        {
-            dissipation_mod = getEnhancedSkillStatisticModifier(target, "dissipation_poison");
-        }
-        else if (type.equals(DOT_DISEASE))
-        {
-            dissipation_mod = getEnhancedSkillStatisticModifier(target, "dissipation_disease");
-        }
-        else if (type.equals(DOT_FIRE))
-        {
-            dissipation_mod = getEnhancedSkillStatisticModifier(target, "dissipation_fire");
-        }
-        else if (type.equals(DOT_ACID))
-        {
-            dissipation_mod = getEnhancedSkillStatisticModifier(target, "dissipation_acid");
-        }
-        else if (type.equals(DOT_ENERGY))
-        {
-            dissipation_mod = getEnhancedSkillStatisticModifier(target, "dissipation_energy");
-        }
-        else 
-        {
-            return false;
+        switch (type) {
+            case DOT_BLEEDING:
+                dissipation_mod = getEnhancedSkillStatisticModifier(target, "dissipation_bleeding");
+                break;
+            case DOT_POISON:
+                dissipation_mod = getEnhancedSkillStatisticModifier(target, "dissipation_poison");
+                break;
+            case DOT_DISEASE:
+                dissipation_mod = getEnhancedSkillStatisticModifier(target, "dissipation_disease");
+                break;
+            case DOT_FIRE:
+                dissipation_mod = getEnhancedSkillStatisticModifier(target, "dissipation_fire");
+                break;
+            case DOT_ACID:
+                dissipation_mod = getEnhancedSkillStatisticModifier(target, "dissipation_acid");
+                break;
+            case DOT_ENERGY:
+                dissipation_mod = getEnhancedSkillStatisticModifier(target, "dissipation_energy");
+                break;
+            default:
+                return false;
         }
         if (dissipation_mod > 0)
         {
@@ -261,93 +255,78 @@ public class dot extends script.base_script
         int pulse;
         string_id old_effect_string;
         string_id new_effect_string;
-        if (type.equals(DOT_BLEEDING))
-        {
-            new_effect_string = SID_BLEEDING;
-            old_effect_string = SID_BLEEDING_INCREASE;
-            pulse = BLEEDING_PULSE;
-            if (!buff.hasBuff(target, "bleeding"))
-            {
-                buff.applyBuff(target, attacker, "bleeding");
-                setState(target, STATE_BLEEDING, true);
-                playClientEffectObj(target, "appearance/pt_state_bleeding.prt", target, "spine3", null, "state_bleeding");
-                playClientEffectObj(target, "sound/sta_bleeding_on.snd", target, "");
-            }
-        }
-        else if (type.equals(DOT_POISON))
-        {
-            old_effect_string = SID_POISONED_INCREASE;
-            new_effect_string = SID_POISONED;
-            pulse = POISON_PULSE;
-            if (!buff.hasBuff(target, "poisoned"))
-            {
-                buff.applyBuff(target, attacker, "poisoned");
-                setState(target, STATE_POISONED, true);
-                playClientEffectObj(target, "appearance/pt_state_poisoned.prt", target, "", null, "state_poisoned");
-                playClientEffectObj(target, "sound/sta_poisoned_on.snd", target, "");
-            }
-        }
-        else if (type.equals(DOT_DISEASE))
-        {
-            old_effect_string = SID_DISEASED_INCREASE;
-            new_effect_string = SID_DISEASED;
-            pulse = DISEASE_PULSE;
-            if (!buff.hasBuff(target, "diseased"))
-            {
-                buff.applyBuff(target, attacker, "diseased");
-                setState(target, STATE_DISEASED, true);
-                playClientEffectObj(target, "appearance/pt_state_diseased.prt", target, "", null, "state_diseased");
-                playClientEffectObj(target, "sound/sta_diseased_on.snd", target, "");
-            }
-        }
-        else if (type.equals(DOT_FIRE))
-        {
-            if (getState(target, STATE_SWIMMING) != 1)
-            {
-                pulse = FIRE_PULSE;
-                old_effect_string = SID_FIRE_INCREASE;
-                new_effect_string = SID_FIRE;
-                if (!buff.hasBuff(target, "onfire"))
-                {
-                    new_dot_type = true;
-                    buff.applyBuff(target, attacker, "onfire");
-                    setState(target, STATE_ON_FIRE, true);
-                    playClientEffectObj(target, "appearance/pt_state_onfire.prt", target, "", null, "state_onfire");
-                    playClientEffectObj(target, "sound/sta_onfire_on.snd", target, "");
+        switch (type) {
+            case DOT_BLEEDING:
+                new_effect_string = SID_BLEEDING;
+                old_effect_string = SID_BLEEDING_INCREASE;
+                pulse = BLEEDING_PULSE;
+                if (!buff.hasBuff(target, "bleeding")) {
+                    buff.applyBuff(target, attacker, "bleeding");
+                    setState(target, STATE_BLEEDING, true);
+                    playClientEffectObj(target, "appearance/pt_state_bleeding.prt", target, "spine3", null, "state_bleeding");
+                    playClientEffectObj(target, "sound/sta_bleeding_on.snd", target, "");
                 }
-            }
-            else 
-            {
+                break;
+            case DOT_POISON:
+                old_effect_string = SID_POISONED_INCREASE;
+                new_effect_string = SID_POISONED;
+                pulse = POISON_PULSE;
+                if (!buff.hasBuff(target, "poisoned")) {
+                    buff.applyBuff(target, attacker, "poisoned");
+                    setState(target, STATE_POISONED, true);
+                    playClientEffectObj(target, "appearance/pt_state_poisoned.prt", target, "", null, "state_poisoned");
+                    playClientEffectObj(target, "sound/sta_poisoned_on.snd", target, "");
+                }
+                break;
+            case DOT_DISEASE:
+                old_effect_string = SID_DISEASED_INCREASE;
+                new_effect_string = SID_DISEASED;
+                pulse = DISEASE_PULSE;
+                if (!buff.hasBuff(target, "diseased")) {
+                    buff.applyBuff(target, attacker, "diseased");
+                    setState(target, STATE_DISEASED, true);
+                    playClientEffectObj(target, "appearance/pt_state_diseased.prt", target, "", null, "state_diseased");
+                    playClientEffectObj(target, "sound/sta_diseased_on.snd", target, "");
+                }
+                break;
+            case DOT_FIRE:
+                if (getState(target, STATE_SWIMMING) != 1) {
+                    pulse = FIRE_PULSE;
+                    old_effect_string = SID_FIRE_INCREASE;
+                    new_effect_string = SID_FIRE;
+                    if (!buff.hasBuff(target, "onfire")) {
+                        new_dot_type = true;
+                        buff.applyBuff(target, attacker, "onfire");
+                        setState(target, STATE_ON_FIRE, true);
+                        playClientEffectObj(target, "appearance/pt_state_onfire.prt", target, "", null, "state_onfire");
+                        playClientEffectObj(target, "sound/sta_onfire_on.snd", target, "");
+                    }
+                } else {
+                    return false;
+                }
+                break;
+            case DOT_ACID:
+                old_effect_string = SID_ACID_INCREASE;
+                new_effect_string = SID_ACID;
+                pulse = ACID_PULSE;
+                if (!buff.hasBuff(target, "acid")) {
+                    buff.applyBuff(target, attacker, "acid");
+                    playClientEffectObj(target, "appearance/pt_state_acid.prt", target, "", null, "state_acid");
+                    playClientEffectObj(target, "sound/wep_heavy_acid_launcher_hit.snd", target, "");
+                }
+                break;
+            case DOT_ENERGY:
+                old_effect_string = SID_ENERGY_INCREASE;
+                new_effect_string = SID_ENERGY;
+                pulse = ENERGY_PULSE;
+                if (!buff.hasBuff(target, "energy")) {
+                    buff.applyBuff(target, attacker, "energy");
+                    playClientEffectObj(target, "appearance/pt_state_energy.prt", target, "", null, "state_energy");
+                    playClientEffectObj(target, "sound/item_electronics_break.snd", target, "");
+                }
+                break;
+            default:
                 return false;
-            }
-        }
-        else if (type.equals(DOT_ACID))
-        {
-            old_effect_string = SID_ACID_INCREASE;
-            new_effect_string = SID_ACID;
-            pulse = ACID_PULSE;
-            if (!buff.hasBuff(target, "acid"))
-            {
-                buff.applyBuff(target, attacker, "acid");
-                playClientEffectObj(target, "appearance/pt_state_acid.prt", target, "", null, "state_acid");
-                playClientEffectObj(target, "sound/wep_heavy_acid_launcher_hit.snd", target, "");
-            }
-        }
-        else if (type.equals(DOT_ENERGY))
-        {
-            old_effect_string = SID_ENERGY_INCREASE;
-            new_effect_string = SID_ENERGY;
-            pulse = ENERGY_PULSE;
-            if (!buff.hasBuff(target, "energy"))
-            {
-                buff.applyBuff(target, attacker, "energy");
-                playClientEffectObj(target, "appearance/pt_state_energy.prt", target, "", null, "state_energy");
-                playClientEffectObj(target, "sound/item_electronics_break.snd", target, "");
-            }
-        }
-        else 
-        {
-            return false;
         }
         if (utils.hasScriptVar(target, SCRIPT_VAR_DOT_GRACE))
         {
@@ -511,118 +490,97 @@ public class dot extends script.base_script
             String[] dots_type = getAllDotsType(target, type);
             if (dots_type == null)
             {
-                if (type.equals(DOT_BLEEDING))
-                {
-                    if (verbose)
-                    {
-                        combat.sendCombatSpamMessage(target, SID_BLEEDING_STOP);
-                    }
-                    setState(target, STATE_BLEEDING, false);
-                    stopClientEffectObjByLabel(target, "state_bleeding");
-                    playClientEffectObj(target, "sound/sta_bleeding_off.snd", target, "");
-                    if (!isBleeding(target))
-                    {
-                        buff.removeBuff(target, "bleeding");
-                    }
-                }
-                else if (type.equals(DOT_POISON))
-                {
-                    if (verbose)
-                    {
-                        combat.sendCombatSpamMessage(target, SID_POISONED_STOP);
-                    }
-                    setState(target, STATE_POISONED, false);
-                    stopClientEffectObjByLabel(target, "state_poisoned");
-                    playClientEffectObj(target, "sound/sta_poisoned_off.snd", target, "");
-                    if (!isPoisoned(target))
-                    {
-                        buff.removeBuff(target, "poisoned");
-                    }
-                }
-                else if (type.equals(DOT_DISEASE))
-                {
-                    if (verbose)
-                    {
-                        combat.sendCombatSpamMessage(target, SID_DISEASED_STOP);
-                    }
-                    setState(target, STATE_DISEASED, false);
-                    stopClientEffectObjByLabel(target, "state_diseased");
-                    playClientEffectObj(target, "sound/sta_diseased_off.snd", target, "");
-                    if (hasAttribModifier(target, "dot.disease." + dot_id))
-                    {
-                        removeAttribOrSkillModModifier(target, "dot.disease." + dot_id);
-                    }
-                    if (!isDiseased(target))
-                    {
-                        buff.removeBuff(target, "diseased");
-                    }
-                }
-                else if (type.equals(DOT_FIRE))
-                {
-                    if (verbose)
-                    {
-                        combat.sendCombatSpamMessage(target, SID_FIRE_STOP);
-                    }
-                    setState(target, STATE_ON_FIRE, false);
-                    stopClientEffectObjByLabel(target, "state_onfire");
-                    playClientEffectObj(target, "sound/sta_onfire_off.snd", target, "");
-                    if (!isOnFire(target))
-                    {
-                        buff.removeBuff(target, "onfire");
-                    }
-                }
-                else if (type.equals(DOT_ACID))
-                {
-                    if (verbose)
-                    {
-                        combat.sendCombatSpamMessage(target, SID_ACID_STOP);
-                    }
-                    stopClientEffectObjByLabel(target, "state_acid");
-                    if (!isAcid(target))
-                    {
-                        buff.removeBuff(target, "acid");
-                    }
-                }
-                else if (type.equals(DOT_ENERGY))
-                {
-                    if (verbose)
-                    {
-                        combat.sendCombatSpamMessage(target, SID_ENERGY_STOP);
-                    }
-                    stopClientEffectObjByLabel(target, "state_energy");
-                    if (!isEnergy(target))
-                    {
-                        buff.removeBuff(target, "energy");
-                    }
+                switch (type) {
+                    case DOT_BLEEDING:
+                        if (verbose) {
+                            combat.sendCombatSpamMessage(target, SID_BLEEDING_STOP);
+                        }
+                        setState(target, STATE_BLEEDING, false);
+                        stopClientEffectObjByLabel(target, "state_bleeding");
+                        playClientEffectObj(target, "sound/sta_bleeding_off.snd", target, "");
+                        if (!isBleeding(target)) {
+                            buff.removeBuff(target, "bleeding");
+                        }
+                        break;
+                    case DOT_POISON:
+                        if (verbose) {
+                            combat.sendCombatSpamMessage(target, SID_POISONED_STOP);
+                        }
+                        setState(target, STATE_POISONED, false);
+                        stopClientEffectObjByLabel(target, "state_poisoned");
+                        playClientEffectObj(target, "sound/sta_poisoned_off.snd", target, "");
+                        if (!isPoisoned(target)) {
+                            buff.removeBuff(target, "poisoned");
+                        }
+                        break;
+                    case DOT_DISEASE:
+                        if (verbose) {
+                            combat.sendCombatSpamMessage(target, SID_DISEASED_STOP);
+                        }
+                        setState(target, STATE_DISEASED, false);
+                        stopClientEffectObjByLabel(target, "state_diseased");
+                        playClientEffectObj(target, "sound/sta_diseased_off.snd", target, "");
+                        if (hasAttribModifier(target, "dot.disease." + dot_id)) {
+                            removeAttribOrSkillModModifier(target, "dot.disease." + dot_id);
+                        }
+                        if (!isDiseased(target)) {
+                            buff.removeBuff(target, "diseased");
+                        }
+                        break;
+                    case DOT_FIRE:
+                        if (verbose) {
+                            combat.sendCombatSpamMessage(target, SID_FIRE_STOP);
+                        }
+                        setState(target, STATE_ON_FIRE, false);
+                        stopClientEffectObjByLabel(target, "state_onfire");
+                        playClientEffectObj(target, "sound/sta_onfire_off.snd", target, "");
+                        if (!isOnFire(target)) {
+                            buff.removeBuff(target, "onfire");
+                        }
+                        break;
+                    case DOT_ACID:
+                        if (verbose) {
+                            combat.sendCombatSpamMessage(target, SID_ACID_STOP);
+                        }
+                        stopClientEffectObjByLabel(target, "state_acid");
+                        if (!isAcid(target)) {
+                            buff.removeBuff(target, "acid");
+                        }
+                        break;
+                    case DOT_ENERGY:
+                        if (verbose) {
+                            combat.sendCombatSpamMessage(target, SID_ENERGY_STOP);
+                        }
+                        stopClientEffectObjByLabel(target, "state_energy");
+                        if (!isEnergy(target)) {
+                            buff.removeBuff(target, "energy");
+                        }
+                        break;
                 }
             }
             else 
             {
                 if (verbose)
                 {
-                    if (type.equals(DOT_BLEEDING))
-                    {
-                        combat.sendCombatSpamMessage(target, SID_BLEEDING_DECREASE);
-                    }
-                    else if (type.equals(DOT_POISON))
-                    {
-                        combat.sendCombatSpamMessage(target, SID_POISONED_DECREASE);
-                    }
-                    else if (type.equals(DOT_DISEASE))
-                    {
-                        combat.sendCombatSpamMessage(target, SID_DISEASED_DECREASE);
-                    }
-                    else if (type.equals(DOT_FIRE))
-                    {
-                        combat.sendCombatSpamMessage(target, SID_FIRE_DECREASE);
-                    }
-                    else if (type.equals(DOT_ACID))
-                    {
-                        combat.sendCombatSpamMessage(target, SID_ACID_DECREASE);
-                    }
-                    else if (type.equals(DOT_ENERGY))
-                    {
-                        combat.sendCombatSpamMessage(target, SID_ENERGY_DECREASE);
+                    switch (type) {
+                        case DOT_BLEEDING:
+                            combat.sendCombatSpamMessage(target, SID_BLEEDING_DECREASE);
+                            break;
+                        case DOT_POISON:
+                            combat.sendCombatSpamMessage(target, SID_POISONED_DECREASE);
+                            break;
+                        case DOT_DISEASE:
+                            combat.sendCombatSpamMessage(target, SID_DISEASED_DECREASE);
+                            break;
+                        case DOT_FIRE:
+                            combat.sendCombatSpamMessage(target, SID_FIRE_DECREASE);
+                            break;
+                        case DOT_ACID:
+                            combat.sendCombatSpamMessage(target, SID_ACID_DECREASE);
+                            break;
+                        case DOT_ENERGY:
+                            combat.sendCombatSpamMessage(target, SID_ENERGY_DECREASE);
+                            break;
                     }
                 }
             }
@@ -642,9 +600,8 @@ public class dot extends script.base_script
         String[] dots = getAllDots(target);
         if (dots != null)
         {
-            for (int i = 0; i < dots.length; i++)
-            {
-                removeDotEffect(target, dots[i], false);
+            for (String dot : dots) {
+                removeDotEffect(target, dot, false);
             }
         }
         return true;
@@ -658,9 +615,8 @@ public class dot extends script.base_script
         String[] dots = getAllDotsType(target, type);
         if (dots != null)
         {
-            for (int i = 0; i < dots.length; i++)
-            {
-                removeDotEffect(target, dots[i], false);
+            for (String dot : dots) {
+                removeDotEffect(target, dot, false);
             }
             return true;
         }
@@ -678,7 +634,7 @@ public class dot extends script.base_script
             }
             strength = (int)(strength * (1.0f - (absorption_mod / 100.0f)));
         }
-        float duration = (float)utils.getIntScriptVar(target, VAR_DOT_ROOT + dot_id + VAR_DURATION);
+        float duration = utils.getIntScriptVar(target, VAR_DOT_ROOT + dot_id + VAR_DURATION);
         float up = duration * 0.75f;
         float down = duration * 0.25f;
         if (addAttribModifier(target, "dot.disease." + dot_id, ACTION, (-1 * strength), duration, up, down, false, true, false))
@@ -744,107 +700,83 @@ public class dot extends script.base_script
         float resistance = 0.0f;
         if (isPlayer(target))
         {
-            resistance = (float)armor.getCombatArmorGeneralProtection(target);
+            resistance = armor.getCombatArmorGeneralProtection(target);
         }
-        if (type.equals(DOT_BLEEDING))
-        {
-            absorption_mod += getEnhancedSkillStatisticModifier(target, "absorption_bleeding");
-            vulnerability_mod += getEnhancedSkillStatisticModifierUncapped(target, "dot_vulnerability_bleed");
-            if (isPlayer(target) && protDic != null)
-            {
-                resistance += protDic.getFloat("cold");
-            }
-            else 
-            {
-                resistance += (float)utils.getIntScriptVar(target, armor.SCRIPTVAR_CACHED_GENERAL_PROTECTION);
-            }
-            absorption_mod /= MOD_DIVISOR;
-            absorption_mod += (int)getSkillStatisticModifier(target, "expertise_dot_absorption_all");
-            absorption_mod += (int)(combat.convertProtectionToPercent(resistance) * DOT_ARMOR_MITIGATION_PERCENT);
-        }
-        else if (type.equals(DOT_POISON))
-        {
-            absorption_mod += getEnhancedSkillStatisticModifier(target, "absorption_poison");
-            vulnerability_mod += getEnhancedSkillStatisticModifierUncapped(target, "dot_vulnerability_poison");
-            if (isPlayer(target) && protDic != null)
-            {
-                resistance += protDic.getFloat("acid");
-            }
-            else 
-            {
-                resistance += (float)utils.getIntScriptVar(target, armor.SCRIPTVAR_CACHED_GENERAL_PROTECTION);
-            }
-            absorption_mod /= MOD_DIVISOR;
-            absorption_mod += (int)getSkillStatisticModifier(target, "expertise_dot_absorption_all");
-            absorption_mod += (int)(combat.convertProtectionToPercent(resistance) * DOT_ARMOR_MITIGATION_PERCENT);
-        }
-        else if (type.equals(DOT_DISEASE))
-        {
-            absorption_mod += getEnhancedSkillStatisticModifier(target, "absorption_disease");
-            vulnerability_mod += getEnhancedSkillStatisticModifierUncapped(target, "dot_vulnerability_disease");
-            if (isPlayer(target) && protDic != null)
-            {
-                resistance += protDic.getFloat("cold");
-            }
-            else 
-            {
-                resistance += (float)utils.getIntScriptVar(target, armor.SCRIPTVAR_CACHED_GENERAL_PROTECTION);
-            }
-            absorption_mod /= MOD_DIVISOR;
-            absorption_mod += (int)getSkillStatisticModifier(target, "expertise_dot_absorption_all");
-            absorption_mod += (int)(combat.convertProtectionToPercent(resistance) * DOT_ARMOR_MITIGATION_PERCENT);
-        }
-        else if (type.equals(DOT_FIRE))
-        {
-            absorption_mod += getEnhancedSkillStatisticModifier(target, "absorption_fire");
-            vulnerability_mod += getEnhancedSkillStatisticModifierUncapped(target, "dot_vulnerability_fire");
-            if (isPlayer(target) && protDic != null)
-            {
-                resistance += protDic.getFloat("heat");
-            }
-            else 
-            {
-                resistance += (float)utils.getIntScriptVar(target, armor.SCRIPTVAR_CACHED_GENERAL_PROTECTION);
-            }
-            absorption_mod /= MOD_DIVISOR;
-            absorption_mod += (int)getSkillStatisticModifier(target, "expertise_dot_absorption_all");
-            absorption_mod += (int)(combat.convertProtectionToPercent(resistance) * DOT_ARMOR_MITIGATION_PERCENT);
-        }
-        else if (type.equals(DOT_ACID))
-        {
-            absorption_mod += getEnhancedSkillStatisticModifier(target, "absorption_acid");
-            vulnerability_mod += getEnhancedSkillStatisticModifierUncapped(target, "dot_vulnerability_acid");
-            if (isPlayer(target) && protDic != null)
-            {
-                resistance += protDic.getFloat("acid");
-            }
-            else 
-            {
-                resistance += (float)utils.getIntScriptVar(target, armor.SCRIPTVAR_CACHED_GENERAL_PROTECTION);
-            }
-            absorption_mod /= MOD_DIVISOR;
-            absorption_mod += (int)getSkillStatisticModifier(target, "expertise_dot_absorption_all");
-            absorption_mod += (int)(combat.convertProtectionToPercent(resistance) * DOT_ARMOR_MITIGATION_PERCENT);
-        }
-        else if (type.equals(DOT_ENERGY))
-        {
-            absorption_mod += getEnhancedSkillStatisticModifier(target, "absorption_energy");
-            vulnerability_mod += getEnhancedSkillStatisticModifierUncapped(target, "dot_vulnerability_energy");
-            if (isPlayer(target) && protDic != null)
-            {
-                resistance += protDic.getFloat("energy");
-            }
-            else 
-            {
-                resistance += (float)utils.getIntScriptVar(target, armor.SCRIPTVAR_CACHED_GENERAL_PROTECTION);
-            }
-            absorption_mod /= MOD_DIVISOR;
-            absorption_mod += (int)getSkillStatisticModifier(target, "expertise_dot_absorption_all");
-            absorption_mod += (int)(combat.convertProtectionToPercent(resistance) * DOT_ARMOR_MITIGATION_PERCENT);
-        }
-        else 
-        {
-            return false;
+        switch (type) {
+            case DOT_BLEEDING:
+                absorption_mod += getEnhancedSkillStatisticModifier(target, "absorption_bleeding");
+                vulnerability_mod += getEnhancedSkillStatisticModifierUncapped(target, "dot_vulnerability_bleed");
+                if (isPlayer(target) && protDic != null) {
+                    resistance += protDic.getFloat("cold");
+                } else {
+                    resistance += utils.getIntScriptVar(target, armor.SCRIPTVAR_CACHED_GENERAL_PROTECTION);
+                }
+                absorption_mod /= MOD_DIVISOR;
+                absorption_mod += (int) getSkillStatisticModifier(target, "expertise_dot_absorption_all");
+                absorption_mod += (int) (combat.convertProtectionToPercent(resistance) * DOT_ARMOR_MITIGATION_PERCENT);
+                break;
+            case DOT_POISON:
+                absorption_mod += getEnhancedSkillStatisticModifier(target, "absorption_poison");
+                vulnerability_mod += getEnhancedSkillStatisticModifierUncapped(target, "dot_vulnerability_poison");
+                if (isPlayer(target) && protDic != null) {
+                    resistance += protDic.getFloat("acid");
+                } else {
+                    resistance += utils.getIntScriptVar(target, armor.SCRIPTVAR_CACHED_GENERAL_PROTECTION);
+                }
+                absorption_mod /= MOD_DIVISOR;
+                absorption_mod += (int) getSkillStatisticModifier(target, "expertise_dot_absorption_all");
+                absorption_mod += (int) (combat.convertProtectionToPercent(resistance) * DOT_ARMOR_MITIGATION_PERCENT);
+                break;
+            case DOT_DISEASE:
+                absorption_mod += getEnhancedSkillStatisticModifier(target, "absorption_disease");
+                vulnerability_mod += getEnhancedSkillStatisticModifierUncapped(target, "dot_vulnerability_disease");
+                if (isPlayer(target) && protDic != null) {
+                    resistance += protDic.getFloat("cold");
+                } else {
+                    resistance += utils.getIntScriptVar(target, armor.SCRIPTVAR_CACHED_GENERAL_PROTECTION);
+                }
+                absorption_mod /= MOD_DIVISOR;
+                absorption_mod += (int) getSkillStatisticModifier(target, "expertise_dot_absorption_all");
+                absorption_mod += (int) (combat.convertProtectionToPercent(resistance) * DOT_ARMOR_MITIGATION_PERCENT);
+                break;
+            case DOT_FIRE:
+                absorption_mod += getEnhancedSkillStatisticModifier(target, "absorption_fire");
+                vulnerability_mod += getEnhancedSkillStatisticModifierUncapped(target, "dot_vulnerability_fire");
+                if (isPlayer(target) && protDic != null) {
+                    resistance += protDic.getFloat("heat");
+                } else {
+                    resistance += utils.getIntScriptVar(target, armor.SCRIPTVAR_CACHED_GENERAL_PROTECTION);
+                }
+                absorption_mod /= MOD_DIVISOR;
+                absorption_mod += (int) getSkillStatisticModifier(target, "expertise_dot_absorption_all");
+                absorption_mod += (int) (combat.convertProtectionToPercent(resistance) * DOT_ARMOR_MITIGATION_PERCENT);
+                break;
+            case DOT_ACID:
+                absorption_mod += getEnhancedSkillStatisticModifier(target, "absorption_acid");
+                vulnerability_mod += getEnhancedSkillStatisticModifierUncapped(target, "dot_vulnerability_acid");
+                if (isPlayer(target) && protDic != null) {
+                    resistance += protDic.getFloat("acid");
+                } else {
+                    resistance += utils.getIntScriptVar(target, armor.SCRIPTVAR_CACHED_GENERAL_PROTECTION);
+                }
+                absorption_mod /= MOD_DIVISOR;
+                absorption_mod += (int) getSkillStatisticModifier(target, "expertise_dot_absorption_all");
+                absorption_mod += (int) (combat.convertProtectionToPercent(resistance) * DOT_ARMOR_MITIGATION_PERCENT);
+                break;
+            case DOT_ENERGY:
+                absorption_mod += getEnhancedSkillStatisticModifier(target, "absorption_energy");
+                vulnerability_mod += getEnhancedSkillStatisticModifierUncapped(target, "dot_vulnerability_energy");
+                if (isPlayer(target) && protDic != null) {
+                    resistance += protDic.getFloat("energy");
+                } else {
+                    resistance += utils.getIntScriptVar(target, armor.SCRIPTVAR_CACHED_GENERAL_PROTECTION);
+                }
+                absorption_mod /= MOD_DIVISOR;
+                absorption_mod += (int) getSkillStatisticModifier(target, "expertise_dot_absorption_all");
+                absorption_mod += (int) (combat.convertProtectionToPercent(resistance) * DOT_ARMOR_MITIGATION_PERCENT);
+                break;
+            default:
+                return false;
         }
         int damageAbsorbed = 0;
         if (absorption_mod > 0)
@@ -861,17 +793,17 @@ public class dot extends script.base_script
             strength = (int)(strength * (1.0f + (vulnerability_mod / 100.0f)));
         }
         int expertiseDamageBonus = getEnhancedSkillStatisticModifierUncapped(target, "combat_multiply_damage_taken");
-        float tempDamageFloat = (float)strength;
-        tempDamageFloat = tempDamageFloat * (1.0f + ((float)expertiseDamageBonus / 100.0f));
+        float tempDamageFloat = strength;
+        tempDamageFloat = tempDamageFloat * (1.0f + (expertiseDamageBonus / 100.0f));
         int expertiseDamageReduction = getEnhancedSkillStatisticModifierUncapped(target, "combat_divide_damage_taken");
         expertiseDamageReduction = expertiseDamageReduction > 100 ? 100 : expertiseDamageReduction;
-        tempDamageFloat = tempDamageFloat * (1.0f - ((float)expertiseDamageReduction / 100.0f));
+        tempDamageFloat = tempDamageFloat * (1.0f - (expertiseDamageReduction / 100.0f));
         strength = (int)tempDamageFloat;
         int current_attrib = getAttrib(target, HEALTH);
         if (type.equals(DOT_DISEASE))
         {
             current_attrib = getAttrib(target, ACTION);
-            strength = Math.round((float)strength / 3.0f);
+            strength = Math.round(strength / 3.0f);
         }
         obj_id attacker = dot.getDotAttacker(target, dot_id);
         if ((attacker != target) && !pvpCanAttack(attacker, target))
@@ -898,141 +830,117 @@ public class dot extends script.base_script
             ppFly = prose.setStringId(ppFly, strSpam);
             ppFly = prose.setDI(ppFly, -strength);
             prose_package ppSpam = new prose_package();
-            if (type.equals(dot.DOT_BLEEDING))
-            {
-                if (isIdValid(attacker) && !isDead(attacker))
-                {
-                    ppSpam = prose.setStringId(ppSpam, SID_BLEED_DMG_ATKR);
-                    ppSpam = prose.setTT(ppSpam, target);
-                    ppSpam = prose.setTO(ppSpam, attacker);
-                    ppSpam = prose.setDI(ppSpam, strength);
-                    ppSpam = prose.setTU(ppSpam, mitigationString);
-                    sendCombatSpamMessageProse(attacker, target, ppSpam, true, true, true, COMBAT_RESULT_DEBUFF);
-                    showFlyTextPrivateProseWithFlags(target, attacker, ppFly, 1f, colors.INDIANRED, FLY_TEXT_FLAG_IS_DOT);
-                }
-                else 
-                {
-                    ppSpam = prose.setStringId(ppSpam, SID_BLEED_DMG);
-                    ppSpam = prose.setTT(ppSpam, target);
-                    ppSpam = prose.setDI(ppSpam, strength);
-                    ppSpam = prose.setTU(ppSpam, mitigationString);
-                    sendCombatSpamMessageProse(target, target, ppSpam, false, true, true, COMBAT_RESULT_DEBUFF);
-                    showFlyTextPrivateProseWithFlags(target, target, ppFly, 1f, colors.INDIANRED, FLY_TEXT_FLAG_IS_DOT);
-                }
-            }
-            else if (type.equals(dot.DOT_POISON))
-            {
-                if (isIdValid(attacker) && !isDead(attacker))
-                {
-                    ppSpam = prose.setStringId(ppSpam, SID_POISON_DMG_ATKR);
-                    ppSpam = prose.setTT(ppSpam, target);
-                    ppSpam = prose.setTO(ppSpam, attacker);
-                    ppSpam = prose.setDI(ppSpam, strength);
-                    ppSpam = prose.setTU(ppSpam, mitigationString);
-                    sendCombatSpamMessageProse(attacker, target, ppSpam, true, true, true, COMBAT_RESULT_DEBUFF);
-                    showFlyTextPrivateProseWithFlags(target, attacker, ppFly, 1f, colors.YELLOWGREEN, FLY_TEXT_FLAG_IS_DOT);
-                }
-                else 
-                {
-                    ppSpam = prose.setStringId(ppSpam, SID_POISON_DMG);
-                    ppSpam = prose.setTT(ppSpam, target);
-                    ppSpam = prose.setDI(ppSpam, strength);
-                    ppSpam = prose.setTU(ppSpam, mitigationString);
-                    sendCombatSpamMessageProse(target, target, ppSpam, false, true, true, COMBAT_RESULT_DEBUFF);
-                    showFlyTextPrivateProseWithFlags(target, target, ppFly, 1f, colors.YELLOWGREEN, FLY_TEXT_FLAG_IS_DOT);
-                }
-            }
-            else if (type.equals(dot.DOT_DISEASE))
-            {
-                if (isIdValid(attacker) && !isDead(attacker))
-                {
-                    ppSpam = prose.setStringId(ppSpam, SID_DISEASE_DMG_ATKR);
-                    ppSpam = prose.setTT(ppSpam, target);
-                    ppSpam = prose.setTO(ppSpam, attacker);
-                    ppSpam = prose.setDI(ppSpam, strength);
-                    ppSpam = prose.setTU(ppSpam, mitigationString);
-                    sendCombatSpamMessageProse(attacker, target, ppSpam, true, true, true, COMBAT_RESULT_DEBUFF);
-                    showFlyTextPrivateProseWithFlags(target, attacker, ppFly, 1f, colors.LIMEGREEN, FLY_TEXT_FLAG_IS_DOT);
-                }
-                else 
-                {
-                    ppSpam = prose.setStringId(ppSpam, SID_DISEASE_DMG);
-                    ppSpam = prose.setTT(ppSpam, target);
-                    ppSpam = prose.setDI(ppSpam, strength);
-                    ppSpam = prose.setTU(ppSpam, mitigationString);
-                    sendCombatSpamMessageProse(target, target, ppSpam, false, true, true, COMBAT_RESULT_DEBUFF);
-                    showFlyTextPrivateProseWithFlags(target, target, ppFly, 1f, colors.LIMEGREEN, FLY_TEXT_FLAG_IS_DOT);
-                }
-            }
-            else if (type.equals(dot.DOT_FIRE))
-            {
-                if (isIdValid(attacker) && !isDead(attacker))
-                {
-                    ppSpam = prose.setStringId(ppSpam, SID_FIRE_DMG_ATKR);
-                    ppSpam = prose.setTT(ppSpam, target);
-                    ppSpam = prose.setTO(ppSpam, attacker);
-                    ppSpam = prose.setDI(ppSpam, strength);
-                    ppSpam = prose.setTU(ppSpam, mitigationString);
-                    sendCombatSpamMessageProse(attacker, target, ppSpam, true, true, true, COMBAT_RESULT_DEBUFF);
-                    showFlyTextPrivateProseWithFlags(target, attacker, ppFly, 1f, colors.FIREBRICK, FLY_TEXT_FLAG_IS_DOT);
-                }
-                else 
-                {
-                    ppSpam = prose.setStringId(ppSpam, SID_FIRE_DMG);
-                    ppSpam = prose.setTT(ppSpam, target);
-                    ppSpam = prose.setDI(ppSpam, strength);
-                    ppSpam = prose.setTU(ppSpam, mitigationString);
-                    sendCombatSpamMessageProse(target, target, ppSpam, false, true, true, COMBAT_RESULT_DEBUFF);
-                    showFlyTextPrivateProseWithFlags(target, target, ppFly, 1f, colors.FIREBRICK, FLY_TEXT_FLAG_IS_DOT);
-                }
-            }
-            else if (type.equals(dot.DOT_ACID))
-            {
-                if (isIdValid(attacker) && !isDead(attacker))
-                {
-                    ppSpam = prose.setStringId(ppSpam, SID_ACID_DMG_ATKR);
-                    ppSpam = prose.setTT(ppSpam, target);
-                    ppSpam = prose.setTO(ppSpam, attacker);
-                    ppSpam = prose.setDI(ppSpam, strength);
-                    ppSpam = prose.setTU(ppSpam, mitigationString);
-                    sendCombatSpamMessageProse(attacker, target, ppSpam, true, true, true, COMBAT_RESULT_DEBUFF);
-                    showFlyTextPrivateProseWithFlags(target, attacker, ppFly, 1f, colors.OLIVEDRAB, FLY_TEXT_FLAG_IS_DOT);
-                }
-                else 
-                {
-                    ppSpam = prose.setStringId(ppSpam, SID_ACID_DMG);
-                    ppSpam = prose.setTT(ppSpam, target);
-                    ppSpam = prose.setDI(ppSpam, strength);
-                    ppSpam = prose.setTU(ppSpam, mitigationString);
-                    sendCombatSpamMessageProse(target, target, ppSpam, false, true, true, COMBAT_RESULT_DEBUFF);
-                    showFlyTextPrivateProseWithFlags(target, target, ppFly, 1f, colors.OLIVEDRAB, FLY_TEXT_FLAG_IS_DOT);
-                }
-            }
-            else if (type.equals(dot.DOT_ENERGY))
-            {
-                if (isIdValid(attacker) && !isDead(attacker))
-                {
-                    ppSpam = prose.setStringId(ppSpam, SID_ENERGY_DMG_ATKR);
-                    ppSpam = prose.setTT(ppSpam, target);
-                    ppSpam = prose.setTO(ppSpam, attacker);
-                    ppSpam = prose.setDI(ppSpam, strength);
-                    ppSpam = prose.setTU(ppSpam, mitigationString);
-                    sendCombatSpamMessageProse(attacker, target, ppSpam, true, true, true, COMBAT_RESULT_DEBUFF);
-                    showFlyTextPrivateProseWithFlags(target, attacker, ppFly, 1f, colors.DEEPSKYBLUE, FLY_TEXT_FLAG_IS_DOT);
-                }
-                else 
-                {
-                    ppSpam = prose.setStringId(ppSpam, SID_ENERGY_DMG);
-                    ppSpam = prose.setTT(ppSpam, target);
-                    ppSpam = prose.setDI(ppSpam, strength);
-                    ppSpam = prose.setTU(ppSpam, mitigationString);
-                    sendCombatSpamMessageProse(target, target, ppSpam, false, true, true, COMBAT_RESULT_DEBUFF);
-                    showFlyTextPrivateProseWithFlags(target, target, ppFly, 1f, colors.DEEPSKYBLUE, FLY_TEXT_FLAG_IS_DOT);
-                }
-            }
-            else 
-            {
-                return false;
+            switch (type) {
+                case dot.DOT_BLEEDING:
+                    if (isIdValid(attacker) && !isDead(attacker)) {
+                        ppSpam = prose.setStringId(ppSpam, SID_BLEED_DMG_ATKR);
+                        ppSpam = prose.setTT(ppSpam, target);
+                        ppSpam = prose.setTO(ppSpam, attacker);
+                        ppSpam = prose.setDI(ppSpam, strength);
+                        ppSpam = prose.setTU(ppSpam, mitigationString);
+                        sendCombatSpamMessageProse(attacker, target, ppSpam, true, true, true, COMBAT_RESULT_DEBUFF);
+                        showFlyTextPrivateProseWithFlags(target, attacker, ppFly, 1.0f, colors.INDIANRED, FLY_TEXT_FLAG_IS_DOT);
+                    } else {
+                        ppSpam = prose.setStringId(ppSpam, SID_BLEED_DMG);
+                        ppSpam = prose.setTT(ppSpam, target);
+                        ppSpam = prose.setDI(ppSpam, strength);
+                        ppSpam = prose.setTU(ppSpam, mitigationString);
+                        sendCombatSpamMessageProse(target, target, ppSpam, false, true, true, COMBAT_RESULT_DEBUFF);
+                        showFlyTextPrivateProseWithFlags(target, target, ppFly, 1.0f, colors.INDIANRED, FLY_TEXT_FLAG_IS_DOT);
+                    }
+                    break;
+                case dot.DOT_POISON:
+                    if (isIdValid(attacker) && !isDead(attacker)) {
+                        ppSpam = prose.setStringId(ppSpam, SID_POISON_DMG_ATKR);
+                        ppSpam = prose.setTT(ppSpam, target);
+                        ppSpam = prose.setTO(ppSpam, attacker);
+                        ppSpam = prose.setDI(ppSpam, strength);
+                        ppSpam = prose.setTU(ppSpam, mitigationString);
+                        sendCombatSpamMessageProse(attacker, target, ppSpam, true, true, true, COMBAT_RESULT_DEBUFF);
+                        showFlyTextPrivateProseWithFlags(target, attacker, ppFly, 1.0f, colors.YELLOWGREEN, FLY_TEXT_FLAG_IS_DOT);
+                    } else {
+                        ppSpam = prose.setStringId(ppSpam, SID_POISON_DMG);
+                        ppSpam = prose.setTT(ppSpam, target);
+                        ppSpam = prose.setDI(ppSpam, strength);
+                        ppSpam = prose.setTU(ppSpam, mitigationString);
+                        sendCombatSpamMessageProse(target, target, ppSpam, false, true, true, COMBAT_RESULT_DEBUFF);
+                        showFlyTextPrivateProseWithFlags(target, target, ppFly, 1.0f, colors.YELLOWGREEN, FLY_TEXT_FLAG_IS_DOT);
+                    }
+                    break;
+                case dot.DOT_DISEASE:
+                    if (isIdValid(attacker) && !isDead(attacker)) {
+                        ppSpam = prose.setStringId(ppSpam, SID_DISEASE_DMG_ATKR);
+                        ppSpam = prose.setTT(ppSpam, target);
+                        ppSpam = prose.setTO(ppSpam, attacker);
+                        ppSpam = prose.setDI(ppSpam, strength);
+                        ppSpam = prose.setTU(ppSpam, mitigationString);
+                        sendCombatSpamMessageProse(attacker, target, ppSpam, true, true, true, COMBAT_RESULT_DEBUFF);
+                        showFlyTextPrivateProseWithFlags(target, attacker, ppFly, 1.0f, colors.LIMEGREEN, FLY_TEXT_FLAG_IS_DOT);
+                    } else {
+                        ppSpam = prose.setStringId(ppSpam, SID_DISEASE_DMG);
+                        ppSpam = prose.setTT(ppSpam, target);
+                        ppSpam = prose.setDI(ppSpam, strength);
+                        ppSpam = prose.setTU(ppSpam, mitigationString);
+                        sendCombatSpamMessageProse(target, target, ppSpam, false, true, true, COMBAT_RESULT_DEBUFF);
+                        showFlyTextPrivateProseWithFlags(target, target, ppFly, 1.0f, colors.LIMEGREEN, FLY_TEXT_FLAG_IS_DOT);
+                    }
+                    break;
+                case dot.DOT_FIRE:
+                    if (isIdValid(attacker) && !isDead(attacker)) {
+                        ppSpam = prose.setStringId(ppSpam, SID_FIRE_DMG_ATKR);
+                        ppSpam = prose.setTT(ppSpam, target);
+                        ppSpam = prose.setTO(ppSpam, attacker);
+                        ppSpam = prose.setDI(ppSpam, strength);
+                        ppSpam = prose.setTU(ppSpam, mitigationString);
+                        sendCombatSpamMessageProse(attacker, target, ppSpam, true, true, true, COMBAT_RESULT_DEBUFF);
+                        showFlyTextPrivateProseWithFlags(target, attacker, ppFly, 1.0f, colors.FIREBRICK, FLY_TEXT_FLAG_IS_DOT);
+                    } else {
+                        ppSpam = prose.setStringId(ppSpam, SID_FIRE_DMG);
+                        ppSpam = prose.setTT(ppSpam, target);
+                        ppSpam = prose.setDI(ppSpam, strength);
+                        ppSpam = prose.setTU(ppSpam, mitigationString);
+                        sendCombatSpamMessageProse(target, target, ppSpam, false, true, true, COMBAT_RESULT_DEBUFF);
+                        showFlyTextPrivateProseWithFlags(target, target, ppFly, 1.0f, colors.FIREBRICK, FLY_TEXT_FLAG_IS_DOT);
+                    }
+                    break;
+                case dot.DOT_ACID:
+                    if (isIdValid(attacker) && !isDead(attacker)) {
+                        ppSpam = prose.setStringId(ppSpam, SID_ACID_DMG_ATKR);
+                        ppSpam = prose.setTT(ppSpam, target);
+                        ppSpam = prose.setTO(ppSpam, attacker);
+                        ppSpam = prose.setDI(ppSpam, strength);
+                        ppSpam = prose.setTU(ppSpam, mitigationString);
+                        sendCombatSpamMessageProse(attacker, target, ppSpam, true, true, true, COMBAT_RESULT_DEBUFF);
+                        showFlyTextPrivateProseWithFlags(target, attacker, ppFly, 1.0f, colors.OLIVEDRAB, FLY_TEXT_FLAG_IS_DOT);
+                    } else {
+                        ppSpam = prose.setStringId(ppSpam, SID_ACID_DMG);
+                        ppSpam = prose.setTT(ppSpam, target);
+                        ppSpam = prose.setDI(ppSpam, strength);
+                        ppSpam = prose.setTU(ppSpam, mitigationString);
+                        sendCombatSpamMessageProse(target, target, ppSpam, false, true, true, COMBAT_RESULT_DEBUFF);
+                        showFlyTextPrivateProseWithFlags(target, target, ppFly, 1.0f, colors.OLIVEDRAB, FLY_TEXT_FLAG_IS_DOT);
+                    }
+                    break;
+                case dot.DOT_ENERGY:
+                    if (isIdValid(attacker) && !isDead(attacker)) {
+                        ppSpam = prose.setStringId(ppSpam, SID_ENERGY_DMG_ATKR);
+                        ppSpam = prose.setTT(ppSpam, target);
+                        ppSpam = prose.setTO(ppSpam, attacker);
+                        ppSpam = prose.setDI(ppSpam, strength);
+                        ppSpam = prose.setTU(ppSpam, mitigationString);
+                        sendCombatSpamMessageProse(attacker, target, ppSpam, true, true, true, COMBAT_RESULT_DEBUFF);
+                        showFlyTextPrivateProseWithFlags(target, attacker, ppFly, 1.0f, colors.DEEPSKYBLUE, FLY_TEXT_FLAG_IS_DOT);
+                    } else {
+                        ppSpam = prose.setStringId(ppSpam, SID_ENERGY_DMG);
+                        ppSpam = prose.setTT(ppSpam, target);
+                        ppSpam = prose.setDI(ppSpam, strength);
+                        ppSpam = prose.setTU(ppSpam, mitigationString);
+                        sendCombatSpamMessageProse(target, target, ppSpam, false, true, true, COMBAT_RESULT_DEBUFF);
+                        showFlyTextPrivateProseWithFlags(target, target, ppFly, 1.0f, colors.DEEPSKYBLUE, FLY_TEXT_FLAG_IS_DOT);
+                    }
+                    break;
+                default:
+                    return false;
             }
             if (!type.equals(DOT_DISEASE))
             {
@@ -1107,7 +1015,7 @@ public class dot extends script.base_script
             return false;
         }
         int hit_location = results.hitLocation;
-        float damage = (float)results.damage;
+        float damage = results.damage;
         float wound_rating = weapon.woundChance;
         if (damage < 1)
         {
@@ -1138,17 +1046,15 @@ public class dot extends script.base_script
                 String[] weapon_dots = getAllDots(weapon_id);
                 if (weapon_dots != null)
                 {
-                    for (int i = 0; i < weapon_dots.length; i++)
-                    {
-                        String type = getDotType(weapon_id, weapon_dots[i]);
-                        int attribute = getDotAttribute(weapon_id, weapon_dots[i]);
-                        int potency = getDotPotency(weapon_id, weapon_dots[i]);
-                        int strength = getDotStrength(weapon_id, weapon_dots[i]);
-                        int duration = getDotDuration(weapon_id, weapon_dots[i]);
-                        if (canApplyDotType(defender, type))
-                        {
-                            applyDotEffect(defender, attacker, type, weapon_dots[i], attribute, potency, strength, duration, true, null);
-                            decrementDotUses(weapon_id, weapon_dots[i]);
+                    for (String weapon_dot : weapon_dots) {
+                        String type = getDotType(weapon_id, weapon_dot);
+                        int attribute = getDotAttribute(weapon_id, weapon_dot);
+                        int potency = getDotPotency(weapon_id, weapon_dot);
+                        int strength = getDotStrength(weapon_id, weapon_dot);
+                        int duration = getDotDuration(weapon_id, weapon_dot);
+                        if (canApplyDotType(defender, type)) {
+                            applyDotEffect(defender, attacker, type, weapon_dot, attribute, potency, strength, duration, true, null);
+                            decrementDotUses(weapon_id, weapon_dot);
                             dot_applied = true;
                         }
                     }
@@ -1187,29 +1093,25 @@ public class dot extends script.base_script
             utils.setScriptVar(target, getDotScriptVarName(dot_id) + VAR_STRENGTH, current_strength);
             if (verbose)
             {
-                if (type.equals(DOT_BLEEDING))
-                {
-                    combat.sendCombatSpamMessage(target, SID_BLEEDING_DECREASE);
-                }
-                else if (type.equals(DOT_POISON))
-                {
-                    combat.sendCombatSpamMessage(target, SID_POISONED_DECREASE);
-                }
-                else if (type.equals(DOT_DISEASE))
-                {
-                    combat.sendCombatSpamMessage(target, SID_DISEASED_DECREASE);
-                }
-                else if (type.equals(DOT_FIRE))
-                {
-                    combat.sendCombatSpamMessage(target, SID_FIRE_DECREASE);
-                }
-                else if (type.equals(DOT_ACID))
-                {
-                    combat.sendCombatSpamMessage(target, SID_FIRE_DECREASE);
-                }
-                else if (type.equals(DOT_ENERGY))
-                {
-                    combat.sendCombatSpamMessage(target, SID_FIRE_DECREASE);
+                switch (type) {
+                    case DOT_BLEEDING:
+                        combat.sendCombatSpamMessage(target, SID_BLEEDING_DECREASE);
+                        break;
+                    case DOT_POISON:
+                        combat.sendCombatSpamMessage(target, SID_POISONED_DECREASE);
+                        break;
+                    case DOT_DISEASE:
+                        combat.sendCombatSpamMessage(target, SID_DISEASED_DECREASE);
+                        break;
+                    case DOT_FIRE:
+                        combat.sendCombatSpamMessage(target, SID_FIRE_DECREASE);
+                        break;
+                    case DOT_ACID:
+                        combat.sendCombatSpamMessage(target, SID_FIRE_DECREASE);
+                        break;
+                    case DOT_ENERGY:
+                        combat.sendCombatSpamMessage(target, SID_FIRE_DECREASE);
+                        break;
                 }
             }
         }
@@ -1290,48 +1192,39 @@ public class dot extends script.base_script
             }
         }
         int resistance_mod = 0;
-        if (type.equals(DOT_BLEEDING))
-        {
-            resistance_mod = getEnhancedSkillStatisticModifier(target, "resistance_bleeding");
-        }
-        else if (type.equals(DOT_POISON))
-        {
-            resistance_mod = getEnhancedSkillStatisticModifier(target, "resistance_poison");
-        }
-        else if (type.equals(DOT_DISEASE))
-        {
-            resistance_mod = getEnhancedSkillStatisticModifier(target, "resistance_disease");
-        }
-        else if (type.equals(DOT_FIRE))
-        {
-            resistance_mod = getEnhancedSkillStatisticModifier(target, "resistance_fire");
-        }
-        else if (type.equals(DOT_ACID))
-        {
-            resistance_mod = getEnhancedSkillStatisticModifier(target, "resistance_acid");
-        }
-        else if (type.equals(DOT_ENERGY))
-        {
-            resistance_mod = getEnhancedSkillStatisticModifier(target, "resistance_energy");
-        }
-        else if (type.equals(DOT_ELECTRICITY))
-        {
-            resistance_mod = getEnhancedSkillStatisticModifier(target, "resistance_eletricity");
-        }
-        else if (type.equals(DOT_COLD))
-        {
-            resistance_mod = getEnhancedSkillStatisticModifier(target, "resistance_cold");
-        }
-        else if (type.equals(DOT_KINETIC))
-        {
-            resistance_mod = getEnhancedSkillStatisticModifier(target, "resistance_kinetic");
-        }
-        else 
-        {
-            return false;
+        switch (type) {
+            case DOT_BLEEDING:
+                resistance_mod = getEnhancedSkillStatisticModifier(target, "resistance_bleeding");
+                break;
+            case DOT_POISON:
+                resistance_mod = getEnhancedSkillStatisticModifier(target, "resistance_poison");
+                break;
+            case DOT_DISEASE:
+                resistance_mod = getEnhancedSkillStatisticModifier(target, "resistance_disease");
+                break;
+            case DOT_FIRE:
+                resistance_mod = getEnhancedSkillStatisticModifier(target, "resistance_fire");
+                break;
+            case DOT_ACID:
+                resistance_mod = getEnhancedSkillStatisticModifier(target, "resistance_acid");
+                break;
+            case DOT_ENERGY:
+                resistance_mod = getEnhancedSkillStatisticModifier(target, "resistance_energy");
+                break;
+            case DOT_ELECTRICITY:
+                resistance_mod = getEnhancedSkillStatisticModifier(target, "resistance_eletricity");
+                break;
+            case DOT_COLD:
+                resistance_mod = getEnhancedSkillStatisticModifier(target, "resistance_cold");
+                break;
+            case DOT_KINETIC:
+                resistance_mod = getEnhancedSkillStatisticModifier(target, "resistance_kinetic");
+                break;
+            default:
+                return false;
         }
         resistance_mod /= MOD_DIVISOR;
-        float resist_scale = (0.4f / ((100f + resistance_mod) / 200f));
+        float resist_scale = (0.4f / ((100.0f + resistance_mod) / 200.0f));
         float to_hit_chance = potency * resist_scale;
         if (to_hit_chance < 5)
         {
@@ -1433,13 +1326,11 @@ public class dot extends script.base_script
         String[] dots = getAllDots(target);
         if (dots != null)
         {
-            for (int i = 0; i < dots.length; ++i)
-            {
-                String scriptVarName = VAR_DOT_ROOT + dots[i] + VAR_TYPE;
+            for (String dot : dots) {
+                String scriptVarName = VAR_DOT_ROOT + dot + VAR_TYPE;
                 String scriptVarValue = utils.getStringScriptVar(target, scriptVarName);
-                if ((scriptVarValue != null) && scriptVarValue.equals(type))
-                {
-                    dots_found.addElement(dots[i]);
+                if ((scriptVarValue != null) && scriptVarValue.equals(type)) {
+                    dots_found.addElement(dot);
                 }
             }
         }
@@ -1468,12 +1359,10 @@ public class dot extends script.base_script
         String[] dots = getAllDots(target);
         if (dots != null)
         {
-            for (int i = 0; i < dots.length; ++i)
-            {
-                obj_id who = getDotAttacker(target, dots[i]);
-                if (isIdValid(who) && owner == who)
-                {
-                    dots_found.addElement(dots[i]);
+            for (String dot : dots) {
+                obj_id who = getDotAttacker(target, dot);
+                if (isIdValid(who) && owner == who) {
+                    dots_found.addElement(dot);
                 }
             }
         }
@@ -1495,9 +1384,8 @@ public class dot extends script.base_script
         {
             return;
         }
-        for (int i = 0; i < dots.length; i++)
-        {
-            removeDotEffect(target, dots[i], false);
+        for (String dot : dots) {
+            removeDotEffect(target, dot, false);
         }
     }
     public static boolean isBleeding(obj_id target) throws InterruptedException
@@ -1790,33 +1678,21 @@ public class dot extends script.base_script
         {
             return -1;
         }
-        if (type.equals(dot.DOT_BLEEDING))
-        {
-            return dot.BLEEDING_PULSE;
-        }
-        else if (type.equals(dot.DOT_POISON))
-        {
-            return dot.POISON_PULSE;
-        }
-        else if (type.equals(dot.DOT_DISEASE))
-        {
-            return dot.DISEASE_PULSE;
-        }
-        else if (type.equals(dot.DOT_FIRE))
-        {
-            return dot.FIRE_PULSE;
-        }
-        else if (type.equals(dot.DOT_ACID))
-        {
-            return dot.ACID_PULSE;
-        }
-        else if (type.equals(dot.DOT_ENERGY))
-        {
-            return dot.ENERGY_PULSE;
-        }
-        else 
-        {
-            return -1;
+        switch (type) {
+            case dot.DOT_BLEEDING:
+                return dot.BLEEDING_PULSE;
+            case dot.DOT_POISON:
+                return dot.POISON_PULSE;
+            case dot.DOT_DISEASE:
+                return dot.DISEASE_PULSE;
+            case dot.DOT_FIRE:
+                return dot.FIRE_PULSE;
+            case dot.DOT_ACID:
+                return dot.ACID_PULSE;
+            case dot.DOT_ENERGY:
+                return dot.ENERGY_PULSE;
+            default:
+                return -1;
         }
     }
     public static int getDotUses(obj_id source, String dot_id) throws InterruptedException
@@ -1918,9 +1794,8 @@ public class dot extends script.base_script
         obj_id[] players = getAllPlayers(loc, VAR_EFFECT_DISPLAY_RADIUS);
         if (players != null)
         {
-            for (int i = 0; i < players.length; i++)
-            {
-                playClientEffectLoc(players[i], "clienteffect/dot_bleeding.cef", loc, 0);
+            for (obj_id player : players) {
+                playClientEffectLoc(player, "clienteffect/dot_bleeding.cef", loc, 0);
             }
         }
         return;
@@ -1934,9 +1809,8 @@ public class dot extends script.base_script
         obj_id[] players = getAllPlayers(loc, VAR_EFFECT_DISPLAY_RADIUS);
         if (players != null)
         {
-            for (int i = 0; i < players.length; i++)
-            {
-                playClientEffectLoc(players[i], "clienteffect/dot_poisoned.cef", loc, 0);
+            for (obj_id player : players) {
+                playClientEffectLoc(player, "clienteffect/dot_poisoned.cef", loc, 0);
             }
         }
         return;
@@ -1950,9 +1824,8 @@ public class dot extends script.base_script
         obj_id[] players = getAllPlayers(loc, VAR_EFFECT_DISPLAY_RADIUS);
         if (players != null)
         {
-            for (int i = 0; i < players.length; i++)
-            {
-                playClientEffectLoc(players[i], "clienteffect/dot_diseased.cef", loc, 0);
+            for (obj_id player : players) {
+                playClientEffectLoc(player, "clienteffect/dot_diseased.cef", loc, 0);
             }
         }
         return;
@@ -1966,9 +1839,8 @@ public class dot extends script.base_script
         obj_id[] players = getAllPlayers(loc, VAR_EFFECT_DISPLAY_RADIUS);
         if (players != null)
         {
-            for (int i = 0; i < players.length; i++)
-            {
-                playClientEffectLoc(players[i], "clienteffect/dot_fire.cef", loc, 0);
+            for (obj_id player : players) {
+                playClientEffectLoc(player, "clienteffect/dot_fire.cef", loc, 0);
             }
         }
         return;
@@ -1982,9 +1854,8 @@ public class dot extends script.base_script
         obj_id[] players = getAllPlayers(loc, VAR_EFFECT_DISPLAY_RADIUS);
         if (players != null)
         {
-            for (int i = 0; i < players.length; i++)
-            {
-                playClientEffectLoc(players[i], "clienteffect/dot_fire.cef", loc, 0);
+            for (obj_id player : players) {
+                playClientEffectLoc(player, "clienteffect/dot_fire.cef", loc, 0);
             }
         }
         return;
@@ -1998,9 +1869,8 @@ public class dot extends script.base_script
         obj_id[] players = getAllPlayers(loc, VAR_EFFECT_DISPLAY_RADIUS);
         if (players != null)
         {
-            for (int i = 0; i < players.length; i++)
-            {
-                playClientEffectLoc(players[i], "clienteffect/dot_fire.cef", loc, 0);
+            for (obj_id player : players) {
+                playClientEffectLoc(player, "clienteffect/dot_fire.cef", loc, 0);
             }
         }
         return;
@@ -2087,29 +1957,25 @@ public class dot extends script.base_script
                 {
                     return dotResistanceMod;
                 }
-                if (type.equals(DOT_BLEEDING))
-                {
-                    dotResistanceMod = armorTypeTally[0] * armorTypeTally[0] * 2;
-                }
-                else if (type.equals(DOT_POISON))
-                {
-                    dotResistanceMod = armorTypeTally[1] * armorTypeTally[1] * 2;
-                }
-                else if (type.equals(DOT_DISEASE))
-                {
-                    dotResistanceMod = armorTypeTally[0] * armorTypeTally[0] * 2;
-                }
-                else if (type.equals(DOT_FIRE))
-                {
-                    dotResistanceMod = armorTypeTally[2] * armorTypeTally[2] * 2;
-                }
-                else if (type.equals(DOT_ACID))
-                {
-                    dotResistanceMod = armorTypeTally[2] * armorTypeTally[2] * 2;
-                }
-                else if (type.equals(DOT_ENERGY))
-                {
-                    dotResistanceMod = armorTypeTally[1] * armorTypeTally[1] * 2;
+                switch (type) {
+                    case DOT_BLEEDING:
+                        dotResistanceMod = armorTypeTally[0] * armorTypeTally[0] * 2;
+                        break;
+                    case DOT_POISON:
+                        dotResistanceMod = armorTypeTally[1] * armorTypeTally[1] * 2;
+                        break;
+                    case DOT_DISEASE:
+                        dotResistanceMod = armorTypeTally[0] * armorTypeTally[0] * 2;
+                        break;
+                    case DOT_FIRE:
+                        dotResistanceMod = armorTypeTally[2] * armorTypeTally[2] * 2;
+                        break;
+                    case DOT_ACID:
+                        dotResistanceMod = armorTypeTally[2] * armorTypeTally[2] * 2;
+                        break;
+                    case DOT_ENERGY:
+                        dotResistanceMod = armorTypeTally[1] * armorTypeTally[1] * 2;
+                        break;
                 }
             }
         }
@@ -2178,98 +2044,79 @@ public class dot extends script.base_script
         }
         string_id old_effect_string;
         string_id new_effect_string;
-        if (type.equals(DOT_FIRE))
-        {
-            if (getState(target, STATE_SWIMMING) != 1)
-            {
-                old_effect_string = SID_FIRE_INCREASE;
-                new_effect_string = SID_FIRE;
-                if (stack == 1)
-                {
-                    playClientEffectObj(target, "appearance/pt_state_onfire.prt", target, "", null, "state_onfire");
+        switch (type) {
+            case DOT_FIRE:
+                if (getState(target, STATE_SWIMMING) != 1) {
+                    old_effect_string = SID_FIRE_INCREASE;
+                    new_effect_string = SID_FIRE;
+                    if (stack == 1) {
+                        playClientEffectObj(target, "appearance/pt_state_onfire.prt", target, "", null, "state_onfire");
+                    }
+                    playClientEffectObj(target, "sound/sta_onfire_on.snd", target, "");
+                } else {
+                    buff.removeBuff(target, buffName);
+                    return false;
                 }
-                playClientEffectObj(target, "sound/sta_onfire_on.snd", target, "");
-            }
-            else 
-            {
+                break;
+            case DOT_ACID:
+                old_effect_string = SID_ACID_INCREASE;
+                new_effect_string = SID_ACID;
+                if (stack == 1) {
+                    playClientEffectObj(target, "appearance/pt_state_acid.prt", target, "", null, "state_acid");
+                }
+                playClientEffectObj(target, "sound/wep_heavy_acid_launcher_hit.snd", target, "");
+                break;
+            case DOT_ENERGY:
+                old_effect_string = SID_ENERGY_INCREASE;
+                new_effect_string = SID_ENERGY;
+                if (stack == 1) {
+                    playClientEffectObj(target, "appearance/pt_state_energy.prt", target, "", null, "state_energy");
+                }
+                playClientEffectObj(target, "sound/item_electronics_break.snd", target, "");
+                break;
+            case DOT_COLD:
+                old_effect_string = SID_COLD_INCREASE;
+                new_effect_string = SID_COLD;
+                if (stack == 1) {
+                    playClientEffectObj(target, "appearance/pt_state_energy.prt", target, "", null, "state_cold");
+                }
+                playClientEffectObj(target, "sound/item_electronics_break.snd", target, "");
+                break;
+            case DOT_ELECTRICITY:
+                old_effect_string = SID_ELECTRICITY_INCREASE;
+                new_effect_string = SID_ELECTRICITY;
+                if (stack == 1) {
+                    playClientEffectObj(target, "appearance/pt_state_energy.prt", target, "", null, "state_electricity");
+                }
+                playClientEffectObj(target, "sound/item_electronics_break.snd", target, "");
+                break;
+            case DOT_KINETIC:
+                old_effect_string = SID_KINETIC_INCREASE;
+                new_effect_string = SID_KINETIC;
+                if (stack == 1) {
+                    playClientEffectObj(target, "appearance/pt_state_energy.prt", target, "", null, "state_kinetic");
+                }
+                playClientEffectObj(target, "sound/item_electronics_break.snd", target, "");
+                break;
+            case DOT_BLEEDING:
+                new_effect_string = SID_BLEEDING;
+                old_effect_string = SID_BLEEDING_INCREASE;
+                if (stack == 1) {
+                    playClientEffectObj(target, "appearance/pt_state_bleeding.prt", target, "spine3", null, "state_bleeding");
+                }
+                playClientEffectObj(target, "sound/sta_bleeding_on.snd", target, "");
+                break;
+            case DOT_POISON:
+                old_effect_string = SID_POISONED_INCREASE;
+                new_effect_string = SID_POISONED;
+                if (stack == 1) {
+                    playClientEffectObj(target, "appearance/pt_state_poisoned.prt", target, "", null, "state_poisoned");
+                }
+                playClientEffectObj(target, "sound/sta_poisoned_on.snd", target, "");
+                break;
+            default:
                 buff.removeBuff(target, buffName);
                 return false;
-            }
-        }
-        else if (type.equals(DOT_ACID))
-        {
-            old_effect_string = SID_ACID_INCREASE;
-            new_effect_string = SID_ACID;
-            if (stack == 1)
-            {
-                playClientEffectObj(target, "appearance/pt_state_acid.prt", target, "", null, "state_acid");
-            }
-            playClientEffectObj(target, "sound/wep_heavy_acid_launcher_hit.snd", target, "");
-        }
-        else if (type.equals(DOT_ENERGY))
-        {
-            old_effect_string = SID_ENERGY_INCREASE;
-            new_effect_string = SID_ENERGY;
-            if (stack == 1)
-            {
-                playClientEffectObj(target, "appearance/pt_state_energy.prt", target, "", null, "state_energy");
-            }
-            playClientEffectObj(target, "sound/item_electronics_break.snd", target, "");
-        }
-        else if (type.equals(DOT_COLD))
-        {
-            old_effect_string = SID_COLD_INCREASE;
-            new_effect_string = SID_COLD;
-            if (stack == 1)
-            {
-                playClientEffectObj(target, "appearance/pt_state_energy.prt", target, "", null, "state_cold");
-            }
-            playClientEffectObj(target, "sound/item_electronics_break.snd", target, "");
-        }
-        else if (type.equals(DOT_ELECTRICITY))
-        {
-            old_effect_string = SID_ELECTRICITY_INCREASE;
-            new_effect_string = SID_ELECTRICITY;
-            if (stack == 1)
-            {
-                playClientEffectObj(target, "appearance/pt_state_energy.prt", target, "", null, "state_electricity");
-            }
-            playClientEffectObj(target, "sound/item_electronics_break.snd", target, "");
-        }
-        else if (type.equals(DOT_KINETIC))
-        {
-            old_effect_string = SID_KINETIC_INCREASE;
-            new_effect_string = SID_KINETIC;
-            if (stack == 1)
-            {
-                playClientEffectObj(target, "appearance/pt_state_energy.prt", target, "", null, "state_kinetic");
-            }
-            playClientEffectObj(target, "sound/item_electronics_break.snd", target, "");
-        }
-        else if (type.equals(DOT_BLEEDING))
-        {
-            new_effect_string = SID_BLEEDING;
-            old_effect_string = SID_BLEEDING_INCREASE;
-            if (stack == 1)
-            {
-                playClientEffectObj(target, "appearance/pt_state_bleeding.prt", target, "spine3", null, "state_bleeding");
-            }
-            playClientEffectObj(target, "sound/sta_bleeding_on.snd", target, "");
-        }
-        else if (type.equals(DOT_POISON))
-        {
-            old_effect_string = SID_POISONED_INCREASE;
-            new_effect_string = SID_POISONED;
-            if (stack == 1)
-            {
-                playClientEffectObj(target, "appearance/pt_state_poisoned.prt", target, "", null, "state_poisoned");
-            }
-            playClientEffectObj(target, "sound/sta_poisoned_on.snd", target, "");
-        }
-        else 
-        {
-            buff.removeBuff(target, buffName);
-            return false;
         }
         if (!hasScript(target, SCRIPT_PLAYER_DOT))
         {
@@ -2310,139 +2157,107 @@ public class dot extends script.base_script
         float resistance = 0.0f;
         if (isPlayer(target))
         {
-            resistance = (float)armor.getCombatArmorGeneralProtection(target);
+            resistance = armor.getCombatArmorGeneralProtection(target);
         }
-        if (type.equals(DOT_FIRE))
-        {
-            absorption_mod += getEnhancedSkillStatisticModifier(target, "absorption_fire");
-            vulnerability_mod += getEnhancedSkillStatisticModifierUncapped(target, "dot_vulnerability_fire");
-            if (isPlayer(target))
-            {
-                resistance += protDic.getFloat("heat");
-            }
-            else 
-            {
-                resistance += (float)utils.getIntScriptVar(target, armor.SCRIPTVAR_CACHED_GENERAL_PROTECTION);
-            }
-            absorption_mod /= MOD_DIVISOR;
-            absorption_mod += (int)getSkillStatisticModifier(target, "expertise_dot_absorption_all");
-            absorption_mod += (int)(combat.convertProtectionToPercent(resistance) * DOT_ARMOR_MITIGATION_PERCENT);
-        }
-        else if (type.equals(DOT_ACID))
-        {
-            absorption_mod += getEnhancedSkillStatisticModifier(target, "absorption_acid");
-            vulnerability_mod += getEnhancedSkillStatisticModifierUncapped(target, "dot_vulnerability_acid");
-            if (isPlayer(target))
-            {
-                resistance += protDic.getFloat("acid");
-            }
-            else 
-            {
-                resistance += (float)utils.getIntScriptVar(target, armor.SCRIPTVAR_CACHED_GENERAL_PROTECTION);
-            }
-            absorption_mod /= MOD_DIVISOR;
-            absorption_mod += (int)getSkillStatisticModifier(target, "expertise_dot_absorption_all");
-            absorption_mod += (int)(combat.convertProtectionToPercent(resistance) * DOT_ARMOR_MITIGATION_PERCENT);
-        }
-        else if (type.equals(DOT_COLD))
-        {
-            absorption_mod += getEnhancedSkillStatisticModifier(target, "absorption_cold");
-            vulnerability_mod += getEnhancedSkillStatisticModifierUncapped(target, "dot_vulnerability_cold");
-            if (isPlayer(target))
-            {
-                resistance += protDic.getFloat("cold");
-            }
-            else 
-            {
-                resistance += (float)utils.getIntScriptVar(target, armor.SCRIPTVAR_CACHED_GENERAL_PROTECTION);
-            }
-            absorption_mod /= MOD_DIVISOR;
-            absorption_mod += (int)getSkillStatisticModifier(target, "expertise_dot_absorption_all");
-            absorption_mod += (int)(combat.convertProtectionToPercent(resistance) * DOT_ARMOR_MITIGATION_PERCENT);
-        }
-        else if (type.equals(DOT_ELECTRICITY))
-        {
-            absorption_mod += getEnhancedSkillStatisticModifier(target, "absorption_electricity");
-            vulnerability_mod += getEnhancedSkillStatisticModifierUncapped(target, "dot_vulnerability_electricity");
-            if (isPlayer(target))
-            {
-                resistance += protDic.getFloat("electricity");
-            }
-            else 
-            {
-                resistance += (float)utils.getIntScriptVar(target, armor.SCRIPTVAR_CACHED_GENERAL_PROTECTION);
-            }
-            absorption_mod /= MOD_DIVISOR;
-            absorption_mod += (int)getSkillStatisticModifier(target, "expertise_dot_absorption_all");
-            absorption_mod += (int)(combat.convertProtectionToPercent(resistance) * DOT_ARMOR_MITIGATION_PERCENT);
-        }
-        else if (type.equals(DOT_ENERGY))
-        {
-            absorption_mod += getEnhancedSkillStatisticModifier(target, "absorption_energy");
-            vulnerability_mod += getEnhancedSkillStatisticModifierUncapped(target, "dot_vulnerability_energy");
-            if (isPlayer(target))
-            {
-                resistance += protDic.getFloat("energy");
-            }
-            else 
-            {
-                resistance += (float)utils.getIntScriptVar(target, armor.SCRIPTVAR_CACHED_GENERAL_PROTECTION);
-            }
-            absorption_mod /= MOD_DIVISOR;
-            absorption_mod += (int)getSkillStatisticModifier(target, "expertise_dot_absorption_all");
-            absorption_mod += (int)(combat.convertProtectionToPercent(resistance) * DOT_ARMOR_MITIGATION_PERCENT);
-        }
-        else if (type.equals(DOT_KINETIC))
-        {
-            absorption_mod += getEnhancedSkillStatisticModifier(target, "absorption_kinetic");
-            vulnerability_mod += getEnhancedSkillStatisticModifierUncapped(target, "dot_vulnerability_kinetic");
-            if (isPlayer(target))
-            {
-                resistance += protDic.getFloat("kinetic");
-            }
-            else 
-            {
-                resistance += (float)utils.getIntScriptVar(target, armor.SCRIPTVAR_CACHED_GENERAL_PROTECTION);
-            }
-            absorption_mod /= MOD_DIVISOR;
-            absorption_mod += (int)getSkillStatisticModifier(target, "expertise_dot_absorption_all");
-            absorption_mod += (int)(combat.convertProtectionToPercent(resistance) * DOT_ARMOR_MITIGATION_PERCENT);
-        }
-        else if (type.equals(DOT_BLEEDING))
-        {
-            absorption_mod += getEnhancedSkillStatisticModifier(target, "absorption_bleeding");
-            vulnerability_mod += getEnhancedSkillStatisticModifierUncapped(target, "dot_vulnerability_bleed");
-            if (isPlayer(target))
-            {
-                resistance += protDic.getFloat("cold");
-            }
-            else 
-            {
-                resistance += (float)utils.getIntScriptVar(target, armor.SCRIPTVAR_CACHED_GENERAL_PROTECTION);
-            }
-            absorption_mod /= MOD_DIVISOR;
-            absorption_mod += (int)getSkillStatisticModifier(target, "expertise_dot_absorption_all");
-            absorption_mod += (int)(combat.convertProtectionToPercent(resistance) * DOT_ARMOR_MITIGATION_PERCENT);
-        }
-        else if (type.equals(DOT_POISON))
-        {
-            absorption_mod += getEnhancedSkillStatisticModifier(target, "absorption_poison");
-            vulnerability_mod += getEnhancedSkillStatisticModifierUncapped(target, "dot_vulnerability_poison");
-            if (isPlayer(target))
-            {
-                resistance += protDic.getFloat("acid");
-            }
-            else 
-            {
-                resistance += (float)utils.getIntScriptVar(target, armor.SCRIPTVAR_CACHED_GENERAL_PROTECTION);
-            }
-            absorption_mod /= MOD_DIVISOR;
-            absorption_mod += (int)getSkillStatisticModifier(target, "expertise_dot_absorption_all");
-            absorption_mod += (int)(combat.convertProtectionToPercent(resistance) * DOT_ARMOR_MITIGATION_PERCENT);
-        }
-        else 
-        {
-            return false;
+        switch (type) {
+            case DOT_FIRE:
+                absorption_mod += getEnhancedSkillStatisticModifier(target, "absorption_fire");
+                vulnerability_mod += getEnhancedSkillStatisticModifierUncapped(target, "dot_vulnerability_fire");
+                if (isPlayer(target)) {
+                    resistance += protDic.getFloat("heat");
+                } else {
+                    resistance += utils.getIntScriptVar(target, armor.SCRIPTVAR_CACHED_GENERAL_PROTECTION);
+                }
+                absorption_mod /= MOD_DIVISOR;
+                absorption_mod += (int) getSkillStatisticModifier(target, "expertise_dot_absorption_all");
+                absorption_mod += (int) (combat.convertProtectionToPercent(resistance) * DOT_ARMOR_MITIGATION_PERCENT);
+                break;
+            case DOT_ACID:
+                absorption_mod += getEnhancedSkillStatisticModifier(target, "absorption_acid");
+                vulnerability_mod += getEnhancedSkillStatisticModifierUncapped(target, "dot_vulnerability_acid");
+                if (isPlayer(target)) {
+                    resistance += protDic.getFloat("acid");
+                } else {
+                    resistance += utils.getIntScriptVar(target, armor.SCRIPTVAR_CACHED_GENERAL_PROTECTION);
+                }
+                absorption_mod /= MOD_DIVISOR;
+                absorption_mod += (int) getSkillStatisticModifier(target, "expertise_dot_absorption_all");
+                absorption_mod += (int) (combat.convertProtectionToPercent(resistance) * DOT_ARMOR_MITIGATION_PERCENT);
+                break;
+            case DOT_COLD:
+                absorption_mod += getEnhancedSkillStatisticModifier(target, "absorption_cold");
+                vulnerability_mod += getEnhancedSkillStatisticModifierUncapped(target, "dot_vulnerability_cold");
+                if (isPlayer(target)) {
+                    resistance += protDic.getFloat("cold");
+                } else {
+                    resistance += utils.getIntScriptVar(target, armor.SCRIPTVAR_CACHED_GENERAL_PROTECTION);
+                }
+                absorption_mod /= MOD_DIVISOR;
+                absorption_mod += (int) getSkillStatisticModifier(target, "expertise_dot_absorption_all");
+                absorption_mod += (int) (combat.convertProtectionToPercent(resistance) * DOT_ARMOR_MITIGATION_PERCENT);
+                break;
+            case DOT_ELECTRICITY:
+                absorption_mod += getEnhancedSkillStatisticModifier(target, "absorption_electricity");
+                vulnerability_mod += getEnhancedSkillStatisticModifierUncapped(target, "dot_vulnerability_electricity");
+                if (isPlayer(target)) {
+                    resistance += protDic.getFloat("electricity");
+                } else {
+                    resistance += utils.getIntScriptVar(target, armor.SCRIPTVAR_CACHED_GENERAL_PROTECTION);
+                }
+                absorption_mod /= MOD_DIVISOR;
+                absorption_mod += (int) getSkillStatisticModifier(target, "expertise_dot_absorption_all");
+                absorption_mod += (int) (combat.convertProtectionToPercent(resistance) * DOT_ARMOR_MITIGATION_PERCENT);
+                break;
+            case DOT_ENERGY:
+                absorption_mod += getEnhancedSkillStatisticModifier(target, "absorption_energy");
+                vulnerability_mod += getEnhancedSkillStatisticModifierUncapped(target, "dot_vulnerability_energy");
+                if (isPlayer(target)) {
+                    resistance += protDic.getFloat("energy");
+                } else {
+                    resistance += utils.getIntScriptVar(target, armor.SCRIPTVAR_CACHED_GENERAL_PROTECTION);
+                }
+                absorption_mod /= MOD_DIVISOR;
+                absorption_mod += (int) getSkillStatisticModifier(target, "expertise_dot_absorption_all");
+                absorption_mod += (int) (combat.convertProtectionToPercent(resistance) * DOT_ARMOR_MITIGATION_PERCENT);
+                break;
+            case DOT_KINETIC:
+                absorption_mod += getEnhancedSkillStatisticModifier(target, "absorption_kinetic");
+                vulnerability_mod += getEnhancedSkillStatisticModifierUncapped(target, "dot_vulnerability_kinetic");
+                if (isPlayer(target)) {
+                    resistance += protDic.getFloat("kinetic");
+                } else {
+                    resistance += utils.getIntScriptVar(target, armor.SCRIPTVAR_CACHED_GENERAL_PROTECTION);
+                }
+                absorption_mod /= MOD_DIVISOR;
+                absorption_mod += (int) getSkillStatisticModifier(target, "expertise_dot_absorption_all");
+                absorption_mod += (int) (combat.convertProtectionToPercent(resistance) * DOT_ARMOR_MITIGATION_PERCENT);
+                break;
+            case DOT_BLEEDING:
+                absorption_mod += getEnhancedSkillStatisticModifier(target, "absorption_bleeding");
+                vulnerability_mod += getEnhancedSkillStatisticModifierUncapped(target, "dot_vulnerability_bleed");
+                if (isPlayer(target)) {
+                    resistance += protDic.getFloat("cold");
+                } else {
+                    resistance += utils.getIntScriptVar(target, armor.SCRIPTVAR_CACHED_GENERAL_PROTECTION);
+                }
+                absorption_mod /= MOD_DIVISOR;
+                absorption_mod += (int) getSkillStatisticModifier(target, "expertise_dot_absorption_all");
+                absorption_mod += (int) (combat.convertProtectionToPercent(resistance) * DOT_ARMOR_MITIGATION_PERCENT);
+                break;
+            case DOT_POISON:
+                absorption_mod += getEnhancedSkillStatisticModifier(target, "absorption_poison");
+                vulnerability_mod += getEnhancedSkillStatisticModifierUncapped(target, "dot_vulnerability_poison");
+                if (isPlayer(target)) {
+                    resistance += protDic.getFloat("acid");
+                } else {
+                    resistance += utils.getIntScriptVar(target, armor.SCRIPTVAR_CACHED_GENERAL_PROTECTION);
+                }
+                absorption_mod /= MOD_DIVISOR;
+                absorption_mod += (int) getSkillStatisticModifier(target, "expertise_dot_absorption_all");
+                absorption_mod += (int) (combat.convertProtectionToPercent(resistance) * DOT_ARMOR_MITIGATION_PERCENT);
+                break;
+            default:
+                return false;
         }
         int damageAbsorbed = 0;
         if (absorption_mod > 0)
@@ -2460,12 +2275,12 @@ public class dot extends script.base_script
         }
         int expertiseDamageBonus = getEnhancedSkillStatisticModifierUncapped(caster, "combat_multiply_damage_dealt");
         expertiseDamageBonus += getEnhancedSkillStatisticModifierUncapped(target, "combat_multiply_damage_taken");
-        float tempDamageFloat = (float)strength;
-        tempDamageFloat = tempDamageFloat * (1.0f + ((float)expertiseDamageBonus / 100.0f));
+        float tempDamageFloat = strength;
+        tempDamageFloat = tempDamageFloat * (1.0f + (expertiseDamageBonus / 100.0f));
         int expertiseDamageReduction = getEnhancedSkillStatisticModifierUncapped(caster, "combat_divide_damage_dealt");
         expertiseDamageReduction += getEnhancedSkillStatisticModifierUncapped(target, "combat_divide_damage_taken");
         expertiseDamageReduction = expertiseDamageReduction > 100 ? 100 : expertiseDamageReduction;
-        tempDamageFloat = tempDamageFloat * (1.0f - ((float)expertiseDamageReduction / 100.0f));
+        tempDamageFloat = tempDamageFloat * (1.0f - (expertiseDamageReduction / 100.0f));
         strength = (int)tempDamageFloat;
         int current_attrib = getAttrib(target, HEALTH);
         if ((caster != target) && !pvpCanAttack(caster, target))
@@ -2484,185 +2299,153 @@ public class dot extends script.base_script
             ppFly = prose.setStringId(ppFly, strSpam);
             ppFly = prose.setDI(ppFly, -strength);
             prose_package ppSpam = new prose_package();
-            if (type.equals(DOT_FIRE))
-            {
-                if (isIdValid(caster) && !isDead(caster))
-                {
-                    ppSpam = prose.setStringId(ppSpam, SID_FIRE_DMG_ATKR);
-                    ppSpam = prose.setTT(ppSpam, target);
-                    ppSpam = prose.setTO(ppSpam, caster);
-                    ppSpam = prose.setDI(ppSpam, strength);
-                    ppSpam = prose.setTU(ppSpam, mitigationString);
-                    sendCombatSpamMessageProse(caster, target, ppSpam, true, true, true, COMBAT_RESULT_DEBUFF);
-                    showFlyTextPrivateProseWithFlags(target, caster, ppFly, 1f, colors.FIREBRICK, FLY_TEXT_FLAG_IS_DOT);
-                }
-                else 
-                {
-                    ppSpam = prose.setStringId(ppSpam, SID_FIRE_DMG);
-                    ppSpam = prose.setTT(ppSpam, target);
-                    ppSpam = prose.setDI(ppSpam, strength);
-                    ppSpam = prose.setTU(ppSpam, mitigationString);
-                    sendCombatSpamMessageProse(target, target, ppSpam, false, true, true, COMBAT_RESULT_DEBUFF);
-                    showFlyTextPrivateProseWithFlags(target, target, ppFly, 1f, colors.FIREBRICK, FLY_TEXT_FLAG_IS_DOT);
-                }
-            }
-            else if (type.equals(DOT_ACID))
-            {
-                if (isIdValid(caster) && !isDead(caster))
-                {
-                    ppSpam = prose.setStringId(ppSpam, SID_ACID_DMG_ATKR);
-                    ppSpam = prose.setTT(ppSpam, target);
-                    ppSpam = prose.setTO(ppSpam, caster);
-                    ppSpam = prose.setDI(ppSpam, strength);
-                    ppSpam = prose.setTU(ppSpam, mitigationString);
-                    sendCombatSpamMessageProse(caster, target, ppSpam, true, true, true, COMBAT_RESULT_DEBUFF);
-                    showFlyTextPrivateProseWithFlags(target, caster, ppFly, 1f, colors.OLIVEDRAB, FLY_TEXT_FLAG_IS_DOT);
-                }
-                else 
-                {
-                    ppSpam = prose.setStringId(ppSpam, SID_ACID_DMG);
-                    ppSpam = prose.setTT(ppSpam, target);
-                    ppSpam = prose.setDI(ppSpam, strength);
-                    ppSpam = prose.setTU(ppSpam, mitigationString);
-                    sendCombatSpamMessageProse(target, target, ppSpam, false, true, true, COMBAT_RESULT_DEBUFF);
-                    showFlyTextPrivateProseWithFlags(target, target, ppFly, 1f, colors.OLIVEDRAB, FLY_TEXT_FLAG_IS_DOT);
-                }
-            }
-            else if (type.equals(DOT_ENERGY))
-            {
-                if (isIdValid(caster) && !isDead(caster))
-                {
-                    ppSpam = prose.setStringId(ppSpam, SID_ENERGY_DMG_ATKR);
-                    ppSpam = prose.setTT(ppSpam, target);
-                    ppSpam = prose.setTO(ppSpam, caster);
-                    ppSpam = prose.setDI(ppSpam, strength);
-                    ppSpam = prose.setTU(ppSpam, mitigationString);
-                    sendCombatSpamMessageProse(caster, target, ppSpam, true, true, true, COMBAT_RESULT_DEBUFF);
-                    showFlyTextPrivateProseWithFlags(target, caster, ppFly, 1f, colors.DEEPSKYBLUE, FLY_TEXT_FLAG_IS_DOT);
-                }
-                else 
-                {
-                    ppSpam = prose.setStringId(ppSpam, SID_ENERGY_DMG);
-                    ppSpam = prose.setTT(ppSpam, target);
-                    ppSpam = prose.setDI(ppSpam, strength);
-                    ppSpam = prose.setTU(ppSpam, mitigationString);
-                    sendCombatSpamMessageProse(target, target, ppSpam, false, true, true, COMBAT_RESULT_DEBUFF);
-                    showFlyTextPrivateProseWithFlags(target, target, ppFly, 1f, colors.DEEPSKYBLUE, FLY_TEXT_FLAG_IS_DOT);
-                }
-            }
-            else if (type.equals(DOT_COLD))
-            {
-                if (isIdValid(caster) && !isDead(caster))
-                {
-                    ppSpam = prose.setStringId(ppSpam, SID_COLD_DMG_ATKR);
-                    ppSpam = prose.setTT(ppSpam, target);
-                    ppSpam = prose.setTO(ppSpam, caster);
-                    ppSpam = prose.setDI(ppSpam, strength);
-                    ppSpam = prose.setTU(ppSpam, mitigationString);
-                    sendCombatSpamMessageProse(caster, target, ppSpam, true, true, true, COMBAT_RESULT_DEBUFF);
-                    showFlyTextPrivateProseWithFlags(target, caster, ppFly, 1f, colors.DEEPSKYBLUE, FLY_TEXT_FLAG_IS_DOT);
-                }
-                else 
-                {
-                    ppSpam = prose.setStringId(ppSpam, SID_COLD_DMG);
-                    ppSpam = prose.setTT(ppSpam, target);
-                    ppSpam = prose.setDI(ppSpam, strength);
-                    ppSpam = prose.setTU(ppSpam, mitigationString);
-                    sendCombatSpamMessageProse(target, target, ppSpam, false, true, true, COMBAT_RESULT_DEBUFF);
-                    showFlyTextPrivateProseWithFlags(target, target, ppFly, 1f, colors.DEEPSKYBLUE, FLY_TEXT_FLAG_IS_DOT);
-                }
-            }
-            else if (type.equals(DOT_ELECTRICITY))
-            {
-                if (isIdValid(caster) && !isDead(caster))
-                {
-                    ppSpam = prose.setStringId(ppSpam, SID_ELECTRICITY_DMG_ATKR);
-                    ppSpam = prose.setTT(ppSpam, target);
-                    ppSpam = prose.setTO(ppSpam, caster);
-                    ppSpam = prose.setDI(ppSpam, strength);
-                    ppSpam = prose.setTU(ppSpam, mitigationString);
-                    sendCombatSpamMessageProse(caster, target, ppSpam, true, true, true, COMBAT_RESULT_DEBUFF);
-                    showFlyTextPrivateProseWithFlags(target, caster, ppFly, 1f, colors.DEEPSKYBLUE, FLY_TEXT_FLAG_IS_DOT);
-                }
-                else 
-                {
-                    ppSpam = prose.setStringId(ppSpam, SID_ELECTRICITY_DMG);
-                    ppSpam = prose.setTT(ppSpam, target);
-                    ppSpam = prose.setDI(ppSpam, strength);
-                    ppSpam = prose.setTU(ppSpam, mitigationString);
-                    sendCombatSpamMessageProse(target, target, ppSpam, false, true, true, COMBAT_RESULT_DEBUFF);
-                    showFlyTextPrivateProseWithFlags(target, target, ppFly, 1f, colors.DEEPSKYBLUE, FLY_TEXT_FLAG_IS_DOT);
-                }
-            }
-            else if (type.equals(DOT_KINETIC))
-            {
-                if (isIdValid(caster) && !isDead(caster))
-                {
-                    ppSpam = prose.setStringId(ppSpam, SID_KINETIC_DMG_ATKR);
-                    ppSpam = prose.setTT(ppSpam, target);
-                    ppSpam = prose.setTO(ppSpam, caster);
-                    ppSpam = prose.setDI(ppSpam, strength);
-                    ppSpam = prose.setTU(ppSpam, mitigationString);
-                    sendCombatSpamMessageProse(caster, target, ppSpam, true, true, true, COMBAT_RESULT_DEBUFF);
-                    showFlyTextPrivateProseWithFlags(target, caster, ppFly, 1f, colors.DEEPSKYBLUE, FLY_TEXT_FLAG_IS_DOT);
-                }
-                else 
-                {
-                    ppSpam = prose.setStringId(ppSpam, SID_KINETIC_DMG);
-                    ppSpam = prose.setTT(ppSpam, target);
-                    ppSpam = prose.setDI(ppSpam, strength);
-                    ppSpam = prose.setTU(ppSpam, mitigationString);
-                    sendCombatSpamMessageProse(target, target, ppSpam, false, true, true, COMBAT_RESULT_DEBUFF);
-                    showFlyTextPrivateProseWithFlags(target, target, ppFly, 1f, colors.DEEPSKYBLUE, FLY_TEXT_FLAG_IS_DOT);
-                }
-            }
-            else if (type.equals(dot.DOT_BLEEDING))
-            {
-                if (isIdValid(caster) && !isDead(caster))
-                {
-                    ppSpam = prose.setStringId(ppSpam, SID_BLEED_DMG_ATKR);
-                    ppSpam = prose.setTT(ppSpam, target);
-                    ppSpam = prose.setTO(ppSpam, caster);
-                    ppSpam = prose.setDI(ppSpam, strength);
-                    ppSpam = prose.setTU(ppSpam, mitigationString);
-                    sendCombatSpamMessageProse(caster, target, ppSpam, true, true, true, COMBAT_RESULT_DEBUFF);
-                    showFlyTextPrivateProseWithFlags(target, caster, ppFly, 1f, colors.INDIANRED, FLY_TEXT_FLAG_IS_DOT);
-                }
-                else 
-                {
-                    ppSpam = prose.setStringId(ppSpam, SID_BLEED_DMG);
-                    ppSpam = prose.setTT(ppSpam, target);
-                    ppSpam = prose.setDI(ppSpam, strength);
-                    ppSpam = prose.setTU(ppSpam, mitigationString);
-                    sendCombatSpamMessageProse(target, target, ppSpam, false, true, true, COMBAT_RESULT_DEBUFF);
-                    showFlyTextPrivateProseWithFlags(target, target, ppFly, 1f, colors.INDIANRED, FLY_TEXT_FLAG_IS_DOT);
-                }
-            }
-            else if (type.equals(dot.DOT_POISON))
-            {
-                if (isIdValid(caster) && !isDead(caster))
-                {
-                    ppSpam = prose.setStringId(ppSpam, SID_POISON_DMG_ATKR);
-                    ppSpam = prose.setTT(ppSpam, target);
-                    ppSpam = prose.setTO(ppSpam, caster);
-                    ppSpam = prose.setDI(ppSpam, strength);
-                    ppSpam = prose.setTU(ppSpam, mitigationString);
-                    sendCombatSpamMessageProse(caster, target, ppSpam, true, true, true, COMBAT_RESULT_DEBUFF);
-                    showFlyTextPrivateProseWithFlags(target, caster, ppFly, 1f, colors.YELLOWGREEN, FLY_TEXT_FLAG_IS_DOT);
-                }
-                else 
-                {
-                    ppSpam = prose.setStringId(ppSpam, SID_POISON_DMG);
-                    ppSpam = prose.setTT(ppSpam, target);
-                    ppSpam = prose.setDI(ppSpam, strength);
-                    ppSpam = prose.setTU(ppSpam, mitigationString);
-                    sendCombatSpamMessageProse(target, target, ppSpam, false, true, true, COMBAT_RESULT_DEBUFF);
-                    showFlyTextPrivateProseWithFlags(target, target, ppFly, 1f, colors.YELLOWGREEN, FLY_TEXT_FLAG_IS_DOT);
-                }
-            }
-            else 
-            {
-                return false;
+            switch (type) {
+                case DOT_FIRE:
+                    if (isIdValid(caster) && !isDead(caster)) {
+                        ppSpam = prose.setStringId(ppSpam, SID_FIRE_DMG_ATKR);
+                        ppSpam = prose.setTT(ppSpam, target);
+                        ppSpam = prose.setTO(ppSpam, caster);
+                        ppSpam = prose.setDI(ppSpam, strength);
+                        ppSpam = prose.setTU(ppSpam, mitigationString);
+                        sendCombatSpamMessageProse(caster, target, ppSpam, true, true, true, COMBAT_RESULT_DEBUFF);
+                        showFlyTextPrivateProseWithFlags(target, caster, ppFly, 1.0f, colors.FIREBRICK, FLY_TEXT_FLAG_IS_DOT);
+                    } else {
+                        ppSpam = prose.setStringId(ppSpam, SID_FIRE_DMG);
+                        ppSpam = prose.setTT(ppSpam, target);
+                        ppSpam = prose.setDI(ppSpam, strength);
+                        ppSpam = prose.setTU(ppSpam, mitigationString);
+                        sendCombatSpamMessageProse(target, target, ppSpam, false, true, true, COMBAT_RESULT_DEBUFF);
+                        showFlyTextPrivateProseWithFlags(target, target, ppFly, 1.0f, colors.FIREBRICK, FLY_TEXT_FLAG_IS_DOT);
+                    }
+                    break;
+                case DOT_ACID:
+                    if (isIdValid(caster) && !isDead(caster)) {
+                        ppSpam = prose.setStringId(ppSpam, SID_ACID_DMG_ATKR);
+                        ppSpam = prose.setTT(ppSpam, target);
+                        ppSpam = prose.setTO(ppSpam, caster);
+                        ppSpam = prose.setDI(ppSpam, strength);
+                        ppSpam = prose.setTU(ppSpam, mitigationString);
+                        sendCombatSpamMessageProse(caster, target, ppSpam, true, true, true, COMBAT_RESULT_DEBUFF);
+                        showFlyTextPrivateProseWithFlags(target, caster, ppFly, 1.0f, colors.OLIVEDRAB, FLY_TEXT_FLAG_IS_DOT);
+                    } else {
+                        ppSpam = prose.setStringId(ppSpam, SID_ACID_DMG);
+                        ppSpam = prose.setTT(ppSpam, target);
+                        ppSpam = prose.setDI(ppSpam, strength);
+                        ppSpam = prose.setTU(ppSpam, mitigationString);
+                        sendCombatSpamMessageProse(target, target, ppSpam, false, true, true, COMBAT_RESULT_DEBUFF);
+                        showFlyTextPrivateProseWithFlags(target, target, ppFly, 1.0f, colors.OLIVEDRAB, FLY_TEXT_FLAG_IS_DOT);
+                    }
+                    break;
+                case DOT_ENERGY:
+                    if (isIdValid(caster) && !isDead(caster)) {
+                        ppSpam = prose.setStringId(ppSpam, SID_ENERGY_DMG_ATKR);
+                        ppSpam = prose.setTT(ppSpam, target);
+                        ppSpam = prose.setTO(ppSpam, caster);
+                        ppSpam = prose.setDI(ppSpam, strength);
+                        ppSpam = prose.setTU(ppSpam, mitigationString);
+                        sendCombatSpamMessageProse(caster, target, ppSpam, true, true, true, COMBAT_RESULT_DEBUFF);
+                        showFlyTextPrivateProseWithFlags(target, caster, ppFly, 1.0f, colors.DEEPSKYBLUE, FLY_TEXT_FLAG_IS_DOT);
+                    } else {
+                        ppSpam = prose.setStringId(ppSpam, SID_ENERGY_DMG);
+                        ppSpam = prose.setTT(ppSpam, target);
+                        ppSpam = prose.setDI(ppSpam, strength);
+                        ppSpam = prose.setTU(ppSpam, mitigationString);
+                        sendCombatSpamMessageProse(target, target, ppSpam, false, true, true, COMBAT_RESULT_DEBUFF);
+                        showFlyTextPrivateProseWithFlags(target, target, ppFly, 1.0f, colors.DEEPSKYBLUE, FLY_TEXT_FLAG_IS_DOT);
+                    }
+                    break;
+                case DOT_COLD:
+                    if (isIdValid(caster) && !isDead(caster)) {
+                        ppSpam = prose.setStringId(ppSpam, SID_COLD_DMG_ATKR);
+                        ppSpam = prose.setTT(ppSpam, target);
+                        ppSpam = prose.setTO(ppSpam, caster);
+                        ppSpam = prose.setDI(ppSpam, strength);
+                        ppSpam = prose.setTU(ppSpam, mitigationString);
+                        sendCombatSpamMessageProse(caster, target, ppSpam, true, true, true, COMBAT_RESULT_DEBUFF);
+                        showFlyTextPrivateProseWithFlags(target, caster, ppFly, 1.0f, colors.DEEPSKYBLUE, FLY_TEXT_FLAG_IS_DOT);
+                    } else {
+                        ppSpam = prose.setStringId(ppSpam, SID_COLD_DMG);
+                        ppSpam = prose.setTT(ppSpam, target);
+                        ppSpam = prose.setDI(ppSpam, strength);
+                        ppSpam = prose.setTU(ppSpam, mitigationString);
+                        sendCombatSpamMessageProse(target, target, ppSpam, false, true, true, COMBAT_RESULT_DEBUFF);
+                        showFlyTextPrivateProseWithFlags(target, target, ppFly, 1.0f, colors.DEEPSKYBLUE, FLY_TEXT_FLAG_IS_DOT);
+                    }
+                    break;
+                case DOT_ELECTRICITY:
+                    if (isIdValid(caster) && !isDead(caster)) {
+                        ppSpam = prose.setStringId(ppSpam, SID_ELECTRICITY_DMG_ATKR);
+                        ppSpam = prose.setTT(ppSpam, target);
+                        ppSpam = prose.setTO(ppSpam, caster);
+                        ppSpam = prose.setDI(ppSpam, strength);
+                        ppSpam = prose.setTU(ppSpam, mitigationString);
+                        sendCombatSpamMessageProse(caster, target, ppSpam, true, true, true, COMBAT_RESULT_DEBUFF);
+                        showFlyTextPrivateProseWithFlags(target, caster, ppFly, 1.0f, colors.DEEPSKYBLUE, FLY_TEXT_FLAG_IS_DOT);
+                    } else {
+                        ppSpam = prose.setStringId(ppSpam, SID_ELECTRICITY_DMG);
+                        ppSpam = prose.setTT(ppSpam, target);
+                        ppSpam = prose.setDI(ppSpam, strength);
+                        ppSpam = prose.setTU(ppSpam, mitigationString);
+                        sendCombatSpamMessageProse(target, target, ppSpam, false, true, true, COMBAT_RESULT_DEBUFF);
+                        showFlyTextPrivateProseWithFlags(target, target, ppFly, 1.0f, colors.DEEPSKYBLUE, FLY_TEXT_FLAG_IS_DOT);
+                    }
+                    break;
+                case DOT_KINETIC:
+                    if (isIdValid(caster) && !isDead(caster)) {
+                        ppSpam = prose.setStringId(ppSpam, SID_KINETIC_DMG_ATKR);
+                        ppSpam = prose.setTT(ppSpam, target);
+                        ppSpam = prose.setTO(ppSpam, caster);
+                        ppSpam = prose.setDI(ppSpam, strength);
+                        ppSpam = prose.setTU(ppSpam, mitigationString);
+                        sendCombatSpamMessageProse(caster, target, ppSpam, true, true, true, COMBAT_RESULT_DEBUFF);
+                        showFlyTextPrivateProseWithFlags(target, caster, ppFly, 1.0f, colors.DEEPSKYBLUE, FLY_TEXT_FLAG_IS_DOT);
+                    } else {
+                        ppSpam = prose.setStringId(ppSpam, SID_KINETIC_DMG);
+                        ppSpam = prose.setTT(ppSpam, target);
+                        ppSpam = prose.setDI(ppSpam, strength);
+                        ppSpam = prose.setTU(ppSpam, mitigationString);
+                        sendCombatSpamMessageProse(target, target, ppSpam, false, true, true, COMBAT_RESULT_DEBUFF);
+                        showFlyTextPrivateProseWithFlags(target, target, ppFly, 1.0f, colors.DEEPSKYBLUE, FLY_TEXT_FLAG_IS_DOT);
+                    }
+                    break;
+                case dot.DOT_BLEEDING:
+                    if (isIdValid(caster) && !isDead(caster)) {
+                        ppSpam = prose.setStringId(ppSpam, SID_BLEED_DMG_ATKR);
+                        ppSpam = prose.setTT(ppSpam, target);
+                        ppSpam = prose.setTO(ppSpam, caster);
+                        ppSpam = prose.setDI(ppSpam, strength);
+                        ppSpam = prose.setTU(ppSpam, mitigationString);
+                        sendCombatSpamMessageProse(caster, target, ppSpam, true, true, true, COMBAT_RESULT_DEBUFF);
+                        showFlyTextPrivateProseWithFlags(target, caster, ppFly, 1.0f, colors.INDIANRED, FLY_TEXT_FLAG_IS_DOT);
+                    } else {
+                        ppSpam = prose.setStringId(ppSpam, SID_BLEED_DMG);
+                        ppSpam = prose.setTT(ppSpam, target);
+                        ppSpam = prose.setDI(ppSpam, strength);
+                        ppSpam = prose.setTU(ppSpam, mitigationString);
+                        sendCombatSpamMessageProse(target, target, ppSpam, false, true, true, COMBAT_RESULT_DEBUFF);
+                        showFlyTextPrivateProseWithFlags(target, target, ppFly, 1.0f, colors.INDIANRED, FLY_TEXT_FLAG_IS_DOT);
+                    }
+                    break;
+                case dot.DOT_POISON:
+                    if (isIdValid(caster) && !isDead(caster)) {
+                        ppSpam = prose.setStringId(ppSpam, SID_POISON_DMG_ATKR);
+                        ppSpam = prose.setTT(ppSpam, target);
+                        ppSpam = prose.setTO(ppSpam, caster);
+                        ppSpam = prose.setDI(ppSpam, strength);
+                        ppSpam = prose.setTU(ppSpam, mitigationString);
+                        sendCombatSpamMessageProse(caster, target, ppSpam, true, true, true, COMBAT_RESULT_DEBUFF);
+                        showFlyTextPrivateProseWithFlags(target, caster, ppFly, 1.0f, colors.YELLOWGREEN, FLY_TEXT_FLAG_IS_DOT);
+                    } else {
+                        ppSpam = prose.setStringId(ppSpam, SID_POISON_DMG);
+                        ppSpam = prose.setTT(ppSpam, target);
+                        ppSpam = prose.setDI(ppSpam, strength);
+                        ppSpam = prose.setTU(ppSpam, mitigationString);
+                        sendCombatSpamMessageProse(target, target, ppSpam, false, true, true, COMBAT_RESULT_DEBUFF);
+                        showFlyTextPrivateProseWithFlags(target, target, ppFly, 1.0f, colors.YELLOWGREEN, FLY_TEXT_FLAG_IS_DOT);
+                    }
+                    break;
+                default:
+                    return false;
             }
             doDamage(caster, target, hit);
             // Cekis: added check (!caster.equals(target)) to make sure caster doesn't start combat with itself (that would be dumb).
@@ -2713,71 +2496,57 @@ public class dot extends script.base_script
                 detachScript(target, SCRIPT_PLAYER_DOT);
             }
         }
-        if (type.equals(DOT_FIRE))
-        {
-            if (verbose)
-            {
-                combat.sendCombatSpamMessage(target, SID_FIRE_STOP);
-            }
-            setState(target, STATE_ON_FIRE, false);
-            stopClientEffectObjByLabel(target, "state_onfire");
-            playClientEffectObj(target, "sound/sta_onfire_off.snd", target, "");
-        }
-        else if (type.equals(DOT_ACID))
-        {
-            if (verbose)
-            {
-                combat.sendCombatSpamMessage(target, SID_ACID_STOP);
-            }
-            stopClientEffectObjByLabel(target, "state_acid");
-        }
-        else if (type.equals(DOT_ENERGY))
-        {
-            if (verbose)
-            {
-                combat.sendCombatSpamMessage(target, SID_ENERGY_STOP);
-            }
-            stopClientEffectObjByLabel(target, "state_energy");
-        }
-        else if (type.equals(DOT_COLD))
-        {
-            if (verbose)
-            {
-                combat.sendCombatSpamMessage(target, SID_COLD_STOP);
-            }
-            stopClientEffectObjByLabel(target, "state_cold");
-        }
-        else if (type.equals(DOT_ELECTRICITY))
-        {
-            if (verbose)
-            {
-                combat.sendCombatSpamMessage(target, SID_ELECTRICITY_STOP);
-            }
-            stopClientEffectObjByLabel(target, "state_electricity");
-        }
-        else if (type.equals(DOT_KINETIC))
-        {
-            if (verbose)
-            {
-                combat.sendCombatSpamMessage(target, SID_ELECTRICITY_STOP);
-            }
-            stopClientEffectObjByLabel(target, "state_kinetic");
-        }
-        else if (type.equals(DOT_POISON))
-        {
-            if (verbose)
-            {
-                combat.sendCombatSpamMessage(target, SID_POISONED_STOP);
-            }
-            stopClientEffectObjByLabel(target, "state_poisoned");
-        }
-        else if (type.equals(DOT_BLEEDING))
-        {
-            if (verbose)
-            {
-                combat.sendCombatSpamMessage(target, SID_BLEEDING_STOP);
-            }
-            stopClientEffectObjByLabel(target, "state_bleeding");
+        switch (type) {
+            case DOT_FIRE:
+                if (verbose) {
+                    combat.sendCombatSpamMessage(target, SID_FIRE_STOP);
+                }
+                setState(target, STATE_ON_FIRE, false);
+                stopClientEffectObjByLabel(target, "state_onfire");
+                playClientEffectObj(target, "sound/sta_onfire_off.snd", target, "");
+                break;
+            case DOT_ACID:
+                if (verbose) {
+                    combat.sendCombatSpamMessage(target, SID_ACID_STOP);
+                }
+                stopClientEffectObjByLabel(target, "state_acid");
+                break;
+            case DOT_ENERGY:
+                if (verbose) {
+                    combat.sendCombatSpamMessage(target, SID_ENERGY_STOP);
+                }
+                stopClientEffectObjByLabel(target, "state_energy");
+                break;
+            case DOT_COLD:
+                if (verbose) {
+                    combat.sendCombatSpamMessage(target, SID_COLD_STOP);
+                }
+                stopClientEffectObjByLabel(target, "state_cold");
+                break;
+            case DOT_ELECTRICITY:
+                if (verbose) {
+                    combat.sendCombatSpamMessage(target, SID_ELECTRICITY_STOP);
+                }
+                stopClientEffectObjByLabel(target, "state_electricity");
+                break;
+            case DOT_KINETIC:
+                if (verbose) {
+                    combat.sendCombatSpamMessage(target, SID_ELECTRICITY_STOP);
+                }
+                stopClientEffectObjByLabel(target, "state_kinetic");
+                break;
+            case DOT_POISON:
+                if (verbose) {
+                    combat.sendCombatSpamMessage(target, SID_POISONED_STOP);
+                }
+                stopClientEffectObjByLabel(target, "state_poisoned");
+                break;
+            case DOT_BLEEDING:
+                if (verbose) {
+                    combat.sendCombatSpamMessage(target, SID_BLEEDING_STOP);
+                }
+                stopClientEffectObjByLabel(target, "state_bleeding");
+                break;
         }
         return true;
     }

@@ -129,7 +129,7 @@ public class consume_relic_booster_pack extends script.base_script
                 if (relic_tier > 0 && relicQualitySkillmod >= relic_tier)
                 {
                     String row_lootCategory = row.getString("relicLootCatergory");
-                    if (row_lootCategory.indexOf("no_loot") < 0)
+                    if (!row_lootCategory.contains("no_loot"))
                     {
                         String token_reference = row.getString("name");
                         relicReferences = utils.addElement(relicReferences, token_reference);
@@ -137,11 +137,8 @@ public class consume_relic_booster_pack extends script.base_script
                         {
                             String[] relicLootCategories = split(row_lootCategory, ',');
                             boolean no_loot = false;
-                            for (int k = 0; k < relicLootCategories.length; k++)
-                            {
-                                String relicCategory = relicLootCategories[k];
-                                if (relicCategory.equals(relicFilter))
-                                {
+                            for (String relicCategory : relicLootCategories) {
+                                if (relicCategory.equals(relicFilter)) {
                                     filteredRelicReferences = utils.addElement(filteredRelicReferences, token_reference);
                                 }
                             }

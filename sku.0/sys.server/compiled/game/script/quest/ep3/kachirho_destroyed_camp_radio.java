@@ -53,9 +53,9 @@ public class kachirho_destroyed_camp_radio extends script.base_script
         if (volumeName.equals("chat_range"))
         {
             beginChatting(self, who);
-            playClientEffectLoc(who, "clienteffect/ep3_radio_static.cef", getLocation(self), 0f);
+            playClientEffectLoc(who, "clienteffect/ep3_radio_static.cef", getLocation(self), 0.0f);
             utils.setScriptVar(self, "already_chatting", 1);
-            messageTo(self, "handleReset", null, 120f, false);
+            messageTo(self, "handleReset", null, 120.0f, false);
         }
         return SCRIPT_CONTINUE;
     }

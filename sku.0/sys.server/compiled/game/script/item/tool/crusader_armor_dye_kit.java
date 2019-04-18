@@ -69,32 +69,26 @@ public class crusader_armor_dye_kit extends script.base_script
         obj_id[] equippedItems = metrics.getWornItems(player);
         if (equippedItems != null && equippedItems.length > 0)
         {
-            for (int i = 0; i < equippedItems.length; i++)
-            {
-                String name = getStaticItemName(equippedItems[i]);
-                if (name == null || name.equals(""))
-                {
+            for (obj_id equippedItem : equippedItems) {
+                String name = getStaticItemName(equippedItem);
+                if (name == null || name.equals("")) {
                     continue;
                 }
-                if (name.startsWith("armor_mandalorian"))
-                {
-                    wornItems.addElement(equippedItems[i]);
+                if (name.startsWith("armor_mandalorian")) {
+                    wornItems.addElement(equippedItem);
                 }
             }
         }
         obj_id[] invItems = utils.getContents(utils.getInventoryContainer(player), true);
         if (invItems != null && invItems.length > 0)
         {
-            for (int i = 0; i < invItems.length; i++)
-            {
-                String name = getStaticItemName(invItems[i]);
-                if (name == null || name.equals(""))
-                {
+            for (obj_id invItem : invItems) {
+                String name = getStaticItemName(invItem);
+                if (name == null || name.equals("")) {
                     continue;
                 }
-                if (name.startsWith("armor_mandalorian"))
-                {
-                    items.addElement(invItems[i]);
+                if (name.startsWith("armor_mandalorian")) {
+                    items.addElement(invItem);
                 }
             }
         }
@@ -109,9 +103,8 @@ public class crusader_armor_dye_kit extends script.base_script
         Vector armorNames = new Vector();
         if (!wornItems.isEmpty())
         {
-            for (int i = 0; i < wornItems.size(); i++)
-            {
-                obj_id piece = (obj_id)wornItems.get(i);
+            for (Object wornItem : wornItems) {
+                obj_id piece = (obj_id) wornItem;
                 utils.setScriptVar(piece, "cadk_worn", 1);
                 armor.addElement(piece);
                 String name = "@" + getName(piece) + "  ( @tool/customizer:cadk_worn )";
@@ -120,9 +113,8 @@ public class crusader_armor_dye_kit extends script.base_script
         }
         if (!items.isEmpty())
         {
-            for (int i = 0; i < items.size(); i++)
-            {
-                obj_id piece = (obj_id)items.get(i);
+            for (Object item : items) {
+                obj_id piece = (obj_id) item;
                 armor.addElement(piece);
                 String name = "@" + getName(piece);
                 armorNames.addElement(name);
@@ -251,9 +243,8 @@ public class crusader_armor_dye_kit extends script.base_script
         obj_id[] equippedItems = metrics.getWornItems(player);
         if (equippedItems != null && equippedItems.length > 0)
         {
-            for (int i = 0; i < equippedItems.length; i++)
-            {
-                utils.removeScriptVar(equippedItems[i], "cadk_worn");
+            for (obj_id equippedItem : equippedItems) {
+                utils.removeScriptVar(equippedItem, "cadk_worn");
             }
         }
     }
@@ -263,18 +254,16 @@ public class crusader_armor_dye_kit extends script.base_script
         String faction = null;
         String type = null;
         String color = null;
-        for (int i = 0; i < ARMOR_TYPES.length; i++)
-        {
-            if (name.indexOf(ARMOR_TYPES[i]) > -1)
-            {
-                type = ARMOR_TYPES[i];
+        for (String armorType : ARMOR_TYPES) {
+            if (name.contains(armorType)) {
+                type = armorType;
             }
         }
-        if (name.indexOf("imperial") > -1)
+        if (name.contains("imperial"))
         {
             faction = "imperial_";
         }
-        else if (name.indexOf("rebel") > -1)
+        else if (name.contains("rebel"))
         {
             faction = "rebel_";
         }

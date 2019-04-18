@@ -41,15 +41,11 @@ public class fence extends script.base_script
         obj_id[] contents = getInventoryAndEquipment(player);
         if (contents != null && contents.length > 0)
         {
-            for (int i = 0; i < contents.length; i++)
-            {
-                if (static_item.isStaticItem(contents[i]))
-                {
-                    String itemName = getStaticItemName(contents[i]);
-                    if (itemName.equals(itemToGive))
-                    {
-                        if (!ai_lib.isInCombat(player))
-                        {
+            for (obj_id content : contents) {
+                if (static_item.isStaticItem(content)) {
+                    String itemName = getStaticItemName(content);
+                    if (itemName.equals(itemToGive)) {
+                        if (!ai_lib.isInCombat(player)) {
                             dictionary webster = new dictionary();
                             webster.put("questName", questName);
                             webster.put("taskName", taskName);
@@ -100,15 +96,11 @@ public class fence extends script.base_script
         obj_id[] contents = getInventoryAndEquipment(player);
         if (contents != null && contents.length > 0)
         {
-            for (int i = 0; i < contents.length; i++)
-            {
-                if (static_item.isStaticItem(contents[i]))
-                {
-                    String itemName = getStaticItemName(contents[i]);
-                    if (itemName.equals(itemToGive))
-                    {
-                        if (groundquests.isTimeRemainingBeforeCompletion(player, questCrc, taskId))
-                        {
+            for (obj_id content : contents) {
+                if (static_item.isStaticItem(content)) {
+                    String itemName = getStaticItemName(content);
+                    if (itemName.equals(itemToGive)) {
+                        if (groundquests.isTimeRemainingBeforeCompletion(player, questCrc, taskId)) {
                             return true;
                         }
                     }

@@ -26,13 +26,10 @@ public class make_them_sit extends script.base_script
         }
         if (debugSpawnList != null && debugSpawnList.size() > 0)
         {
-            for (int i = 0; i < debugSpawnList.size(); i++)
-            {
-                obj_id spawnedNpc = ((obj_id)debugSpawnList.get(i));
-                if (isIdValid(spawnedNpc) && exists(spawnedNpc))
-                {
-                    if (!hasScript(spawnedNpc, "theme_park.dathomir.aurilia.have_a_seat"))
-                    {
+            for (Object o : debugSpawnList) {
+                obj_id spawnedNpc = ((obj_id) o);
+                if (isIdValid(spawnedNpc) && exists(spawnedNpc)) {
+                    if (!hasScript(spawnedNpc, "theme_park.dathomir.aurilia.have_a_seat")) {
                         attachScript(spawnedNpc, "theme_park.dathomir.aurilia.have_a_seat");
                     }
                 }

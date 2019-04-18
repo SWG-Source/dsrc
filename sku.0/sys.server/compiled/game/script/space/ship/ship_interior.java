@@ -93,15 +93,12 @@ public class ship_interior extends script.base_script
                         if (!strScripts[intI].equals(""))
                         {
                             String[] strScriptArray = split(strScripts[intI], ',');
-                            for (int intJ = 0; intJ < strScriptArray.length; intJ++)
-                            {
-                                String script = strScriptArray[intJ];
-                                if (script.indexOf("script.") > -1)
-                                {
+                            for (String s : strScriptArray) {
+                                String script = s;
+                                if (script.contains("script.")) {
                                     script = script.substring(7);
                                 }
-                                if (!hasScript(objTest, script))
-                                {
+                                if (!hasScript(objTest, script)) {
                                     attachScript(objTest, script);
                                 }
                             }
@@ -119,15 +116,12 @@ public class ship_interior extends script.base_script
                     if (!strScripts[intI].equals(""))
                     {
                         String[] strScriptArray = split(strScripts[intI], ',');
-                        for (int intJ = 0; intJ < strScriptArray.length; intJ++)
-                        {
-                            String script = strScriptArray[intJ];
-                            if (script.indexOf("script.") > -1)
-                            {
+                        for (String s : strScriptArray) {
+                            String script = s;
+                            if (script.contains("script.")) {
                                 script = script.substring(7);
                             }
-                            if (!hasScript(objTest, script))
-                            {
+                            if (!hasScript(objTest, script)) {
                                 attachScript(objTest, script);
                             }
                         }
@@ -443,9 +437,8 @@ public class ship_interior extends script.base_script
                 if (intDamageEffect > 0)
                 {
                     obj_id[] objPlayers = getAllPlayers(locTest, DAMAGE_RANGES[intDamageEffect]);
-                    for (int intJ = 0; intJ < objPlayers.length; intJ++)
-                    {
-                        damage(objPlayers[intJ], DAMAGE_BLAST, rand(0, 5), rand(0, DAMAGE_VALUES[intDamageEffect]));
+                    for (obj_id objPlayer1 : objPlayers) {
+                        damage(objPlayer1, DAMAGE_BLAST, rand(0, 5), rand(0, DAMAGE_VALUES[intDamageEffect]));
                     }
                 }
             }
@@ -495,11 +488,10 @@ public class ship_interior extends script.base_script
             Vector objPlayers = space_transition.getContainedPlayers(self, null);
             if (objPlayers != null)
             {
-                for (int intI = 0; intI < objPlayers.size(); intI++)
-                {
+                for (Object objPlayer : objPlayers) {
                     string_id strSpam = new string_id("space/space_interaction", "hull_breach_damage");
-                    damage(((obj_id)objPlayers.get(intI)), DAMAGE_BLAST, rand(0, 5), (int)intDamage);
-                    sendSystemMessage(((obj_id)objPlayers.get(intI)), strSpam);
+                    damage(((obj_id) objPlayer), DAMAGE_BLAST, rand(0, 5), (int) intDamage);
+                    sendSystemMessage(((obj_id) objPlayer), strSpam);
                 }
             }
             messageTo(self, "doHullBreach", null, space_crafting.HULL_BREACH_DAMAGE_TIMER, false);

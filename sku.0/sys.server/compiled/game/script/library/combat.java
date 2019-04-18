@@ -59,7 +59,7 @@ public class combat extends script.base_script
         B_ALL | B_RANGED | B_HEAVY | B_DIRECTIONAL
     };
     public static final int EFFECT_MAX_DURATION = 180;
-    public static final float DELAY_EFFECT_TIMER = 30f;
+    public static final float DELAY_EFFECT_TIMER = 30.0f;
     public static final int TKA_JEDI_ARMOR_HARD_CAP = 9000;
     public static final int MAX_RE_EXOTIC_ELEMENTAL_PENETRATION_SKILLMOD = 10;
     public static final int MOVEMENT_MODIFIER_REUSE_TIME = 30;
@@ -69,7 +69,7 @@ public class combat extends script.base_script
     public static final int AI_LEVEL_DAMAGE_PENALTY = 25;
     public static final int AI_LEVEL_MIN_DAMAGE_CAP = 50;
     public static final int AI_LEVEL_MAX_DAMAGE_CAP = 75;
-    public static final float AI_CON_SCALE_MULT = 8f;
+    public static final float AI_CON_SCALE_MULT = 8.0f;
     public static final int VALID_TARGET_NONE = -1;
     public static final int VALID_TARGET_STANDARD = 0;
     public static final int VALID_TARGET_MOB = 1;
@@ -279,14 +279,11 @@ public class combat extends script.base_script
         {
             return true;
         }
-        for (int i = 0; i < buffs.length; i++)
-        {
-            for (int j = 1; j <= buff.MAX_EFFECTS; j++)
-            {
-                String effect = buff.getEffectParam(buffs[i], j);
-                if (effect.equals("delay_attack"))
-                {
-                    buff.removeBuff(defender, buffs[i]);
+        for (int b : buffs) {
+            for (int j = 1; j <= buff.MAX_EFFECTS; j++) {
+                String effect = buff.getEffectParam(b, j);
+                if (effect.equals("delay_attack")) {
+                    buff.removeBuff(defender, b);
                 }
             }
         }
@@ -336,14 +333,14 @@ public class combat extends script.base_script
     }
     public static float getConBalanceScalar(int levelDiff) throws InterruptedException
     {
-        float scale = (Math.abs(levelDiff) + AI_CON_SCALE_MULT) / (10f + AI_CON_SCALE_MULT);
+        float scale = (Math.abs(levelDiff) + AI_CON_SCALE_MULT) / (10.0f + AI_CON_SCALE_MULT);
         return scale;
     }
     public static int getWeaponDamage(obj_id objAttacker, obj_id objDefender, weapon_data cbtWeaponData, int intAttackerRoll, int intDefenderRoll) throws InterruptedException
     {
         int intFinalDamage = 0;
-        float fltMinDamage = (float)cbtWeaponData.minDamage;
-        float fltMaxDamage = (float)cbtWeaponData.maxDamage;
+        float fltMinDamage = cbtWeaponData.minDamage;
+        float fltMaxDamage = cbtWeaponData.maxDamage;
         if (!isPlayer(objAttacker))
         {
             if (intAttackerRoll > intDefenderRoll)
@@ -375,10 +372,10 @@ public class combat extends script.base_script
             float levelDiffMod = levelDiff * getConBalanceScalar(levelDiff);
             if (levelDiffMod < 0)
             {
-                float damageMod = 1f + (levelDiffMod / 10f);
+                float damageMod = 1.0f + (levelDiffMod / 10.0f);
                 combatLog(attacker, defender, "modifyAiRawDamage", "AI Damage Mod = " + damageMod);
-                float minCap = minDamage / 2f;
-                float maxCap = maxDamage / 2f;
+                float minCap = minDamage / 2.0f;
+                float maxCap = maxDamage / 2.0f;
                 combatLog(attacker, defender, "modifyAiRawDamage", "Min Cap = " + minCap);
                 combatLog(attacker, defender, "modifyAiRawDamage", "Max Cap = " + maxCap);
                 minDamage *= damageMod;
@@ -394,14 +391,14 @@ public class combat extends script.base_script
             }
             else 
             {
-                float maxDmgMod = 1f + (levelDiffMod / 10f);
+                float maxDmgMod = 1.0f + (levelDiffMod / 10.0f);
                 combatLog(attacker, defender, "modifyAiRawDamage", "AI Max Damage Mod = " + maxDmgMod);
                 maxDamage *= maxDmgMod;
                 maxDamage += levelDiff;
-                float minDmgMod = 1f + (levelDiffMod / (10f / levelDiff));
+                float minDmgMod = 1.0f + (levelDiffMod / (10.0f / levelDiff));
                 combatLog(attacker, defender, "modifyAiRawDamage", "AI Min Damage Mod = " + minDmgMod);
                 minDamage *= minDmgMod;
-                float minCap = maxDamage / 2f;
+                float minCap = maxDamage / 2.0f;
                 if (minDamage > minCap)
                 {
                     minDamage = minCap;
@@ -630,7 +627,7 @@ public class combat extends script.base_script
             stopClientEffectObjByLabel(self, "state_rooted");
             playClientEffectObj(self, "sound/sta_rooted_off.snd", self, "");
         }
-        else if (movement.isSnare(buffName) && buff.getDuration(buffName) > 0f)
+        else if (movement.isSnare(buffName) && buff.getDuration(buffName) > 0.0f)
         {
             if (isVisible)
             {
@@ -789,39 +786,39 @@ public class combat extends script.base_script
             switch (weaponData.weaponType)
             {
                 case WEAPON_TYPE_PISTOL:
-                expertiseActionCostMod += (float)getEnhancedSkillStatisticModifierUncapped(self, "expertise_action_pistol");
+                expertiseActionCostMod += getEnhancedSkillStatisticModifierUncapped(self, "expertise_action_pistol");
                 break;
                 case WEAPON_TYPE_RIFLE:
-                expertiseActionCostMod += (float)getEnhancedSkillStatisticModifierUncapped(self, "expertise_action_rifle");
+                expertiseActionCostMod += getEnhancedSkillStatisticModifierUncapped(self, "expertise_action_rifle");
                 break;
                 case WEAPON_TYPE_LIGHT_RIFLE:
-                expertiseActionCostMod += (float)getEnhancedSkillStatisticModifierUncapped(self, "expertise_action_carbine");
+                expertiseActionCostMod += getEnhancedSkillStatisticModifierUncapped(self, "expertise_action_carbine");
                 break;
                 case WEAPON_TYPE_HEAVY:
-                expertiseActionCostMod += (float)getEnhancedSkillStatisticModifierUncapped(self, "expertise_action_heavy");
+                expertiseActionCostMod += getEnhancedSkillStatisticModifierUncapped(self, "expertise_action_heavy");
                 break;
                 case WEAPON_TYPE_GROUND_TARGETTING:
-                expertiseActionCostMod += (float)getEnhancedSkillStatisticModifierUncapped(self, "expertise_action_heavy");
+                expertiseActionCostMod += getEnhancedSkillStatisticModifierUncapped(self, "expertise_action_heavy");
                 break;
                 case WEAPON_TYPE_DIRECTIONAL:
-                expertiseActionCostMod += (float)getEnhancedSkillStatisticModifierUncapped(self, "expertise_action_heavy");
+                expertiseActionCostMod += getEnhancedSkillStatisticModifierUncapped(self, "expertise_action_heavy");
                 break;
                 case WEAPON_TYPE_1HAND_MELEE:
-                expertiseActionCostMod += (float)getEnhancedSkillStatisticModifierUncapped(self, "expertise_action_1h");
+                expertiseActionCostMod += getEnhancedSkillStatisticModifierUncapped(self, "expertise_action_1h");
                 break;
                 case WEAPON_TYPE_2HAND_MELEE:
-                expertiseActionCostMod += (float)getEnhancedSkillStatisticModifierUncapped(self, "expertise_action_2h");
+                expertiseActionCostMod += getEnhancedSkillStatisticModifierUncapped(self, "expertise_action_2h");
                 break;
                 case WEAPON_TYPE_UNARMED:
-                expertiseActionCostMod += (float)getEnhancedSkillStatisticModifierUncapped(self, "expertise_action_unarmed");
+                expertiseActionCostMod += getEnhancedSkillStatisticModifierUncapped(self, "expertise_action_unarmed");
                 break;
                 case WEAPON_TYPE_POLEARM:
-                expertiseActionCostMod += (float)getEnhancedSkillStatisticModifierUncapped(self, "expertise_action_polearm");
+                expertiseActionCostMod += getEnhancedSkillStatisticModifierUncapped(self, "expertise_action_polearm");
                 break;
                 case WEAPON_TYPE_WT_1HAND_LIGHTSABER:
                 case WEAPON_TYPE_WT_2HAND_LIGHTSABER:
                 case WEAPON_TYPE_WT_POLEARM_LIGHTSABER:
-                expertiseActionCostMod += (float)getEnhancedSkillStatisticModifierUncapped(self, "expertise_action_lightsaber");
+                expertiseActionCostMod += getEnhancedSkillStatisticModifierUncapped(self, "expertise_action_lightsaber");
                 break;
             }
             actionCost = actionCost - (actionCost * (expertiseActionCostMod / 100.0f));
@@ -954,39 +951,39 @@ public class combat extends script.base_script
             switch (weaponData.weaponType)
             {
                 case WEAPON_TYPE_PISTOL:
-                expertiseActionCostMod += (float)getEnhancedSkillStatisticModifierUncapped(self, "expertise_action_pistol");
+                expertiseActionCostMod += getEnhancedSkillStatisticModifierUncapped(self, "expertise_action_pistol");
                 break;
                 case WEAPON_TYPE_RIFLE:
-                expertiseActionCostMod += (float)getEnhancedSkillStatisticModifierUncapped(self, "expertise_action_rifle");
+                expertiseActionCostMod += getEnhancedSkillStatisticModifierUncapped(self, "expertise_action_rifle");
                 break;
                 case WEAPON_TYPE_LIGHT_RIFLE:
-                expertiseActionCostMod += (float)getEnhancedSkillStatisticModifierUncapped(self, "expertise_action_carbine");
+                expertiseActionCostMod += getEnhancedSkillStatisticModifierUncapped(self, "expertise_action_carbine");
                 break;
                 case WEAPON_TYPE_HEAVY:
-                expertiseActionCostMod += (float)getEnhancedSkillStatisticModifierUncapped(self, "expertise_action_heavy");
+                expertiseActionCostMod += getEnhancedSkillStatisticModifierUncapped(self, "expertise_action_heavy");
                 break;
                 case WEAPON_TYPE_GROUND_TARGETTING:
-                expertiseActionCostMod += (float)getEnhancedSkillStatisticModifierUncapped(self, "expertise_action_heavy");
+                expertiseActionCostMod += getEnhancedSkillStatisticModifierUncapped(self, "expertise_action_heavy");
                 break;
                 case WEAPON_TYPE_DIRECTIONAL:
-                expertiseActionCostMod += (float)getEnhancedSkillStatisticModifierUncapped(self, "expertise_action_heavy");
+                expertiseActionCostMod += getEnhancedSkillStatisticModifierUncapped(self, "expertise_action_heavy");
                 break;
                 case WEAPON_TYPE_1HAND_MELEE:
-                expertiseActionCostMod += (float)getEnhancedSkillStatisticModifierUncapped(self, "expertise_action_1h");
+                expertiseActionCostMod += getEnhancedSkillStatisticModifierUncapped(self, "expertise_action_1h");
                 break;
                 case WEAPON_TYPE_2HAND_MELEE:
-                expertiseActionCostMod += (float)getEnhancedSkillStatisticModifierUncapped(self, "expertise_action_2h");
+                expertiseActionCostMod += getEnhancedSkillStatisticModifierUncapped(self, "expertise_action_2h");
                 break;
                 case WEAPON_TYPE_UNARMED:
-                expertiseActionCostMod += (float)getEnhancedSkillStatisticModifierUncapped(self, "expertise_action_unarmed");
+                expertiseActionCostMod += getEnhancedSkillStatisticModifierUncapped(self, "expertise_action_unarmed");
                 break;
                 case WEAPON_TYPE_POLEARM:
-                expertiseActionCostMod += (float)getEnhancedSkillStatisticModifierUncapped(self, "expertise_action_polearm");
+                expertiseActionCostMod += getEnhancedSkillStatisticModifierUncapped(self, "expertise_action_polearm");
                 break;
                 case WEAPON_TYPE_WT_1HAND_LIGHTSABER:
                 case WEAPON_TYPE_WT_2HAND_LIGHTSABER:
                 case WEAPON_TYPE_WT_POLEARM_LIGHTSABER:
-                expertiseActionCostMod += (float)getEnhancedSkillStatisticModifierUncapped(self, "expertise_action_lightsaber");
+                expertiseActionCostMod += getEnhancedSkillStatisticModifierUncapped(self, "expertise_action_lightsaber");
                 break;
             }
             actionCost = actionCost - (actionCost * (expertiseActionCostMod / 100.0f));
@@ -1160,21 +1157,21 @@ public class combat extends script.base_script
     }
     public static int applyArmorProtection(obj_id attacker, obj_id defender, weapon_data weaponData, hit_result hitData, float bypassArmor) throws InterruptedException
     {
-        return applyArmorProtection(attacker, defender, weaponData, hitData, bypassArmor, 0f);
+        return applyArmorProtection(attacker, defender, weaponData, hitData, bypassArmor, 0.0f);
     }
     public static int applyArmorProtection(obj_id attacker, obj_id defender, weapon_data weaponData, hit_result hitData, float bypassArmor, float expertiseDamageBonus) throws InterruptedException
     {
         float baseDamage = hitData.damage;
         float elementalDamage = weaponData.elementalValue;
-        float baseProtection = 0f;
-        float elementalProtection = 0f;
-        float basePsgProtection = 0f;
-        float elementalPsgProtection = 0f;
+        float baseProtection = 0.0f;
+        float elementalProtection = 0.0f;
+        float basePsgProtection = 0.0f;
+        float elementalPsgProtection = 0.0f;
         boolean strikethrough = hitData.strikethrough;
         int armor_neglect = getEnhancedSkillStatisticModifierUncapped(attacker, "expertise_armor_neglect");
         int player_armor_reduction = getEnhancedSkillStatisticModifierUncapped(defender, "expertise_innate_reduction_all_player");
-        float neglectMod = 1.0f - ((float)armor_neglect / 100.0f);
-        float playerMod = 1.0f - ((float)player_armor_reduction / 100.0f);
+        float neglectMod = 1.0f - (armor_neglect / 100.0f);
+        float playerMod = 1.0f - (player_armor_reduction / 100.0f);
         obj_id armorPiece = null;
         obj_id psg = null;
         if (isPlayer(defender))
@@ -1226,11 +1223,11 @@ public class combat extends script.base_script
         {
             if (bypassArmor > 1.0)
             {
-                bypassArmor = 1f;
+                bypassArmor = 1.0f;
             }
             if (bypassArmor < 0.0)
             {
-                bypassArmor = 0f;
+                bypassArmor = 0.0f;
             }
         }
         baseProtection *= 1.0 - bypassArmor;
@@ -1297,9 +1294,9 @@ public class combat extends script.base_script
     }
     public static float scalePsgProtectionByBaseProtection(float basePsgProtection, float baseProtection) throws InterruptedException
     {
-        if (baseProtection < .2f)
+        if (baseProtection < 0.2f)
         {
-            baseProtection = .2f;
+            baseProtection = 0.2f;
         }
         basePsgProtection *= 10000;
         basePsgProtection = (basePsgProtection / 100) / (100 + ((basePsgProtection / 100))) / (baseProtection * 4);
@@ -1335,7 +1332,7 @@ public class combat extends script.base_script
         generalProtection -= getEnhancedSkillStatisticModifierUncapped(defender, "expertise_innate_reduction_all_mob");
         if (generalProtection == 0 && protections == null)
         {
-            return 0f;
+            return 0.0f;
         }
         if (utils.hasScriptVar(defender, "ai.combat.genProtectionBonus"))
         {
@@ -1366,7 +1363,7 @@ public class combat extends script.base_script
         }
         if (generalProtection == 0 && protections == null && psgProtections == null)
         {
-            return 0f;
+            return 0.0f;
         }
         String damageString = null;
         switch (damageType)
@@ -1419,7 +1416,7 @@ public class combat extends script.base_script
                 {
                     if (psgProtectionResult != null && psgProtectionResult.length > 0)
                     {
-                        psgProtectionResult[0] = psgValue / 10000f;
+                        psgProtectionResult[0] = psgValue / 10000.0f;
                     }
                 }
             }
@@ -1439,11 +1436,11 @@ public class combat extends script.base_script
     {
         if (utils.getIntScriptVar(defender, armor.SCRIPTVAR_ARMOR_COUNT) > 0)
         {
-            return 0f;
+            return 0.0f;
         }
-        float protection = 0f;
-        float tkaArmor = 0f;
-        float jediArmor = 0f;
+        float protection = 0.0f;
+        float tkaArmor = 0.0f;
+        float jediArmor = 0.0f;
         protection = getEnhancedSkillStatisticModifier(defender, "clothing_armor");
         if (hasSkill(defender, "combat_unarmed_novice"))
         {
@@ -1461,7 +1458,7 @@ public class combat extends script.base_script
         {
             protection = jediArmor;
         }
-        protection *= 100f;
+        protection *= 100.0f;
         int armorBonus = getEnhancedSkillStatisticModifier(defender, "private_armor_bonus");
         protection += armorBonus;
         return protection;
@@ -1471,19 +1468,19 @@ public class combat extends script.base_script
         final int reductionThreshold = 2000;
         if (protection <= reductionThreshold && protection >= (-1 * reductionThreshold))
         {
-            return protection / 10000f;
+            return protection / 10000.0f;
         }
         if (protection < 0)
         {
             protection += reductionThreshold;
-            protection = protection / (100f - (protection / 100f));
-            protection = -0.2f + (protection / 100f);
+            protection = protection / (100.0f - (protection / 100.0f));
+            protection = -0.2f + (protection / 100.0f);
         }
         else 
         {
             protection -= reductionThreshold;
-            protection = protection / (100f + (protection / 100f));
-            protection = 0.2f + (protection / 100f);
+            protection = protection / (100.0f + (protection / 100.0f));
+            protection = 0.2f + (protection / 100.0f);
         }
         return protection;
     }
@@ -1497,11 +1494,11 @@ public class combat extends script.base_script
         if (hasObjVar(armorPiece, "slice.resilience"))
         {
             int resilience = getIntObjVar(armorPiece, "slice.resilience");
-            ARMOR_REDUCTION_THRESHOLD -= resilience / 100.f;
+            ARMOR_REDUCTION_THRESHOLD -= resilience / 100.0f;
         }
         if (decayLevel < ARMOR_REDUCTION_THRESHOLD)
         {
-            reduction = 1f - (ARMOR_REDUCTION_THRESHOLD - decayLevel);
+            reduction = 1.0f - (ARMOR_REDUCTION_THRESHOLD - decayLevel);
         }
         return reduction;
     }
@@ -1514,11 +1511,11 @@ public class combat extends script.base_script
         if (hasObjVar(armorPiece, "slice.resilience"))
         {
             int resilience = getIntObjVar(armorPiece, "slice.resilience");
-            ARMOR_REDUCTION_THRESHOLD -= resilience / 100.f;
+            ARMOR_REDUCTION_THRESHOLD -= resilience / 100.0f;
         }
         if (decayLevel < ARMOR_REDUCTION_THRESHOLD)
         {
-            float reduction = 1f - (ARMOR_REDUCTION_THRESHOLD - decayLevel);
+            float reduction = 1.0f - (ARMOR_REDUCTION_THRESHOLD - decayLevel);
             value *= reduction;
         }
         return value;
@@ -1528,7 +1525,7 @@ public class combat extends script.base_script
         if (armor.isPsg(armorPiece))
         {
             dictionary protections = armor.getArmorSpecialProtections(armorPiece);
-            float maxEffectiveness = (((Float)(((protections.values()).iterator()).next()))).floatValue();
+            float maxEffectiveness = (Float) (((protections.values()).iterator()).next());
             if (maxEffectiveness > 0)
             {
                 float effectivenessReduction = PSG_BASE_DMG_PER_HIT + (newDamage / PSG_DAMAGE_SCALE);
@@ -1552,7 +1549,7 @@ public class combat extends script.base_script
         Long lngId;
         try
         {
-            lngId = new Long(params);
+            lngId = Long.valueOf(params);
         }
         catch(NumberFormatException err)
         {
@@ -1696,7 +1693,7 @@ public class combat extends script.base_script
                 if (totalHateDamage > 0.0f)
                 {
                     int skillBonus = getEnhancedSkillStatisticModifier(attacker, "private_taunt_bonus");
-                    totalHateDamage += totalHateDamage * (skillBonus / 100f);
+                    totalHateDamage += totalHateDamage * (skillBonus / 100.0f);
                     if (utils.hasScriptVar(attacker, "ai.combat.aggroBonus"))
                     {
                         totalHateDamage += totalHateDamage * utils.getFloatScriptVar(attacker, "ai.combat.aggroBonus");
@@ -1712,7 +1709,7 @@ public class combat extends script.base_script
                     if (buff.hasBuff(attacker, BUFF_HATE_XFER))
                     {
                         int hateTransferBonus = getEnhancedSkillStatisticModifier(attacker, "expertise_aggro_channel");
-                        float hateTransfered = totalHateDamage * (hateTransferBonus / 100f);
+                        float hateTransfered = totalHateDamage * (hateTransferBonus / 100.0f);
                         totalHateDamage -= hateTransfered;
                         obj_id transferTo = utils.getObjIdScriptVar(attacker, buff.AGGRO_TRANSFER_TO);
                         addHate(defender, transferTo, hateTransfered);
@@ -1748,13 +1745,9 @@ public class combat extends script.base_script
             
             {
                 obj_id[] hateList = getHateList(attacker);
-                for (int i = 0; i < hateList.length; ++i)
-                {
-                    obj_id hateTarget = hateList[i];
-                    if (!isPlayer(hateTarget) && isTangible(hateTarget))
-                    {
-                        if (getHateTarget(hateTarget) == attacker)
-                        {
+                for (obj_id hateTarget : hateList) {
+                    if (!isPlayer(hateTarget) && isTangible(hateTarget)) {
+                        if (getHateTarget(hateTarget) == attacker) {
                             resetHateTimer(hateTarget);
                         }
                     }
@@ -1991,7 +1984,7 @@ public class combat extends script.base_script
         {
             return (utils.getFloatScriptVar(attacker, "combat.cache." + cacheId));
         }
-        return 0f;
+        return 0.0f;
     }
     public static boolean getCachedCombatValueBool(obj_id attacker, String cacheId) throws InterruptedException
     {
@@ -2556,61 +2549,46 @@ public class combat extends script.base_script
     public static String getActionAnimation(combat_data actionData, String weaponType) throws InterruptedException
     {
         String animation = "";
-        if (weaponType.equals("unarmed"))
-        {
-            animation = actionData.anim_unarmed;
-        }
-        else if (weaponType.equals("onehandmelee"))
-        {
-            animation = actionData.anim_onehandmelee;
-        }
-        else if (weaponType.equals("twohandmelee"))
-        {
-            animation = actionData.anim_twohandmelee;
-        }
-        else if (weaponType.equals("polearm"))
-        {
-            animation = actionData.anim_polearm;
-        }
-        else if (weaponType.equals("lightRifle"))
-        {
-            animation = actionData.anim_lightRifle;
-        }
-        else if (weaponType.equals("pistol"))
-        {
-            animation = actionData.anim_pistol;
-        }
-        else if (weaponType.equals("carbine"))
-        {
-            animation = actionData.anim_carbine;
-        }
-        else if (weaponType.equals("rifle"))
-        {
-            animation = actionData.anim_rifle;
-        }
-        else if (weaponType.equals("heavyweapon"))
-        {
-            animation = actionData.anim_heavyweapon;
-        }
-        else if (weaponType.equals("thrown"))
-        {
-            animation = actionData.anim_thrown;
-        }
-        else if (weaponType.equals("thrown"))
-        {
-            animation = actionData.anim_thrown;
-        }
-        else if (weaponType.equals("onehandlightsaber"))
-        {
-            animation = actionData.anim_onehandlightsaber;
-        }
-        else if (weaponType.equals("twohandlightsaber"))
-        {
-            animation = actionData.anim_twohandlightsaber;
-        }
-        else if (weaponType.equals("polearmlightsaber"))
-        {
-            animation = actionData.anim_polearmlightsaber;
+        switch (weaponType) {
+            case "unarmed":
+                animation = actionData.anim_unarmed;
+                break;
+            case "onehandmelee":
+                animation = actionData.anim_onehandmelee;
+                break;
+            case "twohandmelee":
+                animation = actionData.anim_twohandmelee;
+                break;
+            case "polearm":
+                animation = actionData.anim_polearm;
+                break;
+            case "lightRifle":
+                animation = actionData.anim_lightRifle;
+                break;
+            case "pistol":
+                animation = actionData.anim_pistol;
+                break;
+            case "carbine":
+                animation = actionData.anim_carbine;
+                break;
+            case "rifle":
+                animation = actionData.anim_rifle;
+                break;
+            case "heavyweapon":
+                animation = actionData.anim_heavyweapon;
+                break;
+            case "thrown":
+                animation = actionData.anim_thrown;
+                break;
+            case "onehandlightsaber":
+                animation = actionData.anim_onehandlightsaber;
+                break;
+            case "twohandlightsaber":
+                animation = actionData.anim_twohandlightsaber;
+                break;
+            case "polearmlightsaber":
+                animation = actionData.anim_polearmlightsaber;
+                break;
         }
         if (animation.length() < 1)
         {
@@ -2855,13 +2833,13 @@ public class combat extends script.base_script
         }
         if (isRangedWeapon(getCurrentWeapon(attackerData.id)))
         {
-            missChance += ((float)getEnhancedSkillStatisticModifierUncapped(defenderData.id, "combat_ranged_attack_avoidance") / 10.0f);
-            missChance -= ((float)getEnhancedSkillStatisticModifierUncapped(defenderData.id, "combat_ranged_attack_vulnerability") / 10.0f);
+            missChance += (getEnhancedSkillStatisticModifierUncapped(defenderData.id, "combat_ranged_attack_avoidance") / 10.0f);
+            missChance -= (getEnhancedSkillStatisticModifierUncapped(defenderData.id, "combat_ranged_attack_vulnerability") / 10.0f);
         }
         if (isMeleeWeapon(getCurrentWeapon(attackerData.id)) || isLightsaberWeapon(getCurrentWeapon(attackerData.id)))
         {
-            missChance += ((float)getEnhancedSkillStatisticModifierUncapped(defenderData.id, "combat_melee_attack_avoidance") / 10.0f);
-            missChance -= ((float)getEnhancedSkillStatisticModifierUncapped(defenderData.id, "combat_melee_attack_vulnerability") / 10.0f);
+            missChance += (getEnhancedSkillStatisticModifierUncapped(defenderData.id, "combat_melee_attack_avoidance") / 10.0f);
+            missChance -= (getEnhancedSkillStatisticModifierUncapped(defenderData.id, "combat_melee_attack_vulnerability") / 10.0f);
         }
         missChance += getAttackerMissChance(attackerData, actionData, autoAim);
         missChance += getDefenderMissChance(defenderData, actionData, autoAim);
@@ -2874,23 +2852,23 @@ public class combat extends script.base_script
         float attackerMissChance = 0.0f;
         if (isRangedWeapon(getCurrentWeapon(attackerData.id)))
         {
-            attackerMissChance += ((float)getEnhancedSkillStatisticModifierUncapped(attackerData.id, "combat_ranged_attack_miss") / 10.0f);
-            attackerMissChance -= ((float)getEnhancedSkillStatisticModifierUncapped(attackerData.id, "combat_ranged_attack_miss_reduction") / 10.0f);
+            attackerMissChance += (getEnhancedSkillStatisticModifierUncapped(attackerData.id, "combat_ranged_attack_miss") / 10.0f);
+            attackerMissChance -= (getEnhancedSkillStatisticModifierUncapped(attackerData.id, "combat_ranged_attack_miss_reduction") / 10.0f);
         }
         if (isMeleeWeapon(getCurrentWeapon(attackerData.id)) || isLightsaberWeapon(getCurrentWeapon(attackerData.id)))
         {
-            attackerMissChance += ((float)getEnhancedSkillStatisticModifierUncapped(attackerData.id, "combat_melee_attack_miss") / 10.0f);
-            attackerMissChance -= ((float)getEnhancedSkillStatisticModifierUncapped(attackerData.id, "combat_melee_attack_miss_reduction") / 10.0f);
+            attackerMissChance += (getEnhancedSkillStatisticModifierUncapped(attackerData.id, "combat_melee_attack_miss") / 10.0f);
+            attackerMissChance -= (getEnhancedSkillStatisticModifierUncapped(attackerData.id, "combat_melee_attack_miss_reduction") / 10.0f);
         }
-        attackerMissChance += ((float)getEnhancedSkillStatisticModifierUncapped(attackerData.id, "combat_all_attack_miss") / 10.0f);
-        attackerMissChance -= ((float)getEnhancedSkillStatisticModifierUncapped(attackerData.id, "combat_all_attack_miss_reduction") / 10.0f);
+        attackerMissChance += (getEnhancedSkillStatisticModifierUncapped(attackerData.id, "combat_all_attack_miss") / 10.0f);
+        attackerMissChance -= (getEnhancedSkillStatisticModifierUncapped(attackerData.id, "combat_all_attack_miss_reduction") / 10.0f);
         return attackerMissChance;
     }
     public static float getDefenderMissChance(defender_data defenderData, combat_data actionData, boolean autoAim) throws InterruptedException
     {
         float defenderMissChance = 0.0f;
-        defenderMissChance += ((float)getEnhancedSkillStatisticModifierUncapped(defenderData.id, "combat_all_attack_avoidance") / 10.0f);
-        defenderMissChance -= ((float)getEnhancedSkillStatisticModifierUncapped(defenderData.id, "combat_all_attack_miss_vulnerability") / 10.0f);
+        defenderMissChance += (getEnhancedSkillStatisticModifierUncapped(defenderData.id, "combat_all_attack_avoidance") / 10.0f);
+        defenderMissChance -= (getEnhancedSkillStatisticModifierUncapped(defenderData.id, "combat_all_attack_miss_vulnerability") / 10.0f);
         return defenderMissChance;
     }
     public static float getGlancingBlowChance(attacker_data attackerData, defender_data defenderData, combat_data actionData) throws InterruptedException
@@ -2909,7 +2887,7 @@ public class combat extends script.base_script
             int difficultyClass = getIntObjVar(defender, "difficultyClass");
             if (attackerLevel < defenderLevel)
             {
-                glancingChance = 5.0f * (float)(defenderLevel - attackerLevel);
+                glancingChance = 5.0f * (defenderLevel - attackerLevel);
             }
             switch (difficultyClass)
             {
@@ -2930,10 +2908,10 @@ public class combat extends script.base_script
         {
             int attackerLevel = getLevel(attacker);
             int defenderLevel = getLevel(defender);
-            defenderLevel = Math.round((float)defenderLevel * 0.75f);
+            defenderLevel = Math.round(defenderLevel * 0.75f);
             if (attackerLevel < defenderLevel)
             {
-                glancingChance = 2.0f * (float)(defenderLevel - attackerLevel);
+                glancingChance = 2.0f * (defenderLevel - attackerLevel);
             }
         }
         glancingChance += defenderData.glancingChance;
@@ -2942,18 +2920,18 @@ public class combat extends script.base_script
         boolean isRangedDefender = isRangedWeapon(getCurrentWeapon(defender));
         if (isRangedAttacker)
         {
-            glancingChance += (float)getEnhancedSkillStatisticModifierUncapped(defender, "expertise_glancing_blow_ranged");
+            glancingChance += getEnhancedSkillStatisticModifierUncapped(defender, "expertise_glancing_blow_ranged");
             if (armor.hasExpertiseArmorSetBonus(defender))
             {
-                glancingChance += (float)getEnhancedSkillStatisticModifierUncapped(defender, "expertise_armorset_glancing_blow_ranged_" + armor.getExpertiseArmorSetId(defender));
+                glancingChance += getEnhancedSkillStatisticModifierUncapped(defender, "expertise_armorset_glancing_blow_ranged_" + armor.getExpertiseArmorSetId(defender));
             }
         }
         if (!isRangedAttacker)
         {
-            glancingChance += (float)getEnhancedSkillStatisticModifierUncapped(defender, "expertise_glancing_blow_melee");
+            glancingChance += getEnhancedSkillStatisticModifierUncapped(defender, "expertise_glancing_blow_melee");
             if (armor.hasExpertiseArmorSetBonus(defender))
             {
-                glancingChance += (float)getEnhancedSkillStatisticModifierUncapped(defender, "expertise_armorset_glancing_blow_melee_" + armor.getExpertiseArmorSetId(defender));
+                glancingChance += getEnhancedSkillStatisticModifierUncapped(defender, "expertise_armorset_glancing_blow_melee_" + armor.getExpertiseArmorSetId(defender));
             }
         }
         glancingChance -= actionData.reduceGlancing;
@@ -2969,11 +2947,11 @@ public class combat extends script.base_script
         boolean isRangedDefender = isRangedWeapon(getCurrentWeapon(defender));
         if (!isRangedDefender)
         {
-            glancingChance += (float)getEnhancedSkillStatisticModifierUncapped(defender, "expertise_glancing_blow_melee_defense");
+            glancingChance += getEnhancedSkillStatisticModifierUncapped(defender, "expertise_glancing_blow_melee_defense");
         }
-        glancingChance += (float)getEnhancedSkillStatisticModifierUncapped(defender, "expertise_glancing_blow_all");
-        glancingChance += (float)utils.getIntScriptVar(defender, "expertise_stance_glance");
-        glancingChance += (getDiminishedReturnValue((float)getEnhancedSkillStatisticModifierUncapped(defender, "combat_glancing"), DR_DEFENDER_GLANCE) / 10.0f);
+        glancingChance += getEnhancedSkillStatisticModifierUncapped(defender, "expertise_glancing_blow_all");
+        glancingChance += utils.getIntScriptVar(defender, "expertise_stance_glance");
+        glancingChance += (getDiminishedReturnValue(getEnhancedSkillStatisticModifierUncapped(defender, "combat_glancing"), DR_DEFENDER_GLANCE) / 10.0f);
         return glancingChance;
     }
     public static float getAttackerGlancingReduction(obj_id attacker) throws InterruptedException
@@ -2984,8 +2962,8 @@ public class combat extends script.base_script
             glancingReduce += beast_lib.getBeastModGlancingReduction(attacker);
         }
         glancingReduce += (float)(getEnhancedSkillStatisticModifierUncapped(attacker, "combat_glancing_blow_reduction") / 7.0f);
-        glancingReduce += (float)(getEnhancedSkillStatisticModifierUncapped(attacker, "expertise_glancing_blow_reduction"));
-        glancingReduce -= (float)getEnhancedSkillStatisticModifierUncapped(attacker, "glancing_blow_vulnerable");
+        glancingReduce += (getEnhancedSkillStatisticModifierUncapped(attacker, "expertise_glancing_blow_reduction"));
+        glancingReduce -= getEnhancedSkillStatisticModifierUncapped(attacker, "glancing_blow_vulnerable");
         return glancingReduce;
     }
     public static float getPunishingBlowChance(attacker_data attackerData, defender_data defenderData) throws InterruptedException
@@ -2999,7 +2977,7 @@ public class combat extends script.base_script
             int defenderLevel = getLevel(defender);
             if (attackerLevel > defenderLevel)
             {
-                punishingChance = 5.0f * (float)(attackerLevel - defenderLevel);
+                punishingChance = 5.0f * (attackerLevel - defenderLevel);
             }
             int difficultyClass = getIntObjVar(attacker, "difficultyClass");
             switch (difficultyClass)
@@ -3042,27 +3020,27 @@ public class combat extends script.base_script
         {
             if (armor.hasExpertiseArmorSetBonus(defender))
             {
-                dodgeChance += (float)getEnhancedSkillStatisticModifierUncapped(defender, "expertise_armorset_ranged_dodge_" + armor.getExpertiseArmorSetId(defender));
+                dodgeChance += getEnhancedSkillStatisticModifierUncapped(defender, "expertise_armorset_ranged_dodge_" + armor.getExpertiseArmorSetId(defender));
             }
         }
         if (!isRangedAttacker)
         {
             if (armor.hasExpertiseArmorSetBonus(defender))
             {
-                dodgeChance += (float)getEnhancedSkillStatisticModifierUncapped(defender, "expertise_armorset_melee_dodge_" + armor.getExpertiseArmorSetId(defender));
+                dodgeChance += getEnhancedSkillStatisticModifierUncapped(defender, "expertise_armorset_melee_dodge_" + armor.getExpertiseArmorSetId(defender));
             }
         }
         return dodgeChance;
     }
     public static float getDefenderDodgeChance(obj_id player) throws InterruptedException
     {
-        float dodgeChance = isPlayer(player) || beast_lib.isBeast(player) ? 5.0f : (float)getLevel(player) * 0.10f;
-        dodgeChance += ((float)getEnhancedSkillStatisticModifierUncapped(player, "agility_modified") / 100.0f);
-        dodgeChance += ((float)getEnhancedSkillStatisticModifierUncapped(player, "agility") / 100.0f);
-        dodgeChance += ((float)getEnhancedSkillStatisticModifierUncapped(player, "luck_modified") / 300.0f);
-        dodgeChance += ((float)getEnhancedSkillStatisticModifierUncapped(player, "luck") / 300.0f);
-        dodgeChance += (getDiminishedReturnValue((float)getEnhancedSkillStatisticModifierUncapped(player, "combat_dodge"), DR_DEFENDER_DODGE) / 10.0f);
-        dodgeChance += (float)getEnhancedSkillStatisticModifierUncapped(player, "expertise_dodge");
+        float dodgeChance = isPlayer(player) || beast_lib.isBeast(player) ? 5.0f : getLevel(player) * 0.10f;
+        dodgeChance += (getEnhancedSkillStatisticModifierUncapped(player, "agility_modified") / 100.0f);
+        dodgeChance += (getEnhancedSkillStatisticModifierUncapped(player, "agility") / 100.0f);
+        dodgeChance += (getEnhancedSkillStatisticModifierUncapped(player, "luck_modified") / 300.0f);
+        dodgeChance += (getEnhancedSkillStatisticModifierUncapped(player, "luck") / 300.0f);
+        dodgeChance += (getDiminishedReturnValue(getEnhancedSkillStatisticModifierUncapped(player, "combat_dodge"), DR_DEFENDER_DODGE) / 10.0f);
+        dodgeChance += getEnhancedSkillStatisticModifierUncapped(player, "expertise_dodge");
         if (beast_lib.isBeastMaster(player) || beast_lib.isBeast(player))
         {
             dodgeChance += beast_lib.getBeastDodgeChance(player);
@@ -3072,7 +3050,7 @@ public class combat extends script.base_script
     public static float getAttackerDodgeReduction(obj_id attacker) throws InterruptedException
     {
         float dodgeReduction = 0.0f;
-        dodgeReduction += (float)(getEnhancedSkillStatisticModifierUncapped(attacker, "expertise_dodge_reduction"));
+        dodgeReduction += (getEnhancedSkillStatisticModifierUncapped(attacker, "expertise_dodge_reduction"));
         dodgeReduction += (float)(getEnhancedSkillStatisticModifierUncapped(attacker, "exotic_dodge_reduction") / 7.0f);
         dodgeReduction += (float)(getEnhancedSkillStatisticModifierUncapped(attacker, "combat_dodge_reduction") / 7.0f);
         return dodgeReduction;
@@ -3087,22 +3065,22 @@ public class combat extends script.base_script
     }
     public static float getDefenderParryChance(obj_id player) throws InterruptedException
     {
-        float parrySkill = isPlayer(player) || beast_lib.isBeast(player) ? 5.0f : (float)getLevel(player) * 0.09f;
-        parrySkill += (getDiminishedReturnValue((float)getEnhancedSkillStatisticModifierUncapped(player, "combat_parry"), DR_DEFENDER_PARRY) / 10.0f);
-        parrySkill += ((float)getEnhancedSkillStatisticModifierUncapped(player, "precision_modified") / 200.0f);
-        parrySkill += ((float)getSkillStatisticModifier(player, "precision") / 200.0f);
-        parrySkill += ((float)getEnhancedSkillStatisticModifierUncapped(player, "agility_modified") / 200.0f);
-        parrySkill += ((float)getSkillStatisticModifier(player, "agility") / 200.0f);
-        parrySkill += (float)getEnhancedSkillStatisticModifierUncapped(player, "expertise_parry");
+        float parrySkill = isPlayer(player) || beast_lib.isBeast(player) ? 5.0f : getLevel(player) * 0.09f;
+        parrySkill += (getDiminishedReturnValue(getEnhancedSkillStatisticModifierUncapped(player, "combat_parry"), DR_DEFENDER_PARRY) / 10.0f);
+        parrySkill += (getEnhancedSkillStatisticModifierUncapped(player, "precision_modified") / 200.0f);
+        parrySkill += (getSkillStatisticModifier(player, "precision") / 200.0f);
+        parrySkill += (getEnhancedSkillStatisticModifierUncapped(player, "agility_modified") / 200.0f);
+        parrySkill += (getSkillStatisticModifier(player, "agility") / 200.0f);
+        parrySkill += getEnhancedSkillStatisticModifierUncapped(player, "expertise_parry");
         if (beast_lib.isBeastMaster(player) || beast_lib.isBeast(player))
         {
             parrySkill += beast_lib.getBeastParryChance(player);
         }
-        parrySkill += (float)getSkillStatisticModifier(player, "expertise_stance_saber_block");
+        parrySkill += getSkillStatisticModifier(player, "expertise_stance_saber_block");
         boolean isSaberBlocking = buff.hasBuff(player, "saberBlock");
         if (isSaberBlocking)
         {
-            float enhancedSaberBlockSkillMod = (float)getSkillStatisticModifier(player, "expertise_saber_block");
+            float enhancedSaberBlockSkillMod = getSkillStatisticModifier(player, "expertise_saber_block");
             parrySkill += enhancedSaberBlockSkillMod;
         }
         parrySkill = parrySkill > 75.0f ? 75.0f : parrySkill;
@@ -3111,7 +3089,7 @@ public class combat extends script.base_script
     public static float getAttackerParryReduction(obj_id attacker) throws InterruptedException
     {
         float parryReduction = 0.0f;
-        parryReduction += (float)(getEnhancedSkillStatisticModifierUncapped(attacker, "expertise_parry_reduction"));
+        parryReduction += (getEnhancedSkillStatisticModifierUncapped(attacker, "expertise_parry_reduction"));
         parryReduction += (float)(getEnhancedSkillStatisticModifierUncapped(attacker, "exotic_parry_reduction") / 7.0f);
         parryReduction += (float)(getEnhancedSkillStatisticModifierUncapped(attacker, "combat_parry_reduction") / 7.0f);
         return parryReduction;
@@ -3129,27 +3107,27 @@ public class combat extends script.base_script
         {
             if (armor.hasExpertiseArmorSetBonus(defender))
             {
-                blockChance += (float)getEnhancedSkillStatisticModifierUncapped(defender, "expertise_armorset_ranged_block_" + armor.getExpertiseArmorSetId(defender));
+                blockChance += getEnhancedSkillStatisticModifierUncapped(defender, "expertise_armorset_ranged_block_" + armor.getExpertiseArmorSetId(defender));
             }
         }
         if (!isRangedAttacker)
         {
             if (armor.hasExpertiseArmorSetBonus(defender))
             {
-                blockChance += (float)getEnhancedSkillStatisticModifierUncapped(defender, "expertise_armorset_melee_block_" + armor.getExpertiseArmorSetId(defender));
+                blockChance += getEnhancedSkillStatisticModifierUncapped(defender, "expertise_armorset_melee_block_" + armor.getExpertiseArmorSetId(defender));
             }
         }
         return blockChance;
     }
     public static float getDefenderBlockChance(obj_id player) throws InterruptedException
     {
-        float blockChance = isPlayer(player) ? 5.0f : (float)getLevel(player) * 0.14f;
-        blockChance += ((float)getEnhancedSkillStatisticModifierUncapped(player, "precision_modified") / 200.0f);
-        blockChance += ((float)getEnhancedSkillStatisticModifierUncapped(player, "precision") / 200.0f);
-        blockChance += ((float)getEnhancedSkillStatisticModifierUncapped(player, "strength_modified") / 200.0f);
-        blockChance += ((float)getEnhancedSkillStatisticModifierUncapped(player, "strength") / 200.0f);
-        blockChance += (getDiminishedReturnValue((float)getEnhancedSkillStatisticModifierUncapped(player, "combat_block_chance"), DR_DEFENDER_BLOCK) / 5.0f);
-        blockChance += (float)getEnhancedSkillStatisticModifierUncapped(player, "expertise_block_chance");
+        float blockChance = isPlayer(player) ? 5.0f : getLevel(player) * 0.14f;
+        blockChance += (getEnhancedSkillStatisticModifierUncapped(player, "precision_modified") / 200.0f);
+        blockChance += (getEnhancedSkillStatisticModifierUncapped(player, "precision") / 200.0f);
+        blockChance += (getEnhancedSkillStatisticModifierUncapped(player, "strength_modified") / 200.0f);
+        blockChance += (getEnhancedSkillStatisticModifierUncapped(player, "strength") / 200.0f);
+        blockChance += (getDiminishedReturnValue(getEnhancedSkillStatisticModifierUncapped(player, "combat_block_chance"), DR_DEFENDER_BLOCK) / 5.0f);
+        blockChance += getEnhancedSkillStatisticModifierUncapped(player, "expertise_block_chance");
         if (beast_lib.isBeastMaster(player) || beast_lib.isBeast(player))
         {
             blockChance += beast_lib.getBeastBlockChance(player);
@@ -3159,13 +3137,13 @@ public class combat extends script.base_script
             int nextBlockLog = utils.getIntScriptVar(player, "nextBlockLog");
             if (getGameTime() > nextBlockLog)
             {
-                float fromBlockChance = (float)getEnhancedSkillStatisticModifierUncapped(player, "combat_block_chance") / 5.0f;
-                float fromBlockChanceDiminished = (getDiminishedReturnValue((float)getEnhancedSkillStatisticModifierUncapped(player, "combat_block_chance"), DR_DEFENDER_BLOCK) / 5.0f);
-                float fromPreMod = (float)getEnhancedSkillStatisticModifierUncapped(player, "precision_modified") / 200.0f;
-                float fromPre = (float)getEnhancedSkillStatisticModifierUncapped(player, "precision") / 200.0f;
-                float fromStrMod = (float)getEnhancedSkillStatisticModifierUncapped(player, "strength_modified") / 200.0f;
-                float fromStr = (float)getEnhancedSkillStatisticModifierUncapped(player, "strength") / 200.0f;
-                float fromExChance = (float)getEnhancedSkillStatisticModifierUncapped(player, "expertise_block_chance");
+                float fromBlockChance = getEnhancedSkillStatisticModifierUncapped(player, "combat_block_chance") / 5.0f;
+                float fromBlockChanceDiminished = (getDiminishedReturnValue(getEnhancedSkillStatisticModifierUncapped(player, "combat_block_chance"), DR_DEFENDER_BLOCK) / 5.0f);
+                float fromPreMod = getEnhancedSkillStatisticModifierUncapped(player, "precision_modified") / 200.0f;
+                float fromPre = getEnhancedSkillStatisticModifierUncapped(player, "precision") / 200.0f;
+                float fromStrMod = getEnhancedSkillStatisticModifierUncapped(player, "strength_modified") / 200.0f;
+                float fromStr = getEnhancedSkillStatisticModifierUncapped(player, "strength") / 200.0f;
+                float fromExChance = getEnhancedSkillStatisticModifierUncapped(player, "expertise_block_chance");
                 float fromBeastMod = 0.0f;
                 if (beast_lib.isBeastMaster(player) || beast_lib.isBeast(player))
                 {
@@ -3180,7 +3158,7 @@ public class combat extends script.base_script
     public static float getAttackerBlockReduction(obj_id attacker) throws InterruptedException
     {
         float blockReduction = 0.0f;
-        blockReduction += (float)(getEnhancedSkillStatisticModifierUncapped(attacker, "expertise_block_reduction"));
+        blockReduction += (getEnhancedSkillStatisticModifierUncapped(attacker, "expertise_block_reduction"));
         blockReduction += (float)(getEnhancedSkillStatisticModifierUncapped(attacker, "exotic_block_reduction") / 5.0f);
         blockReduction += (float)(getEnhancedSkillStatisticModifierUncapped(attacker, "combat_block_reduction") / 5.0f);
         return blockReduction;
@@ -3189,9 +3167,9 @@ public class combat extends script.base_script
     {
         int blockAmmount = isPlayer(player) || beast_lib.isBeast(player) ? 25 : Math.round((getLevel(player) * 2));
         float blockStat = 0.0f;
-        blockStat += (float)getEnhancedSkillStatisticModifierUncapped(player, "strength_modified");
-        blockStat += (float)getSkillStatisticModifier(player, "strength");
-        blockStat += (float)getEnhancedSkillStatisticModifierUncapped(player, "combat_block_value");
+        blockStat += getEnhancedSkillStatisticModifierUncapped(player, "strength_modified");
+        blockStat += getSkillStatisticModifier(player, "strength");
+        blockStat += getEnhancedSkillStatisticModifierUncapped(player, "combat_block_value");
         blockStat = Math.round((float)blockStat * 0.5f);
         blockAmmount += blockStat;
         if (beast_lib.isBeastMaster(player) || beast_lib.isBeast(player))
@@ -3209,13 +3187,13 @@ public class combat extends script.base_script
     }
     public static float getDefenderEvasionChance(obj_id player) throws InterruptedException
     {
-        float evasionChance = isPlayer(player) || beast_lib.isBeast(player) ? 5.0f : ((float)getLevel(player) * 0.2f);
-        evasionChance += ((float)getEnhancedSkillStatisticModifierUncapped(player, "agility_modified") / 100.0f);
-        evasionChance += ((float)getSkillStatisticModifier(player, "agility") / 100.0f);
-        evasionChance += ((float)getEnhancedSkillStatisticModifierUncapped(player, "luck_modified") / 300.0f);
-        evasionChance += ((float)getSkillStatisticModifier(player, "luck") / 300.0f);
-        evasionChance += (getDiminishedReturnValue((float)getEnhancedSkillStatisticModifierUncapped(player, "combat_evasion_chance"), DR_DEFENDER_EVADE) / 10.0f);
-        evasionChance += (float)getEnhancedSkillStatisticModifierUncapped(player, "expertise_evasion_chance");
+        float evasionChance = isPlayer(player) || beast_lib.isBeast(player) ? 5.0f : (getLevel(player) * 0.2f);
+        evasionChance += (getEnhancedSkillStatisticModifierUncapped(player, "agility_modified") / 100.0f);
+        evasionChance += (getSkillStatisticModifier(player, "agility") / 100.0f);
+        evasionChance += (getEnhancedSkillStatisticModifierUncapped(player, "luck_modified") / 300.0f);
+        evasionChance += (getSkillStatisticModifier(player, "luck") / 300.0f);
+        evasionChance += (getDiminishedReturnValue(getEnhancedSkillStatisticModifierUncapped(player, "combat_evasion_chance"), DR_DEFENDER_EVADE) / 10.0f);
+        evasionChance += getEnhancedSkillStatisticModifierUncapped(player, "expertise_evasion_chance");
         if (beast_lib.isBeastMaster(player) || beast_lib.isBeast(player))
         {
             evasionChance += beast_lib.getBeastEvadeChance(player);
@@ -3237,14 +3215,14 @@ public class combat extends script.base_script
     public static float getEvasionRoll(obj_id player) throws InterruptedException
     {
         float evasionRoll = 0.0f;
-        evasionRoll += ((float)getEnhancedSkillStatisticModifierUncapped(player, "combat_evasion_value") / 4.0f);
+        evasionRoll += (getEnhancedSkillStatisticModifierUncapped(player, "combat_evasion_value") / 4.0f);
         if (evasionRoll < 0)
         {
             return -1.0f;
         }
         evasionRoll += 10.0f;
-        evasionRoll += ((float)getEnhancedSkillStatisticModifierUncapped(player, "luck_modified") / 10.0f);
-        evasionRoll += ((float)getSkillStatisticModifier(player, "luck") / 10.0f);
+        evasionRoll += (getEnhancedSkillStatisticModifierUncapped(player, "luck_modified") / 10.0f);
+        evasionRoll += (getSkillStatisticModifier(player, "luck") / 10.0f);
         if (beast_lib.isBeastMaster(player) || beast_lib.isBeast(player))
         {
             evasionRoll += beast_lib.getBeastEvadeValue(player);
@@ -3258,7 +3236,7 @@ public class combat extends script.base_script
         float critChance = attackerData.critChance;
         float altCritChance = 0.0f;
         String specialLine = actionData.specialLine;
-        critChance += (float)getEnhancedSkillStatisticModifierUncapped(attacker, "expertise_critical_line_" + specialLine);
+        critChance += getEnhancedSkillStatisticModifierUncapped(attacker, "expertise_critical_line_" + specialLine);
         if (!autoAiming && isPlayer(attacker))
         {
             critChance += 3.0f;
@@ -3284,7 +3262,7 @@ public class combat extends script.base_script
         critChance -= defenderData.reduceCritical;
         if (isPlayer(defender) && (isPlayer(attacker) || (isMob(attacker) && isIdValid(getMaster(attacker)) && isPlayer(getMaster(attacker)))))
         {
-            critChance -= (float)getEnhancedSkillStatisticModifierUncapped(defender, "expertise_critical_hit_pvp_reduction");
+            critChance -= getEnhancedSkillStatisticModifierUncapped(defender, "expertise_critical_hit_pvp_reduction");
         }
         critChance += actionData.increaseCritical;
         critChance += altCritChance;
@@ -3292,20 +3270,20 @@ public class combat extends script.base_script
     }
     public static float getAttackerCritMod(obj_id attacker) throws InterruptedException
     {
-        float critMod = isPlayer(attacker) ? 5.0f : (float)getLevel(attacker) * 0.15f;
+        float critMod = isPlayer(attacker) ? 5.0f : getLevel(attacker) * 0.15f;
         float dr_critMod = 0.0f;
         float dr_critMod2 = 0.0f;
-        critMod += (float)utils.getIntScriptVar(attacker, "expertise_stance_critical");
-        critMod += (float)getEnhancedSkillStatisticModifierUncapped(attacker, "expertise_critical_niche_all");
-        critMod += (getDiminishedReturnValue((float)getEnhancedSkillStatisticModifierUncapped(attacker, "combat_critical_hit"), DR_ATTACKER_CRITICAL) / 10.0f);
+        critMod += utils.getIntScriptVar(attacker, "expertise_stance_critical");
+        critMod += getEnhancedSkillStatisticModifierUncapped(attacker, "expertise_critical_niche_all");
+        critMod += (getDiminishedReturnValue(getEnhancedSkillStatisticModifierUncapped(attacker, "combat_critical_hit"), DR_ATTACKER_CRITICAL) / 10.0f);
         if (beast_lib.isBeastMaster(attacker) || beast_lib.isBeast(attacker))
         {
             critMod += beast_lib.getBeastCritChance(attacker);
         }
-        critMod += ((float)getEnhancedSkillStatisticModifierUncapped(attacker, "precision_modified") / 100.0f);
-        critMod += ((float)getSkillStatisticModifier(attacker, "precision") / 100.0f);
-        critMod += ((float)getEnhancedSkillStatisticModifierUncapped(attacker, "luck_modified") / 300.0f);
-        critMod += ((float)getSkillStatisticModifier(attacker, "luck") / 300.0f);
+        critMod += (getEnhancedSkillStatisticModifierUncapped(attacker, "precision_modified") / 100.0f);
+        critMod += (getSkillStatisticModifier(attacker, "precision") / 100.0f);
+        critMod += (getEnhancedSkillStatisticModifierUncapped(attacker, "luck_modified") / 300.0f);
+        critMod += (getSkillStatisticModifier(attacker, "luck") / 300.0f);
         obj_id weapon = getCurrentWeapon(attacker);
         if (!isIdValid(weapon))
         {
@@ -3319,63 +3297,63 @@ public class combat extends script.base_script
         boolean isRangedAttacker = isRangedWeapon(weapon);
         if (isRangedAttacker)
         {
-            dr_critMod2 += (float)getEnhancedSkillStatisticModifierUncapped(attacker, "expertise_critical_ranged");
-            dr_critMod += ((float)getEnhancedSkillStatisticModifierUncapped(attacker, "combat_critical_ranged") / 10.0f);
-            critMod += (float)getEnhancedSkillStatisticModifierUncapped(attacker, "expertise_undiminished_critical_ranged");
+            dr_critMod2 += getEnhancedSkillStatisticModifierUncapped(attacker, "expertise_critical_ranged");
+            dr_critMod += (getEnhancedSkillStatisticModifierUncapped(attacker, "combat_critical_ranged") / 10.0f);
+            critMod += getEnhancedSkillStatisticModifierUncapped(attacker, "expertise_undiminished_critical_ranged");
         }
         else 
         {
-            dr_critMod2 += (float)getEnhancedSkillStatisticModifierUncapped(attacker, "expertise_critical_melee");
-            dr_critMod += ((float)getEnhancedSkillStatisticModifierUncapped(attacker, "combat_critical_melee") / 10.0f);
-            critMod += (float)getEnhancedSkillStatisticModifierUncapped(attacker, "expertise_undiminished_critical_melee");
+            dr_critMod2 += getEnhancedSkillStatisticModifierUncapped(attacker, "expertise_critical_melee");
+            dr_critMod += (getEnhancedSkillStatisticModifierUncapped(attacker, "combat_critical_melee") / 10.0f);
+            critMod += getEnhancedSkillStatisticModifierUncapped(attacker, "expertise_undiminished_critical_melee");
         }
         if(weaponData != null) {
             switch (weaponData.weaponType) {
                 case WEAPON_TYPE_PISTOL:
-                    dr_critMod2 += (float) getEnhancedSkillStatisticModifierUncapped(attacker, "expertise_critical_pistol");
-                    critMod += (float) getEnhancedSkillStatisticModifierUncapped(attacker, "expertise_undiminished_critical_pistol");
+                    dr_critMod2 += getEnhancedSkillStatisticModifierUncapped(attacker, "expertise_critical_pistol");
+                    critMod += getEnhancedSkillStatisticModifierUncapped(attacker, "expertise_undiminished_critical_pistol");
                     break;
                 case WEAPON_TYPE_RIFLE:
-                    dr_critMod2 += (float) getEnhancedSkillStatisticModifierUncapped(attacker, "expertise_critical_rifle");
-                    critMod += (float) getEnhancedSkillStatisticModifierUncapped(attacker, "expertise_undiminished_critical_rifle");
+                    dr_critMod2 += getEnhancedSkillStatisticModifierUncapped(attacker, "expertise_critical_rifle");
+                    critMod += getEnhancedSkillStatisticModifierUncapped(attacker, "expertise_undiminished_critical_rifle");
                     break;
                 case WEAPON_TYPE_LIGHT_RIFLE:
-                    dr_critMod2 += (float) getEnhancedSkillStatisticModifierUncapped(attacker, "expertise_critical_carbine");
-                    critMod += (float) getEnhancedSkillStatisticModifierUncapped(attacker, "expertise_undiminished_critical_carbine");
+                    dr_critMod2 += getEnhancedSkillStatisticModifierUncapped(attacker, "expertise_critical_carbine");
+                    critMod += getEnhancedSkillStatisticModifierUncapped(attacker, "expertise_undiminished_critical_carbine");
                     break;
                 case WEAPON_TYPE_HEAVY:
-                    dr_critMod2 += (float) getEnhancedSkillStatisticModifierUncapped(attacker, "expertise_critical_heavy");
-                    critMod += (float) getEnhancedSkillStatisticModifierUncapped(attacker, "expertise_undiminished_critical_heavy");
+                    dr_critMod2 += getEnhancedSkillStatisticModifierUncapped(attacker, "expertise_critical_heavy");
+                    critMod += getEnhancedSkillStatisticModifierUncapped(attacker, "expertise_undiminished_critical_heavy");
                     break;
                 case WEAPON_TYPE_GROUND_TARGETTING:
-                    dr_critMod2 += (float) getEnhancedSkillStatisticModifierUncapped(attacker, "expertise_critical_heavy");
-                    critMod += (float) getEnhancedSkillStatisticModifierUncapped(attacker, "expertise_undiminished_critical_heavy");
+                    dr_critMod2 += getEnhancedSkillStatisticModifierUncapped(attacker, "expertise_critical_heavy");
+                    critMod += getEnhancedSkillStatisticModifierUncapped(attacker, "expertise_undiminished_critical_heavy");
                     break;
                 case WEAPON_TYPE_DIRECTIONAL:
-                    dr_critMod2 += (float) getEnhancedSkillStatisticModifierUncapped(attacker, "expertise_critical_heavy");
-                    critMod += (float) getEnhancedSkillStatisticModifierUncapped(attacker, "expertise_undiminished_critical_heavy");
+                    dr_critMod2 += getEnhancedSkillStatisticModifierUncapped(attacker, "expertise_critical_heavy");
+                    critMod += getEnhancedSkillStatisticModifierUncapped(attacker, "expertise_undiminished_critical_heavy");
                     break;
                 case WEAPON_TYPE_1HAND_MELEE:
-                    dr_critMod2 += (float) getEnhancedSkillStatisticModifierUncapped(attacker, "expertise_critical_1h");
-                    critMod += (float) getEnhancedSkillStatisticModifierUncapped(attacker, "expertise_undiminished_critical_1h");
+                    dr_critMod2 += getEnhancedSkillStatisticModifierUncapped(attacker, "expertise_critical_1h");
+                    critMod += getEnhancedSkillStatisticModifierUncapped(attacker, "expertise_undiminished_critical_1h");
                     break;
                 case WEAPON_TYPE_2HAND_MELEE:
-                    dr_critMod2 += (float) getEnhancedSkillStatisticModifierUncapped(attacker, "expertise_critical_2h");
-                    critMod += (float) getEnhancedSkillStatisticModifierUncapped(attacker, "expertise_undiminished_critical_2h");
+                    dr_critMod2 += getEnhancedSkillStatisticModifierUncapped(attacker, "expertise_critical_2h");
+                    critMod += getEnhancedSkillStatisticModifierUncapped(attacker, "expertise_undiminished_critical_2h");
                     break;
                 case WEAPON_TYPE_UNARMED:
-                    dr_critMod2 += (float) getEnhancedSkillStatisticModifierUncapped(attacker, "expertise_critical_unarmed");
-                    critMod += (float) getEnhancedSkillStatisticModifierUncapped(attacker, "expertise_undiminished_critical_unarmed");
+                    dr_critMod2 += getEnhancedSkillStatisticModifierUncapped(attacker, "expertise_critical_unarmed");
+                    critMod += getEnhancedSkillStatisticModifierUncapped(attacker, "expertise_undiminished_critical_unarmed");
                     break;
                 case WEAPON_TYPE_POLEARM:
-                    dr_critMod2 += (float) getEnhancedSkillStatisticModifierUncapped(attacker, "expertise_critical_polearm");
-                    critMod += (float) getEnhancedSkillStatisticModifierUncapped(attacker, "expertise_undiminished_critical_polearm");
+                    dr_critMod2 += getEnhancedSkillStatisticModifierUncapped(attacker, "expertise_critical_polearm");
+                    critMod += getEnhancedSkillStatisticModifierUncapped(attacker, "expertise_undiminished_critical_polearm");
                     break;
                 case WEAPON_TYPE_WT_1HAND_LIGHTSABER:
                 case WEAPON_TYPE_WT_2HAND_LIGHTSABER:
                 case WEAPON_TYPE_WT_POLEARM_LIGHTSABER:
-                    dr_critMod2 += (float) getEnhancedSkillStatisticModifierUncapped(attacker, "expertise_critical_lightsaber");
-                    critMod += (float) getEnhancedSkillStatisticModifierUncapped(attacker, "expertise_undiminished_critical_lightsaber");
+                    dr_critMod2 += getEnhancedSkillStatisticModifierUncapped(attacker, "expertise_critical_lightsaber");
+                    critMod += getEnhancedSkillStatisticModifierUncapped(attacker, "expertise_undiminished_critical_lightsaber");
                     break;
             }
         }
@@ -3388,9 +3366,9 @@ public class combat extends script.base_script
     public static float getDefenderCriticalChance(obj_id defender) throws InterruptedException
     {
         float critChance = 0.0f;
-        critChance -= (float)getEnhancedSkillStatisticModifierUncapped(defender, "critical_hit_vulnerable");
-        critChance += ((float)getEnhancedSkillStatisticModifierUncapped(defender, "combat_critical_hit_reduction") / 3.0f);
-        critChance += (float)getEnhancedSkillStatisticModifierUncapped(defender, "expertise_critical_hit_reduction");
+        critChance -= getEnhancedSkillStatisticModifierUncapped(defender, "critical_hit_vulnerable");
+        critChance += (getEnhancedSkillStatisticModifierUncapped(defender, "combat_critical_hit_reduction") / 3.0f);
+        critChance += getEnhancedSkillStatisticModifierUncapped(defender, "expertise_critical_hit_reduction");
         return critChance;
     }
     public static float getStrikethroughChance(attacker_data attackerData, defender_data defenderData, combat_data actionData) throws InterruptedException
@@ -3403,13 +3381,13 @@ public class combat extends script.base_script
     }
     public static float getAttackerStrikethroughChance(obj_id player) throws InterruptedException
     {
-        float strikethrough = isPlayer(player) || beast_lib.isBeast(player) ? 5.0f : (float)getLevel(player) * 0.08f;
-        strikethrough += ((float)getEnhancedSkillStatisticModifierUncapped(player, "precision_modified") / 200.0f);
-        strikethrough += ((float)getSkillStatisticModifier(player, "precision") / 200.0f);
-        strikethrough += ((float)getEnhancedSkillStatisticModifierUncapped(player, "luck_modified") / 200.0f);
-        strikethrough += ((float)getSkillStatisticModifier(player, "luck") / 200.0f);
-        strikethrough += (getDiminishedReturnValue((float)getEnhancedSkillStatisticModifierUncapped(player, "combat_strikethrough_chance"), DR_ATTACKER_STRIKETHROUGH) / 10.0f);
-        strikethrough += (float)getEnhancedSkillStatisticModifierUncapped(player, "expertise_strikethrough_chance");
+        float strikethrough = isPlayer(player) || beast_lib.isBeast(player) ? 5.0f : getLevel(player) * 0.08f;
+        strikethrough += (getEnhancedSkillStatisticModifierUncapped(player, "precision_modified") / 200.0f);
+        strikethrough += (getSkillStatisticModifier(player, "precision") / 200.0f);
+        strikethrough += (getEnhancedSkillStatisticModifierUncapped(player, "luck_modified") / 200.0f);
+        strikethrough += (getSkillStatisticModifier(player, "luck") / 200.0f);
+        strikethrough += (getDiminishedReturnValue(getEnhancedSkillStatisticModifierUncapped(player, "combat_strikethrough_chance"), DR_ATTACKER_STRIKETHROUGH) / 10.0f);
+        strikethrough += getEnhancedSkillStatisticModifierUncapped(player, "expertise_strikethrough_chance");
         if (beast_lib.isBeastMaster(player) || beast_lib.isBeast(player))
         {
             strikethrough += beast_lib.getBeastStrikethroughChance(player);
@@ -3419,7 +3397,7 @@ public class combat extends script.base_script
     public static float getDefenderStrikethroughReduction(obj_id player) throws InterruptedException
     {
         float strikethroughChance = 0.0f;
-        strikethroughChance -= (float)getEnhancedSkillStatisticModifierUncapped(player, "strikethrough_vulnerable");
+        strikethroughChance -= getEnhancedSkillStatisticModifierUncapped(player, "strikethrough_vulnerable");
         return strikethroughChance;
     }
     public static float getStrikethroughValue(obj_id attacker, obj_id defender) throws InterruptedException
@@ -3429,9 +3407,9 @@ public class combat extends script.base_script
     public static float getAttackerStrikethroughValue(obj_id player) throws InterruptedException
     {
         float strikethroughValue = isPlayer(player) ? 10.0f : 35.0f;
-        strikethroughValue += ((float)getEnhancedSkillStatisticModifierUncapped(player, "luck_modified") / 10.0f);
-        strikethroughValue += ((float)getSkillStatisticModifier(player, "luck") / 10.0f);
-        strikethroughValue += ((float)getEnhancedSkillStatisticModifierUncapped(player, "combat_strikethrough_value") / 2.0f);
+        strikethroughValue += (getEnhancedSkillStatisticModifierUncapped(player, "luck_modified") / 10.0f);
+        strikethroughValue += (getSkillStatisticModifier(player, "luck") / 10.0f);
+        strikethroughValue += (getEnhancedSkillStatisticModifierUncapped(player, "combat_strikethrough_value") / 2.0f);
         if (beast_lib.isBeastMaster(player) || beast_lib.isBeast(player))
         {
             strikethroughValue += beast_lib.getBeastStrikethroughValue(player);
@@ -3441,9 +3419,9 @@ public class combat extends script.base_script
     public static float getToHitBonus(obj_id player) throws InterruptedException
     {
         float hitBonus = 0.0f;
-        hitBonus += ((float)getEnhancedSkillStatisticModifierUncapped(player, "strength_modified") / 100.0f);
-        hitBonus += ((float)getSkillStatisticModifier(player, "strength") / 100.0f);
-        hitBonus += (float)getEnhancedSkillStatisticModifierUncapped(player, "expertise_to_hit");
+        hitBonus += (getEnhancedSkillStatisticModifierUncapped(player, "strength_modified") / 100.0f);
+        hitBonus += (getSkillStatisticModifier(player, "strength") / 100.0f);
+        hitBonus += getEnhancedSkillStatisticModifierUncapped(player, "expertise_to_hit");
         if (beast_lib.isBeastMaster(player) || beast_lib.isBeast(player))
         {
             hitBonus += beast_lib.getBeastHitChance(player);
@@ -3539,13 +3517,10 @@ public class combat extends script.base_script
         float max_range = 64.0f;
         Vector validTargets = new Vector();
         validTargets.setSize(0);
-        for (int i = 0; i < potentialTargets.length; i++)
-        {
-            if (isIdValid(potentialTargets[i]) && exists(potentialTargets[i]) && canSee(self, potentialTargets[i]) && !stealth.hasInvisibleBuff(potentialTargets[i]) && getMaster(potentialTargets[i]) == null && !isDead(potentialTargets[i]))
-            {
-                if (getDistance(self, potentialTargets[i]) < max_range)
-                {
-                    utils.addElement(validTargets, potentialTargets[i]);
+        for (obj_id potentialTarget : potentialTargets) {
+            if (isIdValid(potentialTarget) && exists(potentialTarget) && canSee(self, potentialTarget) && !stealth.hasInvisibleBuff(potentialTarget) && getMaster(potentialTarget) == null && !isDead(potentialTarget)) {
+                if (getDistance(self, potentialTarget) < max_range) {
+                    utils.addElement(validTargets, potentialTarget);
                 }
             }
         }
@@ -3728,9 +3703,8 @@ public class combat extends script.base_script
             return false;
         }
         boolean hasLos = true;
-        for (int i = 0; i < hateList.length; i++)
-        {
-            hasLos |= canSee(self, hateList[i]);
+        for (obj_id obj_id : hateList) {
+            hasLos |= canSee(self, obj_id);
         }
         if (!hasLos)
         {
@@ -3809,15 +3783,13 @@ public class combat extends script.base_script
         obj_id[] haters = getHateList(commando);
         if (haters != null || haters.length > 0)
         {
-            for (int i = 0; i < haters.length; i++)
-            {
-                float myHate = getHate(haters[i], commando);
-                if (myHate <= 0.0f)
-                {
+            for (obj_id hater : haters) {
+                float myHate = getHate(hater, commando);
+                if (myHate <= 0.0f) {
                     continue;
                 }
                 myHate /= 2.0f;
-                setHate(haters[i], commando, myHate);
+                setHate(hater, commando, myHate);
             }
         }
     }
@@ -3896,8 +3868,8 @@ public class combat extends script.base_script
     public static float getDevastationChance(obj_id attacker) throws InterruptedException
     {
         float devastationBonus = 2.0f;
-        devastationBonus += (float)getEnhancedSkillStatisticModifierUncapped(attacker, "commando_devastation");
-        devastationBonus += (float)getEnhancedSkillStatisticModifierUncapped(attacker, "expertise_devastation_bonus") / 10.0f;
+        devastationBonus += getEnhancedSkillStatisticModifierUncapped(attacker, "commando_devastation");
+        devastationBonus += getEnhancedSkillStatisticModifierUncapped(attacker, "expertise_devastation_bonus") / 10.0f;
         return devastationBonus;
     }
     public static float getElementalPenetration(obj_id attacker, String damageString) throws InterruptedException
@@ -3906,7 +3878,7 @@ public class combat extends script.base_script
         if (isIdValid(attacker) && damageString != null && damageString.length() > 0)
         {
             String elementalPenetrationSkillModName = "exotic_" + damageString + "_penetration";
-            float elementalPenetrationSkillMod = (float)getEnhancedSkillStatisticModifierUncapped(attacker, elementalPenetrationSkillModName);
+            float elementalPenetrationSkillMod = getEnhancedSkillStatisticModifierUncapped(attacker, elementalPenetrationSkillModName);
             if (elementalPenetrationSkillMod > MAX_RE_EXOTIC_ELEMENTAL_PENETRATION_SKILLMOD)
             {
                 elementalPenetrationSkillMod = MAX_RE_EXOTIC_ELEMENTAL_PENETRATION_SKILLMOD;

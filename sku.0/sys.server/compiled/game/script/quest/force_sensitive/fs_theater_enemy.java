@@ -44,13 +44,10 @@ public class fs_theater_enemy extends script.base_script
                     }
                     if (permitted != null)
                     {
-                        for (int i = 0; i < permitted.length; i++)
-                        {
-                            if (permitted[i] == player)
-                            {
+                        for (obj_id obj_id : permitted) {
+                            if (obj_id == player) {
                                 obj_id inv = utils.getInventoryContainer(self);
-                                if (isIdValid(inv))
-                                {
+                                if (isIdValid(inv)) {
                                     obj_id loot = createObject("object/tangible/loot/quest/force_sensitive/theater_datapad.iff", inv, "");
                                     setObjVar(loot, "quest.loot_datapad_2.quest_item_target", player);
                                     setOwner(loot, player);

@@ -80,7 +80,7 @@ public class patrol_controller extends script.base_script {
                 setName(self, "BROKEN SPAWNER: Can't get squad leader template!");
                 return;
             }
-            patrolMember = spawn(npc, spawnStart.x, spawnStart.y, spawnStart.z, 0f, null, null);
+            patrolMember = spawn(npc, spawnStart.x, spawnStart.y, spawnStart.z, 0.0f, null, null);
             setObjVar(patrolMember, "isLeader", true);
             setObjVar(self, "leader", patrolMember);
             tellSquadAboutNewLeader();
@@ -93,7 +93,7 @@ public class patrol_controller extends script.base_script {
         }
         else{
             // spawn member
-            patrolMember = spawn(memberTemplate, spawnStart.x, spawnStart.y, spawnStart.z, 0f, null, null);
+            patrolMember = spawn(memberTemplate, spawnStart.x, spawnStart.y, spawnStart.z, 0.0f, null, null);
             position = getOpenFormationPosition(getIntObjVar(self, "size"));
             ai_lib.followInFormation(patrolMember, getObjIdObjVar(self, "leader"), ai_lib.FORMATION_COLUMN, position);
             setMovementPercent(patrolMember, 1.2f);

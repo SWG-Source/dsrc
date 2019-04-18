@@ -76,9 +76,8 @@ public class battlefield_object extends script.base_script
             obj_id[] players = player_structure.getPlayersInBuilding(self);
             if (players != null)
             {
-                for (int i = 0; i < players.length; i++)
-                {
-                    expelFromBuilding(players[i]);
+                for (obj_id player : players) {
+                    expelFromBuilding(player);
                 }
             }
         }

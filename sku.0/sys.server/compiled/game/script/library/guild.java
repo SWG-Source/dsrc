@@ -3,6 +3,8 @@ package script.library;
 import script.*;
 
 import java.util.Arrays;
+import java.util.Objects;
+import java.util.StringTokenizer;
 import java.util.Vector;
 
 public class guild extends script.base_script
@@ -324,10 +326,8 @@ public class guild extends script.base_script
         int[] enemies = guildGetEnemies(guildId);
         if (enemies != null)
         {
-            for (int i = 0; i < enemies.length; ++i)
-            {
-                if (enemies[i] == enemyId)
-                {
+            for (int enemy : enemies) {
+                if (enemy == enemyId) {
                     return true;
                 }
             }
@@ -664,14 +664,7 @@ public class guild extends script.base_script
         {
             memberName = guildGetMemberName(guildId, changerId);
         }
-        if (memberName != null)
-        {
-            mailToGuild(guildId, GUILD_MAIL_NAMECHANGE_SUBJECT, GUILD_MAIL_NAMECHANGE_TEXT, newName, newAbbrev, memberName);
-        }
-        else 
-        {
-            mailToGuild(guildId, GUILD_MAIL_NAMECHANGE_SUBJECT, GUILD_MAIL_NAMECHANGE_TEXT, newName, newAbbrev, "System");
-        }
+        mailToGuild(guildId, GUILD_MAIL_NAMECHANGE_SUBJECT, GUILD_MAIL_NAMECHANGE_TEXT, newName, newAbbrev, Objects.requireNonNullElse(memberName, "System"));
     }
     public static void nameChange(int guildId, obj_id actor, String newName, String newAbbrev) throws InterruptedException
     {
@@ -830,12 +823,12 @@ public class guild extends script.base_script
             java.util.StringTokenizer st = new java.util.StringTokenizer(name);
             if(st != null && st.hasMoreTokens()) {
                 String compareName = toLower(st.nextToken());
-                for (int i = 0; i < members.length; ++i) {
-                    if (isIdValid(members[i])) {
-                        java.util.StringTokenizer st2 = new java.util.StringTokenizer(guildGetMemberName(guildId, members[i]));
+                for (obj_id member : members) {
+                    if (isIdValid(member)) {
+                        StringTokenizer st2 = new StringTokenizer(guildGetMemberName(guildId, member));
                         String memberName = toLower(st2.nextToken());
                         if (compareName.equals(memberName)) {
-                            return members[i];
+                            return member;
                         }
                     }
                 }
@@ -848,14 +841,11 @@ public class guild extends script.base_script
         obj_id[] members = guildGetMemberIds(guildId);
         if (members != null)
         {
-            for (int i = 0; i < members.length; ++i)
-            {
-                if (!isIdValid(members[i]))
-                {
+            for (obj_id member : members) {
+                if (!isIdValid(member)) {
                     return false;
                 }
-                if (guildGetMemberPermissions(guildId, members[i]) == GUILD_PERMISSIONS_NONE)
-                {
+                if (guildGetMemberPermissions(guildId, member) == GUILD_PERMISSIONS_NONE) {
                     return true;
                 }
             }
@@ -990,10 +980,8 @@ public class guild extends script.base_script
         }
         if (enemies_B_to_A != null)
         {
-            for (int i = 0; i < enemies_B_to_A.length; ++i)
-            {
-                if (findIntTableOffset(enemies_A_to_B, enemies_B_to_A[i]) == -1)
-                {
+            for (int i1 : enemies_B_to_A) {
+                if (findIntTableOffset(enemies_A_to_B, i1) == -1) {
                     ++count;
                 }
             }
@@ -1002,40 +990,34 @@ public class guild extends script.base_script
         int pos = 0;
         if (enemies_A_to_B != null)
         {
-            for (int i = 0; i < enemies_A_to_B.length; ++i)
-            {
+            for (int i1 : enemies_A_to_B) {
                 boolean atWarWith = false;
-                StringBuffer sb = new StringBuffer();
-                if (findIntTableOffset(enemies_B_to_A, enemies_A_to_B[i]) == -1)
-                {
+                StringBuilder sb = new StringBuilder();
+                if (findIntTableOffset(enemies_B_to_A, i1) == -1) {
                     sb.append("> ");
                     atWarWith = false;
-                }
-                else 
-                {
+                } else {
                     sb.append("= ");
                     atWarWith = true;
                 }
-                sb.append(guildGetName(enemies_A_to_B[i]));
+                sb.append(guildGetName(i1));
                 sb.append(" <");
-                sb.append(guildGetAbbrev(enemies_A_to_B[i]));
+                sb.append(guildGetAbbrev(i1));
                 sb.append(">");
-                if (atWarWith)
-                {
+                if (atWarWith) {
                     sb.append(" (");
-                    sb.append(guildGetCountMembersGuildWarPvPEnabled(enemies_A_to_B[i]));
+                    sb.append(guildGetCountMembersGuildWarPvPEnabled(i1));
                     sb.append(")");
-                    int killCountAtoB = guildGetGuildWarKillCount(guildId, enemies_A_to_B[i]);
-                    int killCountAtoBupdateTime = guildGetGuildWarKillCountUpdateTime(guildId, enemies_A_to_B[i]);
-                    int killCountBtoA = guildGetGuildWarKillCount(enemies_A_to_B[i], guildId);
-                    int killCountBtoAupdateTime = guildGetGuildWarKillCountUpdateTime(enemies_A_to_B[i], guildId);
+                    int killCountAtoB = guildGetGuildWarKillCount(guildId, i1);
+                    int killCountAtoBupdateTime = guildGetGuildWarKillCountUpdateTime(guildId, i1);
+                    int killCountBtoA = guildGetGuildWarKillCount(i1, guildId);
+                    int killCountBtoAupdateTime = guildGetGuildWarKillCountUpdateTime(i1, guildId);
                     sb.append(" (");
                     sb.append(killCountAtoB);
                     sb.append(" kills vs ");
                     sb.append(killCountBtoA);
                     sb.append(" kills");
-                    if ((killCountAtoBupdateTime > 0) || (killCountBtoAupdateTime > 0))
-                    {
+                    if ((killCountAtoBupdateTime > 0) || (killCountBtoAupdateTime > 0)) {
                         sb.append(" - last updated ");
                         sb.append(getCalendarTimeStringLocal(Math.max(killCountAtoBupdateTime, killCountBtoAupdateTime)));
                     }
@@ -1047,18 +1029,16 @@ public class guild extends script.base_script
         }
         if (enemies_B_to_A != null)
         {
-            for (int i = 0; i < enemies_B_to_A.length; ++i)
-            {
-                if (findIntTableOffset(enemies_A_to_B, enemies_B_to_A[i]) == -1)
-                {
-                    StringBuffer sb = new StringBuffer();
+            for (int i1 : enemies_B_to_A) {
+                if (findIntTableOffset(enemies_A_to_B, i1) == -1) {
+                    StringBuilder sb = new StringBuilder();
                     sb.append("< ");
-                    sb.append(guildGetName(enemies_B_to_A[i]));
+                    sb.append(guildGetName(i1));
                     sb.append(" <");
-                    sb.append(guildGetAbbrev(enemies_B_to_A[i]));
+                    sb.append(guildGetAbbrev(i1));
                     sb.append(">");
                     sb.append(" (");
-                    sb.append(guildGetCountMembersGuildWarPvPEnabled(enemies_B_to_A[i]));
+                    sb.append(guildGetCountMembersGuildWarPvPEnabled(i1));
                     sb.append(")");
                     ret[pos] = sb.toString();
                     ++pos;
@@ -1078,10 +1058,8 @@ public class guild extends script.base_script
         }
         if (enemies_B_to_A != null)
         {
-            for (int i = 0; i < enemies_B_to_A.length; ++i)
-            {
-                if (findIntTableOffset(enemies_A_to_B, enemies_B_to_A[i]) == -1)
-                {
+            for (int i1 : enemies_B_to_A) {
+                if (findIntTableOffset(enemies_A_to_B, i1) == -1) {
                     ++count;
                 }
             }
@@ -1090,18 +1068,15 @@ public class guild extends script.base_script
         int pos = 0;
         if (enemies_A_to_B != null)
         {
-            for (int i = 0; i < enemies_A_to_B.length; ++i)
-            {
-                ret[pos++] = enemies_A_to_B[i];
+            for (int i1 : enemies_A_to_B) {
+                ret[pos++] = i1;
             }
         }
         if (enemies_B_to_A != null)
         {
-            for (int i = 0; i < enemies_B_to_A.length; ++i)
-            {
-                if (findIntTableOffset(enemies_A_to_B, enemies_B_to_A[i]) == -1)
-                {
-                    ret[pos++] = enemies_B_to_A[i];
+            for (int i1 : enemies_B_to_A) {
+                if (findIntTableOffset(enemies_A_to_B, i1) == -1) {
+                    ret[pos++] = i1;
                 }
             }
         }
@@ -1112,9 +1087,8 @@ public class guild extends script.base_script
         obj_id[] members = getMemberIds(guildId, false, true);
         if (members != null)
         {
-            for (int i = 0; i < members.length; ++i)
-            {
-                mailToGuildMember(guildId, members[i], subject, textId, substitute1, substitute2, substitute3);
+            for (obj_id member : members) {
+                mailToGuildMember(guildId, member, subject, textId, substitute1, substitute2, substitute3);
             }
         }
     }
@@ -1597,10 +1571,8 @@ public class guild extends script.base_script
             if (!title.equals(""))
             {
                 boolean alreadyHave = false;
-                for (int j = 0; j < titleList.size(); ++j)
-                {
-                    if (title.equals(((String)titleList.get(j))))
-                    {
+                for (Object o : titleList) {
+                    if (title.equals(((String) o))) {
                         alreadyHave = true;
                         break;
                     }
@@ -1645,11 +1617,9 @@ public class guild extends script.base_script
         obj_id[] members = getMemberIds(guildId, false, true);
         Vector filteredNamesAndTitles = new Vector();
         filteredNamesAndTitles.setSize(0);
-        for (int i = 0; i < members.length; ++i)
-        {
-            if (memberHasTitle(guildId, members[i], title))
-            {
-                filteredNamesAndTitles = utils.addElement(filteredNamesAndTitles, guildGetMemberName(guildId, members[i]));
+        for (obj_id member : members) {
+            if (memberHasTitle(guildId, member, title)) {
+                filteredNamesAndTitles = utils.addElement(filteredNamesAndTitles, guildGetMemberName(guildId, member));
             }
         }
         String[] finalList = new String[filteredNamesAndTitles.size()];
@@ -1662,11 +1632,9 @@ public class guild extends script.base_script
         String[] memberNames = getMemberNames(guildId, false, true);
         Vector filteredNamesAndTitles = new Vector();
         filteredNamesAndTitles.setSize(0);
-        for (int i = 0; i < memberNames.length; ++i)
-        {
-            if ((toLower(memberNames[i])).indexOf(toLower(name)) > -1)
-            {
-                filteredNamesAndTitles = utils.addElement(filteredNamesAndTitles, memberNames[i]);
+        for (String memberName : memberNames) {
+            if ((toLower(memberName)).contains(toLower(name))) {
+                filteredNamesAndTitles = utils.addElement(filteredNamesAndTitles, memberName);
             }
         }
         String[] finalList = new String[filteredNamesAndTitles.size()];
@@ -1848,11 +1816,9 @@ public class guild extends script.base_script
         }
         Vector candidates = new Vector();
         candidates.setSize(0);
-        for (int i = 0, j = memberIds.length; i < j; i++)
-        {
-            if (isCandidate(guildId, memberIds[i]))
-            {
-                utils.addElement(candidates, memberIds[i]);
+        for (obj_id memberId : memberIds) {
+            if (isCandidate(guildId, memberId)) {
+                utils.addElement(candidates, memberId);
             }
         }
         obj_id[] _candidates = new obj_id[0];
@@ -1917,37 +1883,27 @@ public class guild extends script.base_script
         {
             l = candidates.length;
         }
-        for (int i = 0, j = memberIds.length; i < j; i++)
-        {
-            obj_id votedFor = guildGetMemberAllegiance(guildId, memberIds[i]);
-            if (isIdValid(votedFor))
-            {
-                if (!isIdValid(memberIds[i]))
-                {
+        for (obj_id memberId : memberIds) {
+            obj_id votedFor = guildGetMemberAllegiance(guildId, memberId);
+            if (isIdValid(votedFor)) {
+                if (!isIdValid(memberId)) {
                     continue;
                 }
-                if (excluded != null && excluded.length > 0 && utils.isObjIdInArray(excluded, memberIds[i]))
-                {
+                if (excluded != null && excluded.length > 0 && utils.isObjIdInArray(excluded, memberId)) {
                     continue;
                 }
-                if (candidates == null || candidates.length < 1)
-                {
-                    guildSetMemberAllegiance(guildId, memberIds[i], null);
-                }
-                else 
-                {
+                if (candidates == null || candidates.length < 1) {
+                    guildSetMemberAllegiance(guildId, memberId, null);
+                } else {
                     boolean candidateFound = false;
-                    for (int k = 0; k < l; k++)
-                    {
-                        if (memberIds[i] == candidates[k])
-                        {
+                    for (int k = 0; k < l; k++) {
+                        if (memberId == candidates[k]) {
                             candidateFound = true;
-                            removeCandidate(guildId, memberIds[i]);
+                            removeCandidate(guildId, memberId);
                         }
                     }
-                    if (!candidateFound)
-                    {
-                        guildSetMemberAllegiance(guildId, memberIds[i], null);
+                    if (!candidateFound) {
+                        guildSetMemberAllegiance(guildId, memberId, null);
                     }
                 }
             }
@@ -2003,10 +1959,8 @@ public class guild extends script.base_script
         obj_id self = getTopMostContainer(getSelf());
         for (int i = 0, j = candidates.length; i < j; i++)
         {
-            for (int k = 0, l = voteList.length; k < l; k++)
-            {
-                if (candidates[i] == voteList[k])
-                {
+            for (obj_id obj_id : voteList) {
+                if (candidates[i] == obj_id) {
                     voteTotals[i]++;
                 }
             }
@@ -2060,13 +2014,11 @@ public class guild extends script.base_script
             leaderChanged = SID_COMPLETED_ELECTIONS_EMAIL_BODY_LEADER_CHANGED;
         }
         obj_id[] members = guild.getMemberIds(guildId, false, true);
-        for (int i = 0; i < members.length; i++)
-        {
-            if (!isIdValid(members[i]))
-            {
+        for (obj_id member : members) {
+            if (!isIdValid(member)) {
                 continue;
             }
-            String cname = guildGetMemberName(guildId, members[i]);
+            String cname = guildGetMemberName(guildId, member);
             prose_package bodypp = prose.getPackage(leaderChanged, cname);
             utils.sendMail(new string_id("guild", "open_elections_email_subject"), bodypp, cname, "Guild Management");
         }
@@ -2389,9 +2341,8 @@ public class guild extends script.base_script
         }
         if (ranksPreferred != null && ranksPreferred.length > 0)
         {
-            for (int i = 0, j = ranksPreferred.length; i < j; i++)
-            {
-                rankData[ranksPreferred[i]][2] = "X";
+            for (int i1 : ranksPreferred) {
+                rankData[i1][2] = "X";
             }
         }
         String guildName = guildGetName(guildId);
@@ -2606,19 +2557,16 @@ public class guild extends script.base_script
         {
             return;
         }
-        for (int i = 0, j = members.length; i < j; i++)
-        {
-            if (!isIdValid(members[i]))
-            {
+        for (obj_id member : members) {
+            if (!isIdValid(member)) {
                 continue;
             }
-            if (isPlayerConnected(members[i]) && guild.hasGuildPermission(guildId, members[i], guild.GUILD_PERMISSION_ONLINE_STATUS))
-            {
+            if (isPlayerConnected(member) && guild.hasGuildPermission(guildId, member, guild.GUILD_PERMISSION_ONLINE_STATUS)) {
                 dictionary params = new dictionary();
                 params.put("guildId", guildId);
                 params.put("player", who);
                 params.put("login", login);
-                messageTo(members[i], "handleStatusNotification", params, 1, false);
+                messageTo(member, "handleStatusNotification", params, 1, false);
             }
         }
     }

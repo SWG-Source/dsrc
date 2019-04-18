@@ -97,10 +97,10 @@ public class ship_ai extends script.base_script
         float z;
         for (int i = 0; i < points; ++i)
         {
-            radian = (float)Math.PI * 2.0f * ((float)i / (float)points);
-            x = position_w.x + (float)Math.sin(radian) * radius;
+            radian = (float)Math.PI * 2.0f * ((float)i / points);
+            x = position_w.x + (float) StrictMath.sin(radian) * radius;
             y = position_w.y;
-            z = position_w.z + (float)Math.cos(radian) * radius;
+            z = position_w.z + (float) StrictMath.cos(radian) * radius;
             path[i] = transform.identity.setPosition_p(x, y, z);
         }
         return path;

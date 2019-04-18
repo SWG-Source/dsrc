@@ -107,7 +107,7 @@ public class consume_fragment extends script.base_script
                 if (relic_tier > 0 && relicQualitySkillmod >= relic_tier)
                 {
                     String row_lootCategory = row.getString("relicLootCatergory");
-                    if (row_lootCategory.indexOf("no_loot") < 0)
+                    if (!row_lootCategory.contains("no_loot"))
                     {
                         String token_reference = row.getString("name");
                         relicReferences = utils.addElement(relicReferences, token_reference);

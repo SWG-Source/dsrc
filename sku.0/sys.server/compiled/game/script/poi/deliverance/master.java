@@ -21,11 +21,11 @@ public class master extends script.theme_park.poi.base
     public static final int DEFAULT_ANTAGONIST_COUNT = 2;
     public static final String TBL = "datatables/poi/" + SCENARIO_NAME + "/setup.iff";
     public static final int NOT_STARTED = 0;
-    public static final float LOAD_RANGE_MIN = 64f;
-    public static final float LOAD_RANGE_MAX = 80f;
-    public static final float SPAWN_RANGE = 80f;
-    public static final float CORRAL_RADIUS = 16f;
-    public static final float OBJ_RADIUS = 2f;
+    public static final float LOAD_RANGE_MIN = 64.0f;
+    public static final float LOAD_RANGE_MAX = 80.0f;
+    public static final float SPAWN_RANGE = 80.0f;
+    public static final float CORRAL_RADIUS = 16.0f;
+    public static final float OBJ_RADIUS = 2.0f;
     public static final float LOC_TARGET_RADIUS = 7.5f;
     public int OnAttach(obj_id self) throws InterruptedException
     {
@@ -127,7 +127,7 @@ public class master extends script.theme_park.poi.base
         location tmpLoc = myLoc;
         location c = utils.getRandomLocationInRing(tmpLoc, LOAD_RANGE_MIN, LOAD_RANGE_MAX);
         LOG("poiDeliverance", "antagonist center loc = " + c.toString());
-        location loc = locations.getGoodLocationAroundLocation(c, 3f, 3f, 16f, 16f);
+        location loc = locations.getGoodLocationAroundLocation(c, 3.0f, 3.0f, 16.0f, 16.0f);
         if (loc == null)
         {
             LOG("poiDeliverance", "Unable to get good location!");
@@ -147,25 +147,25 @@ public class master extends script.theme_park.poi.base
             switch (i / 3)
             {
                 case 0:
-                spawnLoc.z = loc.z + 3f;
+                spawnLoc.z = loc.z + 3.0f;
                 break;
                 case 1:
                 spawnLoc.z = loc.z;
                 break;
                 case 2:
-                spawnLoc.z = loc.z - 3f;
+                spawnLoc.z = loc.z - 3.0f;
                 break;
             }
             switch (i % 3)
             {
                 case 0:
-                spawnLoc.x = loc.x + 3f;
+                spawnLoc.x = loc.x + 3.0f;
                 break;
                 case 1:
                 spawnLoc.x = loc.x;
                 break;
                 case 2:
-                spawnLoc.x = loc.x - 3f;
+                spawnLoc.x = loc.x - 3.0f;
                 break;
             }
             spawnLoc.y = getHeightAtLocation(spawnLoc.x, spawnLoc.y);
@@ -224,7 +224,7 @@ public class master extends script.theme_park.poi.base
         {
             return SCRIPT_CONTINUE;
         }
-        location pathLoc = utils.getRandomLocationInRing(mLoc, 2f, 5f);
+        location pathLoc = utils.getRandomLocationInRing(mLoc, 2.0f, 5.0f);
         String locName = self.toString() + "_" + scenario.ANTAGONIST;
         scenario.requestAddTargetLocation(leader, locName, mLoc, LOC_TARGET_RADIUS);
         setObjVar(leader, scenario.VAR_TARGET_LOCATION_NAME, locName);

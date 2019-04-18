@@ -60,29 +60,21 @@ public class crafting_new_armor_core extends script.systems.crafting.crafting_ba
         int coreRow = dataTableSearchColumnForInt(getStringCrc(armor.DATATABLE_CORE_ROW + armorLevel), armor.DATATABLE_TYPE_COL, armor.DATATABLE_ARMOR);
         setObjVar(prototype, craftinglib.COMPONENT_ATTRIBUTE_OBJVAR_NAME + "." + armor.OBJVAR_ARMOR_LEVEL, armorLevel);
         setObjVar(prototype, craftinglib.COMPONENT_ATTRIBUTE_OBJVAR_NAME + "." + armor.OBJVAR_ARMOR_CATEGORY, armorCategory);
-        for (int i = 0; i < itemAttributes.length; ++i)
-        {
-            if (itemAttributes[i] == null)
-            {
+        for (draft_schematic.attribute itemAttribute : itemAttributes) {
+            if (itemAttribute == null) {
                 continue;
             }
-            if (!calcAndSetPrototypeProperty(prototype, itemAttributes[i]))
-            {
-                if (itemAttributes[i].currentValue < itemAttributes[i].minValue)
-                {
-                    itemAttributes[i].currentValue = itemAttributes[i].minValue;
+            if (!calcAndSetPrototypeProperty(prototype, itemAttribute)) {
+                if (itemAttribute.currentValue < itemAttribute.minValue) {
+                    itemAttribute.currentValue = itemAttribute.minValue;
+                } else if (itemAttribute.currentValue > itemAttribute.maxValue) {
+                    itemAttribute.currentValue = itemAttribute.maxValue;
                 }
-                else if (itemAttributes[i].currentValue > itemAttributes[i].maxValue)
-                {
-                    itemAttributes[i].currentValue = itemAttributes[i].maxValue;
-                }
-                setObjVar(prototype, craftinglib.COMPONENT_ATTRIBUTE_OBJVAR_NAME + "." + (itemAttributes[i].name).getAsciiId(), itemAttributes[i].currentValue);
-                if ((itemAttributes[i].name).equals(armor.OBJVAR_CONDITION))
-                {
-                    float hp = armor.getAbsoluteArmorAttribute(itemAttributes[i].currentValue, coreRow, armor.DATATABLE_MIN_CONDITION_COL);
-                    if (hp != Float.MIN_VALUE)
-                    {
-                        setMaxHitpoints(prototype, (int)hp);
+                setObjVar(prototype, craftinglib.COMPONENT_ATTRIBUTE_OBJVAR_NAME + "." + (itemAttribute.name).getAsciiId(), itemAttribute.currentValue);
+                if ((itemAttribute.name).equals(armor.OBJVAR_CONDITION)) {
+                    float hp = armor.getAbsoluteArmorAttribute(itemAttribute.currentValue, coreRow, armor.DATATABLE_MIN_CONDITION_COL);
+                    if (hp != Float.MIN_VALUE) {
+                        setMaxHitpoints(prototype, (int) hp);
                     }
                 }
             }

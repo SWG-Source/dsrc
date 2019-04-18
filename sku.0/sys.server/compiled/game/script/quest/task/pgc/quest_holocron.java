@@ -202,11 +202,8 @@ public class quest_holocron extends script.base_script
                         obj_id[] sharedWithList = getObjIdArrayObjVar(self, pgc_quests.PCG_QUEST_HOLOCRON_SHARED_WITH_LIST);
                         if (sharedWithList != null && sharedWithList.length > 0)
                         {
-                            for (int q = 0; q < sharedWithList.length; q++)
-                            {
-                                obj_id alreadySharedWith = sharedWithList[q];
-                                if (target == alreadySharedWith)
-                                {
+                            for (obj_id alreadySharedWith : sharedWithList) {
+                                if (target == alreadySharedWith) {
                                     string_id message = new string_id("saga_system", "holocron_share_quest_already_shared");
                                     prose_package pp = prose.getPackage(message, player, player);
                                     prose.setTO(pp, getName(target));
@@ -475,9 +472,8 @@ public class quest_holocron extends script.base_script
         obj_id[] players = getAllPlayers(getLocation(getTopMostContainer(self)), 35.0f);
         if (players != null && players.length > 0)
         {
-            for (int i = 0; i < players.length; i++)
-            {
-                sendSystemMessage(players[i], message, "");
+            for (obj_id player : players) {
+                sendSystemMessage(player, message, "");
             }
         }
     }
@@ -516,11 +512,9 @@ public class quest_holocron extends script.base_script
                     if (holocronContents.length >= 0)
                     {
                         int rewardCount = 0;
-                        for (int i = 0; i < holocronContents.length; i++)
-                        {
-                            String template = getTemplateName(holocronContents[i]);
-                            if (!template.equals(pgc_quests.PGC_CASH_ITEM_TEMPLATE))
-                            {
+                        for (obj_id holocronContent : holocronContents) {
+                            String template = getTemplateName(holocronContent);
+                            if (!template.equals(pgc_quests.PGC_CASH_ITEM_TEMPLATE)) {
                                 ++rewardCount;
                             }
                         }

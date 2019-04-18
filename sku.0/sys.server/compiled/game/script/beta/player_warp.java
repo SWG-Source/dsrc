@@ -23,9 +23,9 @@ public class player_warp extends script.base_script
             if (st.hasMoreTokens())
             {
                 String planet = st.nextToken();
-                float x = (float)utils.stringToInt(st.nextToken());
-                float y = (float)utils.stringToInt(st.nextToken());
-                float z = (float)utils.stringToInt(st.nextToken());
+                float x = utils.stringToInt(st.nextToken());
+                float y = utils.stringToInt(st.nextToken());
+                float z = utils.stringToInt(st.nextToken());
                 warpPlayer(self, planet, x, y, z, null, 0.0f, 0.0f, 0.0f);
             }
         }
@@ -67,7 +67,7 @@ public class player_warp extends script.base_script
                     String directory = row.getString("Directory");
                     if (directory.length() > 0)
                     {
-                        if ((template.indexOf(directory)) != -1)
+                        if (template.contains(directory))
                         {
                             sendSystemMessageTestingOnly(self, "You cannot create that object.");
                             return SCRIPT_CONTINUE;

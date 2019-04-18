@@ -34,8 +34,8 @@ public class spawn extends script.quest.task.ground.base_task
     public static final String objvarOnCreatureCount = "quest.count";
     public static final String taskType = "spawn";
     public static final String dot = ".";
-    public static final float cleanupTime = 300.f;
-    public static final float cleanupRetryTime = 60.f;
+    public static final float cleanupTime = 300.0f;
+    public static final float cleanupRetryTime = 60.0f;
     public static final String scriptSpawnOnCreature = "quest.task.ground.spawn_on_creature";
     public static final String scriptSpawnOnShip = "quest.task.ground.spawn_on_ship";
     public int OnTaskActivated(obj_id self, int questCrc, int taskId) throws InterruptedException
@@ -66,7 +66,7 @@ public class spawn extends script.quest.task.ground.base_task
         {
             String baseObjVar = groundquests.getBaseObjVar(self, taskType, questGetQuestName(questCrc), taskId);
             float playerPlayedTimeWhenTimerEnds = getFloatObjVar(self, baseObjVar + "." + objvarPlayedTimeEnd);
-            float timeLeft = playerPlayedTimeWhenTimerEnds - (float)getPlayerPlayedTime(self);
+            float timeLeft = playerPlayedTimeWhenTimerEnds - getPlayerPlayedTime(self);
             if (timeLeft > 1)
             {
                 messageTo(self, "messageStartQuestSpawn", params, timeLeft, true);
@@ -225,12 +225,12 @@ public class spawn extends script.quest.task.ground.base_task
         for (int i = 0; i < count; ++i)
         {
             transform gloc = getTransform_o2w(space_transition.getContainingShip(player));
-            float dist = rand(700.f, 800.f);
+            float dist = rand(700.0f, 800.0f);
             vector n = ((gloc.getLocalFrameK_p()).normalize()).multiply(dist);
             gloc = gloc.move_p(n);
             gloc = gloc.yaw_l(3.14f);
-            vector vi = ((gloc.getLocalFrameI_p()).normalize()).multiply(rand(-150.f, 150.f));
-            vector vj = ((gloc.getLocalFrameJ_p()).normalize()).multiply(rand(-150.f, 150.f));
+            vector vi = ((gloc.getLocalFrameI_p()).normalize()).multiply(rand(-150.0f, 150.0f));
+            vector vj = ((gloc.getLocalFrameJ_p()).normalize()).multiply(rand(-150.0f, 150.0f));
             vector vd = vi.add(vj);
             gloc = gloc.move_p(vd);
             obj_id newship = space_create.createShipHyperspace(shipType, gloc);

@@ -30,11 +30,9 @@ public class pet_master extends script.base_script
         {
             return SCRIPT_CONTINUE;
         }
-        for (int i = 0; i < memberList.length; i++)
-        {
-            if (isIdValid(memberList[i]) && pet_lib.isMyPet(memberList[i], self))
-            {
-                queueCommand(memberList[i], (1348589140), group, "", COMMAND_PRIORITY_DEFAULT);
+        for (obj_id obj_id : memberList) {
+            if (isIdValid(obj_id) && pet_lib.isMyPet(obj_id, self)) {
+                queueCommand(obj_id, (1348589140), group, "", COMMAND_PRIORITY_DEFAULT);
             }
         }
         return SCRIPT_CONTINUE;
@@ -233,7 +231,7 @@ public class pet_master extends script.base_script
             _prereqList = new int[prereqList.size()];
             for (int _i = 0; _i < prereqList.size(); ++_i)
             {
-                _prereqList[_i] = ((Integer)prereqList.get(_i)).intValue();
+                _prereqList[_i] = (Integer) prereqList.get(_i);
             }
         }
         return _prereqList;

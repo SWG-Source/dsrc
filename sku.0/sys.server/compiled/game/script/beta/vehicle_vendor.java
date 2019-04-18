@@ -90,21 +90,18 @@ public class vehicle_vendor extends script.base_script
         }
         String mountType = response.getAsciiId();
         String diction = "";
-        if (mountType.equals("x34"))
-        {
-            mountType = "landspeeder_x34";
-        }
-        else if (mountType.equals("bike"))
-        {
-            mountType = "speederbike";
-        }
-        else if (mountType.equals("swoop"))
-        {
-            mountType = "speederbike_swoop";
-        }
-        else 
-        {
-            return SCRIPT_CONTINUE;
+        switch (mountType) {
+            case "x34":
+                mountType = "landspeeder_x34";
+                break;
+            case "bike":
+                mountType = "speederbike";
+                break;
+            case "swoop":
+                mountType = "speederbike_swoop";
+                break;
+            default:
+                return SCRIPT_CONTINUE;
         }
         obj_id mount = createCraftedCreatureDevice(player, mountType);
         if (isIdValid(mount))

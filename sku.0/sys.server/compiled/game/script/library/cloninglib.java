@@ -388,7 +388,7 @@ public class cloninglib extends script.base_script
         String playerCampName = null;
         location playerCampLoc = null;
         location playerCampSpawnLoc = null;
-        float playerCampDist = 500f;
+        float playerCampDist = 500.0f;
         obj_id instance_controller = instance.getAreaInstanceController(player);
         obj_id playerPob = space_dungeon.getDungeonIdForPlayer(player);
         if (!isIdValid(playerPob))
@@ -430,7 +430,7 @@ public class cloninglib extends script.base_script
                 dist = -1;
             }
             region[] deathLocRegions = new region[0];
-            switch (((Integer)cloneTypeList.get(i)).intValue())
+            switch ((Integer) cloneTypeList.get(i))
             {
                 case CLONE_TYPE_STANDARD:
                 facilityList = addAvailableCloningFacility(facilityList, ((obj_id)idList.get(i)), ((location)locList.get(i)), ((location)respawnList.get(i)), ((String)nameList.get(i)), dist);
@@ -632,17 +632,15 @@ public class cloninglib extends script.base_script
         {
             return;
         }
-        float percent = damage / 100f;
+        float percent = damage / 100.0f;
         obj_id[] eq = getInventoryAndEquipment(player);
         if (eq == null || eq.length == 0)
         {
             return;
         }
-        for (int i = 0; i < eq.length; i++)
-        {
-            if (isIdValid(eq[i]) && !isAutoInsured(eq[i]) && isDamagedOnCloneGOT(getGameObjectType(eq[i])))
-            {
-                pclib.damageAndDecayItem(eq[i], percent);
+        for (obj_id obj_id : eq) {
+            if (isIdValid(obj_id) && !isAutoInsured(obj_id) && isDamagedOnCloneGOT(getGameObjectType(obj_id))) {
+                pclib.damageAndDecayItem(obj_id, percent);
             }
         }
     }
@@ -655,12 +653,10 @@ public class cloninglib extends script.base_script
         {
             return null;
         }
-        for (int i = 0; i < eq.length; i++)
-        {
-            int damage = getItemDamageAmount(eq[i]);
-            if (damage > 0)
-            {
-                repairList = utils.addElement(repairList, eq[i]);
+        for (obj_id obj_id : eq) {
+            int damage = getItemDamageAmount(obj_id);
+            if (damage > 0) {
+                repairList = utils.addElement(repairList, obj_id);
             }
         }
         obj_id[] _repairList = new obj_id[0];
@@ -694,11 +690,9 @@ public class cloninglib extends script.base_script
             return 0;
         }
         int totalCost = 0;
-        for (int i = 0; i < repairList.length; i++)
-        {
-            int cost = getItemRepairCost(repairList[i]);
-            if (cost > 0)
-            {
+        for (obj_id obj_id : repairList) {
+            int cost = getItemRepairCost(obj_id);
+            if (cost > 0) {
                 totalCost += cost;
             }
         }
@@ -722,7 +716,7 @@ public class cloninglib extends script.base_script
     }
     public static float getStaticItemRepairModifier(obj_id item) throws InterruptedException
     {
-        return 1f;
+        return 1.0f;
     }
     public static float getItemRepairRatio(obj_id item) throws InterruptedException
     {
@@ -782,10 +776,9 @@ public class cloninglib extends script.base_script
         {
             return;
         }
-        for (int i = 0; i < repairList.length; i++)
-        {
-            int maxHp = getMaxHitpoints(repairList[i]);
-            setInvulnerableHitpoints(repairList[i], maxHp);
+        for (obj_id obj_id : repairList) {
+            int maxHp = getMaxHitpoints(obj_id);
+            setInvulnerableHitpoints(obj_id, maxHp);
         }
     }
 }

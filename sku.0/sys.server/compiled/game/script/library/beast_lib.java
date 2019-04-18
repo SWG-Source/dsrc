@@ -396,7 +396,7 @@ public class beast_lib extends script.base_script
         {
             return minScale;
         }
-        return (float)(minScale + (scaleDifference * ((float)level / 90.0f)));
+        return (float)(minScale + (scaleDifference * (level / 90.0f)));
     }
     public static obj_id getBCDPlayer(obj_id bcd) throws InterruptedException
     {
@@ -900,11 +900,9 @@ public class beast_lib extends script.base_script
             return null;
         }
         obj_id[] dataItems = getContents(datapad);
-        for (int i = 0; i < dataItems.length; i++)
-        {
-            if (beast_lib.isValidBCD(dataItems[i]))
-            {
-                datapadBCDs = utils.addElement(datapadBCDs, dataItems[i]);
+        for (obj_id dataItem : dataItems) {
+            if (beast_lib.isValidBCD(dataItem)) {
+                datapadBCDs = utils.addElement(datapadBCDs, dataItem);
             }
         }
         obj_id[] _datapadBCDs = new obj_id[0];
@@ -934,10 +932,8 @@ public class beast_lib extends script.base_script
             return 0;
         }
         int numStored = 0;
-        for (int i = 0; i < dataItems.length; i++)
-        {
-            if (beast_lib.isValidBCD(dataItems[i]))
-            {
+        for (obj_id dataItem : dataItems) {
+            if (beast_lib.isValidBCD(dataItem)) {
                 numStored++;
             }
         }
@@ -960,10 +956,8 @@ public class beast_lib extends script.base_script
             return 0;
         }
         int beastTotal = 0;
-        for (int i = 0; i < datapadContents.length; i++)
-        {
-            if (hasObjVar(datapadContents[i], "beast.called") && isValidBeast(getBCDBeastCalled(datapadContents[i])))
-            {
+        for (obj_id datapadContent : datapadContents) {
+            if (hasObjVar(datapadContent, "beast.called") && isValidBeast(getBCDBeastCalled(datapadContent))) {
                 beastTotal++;
             }
         }
@@ -1085,19 +1079,19 @@ public class beast_lib extends script.base_script
         float percentage = 0.0f;
         if (loyalty < LOYALTY_LVL_TWO)
         {
-            percentage = (float)loyalty / (float)LOYALTY_LVL_TWO;
+            percentage = (float)loyalty / LOYALTY_LVL_TWO;
         }
         else if (loyalty < LOYALTY_LVL_THREE)
         {
-            percentage = (float)(loyalty - LOYALTY_LVL_TWO) / (float)LOYALTY_LVL_THREE;
+            percentage = (float)(loyalty - LOYALTY_LVL_TWO) / LOYALTY_LVL_THREE;
         }
         else if (loyalty < LOYALTY_LVL_FOUR)
         {
-            percentage = (float)(loyalty - LOYALTY_LVL_THREE) / (float)LOYALTY_LVL_FOUR;
+            percentage = (float)(loyalty - LOYALTY_LVL_THREE) / LOYALTY_LVL_FOUR;
         }
         else if (loyalty < LOYALTY_LVL_FIVE)
         {
-            percentage = (float)(loyalty - LOYALTY_LVL_FOUR) / (float)LOYALTY_LVL_FIVE;
+            percentage = (float)(loyalty - LOYALTY_LVL_FOUR) / LOYALTY_LVL_FIVE;
         }
         return (int)(percentage * 100);
     }
@@ -1117,7 +1111,7 @@ public class beast_lib extends script.base_script
         {
             happiness = 0;
         }
-        float modifiedHappiness = 10 * (1.0f + ((float)happiness / 50.0f));
+        float modifiedHappiness = 10 * (1.0f + (happiness / 50.0f));
         int multiplier = utils.stringToInt(getConfigSetting("GameServer", "xpMultiplier"));
         if (multiplier > 1)
         {
@@ -1512,7 +1506,7 @@ public class beast_lib extends script.base_script
     }
     public static String stripBmFromType(String beastType) throws InterruptedException
     {
-        if (beastType.indexOf("bm_") > -1)
+        if (beastType.contains("bm_"))
         {
             String[] splitType = split(beastType, '_');
             beastType = splitType[1];
@@ -1700,13 +1694,13 @@ public class beast_lib extends script.base_script
         float incubationHealthBonus = utils.getFloatScriptVar(beast, OBJVAR_INCREASE_HEALTH);
         int intMinDamage = (int)beastStatsDict.getInt("MinDmg");
         int intMaxDamage = (int)beastStatsDict.getInt("MaxDmg");
-        intMinDamage = getExpertiseStat(intMinDamage, expertiseDamage, .5f);
-        intMaxDamage = getExpertiseStat(intMaxDamage, expertiseDamage, .5f);
-        float floatMinDamage = (float)intMinDamage * (1.0f + incubationDamageBonus / 100.0f);
-        float floatMaxDamage = (float)intMaxDamage * (1.0f + incubationDamageBonus / 100.0f);
+        intMinDamage = getExpertiseStat(intMinDamage, expertiseDamage, 0.5f);
+        intMaxDamage = getExpertiseStat(intMaxDamage, expertiseDamage, 0.5f);
+        float floatMinDamage = intMinDamage * (1.0f + incubationDamageBonus / 100.0f);
+        float floatMaxDamage = intMaxDamage * (1.0f + incubationDamageBonus / 100.0f);
         intMinDamage = (int)floatMinDamage;
         intMaxDamage = (int)floatMaxDamage;
-        int specialDamagePercent = getExpertiseStat(100, expertiseDamage, .5f) - 100;
+        int specialDamagePercent = getExpertiseStat(100, expertiseDamage, 0.5f) - 100;
         if (!hasSkillModModifier(beast, "expertise_damage_line_beast_only"))
         {
             addSkillModModifier(beast, "expertise_damage_line_beast_only", "expertise_damage_line_beast_only", specialDamagePercent, -1, false, false);
@@ -1730,7 +1724,7 @@ public class beast_lib extends script.base_script
             weapons.setWeaponData(defaultWeapon);
             utils.setScriptVar(defaultWeapon, "isCreatureWeapon", 1);
         }
-        int beastHealth = (int)(getExpertiseStat(beastStatsDict.getInt("HP"), expertiseHealth, .5f) * (1.0f + (incubationHealthBonus * 0.2f) / 100.0f));
+        int beastHealth = (int)(getExpertiseStat(beastStatsDict.getInt("HP"), expertiseHealth, 0.5f) * (1.0f + (incubationHealthBonus * 0.2f) / 100.0f));
         int constitutionBonus = getEnhancedSkillStatisticModifierUncapped(beast, "constitution_modified");
         int staminaBonus = getEnhancedSkillStatisticModifierUncapped(beast, "stamina_modified");
         beastHealth += (constitutionBonus * 8) + (staminaBonus * 2);
@@ -1755,8 +1749,8 @@ public class beast_lib extends script.base_script
         setMaxAttrib(beast, ACTION, 100);
         if (!combat.isInCombat(beast))
         {
-            int healthRegen = getExpertiseStat(beastStatsDict.getInt("HealthRegen"), expertiseRegen, .5f);
-            int actionRegen = getExpertiseStat(beastStatsDict.getInt("ActionRegen"), expertiseRegen, .5f);
+            int healthRegen = getExpertiseStat(beastStatsDict.getInt("HealthRegen"), expertiseRegen, 0.5f);
+            int actionRegen = getExpertiseStat(beastStatsDict.getInt("ActionRegen"), expertiseRegen, 0.5f);
             setRegenRate(beast, HEALTH, healthRegen);
             setRegenRate(beast, ACTION, actionRegen);
         }
@@ -1767,7 +1761,7 @@ public class beast_lib extends script.base_script
             setBaseWalkSpeed(beast, runSpeed);
         }
         armor.removeAllArmorData(beast);
-        int intArmor = (int)(getExpertiseStat(beastStatsDict.getInt("Armor"), expertiseArmor, .5f) * (1.0f + incubationArmorBonus / 100.0f));
+        int intArmor = (int)(getExpertiseStat(beastStatsDict.getInt("Armor"), expertiseArmor, 0.5f) * (1.0f + incubationArmorBonus / 100.0f));
         intArmor += (int)getSkillStatisticModifier(beast, "expertise_innate_protection_all");
         utils.setScriptVar(beast, "beast.display.armor", intArmor);
         if (intArmor >= 0)
@@ -1941,7 +1935,7 @@ public class beast_lib extends script.base_script
         {
             return;
         }
-        float happinessAdjustment = ((float)getBCDBeastHappiness(bcd) / 100.0f) + 1.0f;
+        float happinessAdjustment = (getBCDBeastHappiness(bcd) / 100.0f) + 1.0f;
         if (happinessAdjustment > 1.5f)
         {
             happinessAdjustment = 1.5f;
@@ -2285,7 +2279,7 @@ public class beast_lib extends script.base_script
         }
         else 
         {
-            doAnimationAction(beast, "trick_" + +trickNumber);
+            doAnimationAction(beast, "trick_" + trickNumber);
         }
         return;
     }
@@ -2392,14 +2386,10 @@ public class beast_lib extends script.base_script
         if (contents != null && contents.length > 0)
         {
             String[] beastFoods = dataTableGetStringColumnNoDefaults(beast_lib.DATATABLE_BEAST_FAVORITES, beast_lib.DATATABLE_FOOD_COL);
-            for (int i = 0; i < contents.length; i++)
-            {
-                obj_id food = contents[i];
-                if (isIdValid(food))
-                {
+            for (obj_id food : contents) {
+                if (isIdValid(food)) {
                     String templateNoPath = utils.getTemplateFilenameNoPath(food);
-                    if (utils.getElementPositionInArray(beastFoods, templateNoPath) > -1)
-                    {
+                    if (utils.getElementPositionInArray(beastFoods, templateNoPath) > -1) {
                         return food;
                     }
                 }
@@ -2474,7 +2464,7 @@ public class beast_lib extends script.base_script
         {
             return;
         }
-        if (currentLocation.indexOf(favoriteLocation) > -1 || favoriteLocation.equals(currentLocation))
+        if (currentLocation.contains(favoriteLocation) || favoriteLocation.equals(currentLocation))
         {
             locationType = PET_FAVORITE_LOCATION;
             sendSystemMessage(player, SID_FAVORITE_LOCATION);
@@ -2490,11 +2480,8 @@ public class beast_lib extends script.base_script
                     String[] alternateLocs = dataTableGetStringColumn(DATATABLE_BEAST_FAVORITES, alternatesColumn);
                     if (alternateLocs != null && alternateLocs.length > 0)
                     {
-                        for (int i = 0; i < alternateLocs.length; i++)
-                        {
-                            String alternateLocation = alternateLocs[i];
-                            if (alternateLocation.equals(areaName))
-                            {
+                        for (String alternateLocation : alternateLocs) {
+                            if (alternateLocation.equals(areaName)) {
                                 locationType = PET_FAVORITE_LOCATION;
                                 sendSystemMessage(player, SID_FAVORITE_LOCATION);
                             }
@@ -2503,7 +2490,7 @@ public class beast_lib extends script.base_script
                 }
             }
         }
-        else if (currentLocation.indexOf(dislikeLocation) > -1 || dislikeLocation.equals(currentLocation))
+        else if (currentLocation.contains(dislikeLocation) || dislikeLocation.equals(currentLocation))
         {
             locationType = PET_DISLIKE_LOCATION;
             sendSystemMessage(player, SID_DISLIKE_LOCATION);
@@ -2634,10 +2621,8 @@ public class beast_lib extends script.base_script
         for (int i = 0; i < repeatList.length; i++)
         {
             boolean contains = false;
-            for (int k = 0; k < abilityList.length; k++)
-            {
-                if (abilityList[k].equals(repeatList[i]))
-                {
+            for (String s : abilityList) {
+                if (s.equals(repeatList[i])) {
                     contains = true;
                 }
             }
@@ -2670,10 +2655,8 @@ public class beast_lib extends script.base_script
             return isAbilityAutoRepeat(getBeastBCD(bcd), abilityName);
         }
         String[] repeatList = getAutoRepeatAbilityList(bcd);
-        for (int i = 0; i < repeatList.length; i++)
-        {
-            if (!repeatList[i].equals("") && repeatList[i].equals(abilityName))
-            {
+        for (String s : repeatList) {
+            if (!s.equals("") && s.equals(abilityName)) {
                 return true;
             }
         }
@@ -2733,28 +2716,23 @@ public class beast_lib extends script.base_script
         String[] abilityList = getAutoRepeatAbilityList(beast);
         String bestAction = "";
         float highestCost = 0.0f;
-        for (int i = 0; i < abilityList.length; i++)
-        {
-            if (abilityList[i].equals(""))
-            {
+        for (String s : abilityList) {
+            if (s.equals("")) {
                 continue;
             }
-            combat_data abilityData = combat_engine.getCombatData(abilityList[i]);
-            if (abilityData == null)
-            {
+            combat_data abilityData = combat_engine.getCombatData(s);
+            if (abilityData == null) {
                 continue;
             }
             String cooldownGroup = abilityData.cooldownGroup;
             int groupCrc = getStringCrc(cooldownGroup);
             float coolDownLeft = getCooldownTimeLeft(getMaster(beast), groupCrc);
-            if (coolDownLeft > 0.0f)
-            {
+            if (coolDownLeft > 0.0f) {
                 continue;
             }
-            if (combat.canDrainCombatActionAttributes(beast, (int)abilityData.vigorCost) && abilityData.vigorCost > highestCost)
-            {
+            if (combat.canDrainCombatActionAttributes(beast, (int) abilityData.vigorCost) && abilityData.vigorCost > highestCost) {
                 highestCost = abilityData.vigorCost;
-                bestAction = abilityList[i];
+                bestAction = s;
             }
         }
         return bestAction;
@@ -2856,21 +2834,17 @@ public class beast_lib extends script.base_script
         boolean compareAbility = passedAbility != null;
         String[] attackList = getTrainedSkills(pet);
         int trainedTotal = 0;
-        for (int i = 0; i < attackList.length; i++)
-        {
-            if (attackList[i].equals("empty"))
-            {
+        for (String s : attackList) {
+            if (s.equals("empty")) {
                 continue;
             }
-            if (compareAbility && getSkillBeastmasterSkillComparison(passedAbility, attackList[i]) == SKILL_HIGHER)
-            {
-                int costOldAbility = getAbilityCost(attackList[i]);
+            if (compareAbility && getSkillBeastmasterSkillComparison(passedAbility, s) == SKILL_HIGHER) {
+                int costOldAbility = getAbilityCost(s);
                 trainedTotal -= costOldAbility;
                 continue;
             }
-            int cost = getAbilityCost(attackList[i]);
-            if (cost != -1)
-            {
+            int cost = getAbilityCost(s);
+            if (cost != -1) {
                 trainedTotal += cost;
             }
         }
@@ -2879,10 +2853,8 @@ public class beast_lib extends script.base_script
     public static boolean isSkillAlreadyTrained(obj_id pet, String ability) throws InterruptedException
     {
         String[] knownSkills = getTrainedSkills(pet);
-        for (int i = 0; i < knownSkills.length; i++)
-        {
-            if (knownSkills[i].equals(ability) || getSkillBeastmasterSkillComparison(ability, knownSkills[i]) == SKILL_LOWER)
-            {
+        for (String knownSkill : knownSkills) {
+            if (knownSkill.equals(ability) || getSkillBeastmasterSkillComparison(ability, knownSkill) == SKILL_LOWER) {
                 return true;
             }
         }
@@ -2895,10 +2867,8 @@ public class beast_lib extends script.base_script
         {
             return true;
         }
-        for (int i = 0; i < knownSkills.length; i++)
-        {
-            if (getSkillBeastmasterSkillComparison(ability, knownSkills[i]) == SKILL_HIGHER)
-            {
+        for (String knownSkill : knownSkills) {
+            if (getSkillBeastmasterSkillComparison(ability, knownSkill) == SKILL_HIGHER) {
                 return true;
             }
         }
@@ -3015,7 +2985,7 @@ public class beast_lib extends script.base_script
             castToIntArray = new int[abilityCrcList.size()];
             for (int _i = 0; _i < abilityCrcList.size(); ++_i)
             {
-                castToIntArray[_i] = ((Integer)abilityCrcList.get(_i)).intValue();
+                castToIntArray[_i] = (Integer) abilityCrcList.get(_i);
             }
         }
         if (utils.getElementPositionInArray(castToIntArray, newSkillCrc) > -1)
@@ -3034,7 +3004,7 @@ public class beast_lib extends script.base_script
             castToIntArray = new int[abilityCrcList.size()];
             for (int _i = 0; _i < abilityCrcList.size(); ++_i)
             {
-                castToIntArray[_i] = ((Integer)abilityCrcList.get(_i)).intValue();
+                castToIntArray[_i] = (Integer) abilityCrcList.get(_i);
             }
 
         }
@@ -3074,7 +3044,7 @@ public class beast_lib extends script.base_script
                     castToIntArray = new int[abilityCrcList.size()];
                     for (int _i = 0; _i < abilityCrcList.size(); ++_i)
                     {
-                        castToIntArray[_i] = ((Integer)abilityCrcList.get(_i)).intValue();
+                        castToIntArray[_i] = (Integer) abilityCrcList.get(_i);
                     }
                 }
                 if (utils.getElementPositionInArray(castToIntArray, newSkillCrc) > -1)
@@ -3100,7 +3070,7 @@ public class beast_lib extends script.base_script
         String[] abilityString = new String[abilityCrc.size()];
         for (int i = 0; i < abilityCrc.size(); i++)
         {
-            int row = dataTableSearchColumnForInt(((Integer)abilityCrc.get(i)).intValue(), "abilityCrc", BEASTS_SPECIALS);
+            int row = dataTableSearchColumnForInt((Integer) abilityCrc.get(i), "abilityCrc", BEASTS_SPECIALS);
             abilityString[i] = dataTableGetString(BEASTS_SPECIALS, row, "ability_name");
         }
         if (abilityString == null || abilityString.length == 0)
@@ -3147,7 +3117,7 @@ public class beast_lib extends script.base_script
     public static int getExpertiseStat(int baseStat, int expertiseMod, float nerfPercent) throws InterruptedException
     {
         float expertisePercent = (float)expertiseMod / 100;
-        float baseStatFloat = (float)baseStat;
+        float baseStatFloat = baseStat;
         float expertiseStatFloat = baseStatFloat - (baseStatFloat * (nerfPercent - (nerfPercent * expertisePercent)));
         int expertiseStat = (int)expertiseStatFloat;
         return expertiseStat;
@@ -3166,7 +3136,7 @@ public class beast_lib extends script.base_script
     {
         int ck_skill = getEnhancedSkillStatisticModifier(player, "bm_creature_knowledge");
         int level = getLevel(player);
-        float learningPotential = (((float)ck_skill + (float)level) / 10.0f);
+        float learningPotential = (((float)ck_skill + level) / 10.0f);
         return learningPotential;
     }
     public static boolean makeAbilityLearnSkillCheck(obj_id player, String ability) throws InterruptedException
@@ -3189,9 +3159,9 @@ public class beast_lib extends script.base_script
         }
         if (learningPotential > challengeRating)
         {
-            learningPotential += ((1.0f + (learningPotential - (float)challengeRating)) * 100.0f) + (beastLearnBonus * 10.0f);
+            learningPotential += ((1.0f + (learningPotential - challengeRating)) * 100.0f) + (beastLearnBonus * 10.0f);
         }
-        float roll_mod = (float)challengeRating * 1000.0f;
+        float roll_mod = challengeRating * 1000.0f;
         float skillGoal = roll_mod - learningPotential;
         float learnRoll = rand(learningPotential, roll_mod);
         boolean skillLearnResult = learnRoll > skillGoal;
@@ -3501,10 +3471,10 @@ public class beast_lib extends script.base_script
         }
         int skillMod = getEnhancedSkillStatisticModifierUncapped(player, "expertise_bm_genetic_engineering");
         float ge_mod = 1.0f + (skillMod / 1000.0f);
-        float levelDifference = (float)getLevel(target) / (float)getLevel(player);
+        float levelDifference = (float)getLevel(target) / getLevel(player);
         levelDifference = levelDifference > 1.0f ? 1.0f : levelDifference;
         float valuePerLevel = 0.02f;
-        float levelAddedValue = (float)getLevel(target) * valuePerLevel;
+        float levelAddedValue = getLevel(target) * valuePerLevel;
         float randomFloor = levelAddedValue / 2.0f;
         float randomCeiling = levelAddedValue * 2.1f;
         float eliteValueAdd = levelAddedValue * 0.7f;
@@ -3611,7 +3581,7 @@ public class beast_lib extends script.base_script
             min = _max;
             max = _min;
         }
-        float rank = (float)(level - levelMin) / (float)(levelMax - levelMin);
+        float rank = (float)(level - levelMin) / (levelMax - levelMin);
         float mid = min + ((max - min) * rank);
         if (mid < min)
         {
@@ -3932,17 +3902,14 @@ public class beast_lib extends script.base_script
         for (int i = 0; i < attributesAffected.length; ++i)
         {
             String fullName = "beast." + attributesAffected[i];
-            for (int j = 0; j < ARRAY_BEAST_INCUBATION_STATS.length; ++j)
-            {
-                if (fullName.equals(ARRAY_BEAST_INCUBATION_STATS[j]))
-                {
+            for (String arrayBeastIncubationStat : ARRAY_BEAST_INCUBATION_STATS) {
+                if (fullName.equals(arrayBeastIncubationStat)) {
                     float currentBonus = 0.0f;
-                    if (utils.hasScriptVar(beast, ARRAY_BEAST_INCUBATION_STATS[j]))
-                    {
-                        currentBonus = utils.getFloatScriptVar(beast, ARRAY_BEAST_INCUBATION_STATS[j]);
+                    if (utils.hasScriptVar(beast, arrayBeastIncubationStat)) {
+                        currentBonus = utils.getFloatScriptVar(beast, arrayBeastIncubationStat);
                     }
-                    float newBonus = currentBonus + (float)incrementAmounts[i];
-                    utils.setScriptVar(beast, ARRAY_BEAST_INCUBATION_STATS[j], newBonus);
+                    float newBonus = currentBonus + incrementAmounts[i];
+                    utils.setScriptVar(beast, arrayBeastIncubationStat, newBonus);
                     break;
                 }
             }
@@ -4061,10 +4028,9 @@ public class beast_lib extends script.base_script
                 }
                 if (actionList.size() > 0)
                 {
-                    for (int k = 0; k < actionList.size(); k++)
-                    {
+                    for (Object o : actionList) {
                         names[idx] = "special_attack";
-                        attribs[idx] = utils.packStringId(new string_id("cmd_n", ((String)actionList.get(k))));
+                        attribs[idx] = utils.packStringId(new string_id("cmd_n", ((String) o)));
                         idx++;
                     }
                 }
@@ -4085,19 +4051,16 @@ public class beast_lib extends script.base_script
         String passedSkillLine = getSkillLine(skillName);
         int passedSkillRank = getSkillRank(skillName);
         String bestSkill = skillName;
-        for (int i = 0; i < knownSkills.length; i++)
-        {
-            String skillLine = getSkillLine(knownSkills[i]);
-            int skillRank = getSkillRank(knownSkills[i]);
-            if (!skillLine.equals(passedSkillLine))
-            {
+        for (String knownSkill : knownSkills) {
+            String skillLine = getSkillLine(knownSkill);
+            int skillRank = getSkillRank(knownSkill);
+            if (!skillLine.equals(passedSkillLine)) {
                 continue;
             }
-            if (skillRank <= passedSkillRank)
-            {
+            if (skillRank <= passedSkillRank) {
                 continue;
             }
-            bestSkill = knownSkills[i];
+            bestSkill = knownSkill;
         }
         return bestSkill;
     }
@@ -4107,17 +4070,14 @@ public class beast_lib extends script.base_script
         String passedSkillLine = getSkillLine(skillName);
         int passedSkillRank = getSkillRank(skillName);
         int nextRank = passedSkillRank + 1;
-        for (int i = 0; i < allSkills.length; i++)
-        {
-            String skillLine = getSkillLine(allSkills[i]);
-            int skillRank = getSkillRank(allSkills[i]);
-            if (!skillLine.equals(passedSkillLine))
-            {
+        for (String allSkill : allSkills) {
+            String skillLine = getSkillLine(allSkill);
+            int skillRank = getSkillRank(allSkill);
+            if (!skillLine.equals(passedSkillLine)) {
                 continue;
             }
-            if (skillRank == nextRank)
-            {
-                return allSkills[i];
+            if (skillRank == nextRank) {
+                return allSkill;
             }
         }
         return skillName;
@@ -4183,10 +4143,10 @@ public class beast_lib extends script.base_script
         float incubationDamageBonus = utils.getFloatScriptVar(beast, OBJVAR_INCREASE_DPS);
         int intMinDamage = (int)beastStatsDict.getInt("MinDmg");
         int intMaxDamage = (int)beastStatsDict.getInt("MaxDmg");
-        intMinDamage = getExpertiseStat(intMinDamage, expertiseDamage, .5f);
-        intMaxDamage = getExpertiseStat(intMaxDamage, expertiseDamage, .5f);
-        float floatMinDamage = (float)intMinDamage * (1.0f + incubationDamageBonus / 100.0f);
-        float floatMaxDamage = (float)intMaxDamage * (1.0f + incubationDamageBonus / 100.0f);
+        intMinDamage = getExpertiseStat(intMinDamage, expertiseDamage, 0.5f);
+        intMaxDamage = getExpertiseStat(intMaxDamage, expertiseDamage, 0.5f);
+        float floatMinDamage = intMinDamage * (1.0f + incubationDamageBonus / 100.0f);
+        float floatMaxDamage = intMaxDamage * (1.0f + incubationDamageBonus / 100.0f);
         intMinDamage = (int)floatMinDamage;
         intMaxDamage = (int)floatMaxDamage;
         obj_id beastWeapon = getCurrentWeapon(beast);
@@ -4404,7 +4364,7 @@ public class beast_lib extends script.base_script
                 return 0;
             }
             float cun_mod = getBeastCunningRating(beast);
-            float block_value = (float)getBeastBlockValue(beast);
+            float block_value = getBeastBlockValue(beast);
             cun_mod = (cun_mod / 100.0f);
             return Math.round(block_value * cun_mod);
         }
@@ -4705,7 +4665,7 @@ public class beast_lib extends script.base_script
         int exp = xp.getLevelBasedXP(beastLevel);
         if (levelDiff < 0)
         {
-            float maxLevelDiff = 10f;
+            float maxLevelDiff = 10.0f;
             if (beastLevel > 20)
             {
                 maxLevelDiff += (int)((beastLevel - 20) / 6);
@@ -4760,10 +4720,8 @@ public class beast_lib extends script.base_script
         }
         if (injectorFamilies.length > 0)
         {
-            for (int i = 0; i < injectorFamilies.length; ++i)
-            {
-                if (beastFamily.equals(injectorFamilies[i]))
-                {
+            for (String injectorFamily : injectorFamilies) {
+                if (beastFamily.equals(injectorFamily)) {
                     return INJECTOR_RETURN_SUCESS;
                 }
             }
@@ -4848,9 +4806,8 @@ public class beast_lib extends script.base_script
         if (lowercaseName != null && lowercaseName.length() > 0)
         {
             String[] splitName = split(lowercaseName, ' ');
-            for (int i = 0; i < splitName.length; i++)
-            {
-                finalName += toUpper(splitName[i], 0) + " ";
+            for (String s : splitName) {
+                finalName += toUpper(s, 0) + " ";
             }
         }
         return finalName;

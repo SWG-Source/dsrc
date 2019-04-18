@@ -182,10 +182,9 @@ public class loot_crate extends script.base_script
         }
         if (remainingItems.length > 0)
         {
-            for (int k = 0; k < remainingItems.length; k++)
-            {
-                CustomerServiceLog("CollectionLootChannel: ", "Magseal: " + "Magseal Timer Expired for " + player + " item: " + remainingItems[k] + " was deleted - as designed.");
-                destroyObject(remainingItems[k]);
+            for (obj_id remainingItem : remainingItems) {
+                CustomerServiceLog("CollectionLootChannel: ", "Magseal: " + "Magseal Timer Expired for " + player + " item: " + remainingItem + " was deleted - as designed.");
+                destroyObject(remainingItem);
             }
             utils.removeScriptVar(container, PLAYER_ACCESS_ID);
         }
@@ -197,11 +196,10 @@ public class loot_crate extends script.base_script
         obj_id[] contents = getContents(self);
         if (contents != null)
         {
-            for (int i = 0; i < contents.length; i++)
-            {
-                String template = getTemplateName(contents[i]);
+            for (obj_id content : contents) {
+                String template = getTemplateName(content);
                 LOG("sissynoid", "Magseal - CONTAINER HAD CONTENTS UPON LOADING! (" + contents.length + ") - (" + template + ") Items");
-                destroyObject(contents[i]);
+                destroyObject(content);
             }
         }
         if (hasObjVar(self, "cash_max"))

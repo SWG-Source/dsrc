@@ -857,55 +857,47 @@ public class player_guild extends script.base_script
             }
             if (row >= 0 && row < entries.length)
             {
-                if (entries[row].equals(guild.STR_GUILD_TITLE))
-                {
-                    guild.chooseTitle(self, player, name);
-                    return SCRIPT_CONTINUE;
-                }
-                else if (entries[row].equals(guild.STR_GUILD_KICK))
-                {
-                    guild.confirmKick(self, player, name);
-                    return SCRIPT_CONTINUE;
-                }
-                else if (entries[row].equals(guild.STR_GUILD_PERMISSIONS))
-                {
-                    guild.selectPermissions(self, player, name, guildId);
-                    return SCRIPT_CONTINUE;
-                }
-                else if (entries[row].equals(guild.STR_GUILD_RANK))
-                {
-                    guild.selectRank(self, player, name, guildId);
-                    return SCRIPT_CONTINUE;
-                }
-                else if (entries[row].equals(guild.STR_GUILD_WAR_EXCLUDE_TOGGLE))
-                {
-                    obj_id target = guild.findMemberIdByName(guildId, name, false, true);
-                    if (!isIdValid(target))
-                    {
+                switch (entries[row]) {
+                    case guild.STR_GUILD_TITLE:
+                        guild.chooseTitle(self, player, name);
                         return SCRIPT_CONTINUE;
-                    }
-                    params.put("warExclusion", guild.hasGuildPermission(guildId, target, guild.GUILD_PERMISSION_WAR_EXCLUSION));
-                    params.put("player", player);
-                    params.put("guildMemberName", name);
-                    params.put("guildId", guildId);
-                    params.put("counter", 0);
-                    messageTo(self, "delayWarExcludeConsistencyCheck", params, 1, false);
-                    guild.toggleWarExclusion(player, guildId, name);
-                }
-                else if (entries[row].equals(guild.STR_GUILD_WAR_INCLUDE_TOGGLE))
-                {
-                    obj_id target = guild.findMemberIdByName(guildId, name, false, true);
-                    if (!isIdValid(target))
-                    {
+                    case guild.STR_GUILD_KICK:
+                        guild.confirmKick(self, player, name);
                         return SCRIPT_CONTINUE;
+                    case guild.STR_GUILD_PERMISSIONS:
+                        guild.selectPermissions(self, player, name, guildId);
+                        return SCRIPT_CONTINUE;
+                    case guild.STR_GUILD_RANK:
+                        guild.selectRank(self, player, name, guildId);
+                        return SCRIPT_CONTINUE;
+                    case guild.STR_GUILD_WAR_EXCLUDE_TOGGLE: {
+                        obj_id target = guild.findMemberIdByName(guildId, name, false, true);
+                        if (!isIdValid(target)) {
+                            return SCRIPT_CONTINUE;
+                        }
+                        params.put("warExclusion", guild.hasGuildPermission(guildId, target, guild.GUILD_PERMISSION_WAR_EXCLUSION));
+                        params.put("player", player);
+                        params.put("guildMemberName", name);
+                        params.put("guildId", guildId);
+                        params.put("counter", 0);
+                        messageTo(self, "delayWarExcludeConsistencyCheck", params, 1, false);
+                        guild.toggleWarExclusion(player, guildId, name);
+                        break;
                     }
-                    params.put("warInclusion", guild.hasGuildPermission(guildId, target, guild.GUILD_PERMISSION_WAR_INCLUSION));
-                    params.put("player", player);
-                    params.put("guildMemberName", name);
-                    params.put("guildId", guildId);
-                    params.put("counter", 0);
-                    messageTo(self, "delayWarIncludeConsistencyCheck", params, 1, false);
-                    guild.toggleWarInclusion(player, guildId, name);
+                    case guild.STR_GUILD_WAR_INCLUDE_TOGGLE: {
+                        obj_id target = guild.findMemberIdByName(guildId, name, false, true);
+                        if (!isIdValid(target)) {
+                            return SCRIPT_CONTINUE;
+                        }
+                        params.put("warInclusion", guild.hasGuildPermission(guildId, target, guild.GUILD_PERMISSION_WAR_INCLUSION));
+                        params.put("player", player);
+                        params.put("guildMemberName", name);
+                        params.put("guildId", guildId);
+                        params.put("counter", 0);
+                        messageTo(self, "delayWarIncludeConsistencyCheck", params, 1, false);
+                        guild.toggleWarInclusion(player, guildId, name);
+                        break;
+                    }
                 }
             }
         }
@@ -1002,14 +994,12 @@ public class player_guild extends script.base_script
                 if (ranksPreferred != null && ranksPreferred.length > 0)
                 {
                     boolean found = false;
-                    for (int i = 0, j = ranksPreferred.length; i < j; i++)
-                    {
-                        if (ranksPreferred[i] == row)
-                        {
+                    for (int i1 : ranksPreferred) {
+                        if (i1 == row) {
                             found = true;
                             continue;
                         }
-                        utils.addElement(newRanksPreferred, ranksPreferred[i]);
+                        utils.addElement(newRanksPreferred, i1);
                     }
                     if (!found)
                     {

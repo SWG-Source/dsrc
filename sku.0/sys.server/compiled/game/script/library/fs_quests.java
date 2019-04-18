@@ -628,12 +628,12 @@ public class fs_quests extends script.base_script
             if (isQuestActive(player, i))
             {
                 dsrc.add(quest_name + " *");
-                tasks.add(new Integer(i));
+                tasks.add(i);
             }
             else if (isQuestComplete(player, i))
             {
                 dsrc.add(quest_name);
-                tasks.add(new Integer(i));
+                tasks.add(i);
             }
         }
         if (dsrc.size() > 0)

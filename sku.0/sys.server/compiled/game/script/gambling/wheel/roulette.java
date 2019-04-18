@@ -101,7 +101,7 @@ public class roulette extends script.gambling.base.wheel
                 setObjVar(self, ovpath, amt);
                 dictionary d = new dictionary();
                 d.put("player", player);
-                messageTo(self, "handleRequestUpdatedUI", d, 0f, false);
+                messageTo(self, "handleRequestUpdatedUI", d, 0.0f, false);
                 return SCRIPT_CONTINUE;
             }
         }
@@ -126,7 +126,7 @@ public class roulette extends script.gambling.base.wheel
         params.put("cnt", cnt);
         if (cnt > 0)
         {
-            float delay = 5f;
+            float delay = 5.0f;
             switch (cnt)
             {
                 case 2:
@@ -142,7 +142,7 @@ public class roulette extends script.gambling.base.wheel
                         sendSystemMessageProse(player, pp);
                     }
                     params.put("result", result);
-                    delay = 10f;
+                    delay = 10.0f;
                     break;
                 default:
                     for (obj_id player : players) {
@@ -164,7 +164,7 @@ public class roulette extends script.gambling.base.wheel
                     sendSystemMessageProse(player, pp);
                 }
             }
-            messageTo(self, "handleParseResults", params, 1f, false);
+            messageTo(self, "handleParseResults", params, 1.0f, false);
         }
         return SCRIPT_CONTINUE;
     }
@@ -246,7 +246,7 @@ public class roulette extends script.gambling.base.wheel
             }
         }
         cleanupWheelGame(self);
-        messageTo(self, "handleDelayedRestart", null, 10f, false);
+        messageTo(self, "handleDelayedRestart", null, 10.0f, false);
         return SCRIPT_CONTINUE;
     }
     private boolean isValidBet(obj_id self, String arg) throws InterruptedException

@@ -149,11 +149,9 @@ public class event_one extends script.base_script
         }
         Vector activeGuards = new Vector();
         activeGuards.setSize(0);
-        for (int i = 0; i < guards.length; i++)
-        {
-            if (exists(guards[i]))
-            {
-                utils.addElement(activeGuards, guards[i]);
+        for (obj_id guard1 : guards) {
+            if (exists(guard1)) {
+                utils.addElement(activeGuards, guard1);
             }
         }
         if (activeGuards == null || activeGuards.size() == 0)
@@ -172,11 +170,9 @@ public class event_one extends script.base_script
             nonAttackerGuards.setSize(0);
             if (isIdValid(attacker))
             {
-                for (int k = 0; k < activeGuards.size(); k++)
-                {
-                    if (((obj_id)activeGuards.get(k)) != attacker)
-                    {
-                        utils.addElement(nonAttackerGuards, ((obj_id)activeGuards.get(k)));
+                for (Object activeGuard : activeGuards) {
+                    if (((obj_id) activeGuard) != attacker) {
+                        utils.addElement(nonAttackerGuards, ((obj_id) activeGuard));
                     }
                 }
             }

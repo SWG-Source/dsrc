@@ -61,14 +61,10 @@ public class altruism_control extends script.base_script
                 obj_id[] objects = player_structure.getObjectsInBuilding(self);
                 if (objects != null || objects.length > 0)
                 {
-                    for (int i = 0; i < objects.length; i++)
-                    {
-                        obj_id object = objects[i];
-                        if (isIdValid(object) && isMob(object))
-                        {
+                    for (obj_id object : objects) {
+                        if (isIdValid(object) && isMob(object)) {
                             String cName = getCreatureName(object);
-                            if (cName != null && cName.equals("quest_hero_of_tatooine_farmer_wife"))
-                            {
+                            if (cName != null && cName.equals("quest_hero_of_tatooine_farmer_wife")) {
                                 mother = object;
                                 break;
                             }
@@ -181,21 +177,17 @@ public class altruism_control extends script.base_script
         obj_id[] players_dmg = getPlayerCreaturesInRange(little_rock, 4.0f);
         if (players_dmg != null && players_dmg.length > 0)
         {
-            for (int i = 0; i < players_dmg.length; i++)
-            {
-                attribute[] attrib = getAttribs(players_dmg[i]);
+            for (obj_id obj_id : players_dmg) {
+                attribute[] attrib = getAttribs(obj_id);
                 int dmg = 200;
-                for (int j = 0; j < attrib.length; j += NUM_ATTRIBUTES_PER_GROUP)
-                {
+                for (int j = 0; j < attrib.length; j += NUM_ATTRIBUTES_PER_GROUP) {
                     attrib[j] = new attribute(attrib[j].getType(), (attrib[j].getValue() - dmg));
-                    if (attrib[j].getValue() < 1)
-                    {
+                    if (attrib[j].getValue() < 1) {
                         attrib[j] = new attribute(attrib[j].getType(), 1);
                     }
                 }
-                if (setAttribs(players_dmg[i], attrib))
-                {
-                    sendSystemMessage(players_dmg[i], EXPLOSION_DMG);
+                if (setAttribs(obj_id, attrib)) {
+                    sendSystemMessage(obj_id, EXPLOSION_DMG);
                 }
             }
         }
@@ -211,9 +203,8 @@ public class altruism_control extends script.base_script
             obj_id[] contents = getContents(little_rock);
             if (contents != null && contents.length > 0)
             {
-                for (int k = 0; k < contents.length; k++)
-                {
-                    destroyObject(contents[k]);
+                for (obj_id content : contents) {
+                    destroyObject(content);
                 }
             }
             destroyObject(little_rock);
@@ -264,10 +255,8 @@ public class altruism_control extends script.base_script
         {
             return false;
         }
-        for (int i = 0; i < players.length; i++)
-        {
-            if (hasObjVar(players[i], ALTRUISM_OBJVAR) && !hasObjVar(players[i], ALTRUISM_COMPLETE))
-            {
+        for (obj_id player : players) {
+            if (hasObjVar(player, ALTRUISM_OBJVAR) && !hasObjVar(player, ALTRUISM_COMPLETE)) {
                 return true;
             }
         }
@@ -284,8 +273,8 @@ public class altruism_control extends script.base_script
         obj_id rock_cell = getCellId(self, "r8");
         obj_id family_cell = getCellId(self, "r9");
         location explosive_loc = new location(77.76f, -46.33f, -136.96f, my_loc.area, explosive_cell);
-        location big_rock_loc = new location(157.68f, -66f, -97.51f, my_loc.area, rock_cell);
-        location little_rock_loc = new location(151.69f, -66f, -93.78f, my_loc.area, rock_cell);
+        location big_rock_loc = new location(157.68f, -66.0f, -97.51f, my_loc.area, rock_cell);
+        location little_rock_loc = new location(151.69f, -66.0f, -93.78f, my_loc.area, rock_cell);
         location mother_loc = new location(187.11f, -65.90f, -103.53f, my_loc.area, family_cell);
         location daughter_loc = new location(187.42f, -65.80f, -105.15f, my_loc.area, family_cell);
         obj_id explosive = createObject("object/tangible/item/quest/hero_of_tatooine/explosives_crate.iff", explosive_loc);

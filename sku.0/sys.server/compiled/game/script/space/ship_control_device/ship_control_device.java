@@ -259,15 +259,11 @@ public class ship_control_device extends script.base_script
             }
             obj_id[] resourceTypes = getShipCargoHoldContentsResourceTypes(objShip);
             boolean resourcesGiven = false;
-            for (int i = 0; i < resourceTypes.length; i++)
-            {
-                if (!giveResourceReward(resourceTypes[i], player, getShipCargoHoldContent(objShip, resourceTypes[i]), objShip))
-                {
+            for (obj_id resourceType : resourceTypes) {
+                if (!giveResourceReward(resourceType, player, getShipCargoHoldContent(objShip, resourceType), objShip)) {
                     sendSystemMessage(player, new string_id("space/space_interaction", "full_inventory"));
                     break;
-                }
-                else 
-                {
+                } else {
                     resourcesGiven = true;
                 }
             }
@@ -517,15 +513,12 @@ public class ship_control_device extends script.base_script
         {
             return null;
         }
-        for (int intI = 0; intI < objContents.length; intI++)
-        {
-            obj_id objType = getResourceContainerResourceType(objContents[intI]);
-            if (objType == objResource)
-            {
-                int intCount = getResourceContainerQuantity(objContents[intI]);
-                if (intCount < MAX_RESOURCE)
-                {
-                    return objContents[intI];
+        for (obj_id objContent : objContents) {
+            obj_id objType = getResourceContainerResourceType(objContent);
+            if (objType == objResource) {
+                int intCount = getResourceContainerQuantity(objContent);
+                if (intCount < MAX_RESOURCE) {
+                    return objContent;
                 }
             }
         }

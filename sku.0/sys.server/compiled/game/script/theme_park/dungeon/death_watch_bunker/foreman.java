@@ -24,7 +24,7 @@ public class foreman extends script.base_script
         setInvulnerable(self, true);
         createTriggerVolume(FACETO_VOLUME_NAME, 8.0f, true);
         setName(self, "Japer Witter (a mine foreman)");
-        messageTo(self, "handleMissionCleanUp", null, 30f, false);
+        messageTo(self, "handleMissionCleanUp", null, 30.0f, false);
         return SCRIPT_CONTINUE;
     }
     public int OnInitialize(obj_id self) throws InterruptedException
@@ -67,7 +67,7 @@ public class foreman extends script.base_script
         else if (randCounter == 2)
         {
             float xCoord = -180.4f;
-            float yCoord = -60f;
+            float yCoord = -60.0f;
             float zCoord = -152.3f;
             location myself = getLocation(self);
             String planet = myself.area;
@@ -79,7 +79,7 @@ public class foreman extends script.base_script
         else if (randCounter == 3)
         {
             float xCoord = -44.4f;
-            float yCoord = -60f;
+            float yCoord = -60.0f;
             float zCoord = -128.6f;
             location myself = getLocation(self);
             String planet = myself.area;

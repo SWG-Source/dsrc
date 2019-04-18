@@ -25,12 +25,10 @@ public class bounty_probot extends script.base_script
             obj_id[] objMissionArray = getMissionObjects(objPlayer);
             if (objMissionArray != null)
             {
-                for (int intI = 0; intI < objMissionArray.length; intI++)
-                {
-                    String strType = getMissionType(objMissionArray[intI]);
-                    if (strType.equals("bounty"))
-                    {
-                        objBountyMission = objMissionArray[intI];
+                for (obj_id obj_id : objMissionArray) {
+                    String strType = getMissionType(obj_id);
+                    if (strType.equals("bounty")) {
+                        objBountyMission = obj_id;
                     }
                 }
             }

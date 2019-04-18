@@ -16,7 +16,7 @@ public class pirate_01 extends script.base_script
         setInvulnerable(self, true);
         setName(self, "");
         setName(self, localize(NPC_NAME));
-        messageTo(self, "action01", null, 1f, false);
+        messageTo(self, "action01", null, 1.0f, false);
         return SCRIPT_CONTINUE;
     }
     public int OnArrivedAtLocation(obj_id self, String name) throws InterruptedException
@@ -33,7 +33,7 @@ public class pirate_01 extends script.base_script
             detachScript(wife, "conversation.quest_hero_of_tatooine_wife");
             doAnimationAction(self, "cheer");
             setObjVar(self, "wifeReached", 1);
-            messageTo(self, "action02", null, 3f, false);
+            messageTo(self, "action02", null, 3.0f, false);
             chat.chat(self, "Let's go guys!");
         }
         if (name.equals("door") && !hasObjVar(self, "doorReached"))

@@ -113,14 +113,14 @@ public class player_structure extends script.base_script
     public static final String VAR_WAYPOINT_STRUCTURE = "player_structure.waypoint";
     public static final float INSTALLATION_RANGE = 30.0f;
     public static final float CIVIC_INSTALLATION_RANGE = 30.0f;
-    public static final float RATE_POWER_MIN = 1f;
+    public static final float RATE_POWER_MIN = 1.0f;
     public static final float MERCHANT_SALES_MODIFIER = -0.2f;
     public static final int MIN_RESIDENCE_DURATION = 86400;
     public static final int MAX_LOTS = 10;
     public static final int MAX_LIST_SIZE = 50;
     public static final int MAIL_WARNING_INTERVAL = 86400;
     public static final int TIME_TO_NEXT_PACKUP = 86400;
-    public static final float HOUSE_PACKUP_FAILURE_TIMER = 0.f;
+    public static final float HOUSE_PACKUP_FAILURE_TIMER = 0.0f;
     public static final float HOUSE_PACKUP_LOCKOUT_TIMER = 300.0f;
     public static final int ARRAY_LENGTH_FOR_HOUSE_PACKUP = 2;
     public static final String SCRIPTVAR_HOUSE_PACKUP_TREE_PREFIX = "packup_structure";
@@ -239,7 +239,7 @@ public class player_structure extends script.base_script
         {
             return null;
         }
-        if (!canPlaceGarage(loc, 120f, template))
+        if (!canPlaceGarage(loc, 120.0f, template))
         {
             sendSystemMessage(owner, new string_id(STF_FILE, "proximity_build_failed"));
             return null;
@@ -249,12 +249,12 @@ public class player_structure extends script.base_script
         {
             return null;
         }
-        setYaw(structure, (float)(90 * rotation));
+        setYaw(structure, (90 * rotation));
         persistObject(structure);
         initializeStructure(structure, owner, deed_info);
         dictionary outparams = new dictionary();
         outparams.put("rotation", rotation);
-        messageTo(structure, "createStructureObjects", outparams, 10.f, false);
+        messageTo(structure, "createStructureObjects", outparams, 10.0f, false);
         if (!isBuilding(structure))
         {
             if (!isCivic(structure))
@@ -267,7 +267,7 @@ public class player_structure extends script.base_script
         messageTo(owner, "OnConstructionComplete", params, 30.0f, true);
         CustomerServiceLog("playerStructure", "Structure " + structure + "(" + getName(structure) + ") placed by " + owner + " at location " + loc);
         float ejectRange = dataTableGetFloat(PLAYER_STRUCTURE_DATATABLE, template, DATATABLE_COL_EJECT_RANGE);
-        if (ejectRange > 0f)
+        if (ejectRange > 0.0f)
         {
             dictionary ejectmsg = new dictionary();
             ejectmsg.put("sender", structure);
@@ -348,7 +348,7 @@ public class player_structure extends script.base_script
             }
         }
         persistObject(structure);
-        setYaw(structure, (float)(rot * 90));
+        setYaw(structure, (rot * 90));
         int time_stamp = getGameTime();
         setObjVar(structure, VAR_DEED_BUILDTIME, build_time);
         setObjVar(structure, VAR_DEED_TIMESTAMP, time_stamp);
@@ -501,7 +501,7 @@ public class player_structure extends script.base_script
                         delta_trans = transformDeltaWorldCoord(X, Z, rotation);
                         X = delta_trans[0];
                         Z = delta_trans[1];
-                        HEADING = HEADING + (float)(rotation * 90);
+                        HEADING = HEADING + (rotation * 90);
                         if (HEADING > 360)
                         {
                             HEADING = HEADING - 360;
@@ -732,13 +732,13 @@ public class player_structure extends script.base_script
     {
         int idx = getStructureTableIndex(getTemplateName(structure));
         float power_rate = dataTableGetFloat(PLAYER_STRUCTURE_DATATABLE, idx, DATATABLE_COL_POWER_RATE);
-        if (power_rate < 0f)
+        if (power_rate < 0.0f)
         {
             power_rate = 0;
         }
         if (hasObjVar(structure, "selfpowered"))
         {
-            power_rate = 0f;
+            power_rate = 0.0f;
         }
         return power_rate;
     }
@@ -1371,17 +1371,17 @@ public class player_structure extends script.base_script
         }
         int maint = getBaseMaintenanceRate(structure);
         float merchant_mod = getMaintenanceMerchantMod(structure);
-        if (merchant_mod != 0f)
+        if (merchant_mod != 0.0f)
         {
-            maint = Math.round(maint * (1f + merchant_mod));
+            maint = Math.round(maint * (1.0f + merchant_mod));
         }
         float factory_mod = getMaintenanceFactoryMod(structure);
-        if (factory_mod != 0f)
+        if (factory_mod != 0.0f)
         {
             maint -= Math.round(maint * (factory_mod / 100.0f));
         }
         float harvester_mod = getMaintenanceHarvesterMod(structure);
-        if (harvester_mod != 0f)
+        if (harvester_mod != 0.0f)
         {
             maint -= Math.round(maint * (harvester_mod / 100.0f));
         }
@@ -1404,7 +1404,7 @@ public class player_structure extends script.base_script
     {
         if (!isIdValid(structure))
         {
-            return 0f;
+            return 0.0f;
         }
         return getFloatObjVar(structure, VAR_MAINTENANCE_MOD_MERCHANT);
     }
@@ -1412,7 +1412,7 @@ public class player_structure extends script.base_script
     {
         if (!isIdValid(structure))
         {
-            return 0f;
+            return 0.0f;
         }
         return getFloatObjVar(structure, VAR_MAINTENANCE_MOD_FACTORY);
     }
@@ -1420,7 +1420,7 @@ public class player_structure extends script.base_script
     {
         if (!isIdValid(structure))
         {
-            return 0f;
+            return 0.0f;
         }
         return getFloatObjVar(structure, VAR_MAINTENANCE_MOD_HARVESTER);
     }
@@ -1433,7 +1433,7 @@ public class player_structure extends script.base_script
         int maint = getBaseMaintenanceRate(structure);
         if (maint > 0)
         {
-            return Math.round(maint * city.getPropertyTax(structure) / 100.f);
+            return Math.round(maint * city.getPropertyTax(structure) / 100.0f);
         }
         return 0;
     }
@@ -1876,7 +1876,7 @@ public class player_structure extends script.base_script
                 return false;
             }
         }
-        if (!player_structure.canPlaceGarage(getLocation(player), 200f, template))
+        if (!player_structure.canPlaceGarage(getLocation(player), 200.0f, template))
         {
             sendSystemMessage(player, SID_CANNOT_BUILD_GARAGE_TOO_CLOSE);
             return false;
@@ -2512,7 +2512,7 @@ public class player_structure extends script.base_script
                 setName(house, getObjVar(house, "player_structure.name.original").getStringData());
             }
         }
-        float rot_float = (float)(90 * rot);
+        float rot_float = (90 * rot);
         setYaw(house, rot_float);
         persistObject(house);
         createStructureSign(house, rot_float);
@@ -3598,7 +3598,7 @@ public class player_structure extends script.base_script
         int pretax_amt = 0, tax_amt = 0;
         if (property_tax > 0)
         {
-            pretax_amt = Math.round(amt / (1 + (property_tax / 100.f)));
+            pretax_amt = Math.round(amt / (1 + (property_tax / 100.0f)));
             tax_amt = amt - pretax_amt;
             if (money.bankTo(structure, money.ACCT_STRUCTURE_MAINTENANCE, pretax_amt))
             {
@@ -3879,7 +3879,7 @@ public class player_structure extends script.base_script
                 CustomerServiceLog("playerStructure", "DestroyStructure -- transferring maintenance to deed " + deed + " from structure " + structure + " Amount: " + surplus + ".  Owner is %TU. destroyStructure initiated by %TT", owner, self);
             }
             float power = getPowerValue(structure);
-            if (power > 0f && (isFactory(structure) || isHarvester(structure) || isGenerator(structure)))
+            if (power > 0.0f && (isFactory(structure) || isHarvester(structure) || isGenerator(structure)))
             {
                 setObjVar(deed, VAR_DEED_SURPLUS_POWER, power);
             }
@@ -4109,7 +4109,7 @@ public class player_structure extends script.base_script
             }
         }
         int num_left = num_times;
-        StringBuffer sb = new StringBuffer();
+        StringBuilder sb = new StringBuilder();
         for (int i = 0; i < time_values.length; i++)
         {
             if (time_values[i] > 0)
@@ -4305,12 +4305,12 @@ public class player_structure extends script.base_script
     }
     public static location transformDeltaWorldCoord(location here, float dx, float dz, float yaw) throws InterruptedException
     {
-        yaw = yaw % 360f;
+        yaw = yaw % 360.0f;
         if (yaw < 0)
         {
-            yaw += 360f;
+            yaw += 360.0f;
         }
-        int rotation = java.lang.Math.round(yaw / 90f);
+        int rotation = java.lang.Math.round(yaw / 90.0f);
         float[] xz = transformDeltaWorldCoord(dx, dz, rotation);
         if (xz != null && xz.length == 2)
         {
@@ -4346,7 +4346,7 @@ public class player_structure extends script.base_script
             location here = getLocation(structure);
             obj_id[] nc;
             for (String aSIGN_TYPE : SIGN_TYPE) {
-                nc = getAllObjectsWithTemplate(here, 64f, aSIGN_TYPE);
+                nc = getAllObjectsWithTemplate(here, 64.0f, aSIGN_TYPE);
                 if (nc != null && nc.length > 0) {
                     for (obj_id aNc : nc) {
                         if (isObjectPersisted(aNc) && !utils.hasScriptVar(aNc, "player_structure.parent")) {
@@ -4606,7 +4606,7 @@ public class player_structure extends script.base_script
                         }
                         else if (signTemplate.startsWith("object/tangible/sign/player/rebel_remembrance_day_2009_sign_hanging") || signTemplate.startsWith("object/tangible/sign/player/imperial_empire_day_2009_sign_hanging"))
                         {
-                            heading += 90f;
+                            heading += 90.0f;
                             there.z -= 0.4f;
                             z -= 0.4f;
                         }
@@ -4796,7 +4796,7 @@ public class player_structure extends script.base_script
                     }
                 }
                 location spawn = (location)there.clone();
-                if (sYaw != 0f)
+                if (sYaw != 0.0f)
                 {
                     location newspawn = transformDeltaWorldCoord(here, x, z, sYaw);
                     newspawn.y = there.y;
@@ -4861,7 +4861,7 @@ public class player_structure extends script.base_script
                         setObjVar(structure, VAR_SIGN_NAME, signName);
                         setObjVar(structure, VAR_SIGN_TYPE, signType);
                         float tYaw = sYaw + heading;
-                        if (tYaw != 0f)
+                        if (tYaw != 0.0f)
                         {
                             setYaw(sign, tYaw);
                         }
@@ -4890,7 +4890,7 @@ public class player_structure extends script.base_script
         {
             return null;
         }
-        return createStructureSign(structure, (float)(Math.round(getYaw(structure))));
+        return createStructureSign(structure, (Math.round(getYaw(structure))));
     }
     public static void destroyStructureSign(obj_id structure) throws InterruptedException
     {
@@ -4909,37 +4909,37 @@ public class player_structure extends script.base_script
     {
         if (!isIdValid(bldg) || !isIdValid(energon))
         {
-            return -1f;
+            return -1.0f;
         }
         if (isGameObjectTypeOf(getGameObjectType(energon), GOT_resource_container))
         {
-            return -1f;
+            return -1.0f;
         }
         if (!isGameObjectTypeOf(getGameObjectType(bldg), GOT_installation))
         {
-            return -1f;
+            return -1.0f;
         }
         obj_id rId = getResourceContainerResourceType(energon);
         if (!isIdValid(rId))
         {
-            return -1f;
+            return -1.0f;
         }
         if (!isResourceDerivedFrom(rId, "energy") || !isResourceDerivedFrom(rId, "radioactive"))
         {
-            return -1f;
+            return -1.0f;
         }
         int amt = resource.getPotentialEnergyValue(energon);
-        if (amt > 0f)
+        if (amt > 0.0f)
         {
             return powerInstallation(bldg, amt);
         }
-        return -1f;
+        return -1.0f;
     }
     public static float powerInstallation(obj_id bldg, int amt) throws InterruptedException
     {
-        if (!isIdValid(bldg) || (amt <= 0f))
+        if (!isIdValid(bldg) || (amt <= 0.0f))
         {
-            return -1f;
+            return -1.0f;
         }
         incrementPowerValue(bldg, amt);
         return getPowerValue(bldg);
@@ -5426,7 +5426,7 @@ public class player_structure extends script.base_script
     }
     public static boolean canPlaceFactionPerkDeed(obj_id objDeed, obj_id objPlayer) throws InterruptedException
     {
-        final float CHECK_RANGE = 600f;
+        final float CHECK_RANGE = 600.0f;
         final int BASES_ALLOWED = 3;
         if (player_structure.isFactionPerkBaseDeed(objDeed))
         {
@@ -5714,7 +5714,7 @@ public class player_structure extends script.base_script
             prose.setStringId(p, new string_id("spam", "wait_twenty_four"));
             prose.setDI(p, MAX_PACKUP_PER_DAY);
             prose.setTT(p, utils.assembleTimeRemainToUse(timeLeft, false));
-            commPlayers(player, "object/mobile/dressed_hiddendagger_pilot_m_01.iff", "sound/sys_comm_other.snd", 5f, player, p);
+            commPlayers(player, "object/mobile/dressed_hiddendagger_pilot_m_01.iff", "sound/sys_comm_other.snd", 5.0f, player, p);
             messageTo(player, "handleFailedStructurePackup", null, 0, false);
             messageTo(player, "handlePlayerStructurePackupLockoutRemoval", null, 0, false);
         }
@@ -5823,7 +5823,7 @@ public class player_structure extends script.base_script
             prose.setStringId(p, new string_id("spam", "wait_twenty_four"));
             prose.setDI(p, MAX_PACKUP_PER_DAY);
             prose.setTT(p, utils.assembleTimeRemainToUse(timeLeft, false));
-            commPlayers(player, "object/mobile/dressed_hiddendagger_pilot_m_01.iff", "sound/sys_comm_other.snd", 5f, player, p);
+            commPlayers(player, "object/mobile/dressed_hiddendagger_pilot_m_01.iff", "sound/sys_comm_other.snd", 5.0f, player, p);
             messageTo(player, "handleFailedStructurePackup", null, 0, false);
             messageTo(player, "handlePlayerStructurePackupLockoutRemoval", null, 0, false);
         }

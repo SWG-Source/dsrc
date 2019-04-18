@@ -25,11 +25,9 @@ public class nandina extends script.base_script
             return SCRIPT_CONTINUE;
         }
         obj_id gorvo = null;
-        for (int i = 0; i < spawn_id.length; i++)
-        {
-            if ((getStringObjVar(spawn_id[i], "spawn_id")).equals("gorvo"))
-            {
-                gorvo = spawn_id[i];
+        for (obj_id obj_id : spawn_id) {
+            if ((getStringObjVar(obj_id, "spawn_id")).equals("gorvo")) {
+                gorvo = obj_id;
             }
         }
         setMaster(gorvo, self);
@@ -46,9 +44,8 @@ public class nandina extends script.base_script
         {
             return SCRIPT_CONTINUE;
         }
-        for (int i = 0; i < players.length; i++)
-        {
-            addHate(self, players[i], 1);
+        for (obj_id player : players) {
+            addHate(self, player, 1);
         }
         return SCRIPT_CONTINUE;
     }

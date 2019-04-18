@@ -147,13 +147,10 @@ public class instance extends script.base_script
         obj_id[] listPlayers = getPlayersInPlayerList(groupList);
         Vector validPlayers = new Vector();
         validPlayers.setSize(0);
-        for (int i = 0; i < allPlayers.length; i++)
-        {
-            for (int k = 0; k < listPlayers.length; k++)
-            {
-                if (allPlayers[i] == listPlayers[k])
-                {
-                    utils.addElement(validPlayers, allPlayers[i]);
+        for (obj_id allPlayer : allPlayers) {
+            for (obj_id listPlayer : listPlayers) {
+                if (allPlayer == listPlayer) {
+                    utils.addElement(validPlayers, allPlayer);
                 }
             }
         }
@@ -407,10 +404,8 @@ public class instance extends script.base_script
         }
         String[] groupSplit = split(playerList, '_');
         String newList = "";
-        for (int i = 0; i < groupSplit.length; i++)
-        {
-            if (groupSplit[i].equals("" + player))
-            {
+        for (String s : groupSplit) {
+            if (s.equals("" + player)) {
                 continue;
             }
             newList = newList.concat("_" + groupSplit);
@@ -433,10 +428,8 @@ public class instance extends script.base_script
             return false;
         }
         String[] groupSplit = split(groupList, '_');
-        for (int i = 0; i < groupSplit.length; i++)
-        {
-            if (utils.stringToObjId(groupSplit[i]) == player)
-            {
+        for (String s : groupSplit) {
+            if (utils.stringToObjId(s) == player) {
                 return true;
             }
         }
@@ -511,9 +504,8 @@ public class instance extends script.base_script
         {
             return;
         }
-        for (int i = 0; i < players.length; i++)
-        {
-            requestExitPlayer(instance, players[i], team);
+        for (obj_id player : players) {
+            requestExitPlayer(instance, player, team);
         }
     }
     public static void requestExitPlayer(obj_id instance_id, obj_id player, int team) throws InterruptedException
@@ -618,16 +610,15 @@ public class instance extends script.base_script
             return;
         }
         dictionary dict = new dictionary();
-        for (int i = 0; i < players.length; i++)
-        {
-            dict.put("player", players[i]);
+        for (obj_id player : players) {
+            dict.put("player", player);
             messageTo(instance_id, "validatePlayer", dict, 0.0f, false);
         }
     }
     public static dictionary getNextClockTic(int time) throws InterruptedException
     {
         dictionary dict = new dictionary();
-        float remainder = (float)time / 300.0f;
+        float remainder = time / 300.0f;
         if (remainder < 1.0f)
         {
             dict.put("nextTic", time);
@@ -795,12 +786,10 @@ public class instance extends script.base_script
             CustomerServiceLog(instance.INSTANCE_DEBUG_LOG, "attachInstanceScriptsOnPlayer-script parse list was null for player " + player + "(" + getPlayerName(player) + "). We are returning here.");
             return;
         }
-        for (int i = 0; i < parse.length; i++)
-        {
-            if (!hasScript(player, parse[i]))
-            {
-                CustomerServiceLog(instance.INSTANCE_DEBUG_LOG, "attachInstanceScriptsOnPlayer-player " + player + "(" + getPlayerName(player) + ") did not have the script '" + parse[i] + "'. It is being attached now.");
-                attachScript(player, parse[i]);
+        for (String s : parse) {
+            if (!hasScript(player, s)) {
+                CustomerServiceLog(instance.INSTANCE_DEBUG_LOG, "attachInstanceScriptsOnPlayer-player " + player + "(" + getPlayerName(player) + ") did not have the script '" + s + "'. It is being attached now.");
+                attachScript(player, s);
             }
         }
         CustomerServiceLog(instance.INSTANCE_DEBUG_LOG, "attachInstanceScriptsOnPlayer-all scripts have been attached for player " + player + "(" + getPlayerName(player) + ") returning now.");
@@ -818,29 +807,23 @@ public class instance extends script.base_script
         {
             return;
         }
-        for (int i = 0; i < parse.length; i++)
-        {
-            if (hasScript(player, parse[i]))
-            {
-                detachScript(player, parse[i]);
+        for (String s : parse) {
+            if (hasScript(player, s)) {
+                detachScript(player, s);
             }
         }
     }
     public static void validateInstanceScriptsOnPlayer(obj_id player) throws InterruptedException
     {
         String[] allScripts = dataTableGetStringColumn(INSTANCE_DATATABLE, "player_script");
-        for (int i = 0; i < allScripts.length; i++)
-        {
-            if (allScripts[i].equals("none"))
-            {
+        for (String allScript : allScripts) {
+            if (allScript.equals("none")) {
                 continue;
             }
-            String[] parse = split(allScripts[i], ',');
-            for (int q = 0; q < parse.length; q++)
-            {
-                if (hasScript(player, parse[q]))
-                {
-                    detachScript(player, parse[q]);
+            String[] parse = split(allScript, ',');
+            for (String s : parse) {
+                if (hasScript(player, s)) {
+                    detachScript(player, s);
                 }
             }
         }
@@ -860,11 +843,9 @@ public class instance extends script.base_script
         obj_id pilot = space_utils.getPilotForRealsies(ship);
         boolean[] results = new boolean[players.length];
         int idx = 0;
-        for (int i = 0; i < players.length; i++)
-        {
-            if (players[i] != pilot)
-            {
-                results[idx] = requestInstanceMovement(players[i], instance_name);
+        for (obj_id player : players) {
+            if (player != pilot) {
+                results[idx] = requestInstanceMovement(player, instance_name);
                 idx++;
             }
         }
@@ -881,9 +862,8 @@ public class instance extends script.base_script
         {
             return;
         }
-        for (int r = 0; r < players.length; r++)
-        {
-            playMusic(players[r], sound);
+        for (obj_id player : players) {
+            playMusic(player, sound);
         }
     }
     public static void sendInstanceSystemMessage(obj_id dungeon, string_id message) throws InterruptedException

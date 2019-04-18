@@ -16,8 +16,8 @@ public class wirartu_attack extends script.base_script
     {
         final float DAMAGE_THRESHOLD = 0.50f;
         boolean check = false;
-        float max = (float)getMaxHealth(self);
-        float current = (float)getHealth(self);
+        float max = getMaxHealth(self);
+        float current = getHealth(self);
         float ratio = current / max;
         if (ratio < DAMAGE_THRESHOLD)
         {

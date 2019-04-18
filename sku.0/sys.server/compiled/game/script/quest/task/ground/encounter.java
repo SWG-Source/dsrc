@@ -98,31 +98,22 @@ public class encounter extends script.quest.task.ground.base_task
             obj_id[] spawnList = getObjIdArrayObjVar(self, spawnListObjVarName);
             if (spawnList != null)
             {
-                for (int k = 0; k < spawnList.length; ++k)
-                {
-                    obj_id spawn = spawnList[k];
-                    if (spawn == creature)
-                    {
+                for (obj_id spawn : spawnList) {
+                    if (spawn == creature) {
                         groundquests.questOutputDebugInfo(self, questCrc, taskId, taskType, "messageEncounterTaskCreatureDied", "[" + creature + "] being tracked for an encounter task was killed.");
-                        if (spawnList.length == 1)
-                        {
+                        if (spawnList.length == 1) {
                             removeObjVar(self, spawnListObjVarName);
                             questCompleteTask(questCrc, taskId, self);
-                        }
-                        else 
-                        {
+                        } else {
                             Vector newSpawnListResizable = new Vector();
                             newSpawnListResizable.setSize(0);
-                            for (int l = 0; l < spawnList.length; ++l)
-                            {
-                                if (spawnList[l] != spawnList[k])
-                                {
-                                    utils.addElement(newSpawnListResizable, spawnList[l]);
+                            for (obj_id obj_id : spawnList) {
+                                if (obj_id != spawn) {
+                                    utils.addElement(newSpawnListResizable, obj_id);
                                 }
                             }
                             obj_id[] newSpawnList = new obj_id[0];
-                            if (newSpawnListResizable != null)
-                            {
+                            if (newSpawnListResizable != null) {
                                 newSpawnList = new obj_id[newSpawnListResizable.size()];
                                 newSpawnListResizable.toArray(newSpawnList);
                             }
@@ -163,11 +154,8 @@ public class encounter extends script.quest.task.ground.base_task
                 obj_id[] spawnList = getObjIdArrayObjVar(player, spawnListObjVarName);
                 if (spawnList != null)
                 {
-                    for (int k = 0; k < spawnList.length; ++k)
-                    {
-                        obj_id spawn = spawnList[k];
-                        if (!ai_lib.isAiDead(spawn))
-                        {
+                    for (obj_id spawn : spawnList) {
+                        if (!ai_lib.isAiDead(spawn)) {
                             dictionary params = new dictionary();
                             int cleanupTime = rand(cleanupTimeMin, cleanupTimeMax);
                             messageTo(spawn, "messageEncounterCleanup", params, cleanupTime, false);

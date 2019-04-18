@@ -65,11 +65,9 @@ public class geiger extends script.base_script
     {
         obj_id datapad = utils.getPlayerDatapad(player);
         obj_id[] contents = getContents(datapad);
-        for (int i = 0; i < contents.length; i++)
-        {
-            if (hasScript(contents[i], GEIGER_SCRIPT))
-            {
-                destroyObject(contents[i]);
+        for (obj_id content : contents) {
+            if (hasScript(content, GEIGER_SCRIPT)) {
+                destroyObject(content);
             }
         }
         clearGeiger(player);

@@ -298,13 +298,13 @@ public class static_item extends script.base_script
         setObjVar(object, "weapon.original_max_range", (float)maxRange);
         setWeaponMinDamage(object, minDamage);
         setWeaponMaxDamage(object, maxDamage);
-        setWeaponAttackSpeed(object, (float)attackSpeed / 100.0f);
-        setWeaponWoundChance(object, (float)woundChance / 10.0f);
+        setWeaponAttackSpeed(object, attackSpeed / 100.0f);
+        setWeaponWoundChance(object, woundChance / 10.0f);
         setMaxHitpoints(object, (hp));
         setHitpoints(object, (hp));
         setWeaponAccuracy(object, accuracy);
         setWeaponDamageType(object, damageType);
-        setWeaponRangeInfo(object, (float)minRange, (float)maxRange);
+        setWeaponRangeInfo(object, minRange, maxRange);
         setWeaponAttackCost(object, attackCost);
         setWeaponElementalDamage(object, elementalType, elementalDamage);
         weapons.setHeavyWeaponAoeSplashPercent(object);
@@ -1422,7 +1422,7 @@ public class static_item extends script.base_script
             dctItemInfo.put("strSuffix", strSuffix);
             setupDynamicItemName(objObject, dctItemInfo);
             attachScript(objObject, "item.armor.dynamic_armor");
-            int basePrice = (int)(Math.pow((intLevel * 12.0f), 1.3f));
+            int basePrice = (int)(StrictMath.pow((intLevel * 12.0f), 1.3f));
             if (basePrice > 10200)
             {
                 basePrice = 10200;
@@ -1557,7 +1557,7 @@ public class static_item extends script.base_script
         setObjVar(objArmor, "armor.fake_armor.electricity", (int)electProtFloat);
         if (boolSetupData)
         {
-            int basePrice = (int)(Math.pow((intLevel * 12.0f), 1.3f));
+            int basePrice = (int)(StrictMath.pow((intLevel * 12.0f), 1.3f));
             if (basePrice > 10200)
             {
                 basePrice = 10200;
@@ -1601,8 +1601,8 @@ public class static_item extends script.base_script
         float fltMaxDamageVal;
         if (boolSetupData)
         {
-            fltMinDamageVal = rand(0f, 1f);
-            fltMaxDamageVal = rand(0f, 1f);
+            fltMinDamageVal = rand(0.0f, 1.0f);
+            fltMaxDamageVal = rand(0.0f, 1.0f);
             setObjVar(objWeapon, "dynamic_item.minDamageVal", fltMinDamageVal);
             setObjVar(objWeapon, "dynamic_item.maxDamageVal", fltMaxDamageVal);
         }
@@ -1617,8 +1617,8 @@ public class static_item extends script.base_script
         int intMinDamageMax = dctWeaponStats.getInt(strWeaponString + "_min_damage_max");
         int intMaxDamageMin = dctWeaponStats.getInt(strWeaponString + "_max_damage_min");
         int intMaxDamageMax = dctWeaponStats.getInt(strWeaponString + "_max_damage_max");
-        float fltMin = (float)(intMinDamageMax - intMinDamageMin);
-        float fltMax = (float)(intMaxDamageMax - intMaxDamageMin);
+        float fltMin = (intMinDamageMax - intMinDamageMin);
+        float fltMax = (intMaxDamageMax - intMaxDamageMin);
         fltMin = fltMin * fltMinDamageVal;
         fltMax = fltMax * fltMaxDamageVal;
         int intMinDamage = intMinDamageMin + (int)fltMin;
@@ -1772,7 +1772,7 @@ public class static_item extends script.base_script
         float roll = rand(1.0f, 100.0f);
         for (float f = 0.0f; f <= 18; f += exponentIncrement)
         {
-            currentIncrement = (float)Math.pow(FLOOR_CHANCE, 1 + (f / 100));
+            currentIncrement = (float) StrictMath.pow(FLOOR_CHANCE, 1 + (f / 100));
             if (roll < currentIncrement)
             {
                 break;
@@ -1835,7 +1835,7 @@ public class static_item extends script.base_script
     {
         if (fltRange != 0)
         {
-            float fltDiff = (float)(intMaxValue - intMinValue);
+            float fltDiff = (intMaxValue - intMinValue);
             fltDiff = fltDiff * fltRange;
             int intPrice = intMinValue + (int)fltDiff;
             setObjVar(objObject, "junkDealer.intPrice", intPrice);
