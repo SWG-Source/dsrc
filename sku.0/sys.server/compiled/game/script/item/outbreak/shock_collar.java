@@ -15,7 +15,7 @@ public class shock_collar extends script.base_script
     public int aiCorpsePrepared(obj_id self, dictionary params) throws InterruptedException
     {
         // Roll to see if we should drop the shock collar or not.
-        if (rand(1, 100) >= SHOCK_COLLAR_LOOT_CHANCE)
+        if (rand(1, 100) > SHOCK_COLLAR_LOOT_CHANCE)
         {
             return SCRIPT_CONTINUE;
         }
