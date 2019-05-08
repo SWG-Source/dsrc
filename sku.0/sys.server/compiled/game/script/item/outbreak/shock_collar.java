@@ -10,19 +10,17 @@ public class shock_collar extends script.base_script
     public shock_collar()
     {
     }
-    public static final String SHOCK_COLLAR_LOOT_ITEM = "item_tcg_loot_reward_series6_shock_collar";
-    public static final int SHOCK_COLLAR_LOOT_CHANCE = 5;
-
+    private static final int SHOCK_COLLAR_LOOT_CHANCE = 5;
 
     public int aiCorpsePrepared(obj_id self, dictionary params) throws InterruptedException
     {
-        int chanceDna = rand(1, 100);
-        if (chanceDna > SHOCK_COLLAR_LOOT_CHANCE)
+        // Roll to see if we should drop the shock collar or not.
+        if (rand(1, 100) >= SHOCK_COLLAR_LOOT_CHANCE)
         {
             return SCRIPT_CONTINUE;
         }
-        obj_id inv = utils.getInventoryContainer(self);
-        obj_id dna = static_item.createNewItemFunction(SHOCK_COLLAR_LOOT_ITEM, inv);
+        // Create the shock collar and put it in the dead creature's inventory so it can be looted.
+        static_item.createNewItemFunction("item_tcg_loot_reward_series6_shock_collar", utils.getInventoryContainer(self));
         return SCRIPT_CONTINUE;
     }
 }
