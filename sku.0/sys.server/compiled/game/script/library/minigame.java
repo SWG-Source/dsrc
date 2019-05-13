@@ -1471,7 +1471,7 @@ public class minigame extends script.base_script
         }
         if (resourceAmt > 0)
         {
-            String resourceType = params.getString(COL_RESOURCE_TYPE);
+            String resourceType = params.getString(COL_RESOURCE_TYPE) + "_" + castLoc.area;
             if (resourceType != null && !resourceType.equals(""))
             {
                 resource.createRandom(resourceType, resourceAmt, castLoc, fish, player, 1);
