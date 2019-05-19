@@ -1471,10 +1471,10 @@ public class minigame extends script.base_script
         }
         if (resourceAmt > 0)
         {
-            String resourceType = params.getString(COL_RESOURCE_TYPE) + "_" + castLoc.area;
+            String resourceType = params.getString(COL_RESOURCE_TYPE);
             if (resourceType != null && !resourceType.equals(""))
             {
-                resource.createRandom(resourceType, resourceAmt, castLoc, fish, player, 1);
+                resource.createRandom(resourceType + "_" + castLoc.area, resourceAmt, castLoc, fish, player, 1);
             }
         }
         int chumNorm = params.getInt(COL_CHUM_NORM);
