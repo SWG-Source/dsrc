@@ -589,7 +589,7 @@ public class terminal_travel_instant extends script.base_script
             if (canMarkAtLocation(player) && markLocation != null && markScene != null)
             {
                 String name = "";
-                if(hasObjVar(self, "itv_tcg_location")){
+                if(hasObjVar(self, "tcg_itv_location")){
                     name = "travel_tcg";
                 }
                 else if(hasObjVar(self, "itv_snowspeeder")) {
