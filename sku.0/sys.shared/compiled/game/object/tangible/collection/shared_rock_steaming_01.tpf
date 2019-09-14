@@ -7,5 +7,5 @@
 objectName = "collection" "rock_steaming_01_n"
 detailedDescription = "collection" "rock_steaming_01_d"
 
-appearanceFilename = ""
+appearanceFilename = "appearance/rock_tiny_purp.apt"
 clientDataFile = "clientdata/item/client_shared_item_rock_steaming.cdf"
