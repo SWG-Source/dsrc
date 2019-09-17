@@ -7,4 +7,4 @@
 objectName = "static_item_n" "weapon_tow_rifle_03_02"
 detailedDescription = "static_item_d" "weapon_tow_rifle_03_02"
 
-appearanceFilename = ""
+appearanceFilename = "appearance/wp_rifle_mustafar_disruptor.apt"

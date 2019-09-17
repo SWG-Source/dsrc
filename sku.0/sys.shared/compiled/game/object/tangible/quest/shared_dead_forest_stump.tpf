@@ -7,8 +7,10 @@
 
 @class object_template 5
 
+
+
 objectName = "item_n"  "dead_forest_stump"
 
 detailedDescription = "item_d"  "dead_forest_stump"
 
-appearanceFilename = ""
+appearanceFilename = "appearance/decd_wroshyr_stump_dead01.apt"

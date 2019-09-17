@@ -10,6 +10,6 @@ surfaceType = ST_stone
 
 detailedDescription = "string_table"  "Deathstar Debris"
 
-appearanceFilename = ""
+appearanceFilename = "appearance/thm_dath_mtn_clan_pillar_s01.apt"
 
 portalLayoutFilename = ""

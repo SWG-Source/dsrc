@@ -4,8 +4,7 @@
 
 @class object_template 5
 
+
 objectName = "collection" "datapad_05_n"
-
 detailedDescription = "collection" "datapad_05_d"
-
-appearanceFilename = ""
+appearanceFilename = "appearance/eqp_collections_datapad_s05.apt"

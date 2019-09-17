@@ -11,4 +11,4 @@ objectName = "som/som_item" "som_burning_marker_n"
 
 detailedDescription = "som/som_item" "som_burning_marker_d"
 
-appearanceFilename = ""
+appearanceFilename = "appearance/poi_talus_ley_line_tower.apt"
