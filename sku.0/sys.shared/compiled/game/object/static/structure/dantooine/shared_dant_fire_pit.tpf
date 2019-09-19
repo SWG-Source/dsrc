@@ -13,6 +13,6 @@ lookAtText = "string_table"  "pristine wall"
 
 snapToTerrain = false
 
-appearanceFilename = ""
+appearanceFilename = "appearance/thm_dant_fire_pit.apt"
 
 portalLayoutFilename = ""

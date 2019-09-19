@@ -7,4 +7,4 @@
 
 objectName = "collection" "datapad_07_n"
 detailedDescription = "collection" "datapad_07_d"
-appearanceFilename = ""
+appearanceFilename = "appearance/eqp_collections_datapad_s02.apt"
