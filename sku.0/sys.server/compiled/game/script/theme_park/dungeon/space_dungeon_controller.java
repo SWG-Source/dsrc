@@ -26,22 +26,23 @@ public class space_dungeon_controller extends script.base_script
     }
     public int OnClusterWideDataResponse(obj_id self, String manage_name, String dungeon_name, int request_id, String[] element_name_list, dictionary[] dungeon_data, int lock_key) throws InterruptedException
     {
-        String name = space_dungeon.getDungeonName(self);
+        String instanceName = space_dungeon.getDungeonInstanceName(self);
         String scene = getCurrentSceneName();
-        location loc = getLocation(self);
         if (dungeon_data != null && dungeon_data.length == 1 && dungeon_data[0].containsKey("scene"))
         {
             String oldScene = dungeon_data[0].getString("scene");
             if (oldScene != null && scene != null && !oldScene.equals(scene))
             {
+                String name = space_dungeon.getDungeonName(self);
                 LOG("space_dungeon", "space_dungeon_controller.OnClusterWideDataResponse -- !!! scene has changed from " + oldScene + " to " + scene + "! This is very bad! Somehow this space_dungeon has moved planets - expect bad things to happen because of it. In order to lessen the pain, this instance (" + manage_name + ":" + dungeon_name + ") will die an honorable death and kill itself now");
-                removeClusterWideData(manage_name, space_dungeon.getDungeonInstanceName(self), lock_key);
+                removeClusterWideData(manage_name, instanceName, lock_key);
                 releaseClusterWideDataLock(manage_name, lock_key);
                 destroyObject(self);
                 return SCRIPT_CONTINUE;
             }
         }
         dictionary dungeon_info = new dictionary();
+        location loc = getLocation(self);
         dungeon_info.put("dungeon_id", self);
         dungeon_info.put("scene", scene);
         dungeon_info.put("session_id", -1);
@@ -50,8 +51,8 @@ public class space_dungeon_controller extends script.base_script
         dungeon_info.put("position_z", loc.z);
         dungeon_info.put("buildout_area", locations.getBuildoutAreaName(self));
         dungeon_info.put("buildout_row", locations.getBuildoutAreaRow(self));
-        LOG("space_dungeon", "dungeon_instance ->" + space_dungeon.getDungeonInstanceName(self));
-        replaceClusterWideData(manage_name, space_dungeon.getDungeonInstanceName(self), dungeon_info, true, lock_key);
+        LOG("space_dungeon", "dungeon_instance ->" + instanceName);
+        replaceClusterWideData(manage_name, instanceName, dungeon_info, true, lock_key);
         releaseClusterWideDataLock(manage_name, lock_key);
         messageTo(self, "msgSpaceDungeonCleanup", null, 1.0f, false);
         return SCRIPT_CONTINUE;
@@ -169,11 +170,6 @@ public class space_dungeon_controller extends script.base_script
     {
         obj_id player = params.getObjId(space_dungeon.PLAYER_ID);
         space_dungeon.incrementDungeonParticipantCounter(self, player);
-        String buildout_area = hasObjVar(self, space_dungeon.VAR_BUILDOUT_AREA) ? getStringObjVar(self, space_dungeon.VAR_BUILDOUT_AREA) : "invalid";
-        int buildout_row = hasObjVar(self, space_dungeon.VAR_BUILDOUT_ROW) ? getIntObjVar(self, space_dungeon.VAR_BUILDOUT_ROW) : -1;
-        params.put("buildout_area", buildout_area);
-        params.put("buildout_row", buildout_row);
-        messageTo(player, "stampDungeonArea", params, 0.0f, false);
         return SCRIPT_CONTINUE;
     }
     public int removePlayerFromParticipantIdList(obj_id self, dictionary params) throws InterruptedException

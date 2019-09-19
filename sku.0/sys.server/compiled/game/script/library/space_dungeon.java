@@ -117,6 +117,7 @@ public class space_dungeon extends script.base_script
         String name = getDungeonInstanceName(dungeon);
         String buildout_area = locations.getBuildoutAreaName(dungeon);
         int buildout_row = locations.getBuildoutAreaRow(dungeon);
+        LOG("space_dungeon", "Setting objvars on dungeon controller.  BuildoutArea = " + buildout_area + ", BuildoutRow = " + buildout_row);
         setObjVar(dungeon, VAR_BUILDOUT_AREA, buildout_area);
         setObjVar(dungeon, VAR_BUILDOUT_ROW, buildout_row);
         messageTo(dungeon, "dungeonCleanup", null, 0, false);
@@ -790,22 +791,17 @@ public class space_dungeon extends script.base_script
         moveSinglePlayerIntoDungeon(player, dungeon, dungeon_name, dungeon_position);
         return true;
     }
-    public static void moveSinglePlayerIntoDungeon(obj_id player, obj_id dungeon, String dungeon_name, location dungeon_position) throws InterruptedException
-    {
-        if (!isDungeonLockoutTimerExpired(player, dungeon_name))
-        {
+    public static void moveSinglePlayerIntoDungeon(obj_id player, obj_id dungeon, String dungeon_name, location dungeon_position) throws InterruptedException {
+        if (!isDungeonLockoutTimerExpired(player, dungeon_name)) {
             displayDungeonLockoutTimerSUI(player, dungeon_name);
             return;
         }
         LOG("space_dungeon", "space_dungeon.moveSinglePlayerIntoDungeon [" + player + "] -> [" + dungeon + "].");
         boolean isSpaceScene = isSpaceScene();
-        if (isSpaceScene)
-        {
-            if (!hasObjVar(player, VAR_PILOT_ID))
-            {
+        if (isSpaceScene) {
+            if (!hasObjVar(player, VAR_PILOT_ID)) {
                 obj_id playerPilotedShip = isSpaceScene ? getPilotedShip(player) : null;
-                if (null != playerPilotedShip)
-                {
+                if (null != playerPilotedShip) {
                     location shipPreviousLocation = getLocation(playerPilotedShip);
                     setObjVar(player, VAR_PILOT_ID, player);
                     setObjVar(player, VAR_PILOT_SHIP_ID, playerPilotedShip);
@@ -816,14 +812,20 @@ public class space_dungeon extends script.base_script
         }
         location start_loc = space_dungeon_data.getDungeonStartLocationRandomized(dungeon_name);
         String start_cell = space_dungeon_data.getDungeonStartCellName(dungeon_name);
-        LOG("space_dungeon", "space_dungeon.movePlayerGroupToDungeon: area ->" + dungeon_position.area + " " + dungeon_position.x + "/" + dungeon_position.y + "/" + dungeon_position.z + " " + start_loc.x + "/" + start_loc.y + "/" + start_loc.z + " (" + start_cell + ")");
+        LOG("space_dungeon", "space_dungeon.moveSinglePlayerIntoDungeon: area ->" + dungeon_position.area + " " + dungeon_position.x + "/" + dungeon_position.y + "/" + dungeon_position.z + " " + start_loc.x + "/" + start_loc.y + "/" + start_loc.z + " (" + start_cell + ")");
         setObjVar(player, VAR_DUNGEON_ID, dungeon);
+        setObjVar(player, VAR_BUILDOUT_AREA, locations.getBuildoutAreaName(dungeon_position));
+        setObjVar(player, VAR_BUILDOUT_ROW, locations.getBuildoutAreaRow(dungeon_position));
+
         utils.dismountRiderJetpackCheck(player);
         callable.storeCallables(player);
+
         dictionary dict = new dictionary();
         dict.put(PLAYER_ID, player);
-        messageTo(dungeon, "addPlayerToParticipantIdList", dict, 0, false);
+        messageTo(dungeon, "addPlayerToParticipantIdList", dict, 0.0f, false);
+
         setInstanceControllerIdOnPlayer(player, dungeon);
+
         if (start_cell.equals(""))
         {
             vector post = new vector(dungeon_position.x + start_loc.x, dungeon_position.y + start_loc.y, dungeon_position.z + start_loc.z);
@@ -850,6 +852,7 @@ public class space_dungeon extends script.base_script
         obj_id dungeon = findValidDungeonForEject(player);
         if (dungeon == null)
         {
+            LOG("space_dungeon", "space_dungeon.ejectPlayerFromDungeon -- could not find a valid dungeon for player");
             performEmergencyEject(player);
             return true;
         }
@@ -1332,6 +1335,7 @@ public class space_dungeon extends script.base_script
         obj_id dungeon = findValidDungeonForEject(player);
         if (!dataTableOpen(buildout_table) && !isCorvette)
         {
+            LOG("space_dungeon", "Could not open buildout table (" + buildout_table + ") and we're not the corvette for player (" + player + ") so devalidating.");
             deValidatePlayerForDungeon(player, dungeon);
             return false;
         }
@@ -1340,23 +1344,27 @@ public class space_dungeon extends script.base_script
         String player_saved_area = getStringObjVar(player, VAR_BUILDOUT_AREA);
         if (area_name == null && !isCorvette)
         {
+            LOG("space_dungeon", "Could not get area name and we're not the corvette for player (" + player + ") so devalidating");
             deValidatePlayerForDungeon(player, dungeon);
             return false;
         }
         int dungeon_row = dataTableSearchColumnForString(area_name, "dungeon_area", space_dungeon_data.DUNGEON_DATATABLE);
         if (dungeon_row == -1 && !isCorvette)
         {
+            LOG("space_dungeon", "Could not get dungeon row and we're not the corvette for player (" + player + ") so devalidating");
             deValidatePlayerForDungeon(player, dungeon);
             return false;
         }
         if ((player_saved_area == null || player_saved_area.equals("")) && dungeon_row > -1 && !isCorvette)
         {
+            LOG("space_dungeon", "Could not find Player Saved Area, but did find the dungeon row (" + dungeon_row + ") and we're not the corvette for player (" + player + ") so EJECTING");
             ejectPlayerFromDungeon(player);
             return false;
         }
         String dungeon_area = dataTableGetString(space_dungeon_data.DUNGEON_DATATABLE, dungeon_row, "dungeon_area");
         if ((player_saved_area != null && !player_saved_area.equals("")) && (!player_saved_area.equals(area_name)) && (!player_saved_area.equals(dungeon_area)) && !isCorvette)
         {
+            LOG("space_dungeon", "Found player saved area ("+player_saved_area+"), but it doesn't match our current area ("+area_name+") PLUS, we're not the corvette for player (" + player + ") so EJECTING");
             ejectPlayerFromDungeon(player);
             return false;
         }
@@ -1366,6 +1374,7 @@ public class space_dungeon extends script.base_script
             int locationRow = locations.getBuildoutAreaRow(player);
             if (playerBuildoutRow != locationRow)
             {
+                LOG("space_dungeon", "Player buildout row ("+playerBuildoutRow+")doesn't match the location row ("+locationRow+") - for player (" + player + ") so EJECTING");
                 ejectPlayerFromDungeon(player);
                 return false;
             }
@@ -1373,6 +1382,7 @@ public class space_dungeon extends script.base_script
         obj_id dungeonController = getDungeonIdForPlayer(player);
         if (!isIdValid(dungeonController) || !exists(dungeonController) || !hasScript(dungeonController, "theme_park.dungeon.space_dungeon_controller"))
         {
+            LOG("space_dungeon", "Couldn't identify the dungeon controller for the instance or it doesn't have the controller script for controller (" + dungeonController + ") so EJECTING");
             ejectPlayerFromDungeon(player);
             return false;
         }
@@ -1380,6 +1390,7 @@ public class space_dungeon extends script.base_script
         int player_session_id = space_dungeon.getDungeonSessionId(player);
         if (dungeon_session_id == -1 || dungeon_session_id != player_session_id)
         {
+            LOG("space_dungeon", "Dungeon Session ID ("+dungeon_session_id+") does not match Player Session ID ("+player_session_id+") for player (" + player + ") so EJECTING");
             ejectPlayerFromDungeon(player);
             return false;
         }

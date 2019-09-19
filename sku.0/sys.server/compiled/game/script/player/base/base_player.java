@@ -11825,22 +11825,24 @@ public class base_player extends script.base_script
         utils.setScriptVar(self, "recieved_city_motd", 1);
         return SCRIPT_CONTINUE;
     }
-    public int stampDungeonArea(obj_id self, dictionary params) throws InterruptedException
-    {
-        String dungeon_area = params.getString("buildout_area");
-        if (dungeon_area.equals("invalid"))
-        {
-            return SCRIPT_CONTINUE;
-        }
-        int buildout_row = params.getInt("buildout_row");
-        if (buildout_row == -1)
-        {
-            return SCRIPT_CONTINUE;
-        }
-        setObjVar(self, space_dungeon.VAR_BUILDOUT_AREA, dungeon_area);
-        setObjVar(self, space_dungeon.VAR_BUILDOUT_ROW, buildout_row);
-        return SCRIPT_CONTINUE;
-    }
+//    public int stampDungeonArea(obj_id self, dictionary params) throws InterruptedException
+//    {
+//        LOG("space_dungeon", "base_player.stampDungeonArea -- Stamping player with obj vars.");
+//        String dungeon_area = params.getString("buildout_area");
+//
+//        if (dungeon_area.equals("invalid"))
+//        {
+//            return SCRIPT_CONTINUE;
+//        }
+//        int buildout_row = params.getInt("buildout_row");
+//        if (buildout_row == -1)
+//        {
+//            return SCRIPT_CONTINUE;
+//        }
+//        setObjVar(self, space_dungeon.VAR_BUILDOUT_AREA, dungeon_area);
+//        setObjVar(self, space_dungeon.VAR_BUILDOUT_ROW, buildout_row);
+//        return SCRIPT_CONTINUE;
+//    }
     public int removeDungeonArea(obj_id self, dictionary params) throws InterruptedException
     {
         String dungeon_area = params.getString("buildout_area");
