@@ -74,12 +74,14 @@ public class retrieve_item_on_item extends script.base_script
     }
     public int OnObjectMenuSelect(obj_id self, obj_id player, int item) throws InterruptedException
     {
-        location here = getLocation(player);
-        location term = getLocation(self);
-        float dist = getDistance(here, term);
         if (item == menu_info_types.ITEM_USE || item == menu_info_types.CONVERSE_START)
         {
-            if (isDead(player) || isIncapacitated(player) || dist > 5.0)
+            float maxUseDistance = hasObjVar(self, "maxUseDistance") ? getFloatObjVar(self, "maxUseDistance") : 5.0f;
+
+            location here = getLocation(player);
+            location term = getLocation(self);
+            float dist = getDistance(here, term);
+            if (isDead(player) || isIncapacitated(player) || dist > maxUseDistance)
             {
                 return SCRIPT_CONTINUE;
             }

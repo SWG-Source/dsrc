@@ -7,3 +7,6 @@
 sharedTemplate = "object/tangible/quest/shared_legacy_head_shuttle.iff"
 
 scripts =+ [ "quest.task.ground.retrieve_item_on_item" ]
+
+objvars =+ [ "maxUseDistance" = 8.0 ]
+
