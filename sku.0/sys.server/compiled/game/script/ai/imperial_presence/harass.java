@@ -390,6 +390,7 @@ public class harass extends script.base_script
         }
         removeTriggerVolume(VOL_DETAIN);
         utils.removeScriptVarTree(self, SCRIPTVAR_HARASS_BASE);
+        utils.removeObjVar(self, "ai.persistantFollowing");
     }
     public void volDetainBreach(obj_id self, obj_id who) throws InterruptedException
     {
