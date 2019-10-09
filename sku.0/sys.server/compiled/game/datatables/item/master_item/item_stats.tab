@@ -1145,6 +1145,7 @@ item_power_crystal_04_17			int:jedi.crystal.stats.min_dmg=17,int:jedi.crystal.st
 item_power_crystal_04_18			int:jedi.crystal.stats.min_dmg=18,int:jedi.crystal.stats.max_dmg=19,int:jedi.crystal.stats.quality=6,int:jedi.crystal.stats.level=-1	index_color_1=31							
 item_power_crystal_04_19			int:jedi.crystal.stats.min_dmg=19,int:jedi.crystal.stats.max_dmg=20,int:jedi.crystal.stats.quality=6,int:jedi.crystal.stats.level=-1	index_color_1=31							
 item_power_crystal_04_20			int:jedi.crystal.stats.min_dmg=20,int:jedi.crystal.stats.max_dmg=22,int:jedi.crystal.stats.quality=6,int:jedi.crystal.stats.level=-1	index_color_1=31							
+item_power_crystal_04_21			int:jedi.crystal.stats.min_dmg=23,int:jedi.crystal.stats.max_dmg=25,int:jedi.crystal.stats.quality=7,int:jedi.crystal.stats.level=-1	index_color_1=31
 item_npe_dance_prop_l_entertainer_02_01			int:nocert=1								
 item_npe_dance_prop_r_entertainer_02_01			int:nocert=1								
 item_npe_necklace_protection_02_01	agility_modified=3										
