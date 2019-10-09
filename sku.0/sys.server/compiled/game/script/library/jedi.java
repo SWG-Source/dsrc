@@ -2137,7 +2137,7 @@ public class jedi extends script.base_script
         {
             return "item_power_crystal_04_18";
         }
-        else 
+        else
         {
             return "item_power_crystal_04_13";
         }
@@ -2214,11 +2214,7 @@ public class jedi extends script.base_script
     public static boolean isForceSensitive(obj_id player) throws InterruptedException
     {
         String classTemplate = getSkillTemplate(player);
-        if (classTemplate != null && classTemplate.startsWith("force"))
-        {
-            return true;
-        }
-        return false;
+        return classTemplate != null && classTemplate.startsWith("force") ? true : false;
     }
     public static boolean isForceSensitiveLevelRequired(obj_id player, int requiredLevel) throws InterruptedException
     {
@@ -2231,38 +2227,6 @@ public class jedi extends script.base_script
     }
     public static boolean hasAnyUltraCloak(obj_id player) throws InterruptedException
     {
-        if (utils.playerHasStaticItemInBankOrInventory(player, JEDI_CLOAK_LIGHT_HOOD_UP))
-        {
-            return true;
-        }
-        if (utils.playerHasStaticItemInBankOrInventory(player, JEDI_CLOAK_DARK_HOOD_UP))
-        {
-            return true;
-        }
-        if (utils.playerHasStaticItemInBankOrInventory(player, JEDI_CLOAK_LIGHT_HOOD_DOWN))
-        {
-            return true;
-        }
-        if (utils.playerHasStaticItemInBankOrInventory(player, JEDI_CLOAK_DARK_HOOD_DOWN))
-        {
-            return true;
-        }
-        if (utils.playerHasStaticItemInAppearanceInventory(player, JEDI_CLOAK_LIGHT_HOOD_UP))
-        {
-            return true;
-        }
-        if (utils.playerHasStaticItemInAppearanceInventory(player, JEDI_CLOAK_DARK_HOOD_UP))
-        {
-            return true;
-        }
-        if (utils.playerHasStaticItemInAppearanceInventory(player, JEDI_CLOAK_LIGHT_HOOD_DOWN))
-        {
-            return true;
-        }
-        if (utils.playerHasStaticItemInAppearanceInventory(player, JEDI_CLOAK_DARK_HOOD_DOWN))
-        {
-            return true;
-        }
-        return false;
+        return utils.playerHasStaticItemInBankOrInventory(player, JEDI_CLOAK_LIGHT_HOOD_UP) || utils.playerHasStaticItemInBankOrInventory(player, JEDI_CLOAK_DARK_HOOD_UP) || utils.playerHasStaticItemInBankOrInventory(player, JEDI_CLOAK_LIGHT_HOOD_DOWN) || utils.playerHasStaticItemInBankOrInventory(player, JEDI_CLOAK_DARK_HOOD_DOWN) || utils.playerHasStaticItemInAppearanceInventory(player, JEDI_CLOAK_LIGHT_HOOD_UP) utils.playerHasStaticItemInAppearanceInventory(player, JEDI_CLOAK_DARK_HOOD_UP) || utils.playerHasStaticItemInAppearanceInventory(player, JEDI_CLOAK_LIGHT_HOOD_DOWN) || utils.playerHasStaticItemInAppearanceInventory(player, JEDI_CLOAK_DARK_HOOD_DOWN) ? true : false;
     }
 }
