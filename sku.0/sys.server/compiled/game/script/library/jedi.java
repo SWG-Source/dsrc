@@ -69,6 +69,7 @@ public class jedi extends script.base_script
     public static final int CRYSTAL_SELECT = 4;
     public static final int CRYSTAL_PREMIUM = 5;
     public static final int CRYSTAL_FLAWLESS = 6;
+    public static final int CRYSTAL_PERFECT = 7;
     public static final int MIN_CRYSTAL_TUNE_PLAYER_LEVEL = 20;
     public static final int MIN_NON_FR_JEDI_BOUNTY = 25000;
     public static final int PER_JEDI_SKILL_PT_COST = 1000;
@@ -1597,33 +1598,22 @@ public class jedi extends script.base_script
     }
     public static int getCrystalQuality(int level) throws InterruptedException
     {
-        if (level < 40)
-        {
+        if (level < 40) {
             return CRYSTAL_POOR;
-        }
-        else if (level < 70)
-        {
+        } else if (level < 70) {
             return CRYSTAL_FAIR;
-        }
-        else if (level < 100)
-        {
+        } else if (level < 100) {
             return CRYSTAL_GOOD;
-        }
-        else if (level < 140)
-        {
+        } else if (level < 140) {
             return CRYSTAL_QUALITY;
-        }
-        else if (level < 220)
-        {
+        } else if (level < 220) {
             return CRYSTAL_SELECT;
-        }
-        else if (level < 330)
-        {
+        } else if (level < 330) {
             return CRYSTAL_PREMIUM;
-        }
-        else 
-        {
+        } else if (level < 490) {
             return CRYSTAL_FLAWLESS;
+        } else {
+            return CRYSTAL_PERFECT;
         }
     }
     public static int getStaticCrystalQuality(int level) throws InterruptedException
@@ -1644,10 +1634,11 @@ public class jedi extends script.base_script
             return CRYSTAL_PREMIUM;
             case 6:
             return CRYSTAL_FLAWLESS;
+            case 7:
+            return CRYSTAL_PERFECT;
             default:
-            break;
+            return CRYSTAL_GOOD;
         }
-        return CRYSTAL_GOOD;
     }
     public static boolean forceCreateColorCrystal(obj_id player, int color) throws InterruptedException
     {
