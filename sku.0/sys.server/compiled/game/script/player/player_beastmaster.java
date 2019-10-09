@@ -1297,7 +1297,7 @@ public class player_beastmaster extends script.base_script
             beast_lib.setBeastHueThird(object, colorArray[4], utils.stringToInt(colorArray[5]));
         }
         utils.removeScriptVar(object, "beast.tool_oid");
-        destroyObject(beastDye);
+        static_item.decrementStaticItem(beastDye);
         return SCRIPT_CONTINUE;
     }
 }
