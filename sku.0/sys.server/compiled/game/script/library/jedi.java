@@ -1393,7 +1393,7 @@ public class jedi extends script.base_script
     {
         int color = getIntObjVar(saber, VAR_SABER_BASE + "." + VAR_COLOR);
         int colorRow = dataTableSearchColumnForInt(color, "color", JEDI_CRYSTAL_COLOR_TABLE);
-        if (color == 31 || colorRow < 0)
+        if (color > 31 || colorRow < 0)
         {
             setWeaponElementalType(saber, DAMAGE_NONE);
             setWeaponElementalValue(saber, 0);
