@@ -12,3 +12,5 @@ objectName = "wearables_name"  "default_bicep_r"
 detailedDescription = "wearables_detail"  "default_bicep_r"
 
 arrangementDescriptorFilename = "abstract/slot/arrangement/wearables/bicep_r.iff"
+
+gameObjectType = GOT_armor_arm
