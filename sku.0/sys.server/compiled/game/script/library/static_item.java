@@ -34,17 +34,21 @@ public class static_item extends script.base_script
     public static final String SET_BONUS_TABLE = "datatables/item/item_sets.iff";
     public static obj_id createNewItemFunction(String itemName, obj_id container) throws InterruptedException
     {
-        return createNewItemFunction(itemName, container, null, 0);
+        return createNewItemFunction(itemName, container, null, 0, false);
     }
-    public static obj_id createNewItemFunction(String itemName, obj_id container, int charges) throws InterruptedException
+    public static obj_id createNewItemFunction(String itemName, obj_id container, boolean overloaded) throws InterruptedException
     {
-        return createNewItemFunction(itemName, container, null, charges);
+        return createNewItemFunction(itemName, container, null, 0, overloaded);
     }
     public static obj_id createNewItemFunction(String itemName, obj_id container, location pos) throws InterruptedException
     {
-        return createNewItemFunction(itemName, container, pos, 0);
+        return createNewItemFunction(itemName, container, pos, 0, false);
     }
     public static obj_id createNewItemFunction(String itemName, obj_id container, location pos, int charges) throws InterruptedException
+    {
+        return createNewItemFunction(itemName, container, pos, charges, false);
+    }
+    public static obj_id createNewItemFunction(String itemName, obj_id container, location pos, int charges, boolean overloaded) throws InterruptedException
     {
         if (itemName == null || itemName.equals(""))
         {
@@ -91,7 +95,7 @@ public class static_item extends script.base_script
                 newItem = createObject(itemData.getString("template_name"), pos);
             }
         }
-        else 
+else 
         {
             if (utils.isNestedWithinAPlayer(container))
             {
@@ -99,9 +103,17 @@ public class static_item extends script.base_script
             }
             else 
             {
-                newItem = createObject(itemData.getString("template_name"), container, "");
+                if(overloaded)
+                {
+                    newItem = createObjectOverloaded(itemData.getString("template_name"), container);
+                }
+                else
+                {
+                    newItem = createObject(itemData.getString("template_name"), container, "");
+                }
             }
         }
+
         if (!isIdValid(newItem))
         {
             LOG("loot", itemName + " could not be made because item is not valid");

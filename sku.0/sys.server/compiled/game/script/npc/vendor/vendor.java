@@ -88,7 +88,7 @@ public class vendor extends script.base_script
                         obj_id objectForSale = obj_id.NULL_ID;
                         if (static_item.isStaticItem(item))
                         {
-                            objectForSale = static_item.createNewItemFunction(item, containerList[idx]);
+                            objectForSale = static_item.createNewItemFunction(item, containerList[idx], true);
                         }
                         else 
                         {
