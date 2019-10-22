@@ -26,14 +26,11 @@ public class crafted_armor_customization_kit extends script.base_script
     public static final String TITLE = "@tool/customizer:armor_customize_title";
     public static final String PROMPT = "@tool/customizer:armor_customize_prompt";
     public static final int OBJECT_COLOR_MAX = 4;
+    public static final boolean OVERRIDE = getConfigSetting("GameServer", "armorColorKitOverride").equals("1");
     public int OnObjectMenuRequest(obj_id self, obj_id player, menu_info mi) throws InterruptedException
     {
         blog("OnObjectMenuRequest - functions");
-        if (!isValidId(player) || !exists(player))
-        {
-            return SCRIPT_CONTINUE;
-        }
-        if (!utils.isNestedWithin(self, player))
+        if (!isValidId(player) || !exists(player) || !utils.isNestedWithin(self, player))
         {
             return SCRIPT_CONTINUE;
         }
@@ -66,11 +63,7 @@ public class crafted_armor_customization_kit extends script.base_script
     }
     public boolean beginArmorColorization(obj_id self, obj_id player) throws InterruptedException
     {
-        if (!isValidId(self) || !exists(self))
-        {
-            return false;
-        }
-        else if (!isValidId(player) || !exists(player))
+        if (!isValidId(self) || !exists(self) || !isValidId(player) || !exists(player))
         {
             return false;
         }
@@ -127,9 +120,7 @@ public class crafted_armor_customization_kit extends script.base_script
         {
             for (Object item : items) {
                 obj_id piece = (obj_id) item;
-                if (!isCrafted(piece)) {
-                    continue;
-                } else if (static_item.isStaticItem(piece)) {
+                if ((!isCrafted(piece) || static_item.isStaticItem(piece)) && !OVERRIDE)
                     continue;
                 }
                 armor.addElement(piece);
@@ -189,16 +180,12 @@ public class crafted_armor_customization_kit extends script.base_script
         utils.setScriptVar(self, PLAYER_ID, player);
         utils.setScriptVar(player, TOOL_ID, self);
         obj_id[] armor = utils.getObjIdArrayScriptVar(player, ARMOR_OBJ_LIST);
-        if (armor == null || armor.length == 0)
-        {
-            return SCRIPT_CONTINUE;
-        }
-        if (idx >= armor.length)
+        if (armor == null || armor.length == 0 || idx >= armor.length)
         {
             return SCRIPT_CONTINUE;
         }
         ranged_int_custom_var[] palColors = hue.getPalcolorVars(armor[idx]);
-        if ((palColors == null) || (palColors.length == 0))
+        if (palColors == null || palColors.length == 0)
         {
             return SCRIPT_CONTINUE;
         }
