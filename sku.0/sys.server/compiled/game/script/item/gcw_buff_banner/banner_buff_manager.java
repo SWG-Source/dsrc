@@ -51,7 +51,7 @@ public class banner_buff_manager extends script.base_script
             case utils.TRADER:
             return "banner_buff_trader";
             case utils.ENTERTAINER:
-            return "banner_buff_entertainer;
+            return "banner_buff_entertainer";
         }
         return null;
     }
