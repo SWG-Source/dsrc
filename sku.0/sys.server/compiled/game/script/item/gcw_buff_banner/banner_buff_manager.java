@@ -32,8 +32,7 @@ public class banner_buff_manager extends script.base_script
         {
             return null;
         }
-        int profession = utils.getPlayerProfession(player);
-        switch (profession)
+        switch (utils.getPlayerProfession(player))
         {
             case utils.COMMANDO:
             return "banner_buff_commando";
@@ -50,9 +49,9 @@ public class banner_buff_manager extends script.base_script
             case utils.FORCE_SENSITIVE:
             return "banner_buff_force_sensitive";
             case utils.TRADER:
-            return null;
+            return "banner_buff_trader";
             case utils.ENTERTAINER:
-            return null;
+            return "banner_buff_entertainer";
         }
         return null;
     }
