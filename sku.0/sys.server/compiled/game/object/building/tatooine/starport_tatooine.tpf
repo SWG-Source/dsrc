@@ -20,6 +20,7 @@
 
 @class object_template 1
 
+scripts = +["city.ship_spawner"]
 sharedTemplate = "object/building/tatooine/shared_starport_tatooine.iff"
 
 
