@@ -161,6 +161,10 @@ public class utils extends script.base_script
         {
             skillCheck = true;
         }
+        if (hasSkill(player, "class_officer_phase4_master"))
+        {
+            skillCheck = true;			
+        }
         return skillCheck;
     }
     public static int unequipAndNotifyUncerted(obj_id player) throws InterruptedException
