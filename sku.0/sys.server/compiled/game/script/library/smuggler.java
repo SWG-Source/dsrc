@@ -1059,7 +1059,8 @@ public class smuggler extends script.base_script
         int timeNow = getCalendarTime();
         setObjVar(object, BUYBACK_OBJ_TIMESTAMP, timeNow);
         setObjVar(object, BUYBACK_OBJ_CREDITS, credits);
-        if (putIn(object, objContainer, player))
+        // This should be a vendor... and if so, we don't care if it's full because the vendor does NOT try to move.
+        if (putInOverloaded(object, objContainer))
         {
             return true;
         }
@@ -1086,7 +1087,8 @@ public class smuggler extends script.base_script
             CustomerServiceLog("Junk_Dealer: ", "smuggler.moveBuyBackObjectIntoInventory() - Player (OID: " + player + ") does not have a valid buy back container.");
             return false;
         }
-        if (putIn(object, objContainer, player))
+        // This should be a vendor... and if so, we don't care if it's full because the vendor does NOT try to move.
+        if (putInOverloaded(object, objContainer))
         {
             removeObjVar(object, BUYBACK_OBJ_TIMESTAMP);
             removeObjVar(object, BUYBACK_OBJ_CREDITS);

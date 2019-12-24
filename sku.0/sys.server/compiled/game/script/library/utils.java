@@ -78,7 +78,7 @@ public class utils extends script.base_script
     public static final String BAZAAR_SCRIPT = "terminal.bazaar";
     public static int clipRange(int iValue, int iClipMin, int iClipMax) throws InterruptedException
     {
-        return (iValue < iClipMin) ? iClipMin : (iValue > iClipMax) ? iClipMax : iValue;
+        return (iValue < iClipMin) ? iClipMin : Math.min(iValue, iClipMax);
     }
     public static location getRandomAwayLocation(location pos, float fMinRadius, float fMaxRadius) throws InterruptedException
     {
@@ -143,10 +143,7 @@ public class utils extends script.base_script
         if (isIdValid(armor))
         {
             String template = getTemplateName(armor);
-            if (template.endsWith("armor_mandalorian_belt.iff") || template.endsWith("armor_mandalorian_bicep_l.iff") || template.endsWith("armor_mandalorian_bicep_r.iff") || template.endsWith("armor_mandalorian_bracer_l.iff") || template.endsWith("armor_mandalorian_bracer_r.iff") || template.endsWith("armor_mandalorian_chest_plate.iff") || template.endsWith("armor_mandalorian_helmet.iff") || template.endsWith("armor_mandalorian_leggings.iff") || template.endsWith("armor_mandalorian_shoes.iff") || template.endsWith("armor_mandalorian_gloves.iff"))
-            {
-                return true;
-            }
+            return template.endsWith("armor_mandalorian_belt.iff") || template.endsWith("armor_mandalorian_bicep_l.iff") || template.endsWith("armor_mandalorian_bicep_r.iff") || template.endsWith("armor_mandalorian_bracer_l.iff") || template.endsWith("armor_mandalorian_bracer_r.iff") || template.endsWith("armor_mandalorian_chest_plate.iff") || template.endsWith("armor_mandalorian_helmet.iff") || template.endsWith("armor_mandalorian_leggings.iff") || template.endsWith("armor_mandalorian_shoes.iff") || template.endsWith("armor_mandalorian_gloves.iff");
         }
         return false;
     }
@@ -4795,30 +4792,20 @@ public class utils extends script.base_script
 
         if (intServerSpawnLimit > 0)
         {
-            if (intNumCreatures > intServerSpawnLimit)
-            {
-                return false;
-            }
+            return intNumCreatures <= intServerSpawnLimit;
         }
         else
         {
             if (intNumPlayers < 200000)
             {
-                if (intNumCreatures > 5000)
-                {
-                    return false;
-                }
+                return intNumCreatures <= 5000;
             }
             else
             {
                 float fltRatio = (intNumCreatures / intNumPlayers);
-                if (fltRatio > 10)
-                {
-                    return false;
-                }
+                return !(fltRatio > 10.0f);
             }
         }
-        return true;
     }
     public static String formatTimeVerbose(int seconds) throws InterruptedException
     {
@@ -7223,5 +7210,8 @@ public class utils extends script.base_script
             return 0;
         }
         return intNumCreatures;
+    }
+    public static boolean inDebugMode() throws InterruptedException {
+        return (utils.getIntConfigSetting("GameServer", "debugMode") == 1);
     }
 }
