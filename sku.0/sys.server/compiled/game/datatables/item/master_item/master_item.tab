@@ -8533,3 +8533,5 @@ armor_mandalorian_dwb_chest_plate	object/tangible/wearables/armor/mandalorian/ar
 armor_mandalorian_dwb_gloves	object/tangible/wearables/armor/mandalorian/armor_mandalorian_gloves.iff	armor		90				4		item.special.nomove	2	1	Mandalorian Armor Gloves	Mandalorian Armor Gloves	
 armor_mandalorian_dwb_helmet	object/tangible/wearables/armor/mandalorian/armor_mandalorian_helmet.iff	armor		90				4		item.special.nomove	2	1	Mandalorian Armor Helmet	Mandalorian Armor Helmet	
 armor_mandalorian_dwb_leggings	object/tangible/wearables/armor/mandalorian/armor_mandalorian_leggings.iff	armor		90				4		item.special.nomove	2	1	Mandalorian Armor Leggings	Mandalorian Armor Leggings	
+item_tcg_loot_reward_series9_ep9d	object/tangible/tcg/series9/painting_posters_ep9d.iff							4		item.special.nomove			The Rise Of Skywalker	The theatrical poster for Star Wars - The Rise Of Skywalker	
+item_tcg_loot_reward_series9_ep9e	object/tangible/tcg/series9/painting_posters_ep9e.iff							4		item.special.nomove			The Rise Of Skywalker	The IMAX movie poster for Star Wars - The Rise Of Skywalker	
