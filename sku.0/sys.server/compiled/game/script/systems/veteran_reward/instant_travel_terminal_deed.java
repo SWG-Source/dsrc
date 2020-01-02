@@ -28,46 +28,59 @@ public class instant_travel_terminal_deed extends script.base_script
             if(getLevel(player) < minimumLevel){
                 sendSystemMessage(player, "Instant Travel vehicles may not be used until you have reached level " + minLevelSetting + ". Please use this deed again when you reach level " + minLevelSetting + " or higher.", null);
             }
-            else if (hasObjVar(self, "privateerShip"))
+            else if (hasObjVar(self, "privateerShip") && (!hasObjVar(player, "itv.owned.privateer")))
             {
                 grantCommand(player, "callforprivateerpickup");
+                setObjVar(player, "itv.owned.privateer", 1);
             	destroyObject(self);
             }
-            else if (hasObjVar(self, "royalShip"))
+            else if (hasObjVar(self, "royalShip") && (!hasObjVar(player, "itv.owned.royalship")))
             {
                 grantCommand(player, "callforroyalpickup");
+                setObjVar(player, "itv.owned.royalship", 1);
             	destroyObject(self);
             }
-            else if (hasObjVar(self, "junk"))
+            else if (hasObjVar(self, "junk") && (!hasObjVar(player, "itv.owned.junk")))
             {
                 grantCommand(player, "callforrattletrappickup");
+                setObjVar(player, "itv.owned.junk", 1);
             	destroyObject(self);
             }
-            else if (hasObjVar(self, "tcg_itv_home"))
+            else if (hasObjVar(self, "tcg_itv_home") && (!hasObjVar(player, "itv.owned.solar")))
             {
                 grantCommand(player, "callforsolarsailerpickup");
+                setObjVar(player, "itv.owned.solar", 1);
             	destroyObject(self);
             }
-            else if (hasObjVar(self, "tcg_itv_location"))
+            else if (hasObjVar(self, "tcg_itv_location") && (!hasObjVar(player, "itv.owned.g9rigger")))
             {
                 grantCommand(player, "callforg9riggerpickup");
+                setObjVar(player, "itv.owned.g9rigger", 1);
             	destroyObject(self);
             }
-            else if (hasObjVar(self, "itv_snowspeeder"))
+            else if (hasObjVar(self, "itv_snowspeeder") && (!hasObjVar(player, "itv.owned.snowspeeder")))
             {
                 grantCommand(player, "callforsnowspeeder");
+                setObjVar(player, "itv.owned.snowspeeder", 1);
                 destroyObject(self);
             }
-            else if (hasObjVar(self, "itv_slave_1"))
+            else if (hasObjVar(self, "itv_slave_1") && (!hasObjVar(player, "itv.owned.slave1")))
             {
                 grantCommand(player, "callforslave1pickup");
+                setObjVar(player, "itv.owned.slave1", 1);
                 destroyObject(self);
+            }
+            else if (hasObjVar(self, "default_itv") && (!hasObjVar(player, "itv.owned.callforpickup")))
+            {
+                grantCommand(player, "callforpickup");
+                setObjVar(player, "itv.owned.callforpickup", 1);
+            	destroyObject(self);
             }
             else
             {
-                grantCommand(player, "callforpickup");
-            	destroyObject(self);
-            }
+            	sendSystemMessageTestingOnly(player, "You have already used this item.");
+            	return SCRIPT_CONTINUE;
+            }	
         }
         return SCRIPT_CONTINUE;
     }

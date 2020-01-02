@@ -6,4 +6,5 @@
 
 sharedTemplate = "object/tangible/veteran_reward/shared_instant_travel_terminal.iff"
 scripts = ["systems.veteran_reward.instant_travel_terminal_deed", "item.special.nomove"]
+objvars = +["default_itv" = 1]
 persistByDefault = true
