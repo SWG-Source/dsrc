@@ -75,6 +75,7 @@ public class instant_travel_terminal_deed extends script.base_script
                 grantCommand(player, "callforpickup");
                 setObjVar(player, "itv.owned.callforpickup", 1);
             	destroyObject(self);
+            
             }
             else
             {
