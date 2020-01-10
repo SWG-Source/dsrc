@@ -1,5 +1,3 @@
-// vector.java
-
 package script;
 
 import java.io.Serializable;

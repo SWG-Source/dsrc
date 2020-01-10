@@ -1,0 +1,1 @@
+for /r %%a in (.) do (javac %%a\*.java)
