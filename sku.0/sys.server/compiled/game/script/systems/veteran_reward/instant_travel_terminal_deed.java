@@ -10,6 +10,7 @@ public class instant_travel_terminal_deed extends script.base_script
     public instant_travel_terminal_deed()
     {
     }
+    private static final String ITV_COMMAND_TABLE = "datatables/item/itv_command_list.iff";
     public static final string_id LEARN_ABILITY = new string_id("item_n", "instant_travel_terminal_learn");
     public int OnObjectMenuRequest(obj_id self, obj_id player, menu_info mi) throws InterruptedException
     {
@@ -27,47 +28,18 @@ public class instant_travel_terminal_deed extends script.base_script
         {
             if(getLevel(player) < minimumLevel){
                 sendSystemMessage(player, "Instant Travel vehicles may not be used until you have reached level " + minLevelSetting + ". Please use this deed again when you reach level " + minLevelSetting + " or higher.", null);
+                return SCRIPT_CONTINUE;
             }
-            else if (hasObjVar(self, "privateerShip"))
-            {
-                grantCommand(player, "callforprivateerpickup");
-            	destroyObject(self);
+            int rows = dataTableGetNumRows(ITV_COMMAND_TABLE);
+            for (int i=0;i<rows;i++) {
+                if (hasObjVar(self, dataTableGetString(ITV_COMMAND_TABLE, i, 0))) {
+                    grantCommand(player, dataTableGetString(ITV_COMMAND_TABLE, i, 1));
+                    destroyObject(self);
+                    return SCRIPT_CONTINUE;
+                }
             }
-            else if (hasObjVar(self, "royalShip"))
-            {
-                grantCommand(player, "callforroyalpickup");
-            	destroyObject(self);
-            }
-            else if (hasObjVar(self, "junk"))
-            {
-                grantCommand(player, "callforrattletrappickup");
-            	destroyObject(self);
-            }
-            else if (hasObjVar(self, "tcg_itv_home"))
-            {
-                grantCommand(player, "callforsolarsailerpickup");
-            	destroyObject(self);
-            }
-            else if (hasObjVar(self, "tcg_itv_location"))
-            {
-                grantCommand(player, "callforg9riggerpickup");
-            	destroyObject(self);
-            }
-            else if (hasObjVar(self, "itv_snowspeeder"))
-            {
-                grantCommand(player, "callforsnowspeeder");
-                destroyObject(self);
-            }
-            else if (hasObjVar(self, "itv_slave_1"))
-            {
-                grantCommand(player, "callforslave1pickup");
-                destroyObject(self);
-            }
-            else
-            {
-                grantCommand(player, "callforpickup");
-            	destroyObject(self);
-            }
+            grantCommand(player, "callforpickup");
+            destroyObject(self);
         }
         return SCRIPT_CONTINUE;
     }
