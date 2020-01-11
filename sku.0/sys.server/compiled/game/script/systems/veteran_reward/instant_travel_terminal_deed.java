@@ -30,16 +30,19 @@ public class instant_travel_terminal_deed extends script.base_script
                 sendSystemMessage(player, "Instant Travel vehicles may not be used until you have reached level " + minLevelSetting + ". Please use this deed again when you reach level " + minLevelSetting + " or higher.", null);
                 return SCRIPT_CONTINUE;
             }
+            // Make sure the default_itv is always at the bottom of the table else you will get false hits
             int rows = dataTableGetNumRows(ITV_COMMAND_TABLE);
             for (int i=0;i<rows;i++) {
                 if (hasObjVar(self, dataTableGetString(ITV_COMMAND_TABLE, i, 0))) {
+                    if (hasCommand(player,dataTableGetString(ITV_COMMAND_TABLE, i, 1))) {
+                        sendSystemMessageTestingOnly(player, "You have already used this item.");
+                        return SCRIPT_CONTINUE;
+                    }
                     grantCommand(player, dataTableGetString(ITV_COMMAND_TABLE, i, 1));
                     destroyObject(self);
                     return SCRIPT_CONTINUE;
                 }
             }
-            grantCommand(player, "callforpickup");
-            destroyObject(self);
         }
         return SCRIPT_CONTINUE;
     }
