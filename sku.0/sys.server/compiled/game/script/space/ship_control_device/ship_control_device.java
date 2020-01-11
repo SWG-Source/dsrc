@@ -101,17 +101,6 @@ public class ship_control_device extends script.base_script
                 mi.addRootMenu(menu_info_types.SERVER_MENU4, strSpam2);
             }
         }
-        if(!isSpaceScene()) {
-            obj_id pilotShip = getPilotedShip(player);
-            // player must be either piloting a ship to land it or in world to launch it.
-            if (!isIdValid(pilotShip) && isInWorld(player)) {
-                string_id atmo = new string_id("space/space_interaction", "launch_ship");
-                mi.addRootMenu(menu_info_types.SERVER_MENU5, atmo);
-            } else if(isIdValid(pilotShip)){
-                string_id atmo = new string_id("space/space_interaction", "land_ship");
-                mi.addRootMenu(menu_info_types.SERVER_MENU6, atmo);
-            }
-        }
         return SCRIPT_CONTINUE;
     }
     public int OnObjectMenuSelect(obj_id self, obj_id player, int item) throws InterruptedException
@@ -134,7 +123,7 @@ public class ship_control_device extends script.base_script
                 }
             }
         }
-        else if (item == menu_info_types.SERVER_MENU1)
+        if (item == menu_info_types.SERVER_MENU1)
         {
             if (isSpaceScene())
             {
@@ -144,7 +133,7 @@ public class ship_control_device extends script.base_script
             }
             sui.inputbox(self, player, utils.packStringId(PROMPT1), sui.OK_CANCEL, utils.packStringId(RENAME_SHIP), sui.INPUT_NORMAL, null, "renameShip", null);
         }
-        else if (item == menu_info_types.SERVER_MENU2)
+        if (item == menu_info_types.SERVER_MENU2)
         {
             obj_id objShip = space_transition.getShipFromShipControlDevice(self);
             if (!isIdValid(objShip))
@@ -233,7 +222,7 @@ public class ship_control_device extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        else if (item == menu_info_types.SERVER_MENU3)
+        if (item == menu_info_types.SERVER_MENU3)
         {
             obj_id objShip = space_transition.getShipFromShipControlDevice(self);
             if (!isIdValid(objShip))
@@ -258,7 +247,7 @@ public class ship_control_device extends script.base_script
             showSUIPage(pid);
             return SCRIPT_CONTINUE;
         }
-        else if (item == menu_info_types.SERVER_MENU4)
+        if (item == menu_info_types.SERVER_MENU4)
         {
             obj_id objShip = space_transition.getShipFromShipControlDevice(self);
             obj_id pInv = utils.getInventoryContainer(player);
@@ -284,24 +273,7 @@ public class ship_control_device extends script.base_script
             }
             return SCRIPT_CONTINUE;
         }
-        else if (item == menu_info_types.SERVER_MENU5)
-        {
-            obj_id ship = space_transition.getShipFromShipControlDevice(self);
-            if(isIdValid(ship)) {
-                location loc = getLocation(player);
-                space_transition.unpackShipForPlayer(player, ship);
-                setLocation(ship, new location(loc.x, loc.y + 10, loc.z));
-            }
-        }
-        else if (item == menu_info_types.SERVER_MENU6)
-        {
-            obj_id playerShip = getPilotedShip(player);
-            // player must be piloting ship in order to land/pack it.
-            if(isIdValid(playerShip)) {
-                space_transition.packShip(space_transition.getContainingShip(player));
-            }
-        }
-        else if (item == menu_info_types.DICE_ROLL)
+        if (item == menu_info_types.DICE_ROLL)
         {
             obj_id objShip = space_transition.getShipFromShipControlDevice(self);
             if (!hasObjVar(objShip, player_structure.OBJVAR_STRUCTURE_STORAGE_INCREASE))
