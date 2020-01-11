@@ -6069,25 +6069,20 @@ public class utils extends script.base_script
         String objVarValue;
         String[] objVarNameAndType;
         String objVarName;
-
-        for (String pair : split(objVarList, ',')) {
+        String[] splitList = split(objVarList, ',');
+        for (String pair : splitList) {
             objVarToSet = split(pair, '=');
             objVarValue = objVarToSet[1];
             objVarNameAndType = split(objVarToSet[0], ':');
             objVarName = objVarNameAndType[1];
             switch (objVarNameAndType[0]) {
-                case "string":
-                    setObjVar(object, objVarName, objVarValue);
-                    break;
                 case "int":
+                case "boolean":
+                case "bool":
                     setObjVar(object, objVarName, utils.stringToInt(objVarValue));
                     break;
                 case "float":
                     setObjVar(object, objVarName, utils.stringToFloat(objVarValue));
-                    break;
-                case "boolean":
-                case "bool":
-                    setObjVar(object, objVarName, utils.stringToInt(objVarValue));
                     break;
                 default:
                     setObjVar(object, objVarName, objVarValue);
@@ -6112,18 +6107,13 @@ public class utils extends script.base_script
             objVarNameAndType = split(objVarToSet[0], ';');
             objVarName = objVarNameAndType[1];
             switch (objVarNameAndType[0]) {
-                case "string":
-                    setObjVar(object, objVarName, objVarValue);
-                    break;
                 case "int":
+                case "boolean":
+                case "bool":
                     setObjVar(object, objVarName, utils.stringToInt(objVarValue));
                     break;
                 case "float":
                     setObjVar(object, objVarName, utils.stringToFloat(objVarValue));
-                    break;
-                case "boolean":
-                case "bool":
-                    setObjVar(object, objVarName, utils.stringToInt(objVarValue));
                     break;
                 default:
                     setObjVar(object, objVarName, objVarValue);
