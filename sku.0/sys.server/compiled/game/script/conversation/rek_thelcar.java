@@ -137,6 +137,10 @@ public class rek_thelcar extends script.base_script
         {
             modifyCollectionSlotValue(player, "icon_nyms_master_collection_1_dna", 1);
         }
+        if(utils.playerHasStaticItemInBankOrInventory(player, "item_nym_themepark_dna_extractor")) {
+            obj_id dna_extractor = utils.getStaticItemInBankOrInventory(player, "item_nym_themepark_dna_extractor");
+            if(isValidId(dna_extractor)) utils.destroyObject(dna_extractor);
+        }
     }
     public void rek_thelcar_action_completeQuestionQuest(obj_id player, obj_id npc) throws InterruptedException
     {
