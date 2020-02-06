@@ -24,7 +24,7 @@ public class character_respec_reset_device extends script.base_script {
                     if(destroyObject(self)) {
                         setObjVar(player, "respecDeviceUsed", 1);
                         setObjVar(player, "respecsBought", 0);
-                        sendSystemMessage(player, "Your Respect Counter has been reset to zero.", null);
+                        sendSystemMessage(player, "Your Respect Counter has been reset.", null);
                     };
                 } else {
                     sendSystemMessage(player, "You are not the owner of this device.", null);
