@@ -154,7 +154,6 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 -1885810115	0	object/tangible/quest/naboo_theed_xharnoh_plant.iff	0	15.3193	-207.162	722.72	-0.620572	-0.0504755	0.777105	-0.0919225	quest.task.ground.retrieve_item_on_item	$|
 -1876026501	0	object/tangible/ground_spawning/patrol_waypoint.iff	0	812.828	6	268.495	1	0	0	0	systems.spawning.patrol_point_setup	ignoreInBuildoutArray|0|1|pointName|4|Smuggler_enemy_patrol_10020833_3|registerWithController|0|1|$|
 -1875877557	0	object/tangible/ground_spawning/patrol_waypoint.iff	0	1379.48	-196.436	784.068	1	0	0	0	systems.spawning.patrol_point_setup	ignoreInBuildoutArray|0|1|pointName|4|naboo_skaak_bruiser_11_12341383_2|registerWithController|0|1|$|
--1873243646	0	object/tangible/ground_spawning/patrol_waypoint.iff	0	1237	6	47	1	0	0	0	theme_park.restuss_event.stage_two_crier	ignoreInBuildoutArray|0|1|registerWithController|0|1|$|
 -1872834889	0	object/tangible/ground_spawning/patrol_waypoint.iff	0	828.453	6	447.561	1	0	0	0	systems.spawning.patrol_point_setup	ignoreInBuildoutArray|0|1|pointName|4|theed_imp_patrol_4_10003339_5|registerWithController|0|1|$|
 -1870666513	0	object/tangible/ground_spawning/patrol_waypoint.iff	0	1114.56	6	140.893	1	0	0	0	systems.spawning.patrol_point_setup	ignoreInBuildoutArray|0|1|pointName|4|theed_imp_patrol_2_10003142_3|registerWithController|0|1|$|
 -1859404836	0	object/tangible/collection/rare_melee_grooved_2h_sword.iff	0	1216.42	6.78291	133.377	0.703839	0.00344458	-0.00362418	0.710341	systems.collections.consume_click	collection.slotName|4|col_rare_melee_01:grooved_sword_01|$|
