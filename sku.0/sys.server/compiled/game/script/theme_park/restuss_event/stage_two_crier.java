@@ -90,6 +90,7 @@ public class stage_two_crier extends script.base_script
     public int warningLoop(obj_id self, dictionary params) throws InterruptedException
     {
         obj_id herald = utils.getObjIdScriptVar(self, HERALD_ID);
+        if(!isValidId(herald) || !isValidId(self)) return SCRIPT_CONTINUE;
         chat.chat(herald, WARNING);
         messageTo(self, "warningLoop", null, 30.0f, false);
         return SCRIPT_CONTINUE;
