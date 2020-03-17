@@ -1,0 +1,10 @@
+objVarName	itvCommand
+s	s
+privateerShip	callforprivateerpickup
+royalShip	callforroyalpickup
+junk	callforrattletrappickup
+tcg_itv_home	callforsolarsailerpickup
+tcg_itv_location	callforg9riggerpickup
+itv_snowspeeder	callforsnowspeeder
+itv_slave_1	callforslave1pickup
+default_itv	callforpickup
