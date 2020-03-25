@@ -6,6 +6,7 @@
 
 @class object_template 5
 
+objectName = "sign_name"  "sign_medcenter"
 
 detailedDescription = "sign_name"  "sign_medcenter"
 
