@@ -27,7 +27,7 @@ i	"e(none=0,cold=64,heat=32,acid=128,electric=256)[none]"	f	c
 24	electric	0.04	Quintessence of the Force
 25	acid	0.04	Dawn of Dagobah
 26	electric	0.04	Horn's Future
-27	heat	0.06	Qui-gon's Devotion
+27	acid	0.04	Qui-gon's Devotion
 28	cold	0.06	Kenobi's Legacy
 29	heat	0.06	Sunrider's Destiny
 30	acid	0.04	Kit's Ferocity
