@@ -1127,7 +1127,6 @@ item_color_crystal_02_30			int:jedi.crystal.stats.color=30,int:jedi.crystal.stat
 item_crystal_tyranus_cunning_01			int:jedi.crystal.stats.color=32,int:jedi.crystal.stats.level=-1	index_color_1=1							
 item_crystal_mauls_vengeance_01			int:jedi.crystal.stats.color=33,int:jedi.crystal.stats.level=-1	index_color_1=33							
 item_crystal_quigons_devotion_01			int:jedi.crystal.stats.color=34,int:jedi.crystal.stats.level=-1	index_color_1=34							
-item_crystal_trial_tano_01			int:jedi.crystal.stats.color=35,int:jedi.crystal.stats.level=-1	index_color_1=35
 item_power_crystal_04_01			int:jedi.crystal.stats.min_dmg=1,int:jedi.crystal.stats.max_dmg=2,int:jedi.crystal.stats.quality=0,int:jedi.crystal.stats.level=-1	index_color_1=31							
 item_power_crystal_04_02			int:jedi.crystal.stats.min_dmg=2,int:jedi.crystal.stats.max_dmg=3,int:jedi.crystal.stats.quality=0,int:jedi.crystal.stats.level=-1	index_color_1=31							
 item_power_crystal_04_03			int:jedi.crystal.stats.min_dmg=3,int:jedi.crystal.stats.max_dmg=4,int:jedi.crystal.stats.quality=1,int:jedi.crystal.stats.level=-1	index_color_1=31							

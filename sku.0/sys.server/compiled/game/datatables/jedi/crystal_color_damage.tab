@@ -34,7 +34,7 @@ i	"e(none=0,cold=64,heat=32,acid=128,electric=256)[none]"	f	c
 32	heat	0.06	Cunning of Tyranus
 33	heat	0.05	Maul's Vengeance
 34	acid	0.04	Qui-gon's Devotion
-35	electric	0.06	Trial Of Tano
+35	cold	0.01	unused
 36	cold	0.01	unused
 37	cold	0.01	unused
 38	cold	0.01	unused
