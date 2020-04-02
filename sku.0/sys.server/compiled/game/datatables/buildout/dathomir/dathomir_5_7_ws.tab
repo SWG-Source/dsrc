@@ -165,4 +165,4 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 2666092	0	object/tangible/furniture/all/frn_all_tiki_torch_s1.iff	0	513.615	229.5	121.736	1	0	0	0		$|
 5655352	0	object/static/structure/general/streetlamp_small_green_style_01.iff	0	496.442	239.711	37.3691	-0.00920357	0	0	0.999958		$|
 5655362	0	object/static/structure/general/streetlamp_small_green_style_01.iff	0	609.687	282.362	238.159	-0.00388366	-0.38268	0.00160868	0.923871		$|
--1	0	object/tangible/spawning/static_npc/herald_dathomir_nsister_cave_azzenaj.iff	0	533.26	229	141.61	0.544639035	0	-0.8386705679	0		$|
+5655364	0	object/tangible/poi/base/poi_base_nosnap.iff	0	528.0	229.5	112.0	0.81786877	0	0.57540506	0	theme_park.wod.entertainer_rancor_area_trigger	wod.areaName|4|smRancorFinished|$|

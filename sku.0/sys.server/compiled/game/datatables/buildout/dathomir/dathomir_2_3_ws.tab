@@ -1,6 +1,5 @@
 objid	container	server_template_crc	cell_index	px	py	pz	qw	qx	qy	qz	scripts	objvars
 i	i	h	i	f	f	f	f	f	f	f	s	p
-4335462	0	object/building/general/cave_02_damprock_mirror.iff	0	1918	34.3353	2034.22	0.357693	0	0.933839	0		$|
 4335463	4335462	object/cell/cell.iff	1	0	0	0	1	0	0	0		$|
 4335464	4335462	object/cell/cell.iff	2	0	0	0	1	0	0	0		$|
 4335476	4335464	object/tangible/poi/spawnegg/interior_spawnegg.iff	2	-45.63196182	-47.6741066	-59.71353912	1	0	0	0		intRandomYaw|0|1|$|
@@ -32,6 +31,7 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 4335488	4335473	object/tangible/poi/spawnegg/interior_spawnegg.iff	11	-90.5238266	-46.80524445	-143.4121094	1	0	0	0		intRandomYaw|0|1|$|
 4335489	4335473	object/tangible/poi/spawnegg/interior_spawnegg.iff	11	-76.6311264	-46.27325821	-138.74263	1	0	0	0		intRandomYaw|0|1|$|
 4335490	4335473	object/tangible/poi/spawnegg/interior_spawnegg.iff	11	-79.06230927	-46.02785873	-145.9253082	1	0	0	0		intRandomYaw|0|1|$|
+4335462	0	object/building/general/cave_02_damprock_mirror.iff	0	1918	34.3353	2034.22	0.357693	0	0.933839	0	theme_park.dungeon.generic_spawner	spawn_table|4|datatables/spawning/poi_spawner/dathomir/dath_rancor_cave.iff|$|
 7325403	0	object/tangible/jedi/force_shrine_stone.iff	0	1182.52	129.983	599.578	0.707107	0	0.707107	0		$|
 7325404	0	object/static/structure/dantooine/dant_jedi_temple_pillar_sm.iff	0	1178.1	130.991	597.981	0.707112	0	0.707101	0		$|
 7325405	0	object/static/structure/dantooine/dant_jedi_temple_pillar_sm.iff	0	1186.78	130.991	598.015	1	0	0	0		$|
@@ -57,3 +57,6 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 9725895	0	object/building/endor/endor_forest_hut.iff	0	1098.16	7.98472	1321.97	0.917121	0	0.398609	0		$|
 9725900	0	object/static/structure/general/skeleton_human_headandbody.iff	0	1097.48	10.5024	1321.38	0.698321	0.709467	0.0235494	-0.0919188		$|
 9815401	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	1920.622559	25.87797928	2006.863281	1	0	0	0		$|
+-1205371134	0	object/tangible/ground_spawning/area_spawner.iff	0	1194.8184	6.4255624	1367.6431	0.81834	0	0.5747344	0	systems.spawning.spawner_area	fltMaxSpawnTime|2|120.000000|fltMinSpawnTime|2|60.000000|fltRadius|2|150.000000|intDefaultBehavior|0|2|intGoodLocationSpawner|0|0|intSpawnCount|0|10|intSpawnSystem|0|1|registerWithController|0|1|strName|4|wod_malkloc_spawner|strSpawnerType|4|area|strSpawns|4|malkloc|$|
+-1205371135	0	object/tangible/ground_spawning/area_spawner.iff	0	1302.6572	135.62029	1158.137	0.8380596	0	-0.5455789	0	systems.spawning.spawner_area	fltMaxSpawnTime|2|300.000000|fltMinSpawnTime|2|120.000000|fltRadius|2|50.000000|intDefaultBehavior|0|2|intGoodLocationSpawner|0|0|intSpawnCount|0|5|intSpawnSystem|0|1|registerWithController|0|1|strName|4|wod_reanimated_slave|strSpawnerType|4|area|strSpawns|4|wod_reanimated_slave|$|
+-1205371136	0	object/tangible/ground_spawning/area_spawner.iff	0	1304.6572	135.62029	1160.137	0.8380596	0	-0.5455789	0	systems.spawning.spawner_area	fltMaxSpawnTime|2|300.000000|fltMinSpawnTime|2|120.000000|fltRadius|2|50.000000|intDefaultBehavior|0|2|intGoodLocationSpawner|0|0|intSpawnCount|0|5|intSpawnSystem|0|1|registerWithController|0|1|strName|4|wod_reanimated_witch|strSpawnerType|4|area|strSpawns|4|wod_reanimated_witch|$|
