@@ -1,17 +1,18 @@
+// Template Editor -SWG Source
+
 @base object/building/base/shared_base_cave.iff
 
 @class building_object_template 1
 
+
 interiorLayoutFileName = "interiorlayout/wod_kwi_temple.ilf"
-terrainModificationFileName = "terrain/poi_kwitemple.lay"
+@class tangible_object_template 6
 
-@class tangible_object_template 10
+@class object_template 6
 
+clearFloraRadius = 50
 
-@class object_template 10
+objectName = "building_name"  "kwi_temple"
+detailedDescription = "building_detail"  "temple_blueleaf"
 
-objectName = "building_name" "kwi_temple"
-detailedDescription = "building_detail" "temple_blueleaf"
-lookAtText = "building_lookat" "temple_blueleaf"
 portalLayoutFilename = "appearance/thm_yavn_temple_blueleaf_cluster.pob"
-clearFloraRadius = 100

@@ -1,17 +1,22 @@
-@base object/creature/npc/base/shared_base_npc_theme_park.iff
+// NPC Editor - SWG Source
+@base object/creature/npc/base/shared_base_npc_theme_park.iff 
 
-@class creature_object_template 13
+@class creature_object_template 12
 
 gender = GE_female
-animationMapFilename = "all_female.map"
+species = SP_bith
 
-@class tangible_object_template 10
+@class tangible_object_template 3
 
+//animationMapFilename = "all_male.map"
 
-@class object_template 10
+@class object_template 3
 
 objectName = "theme_park_name" "kyrisa"
-detailedDescription = "" ""
+//detailedDescription = "" ""
 lookAtText = "theme_park_lookat" "kyrisa"
+
 appearanceFilename = "appearance/nightsister_f.sat"
 clientDataFile = "clientdata/npc/client_shared_npc_dressed_dathomir_nightsister_kyrisa.cdf"
+
+
