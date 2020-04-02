@@ -1,16 +1,10 @@
-// This file was created by Mr. SWG Source
-
 @base object/tangible/base/shared_tangible_base.iff
 
-@class tangible_object_template 6
-
-@class object_template 5
+@class tangible_object_template 10
 
 
-objectName = "theme_park/wod" "wod_crafting_alter_key_1_n"
+@class object_template 10
 
-detailedDescription = "theme_park/wod" "wod_crafting_alter_key_d"
-
+objectName = "theme_park/wod" "wod_crafting_altar_key_1_n"
+detailedDescription = "theme_park/wod" "wod_crafting_altar_key_d"
 appearanceFilename = "appearance/wookiee_gravestone_s01.apt"
-
-portalLayoutFilename = ""

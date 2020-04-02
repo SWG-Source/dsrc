@@ -1,3 +1,3 @@
-server_template_crc	cell_index	px	py	pz	qw	qx	qy	qz	scripts	objvars
-h	i	f	f	f	f	f	f	f	s	p
-object/building/kashyyyk/thm_kash_rodian_bannerpole_s01.iff	0	0	195	0	0	0	0	0		
+objid	container	server_template_crc	cell_index	px	py	pz	qw	qx	qy	qz	scripts	objvars
+i	i	h	i	f	f	f	f	f	f	f	s	p
+-1995511227	0	object/tangible/ground_spawning/area_spawner.iff	0	598.0991	-1.093196	1931.697	-0.18884143	0	0.9820055	0	systems.spawning.spawner_area	fltMaxSpawnTime|2|60.000000|fltMinSpawnTime|2|20.000000|fltRadius|2|150.000000|intDefaultBehavior|0|0|intGoodLocationSpawner|0|0|intSpawnCount|0|7|intSpawnSystem|0|1|registerWithController|0|1|strName|4|mutant_rancor|strSpawnerType|4|area|strSpawns|4|mutant_rancor|$|

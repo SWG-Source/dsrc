@@ -1,9 +1,11 @@
-
 @base object/tangible/loot/base/loot_base.iff
 
-@class tangible_object_template 0
+@class tangible_object_template 4
 
-@class object_template 2
 
+@class object_template 11
 
 sharedTemplate = "object/tangible/item/skillmod/shared_skillmod_wod_sm_banner_s02_sign.iff"
+
+//scripts = +["systems.sign.special_sign"] //disable for now - only works via static items?!
+//objvars = +["special_sign_wod_hanging_sign_sm_2"=1]

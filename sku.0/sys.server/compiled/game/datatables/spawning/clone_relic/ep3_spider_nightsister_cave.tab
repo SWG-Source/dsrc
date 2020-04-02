@@ -2,3 +2,79 @@ spawns	name	room	loc_x	loc_y	loc_z	yaw	script	mood	animation_mood	respawn_time	s
 s	s	s	f	f	f	f	s	s	s	i	s	s	s	s	s	s
 object/tangible/quest/clone_relics_skeleton_human.iff		r8	-87.7	-70	-115.4	-128										
 object/tangible/quest/imperial/itp_vader_force_crystal.iff		r7	-25.3	-63.7	-254.7	20										
+spider_nightsister_sentry		r1	-1.194681168	-5.81216383	6.133298397	-1	theme_park.dungeon.generic_death			1800						
+spider_nightsister_sentry		r1	12.14276409	-18.51225281	-14.70044231	-31	theme_park.dungeon.generic_death			1800						
+spider_nightsister_sentry		r1	7.32894516	-18.33823013	-14.66278744	-17	theme_park.dungeon.generic_death			1800						
+cave_gaping_spider_broodling		r2	-10.91417885	-30.82736206	-28.97040939	87	"theme_park.dungeon.generic_death,theme_park.dathomir.set_level_80"			1000						
+cave_gaping_spider_broodling		r2	-10.4	-30.5	-24.6	86	"theme_park.dungeon.generic_death,theme_park.dathomir.set_level_80"			1000						
+spider_nightsister_sentry		r3	4.937629223	-40.85074997	-72.21496582	-1	theme_park.dungeon.generic_death			1800						
+spider_nightsister_initiate		r3	5.708355904	-40.88565826	-77.17236328	-1	theme_park.dungeon.generic_death			2200						
+spider_nightsister_sentry		r3	1.984612942	-41.0966835	-78.05510712	-1	theme_park.dungeon.generic_death			1800						
+spider_nightsister_initiate		r4	43.60709	-46.24509048	-58.43128967	-106	theme_park.dungeon.generic_death			2200						
+spider_nightsister_sentinel		r4	43.55989456	-46.72727585	-54.67654419	-106	theme_park.dungeon.generic_death			3600						
+cave_gaping_spider_broodling		r4	45.57495117	-46.16418076	-95.33177185	-10	"theme_park.dungeon.generic_death,theme_park.dathomir.set_level_80"			1800						
+cave_gaping_spider_broodling		r4	40.3	-45.9	-95.6	-10	"theme_park.dungeon.generic_death,theme_park.dathomir.set_level_80"			1800						
+cave_gaping_spider		r4	49.89437485	-45.60764694	-101.2132034	-10	theme_park.dungeon.generic_death			1800						
+spider_nightsister_sentinel		r5	27.84014511	-46.27737045	-122.5119324	0	theme_park.dungeon.generic_death			3600						
+spider_nightsister_crawler		r5	22.07550812	-47.23429108	-132.1326294	-50	theme_park.dungeon.generic_death			3600						
+cave_gaping_spider_hunter		r5	19.95498276	-47.22796631	-131.7608795	10	theme_park.dungeon.generic_death			3600						
+spider_nightsister_sentinel		r5	2.001091957	-44.6596489	-133.3237457	50	theme_park.dungeon.generic_death			3600						
+spider_nightsister_sentinel		r5	-2.745778084	-44.44670868	-127.1893692	50	theme_park.dungeon.generic_death			3600						
+cave_gaping_spider_recluse		r5	54.3025856	-48.40000916	-126.8567352	0	theme_park.dungeon.generic_death			3600						
+cave_gaping_spider_recluse		r5	59.08172607	-49.08925629	-132.3052826	0	theme_park.dungeon.generic_death			3600						
+spider_nightsister_stalker		r5	54.3709259	-55.41059494	-150.1604767	0	theme_park.dungeon.generic_death			7200						
+spider_nightsister_initiate		r5	55.43151855	-55.86743546	-152.1706238	0	theme_park.dungeon.generic_death			7200						
+spider_nightsister_web_dancer		r5	52.81203461	-56.35604858	-172.8165436	0	theme_park.dungeon.generic_death	themepark_oola		7200						
+cave_gaping_spider_hunter		r5	50.48641205	-56.39656067	-173.7185211	0	theme_park.dungeon.generic_death			7200						
+spider_nightsister_initiate		r5	60.13811111	-56.50624084	-161.7059174	0	theme_park.dungeon.generic_death			7200						
+itp_vader_nightsister_guardian		r7	-15.93524933	-65.56521606	-217.0813293	1	theme_park.dungeon.generic_death			319						
+itp_vader_nightsister_guardian		r7	-5.388915062	-64.11216736	-233.666275	-60	theme_park.dungeon.generic_death			319						
+itp_vader_nightsister_guardian		r7	-22.167099	-65.1757431	-247.6678162	10	theme_park.dungeon.generic_death			319						
+cave_gaping_spider_queen		r7	-15.55769634	-63.22511673	-260.6945496	1	theme_park.dungeon.generic_death			7200						
+itp_vader_nightsister_guardian		r7	-16.6	-65.6	-212.9	1	theme_park.dungeon.generic_death			319						
+itp_vader_nightsister_guardian		r7	-20.4	-65.3	-213.1	31	theme_park.dungeon.generic_death			319						
+itp_vader_nightsister_guardian		r7	3.01	-63.3	-230.9	-19	theme_park.dungeon.generic_death			319						
+itp_vader_nightsister_guardian		r7	-2.8	-64.1	-231.6	-14	theme_park.dungeon.generic_death			319						
+itp_vader_nightsister_guardian		r7	-18.6	-65.5	-250.1	20	theme_park.dungeon.generic_death			319						
+cave_gaping_spider		r8	-54.44068527	-70.71305084	-181.0351868	90	theme_park.dungeon.generic_death			7200						
+spider_nightsister_web_dancer		r8	-55.26910019	-70.72867584	-178.8368378	-90	theme_park.dungeon.generic_death	themepark_oola		7200						
+cave_gaping_hunter		r8	-60.56541061	-70.76154327	-179.8924103	90	theme_park.dungeon.generic_death			7200						
+spider_nightsister_spell_weaver		r8	-60.26783371	-70.8501358	-177.1318207	105	theme_park.dungeon.generic_death	entertained		7200						
+spider_nightsister_protector		r8	-100.2452393	-69.55980682	-110.6357498	-175	theme_park.dungeon.generic_death			7200						
+spider_nightsister_sentinel		r8	-93.06881714	-70.69104004	-113.5244904	-175	theme_park.dungeon.generic_death			7200						
+cave_gaping_spider_recluse		r9	-11.248209	-68.14059448	-100.5079651	-90	theme_park.dungeon.generic_death			3600						
+cave_gaping_spider_hunter		r9	-11.74346161	-69.04949951	-93.61180115	-90	theme_park.dungeon.generic_death			3600						
+cave_gaping_spider_hunter		r9	-21.9	-69.4	-96.9	-90	theme_park.dungeon.generic_death			3600						
+cave_gaping_spider_recluse		r10	-57.46686935	-91.66158295	-149.095459	90	theme_park.dungeon.generic_death			3600						
+cave_gaping_spider_recluse		r10	-57.70949936	-91.86196899	-141.362793	90	theme_park.dungeon.generic_death			3600						
+cave_gaping_spider_recluse		r10	-57.6	-91.9	-146.1	90	theme_park.dungeon.generic_death			3600						
+cave_gaping_spider_recluse		r10	-58.3	-91.2	-138.1	90	theme_park.dungeon.generic_death			3600						
+cave_gaping_spider_recluse		r8	-71.16300964	-97.75978088	-152.5226746	90	theme_park.dungeon.generic_death			3600						
+cave_gaping_spider_recluse		r8	-87.66764069	-100.4254074	-149.6878357	90	theme_park.dungeon.generic_death			3600						
+cave_gaping_spider_recluse		r8	-85.3	-99.4	-152.6	90	theme_park.dungeon.generic_death			3600						
+cave_gaping_spider_recluse		r8	-68.4	-96.6	-156.5	90	theme_park.dungeon.generic_death			3600						
+cave_gaping_spider_broodling		world	-1225.684692	115.1014099	6275.012695	130	"theme_park.dungeon.generic_death,theme_park.dathomir.set_level_80"			1800	int:ai.defaultCalmBehavior=2					
+cave_gaping_spider_broodling		world	-1221.5	115.1014099	6275.6	130	"theme_park.dungeon.generic_death,theme_park.dathomir.set_level_80"			1800	int:ai.defaultCalmBehavior=2					
+cave_gaping_spider_broodling		world	-1226.7	115.1014099	6270.7	130	"theme_park.dungeon.generic_death,theme_park.dathomir.set_level_80"			1800	int:ai.defaultCalmBehavior=2					
+cave_gaping_spider_broodling		world	-1224.571167	106.6372147	6218.351074	30	"theme_park.dungeon.generic_death,theme_park.dathomir.set_level_80"			1800	int:ai.defaultCalmBehavior=2					
+cave_gaping_spider_broodling		world	-1221.1	106.6	6219.3	30	"theme_park.dungeon.generic_death,theme_park.dathomir.set_level_80"			1800	int:ai.defaultCalmBehavior=2					
+cave_gaping_spider_broodling		world	-1219.9	106.6	6219.3	30	"theme_park.dungeon.generic_death,theme_park.dathomir.set_level_80"			1800	int:ai.defaultCalmBehavior=2					
+cave_gaping_spider_broodling		world	-1182.907227	122.098175	6280.138672	-150	"theme_park.dungeon.generic_death,theme_park.dathomir.set_level_80"			1800	int:ai.defaultCalmBehavior=2					
+cave_gaping_spider_broodling		world	-1186	122.09	6281.3	-150	"theme_park.dungeon.generic_death,theme_park.dathomir.set_level_80"			1800	int:ai.defaultCalmBehavior=2					
+cave_gaping_spider_broodling		world	-1175	122	6275	-150	"theme_park.dungeon.generic_death,theme_park.dathomir.set_level_80"			1800	int:ai.defaultCalmBehavior=2					
+cave_gaping_spider_hunter		world	-1154.23938	140.2899933	6211.300781	-40	theme_park.dungeon.generic_death			1800	int:ai.defaultCalmBehavior=2					
+cave_gaping_spider_hunter		world	-1151.3	140.2899933	6213.5	-40	theme_park.dungeon.generic_death			1800	int:ai.defaultCalmBehavior=2					
+bane_back_spider		world	-1210.19	129.514	6332.58	-175	theme_park.dungeon.generic_death			900	int:ai.defaultCalmBehavior=2					
+bane_back_spider		world	-1212.19	129.514	6334.58	-175	theme_park.dungeon.generic_death			900	int:ai.defaultCalmBehavior=2					
+bane_back_spider		world	-1208.19	129.514	6330.58	-175	theme_park.dungeon.generic_death			900	int:ai.defaultCalmBehavior=2					
+wod_rescue_initiate		r11	-84.55619	-99.82821	-92.61574	-179.69867	theme_park.dungeon.generic_death			900	int:ai.defaultCalmBehavior=1					
+spider_nightsister_protector		r11	-83.01442	-99.79464	-93.91261	177.11212	theme_park.dungeon.generic_death			900	int:ai.defaultCalmBehavior=1					
+spider_nightsister_sentinel		r11	-86.71673	-100.305885	-95.95515	161.54169	theme_park.dungeon.generic_death			900	int:ai.defaultCalmBehavior=1					
+spider_nightsister_protector		r11	-88.82403	-99.740486	-90.31578	137.52916	theme_park.dungeon.generic_death			900	int:ai.defaultCalmBehavior=1					
+spider_nightsister_sentinel		r11	-82.39173	-99.31853	-88.682594	-157.09293	theme_park.dungeon.generic_death			900	int:ai.defaultCalmBehavior=1				
+spider_nightsister_initiate		r9	-53.05659	-68.53014	-116.94079	-22.080015	theme_park.dungeon.generic_death			900	int:ai.defaultCalmBehavior=2					
+spider_nightsister_initiate		r9	-55.423965	-68.495926	-113.80906	139.06621	theme_park.dungeon.generic_death			900	int:ai.defaultCalmBehavior=2					
+spider_nightsister_initiate		r8	-89.40258	-69.71331	-90.00968	156.32532	theme_park.dungeon.generic_death			900	int:ai.defaultCalmBehavior=2					
+spider_nightsister_initiate		r8	-87.02751	-70.09508	-93.69848	-59.97471	theme_park.dungeon.generic_death			900	int:ai.defaultCalmBehavior=2					
+spider_nightsister_initiate		r8	-107.541	-70.3707	-171.51378	24.725172	theme_park.dungeon.generic_death			900	int:ai.defaultCalmBehavior=2					
+spider_nightsister_initiate		r8	-103.59204	-72.23553	-166.70352	-136.89027	theme_park.dungeon.generic_death			900	int:ai.defaultCalmBehavior=2					
