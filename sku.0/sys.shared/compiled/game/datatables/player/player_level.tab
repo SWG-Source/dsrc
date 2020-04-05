@@ -10,7 +10,7 @@ i	i	s	i	i	c	c	c	i
 8	22600	combat_rangedspecialize_heavy	1	200			30000	0
 9	30300	bountyhunter	35	225			35000	0
 10	39400	jedi_general	1	250		4004	39150	5
-11	50000	crafting_medicine_general	1	275			103530	0
+11	50000	crafting_medicine_general	1	275			103530	205
 12	62200	combat_general	1	300			133304	1
 13	76000	medical	1	325			165526	0
 14	91500	creaturehandler	1	350	tier 7	first novice elite	200400	1

@@ -584,7 +584,8 @@ public class gm extends script.base_script
             "trader_0a",
             "trader_0b",
             "trader_0c",
-            "trader_0d"
+            "trader_0d",
+			"Test_Template_1a"
         };
         return roadmapList;
     }

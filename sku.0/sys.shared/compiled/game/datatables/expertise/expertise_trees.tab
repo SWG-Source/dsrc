@@ -30,4 +30,5 @@ i[1]	s	s
 28	expertise_tree_trader_engineer	left_trader
 29	expertise_tree_trader_general	left
 30	expertise_tree_beastmaster	left_beastmaster
-99	expertise_tree_test
+31	expertise_tree_test_1	left
+99	expertise_tree_test	
