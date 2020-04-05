@@ -2749,7 +2749,7 @@ class_chronicles_15	class_chronicles_14		0	0	0	0	0	0		class_chronicles_14		chron
 class_chronicles_16	class_chronicles_15		0	0	0	0	0	0		class_chronicles_15		chronicles	1225000	1860000								chronicles_max_quest_shared=5			1	0
 class_chronicles_master	class_chronicles_16		0	1	0	0	0	0		class_chronicles_16		chronicles	1365000	1365000							chroniclerVentriloquism	chronicles_relic_quality=1,chronicles_max_tasks=1,chronicles_relic_mastery=1			1	0
 NEW_PROF																									0	0
-class_combat_max_level	class		0	0	1	1	100	0				combat_general	100000	18066900											0	0
+class_combat_max_level	class		0	0	1	1	100	0				combat_general	100000	3540940											0	0
 NEW_EXPERTISE			1	0																					0	0
 expertise_test_test1	expertise																					expertise_innate_protection_kinetic=300,expertise_innate_protection_energy=300				
 expertise_test_test2	expertise																					expertise_innate_protection_kinetic=300,expertise_innate_protection_energy=300				
@@ -2777,9 +2777,9 @@ expertise_test_test23	expertise																					expertise_innate_protection_
 expertise_test_test24	expertise																					expertise_innate_protection_kinetic=300,expertise_innate_protection_energy=300				
 expertise_test_test25	expertise									expertise_test_test20												expertise_innate_protection_kinetic=300,expertise_innate_protection_energy=300				
 expertise_test_test26	expertise																					expertise_innate_protection_kinetic=300,expertise_innate_protection_energy=300				
-expertise_test_test27	expertise									expertise_test_test20,expertise_test_test4												expertise_innate_protection_kinetic=300,expertise_innate_protection_energy=300				
+expertise_test_test27	expertise									expertise_test_test20,expertise_test_test_master												expertise_innate_protection_kinetic=300,expertise_innate_protection_energy=300				
 expertise_test_test28	expertise																					expertise_innate_protection_kinetic=300,expertise_innate_protection_energy=300				
-expertise_test_test_master	expertise			1	1					expertise_test_test20																
+expertise_test_test_master	expertise			1	1					expertise_test_test20											en_strike_0					
 expertise_test_pg_2_1	expertise									expertise_test_test20												expertise_innate_protection_kinetic=300,expertise_innate_protection_energy=300				
 expertise_test_pg_2_2	expertise																					expertise_innate_protection_kinetic=300,expertise_innate_protection_energy=300				
 expertise_test_pg_2_3	expertise																					expertise_innate_protection_kinetic=300,expertise_innate_protection_energy=300				
@@ -2790,7 +2790,7 @@ expertise_test_pg_2_7	expertise																					expertise_innate_protection_
 expertise_test_pg_2_8	expertise																					expertise_innate_protection_kinetic=300,expertise_innate_protection_energy=300				
 expertise_test_pg_2_9	expertise									expertise_test_pg_2_8												expertise_innate_protection_kinetic=300,expertise_innate_protection_energy=300				
 expertise_test_pg_2_10	expertise																					expertise_innate_protection_kinetic=300,expertise_innate_protection_energy=300				
-expertise_test_pg_2_11	expertise																					expertise_innate_protection_kinetic=300,expertise_innate_protection_energy=300				
+expertise_test_pg_2_11	expertise			1																		expertise_innate_protection_kinetic=300,expertise_innate_protection_energy=300				
 expertise_test_pg_2_12	expertise																					expertise_innate_protection_kinetic=300,expertise_innate_protection_energy=300				
 expertise_test_pg_2_13	expertise									expertise_test_test_master												expertise_innate_protection_kinetic=300,expertise_innate_protection_energy=300				
 expertise_test_pg_2_14	expertise																					expertise_innate_protection_kinetic=300,expertise_innate_protection_energy=300				

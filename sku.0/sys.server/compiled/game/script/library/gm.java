@@ -573,6 +573,9 @@ public class gm extends script.base_script
     {
         String[] roadmapList = 
         {
+            "combatant_1a",
+            "crafter_1a",
+            "socialite_1a",
             "smuggler_1a",
             "bounty_hunter_1a",
             "officer_1a",
@@ -584,8 +587,7 @@ public class gm extends script.base_script
             "trader_0a",
             "trader_0b",
             "trader_0c",
-            "trader_0d",
-			"Test_Template_1a"
+            "trader_0d"
         };
         return roadmapList;
     }
