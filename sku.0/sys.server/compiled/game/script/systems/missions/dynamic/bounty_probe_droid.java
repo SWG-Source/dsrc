@@ -74,10 +74,10 @@ public class bounty_probe_droid extends script.systems.missions.base.mission_dyn
             sendSystemMessage(player, strSpam);
             return SCRIPT_CONTINUE;
         }
-        if (!utils.isProfession(player, utils.BOUNTY_HUNTER))
-        {
-            return SCRIPT_CONTINUE;
-        }
+        //if (!utils.isProfession(player, utils.BOUNTY_HUNTER))
+        //{
+        //    return SCRIPT_CONTINUE;
+        //}
         obj_id objMission = getBountyMission(player);
         int intState = getIntObjVar(objMission, "intState");
         if (intState != STATE_BOUNTY_PROBE)

@@ -56,6 +56,7 @@ public class utils extends script.base_script
     public static final int FORCE_SENSITIVE = 7;
     public static final int TRADER = 8;
     public static final int ENTERTAINER = 9;
+    public static final int COMBATANT = 10;
     public static final String LIFEDAY_OWNER = "lifeday.owner";
     //public static final String XMAS_RECEIVED_V1 = "gift.xmas05";
     //public static final String XMAS_RECEIVED_V2 = "gift.xmas05v2";

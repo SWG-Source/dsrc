@@ -31,7 +31,7 @@ public class mission_bounty_informant extends script.systems.missions.base.missi
     }
     public int OnStartNpcConversation(obj_id self, obj_id speaker) throws InterruptedException
     {
-        if (!hasSkill(speaker, "class_bountyhunter_phase1_novice"))
+        if (!hasSkill(speaker, "class_bountyhunter_phase1_novice") || !hasSkill(speaker, "class_combat_max_level"))
         {
             doAnimationAction(self, anims.PLAYER_RUB_CHIN_THOUGHTFUL);
             string_id strResponse = new string_id("mission/mission_generic", "informant_not_bounty_hunter");
