@@ -94,7 +94,7 @@ combat_block_chance	ALL	combat	1	3115			Block Chance
 combat_block_value	ALL	combat	1	3114			Block Value
 booster_assembly	ALL	trader	1	3110			Booster Assembly
 booster_experimentation	ALL	trader	1	3100			Booster Experimentation
-bounty_mission_level	bounty_hunter_1a	bounty_hunter	1	3090			Bounty Mission Difficulty
+bounty_mission_level	ALL	bounty_hunter	1	3090			Bounty Mission Difficulty
 expertise_action_line_sp_burst_shadows	spy_1a	spy	1	3080			Burst of Shadows
 expertise_cooldown_line_sp_burst_of_shadows	spy_1a	spy	1	3070			Burst of Shadows Cooldown
 expertise_buff_duration_line_sp_burst_shadows	spy_1a	spy	1	3060			Burst of Shadows Duration
