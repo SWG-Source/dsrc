@@ -162,6 +162,10 @@ public class utils extends script.base_script
         {
             skillCheck = true;			
         }
+        if (hasSkill(player, "class_combat_max_level"))
+        {
+            skillCheck = true;			
+        }
         return skillCheck;
     }
     public static int unequipAndNotifyUncerted(obj_id player) throws InterruptedException
@@ -6285,7 +6289,8 @@ public class utils extends script.base_script
             "class_officer_phase1_novice",
             "class_spy_phase1_novice",
             "class_medic_phase1_novice",
-            "class_entertainer_phase1_novice"
+            "class_entertainer_phase1_novice",
+            "class_combat_max_level"
         };
         int[] professionList = 
         {
@@ -6296,7 +6301,8 @@ public class utils extends script.base_script
             OFFICER,
             SPY,
             MEDIC,
-            ENTERTAINER
+            ENTERTAINER,
+            COMBATANT
         };
         for (int i = 0; i < noviceSkillList.length; i++)
         {
