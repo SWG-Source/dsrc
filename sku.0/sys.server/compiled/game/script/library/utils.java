@@ -150,23 +150,24 @@ public class utils extends script.base_script
     }
     public static boolean hasSpecialSkills(obj_id player) throws InterruptedException
     {
-        boolean skillCheck = false;
-        if (hasSkill(player, "class_commando_phase4_master"))
-        {
-            skillCheck = true;
-        }
-        if (hasSkill(player, "class_bountyhunter_phase4_master"))
-        {
-            skillCheck = true;
-        }
-        if (hasSkill(player, "class_officer_phase4_master"))
-        {
-            skillCheck = true;			
-        }
-        if (hasSkill(player, "class_combat_max_level"))
-        {
-            skillCheck = true;			
-        }
+        boolean skillCheck = true; //this is the mando skillcheck, should always return true for all classes
+        //boolean skillCheck = false;
+        //if (hasSkill(player, "class_commando_phase4_master"))
+        //{
+        //    skillCheck = true;
+        //}
+        //if (hasSkill(player, "class_bountyhunter_phase4_master"))
+        //{
+        //    skillCheck = true;
+        //}
+        //if (hasSkill(player, "class_officer_phase4_master"))
+        //{
+        //    skillCheck = true;			
+        //}
+        //if (hasSkill(player, "class_combat_max_level"))
+        //{
+        //    skillCheck = true;			
+        //}
         return skillCheck;
     }
     public static int unequipAndNotifyUncerted(obj_id player) throws InterruptedException
