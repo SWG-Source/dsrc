@@ -1,5 +1,6 @@
 objid	container	server_template_crc	cell_index	px	py	pz	qw	qx	qy	qz	scripts	objvars
 i	i	h	i	f	f	f	f	f	f	f	s	p
+4335462	0	object/building/general/cave_02_damprock_mirror.iff	0	1918	34.3353	2034.22	0.357693	0	0.933839	0	theme_park.dungeon.generic_spawner	spawn_table|4|datatables/spawning/poi_spawner/dathomir/dath_rancor_cave.iff|$|
 4335463	4335462	object/cell/cell.iff	1	0	0	0	1	0	0	0		$|
 4335464	4335462	object/cell/cell.iff	2	0	0	0	1	0	0	0		$|
 4335476	4335464	object/tangible/poi/spawnegg/interior_spawnegg.iff	2	-45.63196182	-47.6741066	-59.71353912	1	0	0	0		intRandomYaw|0|1|$|
@@ -31,7 +32,6 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 4335488	4335473	object/tangible/poi/spawnegg/interior_spawnegg.iff	11	-90.5238266	-46.80524445	-143.4121094	1	0	0	0		intRandomYaw|0|1|$|
 4335489	4335473	object/tangible/poi/spawnegg/interior_spawnegg.iff	11	-76.6311264	-46.27325821	-138.74263	1	0	0	0		intRandomYaw|0|1|$|
 4335490	4335473	object/tangible/poi/spawnegg/interior_spawnegg.iff	11	-79.06230927	-46.02785873	-145.9253082	1	0	0	0		intRandomYaw|0|1|$|
-4335462	0	object/building/general/cave_02_damprock_mirror.iff	0	1918	34.3353	2034.22	0.357693	0	0.933839	0	theme_park.dungeon.generic_spawner	spawn_table|4|datatables/spawning/poi_spawner/dathomir/dath_rancor_cave.iff|$|
 7325403	0	object/tangible/jedi/force_shrine_stone.iff	0	1182.52	129.983	599.578	0.707107	0	0.707107	0		$|
 7325404	0	object/static/structure/dantooine/dant_jedi_temple_pillar_sm.iff	0	1178.1	130.991	597.981	0.707112	0	0.707101	0		$|
 7325405	0	object/static/structure/dantooine/dant_jedi_temple_pillar_sm.iff	0	1186.78	130.991	598.015	1	0	0	0		$|
