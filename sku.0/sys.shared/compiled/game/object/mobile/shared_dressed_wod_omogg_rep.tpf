@@ -9,7 +9,7 @@ gender = GE_male
 
 @class object_template 10
 
-objectName = "theme_park_name" "omogg_rep"
+objectName = "theme_park_lookat" "omogg_rep"
 detailedDescription = "theme_park_detail" "omogg_rep"
 lookAtText = "theme_park_lookat" "omogg_rep"
 appearanceFilename = "appearance/trn_m.sat"

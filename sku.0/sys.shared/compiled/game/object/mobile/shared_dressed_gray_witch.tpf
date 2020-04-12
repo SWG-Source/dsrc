@@ -9,7 +9,7 @@ species = SP_bith
 
 @class object_template 3
 
-objectName = "theme_park_name" "gray_witch"
+objectName = "theme_park_lookat" "gray_witch"
 detailedDescription = "theme_park_detail" "gray_witch"
 lookAtText = "theme_park_lookat" "gray_witch"
 
