@@ -68,11 +68,11 @@ public class wod_omogg_rep extends script.base_script
     }
     public int wod_omogg_rep_handleBranch1(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
-        if (response.equals("s_6"))
+        // if (response.equals("s_6"))/Easy credits? Excuse me if I'm a little skeptical.
         {
             if (wod_omogg_rep_condition__defaultCondition(player, npc))
             {
-                string_id message = new string_id(c_stringFile, "s_8");
+                string_id message = new string_id(c_stringFile, "s_26");
                 int numberOfResponses = 0;
                 boolean hasResponse = false;
                 boolean hasResponse0 = false;
@@ -88,7 +88,7 @@ public class wod_omogg_rep extends script.base_script
                     string_id responses[] = new string_id[numberOfResponses];
                     if (hasResponse0)
                     {
-                        responses[responseIndex++] = new string_id(c_stringFile, "s_10");
+                        responses[responseIndex++] = new string_id(c_stringFile, "s_28");
                     }
                     utils.setScriptVar(player, "conversation.wod_omogg_rep.branchId", 2);
                     npcSpeak(player, message);
@@ -106,11 +106,11 @@ public class wod_omogg_rep extends script.base_script
     }
     public int wod_omogg_rep_handleBranch2(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
-        if (response.equals("s_10"))
+        if (response.equals("s_28"))
         {
             if (wod_omogg_rep_condition__defaultCondition(player, npc))
             {
-                string_id message = new string_id(c_stringFile, "s_12");
+                string_id message = new string_id(c_stringFile, "s_30");
                 int numberOfResponses = 0;
                 boolean hasResponse = false;
                 boolean hasResponse0 = false;
@@ -133,11 +133,11 @@ public class wod_omogg_rep extends script.base_script
                     string_id responses[] = new string_id[numberOfResponses];
                     if (hasResponse0)
                     {
-                        responses[responseIndex++] = new string_id(c_stringFile, "s_14");
+                        responses[responseIndex++] = new string_id(c_stringFile, "s_32");
                     }
                     if (hasResponse1)
                     {
-                        responses[responseIndex++] = new string_id(c_stringFile, "s_50");
+                        responses[responseIndex++] = new string_id(c_stringFile, "s_38");
                     }
                     utils.setScriptVar(player, "conversation.wod_omogg_rep.branchId", 3);
                     npcSpeak(player, message);
@@ -155,12 +155,12 @@ public class wod_omogg_rep extends script.base_script
     }
     public int wod_omogg_rep_handleBranch3(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
-        if (response.equals("s_14"))
+        if (response.equals("s_32"))
         {
             if (wod_omogg_rep_condition__defaultCondition(player, npc))
             {
                 wod_omogg_rep_action_grantFirstQuest(player, npc);
-                string_id message = new string_id(c_stringFile, "s_16");
+                string_id message = new string_id(c_stringFile, "s_34");
                 utils.removeScriptVar(player, "conversation.wod_omogg_rep.branchId");
                 npcEndConversationWithMessage(player, message);
                 return SCRIPT_CONTINUE;
@@ -170,7 +170,7 @@ public class wod_omogg_rep extends script.base_script
         {
             if (wod_omogg_rep_condition__defaultCondition(player, npc))
             {
-                string_id message = new string_id(c_stringFile, "s_51");
+                string_id message = new string_id(c_stringFile, "s_40");
                 utils.removeScriptVar(player, "conversation.wod_omogg_rep.branchId");
                 npcEndConversationWithMessage(player, message);
                 return SCRIPT_CONTINUE;
@@ -180,12 +180,12 @@ public class wod_omogg_rep extends script.base_script
     }
     public int wod_omogg_rep_handleBranch6(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
-        if (response.equals("s_20"))
+        if (response.equals("s_12"))
         {
             if (wod_omogg_rep_condition__defaultCondition(player, npc))
             {
                 wod_omogg_rep_action_sendReturnedSignal1(player, npc);
-                string_id message = new string_id(c_stringFile, "s_22");
+                string_id message = new string_id(c_stringFile, "s_13");
                 int numberOfResponses = 0;
                 boolean hasResponse = false;
                 boolean hasResponse0 = false;
@@ -201,7 +201,7 @@ public class wod_omogg_rep extends script.base_script
                     string_id responses[] = new string_id[numberOfResponses];
                     if (hasResponse0)
                     {
-                        responses[responseIndex++] = new string_id(c_stringFile, "s_24");
+                        responses[responseIndex++] = new string_id(c_stringFile, "s_35");
                     }
                     utils.setScriptVar(player, "conversation.wod_omogg_rep.branchId", 7);
                     npcSpeak(player, message);
@@ -219,11 +219,11 @@ public class wod_omogg_rep extends script.base_script
     }
     public int wod_omogg_rep_handleBranch7(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
-        if (response.equals("s_24"))
+        if (response.equals("s_35"))
         {
             if (wod_omogg_rep_condition__defaultCondition(player, npc))
             {
-                string_id message = new string_id(c_stringFile, "s_26");
+                string_id message = new string_id(c_stringFile, "s_36");
                 int numberOfResponses = 0;
                 boolean hasResponse = false;
                 boolean hasResponse0 = false;
@@ -246,11 +246,11 @@ public class wod_omogg_rep extends script.base_script
                     string_id responses[] = new string_id[numberOfResponses];
                     if (hasResponse0)
                     {
-                        responses[responseIndex++] = new string_id(c_stringFile, "s_28");
+                        responses[responseIndex++] = new string_id(c_stringFile, "s_44");
                     }
                     if (hasResponse1)
                     {
-                        responses[responseIndex++] = new string_id(c_stringFile, "s_44");
+                        responses[responseIndex++] = new string_id(c_stringFile, "s_48");
                     }
                     utils.setScriptVar(player, "conversation.wod_omogg_rep.branchId", 8);
                     npcSpeak(player, message);
@@ -268,7 +268,7 @@ public class wod_omogg_rep extends script.base_script
     }
     public int wod_omogg_rep_handleBranch8(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
-        if (response.equals("s_28"))
+        if (response.equals("s_44"))
         {
             if (wod_omogg_rep_condition__defaultCondition(player, npc))
             {
@@ -279,11 +279,11 @@ public class wod_omogg_rep extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        if (response.equals("s_44"))
+        if (response.equals("s_48"))
         {
             if (wod_omogg_rep_condition__defaultCondition(player, npc))
             {
-                string_id message = new string_id(c_stringFile, "s_45");
+                string_id message = new string_id(c_stringFile, "s_50");
                 utils.removeScriptVar(player, "conversation.wod_omogg_rep.branchId");
                 npcEndConversationWithMessage(player, message);
                 return SCRIPT_CONTINUE;
@@ -293,12 +293,12 @@ public class wod_omogg_rep extends script.base_script
     }
     public int wod_omogg_rep_handleBranch11(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
-        if (response.equals("s_34"))
+        if (response.equals("s_24"))
         {
             if (wod_omogg_rep_condition__defaultCondition(player, npc))
             {
                 wod_omogg_rep_action_sendReturnedSignal2(player, npc);
-                string_id message = new string_id(c_stringFile, "s_36");
+                string_id message = new string_id(c_stringFile, "s_25");
                 utils.removeScriptVar(player, "conversation.wod_omogg_rep.branchId");
                 npcEndConversationWithMessage(player, message);
                 return SCRIPT_CONTINUE;
@@ -308,22 +308,22 @@ public class wod_omogg_rep extends script.base_script
     }
     public int wod_omogg_rep_handleBranch15(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
-        if (response.equals("s_47"))
+        if (response.equals("s_44"))
         {
             if (wod_omogg_rep_condition__defaultCondition(player, npc))
             {
                 wod_omogg_rep_action_grantSecondQuest(player, npc);
-                string_id message = new string_id(c_stringFile, "s_49");
+                string_id message = new string_id(c_stringFile, "s_46");
                 utils.removeScriptVar(player, "conversation.wod_omogg_rep.branchId");
                 npcEndConversationWithMessage(player, message);
                 return SCRIPT_CONTINUE;
             }
         }
-        if (response.equals("s_46"))
+        if (response.equals("s_48"))
         {
             if (wod_omogg_rep_condition__defaultCondition(player, npc))
             {
-                string_id message = new string_id(c_stringFile, "s_48");
+                string_id message = new string_id(c_stringFile, "s_50");
                 utils.removeScriptVar(player, "conversation.wod_omogg_rep.branchId");
                 npcEndConversationWithMessage(player, message);
                 return SCRIPT_CONTINUE;
@@ -374,7 +374,7 @@ public class wod_omogg_rep extends script.base_script
         }
         if (wod_omogg_rep_condition_canGrantQuest1(player, npc))
         {
-            string_id message = new string_id(c_stringFile, "s_4");
+            string_id message = new string_id(c_stringFile, "s_19");
             int numberOfResponses = 0;
             boolean hasResponse = false;
             boolean hasResponse0 = false;
@@ -390,7 +390,7 @@ public class wod_omogg_rep extends script.base_script
                 string_id responses[] = new string_id[numberOfResponses];
                 if (hasResponse0)
                 {
-                    responses[responseIndex++] = new string_id(c_stringFile, "s_6");
+                    responses[responseIndex++] = new string_id(c_stringFile, "s_21");
                 }
                 utils.setScriptVar(player, "conversation.wod_omogg_rep.branchId", 1);
                 npcStartConversation(player, npc, "wod_omogg_rep", message, responses);
@@ -403,7 +403,7 @@ public class wod_omogg_rep extends script.base_script
         }
         if (wod_omogg_rep_condition_onReturn1(player, npc))
         {
-            string_id message = new string_id(c_stringFile, "s_18");
+            string_id message = new string_id(c_stringFile, "s_6");
             int numberOfResponses = 0;
             boolean hasResponse = false;
             boolean hasResponse0 = false;
@@ -419,7 +419,7 @@ public class wod_omogg_rep extends script.base_script
                 string_id responses[] = new string_id[numberOfResponses];
                 if (hasResponse0)
                 {
-                    responses[responseIndex++] = new string_id(c_stringFile, "s_20");
+                    responses[responseIndex++] = new string_id(c_stringFile, "s_12");
                 }
                 utils.setScriptVar(player, "conversation.wod_omogg_rep.branchId", 6);
                 npcStartConversation(player, npc, "wod_omogg_rep", message, responses);
@@ -432,7 +432,7 @@ public class wod_omogg_rep extends script.base_script
         }
         if (wod_omogg_rep_condition_onReturn2(player, npc))
         {
-            string_id message = new string_id(c_stringFile, "s_32");
+            string_id message = new string_id(c_stringFile, "s_23");
             int numberOfResponses = 0;
             boolean hasResponse = false;
             boolean hasResponse0 = false;
@@ -448,7 +448,7 @@ public class wod_omogg_rep extends script.base_script
                 string_id responses[] = new string_id[numberOfResponses];
                 if (hasResponse0)
                 {
-                    responses[responseIndex++] = new string_id(c_stringFile, "s_34");
+                    responses[responseIndex++] = new string_id(c_stringFile, "s_24");
                 }
                 utils.setScriptVar(player, "conversation.wod_omogg_rep.branchId", 11);
                 npcStartConversation(player, npc, "wod_omogg_rep", message, responses);
@@ -461,13 +461,13 @@ public class wod_omogg_rep extends script.base_script
         }
         if (wod_omogg_rep_condition_finishedQuest2(player, npc))
         {
-            string_id message = new string_id(c_stringFile, "s_43");
+            string_id message = new string_id(c_stringFile, "s_4");
             chat.chat(npc, player, message);
             return SCRIPT_CONTINUE;
         }
         if (wod_omogg_rep_condition_onQuests(player, npc))
         {
-            string_id message = new string_id(c_stringFile, "s_39");
+            string_id message = new string_id(c_stringFile, "s_17");
             chat.chat(npc, player, message);
             return SCRIPT_CONTINUE;
         }
@@ -496,11 +496,11 @@ public class wod_omogg_rep extends script.base_script
                 string_id responses[] = new string_id[numberOfResponses];
                 if (hasResponse0)
                 {
-                    responses[responseIndex++] = new string_id(c_stringFile, "s_47");
+                    responses[responseIndex++] = new string_id(c_stringFile, "s_44");
                 }
                 if (hasResponse1)
                 {
-                    responses[responseIndex++] = new string_id(c_stringFile, "s_46");
+                    responses[responseIndex++] = new string_id(c_stringFile, "s_48");
                 }
                 utils.setScriptVar(player, "conversation.wod_omogg_rep.branchId", 15);
                 npcStartConversation(player, npc, "wod_omogg_rep", message, responses);
@@ -513,7 +513,7 @@ public class wod_omogg_rep extends script.base_script
         }
         if (wod_omogg_rep_condition__defaultCondition(player, npc))
         {
-            string_id message = new string_id(c_stringFile, "s_40");
+            string_id message = new string_id(c_stringFile, "s_52");
             chat.chat(npc, player, message);
             return SCRIPT_CONTINUE;
         }
