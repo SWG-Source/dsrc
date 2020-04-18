@@ -2253,11 +2253,13 @@ public class wod_rubina extends script.base_script
             detachScript(self, "conversation.wod_rubina");
         }
         setCondition(self, CONDITION_CONVERSABLE);
+		setCondition(self, CONDITION_INTERESTING);
         return SCRIPT_CONTINUE;
     }
     public int OnAttach(obj_id self) throws InterruptedException
     {
         setCondition(self, CONDITION_CONVERSABLE);
+		setCondition(self, CONDITION_INTERESTING);
         return SCRIPT_CONTINUE;
     }
     public int OnObjectMenuRequest(obj_id self, obj_id player, menu_info menuInfo) throws InterruptedException
@@ -2266,11 +2268,13 @@ public class wod_rubina extends script.base_script
         menu_info_data menuInfoData = menuInfo.getMenuItemById(menu);
         menuInfoData.setServerNotify(false);
         setCondition(self, CONDITION_CONVERSABLE);
+		setCondition(self, CONDITION_INTERESTING);
         return SCRIPT_CONTINUE;
     }
     public int OnIncapacitated(obj_id self, obj_id killer) throws InterruptedException
     {
         clearCondition(self, CONDITION_CONVERSABLE);
+		setCondition(self, CONDITION_INTERESTING);
         detachScript(self, "conversation.wod_rubina");
         return SCRIPT_CONTINUE;
     }
