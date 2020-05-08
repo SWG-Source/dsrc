@@ -194,7 +194,7 @@ public class instance_reset extends script.base_script
         obj_id owner = instance_data.getObjId("owner");
         int startTime = instance_data.getInt("start_time");
         int resetAt = getCalendarTime();
-        setObjVar(player, instance.PLAYER_INSTANCE + "." + instanceToRemove, "" + resetAt + "_" + instance_id + "_" + owner + "_" + newStartTime);
+        setObjVar(player, instance.PLAYER_INSTANCE + "." + instanceToRemove, resetAt + "_" + instance_id + "_" + owner + "_" + newStartTime);
         instance_data = instance.getLockoutData(player, instanceToRemove);
         if (instance_data != null && !instance_data.isEmpty())
         {

@@ -95,7 +95,7 @@ public class beast extends script.base_script
                 experiencePercentage = (int)(((float)experienceProgress / experienceNeeded) * 100);
             }
             names[idx] = "level_progress";
-            attribs[idx] = "" + experiencePercentage + "%";
+            attribs[idx] = String.valueOf(experiencePercentage) + "%";
             idx++;
         }
         if (beast_lib.getBeastCanLevel(self))
@@ -114,7 +114,7 @@ public class beast extends script.base_script
         String currentHappiness = utils.packStringId(beast_lib.convertHappinessString(beastBCD));
         if (currentHappiness != null)
         {
-            attribs[idx] = "" + currentHappiness;
+            attribs[idx] = String.valueOf(currentHappiness);
             idx++;
             if (idx >= names.length)
             {
@@ -125,7 +125,7 @@ public class beast extends script.base_script
         String currentLoyalty = utils.packStringId(beast_lib.convertLoyaltyString(beastBCD));
         if (currentLoyalty != null)
         {
-            attribs[idx] = "" + currentLoyalty;
+            attribs[idx] = String.valueOf(currentLoyalty);
             idx++;
             if (idx >= names.length)
             {
@@ -136,7 +136,7 @@ public class beast extends script.base_script
         if (loyaltyPercentage >= 0)
         {
             names[idx] = beast_lib.BEAST_LOYALTY_PERCENTAGE_TITLE;
-            attribs[idx] = "" + loyaltyPercentage + "%";
+            attribs[idx] = String.valueOf(loyaltyPercentage) + "%";
             idx++;
             if (idx >= names.length)
             {
@@ -148,29 +148,29 @@ public class beast extends script.base_script
         if (!abilityList[3].equals("") && slotsAvalable >= 0 && !abilityList[3].equals("empty") && !abilityList[3].equals("disabled"))
         {
             names[idx] = "bm_ability_1";
-            attribs[idx] = "" + utils.packStringId(new string_id("cmd_n", abilityList[3]));
+            attribs[idx] = String.valueOf(utils.packStringId(new string_id("cmd_n", abilityList[3])));
             idx++;
         }
         if (!abilityList[4].equals("") && slotsAvalable >= 1 && !abilityList[4].equals("empty") && !abilityList[4].equals("disabled"))
         {
             names[idx] = "bm_ability_2";
-            attribs[idx] = "" + utils.packStringId(new string_id("cmd_n", abilityList[4]));
+            attribs[idx] = String.valueOf(utils.packStringId(new string_id("cmd_n", abilityList[4])));
             idx++;
         }
         if (!abilityList[5].equals("") && slotsAvalable >= 2 && !abilityList[5].equals("empty") && !abilityList[5].equals("disabled"))
         {
             names[idx] = "bm_ability_3";
-            attribs[idx] = "" + utils.packStringId(new string_id("cmd_n", abilityList[5]));
+            attribs[idx] = String.valueOf(utils.packStringId(new string_id("cmd_n", abilityList[5])));
             idx++;
         }
         if (!abilityList[6].equals("") && slotsAvalable >= 3 && !abilityList[6].equals("empty") && !abilityList[6].equals("disabled"))
         {
             names[idx] = "bm_ability_4";
-            attribs[idx] = "" + utils.packStringId(new string_id("cmd_n", abilityList[6]));
+            attribs[idx] = String.valueOf(utils.packStringId(new string_id("cmd_n", abilityList[6])));
             idx++;
         }
         names[idx] = "armorhpmax";
-        attribs[idx] = "" + (utils.getIntScriptVar(self, "beast.display.armor") + getEnhancedSkillStatisticModifier(self, "private_armor_bonus"));
+        attribs[idx] = String.valueOf((utils.getIntScriptVar(self, "beast.display.armor") + getEnhancedSkillStatisticModifier(self, "private_armor_bonus")));
         idx++;
         obj_id beastWeapon = getCurrentWeapon(self);
         if (isIdValid(beastWeapon))
@@ -182,14 +182,14 @@ public class beast extends script.base_script
             maxDamage = (int)(maxDamage * (1.0f + (expertiseDamageBonus / 100.0f)));
             float weaponSpeed = getWeaponAttackSpeed(beastWeapon);
             names[idx] = "damage";
-            attribs[idx] = "" + minDamage + " - " + maxDamage;
+            attribs[idx] = minDamage + " - " + maxDamage;
             idx++;
             names[idx] = "attackspeed";
-            attribs[idx] = "" + weaponSpeed;
+            attribs[idx] = String.valueOf(weaponSpeed);
             idx++;
             float beastDPS = utils.roundFloatByDecimal((minDamage + maxDamage) / weaponSpeed / 2);
             names[idx] = "basedps";
-            attribs[idx] = "" + beastDPS;
+            attribs[idx] = String.valueOf(beastDPS);
             idx++;
         }
         else 
@@ -204,14 +204,14 @@ public class beast extends script.base_script
                 minDamage = (int)(minDamage * (1.0f + (expertiseDamageBonus / 100.0f)));
                 maxDamage = (int)(maxDamage * (1.0f + (expertiseDamageBonus / 100.0f)));
                 names[idx] = "damage";
-                attribs[idx] = "" + minDamage + " - " + maxDamage;
+                attribs[idx] = minDamage + " - " + maxDamage;
                 idx++;
                 names[idx] = "attackspeed";
-                attribs[idx] = "" + weaponSpeed;
+                attribs[idx] = String.valueOf(weaponSpeed);
                 idx++;
                 float beastDPS = utils.roundFloatByDecimal((minDamage + maxDamage) / weaponSpeed / 2);
                 names[idx] = "basedps";
-                attribs[idx] = "" + beastDPS;
+                attribs[idx] = String.valueOf(beastDPS);
                 idx++;
             }
         }
@@ -225,13 +225,13 @@ public class beast extends script.base_script
                     if (!name.equals("block_value_bonus"))
                     {
                         names[idx] = beast_lib.DISPLAY_NAMES[i];
-                        attribs[idx] = "" + utils.roundFloatByDecimal((utils.getFloatScriptVar(self, beast_lib.ARRAY_BEAST_INCUBATION_STATS[i]) * beast_lib.DISPLAY_CONVERSION_RATES[i])) + "%";
+                        attribs[idx] = String.valueOf(utils.roundFloatByDecimal((utils.getFloatScriptVar(self, beast_lib.ARRAY_BEAST_INCUBATION_STATS[i]) * beast_lib.DISPLAY_CONVERSION_RATES[i]))) + "%";
                         idx++;
                     }
                     else 
                     {
                         names[idx] = beast_lib.DISPLAY_NAMES[i];
-                        attribs[idx] = "" + utils.roundFloatByDecimal(utils.getFloatScriptVar(self, beast_lib.ARRAY_BEAST_INCUBATION_STATS[i]));
+                        attribs[idx] = String.valueOf(utils.roundFloatByDecimal(utils.getFloatScriptVar(self, beast_lib.ARRAY_BEAST_INCUBATION_STATS[i])));
                         idx++;
                     }
                     continue;
@@ -239,7 +239,7 @@ public class beast extends script.base_script
                 else 
                 {
                     names[idx] = beast_lib.DISPLAY_NAMES[i];
-                    attribs[idx] = "" + utils.roundFloatByDecimal(utils.getFloatScriptVar(self, beast_lib.ARRAY_BEAST_INCUBATION_STATS[i]));
+                    attribs[idx] = String.valueOf(utils.roundFloatByDecimal(utils.getFloatScriptVar(self, beast_lib.ARRAY_BEAST_INCUBATION_STATS[i])));
                     idx++;
                     continue;
                 }
@@ -249,7 +249,7 @@ public class beast extends script.base_script
         if (glanceReduct > 0)
         {
             names[idx] = "bm_glance_reduct";
-            attribs[idx] = "" + glanceReduct + "%";
+            attribs[idx] = String.valueOf(glanceReduct) + "%";
             idx++;
             if (idx >= names.length)
             {
@@ -260,7 +260,7 @@ public class beast extends script.base_script
         if (damageReduct > 0)
         {
             names[idx] = "bm_damage_reduct";
-            attribs[idx] = "" + damageReduct + "%";
+            attribs[idx] = String.valueOf(damageReduct) + "%";
             idx++;
             if (idx >= names.length)
             {
@@ -271,7 +271,7 @@ public class beast extends script.base_script
         if (punishReduct > 0)
         {
             names[idx] = "bm_punish_reduct";
-            attribs[idx] = "" + punishReduct + "%";
+            attribs[idx] = String.valueOf(punishReduct) + "%";
             idx++;
             if (idx >= names.length)
             {

@@ -89,7 +89,7 @@ public class fish extends script.base_script
             if (length > 0.0f)
             {
                 names[line] = "length";
-                attribs[line] = "" + length + "m";
+                attribs[line] = length + "m";
                 line++;
                 if (line > names.length)
                 {

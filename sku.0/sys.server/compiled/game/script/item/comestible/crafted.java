@@ -70,7 +70,7 @@ public class crafted extends script.item.comestible.comestible
             else 
             {
                 int numMods = am.length;
-                attribs[n] = "" + numMods;
+                attribs[n] = Integer.toString(numMods);
                 n++;
                 if (n > names.length)
                 {
@@ -84,7 +84,7 @@ public class crafted extends script.item.comestible.comestible
                     if (val > 0) {
                         sVal = "+" + val;
                     } else if (val < 0) {
-                        sVal = "" + val;
+                        sVal = Integer.toString(val);
                     }
                     int minutes = duration / 60;
                     int seconds = duration - (minutes * 60);

@@ -152,7 +152,7 @@ public class spice extends script.base_script
             }
             else 
             {
-                attribs[idx] = "" + numMods;
+                attribs[idx] = Integer.toString(numMods);
             }
         }
         return SCRIPT_CONTINUE;

@@ -32,7 +32,7 @@ public class foraged extends script.item.comestible.comestible
         else 
         {
             int numMods = am.length;
-            attribs[n] = "" + numMods;
+            attribs[n] = Integer.toString(numMods);
             n++;
             if (n > names.length)
             {
@@ -47,7 +47,7 @@ public class foraged extends script.item.comestible.comestible
                 if (newVal > 0) {
                     sVal = "+" + newVal;
                 } else if (newVal < 0) {
-                    sVal = "" + newVal;
+                    sVal = Integer.toString(newVal);
                 }
                 names[n] = toLower(consumable.STAT_NAME[attrib]);
                 attribs[n] = sVal + "%, " + duration + "s";

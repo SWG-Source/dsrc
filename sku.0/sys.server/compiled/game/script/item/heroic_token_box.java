@@ -51,7 +51,7 @@ public class heroic_token_box extends script.base_script
             for (int i = 0; i < tokenTypes.length; i++)
             {
                 names[free] = utils.packStringId(new string_id("static_item_n", trial.HEROIC_TOKENS[i]));
-                attribs[free++] = "" + tokenTypes[i];
+                attribs[free++] = Integer.toString(tokenTypes[i]);
             }
         }
         return SCRIPT_CONTINUE;

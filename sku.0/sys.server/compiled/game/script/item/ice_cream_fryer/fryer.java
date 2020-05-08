@@ -159,7 +159,7 @@ public class fryer extends script.base_script
         }
         int currentStatus = getIntObjVar(self, DECAY);
         names[idx] = "fryer_status";
-        attribs[idx] = "" + currentStatus + "%";
+        attribs[idx] = currentStatus + "%";
         idx++;
         return SCRIPT_CONTINUE;
     }
@@ -338,7 +338,7 @@ public class fryer extends script.base_script
         while (randomRows.size() < (collection.ICE_CREAM_BUFF_ARRAY.length - 2))
         {
             int randomNum = rand(BASIC_BUFF_ROWS, datatableLength);
-            randomRows.add("" + randomNum);
+            randomRows.add(Integer.toString(randomNum));
             blog("getRandomRowNumbersWithoutDuplicates - adding this to hash: " + randomNum);
         }
         String[] allNumbers = new String[randomRows.size()];

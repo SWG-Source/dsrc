@@ -170,7 +170,7 @@ public class ice_cream_nobuff extends script.base_script
         seconds -= (minutes * 60);
         if (hours > 0)
         {
-            result += "" + hours + ":";
+            result += hours + ":";
         }
         if (minutes > 0 || hours > 0)
         {
@@ -178,13 +178,13 @@ public class ice_cream_nobuff extends script.base_script
             {
                 result += "0";
             }
-            result += "" + minutes + ":";
+            result += minutes + ":";
         }
         if (minutes > 0 && seconds < 10)
         {
             result += "0";
         }
-        result += "" + seconds;
+        result += seconds;
         return result;
     }
     public int removeItemFoodScript(obj_id self, dictionary params) throws InterruptedException

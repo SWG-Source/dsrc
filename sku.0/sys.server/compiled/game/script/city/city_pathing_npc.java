@@ -80,7 +80,7 @@ public class city_pathing_npc extends script.base_script
     }
     public void doFacingAction(obj_id npc, obj_id currentStop) throws InterruptedException
     {
-        obj_id objThingToFace = utils.stringToObjId("" + getIntObjVar(currentStop, "faceto"));
+        obj_id objThingToFace = utils.stringToObjId(Integer.toString(getIntObjVar(currentStop, "faceto")));
         if (isIdValid(objThingToFace))
         {
             faceTo(npc, objThingToFace);
@@ -109,7 +109,7 @@ public class city_pathing_npc extends script.base_script
     {
         if (hasObjVar(currentStop, "destination"))
         {
-            obj_id dest = utils.stringToObjId("" + getIntObjVar(currentStop, "destination"));
+            obj_id dest = utils.stringToObjId(Integer.toString(getIntObjVar(currentStop, "destination")));
             utils.setScriptVar(npc, "pathing.currentStop", dest);
             pathTo(npc, getLocation(dest));
         }

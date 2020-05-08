@@ -264,21 +264,20 @@ public class dianoga_dumpster extends script.base_script
                 if (succesFeeds > 0)
                 {
                     names[idx] = "times_fed";
-                    attribs[idx] = "" + succesFeeds;
+                    attribs[idx] = Integer.toString(succesFeeds);
                     idx++;
                 }
                 names[idx] = "next_feed";
-                if (currentStatus == 0)
-                {
-                    attribs[idx] = getCalendarTimeStringLocal(lastFed + house_pet.getUpdateWeekly(self));
-                }
-                else if (currentStatus == 1)
-                {
-                    attribs[idx] = "Now";
-                }
-                else 
-                {
-                    attribs[idx] = "Hopefully Soon";
+                switch (currentStatus) {
+                    case 0:
+                        attribs[idx] = getCalendarTimeStringLocal(lastFed + house_pet.getUpdateWeekly(self));
+                        break;
+                    case 1:
+                        attribs[idx] = "Now";
+                        break;
+                    default:
+                        attribs[idx] = "Hopefully Soon";
+                        break;
                 }
                 idx++;
                 names[idx] = "time_now";

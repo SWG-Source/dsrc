@@ -163,7 +163,6 @@ public class faction_recruiter_imperial extends script.base_script
         int faction_id = pvpGetAlignedFaction(player);
         String playerGcwFaction = factions.getFactionNameByHashCode(faction_id);
         faction_perk.displayAvailableFactionItemRanks(player, npc, playerGcwRank, playerGcwFaction);
-        return;
     }
     public String faction_recruiter_imperial_tokenTO_getFactionRankName(obj_id player, obj_id npc) throws InterruptedException
     {
@@ -189,7 +188,7 @@ public class faction_recruiter_imperial extends script.base_script
     public String faction_recruiter_imperial_tokenTO_getRebelScoreString(obj_id player, obj_id npc) throws InterruptedException
     {
         int intTest = getIntObjVar(npc, "Rebel.controlScore");
-        return "" + intTest;
+        return Integer.toString(intTest);
     }
     public int faction_recruiter_imperial_tokenDI_getImperialScore(obj_id player, obj_id npc) throws InterruptedException
     {

@@ -291,21 +291,20 @@ public class sarlacc_furniture_terminal extends script.base_script
                 if (succesFeeds > 0)
                 {
                     names[idx] = "times_fed";
-                    attribs[idx] = "" + succesFeeds;
+                    attribs[idx] = Integer.toString(succesFeeds);
                     idx++;
                 }
                 names[idx] = "next_feed";
-                if (currentStatus == 0)
-                {
-                    attribs[idx] = getCalendarTimeStringLocal(lastFed + house_pet.getUpdateWeekly(self));
-                }
-                else if (currentStatus == 1)
-                {
-                    attribs[idx] = "Now";
-                }
-                else 
-                {
-                    attribs[idx] = "Hopefully Soon";
+                switch (currentStatus) {
+                    case 0:
+                        attribs[idx] = getCalendarTimeStringLocal(lastFed + house_pet.getUpdateWeekly(self));
+                        break;
+                    case 1:
+                        attribs[idx] = "Now";
+                        break;
+                    default:
+                        attribs[idx] = "Hopefully Soon";
+                        break;
                 }
                 idx++;
                 names[idx] = "time_now";
@@ -505,7 +504,7 @@ public class sarlacc_furniture_terminal extends script.base_script
         {
             return SCRIPT_CONTINUE;
         }
-        if (params == null || params.equals(""))
+        if (params == null || params.isEmpty())
         {
             return SCRIPT_CONTINUE;
         }
@@ -527,7 +526,7 @@ public class sarlacc_furniture_terminal extends script.base_script
         {
             return SCRIPT_CONTINUE;
         }
-        if (params == null || params.equals(""))
+        if (params == null || params.isEmpty())
         {
             return SCRIPT_CONTINUE;
         }
@@ -553,7 +552,7 @@ public class sarlacc_furniture_terminal extends script.base_script
         {
             return SCRIPT_CONTINUE;
         }
-        if (params == null || params.equals(""))
+        if (params == null || params.isEmpty())
         {
             return SCRIPT_CONTINUE;
         }
@@ -646,21 +645,21 @@ public class sarlacc_furniture_terminal extends script.base_script
             CustomerServiceLog("sarlacc_minigame: ", "updateSarlaccPet - Sarlacc: " + sarlacc + " has a feeding iteration, continuing debug procedures.");
         }
         int currentPhase = getIntObjVar(sarlacc, house_pet.SARLACC_CURRENT_PHASE);
-        if (currentPhase == house_pet.SARLACC_DEATH)
-        {
-            CustomerServiceLog("sarlacc_minigame: ", "updateSarlaccPet - Sarlacc: " + sarlacc + " we haven't even started updating yet and the Sarlacc is currently DEAD.");
-        }
-        else if (currentPhase == house_pet.SARLACC_STARVING)
-        {
-            CustomerServiceLog("sarlacc_minigame: ", "updateSarlaccPet - Sarlacc: " + sarlacc + " we haven't even started updating yet and the Sarlacc is currently STARVING.");
-        }
-        else if (currentPhase == house_pet.SARLACC_HUNGRY)
-        {
-            CustomerServiceLog("sarlacc_minigame: ", "updateSarlaccPet - Sarlacc: " + sarlacc + " we haven't even started updating yet and the Sarlacc is currently HUNGRY.");
-        }
-        else if (currentPhase == house_pet.SARLACC_FED)
-        {
-            CustomerServiceLog("sarlacc_minigame: ", "updateSarlaccPet - Sarlacc: " + sarlacc + " we haven't even started updating yet and the Sarlacc is currently FED.");
+        switch (currentPhase) {
+            case house_pet.SARLACC_DEATH:
+                CustomerServiceLog("sarlacc_minigame: ", "updateSarlaccPet - Sarlacc: " + sarlacc + " we haven't even started updating yet and the Sarlacc is currently DEAD.");
+                break;
+            case house_pet.SARLACC_STARVING:
+                CustomerServiceLog("sarlacc_minigame: ", "updateSarlaccPet - Sarlacc: " + sarlacc + " we haven't even started updating yet and the Sarlacc is currently STARVING.");
+                break;
+            case house_pet.SARLACC_HUNGRY:
+                CustomerServiceLog("sarlacc_minigame: ", "updateSarlaccPet - Sarlacc: " + sarlacc + " we haven't even started updating yet and the Sarlacc is currently HUNGRY.");
+                break;
+            case house_pet.SARLACC_FED:
+                CustomerServiceLog("sarlacc_minigame: ", "updateSarlaccPet - Sarlacc: " + sarlacc + " we haven't even started updating yet and the Sarlacc is currently FED.");
+                break;
+            default:
+                break;
         }
         if (getIntObjVar(sarlacc, house_pet.SARLACC_FEEDING_ITERATION) >= house_pet.SARLACC_PHASE_WEEKS)
         {
@@ -842,7 +841,7 @@ public class sarlacc_furniture_terminal extends script.base_script
         for (int i = 0; i < edibleItems.length; i++)
         {
             String name = getAssignedName(edibleItems[i]);
-            if (name.equals("") || name == null)
+            if (name.isEmpty() || name == null)
             {
                 name = getString(getNameStringId(edibleItems[i]));
             }
@@ -1328,7 +1327,7 @@ public class sarlacc_furniture_terminal extends script.base_script
         {
             logData += " No Sarlacc Penalty Variable.";
         }
-        if (logData == null || logData.equals(""))
+        if (logData.isEmpty() || logData.isBlank())
         {
             return false;
         }
