@@ -12,7 +12,7 @@ i	"e(none=0,cold=64,heat=32,acid=128,electric=256)[none]"	f	c
 9	electric	0.02	
 10	heat	0.02	
 11	heat	0.02	
-12	heat	0.05	Maul's Vengence
+12	heat	0.05	Allya's Exile
 13	heat	0.04	Kun's Blood
 14	acid	0.06	Bondara's Folly
 15	acid	0.04	Ulric's Redemption
@@ -27,8 +27,25 @@ i	"e(none=0,cold=64,heat=32,acid=128,electric=256)[none]"	f	c
 24	electric	0.04	Quintessence of the Force
 25	acid	0.04	Dawn of Dagobah
 26	electric	0.04	Horn's Future
-27	heat	0.06	Qui-gon's Devotion
+27	acid	0.04	Allya's Redemption
 28	cold	0.06	Kenobi's Legacy
 29	heat	0.06	Sunrider's Destiny
 30	acid	0.04	Kit's Ferocity
-31	heat	0.06	Cunning of Tyranus
+32	heat	0.06	Cunning of Tyranus
+33	heat	0.05	Maul's Vengeance
+34	acid	0.04	Qui-gon's Devotion
+35	cold	0.01	unused
+36	cold	0.01	unused
+37	cold	0.01	unused
+38	cold	0.01	unused
+39	cold	0.01	unused
+40	cold	0.01	unused
+41	cold	0.01	unused
+42	cold	0.01	unused
+43	cold	0.01	unused
+44	cold	0.01	unused
+45	cold	0.01	unused
+46	cold	0.01	unused
+47	cold	0.01	unused
+48	cold	0.01	unused
+

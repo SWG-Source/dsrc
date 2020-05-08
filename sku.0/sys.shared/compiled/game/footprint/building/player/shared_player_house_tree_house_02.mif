@@ -1,0 +1,24 @@
+FORM "FOOT"
+{
+	FORM "0000"
+	{
+		CHUNK "INFO"
+		{
+			int32 6         // width
+			int32 10         // height
+			int32 3         // pivot x
+			int32 1         // pivot z
+			float 8.0       // hard reservation height tolerance
+			float 8.0       // structure reservation height tolerance
+		}
+		
+		CHUNK "PRNT"
+		{
+			cstring "HHFFFFHHH"
+			cstring "HHFFFFFHHH"
+			cstring "HHFFFFFFHH"
+			cstring "HHFFFFFFHH"
+			cstring "HHFFFFFFHH"
+		}
+	}
+}

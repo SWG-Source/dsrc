@@ -14,3 +14,14 @@ I shader/wke_f_body.sht:/private/index_texture_1:0:25:0
 I shader/wke_f_body_sm.sht:/private/index_texture_1:0:25:0
 I shader/wke_m_body.sht:/private/index_texture_1:0:25:0
 I shader/wke_m_body_sm.sht:/private/index_texture_1:0:25:0
+
+#spaceship fix
+L appearance/ply_all_house_m_window_s01_hue.pob:appearance/ply_all_house_m_window_s01_hue_r0_exterior.apt
+L appearance/ply_all_house_m_window_s02_hue.pob:appearance/ply_all_house_m_window_s02_hue_r0_exterior.apt
+L appearance/ply_all_house_sm_s01_window_hue.pob:appearance/ply_all_house_sm_s01_window_hue_r0_exterior.apt
+L appearance/ply_house_med_s03_hue.pob:appearance/ply_house_med_s03_hue_r0_exterior.apt
+L appearance/ply_house_sm_s03_hue.pob:appearance/ply_house_sm_s03_hue_r0_exterior.apt
+L appearance/sorosuub_space_yacht.pob:appearance/sorosuub_space_yacht_r0.apt
+L appearance/ykl37r.pob:appearance/ykl37r_r0.apt
+L appearance/yt1300.pob:appearance/yt1300_r0.apt
+L appearance/yt2400.pob:appearance/yt2400_r0.apt

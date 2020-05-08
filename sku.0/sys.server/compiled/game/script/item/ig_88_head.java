@@ -12,7 +12,7 @@ public class ig_88_head extends script.base_script
     }
     public static final string_id SID_MUST_BIO_LINK_FROM_INVENTORY = new string_id("base_player", "must_biolink_to_use_from_inventory");
     public static final string_id SID_NOT_YET = new string_id("base_player", "not_yet");
-    public static final float REUSE_TIME = 1800;
+    public static final int REUSE_TIME = 1800;
     public int OnObjectMenuRequest(obj_id self, obj_id player, menu_info mi) throws InterruptedException
     {
         menu_info_data mid = mi.getMenuItemByType(menu_info_types.ITEM_USE);
@@ -38,11 +38,11 @@ public class ig_88_head extends script.base_script
         }
         if (item == menu_info_types.ITEM_USE)
         {
-            float buffTime = getFloatObjVar(player, "clickItem.ig_head");
+            float buffTime = getIntObjVar(player, "clickItem.ig_head");
             if (getGameTime() > buffTime || isGod(player))
             {
                 setObjVar(player, "clickItem.ig_head", (getGameTime() + REUSE_TIME));
-                sendCooldownGroupTimingOnly(player, getStringCrc("epic_items"), REUSE_TIME);
+                sendCooldownGroupTimingOnly(player, getStringCrc("epic_items"), (float) REUSE_TIME);
                 playClientEffectObj(player, "clienteffect/medic_reckless_stimulation.cef", player, "");
                 activateHead(self, player);
             }

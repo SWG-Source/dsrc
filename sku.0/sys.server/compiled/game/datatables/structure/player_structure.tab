@@ -411,3 +411,6 @@ object/building/player/player_house_jabbas_sail_barge.iff	object/building/player
 																							object/tangible/terminal/terminal_player_structure.iff	-2.9	16.5	4.5	interior	0	
 																							object/tangible/terminal/terminal_elevator_up.iff	0	-5.4	0	interior	180	
 																							object/tangible/terminal/terminal_elevator_down.iff	-1.65	11.5	-2	interior	90	
+																													
+object/building/player/player_house_tree_house_02.iff	object/building/player/construction/construction_player_house_tree_house_02.iff			3	32								13	3	4320	1700	1					4							
+																							object/tangible/terminal/terminal_player_structure_nosnap.iff	8.8	1.1	1.73	entry	-91	

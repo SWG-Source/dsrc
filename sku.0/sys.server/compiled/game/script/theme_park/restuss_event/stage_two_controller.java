@@ -36,6 +36,7 @@ public class stage_two_controller extends script.base_script
         if(restussEvent != null && (restussEvent.equals("1") || restussEvent.equals("true"))){
             LOG("events", "Restuss Event - Event is on.");
             String phaseVal = getConfigSetting("EventTeam", "restussPhase");
+            doMessageTo("messageTo:broadcastMessage:10:beginEventNotification:0");
             if(phaseVal != null && !phaseVal.equals("")){
                 int phase = Integer.parseInt(phaseVal);
                 if(phase > 2) phase = 2;
