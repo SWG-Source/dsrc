@@ -48,13 +48,13 @@ public class gcw_score
 				allData[i][0] = playerGcwData.playerName;
 				allData[i][1] = playerGcwData.playerFaction;
 				allData[i][2] = playerGcwData.playerProfession;
-				allData[i][3] = "" + playerGcwData.playerLevel;
-				allData[i][4] = "" + playerGcwData.playerGCW;
-				allData[i][5] = "" + playerGcwData.playerPvpKills;
-				allData[i][6] = "" + playerGcwData.playerKills;
-				allData[i][7] = "" + playerGcwData.playerAssists;
-				allData[i][8] = "" + playerGcwData.playerCraftedItems;
-				allData[i][9] = "" + playerGcwData.playerDestroyedItems;
+				allData[i][3] = Integer.toString(playerGcwData.playerLevel);
+				allData[i][4] = Integer.toString(playerGcwData.playerGCW);
+				allData[i][5] = Integer.toString(playerGcwData.playerPvpKills);
+				allData[i][6] = Integer.toString(playerGcwData.playerKills);
+				allData[i][7] = Integer.toString(playerGcwData.playerAssists);
+				allData[i][8] = Integer.toString(playerGcwData.playerCraftedItems);
+				allData[i][9] = Integer.toString(playerGcwData.playerDestroyedItems);
 			}
 		}
 	

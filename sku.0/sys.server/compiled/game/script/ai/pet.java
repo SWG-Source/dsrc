@@ -78,7 +78,7 @@ public class pet extends script.base_script
                 location[] newPath = new location[oldPath.getNumItems()];
                 for (int i = 0; i < newPath.length; ++i)
                 {
-                    location point = oldPath.getLocationObjVar("" + i);
+                    location point = oldPath.getLocationObjVar(String.valueOf(i));
                     newPath[i] = point;
                 }
                 setObjVar(self, pet_lib.OBJVAR_PET_PATROL_POINTS, newPath);
@@ -109,7 +109,7 @@ public class pet extends script.base_script
         if (pet_lib.isDroidPet(self))
         {
             names[idx] = "pet_stats.level";
-            attribs[idx] = "" + getLevel(self);
+            attribs[idx] = String.valueOf(getLevel(self));
             idx++;
             if (idx >= names.length)
             {
@@ -131,7 +131,7 @@ public class pet extends script.base_script
                 {
                     int general_protection = getIntObjVar(petControlDevice, "creature_attribs.general_protection");
                     names[idx] = "pet_stats.dna_comp_armor_effectiveness";
-                    attribs[idx] = "" + general_protection;
+                    attribs[idx] = String.valueOf(general_protection);
                     idx++;
                     if (idx >= names.length)
                     {
@@ -150,7 +150,7 @@ public class pet extends script.base_script
                     {
                         names[idx] = "pet_stats.creature_tohit";
                         int value = getIntObjVar(petControlDevice, "creature_attribs.toHitChance");
-                        attribs[idx] = "" + value;
+                        attribs[idx] = String.valueOf(value);
                         idx++;
                         if (idx >= names.length)
                         {
@@ -161,7 +161,7 @@ public class pet extends script.base_script
                     {
                         names[idx] = "pet_stats.creature_defense";
                         int value = getIntObjVar(petControlDevice, "creature_attribs.defenseValue");
-                        attribs[idx] = "" + value;
+                        attribs[idx] = String.valueOf(value);
                         idx++;
                         if (idx >= names.length)
                         {
@@ -172,7 +172,7 @@ public class pet extends script.base_script
                     {
                         names[idx] = "pet_stats.creature_state_resist";
                         float value = getFloatObjVar(petControlDevice, "creature_attribs.stateResist");
-                        attribs[idx] = "" + value * 100 + "%";
+                        attribs[idx] = String.valueOf(value * 100) + "%";
                         idx++;
                         if (idx >= names.length)
                         {
@@ -183,7 +183,7 @@ public class pet extends script.base_script
                     {
                         names[idx] = "pet_stats.creature_crit_chance";
                         float value = getFloatObjVar(petControlDevice, "creature_attribs.critChance");
-                        attribs[idx] = "" + value * 100 + "%";
+                        attribs[idx] = String.valueOf(value * 100) + "%";
                         idx++;
                         if (idx >= names.length)
                         {
@@ -194,7 +194,7 @@ public class pet extends script.base_script
                     {
                         names[idx] = "pet_stats.creature_crit_save";
                         float value = getFloatObjVar(petControlDevice, "creature_attribs.critSave");
-                        attribs[idx] = "" + value * 100 + "%";
+                        attribs[idx] = String.valueOf(value * 100) + "%";
                         idx++;
                         if (idx >= names.length)
                         {
@@ -205,7 +205,7 @@ public class pet extends script.base_script
                     {
                         names[idx] = "pet_stats.creature_aggro_bonus";
                         float value = getFloatObjVar(petControlDevice, "creature_attribs.aggroBonus");
-                        attribs[idx] = "" + value * 100 + "%";
+                        attribs[idx] = String.valueOf(value * 100) + "%";
                         idx++;
                         if (idx >= names.length)
                         {
@@ -221,7 +221,7 @@ public class pet extends script.base_script
                         int[] dmgBonus = pet_lib.getPetAbilityDamageBonus(petControlDevice, min, max);
                         min += dmgBonus[0];
                         max += dmgBonus[1];
-                        attribs[idx] = "" + min + " - " + max;
+                        attribs[idx] = min + " - " + max;
                         idx++;
                         if (idx >= names.length)
                         {
@@ -263,7 +263,7 @@ public class pet extends script.base_script
                     {
                         names[idx] = "pet_stats.storage_module_rating";
                         int storage = getIntObjVar(petControlDevice, "storageModuleRating");
-                        attribs[idx] = "" + storage;
+                        attribs[idx] = String.valueOf(storage);
                         idx++;
                         if (idx >= names.length)
                         {
@@ -274,7 +274,7 @@ public class pet extends script.base_script
                     {
                         names[idx] = "pet_stats.storage_module_rating";
                         int storage = getIntObjVar(petControlDevice, "ai.pet.hasContainer");
-                        attribs[idx] = "" + storage;
+                        attribs[idx] = String.valueOf(storage);
                         idx++;
                         if (idx >= names.length)
                         {
@@ -287,7 +287,7 @@ public class pet extends script.base_script
                             if (storage > 0)
                             {
                                 names[idx] = "pet_stats.inventory_capacity";
-                                attribs[idx] = "" + storage;
+                                attribs[idx] = String.valueOf(storage);
                                 idx++;
                                 if (idx >= names.length)
                                 {
@@ -356,7 +356,7 @@ public class pet extends script.base_script
                                 return SCRIPT_CONTINUE;
                             }
                             names[idx] = "pet_stats.data_module_rating";
-                            attribs[idx] = "" + datastorage;
+                            attribs[idx] = String.valueOf(datastorage);
                             idx++;
                             if (idx >= names.length)
                             {
@@ -369,7 +369,7 @@ public class pet extends script.base_script
                                 if (storage > 0)
                                 {
                                     names[idx] = "pet_stats.datapad_slots";
-                                    attribs[idx] = "" + storage;
+                                    attribs[idx] = String.valueOf(storage);
                                     idx++;
                                     if (idx >= names.length)
                                     {

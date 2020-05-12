@@ -7,10 +7,11 @@
 
 package script;
 
+import java.util.HashMap;
 import script.library.combat_consts;
 import script.library.utils;
 
-import java.util.Hashtable;
+import java.util.Map;
 
 public class combat_engine
 {
@@ -18,12 +19,12 @@ public class combat_engine
 	 * Combat constants
 	 */
 
-	private static Hashtable m_CombatDataCache = new Hashtable();
-	private static Hashtable m_BuffDataCache = new Hashtable();
-
+	private static final Map<String, combat_data> m_CombatDataCache = new HashMap<>();
+        private static final Map<String, buff_data> m_BuffDataCache = new HashMap<>();
+        
 	public static final int OUT_OF_RANGE = Integer.MIN_VALUE;
 	private static float MAX_MELEE_TARGET_RANGE         = -1.0f;
-	private static float DEFAULT_MAX_MELEE_TARGET_RANGE = 24.0f;
+	private static final float DEFAULT_MAX_MELEE_TARGET_RANGE = 24.0f;
 
 	private static float MAX_COMBAT_RANGE               = -1.0f;
 
@@ -629,17 +630,17 @@ public class combat_engine
 	// Buff data
 
 	public static buff_data getBuffData(int buffNameCrc)
-	{
-		if(m_BuffDataCache.containsKey("" + buffNameCrc))
+	{   
+		if(m_BuffDataCache.containsKey(Integer.toString(buffNameCrc)))
 		{
-			return buff_data.clone((buff_data)m_BuffDataCache.get("" + buffNameCrc));
+			return buff_data.clone((buff_data)m_BuffDataCache.get(Integer.toString(buffNameCrc)));
 		}
 
 		buff_data dat = loadBuffData(buffNameCrc);
 
 		if(dat != null)
 		{
-			m_BuffDataCache.put("" + buffNameCrc, dat);
+			m_BuffDataCache.put(Integer.toString(buffNameCrc), dat);
 		}
 		else
 		{

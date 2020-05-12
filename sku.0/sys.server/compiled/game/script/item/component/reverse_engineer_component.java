@@ -20,7 +20,7 @@ public class reverse_engineer_component extends script.base_script
             {
                 int powerModPower = getIntObjVar(self, "reverse_engineering.reverse_engineering_power");
                 names[i] = "@crafting:power_bit_power";
-                attribs[i] = "" + powerModPower;
+                attribs[i] = Integer.toString(powerModPower);
                 ++i;
             }
             if (hasObjVar(self, "reverse_engineering.reverse_engineering_modifier"))
@@ -34,7 +34,7 @@ public class reverse_engineer_component extends script.base_script
             {
                 int modBitRatio = getIntObjVar(self, "reverse_engineering.reverse_engineering_ratio");
                 names[i] = "@crafting:mod_bit_ratio";
-                attribs[i] = "" + modBitRatio;
+                attribs[i] = Integer.toString(modBitRatio);
                 ++i;
             }
         }

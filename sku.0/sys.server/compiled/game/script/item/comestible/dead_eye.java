@@ -74,7 +74,7 @@ public class dead_eye extends script.base_script
         if (hasObjVar(self, "deadeye_eff"))
         {
             names[idx] = "examine_dot_apply_power";
-            attribs[idx] = "" + getIntObjVar(self, "deadeye_eff") + "%";
+            attribs[idx] = getIntObjVar(self, "deadeye_eff") + "%";
             idx++;
             if (idx >= names.length)
             {
