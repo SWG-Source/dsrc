@@ -1158,7 +1158,7 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 9766882	8105502	object/tangible/poi/spawnegg/interior_spawnegg.iff	9	-6.8	-0.9	22.4	1	0	0	0		intRandomYaw|0|1|$|
 8105503	8105493	object/cell/cell.iff	10	0	0	0	1	0	0	0		$|
 8105504	8105493	object/cell/cell.iff	11	0	0	0	1	0	0	0		$|
--11	8105504	object/tangible/npc/rebel_recruiter_spawner.iff	11	-28.5	-0.9	-1.3	0.707107	0	0.707106	0		$|
+-14	8105504	object/tangible/npc/rebel_recruiter_spawner.iff	11	-28.5	-0.9	-1.3	0.707107	0	0.707106	0		$|
 1487877	8105504	object/tangible/terminal/terminal_mission_rebel.iff	11	-28.83578	-0.894985	-2.352153	1	0	0	0		$|
 1487879	8105504	object/tangible/terminal/terminal_mission_rebel.iff	11	-28.77948	-0.894984	3.342379	-0.000000032	0	1	0		$|
 8105505	8105493	object/cell/cell.iff	12	0	0	0	1	0	0	0		$|
