@@ -5,5 +5,5 @@ quest.task.ground.destroy_multi	@quest/ground/ep3_rryatt_krepauk_defeat_katarn:t
 quest.task.ground.wait_for_signal	@quest/ground/ep3_rryatt_krepauk_defeat_katarn:task02_journal_entry_title	@quest/ground/ep3_rryatt_krepauk_defeat_katarn:task02_journal_entry_description	1			0	3		krepauk_katarnHuntCompleted	1							1		1			0	tatooine	0	0	0									0	krepauk_katarnHuntCompleted	0			0		0	0	0																		
 quest.task.ground.reward			0			0	4			0							1		1			0	tatooine	0	0	0							1													0	Rebel	0	0		1		object/weapon/melee/special/ep3/wookiee_knuckler.iff	1	1	1	1	1		1	0.1	
 quest.task.ground.reward			0			0	5			0							1		1			0	tatooine	0	0	0							1													0	Rebel	0	25000		1	object/tangible/furniture/ep3_rewards/ep3_kash_reward_trophy_katarn.iff		1	0.1	0.1	0.1	0.1		1	0.1	
-quest.task.ground.reward			0			0	6			0							1		1			0	tatooine	0	0	0							1													0	Rebel	0	0		1	object/tangible/deed/vehicle_deed/barc_speeder_deed.iff		1	0.1	0.1	0.1	0.1		1	0.1	
+quest.task.ground.reward			0			0	6			0							1		1			0	tatooine	0	0	0							1													0	Rebel	0	0		1			1	0.1	0.1	0.1	0.1		1	0.1	
 quest.task.ground.complete_quest			0			0				0							1		1			0	tatooine	0	0	0																																				

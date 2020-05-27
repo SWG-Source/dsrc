@@ -9,9 +9,9 @@ targetable = false
 @class object_template 5
 
 
-objectName = "" "crashed_ship_n"
+objectName = "theme_park_nym/messages" "crashed_ship_n"
 
-detailedDescription = "" "crashed_ship_d"
+detailedDescription = "theme_park_nym/messages" "crashed_ship_d"
 
 appearanceFilename = "appearance/utapau_itv.apt"
 
