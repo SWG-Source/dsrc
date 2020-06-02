@@ -654,86 +654,149 @@ public class cmd extends script.base_script
     }
     public int cmdGetRank(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException
     {
-        if (!isIdValid(target) || !isPlayer(target))
+		if (!isIdValid(target) || !isPlayer(target))
         {
+            sendSystemMessageTestingOnly(self, "Syntax: /getRank -target");
+            sendSystemMessageTestingOnly(self, "Because you did not specify a target, you were used.");
             target = self;
         }
         int rank = pvpGetCurrentGcwRank(target);
-        String faction = factions.getFaction(target);
-        sendSystemMessageTestingOnly(self, "(" + target + ") " + getName(target) + "'s rank = (" + rank + ") " + getString(new string_id("faction_recruiter", factions.getRankName(rank, faction))));
+        int faction = pvpGetAlignedFaction(target);
+        String factionName = null;
+		
+		if (faction == -615855020) {
+			factionName = "Imperial";
+		} else if (faction == 370444368) {
+			factionName = "Rebel";
+		}
+		
+		if (faction != 0) {
+            sendSystemMessageTestingOnly(self, "The rank of "+getPlayerName(target)+" ("+target+") is "+rank+" ("+factionName+")");
+        } else {
+            sendSystemMessageTestingOnly(self, getPlayerName(target)+ " is not aligned with a faction.");
+        }
         return SCRIPT_CONTINUE;
+		
     }
     public int cmdSetRank(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException
     {
-        if (utils.hasScriptVar(self, "setRank.pid"))
+
+		int originalRank = pvpGetCurrentGcwRank(target);
+        int currentRank = pvpGetCurrentGcwRank(target);
+        int faction = pvpGetAlignedFaction(target);
+        String command = null;
+        String rankName = null;
+
+        if (params.contains(gm.KEYWORD_TARGET))
         {
-            int oldpid = utils.getIntScriptVar(self, "setRank.pid");
-            sui.closeSUI(self, oldpid);
-            utils.removeScriptVarTree(self, "setRank");
+            params = gm.removeKeyword(params, gm.KEYWORD_TARGET);
         }
-        dictionary d = gm.parseTarget(params, target, "SETRANK");
-        if (d == null)
-        {
-            return SCRIPT_CONTINUE;
-        }
-        else if (d.isEmpty())
-        {
-        }
-        else
-        {
-            params = d.getString("params");
-            obj_id oid = d.getObjId("oid");
-            if (isIdValid(oid))
-            {
-                target = oid;
-            }
-            else
-            {
-                target = self;
-            }
-        }
-        if (!isIdValid(target) || !isPlayer(target))
-        {
-            target = self;
-        }
-        String faction = factions.getFaction(target);
         if (params == null || params.equalsIgnoreCase(""))
         {
-            int rank = pvpGetCurrentGcwRank(target);
-            String title = "Set Player Rank";
-            String prompt = "Select the desired rank to set the player to.\n\n";
-            prompt += "Target = (" + target + ") " + getName(target) + "\n";
-            prompt += "Current Rank = (" + rank + ") " + getString(new string_id("faction_recruiter", factions.getRankName(rank, faction)));
-            Vector entries = new Vector();
-            entries.setSize(0);
-            for (int i = 0; i <= factions.MAXIMUM_RANK; i++)
-            {
-                entries = utils.addElement(entries, "(" + i + ") " + getString(new string_id("faction_recruiter", factions.getRankName(i, faction))));
-            }
-            int pid = sui.listbox(self, self, prompt, sui.OK_CANCEL, title, entries, "handleSetRankSelection");
-            if (pid > -1)
-            {
-                utils.setScriptVar(self, "setRank.pid", pid);
-                utils.setScriptVar(self, "setRank.target", target);
-                gm.attachHandlerScript(self);
-            }
-        }
-        int newrank = utils.stringToInt(params);
-        if (newrank < 0 || newrank > factions.MAXIMUM_RANK)
-        {
-            sendSystemMessageTestingOnly(self, "/setRank: unable to parse rank. Please choose a rank between 0 & " + factions.MAXIMUM_RANK);
+            sendSystemMessageTestingOnly(self, "Syntax: /setRank -target <1 to 12>");
+            sendSystemMessageTestingOnly(self, "Warning: Player will be notified of their rank change.");
             return SCRIPT_CONTINUE;
         }
-        if (factions.setRank(target, newrank))
-        {
-            int urank = pvpGetCurrentGcwRank(target);
-            sendSystemMessageTestingOnly(self, "(" + target + ") " + getName(target) + "'s rank updated to (" + urank + ") " + getString(new string_id("faction_recruiter", factions.getRankName(urank, faction))));
+
+        StringTokenizer st = new StringTokenizer(params);
+        String tempGoalRank = st.nextToken();
+        int goalRank = Integer.parseInt(tempGoalRank);
+
+        if (goalRank < 1 || goalRank > 12) {
+            sendSystemMessageTestingOnly(self, "Rank must be an integer between 1 (Private) and 12 (General).");
+            return SCRIPT_CONTINUE;
         }
-        else
-        {
-            sendSystemMessageTestingOnly(self, "The system was unable to update (" + target + ") " + getName(target) + "'s rank updated to (" + newrank + ") " + getString(new string_id("faction_recruiter", factions.getRankName(newrank, faction))));
+        if (currentRank == goalRank) {
+            sendSystemMessageTestingOnly(self, "The desired rank you specified is already the current rank of "+getPlayerName(target));
+            return SCRIPT_CONTINUE;
         }
+        if (faction == 0) {
+            sendSystemMessageTestingOnly(self, getPlayerName(target)+" is currently neutral and not aligned with a faction so you cannot set their rank.");
+            return SCRIPT_CONTINUE;
+        }
+
+        int neededRankChange = goalRank - currentRank;
+
+        if (neededRankChange > 0) {
+            do {
+                gcw.increaseGcwRatingToNextRank(target);
+                currentRank = pvpGetCurrentGcwRank(target);
+                command = "increase";
+            } while (currentRank != goalRank);
+        } else if (neededRankChange < 0) {
+            do {
+                gcw.decreaseGcwRatingToPreviousRank(target);
+                currentRank = pvpGetCurrentGcwRank(target);
+                command = "decrease";
+            } while (currentRank != goalRank);
+        }
+
+		// it's probably better to read a string file to get these but who has time for that
+		// this is just a rarely used admin script anyways
+        if (faction == -615855020) {
+            if (currentRank == 1) {
+                rankName = "Private";
+            } else if (currentRank == 2) {
+                rankName = "Lance Corporal";
+            }  else if (currentRank == 3) {
+                rankName = "Corporal";
+            } else if (currentRank == 4) {
+                rankName = "Sergeant";
+            } else if (currentRank == 5) {
+                rankName = "Master Sergeant";
+            } else if (currentRank == 6) {
+                rankName = "Sergeant Major";
+            } else if (currentRank == 7) {
+                rankName = "Lieutenant";
+            } else if (currentRank == 8) {
+                rankName = "Captain";
+            } else if (currentRank == 9) {
+                rankName = "Major";
+            } else if (currentRank == 10) {
+                rankName = "Lt. Colonel";
+            } else if (currentRank == 11) {
+                rankName = "Colonel";
+            } else if (currentRank == 12) {
+                rankName = "General";
+            }
+        } else if (faction == 370444368) {
+            if (currentRank == 1) {
+                rankName = "Private";
+            } else if (currentRank == 2) {
+                rankName = "Trooper";
+            }  else if (currentRank == 3) {
+                rankName = "High Trooper";
+            } else if (currentRank == 4) {
+                rankName = "Sergeant";
+            } else if (currentRank == 5) {
+                rankName = "Senior Sergeant";
+            } else if (currentRank == 6) {
+                rankName = "Sergeant Major";
+            } else if (currentRank == 7) {
+                rankName = "Lieutenant";
+            } else if (currentRank == 8) {
+                rankName = "Captain";
+            } else if (currentRank == 9) {
+                rankName = "Major";
+            } else if (currentRank == 10) {
+                rankName = "Commander";
+            } else if (currentRank == 11) {
+                rankName = "Colonel";
+            } else if (currentRank == 12) {
+                rankName = "General";
+            }
+        }
+
+        if (command == "increase") {
+            sendSystemMessageTestingOnly(self, "Successfully increased "+getPlayerName(target)+"'s rank from "+originalRank+" to "+goalRank+" ("+rankName+")");
+            sendSystemMessageTestingOnly(target, "You were promoted to the rank of "+rankName+"!");
+        } else if (command == "decrease") {
+            sendSystemMessageTestingOnly(self, "Successfully decreased "+getPlayerName(target)+"'s rank from "+originalRank+" to "+goalRank+" ("+rankName+")");
+            sendSystemMessageTestingOnly(target, "You were demoted to the rank of "+rankName+"!");
+        }
+
         return SCRIPT_CONTINUE;
+
     }
     public int cmdGrantSkill(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException
     {
