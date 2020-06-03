@@ -70,7 +70,9 @@ public class gm extends script.base_script
     {
         "Select Roadmap",
         "Earn Current Skill",
-        "Set Roadmap Progression"
+        "Set Roadmap Progression",
+		"Grant Master Politician",
+		"Grant Master Chronicler"
     };
     public static String removeKeyword(String params, String keyword) throws InterruptedException
     {

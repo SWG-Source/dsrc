@@ -1317,7 +1317,32 @@ public class player_utility extends script.base_script
             case 2:
             String template = getSkillTemplate(target);
             gmGrantSkillRoadmapProgression(self, target, template);
-            break;
+			break;
+			case 3:
+				skill.grantAllPoliticianSkills(target);
+				sendSystemMessageTestingOnly(self, getPlayerName(target)+" was successfully granted all Politician skills.");
+			break;
+			case 4:
+				skill.grantSkill(target, "class_chronicles_novice");
+				skill.grantSkill(target, "class_chronicles_1");
+				skill.grantSkill(target, "class_chronicles_2");
+				skill.grantSkill(target, "class_chronicles_3");
+				skill.grantSkill(target, "class_chronicles_4");
+				skill.grantSkill(target, "class_chronicles_5");
+				skill.grantSkill(target, "class_chronicles_6");
+				skill.grantSkill(target, "class_chronicles_7");
+				skill.grantSkill(target, "class_chronicles_8");
+				skill.grantSkill(target, "class_chronicles_9");
+				skill.grantSkill(target, "class_chronicles_10");
+				skill.grantSkill(target, "class_chronicles_11");
+				skill.grantSkill(target, "class_chronicles_12");
+				skill.grantSkill(target, "class_chronicles_13");
+				skill.grantSkill(target, "class_chronicles_14");
+				skill.grantSkill(target, "class_chronicles_15");
+				skill.grantSkill(target, "class_chronicles_16");
+				skill.grantSkill(target, "class_chronicles_master");
+				sendSystemMessageTestingOnly(self, getPlayerName(target)+" was successfully granted all Chronicler skills.");
+			break;
             default:
             utils.removeScriptVarTree(self, "gmGrantSkill");
             return SCRIPT_CONTINUE;
