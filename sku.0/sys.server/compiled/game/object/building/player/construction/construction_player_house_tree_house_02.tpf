@@ -1,0 +1,11 @@
+@base object/installation/base/installation_base.iff
+@class installation_object_template 0
+@class tangible_object_template 0
+@class object_template 2
+
+sharedTemplate = "object/building/player/construction/shared_construction_player_house_tree_house_02.iff"
+
+tintIndex = 0
+invulnerable = true
+
+scripts = +["structure.temporary_structure" ]

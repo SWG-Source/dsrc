@@ -150,7 +150,7 @@ public class base extends script.base_script
             return SCRIPT_CONTINUE;
         }
         names[idx] = "skill_modifier_amount";
-        attribs[idx] = "" + value;
+        attribs[idx] = Integer.toString(value);
         idx++;
         if (idx >= names.length)
         {
@@ -243,7 +243,7 @@ public class base extends script.base_script
         seconds -= (minutes * 60);
         if (hours > 0)
         {
-            result += "" + hours + ":";
+            result += hours + ":";
         }
         if (minutes > 0 || hours > 0)
         {
@@ -251,13 +251,13 @@ public class base extends script.base_script
             {
                 result += "0";
             }
-            result += "" + minutes + ":";
+            result += minutes + ":";
         }
         if (minutes > 0 && seconds < 10)
         {
             result += "0";
         }
-        result += "" + seconds;
+        result += seconds;
         return result;
     }
 }

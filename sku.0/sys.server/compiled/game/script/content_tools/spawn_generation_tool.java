@@ -206,29 +206,27 @@ public class spawn_generation_tool extends script.base_script
         clearSUIDataSource(pid, sui.LISTBOX_DATASOURCE);
         if (!isIdValid(mso) || ast.equals(NOT_ASSIGNED))
         {
-            addSUIDataItem(pid, sui.LISTBOX_DATASOURCE, "" + 0);
+            addSUIDataItem(pid, sui.LISTBOX_DATASOURCE, "0");
             setSUIProperty(pid, sui.LISTBOX_DATASOURCE + "." + 0, sui.PROP_TEXT, "Create New Spawn Data");
-            addSUIDataItem(pid, sui.LISTBOX_DATASOURCE, "" + 1);
+            addSUIDataItem(pid, sui.LISTBOX_DATASOURCE, "1");
             setSUIProperty(pid, sui.LISTBOX_DATASOURCE + "." + 1, sui.PROP_TEXT, "Load Existing Spawn Data");
             subscribeToSUIProperty(pid, sui.LISTBOX_LIST, sui.PROP_SELECTEDROW);
             subscribeToSUIProperty(pid, sui.LISTBOX_TITLE, sui.PROP_TEXT);
             showSUIPage(pid);
             flushSUIPage(pid);
-            return;
         }
         else 
         {
-            addSUIDataItem(pid, sui.LISTBOX_DATASOURCE, "" + 0);
+            addSUIDataItem(pid, sui.LISTBOX_DATASOURCE, "0");
             setSUIProperty(pid, sui.LISTBOX_DATASOURCE + "." + 0, sui.PROP_TEXT, "Use Existing Data");
-            addSUIDataItem(pid, sui.LISTBOX_DATASOURCE, "" + 1);
+            addSUIDataItem(pid, sui.LISTBOX_DATASOURCE, "1");
             setSUIProperty(pid, sui.LISTBOX_DATASOURCE + "." + 1, sui.PROP_TEXT, "Create New Spawn Data");
-            addSUIDataItem(pid, sui.LISTBOX_DATASOURCE, "" + 2);
+            addSUIDataItem(pid, sui.LISTBOX_DATASOURCE, "2");
             setSUIProperty(pid, sui.LISTBOX_DATASOURCE + "." + 2, sui.PROP_TEXT, "Load Existing Spawn Data");
             subscribeToSUIProperty(pid, sui.LISTBOX_LIST, sui.PROP_SELECTEDROW);
             subscribeToSUIProperty(pid, sui.LISTBOX_TITLE, sui.PROP_TEXT);
             showSUIPage(pid);
             flushSUIPage(pid);
-            return;
         }
     }
     public void setMasterSpawnObject(obj_id player) throws InterruptedException
@@ -249,14 +247,14 @@ public class spawn_generation_tool extends script.base_script
         clearSUIDataSource(pid, sui.LISTBOX_DATASOURCE);
         if (sortedList == null || sortedList.length == 0)
         {
-            addSUIDataItem(pid, sui.LISTBOX_DATASOURCE, "" + 0);
+            addSUIDataItem(pid, sui.LISTBOX_DATASOURCE, "0");
             setSUIProperty(pid, sui.LISTBOX_DATASOURCE + "." + 0, sui.PROP_TEXT, "No Available Objects In Range");
         }
         else 
         {
             for (int i = 0; i < sortedList.length; i++)
             {
-                addSUIDataItem(pid, sui.LISTBOX_DATASOURCE, "" + i);
+                addSUIDataItem(pid, sui.LISTBOX_DATASOURCE, Integer.toString(i));
                 setSUIProperty(pid, sui.LISTBOX_DATASOURCE + "." + i, sui.PROP_TEXT, sortedList[i]);
             }
         }
@@ -281,9 +279,9 @@ public class spawn_generation_tool extends script.base_script
         setSUIProperty(pid, sui.LISTBOX_BTN_OK, sui.PROP_TEXT, "@ok");
         setSUIProperty(pid, sui.LISTBOX_BTN_CANCEL, sui.PROP_TEXT, "@cancel");
         clearSUIDataSource(pid, sui.LISTBOX_DATASOURCE);
-        addSUIDataItem(pid, sui.LISTBOX_DATASOURCE, "" + 0);
+        addSUIDataItem(pid, sui.LISTBOX_DATASOURCE, "0");
         setSUIProperty(pid, sui.LISTBOX_DATASOURCE + "." + 0, sui.PROP_TEXT, "Create New Associated Spawn Table");
-        addSUIDataItem(pid, sui.LISTBOX_DATASOURCE, "" + 1);
+        addSUIDataItem(pid, sui.LISTBOX_DATASOURCE, "1");
         setSUIProperty(pid, sui.LISTBOX_DATASOURCE + "." + 1, sui.PROP_TEXT, "Load Exisisting Associated Spawn Table");
         subscribeToSUIEvent(pid, sui_event_type.SET_onGenericSelection, sui.LISTBOX_LIST, "createSpawnGenerationSui");
         subscribeToSUIPropertyForEvent(pid, sui_event_type.SET_onGenericSelection, sui.LISTBOX_LIST, sui.LISTBOX_LIST, sui.PROP_SELECTEDROW);

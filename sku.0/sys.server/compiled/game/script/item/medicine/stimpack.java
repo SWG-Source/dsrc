@@ -22,7 +22,7 @@ public class stimpack extends script.base_script
         {
             names[idx] = "healing_power";
             int value = getIntObjVar(self, "healing.power");
-            attribs[idx] = "" + value;
+            attribs[idx] = Integer.toString(value);
             idx++;
             if (idx >= names.length)
             {
@@ -33,7 +33,7 @@ public class stimpack extends script.base_script
         {
             names[idx] = "healing_combat_level_required";
             int value = getIntObjVar(self, "healing.combat_level_required");
-            attribs[idx] = "" + value;
+            attribs[idx] = Integer.toString(value);
             idx++;
             if (idx >= names.length)
             {
@@ -42,7 +42,7 @@ public class stimpack extends script.base_script
         }
         names[idx] = "count";
         int value = getCount(self);
-        attribs[idx] = "" + value;
+        attribs[idx] = Integer.toString(value);
         return SCRIPT_CONTINUE;
     }
     public int OnObjectMenuRequest(obj_id self, obj_id player, menu_info mi) throws InterruptedException

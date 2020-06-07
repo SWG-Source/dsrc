@@ -132,7 +132,7 @@ public class dynamic_armor extends script.base_script
         if (requiredLevelToEquip != 0)
         {
             names[free] = utils.packStringId(new string_id("proc/proc", "required_combat_level"));
-            attribs[free++] = "" + requiredLevelToEquip;
+            attribs[free++] = Integer.toString(requiredLevelToEquip);
         }
         String requiredSkillToEquip = getStringObjVar(self, "dynamic_item.required_skill");
         if (requiredSkillToEquip != null && !requiredSkillToEquip.equals(""))

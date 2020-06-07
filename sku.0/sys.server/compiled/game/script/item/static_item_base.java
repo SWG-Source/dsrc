@@ -177,7 +177,7 @@ public class static_item_base extends script.base_script
         if (requiredLevelToEquip != 0 && !hasScript(self, "systems.combat.combat_weapon"))
         {
             names[free] = utils.packStringId(new string_id("proc/proc", "required_combat_level"));
-            attribs[free++] = "" + requiredLevelToEquip;
+            attribs[free++] = Integer.toString(requiredLevelToEquip);
         }
         String requiredSkillToEquip = itemData.getString("required_skill");
         if (requiredSkillToEquip != null && !requiredSkillToEquip.equals("") && !hasScript(self, "systems.combat.combat_weapon"))
@@ -230,7 +230,7 @@ public class static_item_base extends script.base_script
         if (requiredLevelForEffect != 0)
         {
             names[free] = utils.packStringId(new string_id("proc/proc", "effect_level"));
-            attribs[free++] = "" + requiredLevelForEffect;
+            attribs[free++] = Integer.toString(requiredLevelForEffect);
         }
         String buffName = typeData.getString("buff_name");
         if (buffName != null && !buffName.equals("") && buffIdentity == 0)
@@ -316,9 +316,9 @@ public class static_item_base extends script.base_script
         }
         int tier = itemData.getInt("tier");
         names[free] = "tier";
-        attribs[free++] = "" + tier;
+        attribs[free++] = Integer.toString(tier);
         names[free] = "tooltip.tier";
-        attribs[free++] = "" + tier;
+        attribs[free++] = Integer.toString(tier);
         if (static_item.isUniqueStaticItem(self))
         {
             names[free] = "unique";
