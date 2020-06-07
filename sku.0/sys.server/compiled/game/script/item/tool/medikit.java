@@ -54,7 +54,7 @@ public class medikit extends script.base_script
         {
             names[idx] = "useModifier";
             int attrib = getIntObjVar(self, "medikit.quality");
-            attribs[idx] = Integer.toString(attrib);
+            attribs[idx] = "" + attrib;
             idx++;
             if (idx >= names.length)
             {
@@ -197,7 +197,14 @@ public class medikit extends script.base_script
     }
     public boolean haveChargedMedTool(obj_id player, obj_id medikitTool) throws InterruptedException
     {
-        return (getCount(medikitTool) > 0) && (utils.isNestedWithin(medikitTool, player));
+        if ((getCount(medikitTool) > 0) && (utils.isNestedWithin(medikitTool, player)))
+        {
+            return true;
+        }
+        else 
+        {
+            return false;
+        }
     }
     public void clearTrackingScriptVars(obj_id self) throws InterruptedException
     {

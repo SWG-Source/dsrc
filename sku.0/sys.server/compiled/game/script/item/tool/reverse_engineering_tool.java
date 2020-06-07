@@ -498,6 +498,7 @@ public class reverse_engineering_tool extends script.base_script
         {
             sendSystemMessage(player, new string_id("spam", "powerup_wrong_components"));
         }
+        return;
     }
     public void generatePowerBit(obj_id self, obj_id player) throws InterruptedException
     {
@@ -611,6 +612,7 @@ public class reverse_engineering_tool extends script.base_script
                 setName(powerBit, finalName);
             }
         }
+        return;
     }
     public void generateModifierBit(obj_id self, obj_id player) throws InterruptedException
     {
@@ -666,6 +668,7 @@ public class reverse_engineering_tool extends script.base_script
             }
             prependModNameToObject(powerBit, modName);
         }
+        return;
     }
     public boolean isJunk(obj_id item) throws InterruptedException
     {
@@ -694,7 +697,11 @@ public class reverse_engineering_tool extends script.base_script
         {
             return false;
         }
-        return hasObjVar(item, "skillmod.bonus");
+        if (hasObjVar(item, "skillmod.bonus"))
+        {
+            return true;
+        }
+        return false;
     }
     public int getPowerBitType(obj_id item) throws InterruptedException
     {
@@ -716,11 +723,19 @@ public class reverse_engineering_tool extends script.base_script
             return false;
         }
         String templateName = getTemplateName(item);
-        return templateName.equals("object/tangible/component/reverse_engineering/enhancement_module.iff");
+        if (templateName.equals("object/tangible/component/reverse_engineering/enhancement_module.iff"))
+        {
+            return true;
+        }
+        return false;
     }
     public boolean isModifierBit(obj_id item) throws InterruptedException
     {
-        return hasObjVar(item, "reverse_engineering.reverse_engineering_modifier") && hasObjVar(item, "reverse_engineering.reverse_engineering_ratio") && !hasScript(item, "item.tool.reverse_engineering_powerup") && !hasScript(item, "item.tool.reverse_engineering_poweredup_item");
+        if (hasObjVar(item, "reverse_engineering.reverse_engineering_modifier") && hasObjVar(item, "reverse_engineering.reverse_engineering_ratio") && !hasScript(item, "item.tool.reverse_engineering_powerup") && !hasScript(item, "item.tool.reverse_engineering_poweredup_item"))
+        {
+            return true;
+        }
+        return false;
     }
     public int getFinalAttachmentLevel(obj_id item) throws InterruptedException
     {
@@ -744,7 +759,11 @@ public class reverse_engineering_tool extends script.base_script
     public boolean canUpgradeAttachment(obj_id player) throws InterruptedException
     {
         float skillMod = getEnhancedSkillStatisticModifierUncapped(player, "expertise_attachment_upgrade");
-        return skillMod > 0;
+        if (skillMod > 0)
+        {
+            return true;
+        }
+        return false;
     }
     public String getGemTemplateByClass(obj_id player, int ratio, int type) throws InterruptedException
     {
@@ -786,13 +805,13 @@ public class reverse_engineering_tool extends script.base_script
         {
             float power = getFloatObjVar(self, "crafting.stationMod");
             names[idx] = "@obj_attr_n:experiment_bonus_eff";
-            attribs[idx] = Float.toString(power);
+            attribs[idx] = "" + power;
             idx++;
         }
         if (hasObjVar(self, "res_quality"))
         {
             names[idx] = "quality_bonus";
-            attribs[idx] = Float.toString(getFloatObjVar(self, "res_quality"));
+            attribs[idx] = "" + getFloatObjVar(self, "res_quality");
             idx++;
         }
         return SCRIPT_CONTINUE;
@@ -811,6 +830,7 @@ public class reverse_engineering_tool extends script.base_script
             String newName = modName + " " + stringName;
             setName(object, newName);
         }
+        return;
     }
     public float getReverseEngineeringBonusMultiplier() throws InterruptedException
     {

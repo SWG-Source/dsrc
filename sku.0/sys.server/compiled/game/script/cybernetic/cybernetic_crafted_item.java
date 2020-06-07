@@ -117,7 +117,7 @@ public class cybernetic_crafted_item extends script.base_script
             }
             else 
             {
-                attribs[free++] = Integer.toString(cyberRow.getInt("throwRangeMod"));
+                attribs[free++] = "" + cyberRow.getInt("throwRangeMod");
             }
         }
         if (cyberRow.getInt("rangedRangeMod") != 0)
@@ -129,7 +129,7 @@ public class cybernetic_crafted_item extends script.base_script
             }
             else 
             {
-                attribs[free++] = Integer.toString(cyberRow.getInt("rangedRangeMod"));
+                attribs[free++] = "" + cyberRow.getInt("rangedRangeMod");
             }
         }
         if (cyberRow.getInt("healingMod") != 0)
@@ -141,7 +141,7 @@ public class cybernetic_crafted_item extends script.base_script
             }
             else 
             {
-                attribs[free++] = Integer.toString(cyberRow.getInt("healingMod"));
+                attribs[free++] = "" + cyberRow.getInt("healingMod");
             }
         }
         if (cyberRow.getInt("rangedAccuracyMod") != 0)
@@ -153,7 +153,7 @@ public class cybernetic_crafted_item extends script.base_script
             }
             else 
             {
-                attribs[free++] = Integer.toString(cyberRow.getInt("rangedAccuracyMod"));
+                attribs[free++] = "" + cyberRow.getInt("rangedAccuracyMod");
             }
         }
         if (cyberRow.getInt("meleeDefMod") != 0)
@@ -165,7 +165,7 @@ public class cybernetic_crafted_item extends script.base_script
             }
             else 
             {
-                attribs[free++] = Integer.toString(cyberRow.getInt("meleeDefMod"));
+                attribs[free++] = "" + cyberRow.getInt("meleeDefMod");
             }
         }
         if (cyberRow.getInt("meleeAccuracyMod") != 0)
@@ -177,7 +177,7 @@ public class cybernetic_crafted_item extends script.base_script
             }
             else 
             {
-                attribs[free++] = Integer.toString(cyberRow.getInt("meleeAccuracyMod"));
+                attribs[free++] = "" + cyberRow.getInt("meleeAccuracyMod");
             }
         }
         if (cyberRow.getInt("commandoLegs") != 0)

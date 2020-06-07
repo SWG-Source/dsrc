@@ -201,7 +201,7 @@ public class parrot_cage extends script.base_script
         {
             names[idx] = "usemodifier";
             int attrib = (int)getFloatObjVar(self, craftinglib.COMPONENT_ATTRIBUTE_OBJVAR_NAME + ".useModifier");
-            attribs[idx] = Integer.toString(attrib);
+            attribs[idx] = "" + attrib;
             idx++;
             if (idx >= names.length)
             {

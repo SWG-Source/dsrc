@@ -23,11 +23,25 @@ public class fs_medic_puzzle_head_medic extends script.base_script
     }
     public boolean fs_medic_puzzle_head_medic_condition_hasCompleted1(obj_id player, obj_id npc) throws InterruptedException
     {
-        return quests.canActivate(MEDIC_QUEST_NAME_TWO, player) && quests.isComplete(MEDIC_QUEST_NAME_ONE, player);
+        if (quests.canActivate(MEDIC_QUEST_NAME_TWO, player) && quests.isComplete(MEDIC_QUEST_NAME_ONE, player))
+        {
+            return true;
+        }
+        else 
+        {
+            return false;
+        }
     }
     public boolean fs_medic_puzzle_head_medic_condition_hasCompleted2(obj_id player, obj_id npc) throws InterruptedException
     {
-        return quests.canActivate(MEDIC_QUEST_NAME_THREE, player) && quests.isComplete(MEDIC_QUEST_NAME_TWO, player);
+        if (quests.canActivate(MEDIC_QUEST_NAME_THREE, player) && quests.isComplete(MEDIC_QUEST_NAME_TWO, player))
+        {
+            return true;
+        }
+        else 
+        {
+            return false;
+        }
     }
     public boolean fs_medic_puzzle_head_medic_condition_Finished(obj_id player, obj_id npc) throws InterruptedException
     {
@@ -166,7 +180,7 @@ public class fs_medic_puzzle_head_medic extends script.base_script
             peopleHealed = peopleHealed - 5;
         }
         peopleHealed = 5 - peopleHealed;
-        return Integer.toString(peopleHealed);
+        return "" + peopleHealed;
     }
     public static final String MEDIC_QUEST_NAME_ONE = "fs_medic_puzzle_quest_01";
     public static final String MEDIC_QUEST_NAME_TWO = "fs_medic_puzzle_quest_02";

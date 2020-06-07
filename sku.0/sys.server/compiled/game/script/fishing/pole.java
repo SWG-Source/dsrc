@@ -115,7 +115,7 @@ public class pole extends script.base_script
         {
             names[idx] = "useModifier";
             float attrib = getIntObjVar(self, "useModifier");
-            attribs[idx] = Float.toString(attrib);
+            attribs[idx] = "" + attrib;
             idx++;
             if (idx >= names.length)
             {

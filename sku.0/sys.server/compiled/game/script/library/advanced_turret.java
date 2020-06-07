@@ -134,6 +134,7 @@ public class advanced_turret extends script.base_script
         dictionary dict = new dictionary();
         dict.put("range", range);
         messageTo(turret, "createTriggerVolume", dict, 0.0f, false);
+        return;
     }
     public static void deactivateTurret(obj_id turret) throws InterruptedException
     {
@@ -145,6 +146,7 @@ public class advanced_turret extends script.base_script
         stopTrackingTarget(turret);
         utils.removeScriptVar(turret, IS_ACTIVE);
         setInvulnerable(turret, true);
+        return;
     }
     public static boolean isActive(obj_id turret) throws InterruptedException
     {
@@ -173,6 +175,7 @@ public class advanced_turret extends script.base_script
             return;
         }
         utils.setScriptVar(turret, IS_ENGAGED, target);
+        return;
     }
     public static void stopTrackingTarget(obj_id turret) throws InterruptedException
     {
@@ -182,6 +185,7 @@ public class advanced_turret extends script.base_script
             return;
         }
         utils.removeScriptVar(turret, IS_ENGAGED);
+        return;
     }
     public static boolean isEngaged(obj_id turret) throws InterruptedException
     {
@@ -189,7 +193,11 @@ public class advanced_turret extends script.base_script
         {
             return false;
         }
-        return utils.hasScriptVar(turret, IS_ENGAGED);
+        if (utils.hasScriptVar(turret, IS_ENGAGED))
+        {
+            return true;
+        }
+        return false;
     }
     public static obj_id getCurrentTarget(obj_id turret) throws InterruptedException
     {
@@ -268,6 +276,7 @@ public class advanced_turret extends script.base_script
         ri.maxRange = range;
         setWeaponRangeInfo(objWeapon, ri);
         activateTurret(turret);
+        return;
     }
     public static boolean isValidTarget(obj_id turret, obj_id target) throws InterruptedException
     {
@@ -358,7 +367,7 @@ public class advanced_turret extends script.base_script
     {
         if (!isValidTarget(turret, target))
         {
-            doLogging("addTarget", getName(target) + "/" + target + " was invalid");
+            doLogging("addTarget", "" + getName(target) + "/" + target + " was invalid");
             return;
         }
         Vector targets = null;
@@ -382,6 +391,7 @@ public class advanced_turret extends script.base_script
                 attackPulse(turret);
             }
         }
+        return;
     }
     public static void addTargets(obj_id turret, obj_id[] newTargets) throws InterruptedException
     {
@@ -396,7 +406,7 @@ public class advanced_turret extends script.base_script
         }
         for (obj_id newTarget : newTargets) {
             if (!isValidTarget(turret, newTarget) || targets.indexOf(newTarget) != -1) {
-                doLogging("addTargets", getName(newTarget) + "/" + newTarget + " was invalid or already in my target array");
+                doLogging("addTargets", "" + getName(newTarget) + "/" + newTarget + " was invalid or already in my target array");
                 continue;
             }
             targets.add(newTarget);
@@ -409,6 +419,7 @@ public class advanced_turret extends script.base_script
                 messageTo(turret, "handleTurretAttack", null, 1, false);
             }
         }
+        return;
     }
     public static void removeTarget(obj_id turret, obj_id target) throws InterruptedException
     {
@@ -440,6 +451,7 @@ public class advanced_turret extends script.base_script
                 utils.setBatchScriptVar(turret, TARGETS, targets);
             }
         }
+        return;
     }
     public static boolean handleTurretDamage(obj_id turret, obj_id attacker, obj_id weapon, int dmgAmount) throws InterruptedException
     {
@@ -493,6 +505,7 @@ public class advanced_turret extends script.base_script
         deactivateTurret(turret);
         playClientEffectLoc(turret, "clienteffect/combat_explosion_lair_large.cef", death, 0);
         messageTo(turret, "handleDestroyTurret", null, 2, false);
+        return;
     }
     public static obj_id getGoodTurretTarget(obj_id turret) throws InterruptedException
     {
@@ -570,6 +583,7 @@ public class advanced_turret extends script.base_script
         dictionary params = new dictionary();
         params.put("target", target);
         messageTo(turret, "turretShot", params, getWeaponAttackSpeed(weapon), false);
+        return;
     }
     public static void doLogging(String section, String message) throws InterruptedException
     {
