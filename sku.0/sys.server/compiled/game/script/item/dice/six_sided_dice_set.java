@@ -66,7 +66,7 @@ public class six_sided_dice_set extends script.item.dice.base.base_dice
         {
             names[idx] = "usemodifier";
             int attrib = (int)getFloatObjVar(self, craftinglib.COMPONENT_ATTRIBUTE_OBJVAR_NAME + ".useModifier");
-            attribs[idx] = "" + attrib;
+            attribs[idx] = Integer.toString(attrib);
             idx++;
             if (idx >= names.length)
             {

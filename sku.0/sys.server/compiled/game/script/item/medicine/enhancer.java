@@ -51,7 +51,7 @@ public class enhancer extends script.base_script
         if (hasObjVar(self, "healing.enhancement"))
         {
             names[idx] = "enhancer_power";
-            attribs[idx] = "" + Math.floor(getFloatObjVar(self, "healing.enhancement"));
+            attribs[idx] = Double.toString(Math.floor(getFloatObjVar(self, "healing.enhancement")));
         }
         return SCRIPT_CONTINUE;
     }

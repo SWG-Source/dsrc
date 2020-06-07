@@ -29,7 +29,7 @@ public class spice extends script.base_script
         float duration = buff.getDuration(buff_name);
         String durString = formatTime((int)duration);
         names[idx] = "duration";
-        attribs[idx] = "" + durString + "\n";
+        attribs[idx] = durString + "\n";
         idx++;
         if (idx >= names.length)
         {
@@ -176,7 +176,7 @@ public class spice extends script.base_script
         seconds -= (minutes * 60);
         if (hours > 0)
         {
-            result += "" + hours + ":";
+            result += hours + ":";
         }
         if (minutes > 0 || hours > 0)
         {
@@ -184,13 +184,13 @@ public class spice extends script.base_script
             {
                 result += "0";
             }
-            result += "" + minutes + ":";
+            result += minutes + ":";
         }
         if (minutes > 0 && seconds < 10)
         {
             result += "0";
         }
-        result += "" + seconds;
+        result += seconds;
         return result;
     }
 }

@@ -260,7 +260,7 @@ public class beast_control_device extends script.base_script
         String currentHappiness = utils.packStringId(beast_lib.convertHappinessString(self));
         if (currentHappiness != null)
         {
-            attribs[idx] = "" + currentHappiness;
+            attribs[idx] = String.valueOf(currentHappiness);
             idx++;
             if (idx >= names.length)
             {
@@ -271,7 +271,7 @@ public class beast_control_device extends script.base_script
         String currentLoyalty = utils.packStringId(beast_lib.convertLoyaltyString(self));
         if (currentLoyalty != null)
         {
-            attribs[idx] = "" + currentLoyalty;
+            attribs[idx] = String.valueOf(currentLoyalty);
             idx++;
             if (idx >= names.length)
             {
@@ -283,7 +283,7 @@ public class beast_control_device extends script.base_script
         if (trainingPoints > 0)
         {
             names[idx] = "bm_single_max_training_points";
-            attribs[idx] = "" + trainingPoints;
+            attribs[idx] = String.valueOf(trainingPoints);
             idx++;
             if (idx >= names.length)
             {
@@ -294,7 +294,7 @@ public class beast_control_device extends script.base_script
         if (pointsSpent > 0)
         {
             names[idx] = "bm_points_spent";
-            attribs[idx] = "" + pointsSpent;
+            attribs[idx] = String.valueOf(pointsSpent);
             idx++;
             if (idx >= names.length)
             {
@@ -305,7 +305,7 @@ public class beast_control_device extends script.base_script
         if (maxAvailableTrainingPoints > 0)
         {
             names[idx] = "bm_points_available";
-            attribs[idx] = "" + maxAvailableTrainingPoints;
+            attribs[idx] = String.valueOf(maxAvailableTrainingPoints);
             idx++;
             if (idx >= names.length)
             {
@@ -325,13 +325,13 @@ public class beast_control_device extends script.base_script
                         if (!name.equals("block_value_bonus"))
                         {
                             names[idx] = beast_lib.DISPLAY_NAMES[i];
-                            attribs[idx] = "" + utils.roundFloatByDecimal(incubationBonuses[i] * beast_lib.DISPLAY_OBJVAR_CONVERSION_RATES[i]) + "%";
+                            attribs[idx] = String.valueOf(utils.roundFloatByDecimal(incubationBonuses[i] * beast_lib.DISPLAY_OBJVAR_CONVERSION_RATES[i])) + "%";
                             idx++;
                         }
                         else 
                         {
                             names[idx] = beast_lib.DISPLAY_NAMES[i];
-                            attribs[idx] = "" + incubationBonuses[i];
+                            attribs[idx] = String.valueOf(incubationBonuses[i]);
                             idx++;
                         }
                         continue;
@@ -339,7 +339,7 @@ public class beast_control_device extends script.base_script
                     else 
                     {
                         names[idx] = beast_lib.DISPLAY_NAMES[i];
-                        attribs[idx] = "" + incubationBonuses[i];
+                        attribs[idx] = String.valueOf(incubationBonuses[i]);
                         idx++;
                         continue;
                     }

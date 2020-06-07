@@ -63,7 +63,7 @@ public class food extends script.base_script
         float duration = buff.getDuration(buff_name);
         duration *= dur;
         String durString = formatTime((int)duration);
-        attribs[idx] = "" + durString + "\n";
+        attribs[idx] = durString + "\n";
         attribs[idx] += "\n" + "The duration of the buff from this item can be increased cumulatively by eating more of the same food " + "as long as the resulting duration does not exceed 2 hours. \n\n" + "Note that the value of primary buffed modifier of the last one eaten will be the one used by the buff.";
         idx++;
         if (idx >= names.length)
@@ -98,7 +98,7 @@ public class food extends script.base_script
                     {
                         value *= eff;
                     }
-                    attribs[idx] = "" + value;
+                    attribs[idx] = Float.toString(value);
                     switch (buff_name) {
                         case "drink_ruby_bliel":
                             names[idx] = "food_stimpack_roundtime";
@@ -144,7 +144,7 @@ public class food extends script.base_script
                     {
                         attribs[idx] = "+";
                     }
-                    attribs[idx] += "" + value;
+                    attribs[idx] += Float.toString(value);
                     if (param.contains("percent"))
                     {
                         attribs[idx] += "%";
@@ -384,7 +384,7 @@ public class food extends script.base_script
         seconds -= (minutes * 60);
         if (hours > 0)
         {
-            result += "" + hours + ":";
+            result += hours + ":";
         }
         if (minutes > 0 || hours > 0)
         {
@@ -392,13 +392,13 @@ public class food extends script.base_script
             {
                 result += "0";
             }
-            result += "" + minutes + ":";
+            result += minutes + ":";
         }
         if (minutes > 0 && seconds < 10)
         {
             result += "0";
         }
-        result += "" + seconds;
+        result += seconds;
         return result;
     }
     public boolean isClickyCombatNerfed(String buff_name) throws InterruptedException

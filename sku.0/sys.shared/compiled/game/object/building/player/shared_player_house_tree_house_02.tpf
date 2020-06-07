@@ -1,0 +1,16 @@
+@base object/building/base/shared_base_player_building.iff
+@class building_object_template 1
+@class tangible_object_template 5
+
+structureFootprintFileName = "footprint/building/player/shared_player_house_tree_house_02.sfp"
+
+@class object_template 6
+clearFloraRadius = 36
+
+objectName = "building_name"  "player_house_tree_house_02_n"
+detailedDescription = "building_detail"  "player_house_tree_house_02_d"
+lookAtText = "building_name"  "player_house_tree_house_02_n"
+
+appearanceFilename = ""
+portalLayoutFilename = "appearance/ply_all_tree_house_tall.pob"
+clientDataFile = "clientdata/building/shared_player_house_tatooine_small_style_01.cdf"

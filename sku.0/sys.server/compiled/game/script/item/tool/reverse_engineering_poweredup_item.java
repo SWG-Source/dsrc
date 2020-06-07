@@ -143,13 +143,13 @@ public class reverse_engineering_poweredup_item extends script.base_script
                 attribs[i] = "@stat_n:" + mod;
                 i++;
                 names[i] = "@spam:pup_power";
-                attribs[i] = "" + (power / ratio);
+                attribs[i] = Integer.toString((power / ratio));
                 i++;
             }
             float expiration = reverse_engineering.getDieTime(reverse_engineering.EXPIRATION_TIME, self);
             float timeInMinutes = expiration / 60;
             names[i] = "@spam:pup_expire_time";
-            attribs[i] = "" + (int)timeInMinutes;
+            attribs[i] = Float.toString(timeInMinutes);
         }
         return SCRIPT_CONTINUE;
     }

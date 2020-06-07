@@ -24,7 +24,7 @@ public class component_attribs extends script.base_script
             if (complexity >= 0)
             {
                 names[i] = "@crafting:complexity";
-                attribs[i] = "" + complexity;
+                attribs[i] = Float.toString(complexity);
                 ++i;
             }
             obj_var_list componentData = getObjVarList(self, craftinglib.COMPONENT_ATTRIBUTE_OBJVAR_NAME);

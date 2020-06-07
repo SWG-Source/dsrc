@@ -95,7 +95,7 @@ public class texture_kit extends script.base_script
             return SCRIPT_CONTINUE;
         }
         names[idx] = "charges";
-        attribs[idx] = "" + getCount(self);
+        attribs[idx] = Integer.toString(getCount(self));
         idx++;
         return SCRIPT_CONTINUE;
     }

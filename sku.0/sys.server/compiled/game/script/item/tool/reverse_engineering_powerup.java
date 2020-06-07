@@ -53,7 +53,7 @@ public class reverse_engineering_powerup extends script.base_script
                 String mod = getStringObjVar(self, reverse_engineering.ENGINEERING_MODIFIER);
                 int ratio = getIntObjVar(self, reverse_engineering.ENGINEERING_RATIO);
                 names[i] = "@stat_n:" + mod;
-                attribs[i] = "" + power / ratio;
+                attribs[i] = Integer.toString(power / ratio);
             }
         }
         return SCRIPT_CONTINUE;
