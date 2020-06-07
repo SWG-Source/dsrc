@@ -10512,9 +10512,9 @@ public class terminal_character_builder extends script.base_script
                 };
                 float[] weaponAttackSpeed =
                 {
-                    0.8f,
-                    0.8f,
-                    0.8f
+                    1.0f,
+                    1.0f,
+                    1.0f
                 };
                 float weaponWoundChance = 1.0f;
                 float weaponForceCost = 0.0f;
