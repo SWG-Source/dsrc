@@ -1865,7 +1865,8 @@ public class buff_handler extends script.base_script
                     addSkillModModifier(self, "buildabuff_" + effect, effect, (int) buffValue, duration, false, true);
                     if ((effect.startsWith("constitution")) || (effect.startsWith("stamina"))) {
                         messageTo(self, "recalcPools", null, 0.25f, false);
-                    } else if (effect.startsWith("expertise_innate_protection_")) {
+                    } else if (effect.startsWith("expertise_innate_protection_") || effect.equals("elemental_resistance")) //ensure recalc for new elemental_resistance Modifier
+					{
                         messageTo(self, "recalcArmor", null, 0.25f, false);
                     }
                     break;

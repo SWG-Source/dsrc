@@ -1501,6 +1501,7 @@ public class armor extends script.base_script
         float fltTempProtection = 0;
         float fltGenericProtection = getSkillStatisticModifier(objPlayer, "expertise_overridable_protection_generic");
         float fltInnateProtectionAll = getSkillStatisticModifier(objPlayer, "expertise_innate_protection_all");
+		float fltSpecialProtectionAll = getSkillStatisticModifier(objPlayer, "elemental_resistance");//get entertainer buildabuff stat
         fltGeneralProtection = fltGeneralProtection / fltTotal;
         dictionary dctProtections = new dictionary();
         int intMod;
@@ -1508,6 +1509,10 @@ public class armor extends script.base_script
         {
             fltSpecialProts[intI] = fltSpecialProts[intI] / fltTotal;
             fltSpecialProts[intI] += fltInnateProtectionAll;
+			if ( !(DATATABLE_SPECIAL_PROTECTIONS[intI] == "energy") && !(DATATABLE_SPECIAL_PROTECTIONS[intI] == "kinetic") )//only apply buildabuff stat for elemental armors
+            {
+                fltSpecialProts[intI] += fltSpecialProtectionAll;
+            }
             fltSpecialProts[intI] += getSkillStatisticModifier(objPlayer, "expertise_innate_protection_" + DATATABLE_SPECIAL_PROTECTIONS[intI]);
             fltSpecialProts[intI] += getSkillStatisticModifier(objPlayer, "expertise_armorset_protection_" + armorSetWorn + "_" + DATATABLE_SPECIAL_PROTECTIONS[intI]);
             if ((fltSpecialProts[intI] + fltGeneralProtection) > 0)
@@ -1538,6 +1543,7 @@ public class armor extends script.base_script
         int generalProtectionValue = 0;
         final float[] fltSpecialProts = new float[armor.DATATABLE_SPECIAL_PROTECTIONS.length];
         float fltInnateProtectionAll = getSkillStatisticModifier(objPlayer, "expertise_innate_protection_all");
+		float fltSpecialProtectionAll = getSkillStatisticModifier(objPlayer, "elemental_resistance");//get entertainer buildabuff stat
         trial.bumpSession(objPlayer, "displayDefensiveMods");
         messageTo(objPlayer, "setDisplayOnlyDefensiveMods", trial.getSessionDict(objPlayer, "displayDefensiveMods"), 5, false);
         if (intProtection > 0)
@@ -1553,6 +1559,10 @@ public class armor extends script.base_script
                 {
                     armorValue = intProtection;
                     fltSpecialProts[intI] += fltInnateProtectionAll;
+					if ( !(DATATABLE_SPECIAL_PROTECTIONS[intI] == "energy") && !(DATATABLE_SPECIAL_PROTECTIONS[intI] == "kinetic") )//only apply buildabuff stat for elemental armors
+                    {
+                        fltSpecialProts[intI] += fltSpecialProtectionAll;
+                    }
                     fltSpecialProts[intI] += getSkillStatisticModifier(objPlayer, "expertise_innate_protection_" + DATATABLE_SPECIAL_PROTECTIONS[intI]);
                     fltSpecialProts[intI] += getSkillStatisticModifier(objPlayer, "expertise_armorset_protection_" + "_" + DATATABLE_SPECIAL_PROTECTIONS[intI]);
                     intMod = (int) (fltSpecialProts[intI] + armorValue + 0.5f);
