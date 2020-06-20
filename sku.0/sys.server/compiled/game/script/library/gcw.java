@@ -2691,7 +2691,7 @@ public class gcw extends script.base_script
             CustomerServiceLog("gcw_city_invasion", "gcw.gcwIsInvasionCityOn: GCW City: " + city + " is not configured to run a city invasion. Function returning False.");
             return false;
         }
-        if (city == "dearic" && Boolean.parseBoolean(getConfigSetting("GameServer", "lifeday")) == true) {
+        if (city.equalsIgnoreCase("dearic") && utils.checkConfigFlag("GameServer", "lifeday")) {
             CustomerServiceLog("gcw_city_invasion", "gcw.gcwIsInvasionCityOn: GCW City: " + city + " is not running because life day is turned on.");
             return false;
         }
