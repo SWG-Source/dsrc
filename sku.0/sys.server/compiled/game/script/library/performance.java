@@ -1424,10 +1424,6 @@ public class performance extends script.base_script
             performanceMessageToSelf(actor, null, SID_DANCE_UNKNOWN_SELF);
             return;
         }
-        if (!notShapechanged(actor))
-        {
-            return;
-        }
         if (!canPerformDance(actor, performanceIndex))
         {
             performanceMessageToSelf(actor, null, SID_DANCE_LACK_SKILL_SELF);
@@ -1559,10 +1555,6 @@ public class performance extends script.base_script
         if (performanceIndex == 0)
         {
             performanceMessageToSelf(actor, null, SID_DANCE_UNKNOWN_SELF);
-            return;
-        }
-        if (!notShapechanged(actor))
-        {
             return;
         }
         if (!canPerformDance(actor, performanceIndex))
@@ -2873,10 +2865,6 @@ public class performance extends script.base_script
             return false;
         }
         if (hasObjVar(actor, VAR_AVAILABLE_PERFORMANCES))
-        {
-            return false;
-        }
-        if (!notShapechanged(actor))
         {
             return false;
         }
