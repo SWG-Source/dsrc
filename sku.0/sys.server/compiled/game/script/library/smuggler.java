@@ -306,9 +306,6 @@ public class smuggler extends script.base_script
         if (price > 0 && !hasObjVar(item, "quest_item"))
         {
             dictionary params = new dictionary();
-            params.put("item", item);
-            params.put("price", price);
-            params.put("reshowSui", reshowSui);
             if (luck.isLucky(player, 0.01f))
             {
                 float bonus = price * 0.2f;
@@ -318,6 +315,9 @@ public class smuggler extends script.base_script
                 }
                 price += bonus;
             }
+            params.put("item", item);
+            params.put("price", price);
+            params.put("reshowSui", reshowSui);
             if (fence)
             {
                 blog("smuggler.sellJunkItem() this is a fence player");
