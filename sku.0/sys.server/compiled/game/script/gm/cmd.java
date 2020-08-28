@@ -3748,6 +3748,7 @@ public class cmd extends script.base_script
         else
         {
             sendSystemMessageTestingOnly(self, "[Syntax] /dumpObjectInformation <oid> [filename]");
+            sendSystemMessageTestingOnly(self, "If you're trying to dump a macro, use /dumpp");
         }
         return SCRIPT_CONTINUE;
     }
