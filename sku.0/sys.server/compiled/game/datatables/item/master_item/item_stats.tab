@@ -4100,7 +4100,7 @@ item_tcg_loot_reward_series3_swamp_speeder			string:vehicle_attribs.object_ref=s
 item_tcg_loot_reward_series3_armored_bantha			string:creatureName=tcg_armored_bantha								
 item_tcg_loot_reward_series3_creature_pet_deed_massiff			string:house_pet_creature=tcg_massiff_pet,string:house_pet_script=systems.tcg.tcg_massif_creature,string:pet_feedable=true								
 item_tcg_loot_reward_series3_empal_surecon_center_medical_table											
-item_tcg_loot_reward_series3_wompa_skin_rug											
+item_tcg_loot_reward_series3_wampa_skin_rug											
 item_tcg_loot_reward_series3_target_dummy			string:targetDummyCreatureName=tcg_target_dummy								
 item_tcg_loot_reward_series3_merr_sonn_jt12_jetpack_blueprints											
 item_tcg_loot_reward_series3_mustafar_travel_advertisement											
@@ -4792,3 +4792,5 @@ item_band_set_ent_01_01	"strength_modified=30,agility_modified=30"		int:item.set
 item_band_set_trader_01_01	"luck_modified=30,precision_modified=30,strength_modified=30"		int:item.set.set_id=140001								
 item_ring_set_ent_01_01	"strength_modified=30,agility_modified=30"		int:item.set.set_id=130001								
 item_ring_set_trader_01_01	"luck_modified=30,precision_modified=30,strength_modified=30"		int:item.set.set_id=140001								
+item_schematic_hat_imperial_gunner_01_01			string:loot_schematic.schematic=object/draft_schematic/clothing/clothing_hat_imperial_gunner.iff,int:loot_schematic.uses=1,string:loot_schematic.skill_req=class_domestics_phase4_master								
+item_schematic_hat_rebel_trooper_01_01			string:loot_schematic.schematic=object/draft_schematic/clothing/clothing_hat_rebel_trooper.iff,int:loot_schematic.uses=1,string:loot_schematic.skill_req=class_domestics_phase4_master								
