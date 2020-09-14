@@ -1529,6 +1529,26 @@ armor_gcw_rebel_specforce_chest_plate	advanced	assault	1	0.93	0	40000			string:f
 armor_gcw_rebel_specforce_leggings	advanced	assault	1	0.93	0	40000			string:faction_recruiter.faction=Rebel					
 armor_gcw_rebel_specforce_gloves	advanced	assault	1	0.93	0	40000			string:faction_recruiter.faction=Rebel					
 armor_gcw_rebel_specforce_boots	advanced	assault	1	0.93	0	40000			string:faction_recruiter.faction=Rebel					
+armor_infiltrator_s01_bicep_l	advanced	battle	1	0.9	0	40000			
+armor_infiltrator_s01_bicep_r	advanced	battle	1	0.9	0	40000
+armor_infiltrator_s01_bracer_l	advanced	battle	1	0.9	0	40000
+armor_infiltrator_s01_bracer_r	advanced	battle	1	0.9	0	40000
+armor_infiltrator_s01_helmet	advanced	battle	1	0.9	0	40000			
+armor_infiltrator_s01_chest_plate	advanced	battle	1	0.9	0	40000
+armor_infiltrator_s01_leggings	advanced	battle	1	0.9	0	40000			
+armor_infiltrator_s01_gloves	advanced	battle	1	0.9	0	40000			
+armor_infiltrator_s01_boots	advanced	battle	1	0.9	0	40000
+armor_infiltrator_s01_belt	advanced	battle	1	0.9	0	40000
+armor_infiltrator_s02_bicep_l	advanced	battle	1	0.9	0	40000			
+armor_infiltrator_s02_bicep_r	advanced	battle	1	0.9	0	40000
+armor_infiltrator_s02_bracer_l	advanced	battle	1	0.9	0	40000
+armor_infiltrator_s02_bracer_r	advanced	battle	1	0.9	0	40000
+armor_infiltrator_s02_helmet	advanced	battle	1	0.9	0	40000			
+armor_infiltrator_s02_chest_plate	advanced	battle	1	0.9	0	40000
+armor_infiltrator_s02_leggings	advanced	battle	1	0.9	0	40000			
+armor_infiltrator_s02_gloves	advanced	battle	1	0.9	0	40000			
+armor_infiltrator_s02_boots	advanced	battle	1	0.9	0	40000
+armor_infiltrator_s02_belt	advanced	battle	1	0.9	0	40000
 armor_mandalorian_dwb_belt	advanced	assault	1	0.91	0	40000								
 armor_mandalorian_dwb_bicep_l	advanced	assault	1	0.91	0	40000								
 armor_mandalorian_dwb_bicep_r	advanced	assault	1	0.91	0	40000								
