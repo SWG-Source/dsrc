@@ -4273,8 +4273,6 @@ public class combat_actions extends script.systems.combat.combat_base
         {
             return SCRIPT_OVERRIDE;
         }
-        prose_package p = prose.getPackage(new string_id("spam", "artillery_coming"));
-        commPlayers(self, "object/mobile/npe/npe_hutt_minion.iff", "sound/sys_comm_other.snd", 5.0f, self, p);
         if (successfulFastAttack(self, "of_aoe"))
         {
             setCommandTimerValue(self, TIMER_COOLDOWN, 0.0f);
@@ -4292,8 +4290,6 @@ public class combat_actions extends script.systems.combat.combat_base
         {
             return SCRIPT_OVERRIDE;
         }
-        prose_package p = prose.getPackage(new string_id("spam", "hailfire_coming"));
-        commPlayers(self, "object/mobile/npe/npe_hutt_minion.iff", "sound/sys_comm_other.snd", 5.0f, self, p);
         playClientEffectLoc(self, "clienteffect/combat_pt_aerialstrike.cef", getLocation(target), 0);
         if (successfulFastAttack(self, "of_aoe"))
         {
@@ -4312,8 +4308,6 @@ public class combat_actions extends script.systems.combat.combat_base
         {
             return SCRIPT_OVERRIDE;
         }
-        prose_package p = prose.getPackage(new string_id("spam", "orbitalstrike_coming"));
-        commPlayers(self, "object/mobile/npe/npe_hutt_minion.iff", "sound/sys_comm_other.snd", 5.0f, self, p);
         playClientEffectLoc(self, "clienteffect/combat_pt_orbitalstrike.cef", getLocation(target), 0);
         if (successfulFastAttack(self, "of_aoe"))
         {
