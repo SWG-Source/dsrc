@@ -1096,7 +1096,7 @@ public class base_incubator extends script.base_script
             {
                 unmodifiedExoticMutationBonus = incubator.MAX_RE_EXOTIC_MUTATION_SKILLMOD;
             }
-            float exoticMutationBonus = unmodifiedExoticDpsArmorBonus * 0.075f;
+            float exoticMutationBonus = unmodifiedExoticMutationBonus * 0.075f;
             if (isGod(player))
             {
                 sendSystemMessageTestingOnly(player, "Your modified exoticMutationBonus is " + exoticMutationBonus);
