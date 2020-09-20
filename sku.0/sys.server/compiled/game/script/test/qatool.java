@@ -4192,7 +4192,8 @@ public class qatool extends script.base_script
     }
     /**
      * Retrieves an enzyme color from the next token in a string tokenizer.
-     * Will return a random color index if one can not be determined.
+     * If there is no token available, a random color will be chosen.
+     * If the color specified is not found, -1 will be returned.
      */
     private int getEnzymeColorFromNextToken(obj_id self, StringTokenizer st) {
         if(st.hasMoreTokens()) {
@@ -4205,9 +4206,10 @@ public class qatool extends script.base_script
                 return colorIndex;
             }
 
-            sendSystemMessageTestingOnly(self, "Invalid color specified, random color will be used. Valid colors are: " +  String.join(", ", ENZYME_COMMAND_COLOR_LOOKUP));
+            sendSystemMessageTestingOnly(self, "Invalid color specified. Valid colors are: " +  String.join(", ", ENZYME_COMMAND_COLOR_LOOKUP));
+            return -1;
         }
-
+        
         return rand(0, incubator.NUMBER_OF_COLORS);
     }
     public boolean createLyase(obj_id self, StringTokenizer st) throws InterruptedException
@@ -4220,16 +4222,20 @@ public class qatool extends script.base_script
         {
             int randomStat = 11;
             obj_id testerInventoryId = utils.getInventoryContainer(self);
-            obj_id lyase;
+            int enzymeColorIndex = getEnzymeColorFromNextToken(self, st);
+
+            if(enzymeColorIndex == -1) {
+                return false;
+            }
+            
             if (getVolumeFree(testerInventoryId) <= 0)
             {
                 sendSystemMessage(self, "Failed to create Enzyme, please make sure that your inventory is not full.", null);
                 return false;
             }
-            lyase = createObject("object/tangible/loot/beast/enzyme_2.iff", testerInventoryId, "");
+            obj_id lyase = createObject("object/tangible/loot/beast/enzyme_2.iff", testerInventoryId, "");
             if (isValidId(lyase))
             {
-                int enzymeColorIndex = getEnzymeColorFromNextToken(self, st);
 
                 setObjVar(lyase, "beast.enzyme.color", enzymeColorIndex);
                 hue.setColor(lyase, "/private/index_color_1", enzymeColorIndex);
@@ -4240,7 +4246,7 @@ public class qatool extends script.base_script
                     removeObjVar(lyase, "beast.enzyme.freeStatName");
                 }
 
-                sendSystemMessageTestingOnly(self, "Created a Lyase Enzyme with the values: Random Stats: 11, Color: " + ENZYME_COMMAND_COLOR_LOOKUP.get(enzymeColorIndex));
+                sendSystemMessageTestingOnly(self, "Created a Lyase Enzyme with the values: Random Stats: 11, Color: " + incubator.ENZYME_COLORS[enzymeColorIndex]);
             }
             else 
             {
@@ -4272,24 +4278,27 @@ public class qatool extends script.base_script
         else 
         {
             obj_id testerInventoryId = utils.getInventoryContainer(self);
-            obj_id isomerase;
+            
+            int enzymeColorIndex = getEnzymeColorFromNextToken(self, st);
 
+            if(enzymeColorIndex == -1) {
+                return false;
+            }
             
             if (getVolumeFree(testerInventoryId) <= 0)
             {
                 sendSystemMessage(self, "Failed to create Enzyme, please make sure that your inventory is not full.", null);
                 return false;
             }
-            isomerase = createObject("object/tangible/loot/beast/enzyme_1.iff", testerInventoryId, "");
+
+            obj_id isomerase = createObject("object/tangible/loot/beast/enzyme_1.iff", testerInventoryId, "");
             if (isValidId(isomerase))
             {
-                int enzymeColorIndex = getEnzymeColorFromNextToken(self, st);
-
                 setObjVar(isomerase, "beast.enzyme.quality", 90f);
                 setObjVar(isomerase, "beast.enzyme.color", enzymeColorIndex);
                 hue.setColor(isomerase, "/private/index_color_1", enzymeColorIndex);
 
-                sendSystemMessageTestingOnly(self, "Created a Isomerase Enzyme with the values: random Stats: 90%, Color: " + ENZYME_COMMAND_COLOR_LOOKUP.get(enzymeColorIndex));
+                sendSystemMessageTestingOnly(self, "Created a Isomerase Enzyme with the values: random Stats: 90%, Color: " + incubator.ENZYME_COLORS[enzymeColorIndex]);
             }
             else 
             {
