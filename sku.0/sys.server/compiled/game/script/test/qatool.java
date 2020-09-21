@@ -5,6 +5,7 @@ import script.*;
 import script.library.*;
 
 import java.util.*;
+import java.util.stream.Collectors;
 
 public class qatool extends script.base_script
 {
@@ -151,9 +152,9 @@ public class qatool extends script.base_script
         " collectionclickbypass -- Sets scriptvar to allow 1 second clicks on collection items",
         "* (command driven tool) setScriptVar -- Sets a scriptvar on to 0 or a given value. If no current target then scriptvar is set on player.",
         "* (command driven tool) enzyme -- Creates an Enzyme with preset values the mutagen score and the purity score (for example /qatool enzyme 10 15).",
-        "* (command driven tool) lyase or qalyase -- Creates an Lyase Enzyme with randomStats set to 11.",
+        "* (command driven tool) lyase or qalyase [color] -- Creates an Lyase Enzyme with randomStats set to 11. Optional parameter [color]",
         "* (command driven tool) clearHeroicTimer -- Removes all heroic lockout timers from the character",
-        "* (command driven tool) iso or qaiso -- Creates an Isomerase Enzyme with a quality of 90.00.",
+        "* (command driven tool) iso or qaiso [color] -- Creates an Isomerase Enzyme with a quality of 90.00. Optional parameter [color]",
         "* (command driven tool) spawnShip <ship spawn string> <number of ships> -- Creates a ship in front of you.(For example: /qat spawnShip awing_tier6 3)",
         " qatcg or tcg - Brings up a menu of options for the SWG Trading Card Game"
     };
@@ -831,6 +832,13 @@ public class qatool extends script.base_script
         "Promotional Items Cluster Info",
         "Reinitialize TCG Information (warning! this resets everything!)"
     };
+
+    public static final List<String> ENZYME_COMMAND_COLOR_LOOKUP = 
+        Arrays.asList(incubator.ENZYME_COLORS)
+            .stream()
+            .map(s -> s.replace(" ","").toLowerCase())
+            .collect(Collectors.toList());
+
     public int OnAttach(obj_id self) throws InterruptedException
     {
         if (isGod(self))
@@ -1299,7 +1307,7 @@ public class qatool extends script.base_script
         }
         else if ((toLower(command)).equals("lyase") || (toLower(command)).equals("qalyase"))
         {
-            boolean successMsg = createLyase(self);
+            boolean successMsg = createLyase(self, st);
             if (!successMsg)
             {
                 sendSystemMessageTestingOnly(self, "***The tool failed in part or in full.  Make sure your arguments are spelled correctly and try again.***");
@@ -1318,7 +1326,7 @@ public class qatool extends script.base_script
         }
         else if ((toLower(command)).equals("iso") || (toLower(command)).equals("qaiso"))
         {
-            boolean successMsg = createIsomerase(self);
+            boolean successMsg = createIsomerase(self, st);
             if (!successMsg)
             {
                 sendSystemMessageTestingOnly(self, "***The tool failed in part or in full.  Make sure your arguments are spelled correctly and try again.***");
@@ -4182,7 +4190,29 @@ public class qatool extends script.base_script
         }
         return true;
     }
-    public boolean createLyase(obj_id self) throws InterruptedException
+    /**
+     * Retrieves an enzyme color from the next token in a string tokenizer.
+     * If there is no token available, a random color will be chosen.
+     * If the color specified is not found, -1 will be returned.
+     */
+    private int getEnzymeColorFromNextToken(obj_id self, StringTokenizer st) {
+        if(st.hasMoreTokens()) {
+            // Lowercase and remove underscores so that colors such as Dark_Blue will still work.
+            var colorName = st.nextToken().toLowerCase().replace("_", "");
+
+            var colorIndex = ENZYME_COMMAND_COLOR_LOOKUP.indexOf(colorName);
+
+            if(colorIndex >= 0) {
+                return colorIndex;
+            }
+
+            sendSystemMessageTestingOnly(self, "Invalid color specified. Valid colors are: " +  String.join(", ", ENZYME_COMMAND_COLOR_LOOKUP));
+            return -1;
+        }
+        
+        return rand(0, incubator.NUMBER_OF_COLORS);
+    }
+    public boolean createLyase(obj_id self, StringTokenizer st) throws InterruptedException
     {
         if (isSpaceScene())
         {
@@ -4192,18 +4222,31 @@ public class qatool extends script.base_script
         {
             int randomStat = 11;
             obj_id testerInventoryId = utils.getInventoryContainer(self);
-            obj_id lyase;
+            int enzymeColorIndex = getEnzymeColorFromNextToken(self, st);
+
+            if(enzymeColorIndex == -1) {
+                return false;
+            }
+            
             if (getVolumeFree(testerInventoryId) <= 0)
             {
                 sendSystemMessage(self, "Failed to create Enzyme, please make sure that your inventory is not full.", null);
                 return false;
             }
-            lyase = createObject("object/tangible/loot/beast/enzyme_2.iff", testerInventoryId, "");
+            obj_id lyase = createObject("object/tangible/loot/beast/enzyme_2.iff", testerInventoryId, "");
             if (isValidId(lyase))
             {
-                dictionary params = new dictionary();
-                params.put("lyase", lyase);
-                messageTo(self, "makeLyase", params, 2, false);
+
+                setObjVar(lyase, "beast.enzyme.color", enzymeColorIndex);
+                hue.setColor(lyase, "/private/index_color_1", enzymeColorIndex);
+
+                setObjVar(lyase, "beast.enzyme.randomStats", randomStat);
+                if (hasObjVar(lyase, "beast.enzyme.freeStatName"))
+                {
+                    removeObjVar(lyase, "beast.enzyme.freeStatName");
+                }
+
+                sendSystemMessageTestingOnly(self, "Created a Lyase Enzyme with the values: Random Stats: 11, Color: " + incubator.ENZYME_COLORS[enzymeColorIndex]);
             }
             else 
             {
@@ -4211,17 +4254,6 @@ public class qatool extends script.base_script
             }
         }
         return true;
-    }
-    public int makeLyase(obj_id self, dictionary params) throws InterruptedException
-    {
-        obj_id lyaseObject = params.getObjId("lyase");
-        setObjVar(lyaseObject, "beast.enzyme.randomStats", 11);
-        if (hasObjVar(lyaseObject, "beast.enzyme.freeStatName"))
-        {
-            removeObjVar(lyaseObject, "beast.enzyme.freeStatName");
-        }
-        sendSystemMessageTestingOnly(self, "Created a Lyase Enzyme with the values: random Stats: 11");
-        return SCRIPT_CONTINUE;
     }
     public boolean clearHeroicTimer(obj_id self) throws InterruptedException
     {
@@ -4237,7 +4269,7 @@ public class qatool extends script.base_script
         }
         return false;
     }
-    public boolean createIsomerase(obj_id self) throws InterruptedException
+    public boolean createIsomerase(obj_id self, StringTokenizer st) throws InterruptedException
     {
         if (isSpaceScene())
         {
@@ -4246,18 +4278,27 @@ public class qatool extends script.base_script
         else 
         {
             obj_id testerInventoryId = utils.getInventoryContainer(self);
-            obj_id isomerase;
+            
+            int enzymeColorIndex = getEnzymeColorFromNextToken(self, st);
+
+            if(enzymeColorIndex == -1) {
+                return false;
+            }
+            
             if (getVolumeFree(testerInventoryId) <= 0)
             {
                 sendSystemMessage(self, "Failed to create Enzyme, please make sure that your inventory is not full.", null);
                 return false;
             }
-            isomerase = createObject("object/tangible/loot/beast/enzyme_1.iff", testerInventoryId, "");
+
+            obj_id isomerase = createObject("object/tangible/loot/beast/enzyme_1.iff", testerInventoryId, "");
             if (isValidId(isomerase))
             {
-                dictionary params = new dictionary();
-                params.put("iso", isomerase);
-                messageTo(self, "makeIso", params, 2, false);
+                setObjVar(isomerase, "beast.enzyme.quality", 90f);
+                setObjVar(isomerase, "beast.enzyme.color", enzymeColorIndex);
+                hue.setColor(isomerase, "/private/index_color_1", enzymeColorIndex);
+
+                sendSystemMessageTestingOnly(self, "Created a Isomerase Enzyme with the values: random Stats: 90%, Color: " + incubator.ENZYME_COLORS[enzymeColorIndex]);
             }
             else 
             {
@@ -4265,14 +4306,6 @@ public class qatool extends script.base_script
             }
         }
         return true;
-    }
-    public int makeIso(obj_id self, dictionary params) throws InterruptedException
-    {
-        float quality = 90;
-        obj_id isoObject = params.getObjId("iso");
-        setObjVar(isoObject, "beast.enzyme.quality", quality);
-        sendSystemMessageTestingOnly(self, "Created a Isomerase Enzyme with the values: random Stats: 90%");
-        return SCRIPT_CONTINUE;
     }
     public void qaTCGMenu(obj_id self) throws InterruptedException
     {
