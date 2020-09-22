@@ -22,7 +22,6 @@ public class no_trade_removable extends script.base_script {
     public static final string_id SID_ITEM_NOT_INVENTORY = new string_id("sarlacc_minigame", "item_not_inventory");
     public static final string_id SID_ITEM_NOT_OWNER = new string_id("base_player", "item_not_owner");
     public static final string_id SID_ITEM_MADE_TRADABLE = new string_id("system_msg", "item_made_tradable");
-    public static final String SCRIPT_NAME = "item.special.no_trade_removable";
 
     public int OnObjectMenuRequest(obj_id self, obj_id player, menu_info mi) throws InterruptedException {
         if ((getOwner(self) == player || isGod(player)) && hasObjVar(self, "noTrade")
