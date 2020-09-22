@@ -18,15 +18,18 @@ public class no_trade_removable extends script.base_script {
 
     // Using one of the unused reserved entries.
     public static final int RADIAL_MENU_ENTRY = menu_info_types.SERVER_MENU47;
-    public static final string_id REMOVE_NO_TRADE = new string_id("ui_radial", "no_trade_removable");
+
+    public static final string_id SID_REMOVE_NO_TRADE = new string_id("ui_radial", "no_trade_removable");
     public static final string_id SID_ITEM_NOT_INVENTORY = new string_id("sarlacc_minigame", "item_not_inventory");
     public static final string_id SID_ITEM_NOT_OWNER = new string_id("base_player", "item_not_owner");
     public static final string_id SID_ITEM_MADE_TRADABLE = new string_id("system_msg", "item_made_tradable");
+    
+    public static final String SCRIPT_NAME = "item.special.no_trade_removable";
 
     public int OnObjectMenuRequest(obj_id self, obj_id player, menu_info mi) throws InterruptedException {
         if ((getOwner(self) == player || isGod(player)) && hasObjVar(self, "noTrade")
                 && utils.getContainingPlayer(self) == player) {
-            mi.addRootMenu(RADIAL_MENU_ENTRY, REMOVE_NO_TRADE);
+            mi.addRootMenu(RADIAL_MENU_ENTRY, SID_REMOVE_NO_TRADE);
         }
         return SCRIPT_CONTINUE;
     }
@@ -46,6 +49,8 @@ public class no_trade_removable extends script.base_script {
             if (hasObjVar(self, "noTrade")) {
                 removeObjVar(self, "noTrade");
                 sendSystemMessage(player, SID_ITEM_MADE_TRADABLE);
+                CustomerServiceLog("noTrade", getPlayerName(player) + " (" + player + ") removed the noTrade ObjVar from object " + getTemplateName(self) + " (" + self + ")");
+                detachScript(self, SCRIPT_NAME);
             }
         }
         return SCRIPT_CONTINUE;
