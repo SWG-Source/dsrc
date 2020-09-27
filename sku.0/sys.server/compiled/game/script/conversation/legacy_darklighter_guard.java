@@ -54,7 +54,8 @@ public class legacy_darklighter_guard extends script.base_script
     }
     public void legacy_darklighter_guard_action_startRun(obj_id player, obj_id npc) throws InterruptedException
     {
-        groundquests.sendSignal(player, "legacy_button_darklighter_launch_e2r");
+        groundquests.sendSignal(player, "legacy_button_darklighter_launch_e2");
+		groundquests.sendSignal(player, "legacy_button_darklighter_launch_e2r");
     }
     public int legacy_darklighter_guard_handleBranch1(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
