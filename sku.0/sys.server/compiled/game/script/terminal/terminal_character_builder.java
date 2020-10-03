@@ -598,9 +598,9 @@ public class terminal_character_builder extends script.base_script
     };
     public static final String[] WARP_OPTIONS = {
         "0. Stone Head Formation, Dantooine",
-        "1. empty",
-        "2. empty",
-        "3. empty",
+        "1. TCG Black Market (Wayfar,Tatooine)",
+        "2. TCG Black Market (Lake Retreat, Naboo)",
+        "3. TCG Black Market (Bela Vistal, Corellia)",
         "4. empty",
         "5. empty",
         "6. Mos Eisley, Tatooine",
@@ -8532,13 +8532,13 @@ public class terminal_character_builder extends script.base_script
             warpPlayer(player, "dantooine", -5661, 0, 7068, null, 0, 0, 0, "", false);
             break;
             case 1:
-            warpPlayer(player, "planet", 0, 0, 0, null, 0, 0, 0, "", false);
+            warpPlayer(player, "tatooine", -5060, 75, -6610, null, 0, 0, 0, "", false);
             break;
             case 2:
-            warpPlayer(player, "planet", 0, 0, 0, null, 0, 0, 0, "", false);
+            warpPlayer(player, "naboo", -5550, -150, -75, null, 0, 0, 0, "", false);
             break;
             case 3:
-            warpPlayer(player, "planet", 0, 0, 0, null, 0, 0, 0, "", false);
+            warpPlayer(player, "corellia", 6806, 315, -5725, null, 0, 0, 0, "", false);
             break;
             case 4:
             warpPlayer(player, "planet", 0, 0, 0, null, 0, 0, 0, "", false);
@@ -8628,7 +8628,7 @@ public class terminal_character_builder extends script.base_script
             warpPlayer(player, "tatooine", 3764, 0, 2381, null, 0, 0, 0, "", false);
             break;
             case 33:
-            warpPlayer(player, "tatooine", -5200, 0, -6100, null, 0, 0, 0, "", false);
+            warpPlayer(player, "tatooine", -5126, 75, -6599, null, 0, 0, 0, "", false);
             break;
             case 34:
             warpPlayer(player, "tatooine", -1290, 0, -3590, null, 0, 0, 0, "", false);
