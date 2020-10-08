@@ -40,7 +40,7 @@ i	s	s[none]	s	c
 38	object/mobile/shared_meatlump_king.iff		meatlump king
 39	object/mobile/shared_wampa.iff		wampa
 40	object/mobile/shared_rancor.iff		rancor
-41	object/mobile/shared_leia_organa.iff		mutant rancor
+41	object/mobile/shared_mutant_rancor_static.iff		mutant rancor
 42	object/mobile/shared_outbreak_afflicted_blackwing_rancor_boss.iff		blackwing rancor
 43	object/mobile/shared_tusken_king.iff		tusken king
 44	object/mobile/shared_zozpheratu_static.iff		zozpheratu
