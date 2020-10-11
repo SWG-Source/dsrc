@@ -50,8 +50,6 @@
 
 	<target name="swg" description="builds the SWG DSRC codebase" depends="clean,create_database,compile,create_symlinks,load_templates">
 	</target>
-	<target name="swg-ci" description="builds the SWG DSRC codebase for continuous integration in github" depends="compile">
-	</target>
 
 	<!-- Clean simply calls the other clean targets -->
 	<target name="clean" depends="clean_dsrc,init">
