@@ -1,4 +1,4 @@
-<project name="SWGBuild" default="echoprops" basedir="." xmlns:if="ant:if" xmlns:unless="ant:unless">
+<project name="SWGBuildDSRC" default="echoprops" basedir="." xmlns:if="ant:if" xmlns:unless="ant:unless">
 	<description>
 		This build file will build the DSRC directory (scripting) of the SWG Source Code.  Created by Cekis (cekisswg@gmail.com).
 	</description>
@@ -6,29 +6,27 @@
 	<hostinfo/>
 
 	<!-- Property File -->
-	<property file="dsrc/local.properties" />
-	<property file="dsrc/build.properties" />
+	<property file="local.properties" />
+	<property file="build.properties" />
 
 	<!-- Global Properties -->
-	<property name="build" location="${basedir}/build"/>
+	<property name="build" location="build"/>
 
 	<!-- Database Service Name is derived to make it easier in the properties file -->
 	<property name="service_name" value="//127.0.0.1/${db_service}"/>
 
 	<!-- Setup Source Directories -->
-	<property name="exe" location="${basedir}/exe"/>
-	<property name="dsrc" location="." relative="true" basedir="${basedir}"/>
-	<property name="data" location="../data" relative="true" basedir="${basedir}"/>
+	<property name="data" location="${build}/data" relative="true" basedir="${basedir}"/>
 
 	<!-- Setup Key Game Directories -->
-	<property name="dsrc_server" location="${dsrc}/sku.0/sys.server/compiled/game"/>
-	<property name="dsrc_shared" location="${dsrc}/sku.0/sys.shared/compiled/game"/>
+	<property name="dsrc_server" location="sku.0/sys.server/compiled/game"/>
+	<property name="dsrc_shared" location="sku.0/sys.shared/compiled/game"/>
 	<property name="data_server" location="${data}/sku.0/sys.server/compiled/game"/>
 	<property name="data_shared" location="${data}/sku.0/sys.shared/compiled/game"/>
 	<property name="data_client" location="${data}/sku.0/sys.client/compiled"/>
 
 	<!-- Setup CRC Files to load into the database -->
-	<property name="object_crc_file" location="${dsrc}/sku.0/sys.server/built/game/misc/object_template_crc_string_table.tab"/>
+	<property name="object_crc_file" location="sku.0/sys.server/built/game/misc/object_template_crc_string_table.tab"/>
 	<property name="templates_sql_file" location="${build}/templates.sql"/>
 
 	<!-- Define where most of our compiled tools will live -->
@@ -50,7 +48,9 @@
 		<echo>IP Address: ${ADDR4}</echo>
 	</target>
 
-	<target name="swg" description="builds the SWG DSRC codebase" depends="clean,create_database,compile">
+	<target name="swg" description="builds the SWG DSRC codebase" depends="clean,create_database,compile,create_symlinks,load_templates">
+	</target>
+	<target name="swg-ci" description="builds the SWG DSRC codebase for continuous integration in github" depends="compile">
 	</target>
 
 	<!-- Clean simply calls the other clean targets -->
@@ -76,11 +76,10 @@
 		<javac srcdir="${dsrc_server}" destdir="${data_server}" includeantruntime="false" classpath="${data_server}" encoding="utf8" sourcepath="${dsrc_server}" debug="true" deprecation="on">
 			<compilerarg value="-Xlint:-options"/>
 		</javac>
-		<antcall target="create_symlinks"/>
 	</target>
 
 	<!-- Compiles all code necessary for server execution -->
-	<target name="compile" depends="compile_java,compile_miff,compile_tab,compile_tpf,load_templates">
+	<target name="compile" depends="compile_java,compile_miff,compile_tab,compile_tpf">
 	</target>
 
 	<!-- Compiles all .mif files -->
@@ -151,26 +150,6 @@
 		<antcall target="cleanup"/>
 	</target>
 	
-	<!-- Compiles all Template Definition Files (.tdf) -->
-	<!--
-	<target name="compile_tdf" description="compile the template definition files (*.tdf) into .iff">
-		<touch mkdirs="true" verbose="false">
-			<fileset dir="${dsrc}" includes="**/*.tdf"/>
-			<mapper type="glob" from="*.tdf" to="${data}/*/.tmp" />
-		</touch>
-		<delete>
-			<fileset dir="${data}" includes="**/.tmp"/>
-		</delete>
-		<apply executable="${tools_home}/TemplateDefinitionCompiler" dir="${basedir}" dest="${basedir}" parallel="false" type="file" failonerror="false" relative="true">
-			<env key="PATH" value="${env.PATH}:${tools_home}"/>
-			<arg value="-compile"/>
-			<srcfile/>
-			<fileset dir="${basedir}" includes="${dsrc}/**/*.tdf"/>
-			<mapper type="glob" from="${dsrc}/*.tdf" to="${data}/*.iff"/>
-		</apply>
-		<antcall target="cleanup"/>
-	</target>
-	-->
 	<!-- Creates the Object Template CRC file -->
 	<target name="build_object_template_crc" description="creates the object template crc file" depends="compile_tpf, compile_miff">
 		<exec executable="utils/build_object_template_crc_string_tables.py" dir="${basedir}">
