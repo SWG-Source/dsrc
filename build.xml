@@ -84,7 +84,7 @@
 
 	<!-- Compiles all .mif files -->
 	<target name="compile_miff">
-		<fileset id="miff_files" dir="${dsrc}" includes="**/*.mif"/>
+		<fileset id="miff_files" dir="." includes="**/*.mif"/>
 		<touch mkdirs="true" verbose="false">
 		  <fileset refid="miff_files"/>
 		  <mapper type="glob" from="*.mif" to="${data}/*/.tmp" />
@@ -110,7 +110,7 @@
 		<property name="shared_datatables" location="${dsrc_shared}/datatables"/>
 		<property name="include_datatables" location="${shared_datatables}/include"/>
 		<touch mkdirs="true" verbose="false">
-			<fileset dir="${dsrc}" includes="**/*.tab"/>
+			<fileset dir="." includes="**/*.tab"/>
 			<mapper type="glob" from="*.tab" to="${data}/*/.tmp" />
 		</touch>
 		<delete>
@@ -124,7 +124,7 @@
 			<arg value="searchPath10=${data_shared}"/>
 			<arg value="searchPath10=${data_server}"/>
 			<arg value="searchPath10=${data_server}"/>
-			<fileset dir="${dsrc}" includes="**/*.tab" excludes="**/object_template_crc_string_table.tab,**/quest_crc_string_table.tab"/>
+			<fileset dir="." includes="**/*.tab" excludes="**/object_template_crc_string_table.tab,**/quest_crc_string_table.tab"/>
 			<mapper type="glob" from="*.tab" to="*.iff"/>
 		</apply>
 		<antcall target="cleanup"/>
@@ -134,7 +134,7 @@
 	<target name="compile_tpf" description="compile the template files (*.tpf) into .iff">
 		<echo message="Looking for Template Files to compile... please wait..."/>
 		<touch mkdirs="true" verbose="false">
-			<fileset dir="${dsrc}" includes="**/*.tpf"/>
+			<fileset dir="." includes="**/*.tpf"/>
 			<mapper type="glob" from="*.tpf" to="${data}/*/.tmp" />
 		</touch>
 		<delete>
@@ -144,8 +144,8 @@
 			<env key="PATH" value="${env.PATH}:${tools_home}"/>
 			<arg value="-compile"/>
 			<srcfile/>
-			<fileset dir="${basedir}" includes="${dsrc}/**/*.tpf"/>
-			<mapper type="glob" from="${dsrc}/*.tpf" to="${data}/*.iff"/>
+			<fileset dir="${basedir}" includes="**/*.tpf"/>
+			<mapper type="glob" from="*.tpf" to="${data}/*.iff"/>
 		</apply>
 		<antcall target="cleanup"/>
 	</target>
