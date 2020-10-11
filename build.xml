@@ -1,4 +1,4 @@
-<project name="SWGBuild" default="echoprops" basedir="/home/swg/swg-main" xmlns:if="ant:if" xmlns:unless="ant:unless">
+<project name="SWGBuild" default="echoprops" basedir="." xmlns:if="ant:if" xmlns:unless="ant:unless">
 	<description>
 		This build file will build the DSRC directory (scripting) of the SWG Source Code.  Created by Cekis (cekisswg@gmail.com).
 	</description>
