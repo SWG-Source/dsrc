@@ -6,8 +6,8 @@
 	<hostinfo/>
 
 	<!-- Property File -->
-	<property file="local.properties" />
-	<property file="build.properties" />
+	<property file="dsrc/local.properties" />
+	<property file="dsrc/build.properties" />
 
 	<!-- Global Properties -->
 	<property name="build" location="${basedir}/build"/>
