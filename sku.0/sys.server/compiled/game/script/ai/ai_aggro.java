@@ -1,5 +1,7 @@
 package script.ai;
-
+/*
+Cekis: you can ignore this.
+ */
 import script.deltadictionary;
 import script.dictionary;
 import script.library.*;
