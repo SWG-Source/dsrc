@@ -17,8 +17,8 @@
 
 	<!-- Setup Source Directories -->
 	<property name="exe" location="${basedir}/exe"/>
-	<property name="dsrc" location="dsrc" relative="true" basedir="${basedir}"/>
-	<property name="data" location="data" relative="true" basedir="${basedir}"/>
+	<property name="dsrc" location="." relative="true" basedir="${basedir}"/>
+	<property name="data" location="../data" relative="true" basedir="${basedir}"/>
 
 	<!-- Setup Key Game Directories -->
 	<property name="dsrc_server" location="${dsrc}/sku.0/sys.server/compiled/game"/>
