@@ -1,7 +1,6 @@
 /*
  Title:        obj_id
  Description:  Wrapper for an object id.
- Comment: CI Test
  */
 
 package script;
