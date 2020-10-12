@@ -17,12 +17,29 @@ jobs:
   build:      
     runs-on: ubuntu-latest    
           
-    steps:          
+    steps:
+      ################################
+      # Setup environment            #
+      ################################
       - uses: actions/checkout@v2
       - name: Set up JDK 1.11
         uses: actions/setup-java@v1
         with:
           java-version: '11.0.2'
+          
+      ################################
+      # Run Linter against code base #
+      ################################
+      - name: Lint Code Base
+        uses: github/super-linter@v3
+        env:
+          VALIDATE_ALL_CODEBASE: false
+          DEFAULT_BRANCH: master
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          
+      ################################
+      # Compile Java with ANT        #
+      ################################
       - name: Build with Ant
         run: ant -noinput -buildfile build.xml compile_java
       
