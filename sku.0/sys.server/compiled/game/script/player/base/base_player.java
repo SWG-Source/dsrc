@@ -10674,7 +10674,7 @@ public class base_player extends script.base_script
         exclusiveLootNames[9] = groundquests.getQuestStringDataEntry(questCrc, groundquests.dataTableColumnQuestRewardExclusiveLootName10);
         exclusiveLootCounts[9] = groundquests.getQuestIntDataEntry(questCrc, groundquests.dataTableColumnQuestRewardExclusiveLootCount10);
         String badge = groundquests.getQuestStringDataEntry(questCrc, groundquests.dataTableColumnBadge);
-        int exclusiveLootCountChoice = 1;
+        int exclusiveLootCountChoice = groundquests.getExclusiveItemRewardCount(questGetQuestName(questCrc), exclusiveItemChoice);
         groundquests.grantQuestReward(self, questCrc, questLevel, questTier, experienceType, experienceAmount, factionName, factionAmount, grantGcwReward, bankCredits, item, itemCount, weapon, weaponCount, weaponSpeed, weaponDamage, weaponEfficiency, weaponElementalValue, armor, armorCount, armorQuality, inclusiveLootNames, inclusiveLootCounts, exclusiveItemChoice, exclusiveLootCountChoice, badge, (questIsQuestForceAccept(questCrc) || !questDoesUseAcceptanceUI(questCrc)), grantGcwOverwriteAmt, grantGcwSFModifier, grantGcwRebReward, grantGcwRebRewardCount, grantGcwImpReward, grantGcwImpRewardCount, grantGcwSFRewardMultip);
         experienceAmount = groundquests.getQuestExperienceReward(self, questLevel, questTier, experienceAmount);
         metrics.doQuestMetrics(self, questCrc, questLevel, questTier, experienceType, experienceAmount);
