@@ -3149,7 +3149,7 @@ public class rebel_remembrance_day_rieekan extends script.base_script
         }
         if (rebel_remembrance_day_rieekan_condition_isChampion(player, npc))
         {
-            string_id message = new string_id(c_stringFile, "s_136");
+            string_id message = new string_id(c_stringFile, "s_142");
             prose_package pp = new prose_package();
             pp.stringId = message;
             pp.actor.set(player);

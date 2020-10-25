@@ -1978,7 +1978,7 @@ public class rebel_remembrance_day_wedge_antilles extends script.base_script
         }
         if (rebel_remembrance_day_wedge_antilles_condition__defaultCondition(player, npc))
         {
-            string_id message = new string_id(c_stringFile, "s_142");
+            string_id message = new string_id(c_stringFile, "s_144");
             int numberOfResponses = 0;
             boolean hasResponse = false;
             boolean hasResponse0 = false;

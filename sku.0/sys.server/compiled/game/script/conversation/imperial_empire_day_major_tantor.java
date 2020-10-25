@@ -4660,7 +4660,7 @@ public class imperial_empire_day_major_tantor extends script.base_script
                 string_id responses[] = new string_id[numberOfResponses];
                 if (hasResponse0)
                 {
-                    responses[responseIndex++] = new string_id(c_stringFile, "s_72");
+                    responses[responseIndex++] = new string_id(c_stringFile, "s_74");
                 }
                 utils.setScriptVar(player, "conversation.imperial_empire_day_major_tantor.branchId", 35);
                 prose_package pp = new prose_package();
@@ -4956,7 +4956,7 @@ public class imperial_empire_day_major_tantor extends script.base_script
         {
             return SCRIPT_CONTINUE;
         }
-        chat.chat(npc, "Error:  Fell through all branches and responses for OnNpcConversationResponse.");
+        chat.chat(npc, "Error:  Fell through all branches and responses for OnNpcConversationResponse (looking for branch " + branchId + ").");
         utils.removeScriptVar(player, "conversation.imperial_empire_day_major_tantor.branchId");
         return SCRIPT_CONTINUE;
     }

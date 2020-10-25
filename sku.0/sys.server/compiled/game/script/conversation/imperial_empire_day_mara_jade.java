@@ -951,11 +951,11 @@ public class imperial_empire_day_mara_jade extends script.base_script
     }
     public int imperial_empire_day_mara_jade_handleBranch24(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
-        if (response.equals("s_52"))
+        if (response.equals("s_55"))
         {
             if (imperial_empire_day_mara_jade_condition_isBelow60thLevel(player, npc))
             {
-                string_id message = new string_id(c_stringFile, "s_54");
+                string_id message = new string_id(c_stringFile, "s_57");
                 int numberOfResponses = 0;
                 boolean hasResponse = false;
                 boolean hasResponse0 = false;
@@ -978,11 +978,11 @@ public class imperial_empire_day_mara_jade extends script.base_script
                     string_id responses[] = new string_id[numberOfResponses];
                     if (hasResponse0)
                     {
-                        responses[responseIndex++] = new string_id(c_stringFile, "s_56");
+                        responses[responseIndex++] = new string_id(c_stringFile, "s_59");
                     }
                     if (hasResponse1)
                     {
-                        responses[responseIndex++] = new string_id(c_stringFile, "s_60");
+                        responses[responseIndex++] = new string_id(c_stringFile, "s_63");
                     }
                     utils.setScriptVar(player, "conversation.imperial_empire_day_mara_jade.branchId", 25);
                     prose_package pp = new prose_package();
@@ -1005,7 +1005,7 @@ public class imperial_empire_day_mara_jade extends script.base_script
             }
             if (imperial_empire_day_mara_jade_condition_isTrader(player, npc))
             {
-                string_id message = new string_id(c_stringFile, "s_68");
+                string_id message = new string_id(c_stringFile, "s_71");
                 int numberOfResponses = 0;
                 boolean hasResponse = false;
                 boolean hasResponse0 = false;
@@ -1028,11 +1028,11 @@ public class imperial_empire_day_mara_jade extends script.base_script
                     string_id responses[] = new string_id[numberOfResponses];
                     if (hasResponse0)
                     {
-                        responses[responseIndex++] = new string_id(c_stringFile, "s_70");
+                        responses[responseIndex++] = new string_id(c_stringFile, "s_73");
                     }
                     if (hasResponse1)
                     {
-                        responses[responseIndex++] = new string_id(c_stringFile, "s_74");
+                        responses[responseIndex++] = new string_id(c_stringFile, "s_77");
                     }
                     utils.setScriptVar(player, "conversation.imperial_empire_day_mara_jade.branchId", 29);
                     prose_package pp = new prose_package();
@@ -1055,7 +1055,7 @@ public class imperial_empire_day_mara_jade extends script.base_script
             }
             if (imperial_empire_day_mara_jade_condition_isEntertainer(player, npc))
             {
-                string_id message = new string_id(c_stringFile, "s_76");
+                string_id message = new string_id(c_stringFile, "s_80");
                 int numberOfResponses = 0;
                 boolean hasResponse = false;
                 boolean hasResponse0 = false;
@@ -1078,11 +1078,11 @@ public class imperial_empire_day_mara_jade extends script.base_script
                     string_id responses[] = new string_id[numberOfResponses];
                     if (hasResponse0)
                     {
-                        responses[responseIndex++] = new string_id(c_stringFile, "s_78");
+                        responses[responseIndex++] = new string_id(c_stringFile, "s_82");
                     }
                     if (hasResponse1)
                     {
-                        responses[responseIndex++] = new string_id(c_stringFile, "s_81");
+                        responses[responseIndex++] = new string_id(c_stringFile, "s_88");
                     }
                     utils.setScriptVar(player, "conversation.imperial_empire_day_mara_jade.branchId", 31);
                     prose_package pp = new prose_package();
@@ -1147,11 +1147,11 @@ public class imperial_empire_day_mara_jade extends script.base_script
     }
     public int imperial_empire_day_mara_jade_handleBranch25(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
-        if (response.equals("s_56"))
+        if (response.equals("s_59"))
         {
             if (imperial_empire_day_mara_jade_condition__defaultCondition(player, npc))
             {
-                string_id message = new string_id(c_stringFile, "s_58");
+                string_id message = new string_id(c_stringFile, "s_61");
                 utils.removeScriptVar(player, "conversation.imperial_empire_day_mara_jade.branchId");
                 prose_package pp = new prose_package();
                 pp.stringId = message;
@@ -1161,11 +1161,11 @@ public class imperial_empire_day_mara_jade extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        if (response.equals("s_60"))
+        if (response.equals("s_63"))
         {
             if (imperial_empire_day_mara_jade_condition__defaultCondition(player, npc))
             {
-                string_id message = new string_id(c_stringFile, "s_62");
+                string_id message = new string_id(c_stringFile, "s_65");
                 int numberOfResponses = 0;
                 boolean hasResponse = false;
                 boolean hasResponse0 = false;
@@ -1181,7 +1181,7 @@ public class imperial_empire_day_mara_jade extends script.base_script
                     string_id responses[] = new string_id[numberOfResponses];
                     if (hasResponse0)
                     {
-                        responses[responseIndex++] = new string_id(c_stringFile, "s_64");
+                        responses[responseIndex++] = new string_id(c_stringFile, "s_67");
                     }
                     utils.setScriptVar(player, "conversation.imperial_empire_day_mara_jade.branchId", 27);
                     npcSpeak(player, message);
@@ -1199,11 +1199,11 @@ public class imperial_empire_day_mara_jade extends script.base_script
     }
     public int imperial_empire_day_mara_jade_handleBranch27(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
-        if (response.equals("s_64"))
+        if (response.equals("s_67"))
         {
             if (imperial_empire_day_mara_jade_condition__defaultCondition(player, npc))
             {
-                string_id message = new string_id(c_stringFile, "s_66");
+                string_id message = new string_id(c_stringFile, "s_69");
                 int numberOfResponses = 0;
                 boolean hasResponse = false;
                 boolean hasResponse0 = false;
@@ -1283,11 +1283,11 @@ public class imperial_empire_day_mara_jade extends script.base_script
     }
     public int imperial_empire_day_mara_jade_handleBranch29(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
-        if (response.equals("s_70"))
+        if (response.equals("s_73"))
         {
             if (imperial_empire_day_mara_jade_condition__defaultCondition(player, npc))
             {
-                string_id message = new string_id(c_stringFile, "s_72");
+                string_id message = new string_id(c_stringFile, "s_75");
                 utils.removeScriptVar(player, "conversation.imperial_empire_day_mara_jade.branchId");
                 prose_package pp = new prose_package();
                 pp.stringId = message;
@@ -1297,11 +1297,11 @@ public class imperial_empire_day_mara_jade extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        if (response.equals("s_74"))
+        if (response.equals("s_77"))
         {
             if (imperial_empire_day_mara_jade_condition__defaultCondition(player, npc))
             {
-                string_id message = new string_id(c_stringFile, "s_62");
+                string_id message = new string_id(c_stringFile, "s_65");
                 int numberOfResponses = 0;
                 boolean hasResponse = false;
                 boolean hasResponse0 = false;
@@ -1317,7 +1317,7 @@ public class imperial_empire_day_mara_jade extends script.base_script
                     string_id responses[] = new string_id[numberOfResponses];
                     if (hasResponse0)
                     {
-                        responses[responseIndex++] = new string_id(c_stringFile, "s_64");
+                        responses[responseIndex++] = new string_id(c_stringFile, "s_67");
                     }
                     utils.setScriptVar(player, "conversation.imperial_empire_day_mara_jade.branchId", 27);
                     npcSpeak(player, message);
@@ -1335,11 +1335,11 @@ public class imperial_empire_day_mara_jade extends script.base_script
     }
     public int imperial_empire_day_mara_jade_handleBranch31(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
-        if (response.equals("s_78"))
+        if (response.equals("s_82"))
         {
             if (imperial_empire_day_mara_jade_condition__defaultCondition(player, npc))
             {
-                string_id message = new string_id(c_stringFile, "s_72");
+                string_id message = new string_id(c_stringFile, "s_75");
                 utils.removeScriptVar(player, "conversation.imperial_empire_day_mara_jade.branchId");
                 prose_package pp = new prose_package();
                 pp.stringId = message;
@@ -1349,11 +1349,11 @@ public class imperial_empire_day_mara_jade extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        if (response.equals("s_81"))
+        if (response.equals("s_88"))
         {
             if (imperial_empire_day_mara_jade_condition__defaultCondition(player, npc))
             {
-                string_id message = new string_id(c_stringFile, "s_62");
+                string_id message = new string_id(c_stringFile, "s_65");
                 int numberOfResponses = 0;
                 boolean hasResponse = false;
                 boolean hasResponse0 = false;
@@ -1369,7 +1369,7 @@ public class imperial_empire_day_mara_jade extends script.base_script
                     string_id responses[] = new string_id[numberOfResponses];
                     if (hasResponse0)
                     {
-                        responses[responseIndex++] = new string_id(c_stringFile, "s_64");
+                        responses[responseIndex++] = new string_id(c_stringFile, "s_67");
                     }
                     utils.setScriptVar(player, "conversation.imperial_empire_day_mara_jade.branchId", 27);
                     npcSpeak(player, message);
@@ -1387,7 +1387,7 @@ public class imperial_empire_day_mara_jade extends script.base_script
     }
     public int imperial_empire_day_mara_jade_handleBranch32(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
-        if (response.equals("s_90"))
+        if (response.equals("s_94"))
         {
             if (imperial_empire_day_mara_jade_condition__defaultCondition(player, npc))
             {
@@ -1425,7 +1425,7 @@ public class imperial_empire_day_mara_jade extends script.base_script
     }
     public int imperial_empire_day_mara_jade_handleBranch33(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
-        if (response.equals("s_95"))
+        if (response.equals("s_98"))
         {
             if (imperial_empire_day_mara_jade_condition__defaultCondition(player, npc))
             {
@@ -1463,7 +1463,7 @@ public class imperial_empire_day_mara_jade extends script.base_script
     }
     public int imperial_empire_day_mara_jade_handleBranch34(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
-        if (response.equals("s_102"))
+        if (response.equals("s_109"))
         {
             if (imperial_empire_day_mara_jade_condition__defaultCondition(player, npc))
             {
@@ -1558,7 +1558,7 @@ public class imperial_empire_day_mara_jade extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        if (response.equals("s_126"))
+        if (response.equals("s_132"))
         {
             if (imperial_empire_day_mara_jade_condition__defaultCondition(player, npc))
             {
@@ -1651,7 +1651,7 @@ public class imperial_empire_day_mara_jade extends script.base_script
     }
     public int imperial_empire_day_mara_jade_handleBranch36(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
-        if (response.equals("s_120"))
+        if (response.equals("s_121"))
         {
             doAnimationAction(player, "shrug_shoulders");
             if (imperial_empire_day_mara_jade_condition__defaultCondition(player, npc))
@@ -1709,7 +1709,7 @@ public class imperial_empire_day_mara_jade extends script.base_script
     }
     public int imperial_empire_day_mara_jade_handleBranch37(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
-        if (response.equals("s_136"))
+        if (response.equals("s_139"))
         {
             doAnimationAction(player, "shrug_shoulders");
             if (imperial_empire_day_mara_jade_condition__defaultCondition(player, npc))
@@ -1904,7 +1904,7 @@ public class imperial_empire_day_mara_jade extends script.base_script
                     string_id responses[] = new string_id[numberOfResponses];
                     if (hasResponse0)
                     {
-                        responses[responseIndex++] = new string_id(c_stringFile, "s_176");
+                        responses[responseIndex++] = new string_id(c_stringFile, "s_183");
                     }
                     utils.setScriptVar(player, "conversation.imperial_empire_day_mara_jade.branchId", 45);
                     npcSpeak(player, message);
@@ -1922,7 +1922,7 @@ public class imperial_empire_day_mara_jade extends script.base_script
     }
     public int imperial_empire_day_mara_jade_handleBranch45(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
-        if (response.equals("s_176"))
+        if (response.equals("s_183"))
         {
             if (imperial_empire_day_mara_jade_condition__defaultCondition(player, npc))
             {
@@ -2173,7 +2173,7 @@ public class imperial_empire_day_mara_jade extends script.base_script
         }
         if (imperial_empire_day_mara_jade_condition_hasNotStartedSecondMission(player, npc))
         {
-            string_id message = new string_id(c_stringFile, "s_50");
+            string_id message = new string_id(c_stringFile, "s_53");
             int numberOfResponses = 0;
             boolean hasResponse = false;
             boolean hasResponse0 = false;
