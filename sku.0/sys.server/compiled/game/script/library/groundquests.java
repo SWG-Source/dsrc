@@ -1730,4 +1730,23 @@ public class groundquests extends script.base_script
         }
         return null;
     }
+    
+    // NOTE this method only works for getting the item count for a selected exclusive reward
+    // from a questLIST not a questTASK. This was added to accommodate a specific WOD expansion
+    // quest, but it can be expanded later if needed.
+    public static int getExclusiveItemRewardCount(String questName, String itemName) {
+        String datatable = "datatables/questlist/"+questName+".iff";
+        dictionary questData = dataTableGetRow(datatable, 0);
+        String itemColName = "QUEST_REWARD_EXCLUSIVE_LOOT_NAME";
+        String countColName = "QUEST_REWARD_EXCLUSIVE_LOOT_COUNT";
+        for(int i = 1; i <= 10; i++) {
+            if(i == 1) {
+                if(itemName.equals(questData.getString(itemColName))) return questData.getInt(countColName);
+            }
+            else {
+                if(itemName.equals(questData.getString(itemColName + "_" + i))) return questData.getInt(countColName + "_" + i);
+            }
+        }
+        return 1;
+    }
 }
