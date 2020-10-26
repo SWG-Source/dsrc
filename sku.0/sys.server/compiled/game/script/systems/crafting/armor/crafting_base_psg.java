@@ -66,6 +66,7 @@ public class crafting_base_psg extends script.systems.crafting.crafting_base
     }
     public int OnManufactureObject(obj_id self, obj_id player, obj_id newObject, draft_schematic schematic, boolean isPrototype, boolean isRealObject) throws InterruptedException
     {
+        super.OnManufactureObject(self, player, newObject, schematic, isPrototype, isRealObject);
         messageTo(newObject, "handleInitializePsg", null, 0.5f, false);
         return SCRIPT_CONTINUE;
     }
