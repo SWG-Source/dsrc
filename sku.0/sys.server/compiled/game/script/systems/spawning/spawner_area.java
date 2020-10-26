@@ -60,7 +60,7 @@ public class spawner_area extends script.base_script
         if (dataTableOpen(strFileName))
         {
             String[] strSpawns = dataTableGetStringColumnNoDefaults(strFileName, "strItem");
-            float[] fltSizes = dataTableGetFloatColumn(strFileName, "fltSize");
+            float[] fltSizes = dataTableGetFloatColumnNoDefaults(strFileName, "fltSize");
             if (strSpawns == null || strSpawns.length == 0)
             {
                 setName(self, "Mangled spawner. strFileName is " + strFileName + " I couldnt find any spawns in that file.");
