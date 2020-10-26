@@ -21,9 +21,8 @@ public class delivery_no_pickup extends script.space.quest_logic.delivery
             return SCRIPT_CONTINUE;
         }
         String qTable = "datatables/spacequest/" + questType + "/" + questName + ".iff";
-        sendSystemMessageTestingOnly(player, "table is " + qTable);
 		dictionary questInfo = dataTableGetRow(qTable, 0);
-        if (questInfo == null)
+        if (questInfo == null && isGod(player))
         {
             sendSystemMessageTestingOnly(player, "Debug: Failed to open quest table " + qTable);
             return SCRIPT_CONTINUE;
