@@ -1195,7 +1195,7 @@ public class station_dantooine extends script.base_script
             }
             if (station_dantooine_condition__defaultCondition(player, npc))
             {
-                string_id message = new string_id(c_stringFile, "s_289");
+                string_id message = new string_id(c_stringFile, "s_311");
                 utils.removeScriptVar(player, "conversation.station_dantooine.branchId");
                 npcEndConversationWithMessage(player, message);
                 return SCRIPT_CONTINUE;
@@ -1747,7 +1747,7 @@ public class station_dantooine extends script.base_script
             }
             if (station_dantooine_condition__defaultCondition(player, npc))
             {
-                string_id message = new string_id(c_stringFile, "s_289");
+                string_id message = new string_id(c_stringFile, "s_311");
                 utils.removeScriptVar(player, "conversation.station_dantooine.branchId");
                 npcEndConversationWithMessage(player, message);
                 return SCRIPT_CONTINUE;
@@ -2299,7 +2299,7 @@ public class station_dantooine extends script.base_script
             }
             if (station_dantooine_condition__defaultCondition(player, npc))
             {
-                string_id message = new string_id(c_stringFile, "s_289");
+                string_id message = new string_id(c_stringFile, "s_311");
                 utils.removeScriptVar(player, "conversation.station_dantooine.branchId");
                 npcEndConversationWithMessage(player, message);
                 return SCRIPT_CONTINUE;
@@ -2851,7 +2851,7 @@ public class station_dantooine extends script.base_script
             }
             if (station_dantooine_condition__defaultCondition(player, npc))
             {
-                string_id message = new string_id(c_stringFile, "s_289");
+                string_id message = new string_id(c_stringFile, "s_311");
                 utils.removeScriptVar(player, "conversation.station_dantooine.branchId");
                 npcEndConversationWithMessage(player, message);
                 return SCRIPT_CONTINUE;
@@ -3403,7 +3403,7 @@ public class station_dantooine extends script.base_script
             }
             if (station_dantooine_condition__defaultCondition(player, npc))
             {
-                string_id message = new string_id(c_stringFile, "s_289");
+                string_id message = new string_id(c_stringFile, "s_311");
                 utils.removeScriptVar(player, "conversation.station_dantooine.branchId");
                 npcEndConversationWithMessage(player, message);
                 return SCRIPT_CONTINUE;
@@ -3955,7 +3955,7 @@ public class station_dantooine extends script.base_script
             }
             if (station_dantooine_condition__defaultCondition(player, npc))
             {
-                string_id message = new string_id(c_stringFile, "s_289");
+                string_id message = new string_id(c_stringFile, "s_311");
                 utils.removeScriptVar(player, "conversation.station_dantooine.branchId");
                 npcEndConversationWithMessage(player, message);
                 return SCRIPT_CONTINUE;
@@ -4507,7 +4507,7 @@ public class station_dantooine extends script.base_script
             }
             if (station_dantooine_condition__defaultCondition(player, npc))
             {
-                string_id message = new string_id(c_stringFile, "s_289");
+                string_id message = new string_id(c_stringFile, "s_311");
                 utils.removeScriptVar(player, "conversation.station_dantooine.branchId");
                 npcEndConversationWithMessage(player, message);
                 return SCRIPT_CONTINUE;
@@ -4821,7 +4821,7 @@ public class station_dantooine extends script.base_script
             }
             if (station_dantooine_condition__defaultCondition(player, npc))
             {
-                string_id message = new string_id(c_stringFile, "s_289");
+                string_id message = new string_id(c_stringFile, "s_311");
                 utils.removeScriptVar(player, "conversation.station_dantooine.branchId");
                 npcEndConversationWithMessage(player, message);
                 return SCRIPT_CONTINUE;
@@ -5135,7 +5135,7 @@ public class station_dantooine extends script.base_script
             }
             if (station_dantooine_condition__defaultCondition(player, npc))
             {
-                string_id message = new string_id(c_stringFile, "s_289");
+                string_id message = new string_id(c_stringFile, "s_311");
                 utils.removeScriptVar(player, "conversation.station_dantooine.branchId");
                 npcEndConversationWithMessage(player, message);
                 return SCRIPT_CONTINUE;
@@ -5449,7 +5449,7 @@ public class station_dantooine extends script.base_script
             }
             if (station_dantooine_condition__defaultCondition(player, npc))
             {
-                string_id message = new string_id(c_stringFile, "s_289");
+                string_id message = new string_id(c_stringFile, "s_311");
                 utils.removeScriptVar(player, "conversation.station_dantooine.branchId");
                 npcEndConversationWithMessage(player, message);
                 return SCRIPT_CONTINUE;
@@ -5763,7 +5763,7 @@ public class station_dantooine extends script.base_script
             }
             if (station_dantooine_condition__defaultCondition(player, npc))
             {
-                string_id message = new string_id(c_stringFile, "s_289");
+                string_id message = new string_id(c_stringFile, "s_311");
                 utils.removeScriptVar(player, "conversation.station_dantooine.branchId");
                 npcEndConversationWithMessage(player, message);
                 return SCRIPT_CONTINUE;
@@ -6160,7 +6160,7 @@ public class station_dantooine extends script.base_script
             }
             if (station_dantooine_condition__defaultCondition(player, npc))
             {
-                string_id message = new string_id(c_stringFile, "s_289");
+                string_id message = new string_id(c_stringFile, "s_311");
                 utils.removeScriptVar(player, "conversation.station_dantooine.branchId");
                 npcEndConversationWithMessage(player, message);
                 return SCRIPT_CONTINUE;
@@ -6556,7 +6556,7 @@ public class station_dantooine extends script.base_script
             }
             if (station_dantooine_condition__defaultCondition(player, npc))
             {
-                string_id message = new string_id(c_stringFile, "s_289");
+                string_id message = new string_id(c_stringFile, "s_311");
                 utils.removeScriptVar(player, "conversation.station_dantooine.branchId");
                 npcEndConversationWithMessage(player, message);
                 return SCRIPT_CONTINUE;
@@ -6870,7 +6870,7 @@ public class station_dantooine extends script.base_script
             }
             if (station_dantooine_condition__defaultCondition(player, npc))
             {
-                string_id message = new string_id(c_stringFile, "s_289");
+                string_id message = new string_id(c_stringFile, "s_311");
                 utils.removeScriptVar(player, "conversation.station_dantooine.branchId");
                 npcEndConversationWithMessage(player, message);
                 return SCRIPT_CONTINUE;
@@ -8961,7 +8961,7 @@ public class station_dantooine extends script.base_script
             }
             if (station_dantooine_condition__defaultCondition(player, npc))
             {
-                string_id message = new string_id(c_stringFile, "s_289");
+                string_id message = new string_id(c_stringFile, "s_311");
                 utils.removeScriptVar(player, "conversation.station_dantooine.branchId");
                 npcEndConversationWithMessage(player, message);
                 return SCRIPT_CONTINUE;
@@ -9075,7 +9075,7 @@ public class station_dantooine extends script.base_script
                     }
                     if (hasResponse1)
                     {
-                        responses[responseIndex++] = new string_id(c_stringFile, "s_269");
+                        responses[responseIndex++] = new string_id(c_stringFile, "s_280");
                     }
                     utils.setScriptVar(player, "conversation.station_dantooine.branchId", 99);
                     npcSpeak(player, message);
@@ -9138,11 +9138,11 @@ public class station_dantooine extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        if (response.equals("s_269"))
+        if (response.equals("s_280"))
         {
             if (station_dantooine_condition__defaultCondition(player, npc))
             {
-                string_id message = new string_id(c_stringFile, "s_271");
+                string_id message = new string_id(c_stringFile, "s_282");
                 utils.removeScriptVar(player, "conversation.station_dantooine.branchId");
                 npcEndConversationWithMessage(player, message);
                 return SCRIPT_CONTINUE;
@@ -9215,7 +9215,7 @@ public class station_dantooine extends script.base_script
         {
             if (station_dantooine_condition__defaultCondition(player, npc))
             {
-                string_id message = new string_id(c_stringFile, "s_287");
+                string_id message = new string_id(c_stringFile, "s_783aa9d8");
                 utils.removeScriptVar(player, "conversation.station_dantooine.branchId");
                 npcEndConversationWithMessage(player, message);
                 return SCRIPT_CONTINUE;
