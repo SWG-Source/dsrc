@@ -669,7 +669,7 @@ public class station_lok extends script.base_script
                     }
                     if (hasResponse2)
                     {
-                        responses[responseIndex++] = new string_id(c_stringFile, "s_115");
+                        responses[responseIndex++] = new string_id(c_stringFile, "s_117");
                     }
                     if (hasResponse3)
                     {
@@ -677,15 +677,15 @@ public class station_lok extends script.base_script
                     }
                     if (hasResponse4)
                     {
-                        responses[responseIndex++] = new string_id(c_stringFile, "s_120");
+                        responses[responseIndex++] = new string_id(c_stringFile, "s_124");
                     }
                     if (hasResponse5)
                     {
-                        responses[responseIndex++] = new string_id(c_stringFile, "s_124");
+                        responses[responseIndex++] = new string_id(c_stringFile, "s_128");
                     }
                     if (hasResponse6)
                     {
-                        responses[responseIndex++] = new string_id(c_stringFile, "s_128");
+                        responses[responseIndex++] = new string_id(c_stringFile, "s_132");
                     }
                     utils.setScriptVar(player, "conversation.station_lok.branchId", 47);
                     npcSpeak(player, message);
@@ -700,7 +700,7 @@ public class station_lok extends script.base_script
             }
             if (station_lok_condition__defaultCondition(player, npc))
             {
-                string_id message = new string_id(c_stringFile, "s_132");
+                string_id message = new string_id(c_stringFile, "s_140");
                 utils.removeScriptVar(player, "conversation.station_lok.branchId");
                 npcEndConversationWithMessage(player, message);
                 return SCRIPT_CONTINUE;
@@ -1700,12 +1700,12 @@ public class station_lok extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        if (response.equals("s_115"))
+        if (response.equals("s_117"))
         {
             if (station_lok_condition__defaultCondition(player, npc))
             {
                 station_lok_action_grantImperialDuty3(player, npc);
-                string_id message = new string_id(c_stringFile, "s_119");
+                string_id message = new string_id(c_stringFile, "s_118");
                 utils.removeScriptVar(player, "conversation.station_lok.branchId");
                 npcEndConversationWithMessage(player, message);
                 return SCRIPT_CONTINUE;
@@ -1722,22 +1722,11 @@ public class station_lok extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        if (response.equals("s_120"))
-        {
-            if (station_lok_condition__defaultCondition(player, npc))
-            {
-                station_lok_action_grantDroidDuty3(player, npc);
-                string_id message = new string_id(c_stringFile, "s_122");
-                utils.removeScriptVar(player, "conversation.station_lok.branchId");
-                npcEndConversationWithMessage(player, message);
-                return SCRIPT_CONTINUE;
-            }
-        }
         if (response.equals("s_124"))
         {
             if (station_lok_condition__defaultCondition(player, npc))
             {
-                station_lok_action_grantHiddenDaggerDuty3(player, npc);
+                station_lok_action_grantDroidDuty3(player, npc);
                 string_id message = new string_id(c_stringFile, "s_126");
                 utils.removeScriptVar(player, "conversation.station_lok.branchId");
                 npcEndConversationWithMessage(player, message);
@@ -1748,7 +1737,18 @@ public class station_lok extends script.base_script
         {
             if (station_lok_condition__defaultCondition(player, npc))
             {
+                station_lok_action_grantHiddenDaggerDuty3(player, npc);
                 string_id message = new string_id(c_stringFile, "s_130");
+                utils.removeScriptVar(player, "conversation.station_lok.branchId");
+                npcEndConversationWithMessage(player, message);
+                return SCRIPT_CONTINUE;
+            }
+        }
+        if (response.equals("s_132"))
+        {
+            if (station_lok_condition__defaultCondition(player, npc))
+            {
+                string_id message = new string_id(c_stringFile, "s_138");
                 utils.removeScriptVar(player, "conversation.station_lok.branchId");
                 npcEndConversationWithMessage(player, message);
                 return SCRIPT_CONTINUE;
