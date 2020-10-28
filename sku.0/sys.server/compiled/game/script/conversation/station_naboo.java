@@ -665,11 +665,11 @@ public class station_naboo extends script.base_script
                     }
                     if (hasResponse3)
                     {
-                        responses[responseIndex++] = new string_id(c_stringFile, "s_166");
+                        responses[responseIndex++] = new string_id(c_stringFile, "s_160");
                     }
                     if (hasResponse4)
                     {
-                        responses[responseIndex++] = new string_id(c_stringFile, "s_169");
+                        responses[responseIndex++] = new string_id(c_stringFile, "s_173");
                     }
                     if (hasResponse5)
                     {
@@ -677,23 +677,23 @@ public class station_naboo extends script.base_script
                     }
                     if (hasResponse6)
                     {
-                        responses[responseIndex++] = new string_id(c_stringFile, "s_176");
+                        responses[responseIndex++] = new string_id(c_stringFile, "s_179");
                     }
                     if (hasResponse7)
                     {
-                        responses[responseIndex++] = new string_id(c_stringFile, "s_180");
+                        responses[responseIndex++] = new string_id(c_stringFile, "s_183");
                     }
                     if (hasResponse8)
                     {
-                        responses[responseIndex++] = new string_id(c_stringFile, "s_184");
+                        responses[responseIndex++] = new string_id(c_stringFile, "s_187");
                     }
                     if (hasResponse9)
                     {
-                        responses[responseIndex++] = new string_id(c_stringFile, "s_188");
+                        responses[responseIndex++] = new string_id(c_stringFile, "s_191");
                     }
                     if (hasResponse10)
                     {
-                        responses[responseIndex++] = new string_id(c_stringFile, "s_192");
+                        responses[responseIndex++] = new string_id(c_stringFile, "s_199");
                     }
                     utils.setScriptVar(player, "conversation.station_naboo.branchId", 58);
                     npcSpeak(player, message);
@@ -1081,11 +1081,11 @@ public class station_naboo extends script.base_script
                     }
                     if (hasResponse3)
                     {
-                        responses[responseIndex++] = new string_id(c_stringFile, "s_166");
+                        responses[responseIndex++] = new string_id(c_stringFile, "s_160");
                     }
                     if (hasResponse4)
                     {
-                        responses[responseIndex++] = new string_id(c_stringFile, "s_169");
+                        responses[responseIndex++] = new string_id(c_stringFile, "s_173");
                     }
                     if (hasResponse5)
                     {
@@ -1093,23 +1093,23 @@ public class station_naboo extends script.base_script
                     }
                     if (hasResponse6)
                     {
-                        responses[responseIndex++] = new string_id(c_stringFile, "s_176");
+                        responses[responseIndex++] = new string_id(c_stringFile, "s_179");
                     }
                     if (hasResponse7)
                     {
-                        responses[responseIndex++] = new string_id(c_stringFile, "s_180");
+                        responses[responseIndex++] = new string_id(c_stringFile, "s_183");
                     }
                     if (hasResponse8)
                     {
-                        responses[responseIndex++] = new string_id(c_stringFile, "s_184");
+                        responses[responseIndex++] = new string_id(c_stringFile, "s_187");
                     }
                     if (hasResponse9)
                     {
-                        responses[responseIndex++] = new string_id(c_stringFile, "s_188");
+                        responses[responseIndex++] = new string_id(c_stringFile, "s_191");
                     }
                     if (hasResponse10)
                     {
-                        responses[responseIndex++] = new string_id(c_stringFile, "s_192");
+                        responses[responseIndex++] = new string_id(c_stringFile, "s_199");
                     }
                     utils.setScriptVar(player, "conversation.station_naboo.branchId", 58);
                     npcSpeak(player, message);
@@ -2494,7 +2494,7 @@ public class station_naboo extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        if (response.equals("s_166"))
+        if (response.equals("s_167"))
         {
             if (station_naboo_condition__defaultCondition(player, npc))
             {
@@ -2505,12 +2505,12 @@ public class station_naboo extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        if (response.equals("s_169"))
+        if (response.equals("s_173"))
         {
             if (station_naboo_condition__defaultCondition(player, npc))
             {
                 station_naboo_action_grantImperialDuty2(player, npc);
-                string_id message = new string_id(c_stringFile, "s_174");
+                string_id message = new string_id(c_stringFile, "s_175");
                 utils.removeScriptVar(player, "conversation.station_naboo.branchId");
                 npcEndConversationWithMessage(player, message);
                 return SCRIPT_CONTINUE;
@@ -2527,55 +2527,55 @@ public class station_naboo extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        if (response.equals("s_176"))
+        if (response.equals("s_179"))
         {
             if (station_naboo_condition__defaultCondition(player, npc))
             {
                 station_naboo_action_grantDroidDuty1(player, npc);
-                string_id message = new string_id(c_stringFile, "s_178");
+                string_id message = new string_id(c_stringFile, "s_181");
                 utils.removeScriptVar(player, "conversation.station_naboo.branchId");
                 npcEndConversationWithMessage(player, message);
                 return SCRIPT_CONTINUE;
             }
         }
-        if (response.equals("s_180"))
+        if (response.equals("s_183"))
         {
             if (station_naboo_condition__defaultCondition(player, npc))
             {
                 station_naboo_action_grantDroidDuty2(player, npc);
-                string_id message = new string_id(c_stringFile, "s_182");
+                string_id message = new string_id(c_stringFile, "s_185");
                 utils.removeScriptVar(player, "conversation.station_naboo.branchId");
                 npcEndConversationWithMessage(player, message);
                 return SCRIPT_CONTINUE;
             }
         }
-        if (response.equals("s_184"))
+        if (response.equals("s_187"))
         {
             if (station_naboo_condition__defaultCondition(player, npc))
             {
                 station_naboo_action_grantVoidDuty1(player, npc);
-                string_id message = new string_id(c_stringFile, "s_186");
+                string_id message = new string_id(c_stringFile, "s_189");
                 utils.removeScriptVar(player, "conversation.station_naboo.branchId");
                 npcEndConversationWithMessage(player, message);
                 return SCRIPT_CONTINUE;
             }
         }
-        if (response.equals("s_188"))
+        if (response.equals("s_191"))
         {
             if (station_naboo_condition__defaultCondition(player, npc))
             {
                 station_naboo_action_grantVoidDuty2(player, npc);
-                string_id message = new string_id(c_stringFile, "s_190");
+                string_id message = new string_id(c_stringFile, "s_193");
                 utils.removeScriptVar(player, "conversation.station_naboo.branchId");
                 npcEndConversationWithMessage(player, message);
                 return SCRIPT_CONTINUE;
             }
         }
-        if (response.equals("s_192"))
+        if (response.equals("s_199"))
         {
             if (station_naboo_condition__defaultCondition(player, npc))
             {
-                string_id message = new string_id(c_stringFile, "s_194");
+                string_id message = new string_id(c_stringFile, "s_201");
                 utils.removeScriptVar(player, "conversation.station_naboo.branchId");
                 npcEndConversationWithMessage(player, message);
                 return SCRIPT_CONTINUE;
