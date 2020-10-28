@@ -870,27 +870,27 @@ public class station_dathomir extends script.base_script
                     }
                     if (hasResponse2)
                     {
-                        responses[responseIndex++] = new string_id(c_stringFile, "s_209");
+                        responses[responseIndex++] = new string_id(c_stringFile, "s_211");
                     }
                     if (hasResponse3)
                     {
-                        responses[responseIndex++] = new string_id(c_stringFile, "s_213");
+                        responses[responseIndex++] = new string_id(c_stringFile, "s_215");
                     }
                     if (hasResponse4)
                     {
-                        responses[responseIndex++] = new string_id(c_stringFile, "s_217");
+                        responses[responseIndex++] = new string_id(c_stringFile, "s_221");
                     }
                     if (hasResponse5)
                     {
-                        responses[responseIndex++] = new string_id(c_stringFile, "s_221");
+                        responses[responseIndex++] = new string_id(c_stringFile, "s_225");
                     }
                     if (hasResponse6)
                     {
-                        responses[responseIndex++] = new string_id(c_stringFile, "s_230");
+                        responses[responseIndex++] = new string_id(c_stringFile, "s_231");
                     }
                     if (hasResponse7)
                     {
-                        responses[responseIndex++] = new string_id(c_stringFile, "s_225");
+                        responses[responseIndex++] = new string_id(c_stringFile, "s_235");
                     }
                     utils.setScriptVar(player, "conversation.station_dathomir.branchId", 98);
                     npcSpeak(player, message);
@@ -905,7 +905,7 @@ public class station_dathomir extends script.base_script
             }
             if (station_dathomir_condition__defaultCondition(player, npc))
             {
-                string_id message = new string_id(c_stringFile, "s_229");
+                string_id message = new string_id(c_stringFile, "s_245");
                 utils.removeScriptVar(player, "conversation.station_dathomir.branchId");
                 npcEndConversationWithMessage(player, message);
                 return SCRIPT_CONTINUE;
@@ -1854,27 +1854,27 @@ public class station_dathomir extends script.base_script
                     }
                     if (hasResponse2)
                     {
-                        responses[responseIndex++] = new string_id(c_stringFile, "s_209");
+                        responses[responseIndex++] = new string_id(c_stringFile, "s_211");
                     }
                     if (hasResponse3)
                     {
-                        responses[responseIndex++] = new string_id(c_stringFile, "s_213");
+                        responses[responseIndex++] = new string_id(c_stringFile, "s_215");
                     }
                     if (hasResponse4)
                     {
-                        responses[responseIndex++] = new string_id(c_stringFile, "s_217");
+                        responses[responseIndex++] = new string_id(c_stringFile, "s_221");
                     }
                     if (hasResponse5)
                     {
-                        responses[responseIndex++] = new string_id(c_stringFile, "s_221");
+                        responses[responseIndex++] = new string_id(c_stringFile, "s_225");
                     }
                     if (hasResponse6)
                     {
-                        responses[responseIndex++] = new string_id(c_stringFile, "s_230");
+                        responses[responseIndex++] = new string_id(c_stringFile, "s_231");
                     }
                     if (hasResponse7)
                     {
-                        responses[responseIndex++] = new string_id(c_stringFile, "s_225");
+                        responses[responseIndex++] = new string_id(c_stringFile, "s_235");
                     }
                     utils.setScriptVar(player, "conversation.station_dathomir.branchId", 98);
                     npcSpeak(player, message);
@@ -1889,7 +1889,7 @@ public class station_dathomir extends script.base_script
             }
             if (station_dathomir_condition__defaultCondition(player, npc))
             {
-                string_id message = new string_id(c_stringFile, "s_229");
+                string_id message = new string_id(c_stringFile, "s_245");
                 utils.removeScriptVar(player, "conversation.station_dathomir.branchId");
                 npcEndConversationWithMessage(player, message);
                 return SCRIPT_CONTINUE;
@@ -2389,27 +2389,27 @@ public class station_dathomir extends script.base_script
                     }
                     if (hasResponse2)
                     {
-                        responses[responseIndex++] = new string_id(c_stringFile, "s_209");
+                        responses[responseIndex++] = new string_id(c_stringFile, "s_211");
                     }
                     if (hasResponse3)
                     {
-                        responses[responseIndex++] = new string_id(c_stringFile, "s_213");
+                        responses[responseIndex++] = new string_id(c_stringFile, "s_215");
                     }
                     if (hasResponse4)
                     {
-                        responses[responseIndex++] = new string_id(c_stringFile, "s_217");
+                        responses[responseIndex++] = new string_id(c_stringFile, "s_221");
                     }
                     if (hasResponse5)
                     {
-                        responses[responseIndex++] = new string_id(c_stringFile, "s_221");
+                        responses[responseIndex++] = new string_id(c_stringFile, "s_225");
                     }
                     if (hasResponse6)
                     {
-                        responses[responseIndex++] = new string_id(c_stringFile, "s_230");
+                        responses[responseIndex++] = new string_id(c_stringFile, "s_231");
                     }
                     if (hasResponse7)
                     {
-                        responses[responseIndex++] = new string_id(c_stringFile, "s_225");
+                        responses[responseIndex++] = new string_id(c_stringFile, "s_235");
                     }
                     utils.setScriptVar(player, "conversation.station_dathomir.branchId", 98);
                     npcSpeak(player, message);
@@ -2424,7 +2424,7 @@ public class station_dathomir extends script.base_script
             }
             if (station_dathomir_condition__defaultCondition(player, npc))
             {
-                string_id message = new string_id(c_stringFile, "s_229");
+                string_id message = new string_id(c_stringFile, "s_245");
                 utils.removeScriptVar(player, "conversation.station_dathomir.branchId");
                 npcEndConversationWithMessage(player, message);
                 return SCRIPT_CONTINUE;
@@ -4273,27 +4273,27 @@ public class station_dathomir extends script.base_script
                     }
                     if (hasResponse2)
                     {
-                        responses[responseIndex++] = new string_id(c_stringFile, "s_209");
+                        responses[responseIndex++] = new string_id(c_stringFile, "s_211");
                     }
                     if (hasResponse3)
                     {
-                        responses[responseIndex++] = new string_id(c_stringFile, "s_213");
+                        responses[responseIndex++] = new string_id(c_stringFile, "s_215");
                     }
                     if (hasResponse4)
                     {
-                        responses[responseIndex++] = new string_id(c_stringFile, "s_217");
+                        responses[responseIndex++] = new string_id(c_stringFile, "s_221");
                     }
                     if (hasResponse5)
                     {
-                        responses[responseIndex++] = new string_id(c_stringFile, "s_221");
+                        responses[responseIndex++] = new string_id(c_stringFile, "s_225");
                     }
                     if (hasResponse6)
                     {
-                        responses[responseIndex++] = new string_id(c_stringFile, "s_230");
+                        responses[responseIndex++] = new string_id(c_stringFile, "s_231");
                     }
                     if (hasResponse7)
                     {
-                        responses[responseIndex++] = new string_id(c_stringFile, "s_225");
+                        responses[responseIndex++] = new string_id(c_stringFile, "s_235");
                     }
                     utils.setScriptVar(player, "conversation.station_dathomir.branchId", 98);
                     npcSpeak(player, message);
@@ -4308,7 +4308,7 @@ public class station_dathomir extends script.base_script
             }
             if (station_dathomir_condition__defaultCondition(player, npc))
             {
-                string_id message = new string_id(c_stringFile, "s_229");
+                string_id message = new string_id(c_stringFile, "s_245");
                 utils.removeScriptVar(player, "conversation.station_dathomir.branchId");
                 npcEndConversationWithMessage(player, message);
                 return SCRIPT_CONTINUE;
@@ -6120,27 +6120,27 @@ public class station_dathomir extends script.base_script
                     }
                     if (hasResponse2)
                     {
-                        responses[responseIndex++] = new string_id(c_stringFile, "s_209");
+                        responses[responseIndex++] = new string_id(c_stringFile, "s_211");
                     }
                     if (hasResponse3)
                     {
-                        responses[responseIndex++] = new string_id(c_stringFile, "s_213");
+                        responses[responseIndex++] = new string_id(c_stringFile, "s_215");
                     }
                     if (hasResponse4)
                     {
-                        responses[responseIndex++] = new string_id(c_stringFile, "s_217");
+                        responses[responseIndex++] = new string_id(c_stringFile, "s_221");
                     }
                     if (hasResponse5)
                     {
-                        responses[responseIndex++] = new string_id(c_stringFile, "s_221");
+                        responses[responseIndex++] = new string_id(c_stringFile, "s_225");
                     }
                     if (hasResponse6)
                     {
-                        responses[responseIndex++] = new string_id(c_stringFile, "s_230");
+                        responses[responseIndex++] = new string_id(c_stringFile, "s_231");
                     }
                     if (hasResponse7)
                     {
-                        responses[responseIndex++] = new string_id(c_stringFile, "s_225");
+                        responses[responseIndex++] = new string_id(c_stringFile, "s_235");
                     }
                     utils.setScriptVar(player, "conversation.station_dathomir.branchId", 98);
                     npcSpeak(player, message);
@@ -6155,7 +6155,7 @@ public class station_dathomir extends script.base_script
             }
             if (station_dathomir_condition__defaultCondition(player, npc))
             {
-                string_id message = new string_id(c_stringFile, "s_229");
+                string_id message = new string_id(c_stringFile, "s_245");
                 utils.removeScriptVar(player, "conversation.station_dathomir.branchId");
                 npcEndConversationWithMessage(player, message);
                 return SCRIPT_CONTINUE;
@@ -6759,27 +6759,27 @@ public class station_dathomir extends script.base_script
                     }
                     if (hasResponse2)
                     {
-                        responses[responseIndex++] = new string_id(c_stringFile, "s_209");
+                        responses[responseIndex++] = new string_id(c_stringFile, "s_211");
                     }
                     if (hasResponse3)
                     {
-                        responses[responseIndex++] = new string_id(c_stringFile, "s_213");
+                        responses[responseIndex++] = new string_id(c_stringFile, "s_215");
                     }
                     if (hasResponse4)
                     {
-                        responses[responseIndex++] = new string_id(c_stringFile, "s_217");
+                        responses[responseIndex++] = new string_id(c_stringFile, "s_221");
                     }
                     if (hasResponse5)
                     {
-                        responses[responseIndex++] = new string_id(c_stringFile, "s_221");
+                        responses[responseIndex++] = new string_id(c_stringFile, "s_225");
                     }
                     if (hasResponse6)
                     {
-                        responses[responseIndex++] = new string_id(c_stringFile, "s_230");
+                        responses[responseIndex++] = new string_id(c_stringFile, "s_231");
                     }
                     if (hasResponse7)
                     {
-                        responses[responseIndex++] = new string_id(c_stringFile, "s_225");
+                        responses[responseIndex++] = new string_id(c_stringFile, "s_235");
                     }
                     utils.setScriptVar(player, "conversation.station_dathomir.branchId", 98);
                     npcSpeak(player, message);
@@ -6794,7 +6794,7 @@ public class station_dathomir extends script.base_script
             }
             if (station_dathomir_condition__defaultCondition(player, npc))
             {
-                string_id message = new string_id(c_stringFile, "s_229");
+                string_id message = new string_id(c_stringFile, "s_245");
                 utils.removeScriptVar(player, "conversation.station_dathomir.branchId");
                 npcEndConversationWithMessage(player, message);
                 return SCRIPT_CONTINUE;
@@ -7536,27 +7536,27 @@ public class station_dathomir extends script.base_script
                     }
                     if (hasResponse2)
                     {
-                        responses[responseIndex++] = new string_id(c_stringFile, "s_209");
+                        responses[responseIndex++] = new string_id(c_stringFile, "s_211");
                     }
                     if (hasResponse3)
                     {
-                        responses[responseIndex++] = new string_id(c_stringFile, "s_213");
+                        responses[responseIndex++] = new string_id(c_stringFile, "s_215");
                     }
                     if (hasResponse4)
                     {
-                        responses[responseIndex++] = new string_id(c_stringFile, "s_217");
+                        responses[responseIndex++] = new string_id(c_stringFile, "s_221");
                     }
                     if (hasResponse5)
                     {
-                        responses[responseIndex++] = new string_id(c_stringFile, "s_221");
+                        responses[responseIndex++] = new string_id(c_stringFile, "s_225");
                     }
                     if (hasResponse6)
                     {
-                        responses[responseIndex++] = new string_id(c_stringFile, "s_230");
+                        responses[responseIndex++] = new string_id(c_stringFile, "s_231");
                     }
                     if (hasResponse7)
                     {
-                        responses[responseIndex++] = new string_id(c_stringFile, "s_225");
+                        responses[responseIndex++] = new string_id(c_stringFile, "s_235");
                     }
                     utils.setScriptVar(player, "conversation.station_dathomir.branchId", 98);
                     npcSpeak(player, message);
@@ -7571,7 +7571,7 @@ public class station_dathomir extends script.base_script
             }
             if (station_dathomir_condition__defaultCondition(player, npc))
             {
-                string_id message = new string_id(c_stringFile, "s_229");
+                string_id message = new string_id(c_stringFile, "s_245");
                 utils.removeScriptVar(player, "conversation.station_dathomir.branchId");
                 npcEndConversationWithMessage(player, message);
                 return SCRIPT_CONTINUE;
@@ -8071,27 +8071,27 @@ public class station_dathomir extends script.base_script
                     }
                     if (hasResponse2)
                     {
-                        responses[responseIndex++] = new string_id(c_stringFile, "s_209");
+                        responses[responseIndex++] = new string_id(c_stringFile, "s_211");
                     }
                     if (hasResponse3)
                     {
-                        responses[responseIndex++] = new string_id(c_stringFile, "s_213");
+                        responses[responseIndex++] = new string_id(c_stringFile, "s_215");
                     }
                     if (hasResponse4)
                     {
-                        responses[responseIndex++] = new string_id(c_stringFile, "s_217");
+                        responses[responseIndex++] = new string_id(c_stringFile, "s_221");
                     }
                     if (hasResponse5)
                     {
-                        responses[responseIndex++] = new string_id(c_stringFile, "s_221");
+                        responses[responseIndex++] = new string_id(c_stringFile, "s_225");
                     }
                     if (hasResponse6)
                     {
-                        responses[responseIndex++] = new string_id(c_stringFile, "s_230");
+                        responses[responseIndex++] = new string_id(c_stringFile, "s_231");
                     }
                     if (hasResponse7)
                     {
-                        responses[responseIndex++] = new string_id(c_stringFile, "s_225");
+                        responses[responseIndex++] = new string_id(c_stringFile, "s_235");
                     }
                     utils.setScriptVar(player, "conversation.station_dathomir.branchId", 98);
                     npcSpeak(player, message);
@@ -8106,7 +8106,7 @@ public class station_dathomir extends script.base_script
             }
             if (station_dathomir_condition__defaultCondition(player, npc))
             {
-                string_id message = new string_id(c_stringFile, "s_229");
+                string_id message = new string_id(c_stringFile, "s_245");
                 utils.removeScriptVar(player, "conversation.station_dathomir.branchId");
                 npcEndConversationWithMessage(player, message);
                 return SCRIPT_CONTINUE;
@@ -8710,27 +8710,27 @@ public class station_dathomir extends script.base_script
                     }
                     if (hasResponse2)
                     {
-                        responses[responseIndex++] = new string_id(c_stringFile, "s_209");
+                        responses[responseIndex++] = new string_id(c_stringFile, "s_211");
                     }
                     if (hasResponse3)
                     {
-                        responses[responseIndex++] = new string_id(c_stringFile, "s_213");
+                        responses[responseIndex++] = new string_id(c_stringFile, "s_215");
                     }
                     if (hasResponse4)
                     {
-                        responses[responseIndex++] = new string_id(c_stringFile, "s_217");
+                        responses[responseIndex++] = new string_id(c_stringFile, "s_221");
                     }
                     if (hasResponse5)
                     {
-                        responses[responseIndex++] = new string_id(c_stringFile, "s_221");
+                        responses[responseIndex++] = new string_id(c_stringFile, "s_225");
                     }
                     if (hasResponse6)
                     {
-                        responses[responseIndex++] = new string_id(c_stringFile, "s_230");
+                        responses[responseIndex++] = new string_id(c_stringFile, "s_231");
                     }
                     if (hasResponse7)
                     {
-                        responses[responseIndex++] = new string_id(c_stringFile, "s_225");
+                        responses[responseIndex++] = new string_id(c_stringFile, "s_235");
                     }
                     utils.setScriptVar(player, "conversation.station_dathomir.branchId", 98);
                     npcSpeak(player, message);
@@ -8745,7 +8745,7 @@ public class station_dathomir extends script.base_script
             }
             if (station_dathomir_condition__defaultCondition(player, npc))
             {
-                string_id message = new string_id(c_stringFile, "s_229");
+                string_id message = new string_id(c_stringFile, "s_245");
                 utils.removeScriptVar(player, "conversation.station_dathomir.branchId");
                 npcEndConversationWithMessage(player, message);
                 return SCRIPT_CONTINUE;
@@ -8777,34 +8777,23 @@ public class station_dathomir extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        if (response.equals("s_209"))
+        if (response.equals("s_211"))
         {
             if (station_dathomir_condition__defaultCondition(player, npc))
             {
                 station_dathomir_action_grantImperialDuty4(player, npc);
-                string_id message = new string_id(c_stringFile, "s_211");
+                string_id message = new string_id(c_stringFile, "s_213");
                 utils.removeScriptVar(player, "conversation.station_dathomir.branchId");
                 npcEndConversationWithMessage(player, message);
                 return SCRIPT_CONTINUE;
             }
         }
-        if (response.equals("s_213"))
+        if (response.equals("s_215"))
         {
             if (station_dathomir_condition__defaultCondition(player, npc))
             {
                 station_dathomir_action_grantImperialDuty5(player, npc);
-                string_id message = new string_id(c_stringFile, "s_215");
-                utils.removeScriptVar(player, "conversation.station_dathomir.branchId");
-                npcEndConversationWithMessage(player, message);
-                return SCRIPT_CONTINUE;
-            }
-        }
-        if (response.equals("s_217"))
-        {
-            if (station_dathomir_condition__defaultCondition(player, npc))
-            {
-                station_dathomir_action_grantHiddenDaggerDuty4(player, npc);
-                string_id message = new string_id(c_stringFile, "s_219");
+                string_id message = new string_id(c_stringFile, "s_217");
                 utils.removeScriptVar(player, "conversation.station_dathomir.branchId");
                 npcEndConversationWithMessage(player, message);
                 return SCRIPT_CONTINUE;
@@ -8814,19 +8803,8 @@ public class station_dathomir extends script.base_script
         {
             if (station_dathomir_condition__defaultCondition(player, npc))
             {
-                station_dathomir_action_grantHiddenDaggerDuty5(player, npc);
+                station_dathomir_action_grantHiddenDaggerDuty4(player, npc);
                 string_id message = new string_id(c_stringFile, "s_223");
-                utils.removeScriptVar(player, "conversation.station_dathomir.branchId");
-                npcEndConversationWithMessage(player, message);
-                return SCRIPT_CONTINUE;
-            }
-        }
-        if (response.equals("s_230"))
-        {
-            if (station_dathomir_condition__defaultCondition(player, npc))
-            {
-                station_dathomir_action_grantKesselPirateTier6(player, npc);
-                string_id message = new string_id(c_stringFile, "s_231");
                 utils.removeScriptVar(player, "conversation.station_dathomir.branchId");
                 npcEndConversationWithMessage(player, message);
                 return SCRIPT_CONTINUE;
@@ -8836,7 +8814,29 @@ public class station_dathomir extends script.base_script
         {
             if (station_dathomir_condition__defaultCondition(player, npc))
             {
+                station_dathomir_action_grantHiddenDaggerDuty5(player, npc);
                 string_id message = new string_id(c_stringFile, "s_227");
+                utils.removeScriptVar(player, "conversation.station_dathomir.branchId");
+                npcEndConversationWithMessage(player, message);
+                return SCRIPT_CONTINUE;
+            }
+        }
+        if (response.equals("s_231"))
+        {
+            if (station_dathomir_condition__defaultCondition(player, npc))
+            {
+                station_dathomir_action_grantKesselPirateTier6(player, npc);
+                string_id message = new string_id(c_stringFile, "s_233");
+                utils.removeScriptVar(player, "conversation.station_dathomir.branchId");
+                npcEndConversationWithMessage(player, message);
+                return SCRIPT_CONTINUE;
+            }
+        }
+        if (response.equals("s_235"))
+        {
+            if (station_dathomir_condition__defaultCondition(player, npc))
+            {
+                string_id message = new string_id(c_stringFile, "s_243");
                 utils.removeScriptVar(player, "conversation.station_dathomir.branchId");
                 npcEndConversationWithMessage(player, message);
                 return SCRIPT_CONTINUE;
