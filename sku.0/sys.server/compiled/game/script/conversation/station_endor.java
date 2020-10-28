@@ -766,11 +766,11 @@ public class station_endor extends script.base_script
                     }
                     if (hasResponse2)
                     {
-                        responses[responseIndex++] = new string_id(c_stringFile, "s_87");
+                        responses[responseIndex++] = new string_id(c_stringFile, "s_90");
                     }
                     if (hasResponse3)
                     {
-                        responses[responseIndex++] = new string_id(c_stringFile, "s_92");
+                        responses[responseIndex++] = new string_id(c_stringFile, "s_94");
                     }
                     if (hasResponse4)
                     {
@@ -778,19 +778,19 @@ public class station_endor extends script.base_script
                     }
                     if (hasResponse5)
                     {
-                        responses[responseIndex++] = new string_id(c_stringFile, "s_96");
+                        responses[responseIndex++] = new string_id(c_stringFile, "s_100");
                     }
                     if (hasResponse6)
                     {
-                        responses[responseIndex++] = new string_id(c_stringFile, "s_100");
+                        responses[responseIndex++] = new string_id(c_stringFile, "s_104");
                     }
                     if (hasResponse7)
                     {
-                        responses[responseIndex++] = new string_id(c_stringFile, "s_104");
+                        responses[responseIndex++] = new string_id(c_stringFile, "s_108");
                     }
                     if (hasResponse8)
                     {
-                        responses[responseIndex++] = new string_id(c_stringFile, "s_108");
+                        responses[responseIndex++] = new string_id(c_stringFile, "s_112");
                     }
                     utils.setScriptVar(player, "conversation.station_endor.branchId", 38);
                     npcSpeak(player, message);
@@ -805,7 +805,7 @@ public class station_endor extends script.base_script
             }
             if (station_endor_condition__defaultCondition(player, npc))
             {
-                string_id message = new string_id(c_stringFile, "s_112");
+                string_id message = new string_id(c_stringFile, "s_120");
                 utils.removeScriptVar(player, "conversation.station_endor.branchId");
                 npcEndConversationWithMessage(player, message);
                 return SCRIPT_CONTINUE;
@@ -1840,11 +1840,11 @@ public class station_endor extends script.base_script
                     }
                     if (hasResponse2)
                     {
-                        responses[responseIndex++] = new string_id(c_stringFile, "s_87");
+                        responses[responseIndex++] = new string_id(c_stringFile, "s_90");
                     }
                     if (hasResponse3)
                     {
-                        responses[responseIndex++] = new string_id(c_stringFile, "s_92");
+                        responses[responseIndex++] = new string_id(c_stringFile, "s_94");
                     }
                     if (hasResponse4)
                     {
@@ -1852,19 +1852,19 @@ public class station_endor extends script.base_script
                     }
                     if (hasResponse5)
                     {
-                        responses[responseIndex++] = new string_id(c_stringFile, "s_96");
+                        responses[responseIndex++] = new string_id(c_stringFile, "s_100");
                     }
                     if (hasResponse6)
                     {
-                        responses[responseIndex++] = new string_id(c_stringFile, "s_100");
+                        responses[responseIndex++] = new string_id(c_stringFile, "s_104");
                     }
                     if (hasResponse7)
                     {
-                        responses[responseIndex++] = new string_id(c_stringFile, "s_104");
+                        responses[responseIndex++] = new string_id(c_stringFile, "s_108");
                     }
                     if (hasResponse8)
                     {
-                        responses[responseIndex++] = new string_id(c_stringFile, "s_108");
+                        responses[responseIndex++] = new string_id(c_stringFile, "s_112");
                     }
                     utils.setScriptVar(player, "conversation.station_endor.branchId", 38);
                     npcSpeak(player, message);
@@ -1879,7 +1879,7 @@ public class station_endor extends script.base_script
             }
             if (station_endor_condition__defaultCondition(player, npc))
             {
-                string_id message = new string_id(c_stringFile, "s_112");
+                string_id message = new string_id(c_stringFile, "s_120");
                 utils.removeScriptVar(player, "conversation.station_endor.branchId");
                 npcEndConversationWithMessage(player, message);
                 return SCRIPT_CONTINUE;
@@ -2480,11 +2480,11 @@ public class station_endor extends script.base_script
                     }
                     if (hasResponse2)
                     {
-                        responses[responseIndex++] = new string_id(c_stringFile, "s_87");
+                        responses[responseIndex++] = new string_id(c_stringFile, "s_90");
                     }
                     if (hasResponse3)
                     {
-                        responses[responseIndex++] = new string_id(c_stringFile, "s_92");
+                        responses[responseIndex++] = new string_id(c_stringFile, "s_94");
                     }
                     if (hasResponse4)
                     {
@@ -2492,19 +2492,19 @@ public class station_endor extends script.base_script
                     }
                     if (hasResponse5)
                     {
-                        responses[responseIndex++] = new string_id(c_stringFile, "s_96");
+                        responses[responseIndex++] = new string_id(c_stringFile, "s_100");
                     }
                     if (hasResponse6)
                     {
-                        responses[responseIndex++] = new string_id(c_stringFile, "s_100");
+                        responses[responseIndex++] = new string_id(c_stringFile, "s_104");
                     }
                     if (hasResponse7)
                     {
-                        responses[responseIndex++] = new string_id(c_stringFile, "s_104");
+                        responses[responseIndex++] = new string_id(c_stringFile, "s_108");
                     }
                     if (hasResponse8)
                     {
-                        responses[responseIndex++] = new string_id(c_stringFile, "s_108");
+                        responses[responseIndex++] = new string_id(c_stringFile, "s_112");
                     }
                     utils.setScriptVar(player, "conversation.station_endor.branchId", 38);
                     npcSpeak(player, message);
@@ -2519,7 +2519,7 @@ public class station_endor extends script.base_script
             }
             if (station_endor_condition__defaultCondition(player, npc))
             {
-                string_id message = new string_id(c_stringFile, "s_112");
+                string_id message = new string_id(c_stringFile, "s_120");
                 utils.removeScriptVar(player, "conversation.station_endor.branchId");
                 npcEndConversationWithMessage(player, message);
                 return SCRIPT_CONTINUE;
@@ -3120,11 +3120,11 @@ public class station_endor extends script.base_script
                     }
                     if (hasResponse2)
                     {
-                        responses[responseIndex++] = new string_id(c_stringFile, "s_87");
+                        responses[responseIndex++] = new string_id(c_stringFile, "s_90");
                     }
                     if (hasResponse3)
                     {
-                        responses[responseIndex++] = new string_id(c_stringFile, "s_92");
+                        responses[responseIndex++] = new string_id(c_stringFile, "s_94");
                     }
                     if (hasResponse4)
                     {
@@ -3132,19 +3132,19 @@ public class station_endor extends script.base_script
                     }
                     if (hasResponse5)
                     {
-                        responses[responseIndex++] = new string_id(c_stringFile, "s_96");
+                        responses[responseIndex++] = new string_id(c_stringFile, "s_100");
                     }
                     if (hasResponse6)
                     {
-                        responses[responseIndex++] = new string_id(c_stringFile, "s_100");
+                        responses[responseIndex++] = new string_id(c_stringFile, "s_104");
                     }
                     if (hasResponse7)
                     {
-                        responses[responseIndex++] = new string_id(c_stringFile, "s_104");
+                        responses[responseIndex++] = new string_id(c_stringFile, "s_108");
                     }
                     if (hasResponse8)
                     {
-                        responses[responseIndex++] = new string_id(c_stringFile, "s_108");
+                        responses[responseIndex++] = new string_id(c_stringFile, "s_112");
                     }
                     utils.setScriptVar(player, "conversation.station_endor.branchId", 38);
                     npcSpeak(player, message);
@@ -3159,7 +3159,7 @@ public class station_endor extends script.base_script
             }
             if (station_endor_condition__defaultCondition(player, npc))
             {
-                string_id message = new string_id(c_stringFile, "s_112");
+                string_id message = new string_id(c_stringFile, "s_120");
                 utils.removeScriptVar(player, "conversation.station_endor.branchId");
                 npcEndConversationWithMessage(player, message);
                 return SCRIPT_CONTINUE;
@@ -3292,23 +3292,23 @@ public class station_endor extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        if (response.equals("s_87"))
+        if (response.equals("s_90"))
         {
             if (station_endor_condition__defaultCondition(player, npc))
             {
                 station_endor_action_grantRebelDuty5(player, npc);
-                string_id message = new string_id(c_stringFile, "s_90");
+                string_id message = new string_id(c_stringFile, "s_92");
                 utils.removeScriptVar(player, "conversation.station_endor.branchId");
                 npcEndConversationWithMessage(player, message);
                 return SCRIPT_CONTINUE;
             }
         }
-        if (response.equals("s_92"))
+        if (response.equals("s_94"))
         {
             if (station_endor_condition__defaultCondition(player, npc))
             {
                 station_endor_action_grantImperialDuty4(player, npc);
-                string_id message = new string_id(c_stringFile, "s_94");
+                string_id message = new string_id(c_stringFile, "s_96");
                 utils.removeScriptVar(player, "conversation.station_endor.branchId");
                 npcEndConversationWithMessage(player, message);
                 return SCRIPT_CONTINUE;
@@ -3325,22 +3325,11 @@ public class station_endor extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        if (response.equals("s_96"))
-        {
-            if (station_endor_condition__defaultCondition(player, npc))
-            {
-                station_endor_action_grantImperialDuty5(player, npc);
-                string_id message = new string_id(c_stringFile, "s_98");
-                utils.removeScriptVar(player, "conversation.station_endor.branchId");
-                npcEndConversationWithMessage(player, message);
-                return SCRIPT_CONTINUE;
-            }
-        }
         if (response.equals("s_100"))
         {
             if (station_endor_condition__defaultCondition(player, npc))
             {
-                station_endor_action_grantBlackSunDuty4(player, npc);
+                station_endor_action_grantImperialDuty5(player, npc);
                 string_id message = new string_id(c_stringFile, "s_102");
                 utils.removeScriptVar(player, "conversation.station_endor.branchId");
                 npcEndConversationWithMessage(player, message);
@@ -3351,7 +3340,7 @@ public class station_endor extends script.base_script
         {
             if (station_endor_condition__defaultCondition(player, npc))
             {
-                station_endor_action_grantBlackSunDuty5(player, npc);
+                station_endor_action_grantBlackSunDuty4(player, npc);
                 string_id message = new string_id(c_stringFile, "s_106");
                 utils.removeScriptVar(player, "conversation.station_endor.branchId");
                 npcEndConversationWithMessage(player, message);
@@ -3362,7 +3351,18 @@ public class station_endor extends script.base_script
         {
             if (station_endor_condition__defaultCondition(player, npc))
             {
+                station_endor_action_grantBlackSunDuty5(player, npc);
                 string_id message = new string_id(c_stringFile, "s_110");
+                utils.removeScriptVar(player, "conversation.station_endor.branchId");
+                npcEndConversationWithMessage(player, message);
+                return SCRIPT_CONTINUE;
+            }
+        }
+        if (response.equals("s_112"))
+        {
+            if (station_endor_condition__defaultCondition(player, npc))
+            {
+                string_id message = new string_id(c_stringFile, "s_115");
                 utils.removeScriptVar(player, "conversation.station_endor.branchId");
                 npcEndConversationWithMessage(player, message);
                 return SCRIPT_CONTINUE;
