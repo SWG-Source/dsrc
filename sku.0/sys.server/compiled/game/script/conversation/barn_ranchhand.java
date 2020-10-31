@@ -4,6 +4,9 @@ import script.library.*;
 import script.obj_id;
 import script.string_id;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class barn_ranchhand extends script.conversation.base.conversation_base
 {
     public String conversation = "conversation.barn_ranchhand";
@@ -168,18 +171,21 @@ public class barn_ranchhand extends script.conversation.base.conversation_base
         }
         if (barn_ranchhand_condition_isBuildingOwner(player, self))
         {
-            if (barn_ranchhand_condition_playerHasBeasts(player))
-            {
-                return craft_response_prose(new String[] {"s_4", "s_6"}, 1, player, self, barn_ranchhand_tokenTO_barnOwnerName(player, self));
+            List<String> r = new ArrayList<>();
+            r.add("s_4");
+            if (barn_ranchhand_condition_noBeasts(player, self)) {
+                r.add("s_23");
             }
-            if (barn_ranchhand_condition_ranchhandHasBeasts(self))
-            {
-                return craft_response_prose(new String[] {"s_4", "s_11", "s_19"}, 1, player, self, barn_ranchhand_tokenTO_barnOwnerName(player, self));
+            else {
+                if (barn_ranchhand_condition_playerHasBeasts(player)) {
+                    r.add("s_6");
+                }
+                if (barn_ranchhand_condition_ranchhandHasBeasts(self)) {
+                    r.add("s_11");
+                    r.add("s_19");
+                }
             }
-            if (barn_ranchhand_condition_noBeasts(player, self))
-            {
-                return craft_response_prose(new String[] {"s_4", "s_23"}, 1, player, self, barn_ranchhand_tokenTO_barnOwnerName(player, self));
-            }
+            return craft_response_prose(r.toArray(new String[0]), 1, player, self, barn_ranchhand_tokenTO_barnOwnerName(player, self));
         }
         return craft_response_prose(new String[] {"s_22", "s_26"}, 8, player, self, barn_ranchhand_tokenTO_barnOwnerName(player, self));
     }
