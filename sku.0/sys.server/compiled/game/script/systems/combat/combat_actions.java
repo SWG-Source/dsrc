@@ -1890,11 +1890,6 @@ public class combat_actions extends script.systems.combat.combat_base
         {
             return SCRIPT_OVERRIDE;
         }
-        if (!buff.hasBuff(self, "jedi_reflect_flurry"))
-        {
-            sendSystemMessage(self, new string_id("spam", "fs_flurry_not_charged"));
-            return SCRIPT_OVERRIDE;
-        }
         if (!combatStandardAction("fs_flurry_1", self, target, params, "", ""))
         {
             return SCRIPT_OVERRIDE;
@@ -1906,11 +1901,6 @@ public class combat_actions extends script.systems.combat.combat_base
     {
         if (!buff.isInStance(self))
         {
-            return SCRIPT_OVERRIDE;
-        }
-        if (!buff.hasBuff(self, "jedi_reflect_flurry"))
-        {
-            sendSystemMessage(self, new string_id("spam", "fs_flurry_not_charged"));
             return SCRIPT_OVERRIDE;
         }
         if (!combatStandardAction("fs_flurry_2", self, target, params, "", ""))
@@ -1926,11 +1916,6 @@ public class combat_actions extends script.systems.combat.combat_base
         {
             return SCRIPT_OVERRIDE;
         }
-        if (!buff.hasBuff(self, "jedi_reflect_flurry"))
-        {
-            sendSystemMessage(self, new string_id("spam", "fs_flurry_not_charged"));
-            return SCRIPT_OVERRIDE;
-        }
         if (!combatStandardAction("fs_flurry_3", self, target, params, "", ""))
         {
             return SCRIPT_OVERRIDE;
@@ -1942,11 +1927,6 @@ public class combat_actions extends script.systems.combat.combat_base
     {
         if (!buff.isInStance(self))
         {
-            return SCRIPT_OVERRIDE;
-        }
-        if (!buff.hasBuff(self, "jedi_reflect_flurry"))
-        {
-            sendSystemMessage(self, new string_id("spam", "fs_flurry_not_charged"));
             return SCRIPT_OVERRIDE;
         }
         if (!combatStandardAction("fs_flurry_4", self, target, params, "", ""))
@@ -1962,11 +1942,6 @@ public class combat_actions extends script.systems.combat.combat_base
         {
             return SCRIPT_OVERRIDE;
         }
-        if (!buff.hasBuff(self, "jedi_reflect_flurry"))
-        {
-            sendSystemMessage(self, new string_id("spam", "fs_flurry_not_charged"));
-            return SCRIPT_OVERRIDE;
-        }
         if (!combatStandardAction("fs_flurry_5", self, target, params, "", ""))
         {
             return SCRIPT_OVERRIDE;
@@ -1980,11 +1955,6 @@ public class combat_actions extends script.systems.combat.combat_base
         {
             return SCRIPT_OVERRIDE;
         }
-        if (!buff.hasBuff(self, "jedi_reflect_flurry"))
-        {
-            sendSystemMessage(self, new string_id("spam", "fs_flurry_not_charged"));
-            return SCRIPT_OVERRIDE;
-        }
         if (!combatStandardAction("fs_flurry_6", self, target, params, "", ""))
         {
             return SCRIPT_OVERRIDE;
@@ -1996,11 +1966,6 @@ public class combat_actions extends script.systems.combat.combat_base
     {
         if (!buff.isInStance(self))
         {
-            return SCRIPT_OVERRIDE;
-        }
-        if (!buff.hasBuff(self, "jedi_reflect_flurry"))
-        {
-            sendSystemMessage(self, new string_id("spam", "fs_flurry_not_charged"));
             return SCRIPT_OVERRIDE;
         }
         if (!combatStandardAction("fs_flurry_7", self, target, params, "", ""))
