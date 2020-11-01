@@ -1912,7 +1912,6 @@ public class combat_actions extends script.systems.combat.combat_base
         }
         if (!combatStandardAction("fs_flurry_2", self, target, params, "", ""))
         {
-            sendSystemMessage(self, new string_id("spam", "fs_command_no_stance"));
             return SCRIPT_OVERRIDE;
         }
         float baseCooldownTime = getBaseCooldownTime("fs_flurry_2");
