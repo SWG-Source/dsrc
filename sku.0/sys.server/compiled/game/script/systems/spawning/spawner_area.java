@@ -64,18 +64,21 @@ public class spawner_area extends script.base_script
             if (strSpawns == null || strSpawns.length == 0)
             {
                 setName(self, "Mangled spawner. strFileName is " + strFileName + " I couldnt find any spawns in that file.");
+                return SCRIPT_CONTINUE;
             }
-            int intRoll = rand(0, strSpawns.length - 1);
             if (fltSizes.length == 0)
             {
                 setName(self, "Missing spawn sizes in " + strFileName);
+                return SCRIPT_CONTINUE;
             }
             if (fltSizes.length != strSpawns.length)
             {
                 setName(self, "MISSING VALUES: Each spawn must have an associated size (" + strFileName + ")");
+                return SCRIPT_CONTINUE;
             }
-            fltSize = fltSizes[intRoll];
+            int intRoll = rand(0, strSpawns.length - 1);
             strSpawn = strSpawns[intRoll];
+            fltSize = fltSizes[intRoll];
         }
         if (strSpawn == null || strSpawn.length() < 1)
         {
