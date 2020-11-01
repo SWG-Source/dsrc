@@ -474,10 +474,11 @@ public class restuss_rebel_reward_npc extends script.base_script
                     {
                         responses[responseIndex++] = new string_id(c_stringFile, "s_351");
                     }
-                    if (hasResponse2)
-                    {
-                        responses[responseIndex++] = new string_id(c_stringFile, "s_155");
-                    }
+                    // apparently the dye kit was removed in patch 56 so removing the option to obtain it (no strings to get it)
+//                    if (hasResponse2)
+//                    {
+//                        responses[responseIndex++] = new string_id(c_stringFile, "s_155");
+//                    }
                     utils.setScriptVar(player, "conversation.restuss_rebel_reward_npc.branchId", 4);
                     npcSpeak(player, message);
                     npcSetConversationResponses(player, responses);
@@ -490,25 +491,25 @@ public class restuss_rebel_reward_npc extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        if (response.equals("s_202"))
+        if (response.equals("s_210"))
         {
             doAnimationAction(player, "shake_head_no");
             if (restuss_rebel_reward_npc_condition__defaultCondition(player, npc))
             {
                 doAnimationAction(npc, "salute1");
                 doAnimationAction(player, "salute1");
-                string_id message = new string_id(c_stringFile, "s_204");
+                string_id message = new string_id(c_stringFile, "s_212");
                 utils.removeScriptVar(player, "conversation.restuss_rebel_reward_npc.branchId");
                 npcEndConversationWithMessage(player, message);
                 return SCRIPT_CONTINUE;
             }
         }
-        if (response.equals("s_206"))
+        if (response.equals("s_215"))
         {
             if (restuss_rebel_reward_npc_condition_eligibleBadge(player, npc))
             {
                 restuss_rebel_reward_npc_action_grantBadge(player, npc);
-                string_id message = new string_id(c_stringFile, "s_208");
+                string_id message = new string_id(c_stringFile, "s_224");
                 utils.removeScriptVar(player, "conversation.restuss_rebel_reward_npc.branchId");
                 npcEndConversationWithMessage(player, message);
                 return SCRIPT_CONTINUE;
@@ -516,7 +517,7 @@ public class restuss_rebel_reward_npc extends script.base_script
             if (restuss_rebel_reward_npc_condition__defaultCondition(player, npc))
             {
                 doAnimationAction(npc, "shake_head_no");
-                string_id message = new string_id(c_stringFile, "s_210");
+                string_id message = new string_id(c_stringFile, "s_226");
                 utils.removeScriptVar(player, "conversation.restuss_rebel_reward_npc.branchId");
                 npcEndConversationWithMessage(player, message);
                 return SCRIPT_CONTINUE;
@@ -890,10 +891,11 @@ public class restuss_rebel_reward_npc extends script.base_script
                     {
                         responses[responseIndex++] = new string_id(c_stringFile, "s_351");
                     }
-                    if (hasResponse2)
-                    {
-                        responses[responseIndex++] = new string_id(c_stringFile, "s_155");
-                    }
+        // apparently the dye kit was removed in patch 56 so removing the option to obtain it (no strings to get it)
+//                    if (hasResponse2)
+//                    {
+//                        responses[responseIndex++] = new string_id(c_stringFile, "s_155");
+//                    }
                     utils.setScriptVar(player, "conversation.restuss_rebel_reward_npc.branchId", 4);
                     npcSpeak(player, message);
                     npcSetConversationResponses(player, responses);
@@ -988,10 +990,11 @@ public class restuss_rebel_reward_npc extends script.base_script
                     {
                         responses[responseIndex++] = new string_id(c_stringFile, "s_351");
                     }
-                    if (hasResponse2)
-                    {
-                        responses[responseIndex++] = new string_id(c_stringFile, "s_155");
-                    }
+        // apparently the dye kit was removed in patch 56 so removing the option to obtain it (no strings to get it)
+//                    if (hasResponse2)
+//                    {
+//                        responses[responseIndex++] = new string_id(c_stringFile, "s_155");
+//                    }
                     utils.setScriptVar(player, "conversation.restuss_rebel_reward_npc.branchId", 4);
                     npcSpeak(player, message);
                     npcSetConversationResponses(player, responses);
@@ -1086,10 +1089,11 @@ public class restuss_rebel_reward_npc extends script.base_script
                     {
                         responses[responseIndex++] = new string_id(c_stringFile, "s_351");
                     }
-                    if (hasResponse2)
-                    {
-                        responses[responseIndex++] = new string_id(c_stringFile, "s_155");
-                    }
+        // apparently the dye kit was removed in patch 56 so removing the option to obtain it (no strings to get it)
+//                    if (hasResponse2)
+//                    {
+//                        responses[responseIndex++] = new string_id(c_stringFile, "s_155");
+//                    }
                     utils.setScriptVar(player, "conversation.restuss_rebel_reward_npc.branchId", 4);
                     npcSpeak(player, message);
                     npcSetConversationResponses(player, responses);
@@ -1184,10 +1188,11 @@ public class restuss_rebel_reward_npc extends script.base_script
                     {
                         responses[responseIndex++] = new string_id(c_stringFile, "s_351");
                     }
-                    if (hasResponse2)
-                    {
-                        responses[responseIndex++] = new string_id(c_stringFile, "s_155");
-                    }
+        // apparently the dye kit was removed in patch 56 so removing the option to obtain it (no strings to get it)
+//                    if (hasResponse2)
+//                    {
+//                        responses[responseIndex++] = new string_id(c_stringFile, "s_155");
+//                    }
                     utils.setScriptVar(player, "conversation.restuss_rebel_reward_npc.branchId", 4);
                     npcSpeak(player, message);
                     npcSetConversationResponses(player, responses);
@@ -1282,10 +1287,11 @@ public class restuss_rebel_reward_npc extends script.base_script
                     {
                         responses[responseIndex++] = new string_id(c_stringFile, "s_351");
                     }
-                    if (hasResponse2)
-                    {
-                        responses[responseIndex++] = new string_id(c_stringFile, "s_155");
-                    }
+        // apparently the dye kit was removed in patch 56 so removing the option to obtain it (no strings to get it)
+//                    if (hasResponse2)
+//                    {
+//                        responses[responseIndex++] = new string_id(c_stringFile, "s_155");
+//                    }
                     utils.setScriptVar(player, "conversation.restuss_rebel_reward_npc.branchId", 4);
                     npcSpeak(player, message);
                     npcSetConversationResponses(player, responses);
@@ -1422,10 +1428,11 @@ public class restuss_rebel_reward_npc extends script.base_script
                     {
                         responses[responseIndex++] = new string_id(c_stringFile, "s_351");
                     }
-                    if (hasResponse2)
-                    {
-                        responses[responseIndex++] = new string_id(c_stringFile, "s_155");
-                    }
+        // apparently the dye kit was removed in patch 56 so removing the option to obtain it (no strings to get it)
+//                    if (hasResponse2)
+//                    {
+//                        responses[responseIndex++] = new string_id(c_stringFile, "s_155");
+//                    }
                     utils.setScriptVar(player, "conversation.restuss_rebel_reward_npc.branchId", 4);
                     npcSpeak(player, message);
                     npcSetConversationResponses(player, responses);
@@ -1520,10 +1527,11 @@ public class restuss_rebel_reward_npc extends script.base_script
                     {
                         responses[responseIndex++] = new string_id(c_stringFile, "s_351");
                     }
-                    if (hasResponse2)
-                    {
-                        responses[responseIndex++] = new string_id(c_stringFile, "s_155");
-                    }
+        // apparently the dye kit was removed in patch 56 so removing the option to obtain it (no strings to get it)
+//                    if (hasResponse2)
+//                    {
+//                        responses[responseIndex++] = new string_id(c_stringFile, "s_155");
+//                    }
                     utils.setScriptVar(player, "conversation.restuss_rebel_reward_npc.branchId", 4);
                     npcSpeak(player, message);
                     npcSetConversationResponses(player, responses);
@@ -1618,10 +1626,11 @@ public class restuss_rebel_reward_npc extends script.base_script
                     {
                         responses[responseIndex++] = new string_id(c_stringFile, "s_351");
                     }
-                    if (hasResponse2)
-                    {
-                        responses[responseIndex++] = new string_id(c_stringFile, "s_155");
-                    }
+        // apparently the dye kit was removed in patch 56 so removing the option to obtain it (no strings to get it)
+//                    if (hasResponse2)
+//                    {
+//                        responses[responseIndex++] = new string_id(c_stringFile, "s_155");
+//                    }
                     utils.setScriptVar(player, "conversation.restuss_rebel_reward_npc.branchId", 4);
                     npcSpeak(player, message);
                     npcSetConversationResponses(player, responses);
@@ -1700,10 +1709,11 @@ public class restuss_rebel_reward_npc extends script.base_script
                     {
                         responses[responseIndex++] = new string_id(c_stringFile, "s_351");
                     }
-                    if (hasResponse2)
-                    {
-                        responses[responseIndex++] = new string_id(c_stringFile, "s_155");
-                    }
+        // apparently the dye kit was removed in patch 56 so removing the option to obtain it (no strings to get it)
+//                    if (hasResponse2)
+//                    {
+//                        responses[responseIndex++] = new string_id(c_stringFile, "s_155");
+//                    }
                     utils.setScriptVar(player, "conversation.restuss_rebel_reward_npc.branchId", 4);
                     npcSpeak(player, message);
                     npcSetConversationResponses(player, responses);
@@ -2346,10 +2356,11 @@ public class restuss_rebel_reward_npc extends script.base_script
                     {
                         responses[responseIndex++] = new string_id(c_stringFile, "s_351");
                     }
-                    if (hasResponse2)
-                    {
-                        responses[responseIndex++] = new string_id(c_stringFile, "s_155");
-                    }
+        // apparently the dye kit was removed in patch 56 so removing the option to obtain it (no strings to get it)
+//                    if (hasResponse2)
+//                    {
+//                        responses[responseIndex++] = new string_id(c_stringFile, "s_155");
+//                    }
                     utils.setScriptVar(player, "conversation.restuss_rebel_reward_npc.branchId", 4);
                     npcSpeak(player, message);
                     npcSetConversationResponses(player, responses);
@@ -2992,10 +3003,11 @@ public class restuss_rebel_reward_npc extends script.base_script
                     {
                         responses[responseIndex++] = new string_id(c_stringFile, "s_351");
                     }
-                    if (hasResponse2)
-                    {
-                        responses[responseIndex++] = new string_id(c_stringFile, "s_155");
-                    }
+        // apparently the dye kit was removed in patch 56 so removing the option to obtain it (no strings to get it)
+//                    if (hasResponse2)
+//                    {
+//                        responses[responseIndex++] = new string_id(c_stringFile, "s_155");
+//                    }
                     utils.setScriptVar(player, "conversation.restuss_rebel_reward_npc.branchId", 4);
                     npcSpeak(player, message);
                     npcSetConversationResponses(player, responses);
@@ -3638,10 +3650,11 @@ public class restuss_rebel_reward_npc extends script.base_script
                     {
                         responses[responseIndex++] = new string_id(c_stringFile, "s_351");
                     }
-                    if (hasResponse2)
-                    {
-                        responses[responseIndex++] = new string_id(c_stringFile, "s_155");
-                    }
+        // apparently the dye kit was removed in patch 56 so removing the option to obtain it (no strings to get it)
+//                    if (hasResponse2)
+//                    {
+//                        responses[responseIndex++] = new string_id(c_stringFile, "s_155");
+//                    }
                     utils.setScriptVar(player, "conversation.restuss_rebel_reward_npc.branchId", 4);
                     npcSpeak(player, message);
                     npcSetConversationResponses(player, responses);
@@ -4284,10 +4297,11 @@ public class restuss_rebel_reward_npc extends script.base_script
                     {
                         responses[responseIndex++] = new string_id(c_stringFile, "s_351");
                     }
-                    if (hasResponse2)
-                    {
-                        responses[responseIndex++] = new string_id(c_stringFile, "s_155");
-                    }
+        // apparently the dye kit was removed in patch 56 so removing the option to obtain it (no strings to get it)
+//                    if (hasResponse2)
+//                    {
+//                        responses[responseIndex++] = new string_id(c_stringFile, "s_155");
+//                    }
                     utils.setScriptVar(player, "conversation.restuss_rebel_reward_npc.branchId", 4);
                     npcSpeak(player, message);
                     npcSetConversationResponses(player, responses);
@@ -4930,10 +4944,11 @@ public class restuss_rebel_reward_npc extends script.base_script
                     {
                         responses[responseIndex++] = new string_id(c_stringFile, "s_351");
                     }
-                    if (hasResponse2)
-                    {
-                        responses[responseIndex++] = new string_id(c_stringFile, "s_155");
-                    }
+        // apparently the dye kit was removed in patch 56 so removing the option to obtain it (no strings to get it)
+//                    if (hasResponse2)
+//                    {
+//                        responses[responseIndex++] = new string_id(c_stringFile, "s_155");
+//                    }
                     utils.setScriptVar(player, "conversation.restuss_rebel_reward_npc.branchId", 4);
                     npcSpeak(player, message);
                     npcSetConversationResponses(player, responses);
@@ -5012,10 +5027,11 @@ public class restuss_rebel_reward_npc extends script.base_script
                     {
                         responses[responseIndex++] = new string_id(c_stringFile, "s_351");
                     }
-                    if (hasResponse2)
-                    {
-                        responses[responseIndex++] = new string_id(c_stringFile, "s_155");
-                    }
+        // apparently the dye kit was removed in patch 56 so removing the option to obtain it (no strings to get it)
+//                    if (hasResponse2)
+//                    {
+//                        responses[responseIndex++] = new string_id(c_stringFile, "s_155");
+//                    }
                     utils.setScriptVar(player, "conversation.restuss_rebel_reward_npc.branchId", 4);
                     npcSpeak(player, message);
                     npcSetConversationResponses(player, responses);
@@ -5658,10 +5674,11 @@ public class restuss_rebel_reward_npc extends script.base_script
                     {
                         responses[responseIndex++] = new string_id(c_stringFile, "s_351");
                     }
-                    if (hasResponse2)
-                    {
-                        responses[responseIndex++] = new string_id(c_stringFile, "s_155");
-                    }
+        // apparently the dye kit was removed in patch 56 so removing the option to obtain it (no strings to get it)
+//                    if (hasResponse2)
+//                    {
+//                        responses[responseIndex++] = new string_id(c_stringFile, "s_155");
+//                    }
                     utils.setScriptVar(player, "conversation.restuss_rebel_reward_npc.branchId", 4);
                     npcSpeak(player, message);
                     npcSetConversationResponses(player, responses);
@@ -6304,10 +6321,11 @@ public class restuss_rebel_reward_npc extends script.base_script
                     {
                         responses[responseIndex++] = new string_id(c_stringFile, "s_351");
                     }
-                    if (hasResponse2)
-                    {
-                        responses[responseIndex++] = new string_id(c_stringFile, "s_155");
-                    }
+        // apparently the dye kit was removed in patch 56 so removing the option to obtain it (no strings to get it)
+//                    if (hasResponse2)
+//                    {
+//                        responses[responseIndex++] = new string_id(c_stringFile, "s_155");
+//                    }
                     utils.setScriptVar(player, "conversation.restuss_rebel_reward_npc.branchId", 4);
                     npcSpeak(player, message);
                     npcSetConversationResponses(player, responses);
@@ -6970,10 +6988,11 @@ public class restuss_rebel_reward_npc extends script.base_script
                     {
                         responses[responseIndex++] = new string_id(c_stringFile, "s_351");
                     }
-                    if (hasResponse2)
-                    {
-                        responses[responseIndex++] = new string_id(c_stringFile, "s_155");
-                    }
+        // apparently the dye kit was removed in patch 56 so removing the option to obtain it (no strings to get it)
+//                    if (hasResponse2)
+//                    {
+//                        responses[responseIndex++] = new string_id(c_stringFile, "s_155");
+//                    }
                     utils.setScriptVar(player, "conversation.restuss_rebel_reward_npc.branchId", 4);
                     npcSpeak(player, message);
                     npcSetConversationResponses(player, responses);
@@ -7068,10 +7087,11 @@ public class restuss_rebel_reward_npc extends script.base_script
                     {
                         responses[responseIndex++] = new string_id(c_stringFile, "s_351");
                     }
-                    if (hasResponse2)
-                    {
-                        responses[responseIndex++] = new string_id(c_stringFile, "s_155");
-                    }
+        // apparently the dye kit was removed in patch 56 so removing the option to obtain it (no strings to get it)
+//                    if (hasResponse2)
+//                    {
+//                        responses[responseIndex++] = new string_id(c_stringFile, "s_155");
+//                    }
                     utils.setScriptVar(player, "conversation.restuss_rebel_reward_npc.branchId", 4);
                     npcSpeak(player, message);
                     npcSetConversationResponses(player, responses);
@@ -7166,10 +7186,11 @@ public class restuss_rebel_reward_npc extends script.base_script
                     {
                         responses[responseIndex++] = new string_id(c_stringFile, "s_351");
                     }
-                    if (hasResponse2)
-                    {
-                        responses[responseIndex++] = new string_id(c_stringFile, "s_155");
-                    }
+        // apparently the dye kit was removed in patch 56 so removing the option to obtain it (no strings to get it)
+//                    if (hasResponse2)
+//                    {
+//                        responses[responseIndex++] = new string_id(c_stringFile, "s_155");
+//                    }
                     utils.setScriptVar(player, "conversation.restuss_rebel_reward_npc.branchId", 4);
                     npcSpeak(player, message);
                     npcSetConversationResponses(player, responses);
@@ -7264,10 +7285,11 @@ public class restuss_rebel_reward_npc extends script.base_script
                     {
                         responses[responseIndex++] = new string_id(c_stringFile, "s_351");
                     }
-                    if (hasResponse2)
-                    {
-                        responses[responseIndex++] = new string_id(c_stringFile, "s_155");
-                    }
+        // apparently the dye kit was removed in patch 56 so removing the option to obtain it (no strings to get it)
+//                    if (hasResponse2)
+//                    {
+//                        responses[responseIndex++] = new string_id(c_stringFile, "s_155");
+//                    }
                     utils.setScriptVar(player, "conversation.restuss_rebel_reward_npc.branchId", 4);
                     npcSpeak(player, message);
                     npcSetConversationResponses(player, responses);
@@ -7362,10 +7384,11 @@ public class restuss_rebel_reward_npc extends script.base_script
                     {
                         responses[responseIndex++] = new string_id(c_stringFile, "s_351");
                     }
-                    if (hasResponse2)
-                    {
-                        responses[responseIndex++] = new string_id(c_stringFile, "s_155");
-                    }
+        // apparently the dye kit was removed in patch 56 so removing the option to obtain it (no strings to get it)
+//                    if (hasResponse2)
+//                    {
+//                        responses[responseIndex++] = new string_id(c_stringFile, "s_155");
+//                    }
                     utils.setScriptVar(player, "conversation.restuss_rebel_reward_npc.branchId", 4);
                     npcSpeak(player, message);
                     npcSetConversationResponses(player, responses);
@@ -7460,10 +7483,11 @@ public class restuss_rebel_reward_npc extends script.base_script
                     {
                         responses[responseIndex++] = new string_id(c_stringFile, "s_351");
                     }
-                    if (hasResponse2)
-                    {
-                        responses[responseIndex++] = new string_id(c_stringFile, "s_155");
-                    }
+        // apparently the dye kit was removed in patch 56 so removing the option to obtain it (no strings to get it)
+//                    if (hasResponse2)
+//                    {
+//                        responses[responseIndex++] = new string_id(c_stringFile, "s_155");
+//                    }
                     utils.setScriptVar(player, "conversation.restuss_rebel_reward_npc.branchId", 4);
                     npcSpeak(player, message);
                     npcSetConversationResponses(player, responses);
@@ -7558,10 +7582,11 @@ public class restuss_rebel_reward_npc extends script.base_script
                     {
                         responses[responseIndex++] = new string_id(c_stringFile, "s_351");
                     }
-                    if (hasResponse2)
-                    {
-                        responses[responseIndex++] = new string_id(c_stringFile, "s_155");
-                    }
+        // apparently the dye kit was removed in patch 56 so removing the option to obtain it (no strings to get it)
+//                    if (hasResponse2)
+//                    {
+//                        responses[responseIndex++] = new string_id(c_stringFile, "s_155");
+//                    }
                     utils.setScriptVar(player, "conversation.restuss_rebel_reward_npc.branchId", 4);
                     npcSpeak(player, message);
                     npcSetConversationResponses(player, responses);
@@ -7656,10 +7681,11 @@ public class restuss_rebel_reward_npc extends script.base_script
                     {
                         responses[responseIndex++] = new string_id(c_stringFile, "s_351");
                     }
-                    if (hasResponse2)
-                    {
-                        responses[responseIndex++] = new string_id(c_stringFile, "s_155");
-                    }
+        // apparently the dye kit was removed in patch 56 so removing the option to obtain it (no strings to get it)
+//                    if (hasResponse2)
+//                    {
+//                        responses[responseIndex++] = new string_id(c_stringFile, "s_155");
+//                    }
                     utils.setScriptVar(player, "conversation.restuss_rebel_reward_npc.branchId", 4);
                     npcSpeak(player, message);
                     npcSetConversationResponses(player, responses);
@@ -7754,10 +7780,11 @@ public class restuss_rebel_reward_npc extends script.base_script
                     {
                         responses[responseIndex++] = new string_id(c_stringFile, "s_351");
                     }
-                    if (hasResponse2)
-                    {
-                        responses[responseIndex++] = new string_id(c_stringFile, "s_155");
-                    }
+        // apparently the dye kit was removed in patch 56 so removing the option to obtain it (no strings to get it)
+//                    if (hasResponse2)
+//                    {
+//                        responses[responseIndex++] = new string_id(c_stringFile, "s_155");
+//                    }
                     utils.setScriptVar(player, "conversation.restuss_rebel_reward_npc.branchId", 4);
                     npcSpeak(player, message);
                     npcSetConversationResponses(player, responses);
@@ -7836,10 +7863,11 @@ public class restuss_rebel_reward_npc extends script.base_script
                     {
                         responses[responseIndex++] = new string_id(c_stringFile, "s_351");
                     }
-                    if (hasResponse2)
-                    {
-                        responses[responseIndex++] = new string_id(c_stringFile, "s_155");
-                    }
+        // apparently the dye kit was removed in patch 56 so removing the option to obtain it (no strings to get it)
+//                    if (hasResponse2)
+//                    {
+//                        responses[responseIndex++] = new string_id(c_stringFile, "s_155");
+//                    }
                     utils.setScriptVar(player, "conversation.restuss_rebel_reward_npc.branchId", 4);
                     npcSpeak(player, message);
                     npcSetConversationResponses(player, responses);
@@ -8482,10 +8510,11 @@ public class restuss_rebel_reward_npc extends script.base_script
                     {
                         responses[responseIndex++] = new string_id(c_stringFile, "s_351");
                     }
-                    if (hasResponse2)
-                    {
-                        responses[responseIndex++] = new string_id(c_stringFile, "s_155");
-                    }
+        // apparently the dye kit was removed in patch 56 so removing the option to obtain it (no strings to get it)
+//                    if (hasResponse2)
+//                    {
+//                        responses[responseIndex++] = new string_id(c_stringFile, "s_155");
+//                    }
                     utils.setScriptVar(player, "conversation.restuss_rebel_reward_npc.branchId", 4);
                     npcSpeak(player, message);
                     npcSetConversationResponses(player, responses);
@@ -9128,10 +9157,11 @@ public class restuss_rebel_reward_npc extends script.base_script
                     {
                         responses[responseIndex++] = new string_id(c_stringFile, "s_351");
                     }
-                    if (hasResponse2)
-                    {
-                        responses[responseIndex++] = new string_id(c_stringFile, "s_155");
-                    }
+        // apparently the dye kit was removed in patch 56 so removing the option to obtain it (no strings to get it)
+//                    if (hasResponse2)
+//                    {
+//                        responses[responseIndex++] = new string_id(c_stringFile, "s_155");
+//                    }
                     utils.setScriptVar(player, "conversation.restuss_rebel_reward_npc.branchId", 4);
                     npcSpeak(player, message);
                     npcSetConversationResponses(player, responses);
@@ -9774,10 +9804,11 @@ public class restuss_rebel_reward_npc extends script.base_script
                     {
                         responses[responseIndex++] = new string_id(c_stringFile, "s_351");
                     }
-                    if (hasResponse2)
-                    {
-                        responses[responseIndex++] = new string_id(c_stringFile, "s_155");
-                    }
+        // apparently the dye kit was removed in patch 56 so removing the option to obtain it (no strings to get it)
+//                    if (hasResponse2)
+//                    {
+//                        responses[responseIndex++] = new string_id(c_stringFile, "s_155");
+//                    }
                     utils.setScriptVar(player, "conversation.restuss_rebel_reward_npc.branchId", 4);
                     npcSpeak(player, message);
                     npcSetConversationResponses(player, responses);
@@ -10420,10 +10451,11 @@ public class restuss_rebel_reward_npc extends script.base_script
                     {
                         responses[responseIndex++] = new string_id(c_stringFile, "s_351");
                     }
-                    if (hasResponse2)
-                    {
-                        responses[responseIndex++] = new string_id(c_stringFile, "s_155");
-                    }
+        // apparently the dye kit was removed in patch 56 so removing the option to obtain it (no strings to get it)
+//                    if (hasResponse2)
+//                    {
+//                        responses[responseIndex++] = new string_id(c_stringFile, "s_155");
+//                    }
                     utils.setScriptVar(player, "conversation.restuss_rebel_reward_npc.branchId", 4);
                     npcSpeak(player, message);
                     npcSetConversationResponses(player, responses);
@@ -11066,10 +11098,11 @@ public class restuss_rebel_reward_npc extends script.base_script
                     {
                         responses[responseIndex++] = new string_id(c_stringFile, "s_351");
                     }
-                    if (hasResponse2)
-                    {
-                        responses[responseIndex++] = new string_id(c_stringFile, "s_155");
-                    }
+        // apparently the dye kit was removed in patch 56 so removing the option to obtain it (no strings to get it)
+//                    if (hasResponse2)
+//                    {
+//                        responses[responseIndex++] = new string_id(c_stringFile, "s_155");
+//                    }
                     utils.setScriptVar(player, "conversation.restuss_rebel_reward_npc.branchId", 4);
                     npcSpeak(player, message);
                     npcSetConversationResponses(player, responses);
@@ -11712,10 +11745,11 @@ public class restuss_rebel_reward_npc extends script.base_script
                     {
                         responses[responseIndex++] = new string_id(c_stringFile, "s_351");
                     }
-                    if (hasResponse2)
-                    {
-                        responses[responseIndex++] = new string_id(c_stringFile, "s_155");
-                    }
+        // apparently the dye kit was removed in patch 56 so removing the option to obtain it (no strings to get it)
+//                    if (hasResponse2)
+//                    {
+//                        responses[responseIndex++] = new string_id(c_stringFile, "s_155");
+//                    }
                     utils.setScriptVar(player, "conversation.restuss_rebel_reward_npc.branchId", 4);
                     npcSpeak(player, message);
                     npcSetConversationResponses(player, responses);
@@ -12358,10 +12392,11 @@ public class restuss_rebel_reward_npc extends script.base_script
                     {
                         responses[responseIndex++] = new string_id(c_stringFile, "s_351");
                     }
-                    if (hasResponse2)
-                    {
-                        responses[responseIndex++] = new string_id(c_stringFile, "s_155");
-                    }
+        // apparently the dye kit was removed in patch 56 so removing the option to obtain it (no strings to get it)
+//                    if (hasResponse2)
+//                    {
+//                        responses[responseIndex++] = new string_id(c_stringFile, "s_155");
+//                    }
                     utils.setScriptVar(player, "conversation.restuss_rebel_reward_npc.branchId", 4);
                     npcSpeak(player, message);
                     npcSetConversationResponses(player, responses);
@@ -13004,10 +13039,11 @@ public class restuss_rebel_reward_npc extends script.base_script
                     {
                         responses[responseIndex++] = new string_id(c_stringFile, "s_351");
                     }
-                    if (hasResponse2)
-                    {
-                        responses[responseIndex++] = new string_id(c_stringFile, "s_155");
-                    }
+        // apparently the dye kit was removed in patch 56 so removing the option to obtain it (no strings to get it)
+//                    if (hasResponse2)
+//                    {
+//                        responses[responseIndex++] = new string_id(c_stringFile, "s_155");
+//                    }
                     utils.setScriptVar(player, "conversation.restuss_rebel_reward_npc.branchId", 4);
                     npcSpeak(player, message);
                     npcSetConversationResponses(player, responses);
@@ -13777,11 +13813,11 @@ public class restuss_rebel_reward_npc extends script.base_script
                 }
                 if (hasResponse1)
                 {
-                    responses[responseIndex++] = new string_id(c_stringFile, "s_202");
+                    responses[responseIndex++] = new string_id(c_stringFile, "s_210");
                 }
                 if (hasResponse2)
                 {
-                    responses[responseIndex++] = new string_id(c_stringFile, "s_206");
+                    responses[responseIndex++] = new string_id(c_stringFile, "s_215");
                 }
                 utils.setScriptVar(player, "conversation.restuss_rebel_reward_npc.branchId", 3);
                 npcStartConversation(player, npc, "restuss_rebel_reward_npc", message, responses);
@@ -13795,7 +13831,7 @@ public class restuss_rebel_reward_npc extends script.base_script
         if (restuss_rebel_reward_npc_condition__defaultCondition(player, npc))
         {
             doAnimationAction(npc, "dismiss");
-            string_id message = new string_id(c_stringFile, "s_212");
+            string_id message = new string_id(c_stringFile, "s_228");
             chat.chat(npc, player, message);
             return SCRIPT_CONTINUE;
         }
