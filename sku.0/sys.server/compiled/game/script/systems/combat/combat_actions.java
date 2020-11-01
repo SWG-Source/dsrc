@@ -1888,91 +1888,134 @@ public class combat_actions extends script.systems.combat.combat_base
     {
         if (!buff.isInStance(self))
         {
+            sendSystemMessage(self, new string_id("spam", "fs_command_no_stance"));
             return SCRIPT_OVERRIDE;
         }
         if (!combatStandardAction("fs_flurry_1", self, target, params, "", ""))
         {
             return SCRIPT_OVERRIDE;
         }
-        buff.removeBuff(self, "jedi_reflect_flurry");
+        float baseCooldownTime = getBaseCooldownTime("fs_flurry_1");
+        if (baseCooldownTime < 0)
+        {
+            return SCRIPT_OVERRIDE;
+        }
+        setCommandTimerValue(self, TIMER_COOLDOWN, baseCooldownTime);
         return SCRIPT_CONTINUE;
     }
     public int fs_flurry_2(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException
     {
         if (!buff.isInStance(self))
         {
+            sendSystemMessage(self, new string_id("spam", "fs_command_no_stance"));
             return SCRIPT_OVERRIDE;
         }
         if (!combatStandardAction("fs_flurry_2", self, target, params, "", ""))
         {
+            sendSystemMessage(self, new string_id("spam", "fs_command_no_stance"));
             return SCRIPT_OVERRIDE;
         }
-        buff.removeBuff(self, "jedi_reflect_flurry");
+        float baseCooldownTime = getBaseCooldownTime("fs_flurry_2");
+        if (baseCooldownTime < 0)
+        {
+            return SCRIPT_OVERRIDE;
+        }
+        setCommandTimerValue(self, TIMER_COOLDOWN, baseCooldownTime);
         return SCRIPT_CONTINUE;
     }
     public int fs_flurry_3(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException
     {
         if (!buff.isInStance(self))
         {
+            sendSystemMessage(self, new string_id("spam", "fs_command_no_stance"));
             return SCRIPT_OVERRIDE;
         }
         if (!combatStandardAction("fs_flurry_3", self, target, params, "", ""))
         {
             return SCRIPT_OVERRIDE;
         }
-        buff.removeBuff(self, "jedi_reflect_flurry");
+        float baseCooldownTime = getBaseCooldownTime("fs_flurry_3");
+        if (baseCooldownTime < 0)
+        {
+            return SCRIPT_OVERRIDE;
+        }
+        setCommandTimerValue(self, TIMER_COOLDOWN, baseCooldownTime);
         return SCRIPT_CONTINUE;
     }
     public int fs_flurry_4(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException
     {
         if (!buff.isInStance(self))
         {
+            sendSystemMessage(self, new string_id("spam", "fs_command_no_stance"));
             return SCRIPT_OVERRIDE;
         }
         if (!combatStandardAction("fs_flurry_4", self, target, params, "", ""))
         {
             return SCRIPT_OVERRIDE;
         }
-        buff.removeBuff(self, "jedi_reflect_flurry");
+        float baseCooldownTime = getBaseCooldownTime("fs_flurry_4");
+        if (baseCooldownTime < 0)
+        {
+            return SCRIPT_OVERRIDE;
+        }
+        setCommandTimerValue(self, TIMER_COOLDOWN, baseCooldownTime);
         return SCRIPT_CONTINUE;
     }
     public int fs_flurry_5(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException
     {
         if (!buff.isInStance(self))
         {
+            sendSystemMessage(self, new string_id("spam", "fs_command_no_stance"));
             return SCRIPT_OVERRIDE;
         }
         if (!combatStandardAction("fs_flurry_5", self, target, params, "", ""))
         {
             return SCRIPT_OVERRIDE;
         }
-        buff.removeBuff(self, "jedi_reflect_flurry");
+        float baseCooldownTime = getBaseCooldownTime("fs_flurry_5");
+        if (baseCooldownTime < 0)
+        {
+            return SCRIPT_OVERRIDE;
+        }
+        setCommandTimerValue(self, TIMER_COOLDOWN, baseCooldownTime);
         return SCRIPT_CONTINUE;
     }
     public int fs_flurry_6(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException
     {
         if (!buff.isInStance(self))
         {
+            sendSystemMessage(self, new string_id("spam", "fs_command_no_stance"));
             return SCRIPT_OVERRIDE;
         }
         if (!combatStandardAction("fs_flurry_6", self, target, params, "", ""))
         {
             return SCRIPT_OVERRIDE;
         }
-        buff.removeBuff(self, "jedi_reflect_flurry");
+        float baseCooldownTime = getBaseCooldownTime("fs_flurry_6");
+        if (baseCooldownTime < 0)
+        {
+            return SCRIPT_OVERRIDE;
+        }
+        setCommandTimerValue(self, TIMER_COOLDOWN, baseCooldownTime);
         return SCRIPT_CONTINUE;
     }
     public int fs_flurry_7(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException
     {
         if (!buff.isInStance(self))
         {
+            sendSystemMessage(self, new string_id("spam", "fs_command_no_stance"));
             return SCRIPT_OVERRIDE;
         }
         if (!combatStandardAction("fs_flurry_7", self, target, params, "", ""))
         {
             return SCRIPT_OVERRIDE;
         }
-        buff.removeBuff(self, "jedi_reflect_flurry");
+        float baseCooldownTime = getBaseCooldownTime("fs_flurry_7");
+        if (baseCooldownTime < 0)
+        {
+            return SCRIPT_OVERRIDE;
+        }
+        setCommandTimerValue(self, TIMER_COOLDOWN, baseCooldownTime);
         return SCRIPT_CONTINUE;
     }
     public int fs_dm_1(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException
