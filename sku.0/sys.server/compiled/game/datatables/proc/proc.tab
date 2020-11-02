@@ -38,7 +38,7 @@ bh_armor_duelist_heal_3	100				expertise bounty hunter reactive heal
 bh_armor_duelist_heal_4	100				expertise bounty hunter reactive heal
 bh_armor_duelist_heal_5	100				expertise bounty hunter reactive heal
 expertise_fs_force_clarity_1_proc	5				Expertise to get a second attack
-expertise_fs_flurry_charge_proc	5				Expertise to charge up a Flurry charge
+expertise_fs_flurry_charge_proc	0				Expertise to charge up a Flurry charge- procChance set to 0 from 5 so it is effectively removed per GU 16.6
 expertise_sm_ranged_shot_proc	0				Expertise to get a second attack
 expertise_sm_melee_proc	0				Expertise to get a second attack
 expertise_sm_melee_stun_proc	0		"sm_melee_stun,sm_melee_stun_recourse"		Expertise to get a second attack that stuns
