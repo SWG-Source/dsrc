@@ -48,7 +48,7 @@ public class terminal_character_builder extends script.base_script
     public static final String RLS_EFFECT = "appearance/pt_blackhole_01.prt";
     public static final String RLS_SOUND = "sound/item_ding.snd";
     public static final String[] CHARACTER_BUILDER_OPTIONS = {
-        "Development Testing",
+        "SWG Source Testing",
         "Weapons",
         "Armor",
         "Skills",
@@ -976,6 +976,11 @@ public class terminal_character_builder extends script.base_script
         "Heavy Gas Harvester",
         "Heavy Chemical Harvester",
         "Heavy Moisture Vaporator",
+        "Elite Mineral Harvester",
+        "Elite Flora Harvester",
+        "Elite Gas Harvester",
+        "Elite Chemical Harvester",
+        "Elite Moisture Vaporator",
         "Fusion Reactor",
         "Corellia City Pack",
         "Naboo City Pack",
@@ -4728,7 +4733,47 @@ public class terminal_character_builder extends script.base_script
                 setObjVar(moisture, "player_structure.deed.currentExtractionRate", 13);
             }
             break;
-            case 14:
+			case 14:
+                mineral = createObject("object/tangible/deed/harvester_deed/ore_harvester_deed_elite.iff", pInv, "");
+                sendSystemMessageTestingOnly(player, "Elite Mineral Harvester Issued.");
+                if (isIdValid(mineral)) {
+                    setObjVar(mineral, "player_structure.deed.maxExtractionRate", 13);
+                    setObjVar(mineral, "player_structure.deed.currentExtractionRate", 13);
+            }
+            break;
+            case 15:
+                flora = createObject("object/tangible/deed/harvester_deed/flora_harvester_deed_elite.iff", pInv, "");
+                sendSystemMessageTestingOnly(player, "Elite Flora Harvester Issued.");
+                if (isIdValid(flora)) {
+                    setObjVar(flora, "player_structure.deed.maxExtractionRate", 13);
+                    setObjVar(flora, "player_structure.deed.currentExtractionRate", 13);
+            }
+            break;
+            case 16:
+                gas = createObject("object/tangible/deed/harvester_deed/gas_harvester_deed_elite.iff", pInv, "");
+                sendSystemMessageTestingOnly(player, "Elite Gas Harvester Issued.");
+                if (isIdValid(gas)) {
+                    setObjVar(gas, "player_structure.deed.maxExtractionRate", 13);
+                    setObjVar(gas, "player_structure.deed.currentExtractionRate", 13);
+            }
+            break;
+            case 17:
+                chemical = createObject("object/tangible/deed/harvester_deed/liquid_harvester_deed_elite.iff", pInv, "");
+                sendSystemMessageTestingOnly(player, "Elite Chemical Harvester Issued.");
+                if (isIdValid(chemical)) {
+                    setObjVar(chemical, "player_structure.deed.maxExtractionRate", 13);
+                    setObjVar(chemical, "player_structure.deed.currentExtractionRate", 13);
+            }
+            break;
+            case 18:
+                moisture = createObject("object/tangible/deed/harvester_deed/moisture_harvester_deed_elite.iff", pInv, "");
+                sendSystemMessageTestingOnly(player, "Heavy Moisture Vaporator Issued.");
+                if (isIdValid(moisture)) {
+                    setObjVar(moisture, "player_structure.deed.maxExtractionRate", 13);
+                    setObjVar(moisture, "player_structure.deed.currentExtractionRate", 13);
+            }
+            break;
+            case 19:
             obj_id fusion = createObject("object/tangible/deed/generator_deed/power_generator_fusion_deed.iff", pInv, "");
             sendSystemMessageTestingOnly(player, "Fusion Reactor Issued.");
             if (isIdValid(fusion))
@@ -4737,7 +4782,7 @@ public class terminal_character_builder extends script.base_script
                 setObjVar(fusion, "player_structure.deed.currentExtractionRate", 16);
             }
             break;
-            case 15:
+            case 20:
             createObject("object/tangible/deed/city_deed/cityhall_corellia_deed.iff", pInv, "");
             createObject("object/tangible/deed/city_deed/cloning_corellia_deed.iff", pInv, "");
             createObject("object/tangible/deed/city_deed/bank_corellia_deed.iff", pInv, "");
@@ -4747,7 +4792,7 @@ public class terminal_character_builder extends script.base_script
             createObject("object/tangible/deed/city_deed/garden_corellia_sml_01_deed.iff", pInv, "");
             sendSystemMessageTestingOnly(player, "Corellia City Pack Created");
             break;
-            case 16:
+            case 21:
             createObject("object/tangible/deed/city_deed/cityhall_naboo_deed.iff", pInv, "");
             createObject("object/tangible/deed/city_deed/cloning_naboo_deed.iff", pInv, "");
             createObject("object/tangible/deed/city_deed/bank_naboo_deed.iff", pInv, "");
@@ -4757,7 +4802,7 @@ public class terminal_character_builder extends script.base_script
             createObject("object/tangible/deed/city_deed/garden_naboo_sml_01_deed.iff", pInv, "");
             sendSystemMessageTestingOnly(player, "Naboo City Pack Created");
             break;
-            case 17:
+            case 22:
             createObject("object/tangible/deed/city_deed/cityhall_tatooine_deed.iff", pInv, "");
             createObject("object/tangible/deed/city_deed/cloning_tatooine_deed.iff", pInv, "");
             createObject("object/tangible/deed/city_deed/bank_tatooine_deed.iff", pInv, "");
@@ -4767,7 +4812,7 @@ public class terminal_character_builder extends script.base_script
             createObject("object/tangible/deed/city_deed/garden_tatooine_sml_01_deed.iff", pInv, "");
             sendSystemMessageTestingOnly(player, "Tatooine City Pack Created");
             break;
-            case 18:
+            case 23:
             static_item.createNewItemFunction("item_tcg_loot_reward_series2_diner", pInv);
             static_item.createNewItemFunction("item_tcg_loot_reward_series2_barn", pInv);
             static_item.createNewItemFunction("item_tcg_loot_reward_series3_sith_meditation_room_deed", pInv);
