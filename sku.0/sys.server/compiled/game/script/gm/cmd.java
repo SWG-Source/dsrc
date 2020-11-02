@@ -3973,14 +3973,39 @@ public class cmd extends script.base_script
         {
             return SCRIPT_CONTINUE;
         }
-        if (utils.hasScriptVar(self, gm.INSTANCE_AUTH))
-        {
-            utils.removeScriptVar(self, gm.INSTANCE_AUTH);
-            sendSystemMessageTestingOnly(self, "You will no longer override instance authorization");
-            return SCRIPT_CONTINUE;
+        if (params.contains(gm.KEYWORD_TARGET)) {
+            params = gm.removeKeyword(params, gm.KEYWORD_TARGET);
+        } else {
+            target = self;
         }
-        utils.setScriptVar(self, gm.INSTANCE_AUTH, 1);
-        sendSystemMessageTestingOnly(self, "You are now overriding private instance authorization checks");
+        String[] instanceFlags = dataTableGetStringColumn(instance.INSTANCE_DATATABLE, "key_required");
+        if (instanceFlags != null && instanceFlags.length > 0) {
+            if(utils.hasScriptVar(target, gm.INSTANCE_AUTH)) {
+                utils.removeScriptVar(target, gm.INSTANCE_AUTH);
+                for (String flag : instanceFlags) {
+                    if (flag != null && flag.length() > 0) {
+                        instance.removePlayerFlagForInstance(target, flag);
+                    }
+                }
+                sendSystemMessageTestingOnly(target, "You are no longer flagged for or overriding instance authorization.");
+                if(target != self) {
+                    sendSystemMessageTestingOnly(self, "setInstanceAuthorized: You have removed flags and instance authorization for "+getPlayerName(target)+" ("+target+"). Use this command again to re-grant instance overrides.");
+                }
+                return SCRIPT_CONTINUE;
+            }
+            else {
+                utils.setScriptVar(target, gm.INSTANCE_AUTH, 1);
+                for (String flag : instanceFlags) {
+                    if (flag != null && flag.length() > 0) {
+                        instance.flagPlayerForInstance(target, flag);
+                    }
+                }
+                sendSystemMessageTestingOnly(target, "You are now flagged for all instances and overriding instance authorization.");
+                if(target != self) {
+                    sendSystemMessageTestingOnly(self, "setInstanceAuthorized: You have flagged "+getPlayerName(target)+" ("+target+") to access all instances and overrode their instance authorization. Use this command again to revert this override.");
+                }
+            }
+        }
         return SCRIPT_CONTINUE;
     }
     public int cmdCombatDataRecord(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException
