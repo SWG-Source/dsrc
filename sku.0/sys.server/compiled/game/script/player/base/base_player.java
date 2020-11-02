@@ -384,6 +384,7 @@ public class base_player extends script.base_script
         return SCRIPT_CONTINUE;
     }
     public void grantLevelSpecificRewards(obj_id player, int newCombatLevel) throws InterruptedException{
+        if(!utils.checkConfigFlag("Custom", "grantLevelSpecificRewards")) return;
         if(hasObjVar(player, "level.reward." + newCombatLevel)) return;
         obj_id inv = utils.getInventoryContainer(player);
         switch(newCombatLevel){
