@@ -36,6 +36,10 @@ public class vendor extends script.base_script
         {
             return SCRIPT_CONTINUE;
         }
+        if (hasObjVar(self, VENDOR_CONTAINER_LIST_OBJVAR))
+        {
+            return SCRIPT_CONTINUE;
+        }
         if (isDead(self))
         {
             return SCRIPT_CONTINUE;
