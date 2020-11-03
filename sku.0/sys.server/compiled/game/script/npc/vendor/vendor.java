@@ -38,6 +38,9 @@ public class vendor extends script.base_script
         }
         if (hasObjVar(self, VENDOR_CONTAINER_LIST_OBJVAR))
         {
+            if (utils.checkConfigFlag("GameServer", "forceVendorItemRecreation")) {
+                handleCleanVendor(self);
+            }
             return SCRIPT_CONTINUE;
         }
         if (isDead(self))
@@ -221,4 +224,32 @@ public class vendor extends script.base_script
         queueCommand(player, (1880585606), container, "", COMMAND_PRIORITY_DEFAULT);
         return SCRIPT_CONTINUE;
     }
+
+    /*
+    The bug fix applied to prevent cyclical container creation on initialization that caused issues with persisted faction recruiters inside bases
+    uses an ObjVar check against if the container array has already been set. However, this creates a new bug in that vendors cannot auto-update,
+    meaning changes to the items, prices, etc. in a vendor item datatable does not actually update the vendor because the ObjVar check stops it from
+    iterating through the items datatable to populate the vendor's containers on initialization.
+
+    handleVendorCleanup is intended to be called either (a) when a change to a datatable has been detected or (b) when a config option forces the cleanup.
+    A versioning solution for datatables that can auto-detect a change has been made and trigger a vendor to rebuild its containers is currently in the works (king Cekis).
+    Until that is available, a config option to force the cleanup and re-initialization of vendors at startup is also available.
+    Cleanup is handled by deleting both all items in the containers and the containers themselves to avoid orphaning random objects, and then triggering initialization again.
+     */
+    //TODO full implementation with versioning
+    public void handleCleanVendor(obj_id self) throws InterruptedException {
+        obj_id[] containers = getContents(utils.getInventoryContainer(self));
+        for (obj_id container : containers) {
+            if(getTemplateName(container).equals(VENDOR_CONTAINER_TEMPLATE)) {
+                obj_id[] contents = getContents(container);
+                for (obj_id item : contents) {
+                    destroyObject(item);
+                }
+                destroyObject(container);
+            }
+        }
+        removeObjVar(self, VENDOR_CONTAINER_LIST_OBJVAR);
+        messageTo(self, "handleInitializeVendor", null, 10, false);
+    }
+
 }
