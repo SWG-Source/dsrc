@@ -1523,7 +1523,8 @@ public class base_player extends script.base_script
         if (!isInTutorialArea(self))
         {
             if(hasObjVar(self, "npe.phase_number")) {
-                if(getIntObjVar(self, "npe.phase_number") == 3) {
+                String bt = getTemplateName(getTopMostContainer(self));
+                if(!isGod(self) && getIntObjVar(self, "npe.phase_number") == 3 && !bt.contains("npe_space_dungeon")) {
                     getClusterWideData("npe_public_instances", "npe_space_station*", false, self);
                 }
             } else {
