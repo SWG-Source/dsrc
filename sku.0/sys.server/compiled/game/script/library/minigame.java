@@ -1339,6 +1339,7 @@ public class minigame extends script.base_script
         }
         LOG("fishingLog", "datatable ROW - " + row);
         setFishData(fish, row, target, castLoc);
+        fishing.handleElusiveFishRollAndWin(target, fish);
         return fish;
     }
     public static dictionary getFishData(obj_id target, location castLoc) throws InterruptedException

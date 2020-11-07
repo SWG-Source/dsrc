@@ -1,5 +1,6 @@
 package script.fishing;
 
+import script.library.fishing;
 import script.library.minigame;
 import script.library.utils;
 import script.menu_info;
@@ -19,6 +20,7 @@ public class pole extends script.base_script
     private static final string_id MNU_START_FISHING = new string_id(minigame.STF_FISH, "mnu_start_fishing");
     private static final string_id MNU_STOP_FISHING = new string_id(minigame.STF_FISH, "mnu_stop_fishing");
     private static final string_id SID_NO_FISH_IN_SPACE = new string_id("space/space_interaction", "no_fish_in_space");
+    private static final string_id ELUSIVE_FISH_LEADERBOARD = new string_id(minigame.STF_FISH, "mnu_fishing_record_elusive_fish");
     private static final String STF_FISH = "fishing";
     public int OnObjectMenuRequest(obj_id self, obj_id player, menu_info mi) throws InterruptedException
     {
@@ -49,6 +51,7 @@ public class pole extends script.base_script
                 mi.addRootMenu(menu_info_types.SERVER_MENU3, MNU_STOP_FISHING);
             }
         }
+        mi.addRootMenu(menu_info_types.SERVER_MENU30, ELUSIVE_FISH_LEADERBOARD);
         return SCRIPT_CONTINUE;
     }
     public int OnObjectMenuSelect(obj_id self, obj_id player, int item) throws InterruptedException
@@ -74,6 +77,13 @@ public class pole extends script.base_script
             else if (item == menu_info_types.SERVER_MENU3)
             {
                 minigame.stopFishing(player);
+            }
+        }
+        if(item == menu_info_types.SERVER_MENU30) {
+            if(fishing.getElusiveFishRewardedCount() > 0) {
+                fishing.showElusiveFishLeaderboard(player, null);
+            } else {
+                sendSystemMessageTestingOnly(player, "No ELUSIVE Fish have been captured yet so the Leaderboard is empty.");
             }
         }
         return SCRIPT_CONTINUE;

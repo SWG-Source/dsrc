@@ -1,5 +1,6 @@
 package script.fishing;
 
+import script.library.fishing;
 import script.library.minigame;
 import script.library.utils;
 import script.*;
@@ -21,7 +22,7 @@ public class fish extends script.base_script
         if (utils.isNestedWithin(self, inv))
         {
             obj_id[] contents = getContents(self);
-            if (contents != null && contents.length > 0)
+            if (contents != null && contents.length > 0 && !fishing.isElusiveFish(self))
             {
                 mi.addRootMenu(menu_info_types.SERVER_MENU1, SID_FILET);
             }
