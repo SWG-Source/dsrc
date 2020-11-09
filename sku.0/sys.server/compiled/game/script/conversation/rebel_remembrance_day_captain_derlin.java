@@ -2938,7 +2938,7 @@ public class rebel_remembrance_day_captain_derlin extends script.base_script
         {
             if (rebel_remembrance_day_captain_derlin_condition_isNeutralPlayer(player, npc))
             {
-                string_id message = new string_id(c_stringFile, "s_141");
+                string_id message = new string_id(c_stringFile, "s_135");
                 int numberOfResponses = 0;
                 boolean hasResponse = false;
                 boolean hasResponse0 = false;
@@ -3008,7 +3008,7 @@ public class rebel_remembrance_day_captain_derlin extends script.base_script
             if (rebel_remembrance_day_captain_derlin_condition_canDoAtLeastOneEvent(player, npc))
             {
                 rebel_remembrance_day_captain_derlin_action_setCombatantVandalEventOnPlayer(player, npc);
-                string_id message = new string_id(c_stringFile, "s_147");
+                string_id message = new string_id(c_stringFile, "s_139");
                 utils.removeScriptVar(player, "conversation.rebel_remembrance_day_captain_derlin.branchId");
                 npcEndConversationWithMessage(player, message);
                 return SCRIPT_CONTINUE;
@@ -3016,7 +3016,7 @@ public class rebel_remembrance_day_captain_derlin extends script.base_script
             if (!rebel_remembrance_day_captain_derlin_condition_canDoAtLeastOneEvent(player, npc))
             {
                 rebel_remembrance_day_captain_derlin_action_setCombatantVandalEventOnPlayer(player, npc);
-                string_id message = new string_id(c_stringFile, "s_148");
+                string_id message = new string_id(c_stringFile, "s_140");
                 utils.removeScriptVar(player, "conversation.rebel_remembrance_day_captain_derlin.branchId");
                 npcEndConversationWithMessage(player, message);
                 return SCRIPT_CONTINUE;
@@ -3882,7 +3882,7 @@ public class rebel_remembrance_day_captain_derlin extends script.base_script
         {
             doAnimationAction(npc, "salute2");
             doAnimationAction(player, "salute2");
-            string_id message = new string_id(c_stringFile, "s_132");
+            string_id message = new string_id(c_stringFile, "s_68");
             int numberOfResponses = 0;
             boolean hasResponse = false;
             boolean hasResponse0 = false;
