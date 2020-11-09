@@ -81,7 +81,7 @@ public class pole extends script.base_script
         }
         if(item == menu_info_types.SERVER_MENU30) {
             if(fishing.getElusiveFishRewardedCount() > 0) {
-                fishing.showElusiveFishLeaderboard(player, null);
+                fishing.showElusiveFishLeaderboard(player);
             } else {
                 sendSystemMessageTestingOnly(player, "No ELUSIVE Fish have been captured yet so the Leaderboard is empty.");
             }
