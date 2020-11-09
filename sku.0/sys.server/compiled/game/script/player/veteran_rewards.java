@@ -983,6 +983,7 @@ public class veteran_rewards extends script.base_script
         int bp = sui.getIntButtonPressed(params);
         if ((bp == sui.BP_OK) && (isValidLocationForCts(self, true)))
         {
+            removeObjVar(self, fishing.OBJVAR_ELUSIVE_FISH_PLAYER_CAUGHT_COUNT); // you can't keep your old galaxy's elusive fish record when you CTS
             performFreeCts(self, destinationGalaxy, destinationCharacterName);
             utils.setScriptVar(self, SCRIPTVAR_FREE_CTS_REQUEST_TIMEOUT, getGameTime() + 300);
         }
@@ -1345,6 +1346,7 @@ public class veteran_rewards extends script.base_script
         if ((bp == sui.BP_OK) && isValidLocationForCts(self, false) && verifyItemForCts(self, item))
         {
             CustomerServiceLog("CharacterTransfer", "requesting ingame CTS for character " + self + " using item " + item);
+            removeObjVar(self, fishing.OBJVAR_ELUSIVE_FISH_PLAYER_CAUGHT_COUNT); // you can't keep your old galaxy's elusive fish record when you CTS
             performCts(self, destinationGalaxy, destinationCharacterName);
             utils.setScriptVar(self, cts.SCRIPTVAR_CTS_ITEM_ID, item);
             utils.setScriptVar(self, SCRIPTVAR_CTS_REQUEST_TIMEOUT, getGameTime() + 300);
