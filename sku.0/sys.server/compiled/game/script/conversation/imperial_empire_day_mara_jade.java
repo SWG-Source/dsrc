@@ -1523,7 +1523,7 @@ public class imperial_empire_day_mara_jade extends script.base_script
     }
     public int imperial_empire_day_mara_jade_handleBranch35(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
-        if (response.equals("s_110"))
+        if (response.equals("s_118"))
         {
             if (imperial_empire_day_mara_jade_condition__defaultCondition(player, npc))
             {
@@ -1651,7 +1651,7 @@ public class imperial_empire_day_mara_jade extends script.base_script
     }
     public int imperial_empire_day_mara_jade_handleBranch36(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
-        if (response.equals("s_121"))
+        if (response.equals("s_128"))
         {
             doAnimationAction(player, "shrug_shoulders");
             if (imperial_empire_day_mara_jade_condition__defaultCondition(player, npc))
