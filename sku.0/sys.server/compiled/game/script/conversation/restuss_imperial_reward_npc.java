@@ -473,10 +473,6 @@ public class restuss_imperial_reward_npc extends script.base_script
                     {
                         responses[responseIndex++] = new string_id(c_stringFile, "s_351");
                     }
-                    if (hasResponse2)
-                    {
-                        responses[responseIndex++] = new string_id(c_stringFile, "s_153");
-                    }
                     utils.setScriptVar(player, "conversation.restuss_imperial_reward_npc.branchId", 4);
                     npcSpeak(player, message);
                     npcSetConversationResponses(player, responses);
@@ -489,25 +485,25 @@ public class restuss_imperial_reward_npc extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        if (response.equals("s_199"))
+        if (response.equals("s_213"))
         {
             doAnimationAction(player, "shake_head_no");
             if (restuss_imperial_reward_npc_condition__defaultCondition(player, npc))
             {
                 doAnimationAction(npc, "salute2");
                 doAnimationAction(player, "salute2");
-                string_id message = new string_id(c_stringFile, "s_201");
+                string_id message = new string_id(c_stringFile, "s_217");
                 utils.removeScriptVar(player, "conversation.restuss_imperial_reward_npc.branchId");
                 npcEndConversationWithMessage(player, message);
                 return SCRIPT_CONTINUE;
             }
         }
-        if (response.equals("s_205"))
+        if (response.equals("s_221"))
         {
             if (restuss_imperial_reward_npc_condition_eligibleBadge(player, npc))
             {
                 restuss_imperial_reward_npc_action_grantBadge(player, npc);
-                string_id message = new string_id(c_stringFile, "s_209");
+                string_id message = new string_id(c_stringFile, "s_223");
                 utils.removeScriptVar(player, "conversation.restuss_imperial_reward_npc.branchId");
                 npcEndConversationWithMessage(player, message);
                 return SCRIPT_CONTINUE;
@@ -515,7 +511,7 @@ public class restuss_imperial_reward_npc extends script.base_script
             if (restuss_imperial_reward_npc_condition__defaultCondition(player, npc))
             {
                 doAnimationAction(npc, "shake_head_no");
-                string_id message = new string_id(c_stringFile, "s_213");
+                string_id message = new string_id(c_stringFile, "s_232");
                 utils.removeScriptVar(player, "conversation.restuss_imperial_reward_npc.branchId");
                 npcEndConversationWithMessage(player, message);
                 return SCRIPT_CONTINUE;
@@ -758,51 +754,6 @@ public class restuss_imperial_reward_npc extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        if (response.equals("s_153"))
-        {
-            if (restuss_imperial_reward_npc_condition__defaultCondition(player, npc))
-            {
-                string_id message = new string_id(c_stringFile, "s_161");
-                int numberOfResponses = 0;
-                boolean hasResponse = false;
-                boolean hasResponse0 = false;
-                if (restuss_imperial_reward_npc_condition_cost50Really(player, npc))
-                {
-                    ++numberOfResponses;
-                    hasResponse = true;
-                    hasResponse0 = true;
-                }
-                boolean hasResponse1 = false;
-                if (restuss_imperial_reward_npc_condition__defaultCondition(player, npc))
-                {
-                    ++numberOfResponses;
-                    hasResponse = true;
-                    hasResponse1 = true;
-                }
-                if (hasResponse)
-                {
-                    int responseIndex = 0;
-                    string_id responses[] = new string_id[numberOfResponses];
-                    if (hasResponse0)
-                    {
-                        responses[responseIndex++] = new string_id(c_stringFile, "s_171");
-                    }
-                    if (hasResponse1)
-                    {
-                        responses[responseIndex++] = new string_id(c_stringFile, "s_195");
-                    }
-                    utils.setScriptVar(player, "conversation.restuss_imperial_reward_npc.branchId", 93);
-                    npcSpeak(player, message);
-                    npcSetConversationResponses(player, responses);
-                }
-                else 
-                {
-                    utils.removeScriptVar(player, "conversation.restuss_imperial_reward_npc.branchId");
-                    npcEndConversationWithMessage(player, message);
-                }
-                return SCRIPT_CONTINUE;
-            }
-        }
         return SCRIPT_DEFAULT;
     }
     public int restuss_imperial_reward_npc_handleBranch5(obj_id player, obj_id npc, string_id response) throws InterruptedException
@@ -888,10 +839,6 @@ public class restuss_imperial_reward_npc extends script.base_script
                     if (hasResponse1)
                     {
                         responses[responseIndex++] = new string_id(c_stringFile, "s_351");
-                    }
-                    if (hasResponse2)
-                    {
-                        responses[responseIndex++] = new string_id(c_stringFile, "s_153");
                     }
                     utils.setScriptVar(player, "conversation.restuss_imperial_reward_npc.branchId", 4);
                     npcSpeak(player, message);
@@ -987,10 +934,6 @@ public class restuss_imperial_reward_npc extends script.base_script
                     {
                         responses[responseIndex++] = new string_id(c_stringFile, "s_351");
                     }
-                    if (hasResponse2)
-                    {
-                        responses[responseIndex++] = new string_id(c_stringFile, "s_153");
-                    }
                     utils.setScriptVar(player, "conversation.restuss_imperial_reward_npc.branchId", 4);
                     npcSpeak(player, message);
                     npcSetConversationResponses(player, responses);
@@ -1084,10 +1027,6 @@ public class restuss_imperial_reward_npc extends script.base_script
                     if (hasResponse1)
                     {
                         responses[responseIndex++] = new string_id(c_stringFile, "s_351");
-                    }
-                    if (hasResponse2)
-                    {
-                        responses[responseIndex++] = new string_id(c_stringFile, "s_153");
                     }
                     utils.setScriptVar(player, "conversation.restuss_imperial_reward_npc.branchId", 4);
                     npcSpeak(player, message);
@@ -1183,10 +1122,6 @@ public class restuss_imperial_reward_npc extends script.base_script
                     {
                         responses[responseIndex++] = new string_id(c_stringFile, "s_351");
                     }
-                    if (hasResponse2)
-                    {
-                        responses[responseIndex++] = new string_id(c_stringFile, "s_153");
-                    }
                     utils.setScriptVar(player, "conversation.restuss_imperial_reward_npc.branchId", 4);
                     npcSpeak(player, message);
                     npcSetConversationResponses(player, responses);
@@ -1280,10 +1215,6 @@ public class restuss_imperial_reward_npc extends script.base_script
                     if (hasResponse1)
                     {
                         responses[responseIndex++] = new string_id(c_stringFile, "s_351");
-                    }
-                    if (hasResponse2)
-                    {
-                        responses[responseIndex++] = new string_id(c_stringFile, "s_153");
                     }
                     utils.setScriptVar(player, "conversation.restuss_imperial_reward_npc.branchId", 4);
                     npcSpeak(player, message);
@@ -1421,10 +1352,6 @@ public class restuss_imperial_reward_npc extends script.base_script
                     {
                         responses[responseIndex++] = new string_id(c_stringFile, "s_351");
                     }
-                    if (hasResponse2)
-                    {
-                        responses[responseIndex++] = new string_id(c_stringFile, "s_153");
-                    }
                     utils.setScriptVar(player, "conversation.restuss_imperial_reward_npc.branchId", 4);
                     npcSpeak(player, message);
                     npcSetConversationResponses(player, responses);
@@ -1518,10 +1445,6 @@ public class restuss_imperial_reward_npc extends script.base_script
                     if (hasResponse1)
                     {
                         responses[responseIndex++] = new string_id(c_stringFile, "s_351");
-                    }
-                    if (hasResponse2)
-                    {
-                        responses[responseIndex++] = new string_id(c_stringFile, "s_153");
                     }
                     utils.setScriptVar(player, "conversation.restuss_imperial_reward_npc.branchId", 4);
                     npcSpeak(player, message);
@@ -1617,10 +1540,6 @@ public class restuss_imperial_reward_npc extends script.base_script
                     {
                         responses[responseIndex++] = new string_id(c_stringFile, "s_351");
                     }
-                    if (hasResponse2)
-                    {
-                        responses[responseIndex++] = new string_id(c_stringFile, "s_153");
-                    }
                     utils.setScriptVar(player, "conversation.restuss_imperial_reward_npc.branchId", 4);
                     npcSpeak(player, message);
                     npcSetConversationResponses(player, responses);
@@ -1698,10 +1617,6 @@ public class restuss_imperial_reward_npc extends script.base_script
                     if (hasResponse1)
                     {
                         responses[responseIndex++] = new string_id(c_stringFile, "s_351");
-                    }
-                    if (hasResponse2)
-                    {
-                        responses[responseIndex++] = new string_id(c_stringFile, "s_153");
                     }
                     utils.setScriptVar(player, "conversation.restuss_imperial_reward_npc.branchId", 4);
                     npcSpeak(player, message);
@@ -1952,51 +1867,6 @@ public class restuss_imperial_reward_npc extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        if (response.equals("s_153"))
-        {
-            if (restuss_imperial_reward_npc_condition__defaultCondition(player, npc))
-            {
-                string_id message = new string_id(c_stringFile, "s_161");
-                int numberOfResponses = 0;
-                boolean hasResponse = false;
-                boolean hasResponse0 = false;
-                if (restuss_imperial_reward_npc_condition_cost50Really(player, npc))
-                {
-                    ++numberOfResponses;
-                    hasResponse = true;
-                    hasResponse0 = true;
-                }
-                boolean hasResponse1 = false;
-                if (restuss_imperial_reward_npc_condition__defaultCondition(player, npc))
-                {
-                    ++numberOfResponses;
-                    hasResponse = true;
-                    hasResponse1 = true;
-                }
-                if (hasResponse)
-                {
-                    int responseIndex = 0;
-                    string_id responses[] = new string_id[numberOfResponses];
-                    if (hasResponse0)
-                    {
-                        responses[responseIndex++] = new string_id(c_stringFile, "s_171");
-                    }
-                    if (hasResponse1)
-                    {
-                        responses[responseIndex++] = new string_id(c_stringFile, "s_195");
-                    }
-                    utils.setScriptVar(player, "conversation.restuss_imperial_reward_npc.branchId", 93);
-                    npcSpeak(player, message);
-                    npcSetConversationResponses(player, responses);
-                }
-                else 
-                {
-                    utils.removeScriptVar(player, "conversation.restuss_imperial_reward_npc.branchId");
-                    npcEndConversationWithMessage(player, message);
-                }
-                return SCRIPT_CONTINUE;
-            }
-        }
         return SCRIPT_DEFAULT;
     }
     public int restuss_imperial_reward_npc_handleBranch10(obj_id player, obj_id npc, string_id response) throws InterruptedException
@@ -2234,51 +2104,6 @@ public class restuss_imperial_reward_npc extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        if (response.equals("s_153"))
-        {
-            if (restuss_imperial_reward_npc_condition__defaultCondition(player, npc))
-            {
-                string_id message = new string_id(c_stringFile, "s_161");
-                int numberOfResponses = 0;
-                boolean hasResponse = false;
-                boolean hasResponse0 = false;
-                if (restuss_imperial_reward_npc_condition_cost50Really(player, npc))
-                {
-                    ++numberOfResponses;
-                    hasResponse = true;
-                    hasResponse0 = true;
-                }
-                boolean hasResponse1 = false;
-                if (restuss_imperial_reward_npc_condition__defaultCondition(player, npc))
-                {
-                    ++numberOfResponses;
-                    hasResponse = true;
-                    hasResponse1 = true;
-                }
-                if (hasResponse)
-                {
-                    int responseIndex = 0;
-                    string_id responses[] = new string_id[numberOfResponses];
-                    if (hasResponse0)
-                    {
-                        responses[responseIndex++] = new string_id(c_stringFile, "s_171");
-                    }
-                    if (hasResponse1)
-                    {
-                        responses[responseIndex++] = new string_id(c_stringFile, "s_195");
-                    }
-                    utils.setScriptVar(player, "conversation.restuss_imperial_reward_npc.branchId", 93);
-                    npcSpeak(player, message);
-                    npcSetConversationResponses(player, responses);
-                }
-                else 
-                {
-                    utils.removeScriptVar(player, "conversation.restuss_imperial_reward_npc.branchId");
-                    npcEndConversationWithMessage(player, message);
-                }
-                return SCRIPT_CONTINUE;
-            }
-        }
         return SCRIPT_DEFAULT;
     }
     public int restuss_imperial_reward_npc_handleBranch11(obj_id player, obj_id npc, string_id response) throws InterruptedException
@@ -2344,10 +2169,6 @@ public class restuss_imperial_reward_npc extends script.base_script
                     if (hasResponse1)
                     {
                         responses[responseIndex++] = new string_id(c_stringFile, "s_351");
-                    }
-                    if (hasResponse2)
-                    {
-                        responses[responseIndex++] = new string_id(c_stringFile, "s_153");
                     }
                     utils.setScriptVar(player, "conversation.restuss_imperial_reward_npc.branchId", 4);
                     npcSpeak(player, message);
@@ -2598,51 +2419,6 @@ public class restuss_imperial_reward_npc extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        if (response.equals("s_153"))
-        {
-            if (restuss_imperial_reward_npc_condition__defaultCondition(player, npc))
-            {
-                string_id message = new string_id(c_stringFile, "s_161");
-                int numberOfResponses = 0;
-                boolean hasResponse = false;
-                boolean hasResponse0 = false;
-                if (restuss_imperial_reward_npc_condition_cost50Really(player, npc))
-                {
-                    ++numberOfResponses;
-                    hasResponse = true;
-                    hasResponse0 = true;
-                }
-                boolean hasResponse1 = false;
-                if (restuss_imperial_reward_npc_condition__defaultCondition(player, npc))
-                {
-                    ++numberOfResponses;
-                    hasResponse = true;
-                    hasResponse1 = true;
-                }
-                if (hasResponse)
-                {
-                    int responseIndex = 0;
-                    string_id responses[] = new string_id[numberOfResponses];
-                    if (hasResponse0)
-                    {
-                        responses[responseIndex++] = new string_id(c_stringFile, "s_171");
-                    }
-                    if (hasResponse1)
-                    {
-                        responses[responseIndex++] = new string_id(c_stringFile, "s_195");
-                    }
-                    utils.setScriptVar(player, "conversation.restuss_imperial_reward_npc.branchId", 93);
-                    npcSpeak(player, message);
-                    npcSetConversationResponses(player, responses);
-                }
-                else 
-                {
-                    utils.removeScriptVar(player, "conversation.restuss_imperial_reward_npc.branchId");
-                    npcEndConversationWithMessage(player, message);
-                }
-                return SCRIPT_CONTINUE;
-            }
-        }
         return SCRIPT_DEFAULT;
     }
     public int restuss_imperial_reward_npc_handleBranch15(obj_id player, obj_id npc, string_id response) throws InterruptedException
@@ -2880,51 +2656,6 @@ public class restuss_imperial_reward_npc extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        if (response.equals("s_153"))
-        {
-            if (restuss_imperial_reward_npc_condition__defaultCondition(player, npc))
-            {
-                string_id message = new string_id(c_stringFile, "s_161");
-                int numberOfResponses = 0;
-                boolean hasResponse = false;
-                boolean hasResponse0 = false;
-                if (restuss_imperial_reward_npc_condition_cost50Really(player, npc))
-                {
-                    ++numberOfResponses;
-                    hasResponse = true;
-                    hasResponse0 = true;
-                }
-                boolean hasResponse1 = false;
-                if (restuss_imperial_reward_npc_condition__defaultCondition(player, npc))
-                {
-                    ++numberOfResponses;
-                    hasResponse = true;
-                    hasResponse1 = true;
-                }
-                if (hasResponse)
-                {
-                    int responseIndex = 0;
-                    string_id responses[] = new string_id[numberOfResponses];
-                    if (hasResponse0)
-                    {
-                        responses[responseIndex++] = new string_id(c_stringFile, "s_171");
-                    }
-                    if (hasResponse1)
-                    {
-                        responses[responseIndex++] = new string_id(c_stringFile, "s_195");
-                    }
-                    utils.setScriptVar(player, "conversation.restuss_imperial_reward_npc.branchId", 93);
-                    npcSpeak(player, message);
-                    npcSetConversationResponses(player, responses);
-                }
-                else 
-                {
-                    utils.removeScriptVar(player, "conversation.restuss_imperial_reward_npc.branchId");
-                    npcEndConversationWithMessage(player, message);
-                }
-                return SCRIPT_CONTINUE;
-            }
-        }
         return SCRIPT_DEFAULT;
     }
     public int restuss_imperial_reward_npc_handleBranch16(obj_id player, obj_id npc, string_id response) throws InterruptedException
@@ -2990,10 +2721,6 @@ public class restuss_imperial_reward_npc extends script.base_script
                     if (hasResponse1)
                     {
                         responses[responseIndex++] = new string_id(c_stringFile, "s_351");
-                    }
-                    if (hasResponse2)
-                    {
-                        responses[responseIndex++] = new string_id(c_stringFile, "s_153");
                     }
                     utils.setScriptVar(player, "conversation.restuss_imperial_reward_npc.branchId", 4);
                     npcSpeak(player, message);
@@ -3244,51 +2971,6 @@ public class restuss_imperial_reward_npc extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        if (response.equals("s_153"))
-        {
-            if (restuss_imperial_reward_npc_condition__defaultCondition(player, npc))
-            {
-                string_id message = new string_id(c_stringFile, "s_161");
-                int numberOfResponses = 0;
-                boolean hasResponse = false;
-                boolean hasResponse0 = false;
-                if (restuss_imperial_reward_npc_condition_cost50Really(player, npc))
-                {
-                    ++numberOfResponses;
-                    hasResponse = true;
-                    hasResponse0 = true;
-                }
-                boolean hasResponse1 = false;
-                if (restuss_imperial_reward_npc_condition__defaultCondition(player, npc))
-                {
-                    ++numberOfResponses;
-                    hasResponse = true;
-                    hasResponse1 = true;
-                }
-                if (hasResponse)
-                {
-                    int responseIndex = 0;
-                    string_id responses[] = new string_id[numberOfResponses];
-                    if (hasResponse0)
-                    {
-                        responses[responseIndex++] = new string_id(c_stringFile, "s_171");
-                    }
-                    if (hasResponse1)
-                    {
-                        responses[responseIndex++] = new string_id(c_stringFile, "s_195");
-                    }
-                    utils.setScriptVar(player, "conversation.restuss_imperial_reward_npc.branchId", 93);
-                    npcSpeak(player, message);
-                    npcSetConversationResponses(player, responses);
-                }
-                else 
-                {
-                    utils.removeScriptVar(player, "conversation.restuss_imperial_reward_npc.branchId");
-                    npcEndConversationWithMessage(player, message);
-                }
-                return SCRIPT_CONTINUE;
-            }
-        }
         return SCRIPT_DEFAULT;
     }
     public int restuss_imperial_reward_npc_handleBranch20(obj_id player, obj_id npc, string_id response) throws InterruptedException
@@ -3526,51 +3208,6 @@ public class restuss_imperial_reward_npc extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        if (response.equals("s_153"))
-        {
-            if (restuss_imperial_reward_npc_condition__defaultCondition(player, npc))
-            {
-                string_id message = new string_id(c_stringFile, "s_161");
-                int numberOfResponses = 0;
-                boolean hasResponse = false;
-                boolean hasResponse0 = false;
-                if (restuss_imperial_reward_npc_condition_cost50Really(player, npc))
-                {
-                    ++numberOfResponses;
-                    hasResponse = true;
-                    hasResponse0 = true;
-                }
-                boolean hasResponse1 = false;
-                if (restuss_imperial_reward_npc_condition__defaultCondition(player, npc))
-                {
-                    ++numberOfResponses;
-                    hasResponse = true;
-                    hasResponse1 = true;
-                }
-                if (hasResponse)
-                {
-                    int responseIndex = 0;
-                    string_id responses[] = new string_id[numberOfResponses];
-                    if (hasResponse0)
-                    {
-                        responses[responseIndex++] = new string_id(c_stringFile, "s_171");
-                    }
-                    if (hasResponse1)
-                    {
-                        responses[responseIndex++] = new string_id(c_stringFile, "s_195");
-                    }
-                    utils.setScriptVar(player, "conversation.restuss_imperial_reward_npc.branchId", 93);
-                    npcSpeak(player, message);
-                    npcSetConversationResponses(player, responses);
-                }
-                else 
-                {
-                    utils.removeScriptVar(player, "conversation.restuss_imperial_reward_npc.branchId");
-                    npcEndConversationWithMessage(player, message);
-                }
-                return SCRIPT_CONTINUE;
-            }
-        }
         return SCRIPT_DEFAULT;
     }
     public int restuss_imperial_reward_npc_handleBranch21(obj_id player, obj_id npc, string_id response) throws InterruptedException
@@ -3636,10 +3273,6 @@ public class restuss_imperial_reward_npc extends script.base_script
                     if (hasResponse1)
                     {
                         responses[responseIndex++] = new string_id(c_stringFile, "s_351");
-                    }
-                    if (hasResponse2)
-                    {
-                        responses[responseIndex++] = new string_id(c_stringFile, "s_153");
                     }
                     utils.setScriptVar(player, "conversation.restuss_imperial_reward_npc.branchId", 4);
                     npcSpeak(player, message);
@@ -3890,51 +3523,6 @@ public class restuss_imperial_reward_npc extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        if (response.equals("s_153"))
-        {
-            if (restuss_imperial_reward_npc_condition__defaultCondition(player, npc))
-            {
-                string_id message = new string_id(c_stringFile, "s_161");
-                int numberOfResponses = 0;
-                boolean hasResponse = false;
-                boolean hasResponse0 = false;
-                if (restuss_imperial_reward_npc_condition_cost50Really(player, npc))
-                {
-                    ++numberOfResponses;
-                    hasResponse = true;
-                    hasResponse0 = true;
-                }
-                boolean hasResponse1 = false;
-                if (restuss_imperial_reward_npc_condition__defaultCondition(player, npc))
-                {
-                    ++numberOfResponses;
-                    hasResponse = true;
-                    hasResponse1 = true;
-                }
-                if (hasResponse)
-                {
-                    int responseIndex = 0;
-                    string_id responses[] = new string_id[numberOfResponses];
-                    if (hasResponse0)
-                    {
-                        responses[responseIndex++] = new string_id(c_stringFile, "s_171");
-                    }
-                    if (hasResponse1)
-                    {
-                        responses[responseIndex++] = new string_id(c_stringFile, "s_195");
-                    }
-                    utils.setScriptVar(player, "conversation.restuss_imperial_reward_npc.branchId", 93);
-                    npcSpeak(player, message);
-                    npcSetConversationResponses(player, responses);
-                }
-                else 
-                {
-                    utils.removeScriptVar(player, "conversation.restuss_imperial_reward_npc.branchId");
-                    npcEndConversationWithMessage(player, message);
-                }
-                return SCRIPT_CONTINUE;
-            }
-        }
         return SCRIPT_DEFAULT;
     }
     public int restuss_imperial_reward_npc_handleBranch25(obj_id player, obj_id npc, string_id response) throws InterruptedException
@@ -4172,51 +3760,6 @@ public class restuss_imperial_reward_npc extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        if (response.equals("s_153"))
-        {
-            if (restuss_imperial_reward_npc_condition__defaultCondition(player, npc))
-            {
-                string_id message = new string_id(c_stringFile, "s_161");
-                int numberOfResponses = 0;
-                boolean hasResponse = false;
-                boolean hasResponse0 = false;
-                if (restuss_imperial_reward_npc_condition_cost50Really(player, npc))
-                {
-                    ++numberOfResponses;
-                    hasResponse = true;
-                    hasResponse0 = true;
-                }
-                boolean hasResponse1 = false;
-                if (restuss_imperial_reward_npc_condition__defaultCondition(player, npc))
-                {
-                    ++numberOfResponses;
-                    hasResponse = true;
-                    hasResponse1 = true;
-                }
-                if (hasResponse)
-                {
-                    int responseIndex = 0;
-                    string_id responses[] = new string_id[numberOfResponses];
-                    if (hasResponse0)
-                    {
-                        responses[responseIndex++] = new string_id(c_stringFile, "s_171");
-                    }
-                    if (hasResponse1)
-                    {
-                        responses[responseIndex++] = new string_id(c_stringFile, "s_195");
-                    }
-                    utils.setScriptVar(player, "conversation.restuss_imperial_reward_npc.branchId", 93);
-                    npcSpeak(player, message);
-                    npcSetConversationResponses(player, responses);
-                }
-                else 
-                {
-                    utils.removeScriptVar(player, "conversation.restuss_imperial_reward_npc.branchId");
-                    npcEndConversationWithMessage(player, message);
-                }
-                return SCRIPT_CONTINUE;
-            }
-        }
         return SCRIPT_DEFAULT;
     }
     public int restuss_imperial_reward_npc_handleBranch26(obj_id player, obj_id npc, string_id response) throws InterruptedException
@@ -4282,10 +3825,6 @@ public class restuss_imperial_reward_npc extends script.base_script
                     if (hasResponse1)
                     {
                         responses[responseIndex++] = new string_id(c_stringFile, "s_351");
-                    }
-                    if (hasResponse2)
-                    {
-                        responses[responseIndex++] = new string_id(c_stringFile, "s_153");
                     }
                     utils.setScriptVar(player, "conversation.restuss_imperial_reward_npc.branchId", 4);
                     npcSpeak(player, message);
@@ -4536,51 +4075,6 @@ public class restuss_imperial_reward_npc extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        if (response.equals("s_153"))
-        {
-            if (restuss_imperial_reward_npc_condition__defaultCondition(player, npc))
-            {
-                string_id message = new string_id(c_stringFile, "s_161");
-                int numberOfResponses = 0;
-                boolean hasResponse = false;
-                boolean hasResponse0 = false;
-                if (restuss_imperial_reward_npc_condition_cost50Really(player, npc))
-                {
-                    ++numberOfResponses;
-                    hasResponse = true;
-                    hasResponse0 = true;
-                }
-                boolean hasResponse1 = false;
-                if (restuss_imperial_reward_npc_condition__defaultCondition(player, npc))
-                {
-                    ++numberOfResponses;
-                    hasResponse = true;
-                    hasResponse1 = true;
-                }
-                if (hasResponse)
-                {
-                    int responseIndex = 0;
-                    string_id responses[] = new string_id[numberOfResponses];
-                    if (hasResponse0)
-                    {
-                        responses[responseIndex++] = new string_id(c_stringFile, "s_171");
-                    }
-                    if (hasResponse1)
-                    {
-                        responses[responseIndex++] = new string_id(c_stringFile, "s_195");
-                    }
-                    utils.setScriptVar(player, "conversation.restuss_imperial_reward_npc.branchId", 93);
-                    npcSpeak(player, message);
-                    npcSetConversationResponses(player, responses);
-                }
-                else 
-                {
-                    utils.removeScriptVar(player, "conversation.restuss_imperial_reward_npc.branchId");
-                    npcEndConversationWithMessage(player, message);
-                }
-                return SCRIPT_CONTINUE;
-            }
-        }
         return SCRIPT_DEFAULT;
     }
     public int restuss_imperial_reward_npc_handleBranch30(obj_id player, obj_id npc, string_id response) throws InterruptedException
@@ -4818,51 +4312,6 @@ public class restuss_imperial_reward_npc extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        if (response.equals("s_153"))
-        {
-            if (restuss_imperial_reward_npc_condition__defaultCondition(player, npc))
-            {
-                string_id message = new string_id(c_stringFile, "s_161");
-                int numberOfResponses = 0;
-                boolean hasResponse = false;
-                boolean hasResponse0 = false;
-                if (restuss_imperial_reward_npc_condition_cost50Really(player, npc))
-                {
-                    ++numberOfResponses;
-                    hasResponse = true;
-                    hasResponse0 = true;
-                }
-                boolean hasResponse1 = false;
-                if (restuss_imperial_reward_npc_condition__defaultCondition(player, npc))
-                {
-                    ++numberOfResponses;
-                    hasResponse = true;
-                    hasResponse1 = true;
-                }
-                if (hasResponse)
-                {
-                    int responseIndex = 0;
-                    string_id responses[] = new string_id[numberOfResponses];
-                    if (hasResponse0)
-                    {
-                        responses[responseIndex++] = new string_id(c_stringFile, "s_171");
-                    }
-                    if (hasResponse1)
-                    {
-                        responses[responseIndex++] = new string_id(c_stringFile, "s_195");
-                    }
-                    utils.setScriptVar(player, "conversation.restuss_imperial_reward_npc.branchId", 93);
-                    npcSpeak(player, message);
-                    npcSetConversationResponses(player, responses);
-                }
-                else 
-                {
-                    utils.removeScriptVar(player, "conversation.restuss_imperial_reward_npc.branchId");
-                    npcEndConversationWithMessage(player, message);
-                }
-                return SCRIPT_CONTINUE;
-            }
-        }
         return SCRIPT_DEFAULT;
     }
     public int restuss_imperial_reward_npc_handleBranch31(obj_id player, obj_id npc, string_id response) throws InterruptedException
@@ -4928,10 +4377,6 @@ public class restuss_imperial_reward_npc extends script.base_script
                     if (hasResponse1)
                     {
                         responses[responseIndex++] = new string_id(c_stringFile, "s_351");
-                    }
-                    if (hasResponse2)
-                    {
-                        responses[responseIndex++] = new string_id(c_stringFile, "s_153");
                     }
                     utils.setScriptVar(player, "conversation.restuss_imperial_reward_npc.branchId", 4);
                     npcSpeak(player, message);
@@ -5010,10 +4455,6 @@ public class restuss_imperial_reward_npc extends script.base_script
                     if (hasResponse1)
                     {
                         responses[responseIndex++] = new string_id(c_stringFile, "s_351");
-                    }
-                    if (hasResponse2)
-                    {
-                        responses[responseIndex++] = new string_id(c_stringFile, "s_153");
                     }
                     utils.setScriptVar(player, "conversation.restuss_imperial_reward_npc.branchId", 4);
                     npcSpeak(player, message);
@@ -5264,51 +4705,6 @@ public class restuss_imperial_reward_npc extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        if (response.equals("s_153"))
-        {
-            if (restuss_imperial_reward_npc_condition__defaultCondition(player, npc))
-            {
-                string_id message = new string_id(c_stringFile, "s_161");
-                int numberOfResponses = 0;
-                boolean hasResponse = false;
-                boolean hasResponse0 = false;
-                if (restuss_imperial_reward_npc_condition_cost50Really(player, npc))
-                {
-                    ++numberOfResponses;
-                    hasResponse = true;
-                    hasResponse0 = true;
-                }
-                boolean hasResponse1 = false;
-                if (restuss_imperial_reward_npc_condition__defaultCondition(player, npc))
-                {
-                    ++numberOfResponses;
-                    hasResponse = true;
-                    hasResponse1 = true;
-                }
-                if (hasResponse)
-                {
-                    int responseIndex = 0;
-                    string_id responses[] = new string_id[numberOfResponses];
-                    if (hasResponse0)
-                    {
-                        responses[responseIndex++] = new string_id(c_stringFile, "s_171");
-                    }
-                    if (hasResponse1)
-                    {
-                        responses[responseIndex++] = new string_id(c_stringFile, "s_195");
-                    }
-                    utils.setScriptVar(player, "conversation.restuss_imperial_reward_npc.branchId", 93);
-                    npcSpeak(player, message);
-                    npcSetConversationResponses(player, responses);
-                }
-                else 
-                {
-                    utils.removeScriptVar(player, "conversation.restuss_imperial_reward_npc.branchId");
-                    npcEndConversationWithMessage(player, message);
-                }
-                return SCRIPT_CONTINUE;
-            }
-        }
         return SCRIPT_DEFAULT;
     }
     public int restuss_imperial_reward_npc_handleBranch36(obj_id player, obj_id npc, string_id response) throws InterruptedException
@@ -5546,51 +4942,6 @@ public class restuss_imperial_reward_npc extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        if (response.equals("s_153"))
-        {
-            if (restuss_imperial_reward_npc_condition__defaultCondition(player, npc))
-            {
-                string_id message = new string_id(c_stringFile, "s_161");
-                int numberOfResponses = 0;
-                boolean hasResponse = false;
-                boolean hasResponse0 = false;
-                if (restuss_imperial_reward_npc_condition_cost50Really(player, npc))
-                {
-                    ++numberOfResponses;
-                    hasResponse = true;
-                    hasResponse0 = true;
-                }
-                boolean hasResponse1 = false;
-                if (restuss_imperial_reward_npc_condition__defaultCondition(player, npc))
-                {
-                    ++numberOfResponses;
-                    hasResponse = true;
-                    hasResponse1 = true;
-                }
-                if (hasResponse)
-                {
-                    int responseIndex = 0;
-                    string_id responses[] = new string_id[numberOfResponses];
-                    if (hasResponse0)
-                    {
-                        responses[responseIndex++] = new string_id(c_stringFile, "s_171");
-                    }
-                    if (hasResponse1)
-                    {
-                        responses[responseIndex++] = new string_id(c_stringFile, "s_195");
-                    }
-                    utils.setScriptVar(player, "conversation.restuss_imperial_reward_npc.branchId", 93);
-                    npcSpeak(player, message);
-                    npcSetConversationResponses(player, responses);
-                }
-                else 
-                {
-                    utils.removeScriptVar(player, "conversation.restuss_imperial_reward_npc.branchId");
-                    npcEndConversationWithMessage(player, message);
-                }
-                return SCRIPT_CONTINUE;
-            }
-        }
         return SCRIPT_DEFAULT;
     }
     public int restuss_imperial_reward_npc_handleBranch37(obj_id player, obj_id npc, string_id response) throws InterruptedException
@@ -5656,10 +5007,6 @@ public class restuss_imperial_reward_npc extends script.base_script
                     if (hasResponse1)
                     {
                         responses[responseIndex++] = new string_id(c_stringFile, "s_351");
-                    }
-                    if (hasResponse2)
-                    {
-                        responses[responseIndex++] = new string_id(c_stringFile, "s_153");
                     }
                     utils.setScriptVar(player, "conversation.restuss_imperial_reward_npc.branchId", 4);
                     npcSpeak(player, message);
@@ -5910,51 +5257,6 @@ public class restuss_imperial_reward_npc extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        if (response.equals("s_153"))
-        {
-            if (restuss_imperial_reward_npc_condition__defaultCondition(player, npc))
-            {
-                string_id message = new string_id(c_stringFile, "s_161");
-                int numberOfResponses = 0;
-                boolean hasResponse = false;
-                boolean hasResponse0 = false;
-                if (restuss_imperial_reward_npc_condition_cost50Really(player, npc))
-                {
-                    ++numberOfResponses;
-                    hasResponse = true;
-                    hasResponse0 = true;
-                }
-                boolean hasResponse1 = false;
-                if (restuss_imperial_reward_npc_condition__defaultCondition(player, npc))
-                {
-                    ++numberOfResponses;
-                    hasResponse = true;
-                    hasResponse1 = true;
-                }
-                if (hasResponse)
-                {
-                    int responseIndex = 0;
-                    string_id responses[] = new string_id[numberOfResponses];
-                    if (hasResponse0)
-                    {
-                        responses[responseIndex++] = new string_id(c_stringFile, "s_171");
-                    }
-                    if (hasResponse1)
-                    {
-                        responses[responseIndex++] = new string_id(c_stringFile, "s_195");
-                    }
-                    utils.setScriptVar(player, "conversation.restuss_imperial_reward_npc.branchId", 93);
-                    npcSpeak(player, message);
-                    npcSetConversationResponses(player, responses);
-                }
-                else 
-                {
-                    utils.removeScriptVar(player, "conversation.restuss_imperial_reward_npc.branchId");
-                    npcEndConversationWithMessage(player, message);
-                }
-                return SCRIPT_CONTINUE;
-            }
-        }
         return SCRIPT_DEFAULT;
     }
     public int restuss_imperial_reward_npc_handleBranch41(obj_id player, obj_id npc, string_id response) throws InterruptedException
@@ -6192,51 +5494,6 @@ public class restuss_imperial_reward_npc extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        if (response.equals("s_153"))
-        {
-            if (restuss_imperial_reward_npc_condition__defaultCondition(player, npc))
-            {
-                string_id message = new string_id(c_stringFile, "s_161");
-                int numberOfResponses = 0;
-                boolean hasResponse = false;
-                boolean hasResponse0 = false;
-                if (restuss_imperial_reward_npc_condition_cost50Really(player, npc))
-                {
-                    ++numberOfResponses;
-                    hasResponse = true;
-                    hasResponse0 = true;
-                }
-                boolean hasResponse1 = false;
-                if (restuss_imperial_reward_npc_condition__defaultCondition(player, npc))
-                {
-                    ++numberOfResponses;
-                    hasResponse = true;
-                    hasResponse1 = true;
-                }
-                if (hasResponse)
-                {
-                    int responseIndex = 0;
-                    string_id responses[] = new string_id[numberOfResponses];
-                    if (hasResponse0)
-                    {
-                        responses[responseIndex++] = new string_id(c_stringFile, "s_171");
-                    }
-                    if (hasResponse1)
-                    {
-                        responses[responseIndex++] = new string_id(c_stringFile, "s_195");
-                    }
-                    utils.setScriptVar(player, "conversation.restuss_imperial_reward_npc.branchId", 93);
-                    npcSpeak(player, message);
-                    npcSetConversationResponses(player, responses);
-                }
-                else 
-                {
-                    utils.removeScriptVar(player, "conversation.restuss_imperial_reward_npc.branchId");
-                    npcEndConversationWithMessage(player, message);
-                }
-                return SCRIPT_CONTINUE;
-            }
-        }
         return SCRIPT_DEFAULT;
     }
     public int restuss_imperial_reward_npc_handleBranch42(obj_id player, obj_id npc, string_id response) throws InterruptedException
@@ -6302,10 +5559,6 @@ public class restuss_imperial_reward_npc extends script.base_script
                     if (hasResponse1)
                     {
                         responses[responseIndex++] = new string_id(c_stringFile, "s_351");
-                    }
-                    if (hasResponse2)
-                    {
-                        responses[responseIndex++] = new string_id(c_stringFile, "s_153");
                     }
                     utils.setScriptVar(player, "conversation.restuss_imperial_reward_npc.branchId", 4);
                     npcSpeak(player, message);
@@ -6556,51 +5809,6 @@ public class restuss_imperial_reward_npc extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        if (response.equals("s_153"))
-        {
-            if (restuss_imperial_reward_npc_condition__defaultCondition(player, npc))
-            {
-                string_id message = new string_id(c_stringFile, "s_161");
-                int numberOfResponses = 0;
-                boolean hasResponse = false;
-                boolean hasResponse0 = false;
-                if (restuss_imperial_reward_npc_condition_cost50Really(player, npc))
-                {
-                    ++numberOfResponses;
-                    hasResponse = true;
-                    hasResponse0 = true;
-                }
-                boolean hasResponse1 = false;
-                if (restuss_imperial_reward_npc_condition__defaultCondition(player, npc))
-                {
-                    ++numberOfResponses;
-                    hasResponse = true;
-                    hasResponse1 = true;
-                }
-                if (hasResponse)
-                {
-                    int responseIndex = 0;
-                    string_id responses[] = new string_id[numberOfResponses];
-                    if (hasResponse0)
-                    {
-                        responses[responseIndex++] = new string_id(c_stringFile, "s_171");
-                    }
-                    if (hasResponse1)
-                    {
-                        responses[responseIndex++] = new string_id(c_stringFile, "s_195");
-                    }
-                    utils.setScriptVar(player, "conversation.restuss_imperial_reward_npc.branchId", 93);
-                    npcSpeak(player, message);
-                    npcSetConversationResponses(player, responses);
-                }
-                else 
-                {
-                    utils.removeScriptVar(player, "conversation.restuss_imperial_reward_npc.branchId");
-                    npcEndConversationWithMessage(player, message);
-                }
-                return SCRIPT_CONTINUE;
-            }
-        }
         return SCRIPT_DEFAULT;
     }
     public int restuss_imperial_reward_npc_handleBranch46(obj_id player, obj_id npc, string_id response) throws InterruptedException
@@ -6838,51 +6046,6 @@ public class restuss_imperial_reward_npc extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        if (response.equals("s_153"))
-        {
-            if (restuss_imperial_reward_npc_condition__defaultCondition(player, npc))
-            {
-                string_id message = new string_id(c_stringFile, "s_161");
-                int numberOfResponses = 0;
-                boolean hasResponse = false;
-                boolean hasResponse0 = false;
-                if (restuss_imperial_reward_npc_condition_cost50Really(player, npc))
-                {
-                    ++numberOfResponses;
-                    hasResponse = true;
-                    hasResponse0 = true;
-                }
-                boolean hasResponse1 = false;
-                if (restuss_imperial_reward_npc_condition__defaultCondition(player, npc))
-                {
-                    ++numberOfResponses;
-                    hasResponse = true;
-                    hasResponse1 = true;
-                }
-                if (hasResponse)
-                {
-                    int responseIndex = 0;
-                    string_id responses[] = new string_id[numberOfResponses];
-                    if (hasResponse0)
-                    {
-                        responses[responseIndex++] = new string_id(c_stringFile, "s_171");
-                    }
-                    if (hasResponse1)
-                    {
-                        responses[responseIndex++] = new string_id(c_stringFile, "s_195");
-                    }
-                    utils.setScriptVar(player, "conversation.restuss_imperial_reward_npc.branchId", 93);
-                    npcSpeak(player, message);
-                    npcSetConversationResponses(player, responses);
-                }
-                else 
-                {
-                    utils.removeScriptVar(player, "conversation.restuss_imperial_reward_npc.branchId");
-                    npcEndConversationWithMessage(player, message);
-                }
-                return SCRIPT_CONTINUE;
-            }
-        }
         return SCRIPT_DEFAULT;
     }
     public int restuss_imperial_reward_npc_handleBranch47(obj_id player, obj_id npc, string_id response) throws InterruptedException
@@ -6968,10 +6131,6 @@ public class restuss_imperial_reward_npc extends script.base_script
                     if (hasResponse1)
                     {
                         responses[responseIndex++] = new string_id(c_stringFile, "s_351");
-                    }
-                    if (hasResponse2)
-                    {
-                        responses[responseIndex++] = new string_id(c_stringFile, "s_153");
                     }
                     utils.setScriptVar(player, "conversation.restuss_imperial_reward_npc.branchId", 4);
                     npcSpeak(player, message);
@@ -7067,10 +6226,6 @@ public class restuss_imperial_reward_npc extends script.base_script
                     {
                         responses[responseIndex++] = new string_id(c_stringFile, "s_351");
                     }
-                    if (hasResponse2)
-                    {
-                        responses[responseIndex++] = new string_id(c_stringFile, "s_153");
-                    }
                     utils.setScriptVar(player, "conversation.restuss_imperial_reward_npc.branchId", 4);
                     npcSpeak(player, message);
                     npcSetConversationResponses(player, responses);
@@ -7164,10 +6319,6 @@ public class restuss_imperial_reward_npc extends script.base_script
                     if (hasResponse1)
                     {
                         responses[responseIndex++] = new string_id(c_stringFile, "s_351");
-                    }
-                    if (hasResponse2)
-                    {
-                        responses[responseIndex++] = new string_id(c_stringFile, "s_153");
                     }
                     utils.setScriptVar(player, "conversation.restuss_imperial_reward_npc.branchId", 4);
                     npcSpeak(player, message);
@@ -7263,10 +6414,6 @@ public class restuss_imperial_reward_npc extends script.base_script
                     {
                         responses[responseIndex++] = new string_id(c_stringFile, "s_351");
                     }
-                    if (hasResponse2)
-                    {
-                        responses[responseIndex++] = new string_id(c_stringFile, "s_153");
-                    }
                     utils.setScriptVar(player, "conversation.restuss_imperial_reward_npc.branchId", 4);
                     npcSpeak(player, message);
                     npcSetConversationResponses(player, responses);
@@ -7360,10 +6507,6 @@ public class restuss_imperial_reward_npc extends script.base_script
                     if (hasResponse1)
                     {
                         responses[responseIndex++] = new string_id(c_stringFile, "s_351");
-                    }
-                    if (hasResponse2)
-                    {
-                        responses[responseIndex++] = new string_id(c_stringFile, "s_153");
                     }
                     utils.setScriptVar(player, "conversation.restuss_imperial_reward_npc.branchId", 4);
                     npcSpeak(player, message);
@@ -7459,10 +6602,6 @@ public class restuss_imperial_reward_npc extends script.base_script
                     {
                         responses[responseIndex++] = new string_id(c_stringFile, "s_351");
                     }
-                    if (hasResponse2)
-                    {
-                        responses[responseIndex++] = new string_id(c_stringFile, "s_153");
-                    }
                     utils.setScriptVar(player, "conversation.restuss_imperial_reward_npc.branchId", 4);
                     npcSpeak(player, message);
                     npcSetConversationResponses(player, responses);
@@ -7556,10 +6695,6 @@ public class restuss_imperial_reward_npc extends script.base_script
                     if (hasResponse1)
                     {
                         responses[responseIndex++] = new string_id(c_stringFile, "s_351");
-                    }
-                    if (hasResponse2)
-                    {
-                        responses[responseIndex++] = new string_id(c_stringFile, "s_153");
                     }
                     utils.setScriptVar(player, "conversation.restuss_imperial_reward_npc.branchId", 4);
                     npcSpeak(player, message);
@@ -7655,10 +6790,6 @@ public class restuss_imperial_reward_npc extends script.base_script
                     {
                         responses[responseIndex++] = new string_id(c_stringFile, "s_351");
                     }
-                    if (hasResponse2)
-                    {
-                        responses[responseIndex++] = new string_id(c_stringFile, "s_153");
-                    }
                     utils.setScriptVar(player, "conversation.restuss_imperial_reward_npc.branchId", 4);
                     npcSpeak(player, message);
                     npcSetConversationResponses(player, responses);
@@ -7753,10 +6884,6 @@ public class restuss_imperial_reward_npc extends script.base_script
                     {
                         responses[responseIndex++] = new string_id(c_stringFile, "s_351");
                     }
-                    if (hasResponse2)
-                    {
-                        responses[responseIndex++] = new string_id(c_stringFile, "s_153");
-                    }
                     utils.setScriptVar(player, "conversation.restuss_imperial_reward_npc.branchId", 4);
                     npcSpeak(player, message);
                     npcSetConversationResponses(player, responses);
@@ -7834,10 +6961,6 @@ public class restuss_imperial_reward_npc extends script.base_script
                     if (hasResponse1)
                     {
                         responses[responseIndex++] = new string_id(c_stringFile, "s_351");
-                    }
-                    if (hasResponse2)
-                    {
-                        responses[responseIndex++] = new string_id(c_stringFile, "s_153");
                     }
                     utils.setScriptVar(player, "conversation.restuss_imperial_reward_npc.branchId", 4);
                     npcSpeak(player, message);
@@ -8088,51 +7211,6 @@ public class restuss_imperial_reward_npc extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        if (response.equals("s_153"))
-        {
-            if (restuss_imperial_reward_npc_condition__defaultCondition(player, npc))
-            {
-                string_id message = new string_id(c_stringFile, "s_161");
-                int numberOfResponses = 0;
-                boolean hasResponse = false;
-                boolean hasResponse0 = false;
-                if (restuss_imperial_reward_npc_condition_cost50Really(player, npc))
-                {
-                    ++numberOfResponses;
-                    hasResponse = true;
-                    hasResponse0 = true;
-                }
-                boolean hasResponse1 = false;
-                if (restuss_imperial_reward_npc_condition__defaultCondition(player, npc))
-                {
-                    ++numberOfResponses;
-                    hasResponse = true;
-                    hasResponse1 = true;
-                }
-                if (hasResponse)
-                {
-                    int responseIndex = 0;
-                    string_id responses[] = new string_id[numberOfResponses];
-                    if (hasResponse0)
-                    {
-                        responses[responseIndex++] = new string_id(c_stringFile, "s_171");
-                    }
-                    if (hasResponse1)
-                    {
-                        responses[responseIndex++] = new string_id(c_stringFile, "s_195");
-                    }
-                    utils.setScriptVar(player, "conversation.restuss_imperial_reward_npc.branchId", 93);
-                    npcSpeak(player, message);
-                    npcSetConversationResponses(player, responses);
-                }
-                else 
-                {
-                    utils.removeScriptVar(player, "conversation.restuss_imperial_reward_npc.branchId");
-                    npcEndConversationWithMessage(player, message);
-                }
-                return SCRIPT_CONTINUE;
-            }
-        }
         return SCRIPT_DEFAULT;
     }
     public int restuss_imperial_reward_npc_handleBranch52(obj_id player, obj_id npc, string_id response) throws InterruptedException
@@ -8370,51 +7448,6 @@ public class restuss_imperial_reward_npc extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        if (response.equals("s_153"))
-        {
-            if (restuss_imperial_reward_npc_condition__defaultCondition(player, npc))
-            {
-                string_id message = new string_id(c_stringFile, "s_161");
-                int numberOfResponses = 0;
-                boolean hasResponse = false;
-                boolean hasResponse0 = false;
-                if (restuss_imperial_reward_npc_condition_cost50Really(player, npc))
-                {
-                    ++numberOfResponses;
-                    hasResponse = true;
-                    hasResponse0 = true;
-                }
-                boolean hasResponse1 = false;
-                if (restuss_imperial_reward_npc_condition__defaultCondition(player, npc))
-                {
-                    ++numberOfResponses;
-                    hasResponse = true;
-                    hasResponse1 = true;
-                }
-                if (hasResponse)
-                {
-                    int responseIndex = 0;
-                    string_id responses[] = new string_id[numberOfResponses];
-                    if (hasResponse0)
-                    {
-                        responses[responseIndex++] = new string_id(c_stringFile, "s_171");
-                    }
-                    if (hasResponse1)
-                    {
-                        responses[responseIndex++] = new string_id(c_stringFile, "s_195");
-                    }
-                    utils.setScriptVar(player, "conversation.restuss_imperial_reward_npc.branchId", 93);
-                    npcSpeak(player, message);
-                    npcSetConversationResponses(player, responses);
-                }
-                else 
-                {
-                    utils.removeScriptVar(player, "conversation.restuss_imperial_reward_npc.branchId");
-                    npcEndConversationWithMessage(player, message);
-                }
-                return SCRIPT_CONTINUE;
-            }
-        }
         return SCRIPT_DEFAULT;
     }
     public int restuss_imperial_reward_npc_handleBranch53(obj_id player, obj_id npc, string_id response) throws InterruptedException
@@ -8480,10 +7513,6 @@ public class restuss_imperial_reward_npc extends script.base_script
                     if (hasResponse1)
                     {
                         responses[responseIndex++] = new string_id(c_stringFile, "s_351");
-                    }
-                    if (hasResponse2)
-                    {
-                        responses[responseIndex++] = new string_id(c_stringFile, "s_153");
                     }
                     utils.setScriptVar(player, "conversation.restuss_imperial_reward_npc.branchId", 4);
                     npcSpeak(player, message);
@@ -8734,51 +7763,6 @@ public class restuss_imperial_reward_npc extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        if (response.equals("s_153"))
-        {
-            if (restuss_imperial_reward_npc_condition__defaultCondition(player, npc))
-            {
-                string_id message = new string_id(c_stringFile, "s_161");
-                int numberOfResponses = 0;
-                boolean hasResponse = false;
-                boolean hasResponse0 = false;
-                if (restuss_imperial_reward_npc_condition_cost50Really(player, npc))
-                {
-                    ++numberOfResponses;
-                    hasResponse = true;
-                    hasResponse0 = true;
-                }
-                boolean hasResponse1 = false;
-                if (restuss_imperial_reward_npc_condition__defaultCondition(player, npc))
-                {
-                    ++numberOfResponses;
-                    hasResponse = true;
-                    hasResponse1 = true;
-                }
-                if (hasResponse)
-                {
-                    int responseIndex = 0;
-                    string_id responses[] = new string_id[numberOfResponses];
-                    if (hasResponse0)
-                    {
-                        responses[responseIndex++] = new string_id(c_stringFile, "s_171");
-                    }
-                    if (hasResponse1)
-                    {
-                        responses[responseIndex++] = new string_id(c_stringFile, "s_195");
-                    }
-                    utils.setScriptVar(player, "conversation.restuss_imperial_reward_npc.branchId", 93);
-                    npcSpeak(player, message);
-                    npcSetConversationResponses(player, responses);
-                }
-                else 
-                {
-                    utils.removeScriptVar(player, "conversation.restuss_imperial_reward_npc.branchId");
-                    npcEndConversationWithMessage(player, message);
-                }
-                return SCRIPT_CONTINUE;
-            }
-        }
         return SCRIPT_DEFAULT;
     }
     public int restuss_imperial_reward_npc_handleBranch57(obj_id player, obj_id npc, string_id response) throws InterruptedException
@@ -9016,51 +8000,6 @@ public class restuss_imperial_reward_npc extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        if (response.equals("s_153"))
-        {
-            if (restuss_imperial_reward_npc_condition__defaultCondition(player, npc))
-            {
-                string_id message = new string_id(c_stringFile, "s_161");
-                int numberOfResponses = 0;
-                boolean hasResponse = false;
-                boolean hasResponse0 = false;
-                if (restuss_imperial_reward_npc_condition_cost50Really(player, npc))
-                {
-                    ++numberOfResponses;
-                    hasResponse = true;
-                    hasResponse0 = true;
-                }
-                boolean hasResponse1 = false;
-                if (restuss_imperial_reward_npc_condition__defaultCondition(player, npc))
-                {
-                    ++numberOfResponses;
-                    hasResponse = true;
-                    hasResponse1 = true;
-                }
-                if (hasResponse)
-                {
-                    int responseIndex = 0;
-                    string_id responses[] = new string_id[numberOfResponses];
-                    if (hasResponse0)
-                    {
-                        responses[responseIndex++] = new string_id(c_stringFile, "s_171");
-                    }
-                    if (hasResponse1)
-                    {
-                        responses[responseIndex++] = new string_id(c_stringFile, "s_195");
-                    }
-                    utils.setScriptVar(player, "conversation.restuss_imperial_reward_npc.branchId", 93);
-                    npcSpeak(player, message);
-                    npcSetConversationResponses(player, responses);
-                }
-                else 
-                {
-                    utils.removeScriptVar(player, "conversation.restuss_imperial_reward_npc.branchId");
-                    npcEndConversationWithMessage(player, message);
-                }
-                return SCRIPT_CONTINUE;
-            }
-        }
         return SCRIPT_DEFAULT;
     }
     public int restuss_imperial_reward_npc_handleBranch58(obj_id player, obj_id npc, string_id response) throws InterruptedException
@@ -9126,10 +8065,6 @@ public class restuss_imperial_reward_npc extends script.base_script
                     if (hasResponse1)
                     {
                         responses[responseIndex++] = new string_id(c_stringFile, "s_351");
-                    }
-                    if (hasResponse2)
-                    {
-                        responses[responseIndex++] = new string_id(c_stringFile, "s_153");
                     }
                     utils.setScriptVar(player, "conversation.restuss_imperial_reward_npc.branchId", 4);
                     npcSpeak(player, message);
@@ -9380,51 +8315,6 @@ public class restuss_imperial_reward_npc extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        if (response.equals("s_153"))
-        {
-            if (restuss_imperial_reward_npc_condition__defaultCondition(player, npc))
-            {
-                string_id message = new string_id(c_stringFile, "s_161");
-                int numberOfResponses = 0;
-                boolean hasResponse = false;
-                boolean hasResponse0 = false;
-                if (restuss_imperial_reward_npc_condition_cost50Really(player, npc))
-                {
-                    ++numberOfResponses;
-                    hasResponse = true;
-                    hasResponse0 = true;
-                }
-                boolean hasResponse1 = false;
-                if (restuss_imperial_reward_npc_condition__defaultCondition(player, npc))
-                {
-                    ++numberOfResponses;
-                    hasResponse = true;
-                    hasResponse1 = true;
-                }
-                if (hasResponse)
-                {
-                    int responseIndex = 0;
-                    string_id responses[] = new string_id[numberOfResponses];
-                    if (hasResponse0)
-                    {
-                        responses[responseIndex++] = new string_id(c_stringFile, "s_171");
-                    }
-                    if (hasResponse1)
-                    {
-                        responses[responseIndex++] = new string_id(c_stringFile, "s_195");
-                    }
-                    utils.setScriptVar(player, "conversation.restuss_imperial_reward_npc.branchId", 93);
-                    npcSpeak(player, message);
-                    npcSetConversationResponses(player, responses);
-                }
-                else 
-                {
-                    utils.removeScriptVar(player, "conversation.restuss_imperial_reward_npc.branchId");
-                    npcEndConversationWithMessage(player, message);
-                }
-                return SCRIPT_CONTINUE;
-            }
-        }
         return SCRIPT_DEFAULT;
     }
     public int restuss_imperial_reward_npc_handleBranch62(obj_id player, obj_id npc, string_id response) throws InterruptedException
@@ -9662,51 +8552,6 @@ public class restuss_imperial_reward_npc extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        if (response.equals("s_153"))
-        {
-            if (restuss_imperial_reward_npc_condition__defaultCondition(player, npc))
-            {
-                string_id message = new string_id(c_stringFile, "s_161");
-                int numberOfResponses = 0;
-                boolean hasResponse = false;
-                boolean hasResponse0 = false;
-                if (restuss_imperial_reward_npc_condition_cost50Really(player, npc))
-                {
-                    ++numberOfResponses;
-                    hasResponse = true;
-                    hasResponse0 = true;
-                }
-                boolean hasResponse1 = false;
-                if (restuss_imperial_reward_npc_condition__defaultCondition(player, npc))
-                {
-                    ++numberOfResponses;
-                    hasResponse = true;
-                    hasResponse1 = true;
-                }
-                if (hasResponse)
-                {
-                    int responseIndex = 0;
-                    string_id responses[] = new string_id[numberOfResponses];
-                    if (hasResponse0)
-                    {
-                        responses[responseIndex++] = new string_id(c_stringFile, "s_171");
-                    }
-                    if (hasResponse1)
-                    {
-                        responses[responseIndex++] = new string_id(c_stringFile, "s_195");
-                    }
-                    utils.setScriptVar(player, "conversation.restuss_imperial_reward_npc.branchId", 93);
-                    npcSpeak(player, message);
-                    npcSetConversationResponses(player, responses);
-                }
-                else 
-                {
-                    utils.removeScriptVar(player, "conversation.restuss_imperial_reward_npc.branchId");
-                    npcEndConversationWithMessage(player, message);
-                }
-                return SCRIPT_CONTINUE;
-            }
-        }
         return SCRIPT_DEFAULT;
     }
     public int restuss_imperial_reward_npc_handleBranch63(obj_id player, obj_id npc, string_id response) throws InterruptedException
@@ -9772,10 +8617,6 @@ public class restuss_imperial_reward_npc extends script.base_script
                     if (hasResponse1)
                     {
                         responses[responseIndex++] = new string_id(c_stringFile, "s_351");
-                    }
-                    if (hasResponse2)
-                    {
-                        responses[responseIndex++] = new string_id(c_stringFile, "s_153");
                     }
                     utils.setScriptVar(player, "conversation.restuss_imperial_reward_npc.branchId", 4);
                     npcSpeak(player, message);
@@ -10026,51 +8867,6 @@ public class restuss_imperial_reward_npc extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        if (response.equals("s_153"))
-        {
-            if (restuss_imperial_reward_npc_condition__defaultCondition(player, npc))
-            {
-                string_id message = new string_id(c_stringFile, "s_161");
-                int numberOfResponses = 0;
-                boolean hasResponse = false;
-                boolean hasResponse0 = false;
-                if (restuss_imperial_reward_npc_condition_cost50Really(player, npc))
-                {
-                    ++numberOfResponses;
-                    hasResponse = true;
-                    hasResponse0 = true;
-                }
-                boolean hasResponse1 = false;
-                if (restuss_imperial_reward_npc_condition__defaultCondition(player, npc))
-                {
-                    ++numberOfResponses;
-                    hasResponse = true;
-                    hasResponse1 = true;
-                }
-                if (hasResponse)
-                {
-                    int responseIndex = 0;
-                    string_id responses[] = new string_id[numberOfResponses];
-                    if (hasResponse0)
-                    {
-                        responses[responseIndex++] = new string_id(c_stringFile, "s_171");
-                    }
-                    if (hasResponse1)
-                    {
-                        responses[responseIndex++] = new string_id(c_stringFile, "s_195");
-                    }
-                    utils.setScriptVar(player, "conversation.restuss_imperial_reward_npc.branchId", 93);
-                    npcSpeak(player, message);
-                    npcSetConversationResponses(player, responses);
-                }
-                else 
-                {
-                    utils.removeScriptVar(player, "conversation.restuss_imperial_reward_npc.branchId");
-                    npcEndConversationWithMessage(player, message);
-                }
-                return SCRIPT_CONTINUE;
-            }
-        }
         return SCRIPT_DEFAULT;
     }
     public int restuss_imperial_reward_npc_handleBranch67(obj_id player, obj_id npc, string_id response) throws InterruptedException
@@ -10308,51 +9104,6 @@ public class restuss_imperial_reward_npc extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        if (response.equals("s_153"))
-        {
-            if (restuss_imperial_reward_npc_condition__defaultCondition(player, npc))
-            {
-                string_id message = new string_id(c_stringFile, "s_161");
-                int numberOfResponses = 0;
-                boolean hasResponse = false;
-                boolean hasResponse0 = false;
-                if (restuss_imperial_reward_npc_condition_cost50Really(player, npc))
-                {
-                    ++numberOfResponses;
-                    hasResponse = true;
-                    hasResponse0 = true;
-                }
-                boolean hasResponse1 = false;
-                if (restuss_imperial_reward_npc_condition__defaultCondition(player, npc))
-                {
-                    ++numberOfResponses;
-                    hasResponse = true;
-                    hasResponse1 = true;
-                }
-                if (hasResponse)
-                {
-                    int responseIndex = 0;
-                    string_id responses[] = new string_id[numberOfResponses];
-                    if (hasResponse0)
-                    {
-                        responses[responseIndex++] = new string_id(c_stringFile, "s_171");
-                    }
-                    if (hasResponse1)
-                    {
-                        responses[responseIndex++] = new string_id(c_stringFile, "s_195");
-                    }
-                    utils.setScriptVar(player, "conversation.restuss_imperial_reward_npc.branchId", 93);
-                    npcSpeak(player, message);
-                    npcSetConversationResponses(player, responses);
-                }
-                else 
-                {
-                    utils.removeScriptVar(player, "conversation.restuss_imperial_reward_npc.branchId");
-                    npcEndConversationWithMessage(player, message);
-                }
-                return SCRIPT_CONTINUE;
-            }
-        }
         return SCRIPT_DEFAULT;
     }
     public int restuss_imperial_reward_npc_handleBranch68(obj_id player, obj_id npc, string_id response) throws InterruptedException
@@ -10418,10 +9169,6 @@ public class restuss_imperial_reward_npc extends script.base_script
                     if (hasResponse1)
                     {
                         responses[responseIndex++] = new string_id(c_stringFile, "s_351");
-                    }
-                    if (hasResponse2)
-                    {
-                        responses[responseIndex++] = new string_id(c_stringFile, "s_153");
                     }
                     utils.setScriptVar(player, "conversation.restuss_imperial_reward_npc.branchId", 4);
                     npcSpeak(player, message);
@@ -10672,51 +9419,6 @@ public class restuss_imperial_reward_npc extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        if (response.equals("s_153"))
-        {
-            if (restuss_imperial_reward_npc_condition__defaultCondition(player, npc))
-            {
-                string_id message = new string_id(c_stringFile, "s_161");
-                int numberOfResponses = 0;
-                boolean hasResponse = false;
-                boolean hasResponse0 = false;
-                if (restuss_imperial_reward_npc_condition_cost50Really(player, npc))
-                {
-                    ++numberOfResponses;
-                    hasResponse = true;
-                    hasResponse0 = true;
-                }
-                boolean hasResponse1 = false;
-                if (restuss_imperial_reward_npc_condition__defaultCondition(player, npc))
-                {
-                    ++numberOfResponses;
-                    hasResponse = true;
-                    hasResponse1 = true;
-                }
-                if (hasResponse)
-                {
-                    int responseIndex = 0;
-                    string_id responses[] = new string_id[numberOfResponses];
-                    if (hasResponse0)
-                    {
-                        responses[responseIndex++] = new string_id(c_stringFile, "s_171");
-                    }
-                    if (hasResponse1)
-                    {
-                        responses[responseIndex++] = new string_id(c_stringFile, "s_195");
-                    }
-                    utils.setScriptVar(player, "conversation.restuss_imperial_reward_npc.branchId", 93);
-                    npcSpeak(player, message);
-                    npcSetConversationResponses(player, responses);
-                }
-                else 
-                {
-                    utils.removeScriptVar(player, "conversation.restuss_imperial_reward_npc.branchId");
-                    npcEndConversationWithMessage(player, message);
-                }
-                return SCRIPT_CONTINUE;
-            }
-        }
         return SCRIPT_DEFAULT;
     }
     public int restuss_imperial_reward_npc_handleBranch72(obj_id player, obj_id npc, string_id response) throws InterruptedException
@@ -10954,51 +9656,6 @@ public class restuss_imperial_reward_npc extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        if (response.equals("s_153"))
-        {
-            if (restuss_imperial_reward_npc_condition__defaultCondition(player, npc))
-            {
-                string_id message = new string_id(c_stringFile, "s_161");
-                int numberOfResponses = 0;
-                boolean hasResponse = false;
-                boolean hasResponse0 = false;
-                if (restuss_imperial_reward_npc_condition_cost50Really(player, npc))
-                {
-                    ++numberOfResponses;
-                    hasResponse = true;
-                    hasResponse0 = true;
-                }
-                boolean hasResponse1 = false;
-                if (restuss_imperial_reward_npc_condition__defaultCondition(player, npc))
-                {
-                    ++numberOfResponses;
-                    hasResponse = true;
-                    hasResponse1 = true;
-                }
-                if (hasResponse)
-                {
-                    int responseIndex = 0;
-                    string_id responses[] = new string_id[numberOfResponses];
-                    if (hasResponse0)
-                    {
-                        responses[responseIndex++] = new string_id(c_stringFile, "s_171");
-                    }
-                    if (hasResponse1)
-                    {
-                        responses[responseIndex++] = new string_id(c_stringFile, "s_195");
-                    }
-                    utils.setScriptVar(player, "conversation.restuss_imperial_reward_npc.branchId", 93);
-                    npcSpeak(player, message);
-                    npcSetConversationResponses(player, responses);
-                }
-                else 
-                {
-                    utils.removeScriptVar(player, "conversation.restuss_imperial_reward_npc.branchId");
-                    npcEndConversationWithMessage(player, message);
-                }
-                return SCRIPT_CONTINUE;
-            }
-        }
         return SCRIPT_DEFAULT;
     }
     public int restuss_imperial_reward_npc_handleBranch73(obj_id player, obj_id npc, string_id response) throws InterruptedException
@@ -11064,10 +9721,6 @@ public class restuss_imperial_reward_npc extends script.base_script
                     if (hasResponse1)
                     {
                         responses[responseIndex++] = new string_id(c_stringFile, "s_351");
-                    }
-                    if (hasResponse2)
-                    {
-                        responses[responseIndex++] = new string_id(c_stringFile, "s_153");
                     }
                     utils.setScriptVar(player, "conversation.restuss_imperial_reward_npc.branchId", 4);
                     npcSpeak(player, message);
@@ -11318,51 +9971,6 @@ public class restuss_imperial_reward_npc extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        if (response.equals("s_153"))
-        {
-            if (restuss_imperial_reward_npc_condition__defaultCondition(player, npc))
-            {
-                string_id message = new string_id(c_stringFile, "s_161");
-                int numberOfResponses = 0;
-                boolean hasResponse = false;
-                boolean hasResponse0 = false;
-                if (restuss_imperial_reward_npc_condition_cost50Really(player, npc))
-                {
-                    ++numberOfResponses;
-                    hasResponse = true;
-                    hasResponse0 = true;
-                }
-                boolean hasResponse1 = false;
-                if (restuss_imperial_reward_npc_condition__defaultCondition(player, npc))
-                {
-                    ++numberOfResponses;
-                    hasResponse = true;
-                    hasResponse1 = true;
-                }
-                if (hasResponse)
-                {
-                    int responseIndex = 0;
-                    string_id responses[] = new string_id[numberOfResponses];
-                    if (hasResponse0)
-                    {
-                        responses[responseIndex++] = new string_id(c_stringFile, "s_171");
-                    }
-                    if (hasResponse1)
-                    {
-                        responses[responseIndex++] = new string_id(c_stringFile, "s_195");
-                    }
-                    utils.setScriptVar(player, "conversation.restuss_imperial_reward_npc.branchId", 93);
-                    npcSpeak(player, message);
-                    npcSetConversationResponses(player, responses);
-                }
-                else 
-                {
-                    utils.removeScriptVar(player, "conversation.restuss_imperial_reward_npc.branchId");
-                    npcEndConversationWithMessage(player, message);
-                }
-                return SCRIPT_CONTINUE;
-            }
-        }
         return SCRIPT_DEFAULT;
     }
     public int restuss_imperial_reward_npc_handleBranch77(obj_id player, obj_id npc, string_id response) throws InterruptedException
@@ -11600,51 +10208,6 @@ public class restuss_imperial_reward_npc extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        if (response.equals("s_153"))
-        {
-            if (restuss_imperial_reward_npc_condition__defaultCondition(player, npc))
-            {
-                string_id message = new string_id(c_stringFile, "s_161");
-                int numberOfResponses = 0;
-                boolean hasResponse = false;
-                boolean hasResponse0 = false;
-                if (restuss_imperial_reward_npc_condition_cost50Really(player, npc))
-                {
-                    ++numberOfResponses;
-                    hasResponse = true;
-                    hasResponse0 = true;
-                }
-                boolean hasResponse1 = false;
-                if (restuss_imperial_reward_npc_condition__defaultCondition(player, npc))
-                {
-                    ++numberOfResponses;
-                    hasResponse = true;
-                    hasResponse1 = true;
-                }
-                if (hasResponse)
-                {
-                    int responseIndex = 0;
-                    string_id responses[] = new string_id[numberOfResponses];
-                    if (hasResponse0)
-                    {
-                        responses[responseIndex++] = new string_id(c_stringFile, "s_171");
-                    }
-                    if (hasResponse1)
-                    {
-                        responses[responseIndex++] = new string_id(c_stringFile, "s_195");
-                    }
-                    utils.setScriptVar(player, "conversation.restuss_imperial_reward_npc.branchId", 93);
-                    npcSpeak(player, message);
-                    npcSetConversationResponses(player, responses);
-                }
-                else 
-                {
-                    utils.removeScriptVar(player, "conversation.restuss_imperial_reward_npc.branchId");
-                    npcEndConversationWithMessage(player, message);
-                }
-                return SCRIPT_CONTINUE;
-            }
-        }
         return SCRIPT_DEFAULT;
     }
     public int restuss_imperial_reward_npc_handleBranch78(obj_id player, obj_id npc, string_id response) throws InterruptedException
@@ -11710,10 +10273,6 @@ public class restuss_imperial_reward_npc extends script.base_script
                     if (hasResponse1)
                     {
                         responses[responseIndex++] = new string_id(c_stringFile, "s_351");
-                    }
-                    if (hasResponse2)
-                    {
-                        responses[responseIndex++] = new string_id(c_stringFile, "s_153");
                     }
                     utils.setScriptVar(player, "conversation.restuss_imperial_reward_npc.branchId", 4);
                     npcSpeak(player, message);
@@ -11964,51 +10523,6 @@ public class restuss_imperial_reward_npc extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        if (response.equals("s_153"))
-        {
-            if (restuss_imperial_reward_npc_condition__defaultCondition(player, npc))
-            {
-                string_id message = new string_id(c_stringFile, "s_161");
-                int numberOfResponses = 0;
-                boolean hasResponse = false;
-                boolean hasResponse0 = false;
-                if (restuss_imperial_reward_npc_condition_cost50Really(player, npc))
-                {
-                    ++numberOfResponses;
-                    hasResponse = true;
-                    hasResponse0 = true;
-                }
-                boolean hasResponse1 = false;
-                if (restuss_imperial_reward_npc_condition__defaultCondition(player, npc))
-                {
-                    ++numberOfResponses;
-                    hasResponse = true;
-                    hasResponse1 = true;
-                }
-                if (hasResponse)
-                {
-                    int responseIndex = 0;
-                    string_id responses[] = new string_id[numberOfResponses];
-                    if (hasResponse0)
-                    {
-                        responses[responseIndex++] = new string_id(c_stringFile, "s_171");
-                    }
-                    if (hasResponse1)
-                    {
-                        responses[responseIndex++] = new string_id(c_stringFile, "s_195");
-                    }
-                    utils.setScriptVar(player, "conversation.restuss_imperial_reward_npc.branchId", 93);
-                    npcSpeak(player, message);
-                    npcSetConversationResponses(player, responses);
-                }
-                else 
-                {
-                    utils.removeScriptVar(player, "conversation.restuss_imperial_reward_npc.branchId");
-                    npcEndConversationWithMessage(player, message);
-                }
-                return SCRIPT_CONTINUE;
-            }
-        }
         return SCRIPT_DEFAULT;
     }
     public int restuss_imperial_reward_npc_handleBranch82(obj_id player, obj_id npc, string_id response) throws InterruptedException
@@ -12246,51 +10760,6 @@ public class restuss_imperial_reward_npc extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        if (response.equals("s_153"))
-        {
-            if (restuss_imperial_reward_npc_condition__defaultCondition(player, npc))
-            {
-                string_id message = new string_id(c_stringFile, "s_161");
-                int numberOfResponses = 0;
-                boolean hasResponse = false;
-                boolean hasResponse0 = false;
-                if (restuss_imperial_reward_npc_condition_cost50Really(player, npc))
-                {
-                    ++numberOfResponses;
-                    hasResponse = true;
-                    hasResponse0 = true;
-                }
-                boolean hasResponse1 = false;
-                if (restuss_imperial_reward_npc_condition__defaultCondition(player, npc))
-                {
-                    ++numberOfResponses;
-                    hasResponse = true;
-                    hasResponse1 = true;
-                }
-                if (hasResponse)
-                {
-                    int responseIndex = 0;
-                    string_id responses[] = new string_id[numberOfResponses];
-                    if (hasResponse0)
-                    {
-                        responses[responseIndex++] = new string_id(c_stringFile, "s_171");
-                    }
-                    if (hasResponse1)
-                    {
-                        responses[responseIndex++] = new string_id(c_stringFile, "s_195");
-                    }
-                    utils.setScriptVar(player, "conversation.restuss_imperial_reward_npc.branchId", 93);
-                    npcSpeak(player, message);
-                    npcSetConversationResponses(player, responses);
-                }
-                else 
-                {
-                    utils.removeScriptVar(player, "conversation.restuss_imperial_reward_npc.branchId");
-                    npcEndConversationWithMessage(player, message);
-                }
-                return SCRIPT_CONTINUE;
-            }
-        }
         return SCRIPT_DEFAULT;
     }
     public int restuss_imperial_reward_npc_handleBranch83(obj_id player, obj_id npc, string_id response) throws InterruptedException
@@ -12356,10 +10825,6 @@ public class restuss_imperial_reward_npc extends script.base_script
                     if (hasResponse1)
                     {
                         responses[responseIndex++] = new string_id(c_stringFile, "s_351");
-                    }
-                    if (hasResponse2)
-                    {
-                        responses[responseIndex++] = new string_id(c_stringFile, "s_153");
                     }
                     utils.setScriptVar(player, "conversation.restuss_imperial_reward_npc.branchId", 4);
                     npcSpeak(player, message);
@@ -12610,51 +11075,6 @@ public class restuss_imperial_reward_npc extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        if (response.equals("s_153"))
-        {
-            if (restuss_imperial_reward_npc_condition__defaultCondition(player, npc))
-            {
-                string_id message = new string_id(c_stringFile, "s_161");
-                int numberOfResponses = 0;
-                boolean hasResponse = false;
-                boolean hasResponse0 = false;
-                if (restuss_imperial_reward_npc_condition_cost50Really(player, npc))
-                {
-                    ++numberOfResponses;
-                    hasResponse = true;
-                    hasResponse0 = true;
-                }
-                boolean hasResponse1 = false;
-                if (restuss_imperial_reward_npc_condition__defaultCondition(player, npc))
-                {
-                    ++numberOfResponses;
-                    hasResponse = true;
-                    hasResponse1 = true;
-                }
-                if (hasResponse)
-                {
-                    int responseIndex = 0;
-                    string_id responses[] = new string_id[numberOfResponses];
-                    if (hasResponse0)
-                    {
-                        responses[responseIndex++] = new string_id(c_stringFile, "s_171");
-                    }
-                    if (hasResponse1)
-                    {
-                        responses[responseIndex++] = new string_id(c_stringFile, "s_195");
-                    }
-                    utils.setScriptVar(player, "conversation.restuss_imperial_reward_npc.branchId", 93);
-                    npcSpeak(player, message);
-                    npcSetConversationResponses(player, responses);
-                }
-                else 
-                {
-                    utils.removeScriptVar(player, "conversation.restuss_imperial_reward_npc.branchId");
-                    npcEndConversationWithMessage(player, message);
-                }
-                return SCRIPT_CONTINUE;
-            }
-        }
         return SCRIPT_DEFAULT;
     }
     public int restuss_imperial_reward_npc_handleBranch87(obj_id player, obj_id npc, string_id response) throws InterruptedException
@@ -12892,51 +11312,6 @@ public class restuss_imperial_reward_npc extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        if (response.equals("s_153"))
-        {
-            if (restuss_imperial_reward_npc_condition__defaultCondition(player, npc))
-            {
-                string_id message = new string_id(c_stringFile, "s_161");
-                int numberOfResponses = 0;
-                boolean hasResponse = false;
-                boolean hasResponse0 = false;
-                if (restuss_imperial_reward_npc_condition_cost50Really(player, npc))
-                {
-                    ++numberOfResponses;
-                    hasResponse = true;
-                    hasResponse0 = true;
-                }
-                boolean hasResponse1 = false;
-                if (restuss_imperial_reward_npc_condition__defaultCondition(player, npc))
-                {
-                    ++numberOfResponses;
-                    hasResponse = true;
-                    hasResponse1 = true;
-                }
-                if (hasResponse)
-                {
-                    int responseIndex = 0;
-                    string_id responses[] = new string_id[numberOfResponses];
-                    if (hasResponse0)
-                    {
-                        responses[responseIndex++] = new string_id(c_stringFile, "s_171");
-                    }
-                    if (hasResponse1)
-                    {
-                        responses[responseIndex++] = new string_id(c_stringFile, "s_195");
-                    }
-                    utils.setScriptVar(player, "conversation.restuss_imperial_reward_npc.branchId", 93);
-                    npcSpeak(player, message);
-                    npcSetConversationResponses(player, responses);
-                }
-                else 
-                {
-                    utils.removeScriptVar(player, "conversation.restuss_imperial_reward_npc.branchId");
-                    npcEndConversationWithMessage(player, message);
-                }
-                return SCRIPT_CONTINUE;
-            }
-        }
         return SCRIPT_DEFAULT;
     }
     public int restuss_imperial_reward_npc_handleBranch88(obj_id player, obj_id npc, string_id response) throws InterruptedException
@@ -13002,10 +11377,6 @@ public class restuss_imperial_reward_npc extends script.base_script
                     if (hasResponse1)
                     {
                         responses[responseIndex++] = new string_id(c_stringFile, "s_351");
-                    }
-                    if (hasResponse2)
-                    {
-                        responses[responseIndex++] = new string_id(c_stringFile, "s_153");
                     }
                     utils.setScriptVar(player, "conversation.restuss_imperial_reward_npc.branchId", 4);
                     npcSpeak(player, message);
@@ -13256,51 +11627,6 @@ public class restuss_imperial_reward_npc extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        if (response.equals("s_153"))
-        {
-            if (restuss_imperial_reward_npc_condition__defaultCondition(player, npc))
-            {
-                string_id message = new string_id(c_stringFile, "s_161");
-                int numberOfResponses = 0;
-                boolean hasResponse = false;
-                boolean hasResponse0 = false;
-                if (restuss_imperial_reward_npc_condition_cost50Really(player, npc))
-                {
-                    ++numberOfResponses;
-                    hasResponse = true;
-                    hasResponse0 = true;
-                }
-                boolean hasResponse1 = false;
-                if (restuss_imperial_reward_npc_condition__defaultCondition(player, npc))
-                {
-                    ++numberOfResponses;
-                    hasResponse = true;
-                    hasResponse1 = true;
-                }
-                if (hasResponse)
-                {
-                    int responseIndex = 0;
-                    string_id responses[] = new string_id[numberOfResponses];
-                    if (hasResponse0)
-                    {
-                        responses[responseIndex++] = new string_id(c_stringFile, "s_171");
-                    }
-                    if (hasResponse1)
-                    {
-                        responses[responseIndex++] = new string_id(c_stringFile, "s_195");
-                    }
-                    utils.setScriptVar(player, "conversation.restuss_imperial_reward_npc.branchId", 93);
-                    npcSpeak(player, message);
-                    npcSetConversationResponses(player, responses);
-                }
-                else 
-                {
-                    utils.removeScriptVar(player, "conversation.restuss_imperial_reward_npc.branchId");
-                    npcEndConversationWithMessage(player, message);
-                }
-                return SCRIPT_CONTINUE;
-            }
-        }
         return SCRIPT_DEFAULT;
     }
     public int restuss_imperial_reward_npc_handleBranch92(obj_id player, obj_id npc, string_id response) throws InterruptedException
@@ -13527,51 +11853,6 @@ public class restuss_imperial_reward_npc extends script.base_script
                         responses[responseIndex++] = new string_id(c_stringFile, "s_472");
                     }
                     utils.setScriptVar(player, "conversation.restuss_imperial_reward_npc.branchId", 47);
-                    npcSpeak(player, message);
-                    npcSetConversationResponses(player, responses);
-                }
-                else 
-                {
-                    utils.removeScriptVar(player, "conversation.restuss_imperial_reward_npc.branchId");
-                    npcEndConversationWithMessage(player, message);
-                }
-                return SCRIPT_CONTINUE;
-            }
-        }
-        if (response.equals("s_153"))
-        {
-            if (restuss_imperial_reward_npc_condition__defaultCondition(player, npc))
-            {
-                string_id message = new string_id(c_stringFile, "s_161");
-                int numberOfResponses = 0;
-                boolean hasResponse = false;
-                boolean hasResponse0 = false;
-                if (restuss_imperial_reward_npc_condition_cost50Really(player, npc))
-                {
-                    ++numberOfResponses;
-                    hasResponse = true;
-                    hasResponse0 = true;
-                }
-                boolean hasResponse1 = false;
-                if (restuss_imperial_reward_npc_condition__defaultCondition(player, npc))
-                {
-                    ++numberOfResponses;
-                    hasResponse = true;
-                    hasResponse1 = true;
-                }
-                if (hasResponse)
-                {
-                    int responseIndex = 0;
-                    string_id responses[] = new string_id[numberOfResponses];
-                    if (hasResponse0)
-                    {
-                        responses[responseIndex++] = new string_id(c_stringFile, "s_171");
-                    }
-                    if (hasResponse1)
-                    {
-                        responses[responseIndex++] = new string_id(c_stringFile, "s_195");
-                    }
-                    utils.setScriptVar(player, "conversation.restuss_imperial_reward_npc.branchId", 93);
                     npcSpeak(player, message);
                     npcSetConversationResponses(player, responses);
                 }
