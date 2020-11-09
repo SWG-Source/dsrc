@@ -592,7 +592,7 @@ public class rebel_general extends script.base_script
     }
     public int rebel_general_handleBranch11(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
-        if (response.equals("s_21"))
+        if (response.equals("s_149"))
         {
             if (rebel_general_condition_isCombatPhase(player, npc))
             {
@@ -1128,7 +1128,7 @@ public class rebel_general extends script.base_script
         }
         if (rebel_general_condition_isGeneralRebAndOffense(player, npc))
         {
-            string_id message = new string_id(c_stringFile, "s_19");
+            string_id message = new string_id(c_stringFile, "s_23");
             int numberOfResponses = 0;
             boolean hasResponse = false;
             boolean hasResponse0 = false;
@@ -1221,7 +1221,7 @@ public class rebel_general extends script.base_script
                 string_id responses[] = new string_id[numberOfResponses];
                 if (hasResponse0)
                 {
-                    responses[responseIndex++] = new string_id(c_stringFile, "s_21");
+                    responses[responseIndex++] = new string_id(c_stringFile, "s_149");
                 }
                 if (hasResponse1)
                 {
