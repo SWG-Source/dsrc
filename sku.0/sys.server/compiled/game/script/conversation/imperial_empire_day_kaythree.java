@@ -2607,11 +2607,11 @@ public class imperial_empire_day_kaythree extends script.base_script
                     }
                     if (hasResponse1)
                     {
-                        responses[responseIndex++] = new string_id(c_stringFile, "s_293");
+                        responses[responseIndex++] = new string_id(c_stringFile, "s_295");
                     }
                     if (hasResponse2)
                     {
-                        responses[responseIndex++] = new string_id(c_stringFile, "s_299");
+                        responses[responseIndex++] = new string_id(c_stringFile, "s_302");
                     }
                     utils.setScriptVar(player, "conversation.imperial_empire_day_kaythree.branchId", 91);
                     npcSpeak(player, message);
@@ -2663,11 +2663,11 @@ public class imperial_empire_day_kaythree extends script.base_script
                     }
                     if (hasResponse1)
                     {
-                        responses[responseIndex++] = new string_id(c_stringFile, "s_293");
+                        responses[responseIndex++] = new string_id(c_stringFile, "s_295");
                     }
                     if (hasResponse2)
                     {
-                        responses[responseIndex++] = new string_id(c_stringFile, "s_299");
+                        responses[responseIndex++] = new string_id(c_stringFile, "s_302");
                     }
                     utils.setScriptVar(player, "conversation.imperial_empire_day_kaythree.branchId", 91);
                     npcSpeak(player, message);
@@ -2716,7 +2716,7 @@ public class imperial_empire_day_kaythree extends script.base_script
                     }
                     if (hasResponse1)
                     {
-                        responses[responseIndex++] = new string_id(c_stringFile, "s_171");
+                        responses[responseIndex++] = new string_id(c_stringFile, "s_190");
                     }
                     utils.setScriptVar(player, "conversation.imperial_empire_day_kaythree.branchId", 92);
                     npcSpeak(player, message);
@@ -2731,7 +2731,7 @@ public class imperial_empire_day_kaythree extends script.base_script
             }
             if (imperial_empire_day_kaythree_condition_isTrader(player, npc))
             {
-                string_id message = new string_id(c_stringFile, "s_264");
+                string_id message = new string_id(c_stringFile, "s_268");
                 int numberOfResponses = 0;
                 boolean hasResponse = false;
                 boolean hasResponse0 = false;
@@ -2754,11 +2754,11 @@ public class imperial_empire_day_kaythree extends script.base_script
                     string_id responses[] = new string_id[numberOfResponses];
                     if (hasResponse0)
                     {
-                        responses[responseIndex++] = new string_id(c_stringFile, "s_268");
+                        responses[responseIndex++] = new string_id(c_stringFile, "s_270");
                     }
                     if (hasResponse1)
                     {
-                        responses[responseIndex++] = new string_id(c_stringFile, "s_282");
+                        responses[responseIndex++] = new string_id(c_stringFile, "s_284");
                     }
                     utils.setScriptVar(player, "conversation.imperial_empire_day_kaythree.branchId", 96);
                     npcSpeak(player, message);
@@ -2772,11 +2772,11 @@ public class imperial_empire_day_kaythree extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        if (response.equals("s_293"))
+        if (response.equals("s_295"))
         {
             if (imperial_empire_day_kaythree_condition__defaultCondition(player, npc))
             {
-                string_id message = new string_id(c_stringFile, "s_295");
+                string_id message = new string_id(c_stringFile, "s_299");
                 utils.removeScriptVar(player, "conversation.imperial_empire_day_kaythree.branchId");
                 prose_package pp = new prose_package();
                 pp.stringId = message;
@@ -2786,11 +2786,11 @@ public class imperial_empire_day_kaythree extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        if (response.equals("s_299"))
+        if (response.equals("s_302"))
         {
             if (imperial_empire_day_kaythree_condition__defaultCondition(player, npc))
             {
-                string_id message = new string_id(c_stringFile, "s_302");
+                string_id message = new string_id(c_stringFile, "s_308");
                 utils.removeScriptVar(player, "conversation.imperial_empire_day_kaythree.branchId");
                 prose_package pp = new prose_package();
                 pp.stringId = message;
@@ -2835,7 +2835,7 @@ public class imperial_empire_day_kaythree extends script.base_script
                     }
                     if (hasResponse1)
                     {
-                        responses[responseIndex++] = new string_id(c_stringFile, "s_171");
+                        responses[responseIndex++] = new string_id(c_stringFile, "s_190");
                     }
                     utils.setScriptVar(player, "conversation.imperial_empire_day_kaythree.branchId", 92);
                     npcSpeak(player, message);
@@ -2850,7 +2850,7 @@ public class imperial_empire_day_kaythree extends script.base_script
             }
             if (imperial_empire_day_kaythree_condition_isTrader(player, npc))
             {
-                string_id message = new string_id(c_stringFile, "s_264");
+                string_id message = new string_id(c_stringFile, "s_268");
                 int numberOfResponses = 0;
                 boolean hasResponse = false;
                 boolean hasResponse0 = false;
@@ -2873,11 +2873,11 @@ public class imperial_empire_day_kaythree extends script.base_script
                     string_id responses[] = new string_id[numberOfResponses];
                     if (hasResponse0)
                     {
-                        responses[responseIndex++] = new string_id(c_stringFile, "s_268");
+                        responses[responseIndex++] = new string_id(c_stringFile, "s_270");
                     }
                     if (hasResponse1)
                     {
-                        responses[responseIndex++] = new string_id(c_stringFile, "s_282");
+                        responses[responseIndex++] = new string_id(c_stringFile, "s_284");
                     }
                     utils.setScriptVar(player, "conversation.imperial_empire_day_kaythree.branchId", 96);
                     npcSpeak(player, message);
@@ -2891,11 +2891,11 @@ public class imperial_empire_day_kaythree extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        if (response.equals("s_293"))
+        if (response.equals("s_295"))
         {
             if (imperial_empire_day_kaythree_condition__defaultCondition(player, npc))
             {
-                string_id message = new string_id(c_stringFile, "s_295");
+                string_id message = new string_id(c_stringFile, "s_299");
                 utils.removeScriptVar(player, "conversation.imperial_empire_day_kaythree.branchId");
                 prose_package pp = new prose_package();
                 pp.stringId = message;
@@ -2905,11 +2905,11 @@ public class imperial_empire_day_kaythree extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        if (response.equals("s_299"))
+        if (response.equals("s_302"))
         {
             if (imperial_empire_day_kaythree_condition__defaultCondition(player, npc))
             {
-                string_id message = new string_id(c_stringFile, "s_302");
+                string_id message = new string_id(c_stringFile, "s_308");
                 utils.removeScriptVar(player, "conversation.imperial_empire_day_kaythree.branchId");
                 prose_package pp = new prose_package();
                 pp.stringId = message;
@@ -2961,11 +2961,11 @@ public class imperial_empire_day_kaythree extends script.base_script
                     }
                     if (hasResponse1)
                     {
-                        responses[responseIndex++] = new string_id(c_stringFile, "s_293");
+                        responses[responseIndex++] = new string_id(c_stringFile, "s_295");
                     }
                     if (hasResponse2)
                     {
-                        responses[responseIndex++] = new string_id(c_stringFile, "s_299");
+                        responses[responseIndex++] = new string_id(c_stringFile, "s_302");
                     }
                     utils.setScriptVar(player, "conversation.imperial_empire_day_kaythree.branchId", 91);
                     npcSpeak(player, message);
@@ -3017,11 +3017,11 @@ public class imperial_empire_day_kaythree extends script.base_script
                     }
                     if (hasResponse1)
                     {
-                        responses[responseIndex++] = new string_id(c_stringFile, "s_293");
+                        responses[responseIndex++] = new string_id(c_stringFile, "s_295");
                     }
                     if (hasResponse2)
                     {
-                        responses[responseIndex++] = new string_id(c_stringFile, "s_299");
+                        responses[responseIndex++] = new string_id(c_stringFile, "s_302");
                     }
                     utils.setScriptVar(player, "conversation.imperial_empire_day_kaythree.branchId", 91);
                     npcSpeak(player, message);
@@ -3070,7 +3070,7 @@ public class imperial_empire_day_kaythree extends script.base_script
                     }
                     if (hasResponse1)
                     {
-                        responses[responseIndex++] = new string_id(c_stringFile, "s_171");
+                        responses[responseIndex++] = new string_id(c_stringFile, "s_190");
                     }
                     utils.setScriptVar(player, "conversation.imperial_empire_day_kaythree.branchId", 92);
                     npcSpeak(player, message);
@@ -3085,7 +3085,7 @@ public class imperial_empire_day_kaythree extends script.base_script
             }
             if (imperial_empire_day_kaythree_condition_isTrader(player, npc))
             {
-                string_id message = new string_id(c_stringFile, "s_264");
+                string_id message = new string_id(c_stringFile, "s_268");
                 int numberOfResponses = 0;
                 boolean hasResponse = false;
                 boolean hasResponse0 = false;
@@ -3108,11 +3108,11 @@ public class imperial_empire_day_kaythree extends script.base_script
                     string_id responses[] = new string_id[numberOfResponses];
                     if (hasResponse0)
                     {
-                        responses[responseIndex++] = new string_id(c_stringFile, "s_268");
+                        responses[responseIndex++] = new string_id(c_stringFile, "s_270");
                     }
                     if (hasResponse1)
                     {
-                        responses[responseIndex++] = new string_id(c_stringFile, "s_282");
+                        responses[responseIndex++] = new string_id(c_stringFile, "s_284");
                     }
                     utils.setScriptVar(player, "conversation.imperial_empire_day_kaythree.branchId", 96);
                     npcSpeak(player, message);
@@ -3126,11 +3126,11 @@ public class imperial_empire_day_kaythree extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        if (response.equals("s_293"))
+        if (response.equals("s_295"))
         {
             if (imperial_empire_day_kaythree_condition__defaultCondition(player, npc))
             {
-                string_id message = new string_id(c_stringFile, "s_295");
+                string_id message = new string_id(c_stringFile, "s_299");
                 utils.removeScriptVar(player, "conversation.imperial_empire_day_kaythree.branchId");
                 prose_package pp = new prose_package();
                 pp.stringId = message;
@@ -3140,11 +3140,11 @@ public class imperial_empire_day_kaythree extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        if (response.equals("s_299"))
+        if (response.equals("s_302"))
         {
             if (imperial_empire_day_kaythree_condition__defaultCondition(player, npc))
             {
-                string_id message = new string_id(c_stringFile, "s_302");
+                string_id message = new string_id(c_stringFile, "s_308");
                 utils.removeScriptVar(player, "conversation.imperial_empire_day_kaythree.branchId");
                 prose_package pp = new prose_package();
                 pp.stringId = message;
@@ -3189,7 +3189,7 @@ public class imperial_empire_day_kaythree extends script.base_script
                     }
                     if (hasResponse1)
                     {
-                        responses[responseIndex++] = new string_id(c_stringFile, "s_171");
+                        responses[responseIndex++] = new string_id(c_stringFile, "s_190");
                     }
                     utils.setScriptVar(player, "conversation.imperial_empire_day_kaythree.branchId", 92);
                     npcSpeak(player, message);
@@ -3204,7 +3204,7 @@ public class imperial_empire_day_kaythree extends script.base_script
             }
             if (imperial_empire_day_kaythree_condition_isTrader(player, npc))
             {
-                string_id message = new string_id(c_stringFile, "s_264");
+                string_id message = new string_id(c_stringFile, "s_268");
                 int numberOfResponses = 0;
                 boolean hasResponse = false;
                 boolean hasResponse0 = false;
@@ -3227,11 +3227,11 @@ public class imperial_empire_day_kaythree extends script.base_script
                     string_id responses[] = new string_id[numberOfResponses];
                     if (hasResponse0)
                     {
-                        responses[responseIndex++] = new string_id(c_stringFile, "s_268");
+                        responses[responseIndex++] = new string_id(c_stringFile, "s_270");
                     }
                     if (hasResponse1)
                     {
-                        responses[responseIndex++] = new string_id(c_stringFile, "s_282");
+                        responses[responseIndex++] = new string_id(c_stringFile, "s_284");
                     }
                     utils.setScriptVar(player, "conversation.imperial_empire_day_kaythree.branchId", 96);
                     npcSpeak(player, message);
@@ -3245,11 +3245,11 @@ public class imperial_empire_day_kaythree extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        if (response.equals("s_293"))
+        if (response.equals("s_295"))
         {
             if (imperial_empire_day_kaythree_condition__defaultCondition(player, npc))
             {
-                string_id message = new string_id(c_stringFile, "s_295");
+                string_id message = new string_id(c_stringFile, "s_299");
                 utils.removeScriptVar(player, "conversation.imperial_empire_day_kaythree.branchId");
                 prose_package pp = new prose_package();
                 pp.stringId = message;
@@ -3259,11 +3259,11 @@ public class imperial_empire_day_kaythree extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        if (response.equals("s_299"))
+        if (response.equals("s_302"))
         {
             if (imperial_empire_day_kaythree_condition__defaultCondition(player, npc))
             {
-                string_id message = new string_id(c_stringFile, "s_302");
+                string_id message = new string_id(c_stringFile, "s_308");
                 utils.removeScriptVar(player, "conversation.imperial_empire_day_kaythree.branchId");
                 prose_package pp = new prose_package();
                 pp.stringId = message;
@@ -3282,17 +3282,17 @@ public class imperial_empire_day_kaythree extends script.base_script
             if (imperial_empire_day_kaythree_condition_isEntertainer(player, npc))
             {
                 imperial_empire_day_kaythree_action_grantEntertainerOne(player, npc);
-                string_id message = new string_id(c_stringFile, "s_158");
+                string_id message = new string_id(c_stringFile, "s_171");
                 utils.removeScriptVar(player, "conversation.imperial_empire_day_kaythree.branchId");
                 npcEndConversationWithMessage(player, message);
                 return SCRIPT_CONTINUE;
             }
         }
-        if (response.equals("s_171"))
+        if (response.equals("s_190"))
         {
             if (imperial_empire_day_kaythree_condition__defaultCondition(player, npc))
             {
-                string_id message = new string_id(c_stringFile, "s_190");
+                string_id message = new string_id(c_stringFile, "s_256");
                 int numberOfResponses = 0;
                 boolean hasResponse = false;
                 boolean hasResponse0 = false;
@@ -3308,7 +3308,7 @@ public class imperial_empire_day_kaythree extends script.base_script
                     string_id responses[] = new string_id[numberOfResponses];
                     if (hasResponse0)
                     {
-                        responses[responseIndex++] = new string_id(c_stringFile, "s_256");
+                        responses[responseIndex++] = new string_id(c_stringFile, "s_260");
                     }
                     utils.setScriptVar(player, "conversation.imperial_empire_day_kaythree.branchId", 94);
                     npcSpeak(player, message);
@@ -3326,12 +3326,12 @@ public class imperial_empire_day_kaythree extends script.base_script
     }
     public int imperial_empire_day_kaythree_handleBranch94(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
-        if (response.equals("s_256"))
+        if (response.equals("s_260"))
         {
             if (imperial_empire_day_kaythree_condition_isEntertainerOrTrader(player, npc))
             {
                 imperial_empire_day_kaythree_action_grantEntertainerOne(player, npc);
-                string_id message = new string_id(c_stringFile, "s_260");
+                string_id message = new string_id(c_stringFile, "s_171");
                 utils.removeScriptVar(player, "conversation.imperial_empire_day_kaythree.branchId");
                 npcEndConversationWithMessage(player, message);
                 return SCRIPT_CONTINUE;
@@ -3341,11 +3341,11 @@ public class imperial_empire_day_kaythree extends script.base_script
     }
     public int imperial_empire_day_kaythree_handleBranch96(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
-        if (response.equals("s_268"))
+        if (response.equals("s_270"))
         {
             if (imperial_empire_day_kaythree_condition__defaultCondition(player, npc))
             {
-                string_id message = new string_id(c_stringFile, "s_270");
+                string_id message = new string_id(c_stringFile, "s_272");
                 int numberOfResponses = 0;
                 boolean hasResponse = false;
                 boolean hasResponse0 = false;
@@ -3361,7 +3361,7 @@ public class imperial_empire_day_kaythree extends script.base_script
                     string_id responses[] = new string_id[numberOfResponses];
                     if (hasResponse0)
                     {
-                        responses[responseIndex++] = new string_id(c_stringFile, "s_272");
+                        responses[responseIndex++] = new string_id(c_stringFile, "s_274");
                     }
                     utils.setScriptVar(player, "conversation.imperial_empire_day_kaythree.branchId", 97);
                     prose_package pp = new prose_package();
@@ -3383,12 +3383,12 @@ public class imperial_empire_day_kaythree extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        if (response.equals("s_282"))
+        if (response.equals("s_284"))
         {
             if (imperial_empire_day_kaythree_condition_isDomesticsTrader(player, npc))
             {
                 imperial_empire_day_kaythree_action_grantDomesticsMissionOne(player, npc);
-                string_id message = new string_id(c_stringFile, "s_284");
+                string_id message = new string_id(c_stringFile, "s_286");
                 utils.removeScriptVar(player, "conversation.imperial_empire_day_kaythree.branchId");
                 npcEndConversationWithMessage(player, message);
                 return SCRIPT_CONTINUE;
@@ -3396,7 +3396,7 @@ public class imperial_empire_day_kaythree extends script.base_script
             if (imperial_empire_day_kaythree_condition_isEngineeringTrader(player, npc))
             {
                 imperial_empire_day_kaythree_action_grantEngineeringMissionOne(player, npc);
-                string_id message = new string_id(c_stringFile, "s_286");
+                string_id message = new string_id(c_stringFile, "s_288");
                 utils.removeScriptVar(player, "conversation.imperial_empire_day_kaythree.branchId");
                 npcEndConversationWithMessage(player, message);
                 return SCRIPT_CONTINUE;
@@ -3404,7 +3404,7 @@ public class imperial_empire_day_kaythree extends script.base_script
             if (imperial_empire_day_kaythree_condition_isMunitionsTrader(player, npc))
             {
                 imperial_empire_day_kaythree_action_grantMunitionsMissionOne(player, npc);
-                string_id message = new string_id(c_stringFile, "s_288");
+                string_id message = new string_id(c_stringFile, "s_291");
                 utils.removeScriptVar(player, "conversation.imperial_empire_day_kaythree.branchId");
                 npcEndConversationWithMessage(player, message);
                 return SCRIPT_CONTINUE;
@@ -3412,7 +3412,7 @@ public class imperial_empire_day_kaythree extends script.base_script
             if (imperial_empire_day_kaythree_condition_isStructuresTrader(player, npc))
             {
                 imperial_empire_day_kaythree_action_grantStructuresMissionOne(player, npc);
-                string_id message = new string_id(c_stringFile, "s_291");
+                string_id message = new string_id(c_stringFile, "s_293");
                 utils.removeScriptVar(player, "conversation.imperial_empire_day_kaythree.branchId");
                 npcEndConversationWithMessage(player, message);
                 return SCRIPT_CONTINUE;
@@ -3422,11 +3422,11 @@ public class imperial_empire_day_kaythree extends script.base_script
     }
     public int imperial_empire_day_kaythree_handleBranch97(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
-        if (response.equals("s_272"))
+        if (response.equals("s_274"))
         {
             if (imperial_empire_day_kaythree_condition__defaultCondition(player, npc))
             {
-                string_id message = new string_id(c_stringFile, "s_274");
+                string_id message = new string_id(c_stringFile, "s_276");
                 int numberOfResponses = 0;
                 boolean hasResponse = false;
                 boolean hasResponse0 = false;
@@ -3442,7 +3442,7 @@ public class imperial_empire_day_kaythree extends script.base_script
                     string_id responses[] = new string_id[numberOfResponses];
                     if (hasResponse0)
                     {
-                        responses[responseIndex++] = new string_id(c_stringFile, "s_276");
+                        responses[responseIndex++] = new string_id(c_stringFile, "s_278");
                     }
                     utils.setScriptVar(player, "conversation.imperial_empire_day_kaythree.branchId", 98);
                     prose_package pp = new prose_package();
@@ -3468,11 +3468,11 @@ public class imperial_empire_day_kaythree extends script.base_script
     }
     public int imperial_empire_day_kaythree_handleBranch98(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
-        if (response.equals("s_276"))
+        if (response.equals("s_278"))
         {
             if (imperial_empire_day_kaythree_condition__defaultCondition(player, npc))
             {
-                string_id message = new string_id(c_stringFile, "s_278");
+                string_id message = new string_id(c_stringFile, "s_280");
                 int numberOfResponses = 0;
                 boolean hasResponse = false;
                 boolean hasResponse0 = false;
@@ -3488,7 +3488,7 @@ public class imperial_empire_day_kaythree extends script.base_script
                     string_id responses[] = new string_id[numberOfResponses];
                     if (hasResponse0)
                     {
-                        responses[responseIndex++] = new string_id(c_stringFile, "s_280");
+                        responses[responseIndex++] = new string_id(c_stringFile, "s_282");
                     }
                     utils.setScriptVar(player, "conversation.imperial_empire_day_kaythree.branchId", 99);
                     prose_package pp = new prose_package();
@@ -3514,12 +3514,12 @@ public class imperial_empire_day_kaythree extends script.base_script
     }
     public int imperial_empire_day_kaythree_handleBranch99(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
-        if (response.equals("s_280"))
+        if (response.equals("s_282"))
         {
             if (imperial_empire_day_kaythree_condition_isDomesticsTrader(player, npc))
             {
                 imperial_empire_day_kaythree_action_grantDomesticsMissionOne(player, npc);
-                string_id message = new string_id(c_stringFile, "s_284");
+                string_id message = new string_id(c_stringFile, "s_286");
                 utils.removeScriptVar(player, "conversation.imperial_empire_day_kaythree.branchId");
                 npcEndConversationWithMessage(player, message);
                 return SCRIPT_CONTINUE;
@@ -3527,7 +3527,7 @@ public class imperial_empire_day_kaythree extends script.base_script
             if (imperial_empire_day_kaythree_condition_isEngineeringTrader(player, npc))
             {
                 imperial_empire_day_kaythree_action_grantEngineeringMissionOne(player, npc);
-                string_id message = new string_id(c_stringFile, "s_286");
+                string_id message = new string_id(c_stringFile, "s_288");
                 utils.removeScriptVar(player, "conversation.imperial_empire_day_kaythree.branchId");
                 npcEndConversationWithMessage(player, message);
                 return SCRIPT_CONTINUE;
@@ -3535,7 +3535,7 @@ public class imperial_empire_day_kaythree extends script.base_script
             if (imperial_empire_day_kaythree_condition_isMunitionsTrader(player, npc))
             {
                 imperial_empire_day_kaythree_action_grantMunitionsMissionOne(player, npc);
-                string_id message = new string_id(c_stringFile, "s_288");
+                string_id message = new string_id(c_stringFile, "s_291");
                 utils.removeScriptVar(player, "conversation.imperial_empire_day_kaythree.branchId");
                 npcEndConversationWithMessage(player, message);
                 return SCRIPT_CONTINUE;
@@ -3543,7 +3543,7 @@ public class imperial_empire_day_kaythree extends script.base_script
             if (imperial_empire_day_kaythree_condition_isStructuresTrader(player, npc))
             {
                 imperial_empire_day_kaythree_action_grantStructuresMissionOne(player, npc);
-                string_id message = new string_id(c_stringFile, "s_291");
+                string_id message = new string_id(c_stringFile, "s_293");
                 utils.removeScriptVar(player, "conversation.imperial_empire_day_kaythree.branchId");
                 npcEndConversationWithMessage(player, message);
                 return SCRIPT_CONTINUE;
