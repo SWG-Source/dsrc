@@ -236,7 +236,7 @@ public class story_arc_chapter_three_pilot extends script.base_script
             {
                 doAnimationAction(npc, "celebrate");
                 story_arc_chapter_three_pilot_action_sendGroupToVolcano(player, npc);
-                string_id message = new string_id(c_stringFile, "s_36");
+                string_id message = new string_id(c_stringFile, "s_31");
                 utils.removeScriptVar(player, "conversation.story_arc_chapter_three_pilot.branchId");
                 npcEndConversationWithMessage(player, message);
                 return SCRIPT_CONTINUE;
