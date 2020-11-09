@@ -625,12 +625,12 @@ public class imperial_general extends script.base_script
     }
     public int imperial_general_handleBranch12(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
-        if (response.equals("s_23"))
+        if (response.equals("s_26"))
         {
             if (imperial_general_condition_isCombatPhase(player, npc))
             {
                 imperial_general_action_grantEntertainerQuests(player, npc);
-                string_id message = new string_id(c_stringFile, "s_26");
+                string_id message = new string_id(c_stringFile, "s_157");
                 utils.removeScriptVar(player, "conversation.imperial_general.branchId");
                 npcEndConversationWithMessage(player, message);
                 return SCRIPT_CONTINUE;
@@ -1162,7 +1162,7 @@ public class imperial_general extends script.base_script
         }
         if (imperial_general_condition_isGeneralImpAndOffense(player, npc))
         {
-            string_id message = new string_id(c_stringFile, "s_21");
+            string_id message = new string_id(c_stringFile, "s_23");
             int numberOfResponses = 0;
             boolean hasResponse = false;
             boolean hasResponse0 = false;
@@ -1255,7 +1255,7 @@ public class imperial_general extends script.base_script
                 string_id responses[] = new string_id[numberOfResponses];
                 if (hasResponse0)
                 {
-                    responses[responseIndex++] = new string_id(c_stringFile, "s_23");
+                    responses[responseIndex++] = new string_id(c_stringFile, "s_26");
                 }
                 if (hasResponse1)
                 {
