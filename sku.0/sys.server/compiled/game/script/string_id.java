@@ -70,7 +70,24 @@ public class string_id implements Comparable, Serializable
 		m_indexId = src.m_indexId;
 		m_asciiId = src.m_asciiId;
 	}	// string_id(string_id)
-
+	/**
+	 * Overloaded version of string_id constructor that uses a dummy string not a localized one
+	 * Allows forcing of inline-defined Strings in lieu of creating strings in .STF where a string_id is expected by the code
+	 * Can be used directly as a string_id or pushed into a prose_package
+	 * This is predominately intended for use in admin/debug scenarios where adding a real string does not make sense
+	 * However, this seemingly works perfectly fine for production use provided that you never intend to localize your client in another language
+	 * Good for radial menu items, comm messages, and all those other annoying functions that want a string_id
+	 * You should NOT use this for conversations, though, as conversation logic relies on STF indexing
+	 *
+	 * Example Usage: string_id message = new string_id("a message you don't want to put into a .STF here");
+	 *
+	 * @param dummyText String text to display in the client
+	 */
+	public string_id(String dummyText)
+	{
+		m_table = "dummy_string_table"; // client relies on this name to not parse as a string_id
+		m_asciiId = dummyText;
+	} // string_id(dummyText)
 	/**
 	 * Accessor function.
 	 *
