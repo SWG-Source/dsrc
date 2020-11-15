@@ -27,22 +27,23 @@ public class fishing extends script.base_script {
     public static final int ELUSIVE_FISH_MAX_GALAXY = 70;
     public static final double ELUSIVE_FISH_CHANCE = 0.005d; // 1% chance default
     public static final String ELUSIVE_FISH_TABLE = "datatables/fishing/fish/elusive_fish.iff";
-    public static final obj_id FISHING_OBJECT = getObjIdObjVar(getPlanetByName("tatooine"), "master_fishing_object");
     public static final String OBJVAR_ELUSIVE_FISH_PLAYER_CAUGHT_COUNT = "fishing.elusive_fish_caught"; // count also used for guild/city travel point perk
     public static final String OBJVAR_ELUSIVE_FISH_LEADERBOARD_COUNT_TOTAL = "elusive_fish.leaderboard_total";
     public static final String OBJVAR_ELUSIVE_FISH_LEADERBOARD_TREE = "elusive_fish.leaderboard.e_";
     public static final String OBJVAR_ELUSIVE_FISH_COUNT_TABLE_TREE = "elusive_fish.count_table.fish_";
     public static final String OBJVAR_ELUSIVE_FISH_COUNT_TABLE_MADE = "elusive_fish.count_table_made";
     public static final String OBJVAR_ELUSIVE_FISH_COUNT_TOTAL= "elusive_fish.count_rewarded_total";
+    public static final String OBJVAR_PLANET_OBJECT_REFERENCE = "master_fishing_object";
 
     /**
      * getMasterFishingObject
      * The Master Fishing Object is an invisible ghost object which exists in the world to store information about fishing records and data (as ObjVars).
-     * It is in the tatooine_5_5 buildout and initialized via fishing.master_object script
+     * A controller in tatooine_5_5 buildout uses fishing.controller script to handle MFO creation.
+     * The controller spawns the master object if it doesn't exist OnInitialize, attaches fishing.master_object, and persists to the world
      * @return The obj_id of the master fishing object
      */
     public static obj_id getMasterFishingObject() throws InterruptedException {
-        return getObjIdObjVar(getPlanetByName("tatooine"), "master_fishing_object");
+        return getObjIdObjVar(getPlanetByName("tatooine"), OBJVAR_PLANET_OBJECT_REFERENCE);
     }
 
     /**
@@ -171,18 +172,18 @@ public class fishing extends script.base_script {
      */
     public static boolean hasElusiveFishBeenCollected(obj_id fish) throws InterruptedException {
         String fishType = getStringObjVar(fish, "fish.name");
-        return getIntObjVar(FISHING_OBJECT, OBJVAR_ELUSIVE_FISH_COUNT_TABLE_TREE+fishType) >= 1;
+        return getIntObjVar(getMasterFishingObject(), OBJVAR_ELUSIVE_FISH_COUNT_TABLE_TREE+fishType) >= 1;
     }
 
     /**
-     * isWinningElusiveFish - To be initiated by fishing process when player catches a fish
+     * handleElusiveFishRollAndWin - To be initiated by fishing process when player catches a fish
      * This is triggered at the point of the fish actually being caught and transferred to the player, then the system rolls to
      * decide if it should make this an elusive fish.
      * @param player the player fishing
      * @param fish the fish the player caught
      */
     public static void handleElusiveFishRollAndWin(obj_id player, obj_id fish) throws InterruptedException {
-        if(!isIdValid(FISHING_OBJECT)) {
+        if(!isIdValid(player) || !isIdValid(fish)) {
             return;
         }
         if(!utils.checkConfigFlag("Fishing", "elusiveFishEnabled")) {
@@ -213,21 +214,19 @@ public class fishing extends script.base_script {
      */
     public static void giveElusiveFishRewards(obj_id player, obj_id fish) throws InterruptedException {
 
+        obj_id masterFishingObject = getMasterFishingObject();
+        dictionary d = new dictionary();
         String fishType = getStringObjVar(fish, "fish.name");
         if(!badge.hasBadge(player, "bdg_fishing_elusive_fish_"+fishType)) {
             badge.grantBadge(player, "bdg_fishing_elusive_fish_"+fishType);
         }
         // make the fish elusive
         attachScript(fish, "fishing.elusive_fish");
-        // count this specific fish as caught
-        setObjVar(FISHING_OBJECT, OBJVAR_ELUSIVE_FISH_COUNT_TABLE_TREE+fishType, getIntObjVar(FISHING_OBJECT, OBJVAR_ELUSIVE_FISH_COUNT_TABLE_TREE+fishType)+1);
-        // count the overall number of elusive fish caught
-        setObjVar(FISHING_OBJECT, OBJVAR_ELUSIVE_FISH_COUNT_TOTAL, getIntObjVar(FISHING_OBJECT, OBJVAR_ELUSIVE_FISH_COUNT_TOTAL)+1);
         // update the player's personal count of caught elusive fish (this is also used for granting travel point perks)
         if(!hasObjVar(player, OBJVAR_ELUSIVE_FISH_PLAYER_CAUGHT_COUNT)) {
             setObjVar(player, OBJVAR_ELUSIVE_FISH_PLAYER_CAUGHT_COUNT, 1);
         } else {
-            setObjVar(player, OBJVAR_ELUSIVE_FISH_PLAYER_CAUGHT_COUNT, getIntObjVar(player, "elusive_fish_caught")+1);
+            setObjVar(player, OBJVAR_ELUSIVE_FISH_PLAYER_CAUGHT_COUNT, getIntObjVar(player, OBJVAR_ELUSIVE_FISH_PLAYER_CAUGHT_COUNT)+1);
         }
         // pack fish information and send to leaderboard, then log the catch
         String species = getFishSpecies(fish);
@@ -240,12 +239,14 @@ public class fishing extends script.base_script {
                 (int)getFishCaughtLocation(fish).x+", "+(int)getFishCaughtLocation(fish).z,
                 getFishCaughtTimeReadable(fish),
         };
+        d.put("fishType", fishType);
+        d.put("elusiveFishLeaderboardItems", elusiveFishLeaderboardItems);
         if(hasElusiveFishBeenCollected(fish)) {
             if (utils.checkConfigFlag("Fishing", "elusiveFishShowDuplicatesOnLeaderboard")) {
-                handleUpdateElusiveFishLeaderboard(elusiveFishLeaderboardItems);
+                messageTo(masterFishingObject, "handleUpdateElusiveFishLeaderboard", d, 6f, true);
             }
         } else {
-            handleUpdateElusiveFishLeaderboard(elusiveFishLeaderboardItems);
+            messageTo(masterFishingObject, "handleUpdateElusiveFishLeaderboard", d, 6f, true);
         }
         CustomerServiceLog("elusive_fish", getPlayerName(player)+" ("+player+") caught elusive fish "+fishType+" ("+fish+")");
     }
@@ -276,7 +277,7 @@ public class fishing extends script.base_script {
      * @return the number of elusive fish that have been caught on the cluster
      */
     public static int getElusiveFishRewardedCount() throws InterruptedException {
-        return getIntObjVar(FISHING_OBJECT, OBJVAR_ELUSIVE_FISH_COUNT_TOTAL);
+        return getIntObjVar(getMasterFishingObject(), OBJVAR_ELUSIVE_FISH_COUNT_TOTAL);
     }
 
     /**
@@ -285,60 +286,27 @@ public class fishing extends script.base_script {
      * @param fish the name of the elusive fish (reference elusive fish datatable) e.g. bluefish_dantooine
      */
     public static int getCountOfSpecificElusiveFishRewarded(String fish) throws InterruptedException {
-        return getIntObjVar(FISHING_OBJECT, OBJVAR_ELUSIVE_FISH_COUNT_TABLE_TREE+fish);
+        return getIntObjVar(getMasterFishingObject(), OBJVAR_ELUSIVE_FISH_COUNT_TABLE_TREE+fish);
     }
 
     /**
      * showElusiveFishLeaderboard
      * Constructs and then shows the player a SUI Table containing the Elusive Fish Leaderboard
      * @param player the player who should get the SUI window
-     * @param params currently unused dictionary of params for future implementation
      */
-    public static void showElusiveFishLeaderboard(obj_id player, dictionary params) throws InterruptedException {
+    public static void showElusiveFishLeaderboard(obj_id player) throws InterruptedException {
         int fishCount = getElusiveFishRewardedCount();
         String prompt = "Showing all caught ELUSIVE Fish on the " + getClusterName() + " Galaxy as of " + getCalendarTimeStringGMT(getCalendarTime()) + "\n\n";
         String[] columns = { "Type", "Planet", "Length", "Angler", "Location", "Time Caught" };
         String[] columnTypes = { "text", "text", "text", "text", "text", "text" };
         String[][] leaderboardData = new String[fishCount][columns.length];
         for (int i = 0; i < fishCount; i++) {
-            String[] leaderboardEntry = getStringArrayObjVar(FISHING_OBJECT, OBJVAR_ELUSIVE_FISH_LEADERBOARD_TREE+i);
+            String[] leaderboardEntry = getStringArrayObjVar(getMasterFishingObject(), OBJVAR_ELUSIVE_FISH_LEADERBOARD_TREE+i);
             for (int a = 0; a < leaderboardEntry.length; a++) {
                 leaderboardData[i][a] = leaderboardEntry[a];
             }
         }
         sui.table(player, player, sui.OK_ONLY, "ELUSIVE Fish Leaderboard", "noHandler", prompt, columns, columnTypes, leaderboardData, true, true);
-    }
-
-    /**
-     * handleUpdateElusiveFishLeaderboard
-     * Adds an array of information to the elusive fish leaderboard as passed in giveElusiveFishRewards
-     * @param fishInfo the packaged array of fish info to add to the leaderboard
-     */
-    public static void handleUpdateElusiveFishLeaderboard(String[] fishInfo) throws InterruptedException {
-        if(!hasObjVar(FISHING_OBJECT, OBJVAR_ELUSIVE_FISH_LEADERBOARD_COUNT_TOTAL)) {
-            setObjVar(FISHING_OBJECT, OBJVAR_ELUSIVE_FISH_LEADERBOARD_COUNT_TOTAL, 1);
-            setObjVar(FISHING_OBJECT, OBJVAR_ELUSIVE_FISH_LEADERBOARD_TREE+"0", fishInfo);
-        } else {
-            int leaderboardEntries = getIntObjVar(FISHING_OBJECT, OBJVAR_ELUSIVE_FISH_LEADERBOARD_COUNT_TOTAL);
-            setObjVar(FISHING_OBJECT, OBJVAR_ELUSIVE_FISH_LEADERBOARD_TREE+leaderboardEntries, fishInfo);
-            setObjVar(FISHING_OBJECT, OBJVAR_ELUSIVE_FISH_LEADERBOARD_COUNT_TOTAL, ++leaderboardEntries);
-        }
-    }
-
-    /**
-     * handleConstructElusiveFishTable
-     * This is used to setup the ObjVars for all elusive fish (as a part of master fish object creation)
-     */
-    public static void handleConstructElusiveFishTable(obj_id masterObject) throws InterruptedException {
-        if(hasObjVar(masterObject, OBJVAR_ELUSIVE_FISH_COUNT_TABLE_MADE)) {
-            return;
-        }
-        String[] elusiveFishTable = dataTableGetStringColumn(ELUSIVE_FISH_TABLE, "fish");
-        for (String fish : elusiveFishTable) {
-            setObjVar(masterObject, OBJVAR_ELUSIVE_FISH_COUNT_TABLE_TREE+fish, 0);
-        }
-        setObjVar(masterObject, OBJVAR_ELUSIVE_FISH_COUNT_TOTAL, 0);
-        setObjVar(masterObject, OBJVAR_ELUSIVE_FISH_COUNT_TABLE_MADE, 1);
     }
 
     /**
@@ -353,24 +321,5 @@ public class fishing extends script.base_script {
         }
         return d;
     }
-
-    /**
-     * clearElusiveFishLeaderboardAndTableDebugTestingOnly (for debug use only)
-     * Resets the Elusive Fish table and leaderboard as though you're on a brand new server
-     */
-    public static void clearElusiveFishLeaderboardAndTableDebugTestingOnly() throws InterruptedException {
-        String[] elusiveFishTable = dataTableGetStringColumn(ELUSIVE_FISH_TABLE, "fish");
-        for (String fish : elusiveFishTable) {
-            setObjVar(FISHING_OBJECT, OBJVAR_ELUSIVE_FISH_COUNT_TABLE_TREE+fish, 0);
-        }
-        setObjVar(FISHING_OBJECT, OBJVAR_ELUSIVE_FISH_COUNT_TOTAL, 0);
-        setObjVar(FISHING_OBJECT, OBJVAR_ELUSIVE_FISH_COUNT_TABLE_MADE, 1);
-        int leaderboardEntries = getIntObjVar(FISHING_OBJECT, OBJVAR_ELUSIVE_FISH_LEADERBOARD_COUNT_TOTAL);
-        for (int i = 0; i <= leaderboardEntries; i++) {
-            removeObjVar(FISHING_OBJECT, OBJVAR_ELUSIVE_FISH_LEADERBOARD_TREE+i);
-        }
-        removeObjVar(FISHING_OBJECT, OBJVAR_ELUSIVE_FISH_LEADERBOARD_COUNT_TOTAL);
-    }
-
 
 }
