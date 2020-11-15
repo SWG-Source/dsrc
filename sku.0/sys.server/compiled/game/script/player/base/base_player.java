@@ -1520,13 +1520,9 @@ public class base_player extends script.base_script
             attachScript(self, group.SCRIPT_GROUP_MEMBER);
         }
         utils.removeScriptVar(self, COUPE_DE_GRACE_TARGET);
-        if (!isInTutorialArea(self))
-        {
-            if(hasObjVar(self, "npe.phase_number")) {
-                String bt = getTemplateName(getTopMostContainer(self));
-                if(!isGod(self) && getIntObjVar(self, "npe.phase_number") == 3 && !bt.contains("npe_space_dungeon")) {
-                    getClusterWideData("npe_public_instances", "npe_space_station*", false, self);
-                }
+        if(!isInTutorialArea(self)) {
+            if(!isGod(self) && hasObjVar(self, "npe") && isInWorldCell(self)) {
+                getClusterWideData("npe_public_instances", "npe_space_station*", false, self);
             } else {
                 space_dungeon.verifyPlayerSession(self);
                 space_dungeon.validateInstanceControllerId(self);

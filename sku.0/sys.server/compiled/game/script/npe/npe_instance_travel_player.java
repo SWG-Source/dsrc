@@ -5,6 +5,8 @@ import script.library.npe;
 import script.library.space_dungeon;
 import script.obj_id;
 
+import java.util.Arrays;
+
 public class npe_instance_travel_player extends script.base_script
 {
     public npe_instance_travel_player()
