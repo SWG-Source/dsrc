@@ -90,21 +90,13 @@ public class quest_hero_of_tatooine_farmer extends script.base_script
     }
     public void quest_hero_of_tatooine_farmer_action_paid_ransom(obj_id player, obj_id npc) throws InterruptedException
     {
-        if (!money.hasFunds(player, money.MT_CASH, 10000))
+        int ransom = 10000;
+        int credits = getBankBalance(player);
+        if (credits < 10000)
         {
             return;
         }
-        int bank_before = getBankBalance(player);
-        if (money.requestPayment(player, "hero_of_tatooine", 10000, null, null, false))
-        {
-            int bank_after = getBankBalance(player);
-            int bank_delta = bank_before - bank_after;
-            if (bank_delta > 10000)
-            {
-                bank_delta = 10000;
-            }
-            money.covertDeposit(player, bank_delta, "noHandler", null);
-        }
+        money.transferBankCreditsTo(player, npc, ransom, "noHandler", "noHandler", null);
     }
     public void quest_hero_of_tatooine_farmer_action_will_help(obj_id player, obj_id npc) throws InterruptedException
     {
