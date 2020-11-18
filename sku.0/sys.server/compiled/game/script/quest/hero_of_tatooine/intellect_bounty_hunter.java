@@ -95,5 +95,8 @@ public class intellect_bounty_hunter extends script.base_script
     {
         removeObjVar(player, INTELLECT_OBJVAR);
         setObjVar(player, INTELLECT_FAILED, self);
+        setObjVar(self, SPAWNER_COMPLETE, 1);
+        obj_id control = getObjIdObjVar(self, SPAWNER_CONTROLLER);
+        messageTo(control, "handleComplete", null, 0.0f, false);
     }
 }
