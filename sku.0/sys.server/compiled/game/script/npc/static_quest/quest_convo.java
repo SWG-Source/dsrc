@@ -45,7 +45,7 @@ public class quest_convo extends script.base_script
         {
             return SCRIPT_CONTINUE;
         }
-        if (creatureName.startsWith("vana_sage") || creatureName.startsWith("tekil_barje") || creatureName.startsWith("ikka_gesul"))
+        if (creatureName.startsWith("vana_sage") || creatureName.startsWith("ikka_gesul"))
         {
             detachScript(self, "npc.static_quest.quest_convo");
             return SCRIPT_CONTINUE;
@@ -194,7 +194,7 @@ public class quest_convo extends script.base_script
             if (!gatingObject.equals("none"))
             {
                 obj_id playerInv = utils.getInventoryContainer(speaker);
-                if (checkForGatingItem(playerInv, speaker, questNum, datatable) != true)
+                if (!checkForGatingItem(playerInv, speaker, questNum, datatable))
                 {
                     string_id rewardMessage = new string_id(CONVO, "notyet");
                     chat.chat(self, speaker, rewardMessage);
@@ -265,7 +265,7 @@ public class quest_convo extends script.base_script
             if (questType.equals("fetch") || questType.equals("retrieve"))
             {
                 obj_id playerInv = utils.getInventoryContainer(speaker);
-                if (checkForItem(playerInv, speaker, questNum) == true)
+                if (checkForItem(playerInv, speaker, questNum))
                 {
                     string_id rewardMessage = new string_id(CONVO, "npc_reward_" + questNum);
                     chat.chat(self, speaker, rewardMessage);
@@ -648,6 +648,13 @@ public class quest_convo extends script.base_script
             npcSpeak(player, message);
             resetPlayer(self, player, questNum);
             npcEndConversation(player);
+
+            // take back virus if you're talking to Tekil Barje
+            if(getCreatureName(self).startsWith("tekil_barje")) {
+                if(utils.playerHasItemByTemplate(player, "object/tangible/mission/quest_item/tekil_barje_q1_needed.iff")) {
+                    destroyObject(utils.getItemPlayerHasByTemplate(player, "object/tangible/mission/quest_item/tekil_barje_q1_needed.iff"));
+                }
+            }
             return SCRIPT_CONTINUE;
         }
         if ((response.getAsciiId()).equals(response8))
