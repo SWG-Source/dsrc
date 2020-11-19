@@ -12287,4 +12287,13 @@ public class base_player extends script.base_script
         }
         return true;
     }
+    public int OnWaypointWarpRequested(obj_id self, obj_id waypoint) throws InterruptedException {
+        if(!isGod(self)) {
+            return SCRIPT_CONTINUE;
+        }
+        location loc = getWaypointLocation(waypoint);
+        sendSystemMessageTestingOnly(self, "Teleporting you to the location of Waypoint: "+getWaypointName(waypoint)+" ("+waypoint+") at "+loc+"...");
+        warpPlayer(self, loc.area, loc.x, loc.y, loc.z, loc.cell, 0, 0, 0, "noHandler", false);
+        return SCRIPT_CONTINUE;
+    }
 }

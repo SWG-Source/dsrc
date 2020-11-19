@@ -44,8 +44,8 @@ public class quest_convo extends script.base_script {
         if (creatureName == null || creatureName.length() <= 0) {
             return SCRIPT_CONTINUE;
         }
-
-        if (creatureName.startsWith("vana_sage") || creatureName.startsWith("tekil_barje") || creatureName.startsWith("ikka_gesul")) {
+        if (creatureName.startsWith("vana_sage") || creatureName.startsWith("ikka_gesul"))
+        {
             detachScript(self, "npc.static_quest.quest_convo");
             return SCRIPT_CONTINUE;
         }
@@ -594,6 +594,13 @@ public class quest_convo extends script.base_script {
             npcSpeak(player, message);
             resetPlayer(self, player, questNum);
             npcEndConversation(player);
+
+            // take back virus if you're talking to Tekil Barje
+            if(getCreatureName(self).startsWith("tekil_barje")) {
+                if(utils.playerHasItemByTemplate(player, "object/tangible/mission/quest_item/tekil_barje_q1_needed.iff")) {
+                    destroyObject(utils.getItemPlayerHasByTemplate(player, "object/tangible/mission/quest_item/tekil_barje_q1_needed.iff"));
+                }
+            }
             return SCRIPT_CONTINUE;
         }
         if (response.getAsciiId().equals(response8)) //

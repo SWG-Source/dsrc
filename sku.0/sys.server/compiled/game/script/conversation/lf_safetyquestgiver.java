@@ -118,14 +118,6 @@ public class lf_safetyquestgiver extends script.base_script
     {
         int questId = questGetQuestId("quest/lf_safety1");
         groundquests.grantQuest(questId, player, npc, true);
-        obj_id top = getTopMostContainer(player);
-        location loc = getLocation(top);
-        loc.x = -1254;
-        loc.y = 12;
-        loc.z = -3617;
-        obj_id waypoint = createWaypointInDatapad(player, loc);
-        setObjVar(player, "quest.general.quest/lf_safety5.questgiver", waypoint);
-        setWaypointName(waypoint, "Gerak Vertimis");
     }
     public void lf_safetyquestgiver_action_givequest2(obj_id player, obj_id npc) throws InterruptedException
     {
@@ -136,43 +128,16 @@ public class lf_safetyquestgiver extends script.base_script
     {
         int questId = questGetQuestId("quest/lf_safety5");
         groundquests.grantQuest(questId, player, npc, true);
-        obj_id top = getTopMostContainer(player);
-        location loc = getLocation(top);
-        loc.x = 1500;
-        loc.y = 180;
-        loc.z = -2000;
-        obj_id waypoint = createWaypointInDatapad(player, loc);
-        setObjVar(player, "quest.general.quest/lf_safety5.waypoint", waypoint);
-        setWaypointName(waypoint, "Brigand Leader");
-        setWaypointActive(waypoint, true);
     }
     public void lf_safetyquestgiver_action_givequest4(obj_id player, obj_id npc) throws InterruptedException
     {
         int questId = questGetQuestId("quest/lf_safety4");
         groundquests.grantQuest(questId, player, npc, true);
-        obj_id top = getTopMostContainer(player);
-        location loc = getLocation(top);
-        loc.x = 1002;
-        loc.y = 187;
-        loc.z = -3019;
-        obj_id waypoint = createWaypointInDatapad(player, loc);
-        setObjVar(player, "quest.general.quest/lf_safety4.waypoint", waypoint);
-        setWaypointName(waypoint, "Brigand Camp 2");
-        setWaypointActive(waypoint, true);
     }
     public void lf_safetyquestgiver_action_givequest3(obj_id player, obj_id npc) throws InterruptedException
     {
         int questId = questGetQuestId("quest/lf_safety3");
         groundquests.grantQuest(questId, player, npc, true);
-        obj_id top = getTopMostContainer(player);
-        location loc = getLocation(top);
-        loc.x = 1145;
-        loc.y = 149;
-        loc.z = -3920;
-        obj_id waypoint = createWaypointInDatapad(player, loc);
-        setObjVar(player, "quest.general.quest/lf_safety3.waypoint", waypoint);
-        setWaypointName(waypoint, "Brigand Camp 1");
-        setWaypointActive(waypoint, true);
     }
     public void lf_safetyquestgiver_action_completequest1(obj_id player, obj_id npc) throws InterruptedException
     {
@@ -186,12 +151,6 @@ public class lf_safetyquestgiver extends script.base_script
     }
     public void lf_safetyquestgiver_action_completequest3(obj_id player, obj_id npc) throws InterruptedException
     {
-        obj_id waypoint = getObjIdObjVar(player, "quest.general.quest/lf_safety3.waypoint");
-        if (waypoint != null)
-        {
-            destroyWaypointInDatapad(waypoint, player);
-        }
-        removeObjVar(player, "quest.general.quest/lf_safety3.waypoint");
         int questId = questGetQuestId("quest/lf_safety3");
         questCompleteTask(questId, 1, player);
         obj_id playerInventory = utils.getInventoryContainer(player);
@@ -200,92 +159,20 @@ public class lf_safetyquestgiver extends script.base_script
     }
     public void lf_safetyquestgiver_action_completequest4(obj_id player, obj_id npc) throws InterruptedException
     {
-        obj_id waypoint = getObjIdObjVar(player, "quest.general.quest/lf_safety4.waypoint");
-        if (waypoint != null)
-        {
-            destroyWaypointInDatapad(waypoint, player);
-        }
-        removeObjVar(player, "quest.general.quest/lf_safety4.waypoint");
         int questId = questGetQuestId("quest/lf_safety4");
         questCompleteTask(questId, 1, player);
     }
     public void lf_safetyquestgiver_action_completequest5(obj_id player, obj_id npc) throws InterruptedException
     {
-        obj_id waypoint = getObjIdObjVar(player, "quest.general.quest/lf_safety5.waypoint");
-        if (waypoint != null)
-        {
-            destroyWaypointInDatapad(waypoint, player);
-        }
-        removeObjVar(player, "quest.general.quest/lf_safety5.waypoint");
-        obj_id waypoint2 = getObjIdObjVar(player, "quest.general.quest/lf_safety5.questgiver");
-        if (waypoint != null)
-        {
-            destroyWaypointInDatapad(waypoint2, player);
-        }
-        removeObjVar(player, "quest.general.quest/lf_safety5.questgiver");
         int questId = questGetQuestId("quest/lf_safety5");
         questCompleteTask(questId, 1, player);
         obj_id playerInventory = utils.getInventoryContainer(player);
         String templateName = "object/tangible/skill_buff/skill_buff_pistol_accuracy.iff";
         obj_id newItem = createObject(templateName, playerInventory, "");
-        if (!isIdValid(newItem))
-        {
-        }
     }
     public void lf_safetyquestgiver_action_faceplayer(obj_id player, obj_id npc) throws InterruptedException
     {
         faceTo(npc, player);
-    }
-    public void lf_safetyquestgiver_action_givewaypointcamp1(obj_id player, obj_id npc) throws InterruptedException
-    {
-        obj_id waypoint = getObjIdObjVar(player, "quest.general.quest/lf_safety3.waypoint");
-        if (waypoint != null)
-        {
-            destroyWaypointInDatapad(waypoint, player);
-        }
-        obj_id top = getTopMostContainer(player);
-        location loc = getLocation(top);
-        loc.x = 1145;
-        loc.y = 149;
-        loc.z = -3920;
-        waypoint = createWaypointInDatapad(player, loc);
-        setObjVar(player, "quest.general.quest/lf_safety3.waypoint", waypoint);
-        setWaypointName(waypoint, "Brigand Camp 1");
-        setWaypointActive(waypoint, true);
-    }
-    public void lf_safetyquestgiver_action_givewaypointcamp2(obj_id player, obj_id npc) throws InterruptedException
-    {
-        obj_id waypoint = getObjIdObjVar(player, "quest.general.quest/lf_safety4.waypoint");
-        if (waypoint != null)
-        {
-            destroyWaypointInDatapad(waypoint, player);
-        }
-        obj_id top = getTopMostContainer(player);
-        location loc = getLocation(top);
-        loc.x = 1002;
-        loc.y = 187;
-        loc.z = -3019;
-        waypoint = createWaypointInDatapad(player, loc);
-        setObjVar(player, "quest.general.quest/lf_safety4.waypoint", waypoint);
-        setWaypointName(waypoint, "Brigand Camp 2");
-        setWaypointActive(waypoint, true);
-    }
-    public void lf_safetyquestgiver_action_givewaypointleader(obj_id player, obj_id npc) throws InterruptedException
-    {
-        obj_id waypoint = getObjIdObjVar(player, "quest.general.quest/lf_safety5.waypoint");
-        if (waypoint != null)
-        {
-            destroyWaypointInDatapad(waypoint, player);
-        }
-        obj_id top = getTopMostContainer(player);
-        location loc = getLocation(top);
-        loc.x = 1500;
-        loc.y = 180;
-        loc.z = -2000;
-        waypoint = createWaypointInDatapad(player, loc);
-        setObjVar(player, "quest.general.quest/lf_safety5.waypoint", waypoint);
-        setWaypointName(waypoint, "Brigand Leader");
-        setWaypointActive(waypoint, true);
     }
     public int lf_safetyquestgiver_handleBranch1(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -867,7 +754,6 @@ public class lf_safetyquestgiver extends script.base_script
             if (lf_safetyquestgiver_condition__defaultCondition(player, npc))
             {
                 doAnimationAction(npc, "nod");
-                lf_safetyquestgiver_action_givewaypointcamp1(player, npc);
                 string_id message = new string_id(c_stringFile, "s_288");
                 utils.removeScriptVar(player, "conversation.lf_safetyquestgiver.branchId");
                 npcEndConversationWithMessage(player, message);
@@ -1049,7 +935,6 @@ public class lf_safetyquestgiver extends script.base_script
         {
             if (lf_safetyquestgiver_condition__defaultCondition(player, npc))
             {
-                lf_safetyquestgiver_action_givewaypointcamp2(player, npc);
                 string_id message = new string_id(c_stringFile, "s_354");
                 utils.removeScriptVar(player, "conversation.lf_safetyquestgiver.branchId");
                 npcEndConversationWithMessage(player, message);
@@ -1167,7 +1052,6 @@ public class lf_safetyquestgiver extends script.base_script
         {
             if (lf_safetyquestgiver_condition__defaultCondition(player, npc))
             {
-                lf_safetyquestgiver_action_givewaypointleader(player, npc);
                 string_id message = new string_id(c_stringFile, "s_394");
                 utils.removeScriptVar(player, "conversation.lf_safetyquestgiver.branchId");
                 npcEndConversationWithMessage(player, message);

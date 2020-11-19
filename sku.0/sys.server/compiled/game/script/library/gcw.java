@@ -2,6 +2,7 @@ package script.library;
 
 import script.*;
 
+import java.util.Arrays;
 import java.util.Vector;
 
 public class gcw extends script.base_script
@@ -68,7 +69,7 @@ public class gcw extends script.base_script
     public static final int GCW_POINT_TYPE_TRADING = 7;
     public static final int GCW_POINT_TYPE_ENTERTAINING = 8;
     public static final int GCW_POINT_TYPE_MAX = 9;
-    public static final String validScenes[] =
+    public static final String[] validScenes =
     {
         "tatooine",
         "corellia",
@@ -89,7 +90,7 @@ public class gcw extends script.base_script
         "space_naboo",
         "space_yavin4"
     };
-    public static final String defaultRegions[] =
+    public static final String[] defaultRegions =
     {
         "gcw_region_tatooine_13",
         "gcw_region_corellia_13",
@@ -110,7 +111,7 @@ public class gcw extends script.base_script
         "gcw_region_naboo_14",
         "gcw_region_yavin4_18"
     };
-    public static final String pointTypes[] =
+    public static final String[] pointTypes =
     {
         "pve",
         "pvp",
@@ -464,10 +465,7 @@ public class gcw extends script.base_script
             if (hasObjVar(target, faction_perk.VAR_FACTION))
             {
                 String iFac = getStringObjVar(target, faction_perk.VAR_FACTION);
-                if (!iFac.equals("imperial"))
-                {
-                    return true;
-                }
+                return !iFac.equals("imperial");
             }
         }
         return false;
@@ -565,7 +563,7 @@ public class gcw extends script.base_script
             int geoType = region.getGeographicalType();
             if (geoType == regions.GEO_DESERT || geoType == regions.GEO_OASIS || geoType == regions.GEO_WASTELAND) {
                 tbl = "datatables/imperial_presence/geo/desert.iff";
-            } else if (geoType == regions.GEO_FOREST || geoType == regions.GEO_JUNGLE || geoType == regions.GEO_WASTELAND) {
+            } else if (geoType == regions.GEO_FOREST || geoType == regions.GEO_JUNGLE) {
                 tbl = "datatables/imperial_presence/geo/forest.iff";
             } else if (geoType == regions.GEO_SWAMP) {
                 tbl = "datatables/imperial_presence/geo/swamp.iff";
@@ -606,8 +604,7 @@ public class gcw extends script.base_script
             LOG("gcw", "Bad object id format for " + strPlanet);
             return null;
         }
-        obj_id objMaster = obj_id.getObjId(lngId.longValue());
-        return objMaster;
+        return obj_id.getObjId(lngId.longValue());
     }
     public static void changeGCWScore(location locTest, int intValue, String strFaction) throws InterruptedException
     {
@@ -631,7 +628,6 @@ public class gcw extends script.base_script
         intScoreChange = intScoreChange * -1;
         String strFaction = getStringObjVar(objObject, "faction");
         changeGCWScore(locTest, intScoreChange, strFaction);
-        return;
     }
     public static boolean canPlaceFactionBaseByPlanet(obj_id player, obj_id deed, String planet) throws InterruptedException
     {
@@ -639,11 +635,7 @@ public class gcw extends script.base_script
         {
             return false;
         }
-        if (!canPlaceFactionBaseByScore(player, deed, planet))
-        {
-            return false;
-        }
-        return true;
+        return canPlaceFactionBaseByScore(player, deed, planet);
     }
     public static boolean canPlaceFactionBaseByScore(obj_id player, obj_id deed, String planet) throws InterruptedException
     {
@@ -740,8 +732,7 @@ public class gcw extends script.base_script
         {
             return 0.0f;
         }
-        float fltScore = fltImperialControlScore / fltRebelControlScore;
-        return fltScore;
+        return fltImperialControlScore / fltRebelControlScore;
     }
     public static float getRebelRatio(obj_id objNPC) throws InterruptedException
     {
@@ -757,13 +748,12 @@ public class gcw extends script.base_script
         }
         LOG("gcw", "Rebel score is " + fltRebelControlScore);
         LOG("gcw", "Imperial score is " + fltImperialControlScore);
-        float fltScore = fltRebelControlScore / fltImperialControlScore;
-        return fltScore;
+        return fltRebelControlScore / fltImperialControlScore;
     }
     public static void incrementGCWStanding(obj_id killer, obj_id target) throws InterruptedException
     {
-        obj_id self = killer;
-        final int MINIMUM_TIME_BETWEEN_KILLS = 900;
+        //obj_id self = killer;
+        //final int MINIMUM_TIME_BETWEEN_KILLS = 900;
         if (!factions.isDeclared(killer))
         {
             return;
@@ -773,11 +763,13 @@ public class gcw extends script.base_script
         {
             intScore = 25;
         }
+        /*
         int intTime = getGameTime();
         int intLastKill = utils.getIntScriptVar(target, "intLastGCWDeath");
         if ((intTime - intLastKill < MINIMUM_TIME_BETWEEN_KILLS))
         {
         }
+         */
         obj_id objStructure = getTopMostContainer(killer);
         if (!isPlayer(objStructure))
         {
@@ -786,7 +778,7 @@ public class gcw extends script.base_script
                 return;
             }
         }
-        utils.setScriptVar(target, "intLastGCWDeath", intTime);
+        utils.setScriptVar(target, "intLastGCWDeath", getGameTime());
         dictionary dctParams = new dictionary();
         dctParams.put("intScore", intScore);
         messageTo(killer, "updateGCWStanding", dctParams, 0, false);
@@ -1169,7 +1161,7 @@ public class gcw extends script.base_script
         {
             int accruedPoints = getAccruedPoints(((String)dailyKills.get(positionInArray)));
             int timeAtFirstAward = getTimeOfFirstAward(((String)dailyKills.get(positionInArray)));
-            gcwPoint = gcwPoint > maxInterval ? maxInterval : gcwPoint;
+            gcwPoint = Math.min(gcwPoint, maxInterval);
             if (getGameTime() > timeAtFirstAward + 86400)
             {
                 timeAtFirstAward = getGameTime();
@@ -1342,9 +1334,7 @@ public class gcw extends script.base_script
         }
         String pointCategory = pointTypes[pointType];
         String scene = getCurrentSceneName();
-        int sceneIndex = utils.getElementPositionInArray(validScenes, scene);
-        if (sceneIndex < 0)
-        {
+        if(!Arrays.asList(validScenes).contains(scene)) {
             return null;
         }
         return scene + "_" + pointCategory;
@@ -1860,7 +1850,6 @@ public class gcw extends script.base_script
             utils.setScriptVar(controller, "pvp_region", regionName);
             registerPvpRegionControllerWithPlanet(controller, regionName);
         }
-        return;
     }
     public static boolean isPlayerValidOnBattlefield(obj_id player, obj_id controller) throws InterruptedException
     {
@@ -2085,11 +2074,7 @@ public class gcw extends script.base_script
                 sui.setPid(player, pid, gcw.TRADER_REPAIR_PID);
                 break;
         }
-        if (pid < 0)
-        {
-            return false;
-        }
-        return true;
+        return pid >= 0;
     }
     public static boolean repairGcwObject(obj_id object, obj_id player, int resourceCount) throws InterruptedException
     {
@@ -2467,8 +2452,7 @@ public class gcw extends script.base_script
         {
             tokenStaticName = GCW_IMPERIAL_TOKEN;
         }
-        else if (factionFlag == factions.FACTION_FLAG_REBEL)
-        {
+        else {
             tokenStaticName = GCW_REBEL_TOKEN;
         }
         float multiplier = utils.stringToFloat(getConfigSetting("GameServer", "gcwTokenBonus"));
