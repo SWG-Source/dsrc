@@ -29,9 +29,9 @@ i	s	s[none]	s	c
 27	object/mobile/shared_costume_exar_kun_cultist.iff		storyteller	exar kun cultist
 28	object/mobile/shared_lifeday_monkey_lizard.iff		storyteller	life day monkey lizard
 29	object/mobile/shared_lando.iff		lando
-30	object/mobile/shared_leia_organa.iff		leia organa
-31	object/mobile/shared_han_solo.iff		han solo
-32	object/mobile/shared_luke_skywalker.iff		luke skywalker
+30	object/mobile/shared_leia_static.iff		leia organa
+31	object/mobile/shared_han_solo_static.iff		han solo
+32	object/mobile/shared_luke_skywalker_static.iff		luke skywalker
 33	object/mobile/shared_darth_vader.iff		darth vader
 34	object/mobile/shared_yoda.iff		yoda
 35	object/mobile/shared_boba_fett.iff		boba fett
