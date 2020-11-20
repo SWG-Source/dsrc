@@ -2,11 +2,11 @@ item	cash	token0	token1	token2	token3	token4	class	script	note
 s[none]	i[0]	i[0]	i[0]	i[0]	i[0]	i[0]	i[0]	s	c
 item_necklace_set_hero_01_01		2	2	2			0		"See library.utils for the int value of the classes. 0 is ""all"" but will only show if there are no items for the opener's class."
 item_bracelet_r_set_hero_01_01		2	2	2			0		"So in the case of this table only traders will see the ""all"" items."
-item_bracelet_l_set_hero_01_01		2	2	2			0		
-item_ring_set_hero_01_01			2	2	2		0		
-item_band_set_hero_01_01		2			2	2	0		
-item_heroic_axkva_min_painting_01_01		1					0		
-item_heroic_tusken_painting_01_01			1				0		
+item_bracelet_l_set_hero_01_01		2	2	2			0		token0 is Axvia Minn
+item_ring_set_hero_01_01			2	2	2		0		token1 is Tusken
+item_band_set_hero_01_01		2			2	2	0		token2 is IG88
+item_heroic_axkva_min_painting_01_01		1					0		token3 is ISD
+item_heroic_tusken_painting_01_01			1				0		token4 is Exar Kun
 item_heroic_ig88_painting_01_01				1			0		
 item_heroic_exar_kun_painting_01_01						1	0		
 item_necklace_set_commando_dps_01_01		4	1	1			1		commando
@@ -115,3 +115,13 @@ item_bracelet_l_set_jedi_utility_b_01_01		1	1	4			7		force_sensitive
 item_ring_set_jedi_utility_b_01_01		1	1		4		7		force_sensitive
 item_band_set_jedi_utility_b_01_01			1		1	4	7		force_sensitive
 item_player_house_deed_jabbas_sail_barge		5	5	5	5	5	0		
+armor_infiltrator_bicep_l		1	1				0		
+armor_infiltrator_bicep_r		1		1			0		
+armor_infiltrator_bracer_l				1	1		0		
+armor_infiltrator_bracer_r					1	1	0		
+armor_infiltrator_helmet				1	2		0		
+armor_infiltrator_chest_plate			1			2	0		
+armor_infiltrator_leggings		1		2			0		
+armor_infiltrator_gloves				1	1		0		
+armor_infiltrator_boots					1	1	0		
+armor_infiltrator_belt			1	1			0		

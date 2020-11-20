@@ -6,5 +6,5 @@
 @class object_template 5
 
 sharedTemplate = "object/tangible/collection/shared_esb_week_2.iff"
-
-
+objvars = ["collection.slotName" = "col_esb_anniversary_30:esb_week_2", "noTrade" = 1]
+scripts = ["systems.collections.consume_loot"]

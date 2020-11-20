@@ -26,7 +26,7 @@ kill_stintarils_01	0.2		stintaril_complete											object/tangible/collection/
 kill_baz_nitches_01	0.2		baz_nitch_complete											object/tangible/collection/reward/framed_beetle_specimen.iff	crafted_beetle_specimen_reward	Dathomir - Title:Butcher of the Baz-Nitch	Player Title and a medium amount of XP
 kill_quenkers_01	0.2		quenker_complete											object/tangible/collection/reward/hanging_light_reward_02.iff	crafted_light2_reward	Dantooine - Title:Queller of the Quenker 	Player Title and a medium amount of XP
 kill_anglers_01	0.2		angler_complete											object/tangible/ship/crafted/booster/collection_reward_booster_01_mk1.iff	crafted_space_booster_mk1_reward	Yavin4 - Title:Angler Exterminator	Player Title and a medium amount of XP
-kill_klikniks_01	0.3		"kliknik_insect_complete,kliknik_ferocious_complete"											object/tangible/ship/crafted/booster/collection_reward_booster_01_mk2.iff	crafted_space_booster_mk2_reward	Yavin4 - Title:Kliknik Killer	Player Title and a large amount of XP
+kill_klikniks_01	0.3		kliknik_insect_complete,kliknik_ferocious_complete											object/tangible/ship/crafted/booster/collection_reward_booster_01_mk2.iff	crafted_space_booster_mk2_reward	Yavin4 - Title:Kliknik Killer	Player Title and a large amount of XP
 kill_mereks_01	0.2		merek_complete											object/tangible/ship/crafted/booster/collection_reward_booster_01_mk3.iff	crafted_space_booster_mk3_reward	Endor - Title:Merek Marauder	Player Title and a medium amount of XP
 kill_gaping_spiders_01	0.3		gaping_spider_complete											object/tangible/ship/crafted/booster/collection_reward_booster_01_mk4.iff	crafted_space_booster_mk4_reward	Dathomir - Title:Gaping Spider Slayer	Player Title and a large amount of XP
 kill_shear_mites_01	0.2		shear_mite_complete											object/tangible/ship/crafted/booster/collection_reward_booster_01_mk5.iff	crafted_space_booster_mk5_reward	Dathomir - Title:Shear Mite Suppressor	Player Title and a medium amount of XP
@@ -51,45 +51,45 @@ kill_rills_01	0.1		rill_complete											object/tangible/ship/components/chass
 kill_vesps_01	0.1		vesp_complete											object/tangible/ship/components/chassis/player_gunship_imperial_chassis_token.iff	crafted_space_gunship_imperial_reward		Player Title and a small amount of XP
 kill_kamuriths_01	0.2		kamurith_complete											object/tangible/collection/reward/pob_chair_furniture_hue_01.iff	crafted_space_pob_chair_01_reward		Player Title and a medium amount of XP
 kill_voritor_lizards_01	0.2		voritor_lizard_complete											object/tangible/collection/reward/pob_couch_furniture_hue_01.iff	crafted_space_pob_couch_01_reward		Player Title and a medium amount of XP
-kill_krayt_dragons_01	0.3		"krayt_dragon_ferocious_complete,krayt_dragon_cold_blooded_complete"											object/tangible/ship/crafted/reactor/collection_reward_reactor_02_mk1.iff	crafted_space_reactor_mk1_reward		Player Title and a large amount of XP
+kill_krayt_dragons_01	0.3		krayt_dragon_ferocious_complete,krayt_dragon_cold_blooded_complete											object/tangible/ship/crafted/reactor/collection_reward_reactor_02_mk1.iff	crafted_space_reactor_mk1_reward		Player Title and a large amount of XP
 kill_rancors_01	0.3		rancor_complete											object/tangible/ship/crafted/reactor/collection_reward_reactor_02_mk2.iff	crafted_space_reactor_mk2_reward		Player Title and a large amount of XP
 kill_torturs_01	0.3		tortur_complete											object/tangible/ship/crafted/reactor/collection_reward_reactor_02_mk3.iff	crafted_space_reactor_mk3_reward		Player Title and a large amount of XP
 kill_tulruses_01	0.3		tulrus_complete											object/tangible/ship/crafted/reactor/collection_reward_reactor_02_mk4.iff	crafted_space_reactor_mk4_reward		Player Title and a large amount of XP
 kill_grauls_01	0.3		graul_complete														Player Title and a large amount of XP
-kill_rodent_tier_2	0		"bdg_col_kill_rodents,rodent_tier_2_complete"		item_dna_kittle												"Ridding the Galaxy of pesky rodents one by one: Badge, Rare DNA"
-kill_insect_tier_2	0		"bdg_col_kill_insects,insect_tier_2_complete"		item_dna_webweaver												"The Qorkin Man is no match for your unconventional tactics of ridding the Galaxy of diseased insects: Badge, Rare DNA"
-kill_flying_tier_2	0		"bdg_col_kill_flying,flying_tier_2_complete"		item_dna_mouf												"Since you don't have wings, you decide to collect them from other unfortunate beings: Badge, Rare DNA"
-kill_ferocious_tier_2	0		"bdg_col_kill_ferocious,ferocious_tier_2_complete"		item_dna_nerf												"Ferocity is relative.  These beasts are no match for your unbridled wrath: Badge, Rare DNA"
-kill_primative_tier_2	0		"bdg_col_kill_primitive,primative_tier_2_complete"		item_dna_minstyngar												"They may have opposable thumbs, but lacking technology they are easy prey: Badge, Rare DNA"
-kill_cold_blooded_tier_2	0		"bdg_col_kill_cold_blooded,cold_blooded_tier_2_complete"		item_dna_uller												"Killing in 'cold blood' isn't as appalling as it seems: Badge, Rare DNA"
-kill_trophy_spawn	0.2															Badge = Big Game Hunter	"Explore the galaxy, discover exotic life forms and kill them."
-col_dna_tier_3_kill	0				item_dna_walluga												"Due to the decomposition rates of these creatures, the DNA is extremely difficult to harvest.  Handle with care: Rare DNA"
-col_rare_melee_01	0.1		bdg_col_rare_weapons_melee_mark_1													…has completed Rare Melee Weapons Mark I Collection.	Rare Melee Weapons Collection I Badge and a small amount of XP
-col_rare_melee_02	0.1		bdg_col_rare_weapons_melee_mark_2													…has completed Rare Melee Weapons Mark II Collection.	Rare Melee Weapons Collection II Badge and a small amount of XP
-col_rare_melee_03	0.2		bdg_col_rare_weapons_melee_mark_3													…has completed Rare Melee Weapons Mark III Collection.	Rare Melee Weapons Collection III Badge and a medium amount of XP
-col_rare_melee_04	0.3		bdg_col_rare_weapons_melee_mark_4													…has completed Rare Melee Weapons Mark IV Collection.	Rare Melee Weapons Collection IV Badge and a large amount of XP
-col_rare_pistol_01	0.1		bdg_col_rare_weapons_pistol_mark_1													…has completed Rare Pistol Weapons Mark I Collection.	Rare Pistol Collection I Badge and a small amount of XP
-col_rare_pistol_02	0.2		bdg_col_rare_weapons_pistol_mark_2													…has completed Rare Pistol Weapons Mark II Collection.	Rare Pistol Collection II Badge and a medium amount of XP
-col_rare_pistol_03	0.3		bdg_col_rare_weapons_pistol_mark_3													…has completed Rare Pistol Weapons Mark III Collection.	Rare Pistol Collection III Badge and a large amount of XP
-col_rare_rifle_01	0.1		bdg_col_rare_weapons_rifle_mark_1													…has completed Rare Rifle Weapons Mark I Collection.	Rare Rifle Collection I Badge and a small amount of XP
-col_rare_rifle_02	0.2		bdg_col_rare_weapons_rifle_mark_2													…has completed Rare Rifle Weapons Mark II Collection.	Rare Rifle Collection II Badge and a medium amount of XP
-col_rare_rifle_03	0.3		bdg_col_rare_weapons_rifle_mark_3													…has completed Rare Rifle Weapons Mark III Collection.	Rare Rifle Collection III Badge and a large amount of XP
-col_rare_carbine_01	0.1		bdg_col_rare_weapons_carbine_mark_1													…has completed Rare Carbine Weapons Mark I Collection.	Rare Carbine Collection I Badge and a small amount of XP
-col_rare_carbine_02	0.2		bdg_col_rare_weapons_carbine_mark_2													…has completed Rare Carbine Weapons Mark II Collection.	Rare Carbine Collection II Badge and a medium amount of XP
-col_rare_heavy_01	0.2		bdg_col_rare_weapons_heavy_mark_1													…has completed Rare Heavy Weapons Mark I Collection.	Rare Heavy Weapons Collection Badge and a medium amount of XP
-col_shock_trooper_armor	0.2		bdg_col_shock_trooper_armor													…has completed Shock Trooper Armor Collection.	Shock Trooper Armor Collection Badge and a medium amount of XP
-col_storm_trooper_armor	0.2		bdg_col_storm_trooper_armor													…has completed Storm Trooper Armor Collection.	Storm Trooper Armor Collection Badge and a medium amount of XP
-col_scout_trooper_armor	0.2		bdg_col_scout_trooper_armor													…has completed Scout Trooper Armor Collection.	Scout Trooper Armor Collection Badge and a medium amount of XP
-col_rebel_assault_armor	0.2		bdg_col_rebel_assault_armor													…has completed Rebel Assault Armor Collection.	Rebel Assault Armor Collection Badge and a medium amount of XP
-col_rebel_battle_armor	0.2		bdg_col_rebel_battle_armor													…has completed Rebel Battle Armor Collection.	Rebel Battle Armor Collection Badge and a medium amount of XP
-col_rebel_marine_armor	0.2		bdg_col_rebel_marine_armor													…has completed Rebel Marine Armor Collection.	Rebel Marine Armor Collection Badge and a medium amount of XP
+kill_rodent_tier_2	0		bdg_col_kill_rodents,rodent_tier_2_complete		item_dna_kittle												Ridding the Galaxy of pesky rodents one by one: Badge, Rare DNA
+kill_insect_tier_2	0		bdg_col_kill_insects,insect_tier_2_complete		item_dna_webweaver												The Qorkin Man is no match for your unconventional tactics of ridding the Galaxy of diseased insects: Badge, Rare DNA
+kill_flying_tier_2	0		bdg_col_kill_flying,flying_tier_2_complete		item_dna_mouf												Since you don't have wings, you decide to collect them from other unfortunate beings: Badge, Rare DNA
+kill_ferocious_tier_2	0		bdg_col_kill_ferocious,ferocious_tier_2_complete		item_dna_nerf												Ferocity is relative.  These beasts are no match for your unbridled wrath: Badge, Rare DNA
+kill_primative_tier_2	0		bdg_col_kill_primitive,primative_tier_2_complete		item_dna_minstyngar												They may have opposable thumbs, but lacking technology they are easy prey: Badge, Rare DNA
+kill_cold_blooded_tier_2	0		bdg_col_kill_cold_blooded,cold_blooded_tier_2_complete		item_dna_uller												Killing in 'cold blood' isn't as appalling as it seems: Badge, Rare DNA
+kill_trophy_spawn	0.2															Badge = Big Game Hunter	Explore the galaxy, discover exotic life forms and kill them.
+col_dna_tier_3_kill	0				item_dna_walluga												Due to the decomposition rates of these creatures, the DNA is extremely difficult to harvest.  Handle with care: Rare DNA
+col_rare_melee_01	0.1		bdg_col_rare_weapons_melee_mark_1													ï¾…has completed Rare Melee Weapons Mark I Collection.	Rare Melee Weapons Collection I Badge and a small amount of XP
+col_rare_melee_02	0.1		bdg_col_rare_weapons_melee_mark_2													ï¾…has completed Rare Melee Weapons Mark II Collection.	Rare Melee Weapons Collection II Badge and a small amount of XP
+col_rare_melee_03	0.2		bdg_col_rare_weapons_melee_mark_3													ï¾…has completed Rare Melee Weapons Mark III Collection.	Rare Melee Weapons Collection III Badge and a medium amount of XP
+col_rare_melee_04	0.3		bdg_col_rare_weapons_melee_mark_4													ï¾…has completed Rare Melee Weapons Mark IV Collection.	Rare Melee Weapons Collection IV Badge and a large amount of XP
+col_rare_pistol_01	0.1		bdg_col_rare_weapons_pistol_mark_1													ï¾…has completed Rare Pistol Weapons Mark I Collection.	Rare Pistol Collection I Badge and a small amount of XP
+col_rare_pistol_02	0.2		bdg_col_rare_weapons_pistol_mark_2													ï¾…has completed Rare Pistol Weapons Mark II Collection.	Rare Pistol Collection II Badge and a medium amount of XP
+col_rare_pistol_03	0.3		bdg_col_rare_weapons_pistol_mark_3													ï¾…has completed Rare Pistol Weapons Mark III Collection.	Rare Pistol Collection III Badge and a large amount of XP
+col_rare_rifle_01	0.1		bdg_col_rare_weapons_rifle_mark_1													ï¾…has completed Rare Rifle Weapons Mark I Collection.	Rare Rifle Collection I Badge and a small amount of XP
+col_rare_rifle_02	0.2		bdg_col_rare_weapons_rifle_mark_2													ï¾…has completed Rare Rifle Weapons Mark II Collection.	Rare Rifle Collection II Badge and a medium amount of XP
+col_rare_rifle_03	0.3		bdg_col_rare_weapons_rifle_mark_3													ï¾…has completed Rare Rifle Weapons Mark III Collection.	Rare Rifle Collection III Badge and a large amount of XP
+col_rare_carbine_01	0.1		bdg_col_rare_weapons_carbine_mark_1													ï¾…has completed Rare Carbine Weapons Mark I Collection.	Rare Carbine Collection I Badge and a small amount of XP
+col_rare_carbine_02	0.2		bdg_col_rare_weapons_carbine_mark_2													ï¾…has completed Rare Carbine Weapons Mark II Collection.	Rare Carbine Collection II Badge and a medium amount of XP
+col_rare_heavy_01	0.2		bdg_col_rare_weapons_heavy_mark_1													ï¾…has completed Rare Heavy Weapons Mark I Collection.	Rare Heavy Weapons Collection Badge and a medium amount of XP
+col_shock_trooper_armor	0.2		bdg_col_shock_trooper_armor													ï¾…has completed Shock Trooper Armor Collection.	Shock Trooper Armor Collection Badge and a medium amount of XP
+col_storm_trooper_armor	0.2		bdg_col_storm_trooper_armor													ï¾…has completed Storm Trooper Armor Collection.	Storm Trooper Armor Collection Badge and a medium amount of XP
+col_scout_trooper_armor	0.2		bdg_col_scout_trooper_armor													ï¾…has completed Scout Trooper Armor Collection.	Scout Trooper Armor Collection Badge and a medium amount of XP
+col_rebel_assault_armor	0.2		bdg_col_rebel_assault_armor													ï¾…has completed Rebel Assault Armor Collection.	Rebel Assault Armor Collection Badge and a medium amount of XP
+col_rebel_battle_armor	0.2		bdg_col_rebel_battle_armor													ï¾…has completed Rebel Battle Armor Collection.	Rebel Battle Armor Collection Badge and a medium amount of XP
+col_rebel_marine_armor	0.2		bdg_col_rebel_marine_armor													ï¾…has completed Rebel Marine Armor Collection.	Rebel Marine Armor Collection Badge and a medium amount of XP
 inv_holocron_collection_01			jedi_robe_01_03		item_fannypack_04_01											Jedi Artifact Collection - Waist Pack	Jedi Waist Pack
 inv_holocron_collection_02			jedi_robe_01_02						meditate							Jedi Artifact Collection - Meditative Discipline	Meditative Discipline
-housing_improvement_01			"housing_improvement_mark_01_01,bdg_col_housing_improvement_01_01"		item_storage_increase_05_03											Housing Improvement: Techniques in Maximizing Space	Storage Increase
-housing_improvement_02			"housing_improvement_mark_01_02,bdg_col_housing_improvement_01_02"		item_storage_increase_05_03											Housing Improvement: Shelving Techniques	Storage Increase
-housing_improvement_03			"housing_improvement_mark_01_03,bdg_col_housing_improvement_01_03"		item_storage_increase_05_03											Housing Improvement: Craftsman Tools	Storage Increase
-housing_improvement_04			"housing_improvement_mark_01_04,bdg_col_housing_improvement_01_04"		item_storage_increase_05_03											Housing Improvement: Cabinetry Techniques	Storage Increase
-housing_improvement_05			"housing_improvement_mark_01_05,bdg_col_housing_improvement_01_05"		item_storage_increase_05_03											Housing Improvement: Storage Techniques	Storage Increase
+housing_improvement_01			housing_improvement_mark_01_01,bdg_col_housing_improvement_01_01		item_storage_increase_05_03											Housing Improvement: Techniques in Maximizing Space	Storage Increase
+housing_improvement_02			housing_improvement_mark_01_02,bdg_col_housing_improvement_01_02		item_storage_increase_05_03											Housing Improvement: Shelving Techniques	Storage Increase
+housing_improvement_03			housing_improvement_mark_01_03,bdg_col_housing_improvement_01_03		item_storage_increase_05_03											Housing Improvement: Craftsman Tools	Storage Increase
+housing_improvement_04			housing_improvement_mark_01_04,bdg_col_housing_improvement_01_04		item_storage_increase_05_03											Housing Improvement: Cabinetry Techniques	Storage Increase
+housing_improvement_05			housing_improvement_mark_01_05,bdg_col_housing_improvement_01_05		item_storage_increase_05_03											Housing Improvement: Storage Techniques	Storage Increase
 housing_improvement_mark_01			bdg_col_housing_improvement_01_reward		item_storage_increase_05_04											Housing Improvement: Tier 2 Reward	Storage Increase
 col_flower_01					item_collection_reward_potted_flower_schematic_01_01											Click flower collection	Potted Flower Schematic
 col_plant_01					item_collection_reward_potted_plant_schematic_01_01											Click plant collection	Potted Plant Schematic
@@ -142,7 +142,7 @@ col_dejarik_holomonster			col_dejarik_holomonster_complete														Monster 
 col_dejarik_table			col_dejarik_table_complete														Table for Dejarik Display
 col_dejarik_tier_02					col_reward_dejarik_table_schematic_02_01												Dejarik Table Schematic
 col_dom_trader					col_jeweled_necklace_schematic_02_01												Jeweled Necklace Schematic
-col_dwartii_statue					"item_dwartii_statue_braata_schematic_01,item_dwartii_statue_faya_schematic_01,item_dwartii_statue_sistros_schematic_01,item_dwartii_statue_yanjon_schematic_01"		1										A Random Dwartii Statue Schematic
+col_dwartii_statue					item_dwartii_statue_braata_schematic_01,item_dwartii_statue_faya_schematic_01,item_dwartii_statue_sistros_schematic_01,item_dwartii_statue_yanjon_schematic_01		1										A Random Dwartii Statue Schematic
 publish_chapter7_click_activation_02													publishClickCollectionActivation01				
 heroic_axkva_min_01										combat_parry_reduction		-1					
 heroic_tusken_king_01										combat_critical_hit_reduction		-1					
@@ -170,36 +170,36 @@ nova_rank_01_05			nova_finished_faction
 orion_rank_01_05			orion_finished_faction														
 orion_rank_01_06			nova_orion_peace_keeper														
 nova_rank_01_06			nova_orion_peace_keeper														
-kill_space_rebel_tier_01	0.25	1	"bdg_kill_space_rebel_tier_01,kill_space_rebel_icon_tier1"														"Rebel Kill Quota Tier 1 Badge, Space XP"
-kill_space_rebel_tier_02	0.25	1	"bdg_kill_space_rebel_tier_02,kill_space_rebel_icon_tier2"														"Rebel Kill Quota Tier 2 Badge, Space XP"
-kill_space_rebel_tier_03	0.25	1	"bdg_kill_space_rebel_tier_03,kill_space_rebel_icon_tier3"														"Rebel Kill Quota Tier 3 Badge, Space XP"
-kill_space_rebel_tier_04	0.25	1	"bdg_kill_space_rebel_tier_04,kill_space_rebel_icon_tier4"														"Rebel Kill Quota Tier 4 Badge, Space XP"
-kill_space_rebel_tier_05	0.25	1	"bdg_kill_space_rebel_tier_05,kill_space_rebel_icon_tier5"														"Rebel Kill Quota Tier 5 Badge, Space XP"
-kill_space_imperial_tier_01	0.25	1	"bdg_kill_space_imperial_tier_01,kill_space_imperial_icon_tier1"														"Imperial Kill Quota Tier 1 Badge, Space XP"
-kill_space_imperial_tier_02	0.25	1	"bdg_kill_space_imperial_tier_02,kill_space_imperial_icon_tier2"														"Imperial Kill Quota Tier 2 Badge, Space XP"
-kill_space_imperial_tier_03	0.25	1	"bdg_kill_space_imperial_tier_03,kill_space_imperial_icon_tier3"														"Imperial Kill Quota Tier 3 Badge, Space XP"
-kill_space_imperial_tier_04	0.25	1	"bdg_kill_space_imperial_tier_04,kill_space_imperial_icon_tier4"														"Imperial Kill Quota Tier 4 Badge, Space XP"
-kill_space_imperial_tier_05	0.25	1	"bdg_kill_space_imperial_tier_05,kill_space_imperial_icon_tier5"														"Imperial Kill Quota Tier 5 Badge, Space XP"
-kill_space_blacksun_tier_01	0.25	1	"bdg_kill_space_blacksun_tier_01,kill_space_blacksun_icon_tier1"														"Black Sun Kill Quota Tier 1 Badge, Space XP"
-kill_space_blacksun_tier_02	0.25	1	"bdg_kill_space_blacksun_tier_02,kill_space_blacksun_icon_tier2"														"Black Sun Kill Quota Tier 2 Badge, Space XP"
-kill_space_blacksun_tier_03	0.25	1	"bdg_kill_space_blacksun_tier_03,kill_space_blacksun_icon_tier3"														"Black Sun Kill Quota Tier 3 Badge, Space XP"
-kill_space_blacksun_tier_04	0.25	1	"bdg_kill_space_blacksun_tier_04,kill_space_blacksun_icon_tier4"														"Black Sun Kill Quota Tier 4 Badge, Space XP"
-kill_space_blacksun_tier_05	0.25	1	"bdg_kill_space_blacksun_tier_05,kill_space_blacksun_icon_tier5"														"Black Sun Kill Quota Tier 5 Badge, Space XP"
-kill_space_void_tier_01	0.25	1	"bdg_kill_space_void_tier_01,kill_space_void_icon_tier1"														"Void Wing Kill Quota Tier 1 Badge, Space XP"
-kill_space_void_tier_02	0.25	1	"bdg_kill_space_void_tier_02,kill_space_void_icon_tier2"														"Void Wing Kill Quota Tier 2 Badge, Space XP"
-kill_space_void_tier_03	0.25	1	"bdg_kill_space_void_tier_03,kill_space_void_icon_tier3"														"Void Wing Kill Quota Tier 3 Badge, Space XP"
-kill_space_void_tier_04	0.25	1	"bdg_kill_space_void_tier_04,kill_space_void_icon_tier4"														"Void Wing Kill Quota Tier 4 Badge, Space XP"
-kill_space_void_tier_05	0.25	1	"bdg_kill_space_void_tier_05,kill_space_void_icon_tier5"														"Void Wing Kill Quota Tier 5 Badge, Space XP"
-kill_space_droid_tier_01	0.25	1	"bdg_kill_space_droid_tier_01,kill_space_droid_icon_tier1"														"Droid Kill Quota Tier 1 Badge, Space XP"
-kill_space_droid_tier_02	0.25	1	"bdg_kill_space_droid_tier_02,kill_space_droid_icon_tier2"														"Droid Kill Quota Tier 2 Badge, Space XP"
-kill_space_droid_tier_03	0.25	1	"bdg_kill_space_droid_tier_03,kill_space_droid_icon_tier3"														"Droid Kill Quota Tier 3 Badge, Space XP"
-kill_space_droid_tier_04	0.25	1	"bdg_kill_space_droid_tier_04,kill_space_droid_icon_tier4"														"Droid Kill Quota Tier 4 Badge, Space XP"
-kill_space_droid_tier_05	0.25	1	"bdg_kill_space_droid_tier_05,kill_space_droid_icon_tier5"														"Droid Kill Quota Tier 5 Badge, Space XP"
-kill_space_pirate_tier_01	0.25	1	"bdg_kill_space_pirate_tier_01,kill_space_pirate_icon_tier1"														"Hidden Daggers Kill Quota Tier 1 Badge, Space XP"
-kill_space_pirate_tier_02	0.25	1	"bdg_kill_space_pirate_tier_02,kill_space_pirate_icon_tier2"														"Hidden Daggers Kill Quota Tier 2 Badge, Space XP"
-kill_space_pirate_tier_03	0.25	1	"bdg_kill_space_pirate_tier_03,kill_space_pirate_icon_tier3"														"Hidden Daggers Kill Quota Tier 3 Badge, Space XP"
-kill_space_pirate_tier_04	0.25	1	"bdg_kill_space_pirate_tier_04,kill_space_pirate_icon_tier4"														"Hidden Daggers Kill Quota Tier 4 Badge, Space XP"
-kill_space_pirate_tier_05	0.25	1	"bdg_kill_space_pirate_tier_05,kill_space_pirate_icon_tier5"														"Hidden Daggers Kill Quota Tier 5 Badge, Space XP"
+kill_space_rebel_tier_01	0.25	1	bdg_kill_space_rebel_tier_01,kill_space_rebel_icon_tier1														Rebel Kill Quota Tier 1 Badge, Space XP
+kill_space_rebel_tier_02	0.25	1	bdg_kill_space_rebel_tier_02,kill_space_rebel_icon_tier2														Rebel Kill Quota Tier 2 Badge, Space XP
+kill_space_rebel_tier_03	0.25	1	bdg_kill_space_rebel_tier_03,kill_space_rebel_icon_tier3														Rebel Kill Quota Tier 3 Badge, Space XP
+kill_space_rebel_tier_04	0.25	1	bdg_kill_space_rebel_tier_04,kill_space_rebel_icon_tier4														Rebel Kill Quota Tier 4 Badge, Space XP
+kill_space_rebel_tier_05	0.25	1	bdg_kill_space_rebel_tier_05,kill_space_rebel_icon_tier5														Rebel Kill Quota Tier 5 Badge, Space XP
+kill_space_imperial_tier_01	0.25	1	bdg_kill_space_imperial_tier_01,kill_space_imperial_icon_tier1														Imperial Kill Quota Tier 1 Badge, Space XP
+kill_space_imperial_tier_02	0.25	1	bdg_kill_space_imperial_tier_02,kill_space_imperial_icon_tier2														Imperial Kill Quota Tier 2 Badge, Space XP
+kill_space_imperial_tier_03	0.25	1	bdg_kill_space_imperial_tier_03,kill_space_imperial_icon_tier3														Imperial Kill Quota Tier 3 Badge, Space XP
+kill_space_imperial_tier_04	0.25	1	bdg_kill_space_imperial_tier_04,kill_space_imperial_icon_tier4														Imperial Kill Quota Tier 4 Badge, Space XP
+kill_space_imperial_tier_05	0.25	1	bdg_kill_space_imperial_tier_05,kill_space_imperial_icon_tier5														Imperial Kill Quota Tier 5 Badge, Space XP
+kill_space_blacksun_tier_01	0.25	1	bdg_kill_space_blacksun_tier_01,kill_space_blacksun_icon_tier1														Black Sun Kill Quota Tier 1 Badge, Space XP
+kill_space_blacksun_tier_02	0.25	1	bdg_kill_space_blacksun_tier_02,kill_space_blacksun_icon_tier2														Black Sun Kill Quota Tier 2 Badge, Space XP
+kill_space_blacksun_tier_03	0.25	1	bdg_kill_space_blacksun_tier_03,kill_space_blacksun_icon_tier3														Black Sun Kill Quota Tier 3 Badge, Space XP
+kill_space_blacksun_tier_04	0.25	1	bdg_kill_space_blacksun_tier_04,kill_space_blacksun_icon_tier4														Black Sun Kill Quota Tier 4 Badge, Space XP
+kill_space_blacksun_tier_05	0.25	1	bdg_kill_space_blacksun_tier_05,kill_space_blacksun_icon_tier5														Black Sun Kill Quota Tier 5 Badge, Space XP
+kill_space_void_tier_01	0.25	1	bdg_kill_space_void_tier_01,kill_space_void_icon_tier1														Void Wing Kill Quota Tier 1 Badge, Space XP
+kill_space_void_tier_02	0.25	1	bdg_kill_space_void_tier_02,kill_space_void_icon_tier2														Void Wing Kill Quota Tier 2 Badge, Space XP
+kill_space_void_tier_03	0.25	1	bdg_kill_space_void_tier_03,kill_space_void_icon_tier3														Void Wing Kill Quota Tier 3 Badge, Space XP
+kill_space_void_tier_04	0.25	1	bdg_kill_space_void_tier_04,kill_space_void_icon_tier4														Void Wing Kill Quota Tier 4 Badge, Space XP
+kill_space_void_tier_05	0.25	1	bdg_kill_space_void_tier_05,kill_space_void_icon_tier5														Void Wing Kill Quota Tier 5 Badge, Space XP
+kill_space_droid_tier_01	0.25	1	bdg_kill_space_droid_tier_01,kill_space_droid_icon_tier1														Droid Kill Quota Tier 1 Badge, Space XP
+kill_space_droid_tier_02	0.25	1	bdg_kill_space_droid_tier_02,kill_space_droid_icon_tier2														Droid Kill Quota Tier 2 Badge, Space XP
+kill_space_droid_tier_03	0.25	1	bdg_kill_space_droid_tier_03,kill_space_droid_icon_tier3														Droid Kill Quota Tier 3 Badge, Space XP
+kill_space_droid_tier_04	0.25	1	bdg_kill_space_droid_tier_04,kill_space_droid_icon_tier4														Droid Kill Quota Tier 4 Badge, Space XP
+kill_space_droid_tier_05	0.25	1	bdg_kill_space_droid_tier_05,kill_space_droid_icon_tier5														Droid Kill Quota Tier 5 Badge, Space XP
+kill_space_pirate_tier_01	0.25	1	bdg_kill_space_pirate_tier_01,kill_space_pirate_icon_tier1														Hidden Daggers Kill Quota Tier 1 Badge, Space XP
+kill_space_pirate_tier_02	0.25	1	bdg_kill_space_pirate_tier_02,kill_space_pirate_icon_tier2														Hidden Daggers Kill Quota Tier 2 Badge, Space XP
+kill_space_pirate_tier_03	0.25	1	bdg_kill_space_pirate_tier_03,kill_space_pirate_icon_tier3														Hidden Daggers Kill Quota Tier 3 Badge, Space XP
+kill_space_pirate_tier_04	0.25	1	bdg_kill_space_pirate_tier_04,kill_space_pirate_icon_tier4														Hidden Daggers Kill Quota Tier 4 Badge, Space XP
+kill_space_pirate_tier_05	0.25	1	bdg_kill_space_pirate_tier_05,kill_space_pirate_icon_tier5														Hidden Daggers Kill Quota Tier 5 Badge, Space XP
 col_space_reactor_mark_01					item_collection_reward_reactor_01_mk1_schematic												Mark 1 Reactor
 col_space_reactor_mark_02					item_collection_reward_reactor_01_mk2_schematic												Mark 2 Reactor
 col_space_reactor_mark_03					item_collection_reward_reactor_01_mk3_schematic												Mark 3 Reactor
@@ -226,7 +226,7 @@ col_contraband_03	0.2		col_contraband_tier2_item_03														A medium amount
 col_contraband_04	0.2		col_contraband_tier2_item_04														A medium amount of XP
 col_contraband_05	0.3		col_contraband_tier2_item_05														A large amount of XP
 col_contraband_tier_02	0.3				item_schematic_pistol_dd6_01_01												A large amount of XP and a combat related item.
-col_shattered_shards_01	0.1				"col_damind_shard_02_01,col_damind_shard_02_02,col_damind_shard_02_03,col_damind_shard_02_04,col_damind_shard_02_05,col_bondar_shard_02_01,col_bondar_shard_02_02,col_bondar_shard_02_03,col_bondar_shard_02_04,col_bondar_shard_02_05,col_eralam_shard_02_01,col_eralam_shard_02_02,col_eralam_shard_02_03,col_eralam_shard_02_04,col_eralam_shard_02_05,col_kasha_shard_02_01,col_kasha_shard_02_02,col_kasha_shard_02_03,col_kasha_shard_02_04,col_kasha_shard_02_05,col_luxum_shard_02_01,col_luxum_shard_02_02,col_luxum_shard_02_03,col_luxum_shard_02_04,col_luxum_shard_02_05"			1									A small amount of XP and a random shard.
+col_shattered_shards_01	0.1				col_damind_shard_02_01,col_damind_shard_02_02,col_damind_shard_02_03,col_damind_shard_02_04,col_damind_shard_02_05,col_bondar_shard_02_01,col_bondar_shard_02_02,col_bondar_shard_02_03,col_bondar_shard_02_04,col_bondar_shard_02_05,col_eralam_shard_02_01,col_eralam_shard_02_02,col_eralam_shard_02_03,col_eralam_shard_02_04,col_eralam_shard_02_05,col_kasha_shard_02_01,col_kasha_shard_02_02,col_kasha_shard_02_03,col_kasha_shard_02_04,col_kasha_shard_02_05,col_luxum_shard_02_01,col_luxum_shard_02_02,col_luxum_shard_02_03,col_luxum_shard_02_04,col_luxum_shard_02_05			1									A small amount of XP and a random shard.
 col_damind_shards_01	0.2		col_damind_shards_01_reward														A medium amount of XP and a reconstructed Damind Shard
 col_bondar_shards_01	0.2		col_bondar_shards_01_reward														A medium amount of XP and a reconstructed Bondar Shard
 col_kasha_shards_01	0.2		col_kasha_shards_01_reward														A medium amount of XP and a reconstructed Kasha Shard
@@ -239,23 +239,23 @@ trader_space_booster_mk1_counter			bdg_space_booster_crafting_1		item_crafting_c
 trader_space_booster_mk2_counter			bdg_space_booster_crafting_2		item_crafting_collection_reward_booster_01_mk2_schematic												3 Use Booster Schematic.
 trader_space_booster_mk3_counter			bdg_space_booster_crafting_3		item_crafting_collection_reward_booster_01_mk3_schematic												3 Use Booster Schematic.
 trader_space_booster_mk4_counter			bdg_space_booster_crafting_4		item_crafting_collection_reward_booster_01_mk4_schematic												3 Use Booster Schematic.
-trader_space_booster_mk5_counter			"bdg_space_booster_crafting_5,col_space_helper_monkey_01_03"		item_crafting_collection_reward_booster_01_mk5_schematic												3 Use Booster Schematic.
+trader_space_booster_mk5_counter			bdg_space_booster_crafting_5,col_space_helper_monkey_01_03		item_crafting_collection_reward_booster_01_mk5_schematic												3 Use Booster Schematic.
 trader_space_capacitor_mk1_counter			bdg_space_capacitor_crafting_1		item_crafting_collection_reward_capacitor_01_mk1_schematic												3 Use Capacitor Schematic.
 trader_space_capacitor_mk2_counter			bdg_space_capacitor_crafting_2		item_crafting_collection_reward_capacitor_01_mk2_schematic												3 Use Capacitor Schematic.
 trader_space_capacitor_mk3_counter			bdg_space_capacitor_crafting_3		item_crafting_collection_reward_capacitor_01_mk3_schematic												3 Use Capacitor Schematic.
 trader_space_capacitor_mk4_counter			bdg_space_capacitor_crafting_4		item_crafting_collection_reward_capacitor_01_mk4_schematic												3 Use Capacitor Schematic.
-trader_space_capacitor_mk5_counter			"bdg_space_capacitor_crafting_5,col_space_helper_monkey_01_04"		item_crafting_collection_reward_capacitor_01_mk5_schematic												3 Use Capacitor Schematic.
+trader_space_capacitor_mk5_counter			bdg_space_capacitor_crafting_5,col_space_helper_monkey_01_04		item_crafting_collection_reward_capacitor_01_mk5_schematic												3 Use Capacitor Schematic.
 trader_space_engine_mk1_counter			bdg_space_engine_crafting_1		item_crafting_collection_reward_engine_01_mk1_schematic												3 Use Engine Schematic.
 trader_space_engine_mk2_counter			bdg_space_engine_crafting_2		item_crafting_collection_reward_engine_01_mk2_schematic												3 Use Engine Schematic.
 trader_space_engine_mk3_counter			bdg_space_engine_crafting_3		item_crafting_collection_reward_engine_01_mk3_schematic												3 Use Engine Schematic.
 trader_space_engine_mk4_counter			bdg_space_engine_crafting_4		item_crafting_collection_reward_engine_01_mk4_schematic												3 Use Engine Schematic.
-trader_space_engine_mk5_counter			"bdg_space_engine_crafting_5,col_space_helper_monkey_01_02"		item_crafting_collection_reward_engine_01_mk5_schematic												3 Use Engine Schematic.
+trader_space_engine_mk5_counter			bdg_space_engine_crafting_5,col_space_helper_monkey_01_02		item_crafting_collection_reward_engine_01_mk5_schematic												3 Use Engine Schematic.
 trader_space_reactor_mk1_counter			bdg_space_reactor_crafting_1		item_crafting_collection_reward_reactor_01_mk1_schematic												3 Use Reactor Schematic.
 trader_space_reactor_mk2_counter			bdg_space_reactor_crafting_2		item_crafting_collection_reward_reactor_01_mk2_schematic												3 Use Reactor Schematic.
 trader_space_reactor_mk3_counter			bdg_space_reactor_crafting_3		item_crafting_collection_reward_reactor_01_mk3_schematic												3 Use Reactor Schematic.
 trader_space_reactor_mk4_counter			bdg_space_reactor_crafting_4		item_crafting_collection_reward_reactor_01_mk4_schematic												3 Use Reactor Schematic.
-trader_space_reactor_mk5_counter			"bdg_space_reactor_crafting_5,col_space_helper_monkey_01_01"		item_crafting_collection_reward_reactor_01_mk5_schematic												3 Use Reactor Schematic.
-trader_hanging_light2_counter					item_collection_hanging_light_schematic_01_02												"Your own Hanging Light, Style 2 Schematic."
+trader_space_reactor_mk5_counter			bdg_space_reactor_crafting_5,col_space_helper_monkey_01_01		item_crafting_collection_reward_reactor_01_mk5_schematic												3 Use Reactor Schematic.
+trader_hanging_light2_counter					item_collection_hanging_light_schematic_01_02												Your own Hanging Light, Style 2 Schematic.
 trader_space_gunship_rebel_counter			bdg_space_gunship_crafting_rebel		item_crafting_collection_gunship_rebel_schematic												3 Use Rebel Gunship Schematic.
 trader_space_gunship_imperial_counter			bdg_space_gunship_crafting_imperial		item_crafting_collection_gunship_imperial_schematic												3 Use Imperial Gunship Schematic.
 trader_space_gunship_neutral_counter			bdg_space_gunship_crafting_neutral		item_crafting_collection_gunship_neutral_schematic												3 Use Privateer Gunship Schematic.
@@ -266,22 +266,22 @@ col_treasure_hunter_mask	0.2		finished_treasure_hunter_mask														A mediu
 col_treasure_hunter_antique_weapons	0.2		finished_treasure_hunter_antique														A medium amount of XP
 col_treasure_hunter_oval_gem	0.2		finished_treasure_hunter_oval_gem														A medium amount of XP
 col_treasure_hunter_trilliant_gem	0.2		finished_treasure_hunter_trilliant_gem														A medium amount of XP
-col_master_treasure_hunter	0.3		bdg_col_master_treasure_hunter														"Master Treasure Hunter Title, Badge, and large amount of XP"
+col_master_treasure_hunter	0.3		bdg_col_master_treasure_hunter														Master Treasure Hunter Title, Badge, and large amount of XP
 force_shui_01			completed_force_shui_01														Master of Force Shui Collection Update
 force_shui_02			completed_force_shui_02														Master of Force Shui Collection Update
-force_shui_tier_02																	"Master Decorator Title, New Furniture Arrangement Ability"
+force_shui_tier_02																	Master Decorator Title, New Furniture Arrangement Ability
 col_glass_shelf_01					col_glass_shelving_reward_02_01												Glass Shelving Schematic
 col_entertainer_01					item_beast_holocron_04_08												Beast Knowledge: Dancing Pet
-col_hanging_light_02					item_collection_hanging_light_schematic_01_02												"A Hanging Light Schematic, Style 2"
+col_hanging_light_02					item_collection_hanging_light_schematic_01_02												A Hanging Light Schematic, Style 2
 kill_pirates_publish_gift		1			chapter_8_space_mobile_02_01												A small amount of XP and a Chapter Gift
 heroic_sd_taxi_service_01					col_reward_taxi_sd_painting_02_01												a Painting of the Blackguard
-kill_space_rebel_icon_collection			bdg_kill_space_rebel_icon		item_gunship_imperial_schematic												"Player Title, Badge, Gunship Schematic"
-kill_space_imperial_icon_collection			bdg_kill_space_imperial_icon		item_gunship_rebel_schematic												"Player Title, Badge, Gunship Schematic"
-kill_space_blacksun_icon_collection			bdg_kill_space_blacksun_icon		item_gunship_neutral_schematic												"Player Title, Badge, Gunship Schematic"
-kill_space_void_icon_collection			bdg_kill_space_void_icon		item_gunship_cargo_hold_01												"Player Title, Badge, Gunship Cargo Hold Schematic"
-kill_space_droid_icon_collection			bdg_kill_space_droid_icon		item_droid_collection_reward_goggles												"Player Title, Badge, Targeting Reticule Goggles"
-kill_space_pirate_icon_collection					"item_pob_furniture_couch_schematic_01,item_pob_furniture_chair_schematic_01"												"Player Title, Chair and Lounge Schematic"
-col_dust_durni_01	0.2				"col_reward_feather_duster_02_01,col_reward_feather_duster_02_02,col_reward_feather_duster_02_03,col_reward_feather_duster_02_04,col_reward_feather_duster_02_05"		1										A Feather Duster and a medium amount of XP
+kill_space_rebel_icon_collection			bdg_kill_space_rebel_icon		item_gunship_imperial_schematic												Player Title, Badge, Gunship Schematic
+kill_space_imperial_icon_collection			bdg_kill_space_imperial_icon		item_gunship_rebel_schematic												Player Title, Badge, Gunship Schematic
+kill_space_blacksun_icon_collection			bdg_kill_space_blacksun_icon		item_gunship_neutral_schematic												Player Title, Badge, Gunship Schematic
+kill_space_void_icon_collection			bdg_kill_space_void_icon		item_gunship_cargo_hold_01												Player Title, Badge, Gunship Cargo Hold Schematic
+kill_space_droid_icon_collection			bdg_kill_space_droid_icon		item_droid_collection_reward_goggles												Player Title, Badge, Targeting Reticule Goggles
+kill_space_pirate_icon_collection					item_pob_furniture_couch_schematic_01,item_pob_furniture_chair_schematic_01												Player Title, Chair and Lounge Schematic
+col_dust_durni_01	0.2				col_reward_feather_duster_02_01,col_reward_feather_duster_02_02,col_reward_feather_duster_02_03,col_reward_feather_duster_02_04,col_reward_feather_duster_02_05		1										A Feather Duster and a medium amount of XP
 col_resource_harvest_hide	0.1		col_resource_hide_complete		col_reward_resource_harvest_02_01												A faux item and a small amount of XP
 col_resource_harvest_meat	0.1		col_resource_meat_complete		col_reward_resource_harvest_meat_02_01												A meat rack and a small amount of XP
 col_resource_harvest_bone	0.1		col_resource_bone_complete		col_reward_resource_harvest_bone_02_01												A complete skeleton and a small amount of XP
@@ -314,29 +314,29 @@ col_entertainer_fan_01					item_limited_use_combat_fan_l_02_01												A sche
 col_entertainer_instrument_01					item_limited_use_schematic_jessoon				flangedjessoon								A schematic for a Musical Instrument
 col_wayfar_spy_01	0.1				item_col_reward_spy_camp_chair												A Camp Chair and some Experience
 exar_kun_lost_journal					col_reward_heroic_exar_kun_lost_journal_02_01												Walter Emanus' Lost Journal
-bounty_check_kill					"item_limited_use_schematic_bounty_dc15_04_01,item_limited_use_schematic_bounty_ee3_04_01"												Master Crafted Bounty Hunter Weapon Schematics
+bounty_check_kill					item_limited_use_schematic_bounty_dc15_04_01,item_limited_use_schematic_bounty_ee3_04_01												Master Crafted Bounty Hunter Weapon Schematics
 jedi_robe_01			bdg_col_jedi_robe														Badge and access to Master Jedi Cloaks at Jedi shrines.
 col_lightsaber_1h_01			jedi_robe_01_04		item_schematic_fifth_gen_saber_03_01												Fifth generation one-handed lightsaber schematic.
 col_lightsaber_2h_01			jedi_robe_01_05		item_schematic_fifth_gen_saber_03_02												Fifth generation two-handed lightsaber schematic.
 col_lightsaber_polearm_01			jedi_robe_01_06		item_schematic_fifth_gen_saber_03_03												Fifth generation polearm lightsaber schematic.
-col_meatlump_newspaper_01	0.2		col_meatlump_newspaper_tier2		"meatlump_scrapbook_reward_02_01,item_meatlump_lump_01_01"	5											Meatlump Scrapbook and a Medium amount of XP.
-col_meatlump_slicer_tier_02	0.2		bdg_meatlump_slicer_tier_02		item_meatlump_lump_01_01	10											"Badge, Player Title and XP"
-col_meatlump_safe_01	0.2		meatlump_safe_tier_02		item_meatlump_lump_01_01	5							mtpSafeComplete				"XP, Lumps"
-col_meatlump_container_01	0.2		meatlump_container_tier_02		item_meatlump_lump_01_01	5							mtpContainerComplete				"XP, Lumps"
-col_meatlump_map_01	0.2		meatlump_map_tier_02		item_meatlump_lump_01_01	5							mtpMapComplete				"XP, Lumps"
-col_meatlump_code_word_01	0.2		col_meatlump_code_word_tier2		item_meatlump_lump_01_01	5											"XP, Lumps"
-col_meatlump_eavesdrop	0.2		meatlump_eavesdrop_tier_02		item_meatlump_lump_01_01	5											"XP, Lumps"
-col_meatlump_sabotage_tier_02	0.2		bdg_meatlump_sabotage_tier_02		item_meatlump_lump_01_01	10											"Badge, Player Title, XP & Lumps"
-col_meatlump_bomb_sabotage_01	0.2		meatlump_bomb_sabotage_tier2		item_meatlump_lump_01_01	5							mtpBombComplete				"XP, Lumps"
-col_meatlump_weapon_sabotage_01	0.2		meatlump_weapon_sabotage_tier2		item_meatlump_lump_01_01	5							mtpWeaponComplete				"XP, Lumps"
-col_meatlump_food_sabotage_01	0.2		meatlump_food_sabotage_tier2		item_meatlump_lump_01_01	5							mtpFoodComplete				"XP, Lumps"
+col_meatlump_newspaper_01	0.2		col_meatlump_newspaper_tier2		meatlump_scrapbook_reward_02_01,item_meatlump_lump_01_01	5											Meatlump Scrapbook and a Medium amount of XP.
+col_meatlump_slicer_tier_02	0.2		bdg_meatlump_slicer_tier_02		item_meatlump_lump_01_01	10											Badge, Player Title and XP
+col_meatlump_safe_01	0.2		meatlump_safe_tier_02		item_meatlump_lump_01_01	5							mtpSafeComplete				XP, Lumps
+col_meatlump_container_01	0.2		meatlump_container_tier_02		item_meatlump_lump_01_01	5							mtpContainerComplete				XP, Lumps
+col_meatlump_map_01	0.2		meatlump_map_tier_02		item_meatlump_lump_01_01	5							mtpMapComplete				XP, Lumps
+col_meatlump_code_word_01	0.2		col_meatlump_code_word_tier2		item_meatlump_lump_01_01	5											XP, Lumps
+col_meatlump_eavesdrop	0.2		meatlump_eavesdrop_tier_02		item_meatlump_lump_01_01	5											XP, Lumps
+col_meatlump_sabotage_tier_02	0.2		bdg_meatlump_sabotage_tier_02		item_meatlump_lump_01_01	10											Badge, Player Title, XP & Lumps
+col_meatlump_bomb_sabotage_01	0.2		meatlump_bomb_sabotage_tier2		item_meatlump_lump_01_01	5							mtpBombComplete				XP, Lumps
+col_meatlump_weapon_sabotage_01	0.2		meatlump_weapon_sabotage_tier2		item_meatlump_lump_01_01	5							mtpWeaponComplete				XP, Lumps
+col_meatlump_food_sabotage_01	0.2		meatlump_food_sabotage_tier2		item_meatlump_lump_01_01	5							mtpFoodComplete				XP, Lumps
 col_meatlump_hench_doll_01	0.2		col_meatlump_hench_doll_tier2														Visit Newin Seedel in the Meatlump Hideout.
 col_meatlump_officer_doll_01	0.2		col_meatlump_officer_doll_tier2														Visit Newin Seedel in the Meatlump Hideout.
 col_meatlump_king_doll_01	0.3		col_meatlump_king_doll_tier2														Visit Newin Seedel in the Meatlump Hideout.
 col_meatlump_uniform_01	0.2		col_meatlump_uniform_tier2		item_meatlump_lump_01_01	5											A medium amount of XP and Lumps
 col_meatlump_rank_01	0.2		col_meatlump_rank_tier2		item_meatlump_lump_01_01	5											A medium amount of XP and Lumps
-col_meatlump_investigation_tier_02	0.2		bdg_meatlump_investigation_tier_02		item_meatlump_lump_01_01	10											"Badge, Player Title, XP & Lumps"
-col_meatlump_doll_tier_02	0.2		bdg_meatlump_doll_tier_02		item_meatlump_lump_01_01	10											"Badge, XP & Lumps"
+col_meatlump_investigation_tier_02	0.2		bdg_meatlump_investigation_tier_02		item_meatlump_lump_01_01	10											Badge, Player Title, XP & Lumps
+col_meatlump_doll_tier_02	0.2		bdg_meatlump_doll_tier_02		item_meatlump_lump_01_01	10											Badge, XP & Lumps
 col_meatlump_lint_01	0.2				item_meatlump_lump_01_01	5											A medium amount of XP and Lumps
 col_meatlump_recruiter_01	0.2		col_meatlump_recruiter_01_tracker		item_meatlump_lump_01_01	5											A medium amount of XP and Lumps
 col_meatlump_wine_01	0.2		col_meatlump_wine_01_tracker		item_mtp_meatlump_xp_wine_02_01												A medium amount of XP and a bottle of Meatlump Wine
@@ -350,7 +350,7 @@ col_hoth_meteorite_01	0.1				col_reward_hoth_meteorite_geode_02_01												A 
 col_hoth_probe_droid_01	0.1				item_holopet_hoth_probe_droid_data_cube_01_01												A small amount of XP and a Probe Droid Holo-Pet Data Cube
 col_hoth_imperial_kill_01	0.1				col_hoth_sharpshooter_buff_02_01												A small amount of XP and a Hoth Radio
 col_hoth_rebel_kill_01	0.1				col_hoth_sharpshooter_buff_02_01												A small amount of XP and a Hoth Radio
-col_holo_emitter_01	0.2				"col_holo_emitter_reward_02_01,item_holopet_hoth_tauntaun_data_cube_01_01"												"A medium amount of XP, a Holographic Emitter and a Tauntaun Holo-Pet"
+col_holo_emitter_01	0.2				col_holo_emitter_reward_02_01,item_holopet_hoth_tauntaun_data_cube_01_01												A medium amount of XP, a Holographic Emitter and a Tauntaun Holo-Pet
 col_panoramic_vistas_tatooine	0.1				col_reward_tatooine_vistas_painting_02_01												A small amount of XP and a Panoramic Painting of Tatooine
 spy_unarmed_01	0.2				weapon_spy_fist												A Tenebrous Edge Weapon
 loveday_2009_activities			loveday_badge_09														Second Annual Ewok Festival of Love Badge
@@ -366,16 +366,16 @@ col_round_purple_cut_gem_01	0.2				item_limited_use_schematic_purple_gem_01_01		
 col_round_red_cut_gem_01	0.2				item_limited_use_schematic_red_gem_01_01												A medium amount of XP and a Red Light Gem Schematic
 mail_opt_in_1					item_mail_opt_in_1_reward												A Bantha Skin Rug
 col_space_helper_monkey_01					item_beast_holocron_04_10												Shipwright Helper Monkey
-empire_day_recruiting_event	0.1		empire_day_recruiter_badge_2009		"col_reward_imperial_gcw_500_01_01,item_empire_day_imperial_token"												"Badge, Empire Day Token, GCW Points & XP"
-empire_day_anti_propaganda_event	0.1		empire_day_anti_propaganda_badge_2009		"col_reward_imperial_gcw_500_01_01,item_empire_day_imperial_token"												"Badge, Title, Empire Day Token, GCW Points & XP"
-empire_day_engineering_quest	0.1		empire_day_engineering_badge_2009		"col_reward_imperial_gcw_500_01_01,item_empire_day_imperial_token"												"Badge, GCW Points & XP"
-empire_day_performance_quest	0.1		empire_day_performance_badge_2009		"col_reward_imperial_gcw_500_01_01,item_empire_day_imperial_token"												"Badge, Empire Day Token, GCW Points & XP"
-empire_day_rescue_quest	0.1		empire_day_rescue_badge_2009		"col_reward_imperial_gcw_500_01_01,item_empire_day_imperial_token"												"Badge, Empire Day Token, GCW Points & XP"
-remembrance_day_resistance_event	0.1		remembrance_day_resistance_badge_2009		"col_reward_rebel_gcw_500_01_01,item_empire_day_rebel_token"												"Badge, Remembrance Day Token, GCW Points & XP"
-remembrance_day_vandal_event	0.1		remembrance_day_vandal_badge_2009		"col_reward_rebel_gcw_500_01_01,item_empire_day_rebel_token"												"Badge, Title, Remembrance Day Token, GCW Points & XP"
-remembrance_day_engineering_quest	0.1		remembrance_day_engineering_badge_2009		"col_reward_rebel_gcw_500_01_01,item_empire_day_rebel_token"												"Badge, Title, Remembrance Day Token, GCW Points & XP"
-remembrance_day_performance_quest	0.1		remembrance_day_performance_badge_2009		"col_reward_rebel_gcw_500_01_01,item_empire_day_rebel_token"												"Badge, Remembrance Day Token, GCW Points & XP"
-remembrance_day_rescue_quest	0.1		remembrance_day_rescue_badge_2009		"col_reward_rebel_gcw_500_01_01,item_empire_day_rebel_token"												"Badge, Remembrance Day Token, GCW Points & XP"
+empire_day_recruiting_event	0.1		empire_day_recruiter_badge_2009		col_reward_imperial_gcw_500_01_01,item_empire_day_imperial_token												Badge, Empire Day Token, GCW Points & XP
+empire_day_anti_propaganda_event	0.1		empire_day_anti_propaganda_badge_2009		col_reward_imperial_gcw_500_01_01,item_empire_day_imperial_token												Badge, Title, Empire Day Token, GCW Points & XP
+empire_day_engineering_quest	0.1		empire_day_engineering_badge_2009		col_reward_imperial_gcw_500_01_01,item_empire_day_imperial_token												Badge, GCW Points & XP
+empire_day_performance_quest	0.1		empire_day_performance_badge_2009		col_reward_imperial_gcw_500_01_01,item_empire_day_imperial_token												Badge, Empire Day Token, GCW Points & XP
+empire_day_rescue_quest	0.1		empire_day_rescue_badge_2009		col_reward_imperial_gcw_500_01_01,item_empire_day_imperial_token												Badge, Empire Day Token, GCW Points & XP
+remembrance_day_resistance_event	0.1		remembrance_day_resistance_badge_2009		col_reward_rebel_gcw_500_01_01,item_empire_day_rebel_token												Badge, Remembrance Day Token, GCW Points & XP
+remembrance_day_vandal_event	0.1		remembrance_day_vandal_badge_2009		col_reward_rebel_gcw_500_01_01,item_empire_day_rebel_token												Badge, Title, Remembrance Day Token, GCW Points & XP
+remembrance_day_engineering_quest	0.1		remembrance_day_engineering_badge_2009		col_reward_rebel_gcw_500_01_01,item_empire_day_rebel_token												Badge, Title, Remembrance Day Token, GCW Points & XP
+remembrance_day_performance_quest	0.1		remembrance_day_performance_badge_2009		col_reward_rebel_gcw_500_01_01,item_empire_day_rebel_token												Badge, Remembrance Day Token, GCW Points & XP
+remembrance_day_rescue_quest	0.1		remembrance_day_rescue_badge_2009		col_reward_rebel_gcw_500_01_01,item_empire_day_rebel_token												Badge, Remembrance Day Token, GCW Points & XP
 mail_opt_in_2					item_mail_opt_in_2_reward												An Architects Rendition of a Nabooian City Hall
 buddy_02_01_01			buddy_02_02_01														
 buddy_02_02_02			buddy_02_03_01														
@@ -388,26 +388,26 @@ mail_opt_in_3					item_mail_opt_in_3_reward												An Architects Rendition o
 buddy_01_01			buddy_02_01														
 buddy_02_02			buddy_03_01														
 buddy_03_02			buddy_04_01														
-deathtrooper_camp_location	0.1		bdg_deathtrooper_camp_locations														"Badge, XP"
-deathtrooper_rodian_frequent_flyer	0.1		bdg_deathtrooper_frequent_flyer														"Badge, XP"
-deathtrooper_camp_rescue	0.1		bdg_deathtrooper_camp_rescue														"Badge, XP"
-deathtrooper_virus_canister_demo	0.1		bdg_deathtrooper_virus_canister_demolition														"Badge, XP"
-col_hidden_content	0.1		bdg_deathtrooper_hidden_content														"Badge, XP"
-col_escort_content	0.1		bdg_deathtrooper_camp_escort														"Badge, XP"
-col_defend_camp_content	0.1		bdg_deathtrooper_camp_defense														"Badge, XP"
-col_boss_badge_collection	0.1		bdg_deathtrooper_undead_boss_kill_collection		item_outbreak_deathrooper_rifle												"Badge, XP, Blackwing Rifle"
+deathtrooper_camp_location	0.1		bdg_deathtrooper_camp_locations														Badge, XP
+deathtrooper_rodian_frequent_flyer	0.1		bdg_deathtrooper_frequent_flyer														Badge, XP
+deathtrooper_camp_rescue	0.1		bdg_deathtrooper_camp_rescue														Badge, XP
+deathtrooper_virus_canister_demo	0.1		bdg_deathtrooper_virus_canister_demolition														Badge, XP
+col_hidden_content	0.1		bdg_deathtrooper_hidden_content														Badge, XP
+col_escort_content	0.1		bdg_deathtrooper_camp_escort														Badge, XP
+col_defend_camp_content	0.1		bdg_deathtrooper_camp_defense														Badge, XP
+col_boss_badge_collection	0.1		bdg_deathtrooper_undead_boss_kill_collection		item_outbreak_deathrooper_rifle												Badge, XP, Blackwing Rifle
 kill_deathtrooper_afflicted_boss	0.2		"bdg_deathtrooper_undead_topside_boss_kill_collection,undead_minor_bosses_killed
-"														"Badge, XP, Title"
-kill_deathtrooper_afflicted	0.2		bdg_deathtrooper_undead_kill_collection														"Badge, XP, Title"
-col_camp_alpha_01	0.1		col_camp_alpha_done														"Badge, XP"
-col_camp_beta_01	0.1		col_camp_beta_done														"Badge, XP"
-col_camp_gamma_01	0.1		col_camp_gamma_done														"Badge, XP"
-col_camp_delta_01	0.1		col_camp_delta_done														"Badge, XP"
-col_camp_epsilon_01	0.1		col_camp_epsilon_done														"Badge, XP"
-col_camp_research_01	0.1		col_facility_done														"Badge, XP"
-col_camp_collection	0.1		bdg_deathtrooper_click_collections														"Badge, XP"
-deathtrooper_cornburr_brain	0.1				item_vehicle_deed_hoverlifter_speeder												"XP, Hover Lifter Speeder Deed"
-deathtrooper_flare_s_col	0.1				item_vehicle_deed_flare_s_swoop												"XP, Title, Flare S Swoop Deed"
+"														Badge, XP, Title
+kill_deathtrooper_afflicted	0.2		bdg_deathtrooper_undead_kill_collection														Badge, XP, Title
+col_camp_alpha_01	0.1		col_camp_alpha_done														Badge, XP
+col_camp_beta_01	0.1		col_camp_beta_done														Badge, XP
+col_camp_gamma_01	0.1		col_camp_gamma_done														Badge, XP
+col_camp_delta_01	0.1		col_camp_delta_done														Badge, XP
+col_camp_epsilon_01	0.1		col_camp_epsilon_done														Badge, XP
+col_camp_research_01	0.1		col_facility_done														Badge, XP
+col_camp_collection	0.1		bdg_deathtrooper_click_collections														Badge, XP
+deathtrooper_cornburr_brain	0.1				item_vehicle_deed_hoverlifter_speeder												XP, Hover Lifter Speeder Deed
+deathtrooper_flare_s_col	0.1				item_vehicle_deed_flare_s_swoop												XP, Title, Flare S Swoop Deed
 col_trader_construct_barricade_rebel	0.2		rebel_gcw_trader_build_barricades		item_gcw_rebel_token	5											XP and GCW Tokens
 col_trader_construct_patrol_point_rebel	0.2		rebel_gcw_trader_build_patrol_point		item_gcw_rebel_token	5											XP and GCW Tokens
 col_trader_construct_tower_rebel	0.2		rebel_gcw_trader_build_tower		item_gcw_rebel_token	5											XP and GCW Tokens
@@ -476,28 +476,29 @@ nyms_question_scientist	0.2												hasQuestionedScientist				Scientist Inter
 nyms_rescue_prisoner	0.2												hasRescuedNymPrisoner				Prisoner Rescue Collection Complete
 nyms_steal_mined_ore	0.2												hasStolenMinedOre				Steal Mined Ore Collection Complete
 nyms_steal_lab_data	0.2												hasStolenLabData				Steal Lab Data Collection Complete
-nyms_master_collection_1	0.2		"bdg_nyms_master_badge_1,icon_peace_keeper_badge_received"		item_nym_themepark_mounted_slugthrower_01_01												"Lok Revenants Peace Keeper Badge, Mounted Nym's Slugthrower"
-nyms_master_collection_2	0.2		"bdg_nyms_master_badge_2,icon_pirate_badge_received"		item_nym_themepark_rug_01_01												"Lok Revenants Brigand Badge, Lok Revenants Rug"
-kill_nyms_themepark_assassin	0.2		"bdg_nyms_assassin_badge,icon_assassin_badge_received"		item_nym_themepark_painting_01_01												"Revenants Assassins Bounty Badge, Nym Painting, Title, Collection Icon"
-kill_nyms_themepark_miner	0.2		kill_nyms_icon_enraged_miner														"XP, Collection Icon"
-kill_nyms_themepark_pirate	0.2		kill_nyms_icon_sulfur_lake_pirate														"XP, Collection Icon"
-kill_nyms_themepark_mercenary	0.2		kill_nyms_icon_lab_merc														"XP, Collection Icon"
-kill_nyms_themepark_elite_hideout			kill_nyms_themepark_hideout_elite_kill										hasKilledCaveTroll				"Hideout Elite Bounties, Collection Icon"
-kill_nyms_themepark_elite_cave			kill_nyms_themepark_cave_elite_kill										killedMineElites				"Mining Cave Elite Bounties, Collection Icon"
-kill_nyms_themepark_elite_lab			kill_nyms_themepark_lab_elite_kill										hasKilledResearchFacilityElites				"Research Facility Elite Bounties, Collection Icon"
-kill_nyms_themepark_boss_hideout			kill_nyms_themepark_boss_hideout_kill										hasKilledHideoutBoss				"Hideout Boss Bounties, Collection Icon"
-kill_nyms_themepark_boss_mine			kill_nyms_themepark_boss_mine_kill										hasKilledMineBoss				"Mining Cave Boss Bounties, Collection Icon"
-kill_nyms_themepark_boss_lab			kill_nyms_themepark_boss_lab_kill										hasKilledLabBoss				"Research Facility Boss Bounties, Collection Icon"
-kill_nyms_themepark_kill_boss	0.2		"kill_nyms_themepark_master_boss,bdg_nyms_boss_kill_badge"														"XP, Title, Collection Icon"
-kill_nyms_themepark_kill_elites	0.2		"kill_nyms_themepark_master_elite,bdg_nyms_elite_kill_badge"														"XP, Title, Collection Icon"
-kill_nyms_themepark_dungeon_kill_col	0.2		icon_killed_dungeon_enemies_icon_received		item_nym_themepark_decal_reward_01_01												"Lok Revenants Decal, XP,Title, Collection Icon"
-nyms_stronghold_duty_col	0.2		"icon_duty_badge_received,bdge_nyms_duty_badge"														"Stronghold Duty Badge, Title, Collection Icon, XP "
-nyms_themepark_content_icon_col			bdge_nyms_theme_park_badge		weapon_jinkins_j1_01_01												"Nym's Theme Park Badge, Jinkins J-1 Rifle Prototype"
-kill_nyms_themepark_droideka_01	0.2		kill_nyms_icon_sulfur_lake_droideka														"XP, Collection Icon"
-kill_nyms_themepark_ldroideka_02	0.2		kill_nyms_icon_lab_droideka														"XP, Collection Icon"
-nyms_kusak_feeding	0.2				item_nym_themepark_backpack_01_01												"Lok Revenants Backpack, XP"
+nyms_master_collection_1	0.2		bdg_nyms_master_badge_1,icon_peace_keeper_badge_received		item_nym_themepark_mounted_slugthrower_01_01												Lok Revenants Peace Keeper Badge, Mounted Nym's Slugthrower
+nyms_master_collection_2	0.2		bdg_nyms_master_badge_2,icon_pirate_badge_received		item_nym_themepark_rug_01_01												Lok Revenants Brigand Badge, Lok Revenants Rug
+kill_nyms_themepark_assassin	0.2		bdg_nyms_assassin_badge,icon_assassin_badge_received		item_nym_themepark_painting_01_01												Revenants Assassins Bounty Badge, Nym Painting, Title, Collection Icon
+kill_nyms_themepark_miner	0.2		kill_nyms_icon_enraged_miner														XP, Collection Icon
+kill_nyms_themepark_pirate	0.2		kill_nyms_icon_sulfur_lake_pirate														XP, Collection Icon
+kill_nyms_themepark_mercenary	0.2		kill_nyms_icon_lab_merc														XP, Collection Icon
+kill_nyms_themepark_elite_hideout			kill_nyms_themepark_hideout_elite_kill										hasKilledCaveTroll				Hideout Elite Bounties, Collection Icon
+kill_nyms_themepark_elite_cave			kill_nyms_themepark_cave_elite_kill										killedMineElites				Mining Cave Elite Bounties, Collection Icon
+kill_nyms_themepark_elite_lab			kill_nyms_themepark_lab_elite_kill										hasKilledResearchFacilityElites				Research Facility Elite Bounties, Collection Icon
+kill_nyms_themepark_boss_hideout			kill_nyms_themepark_boss_hideout_kill										hasKilledHideoutBoss				Hideout Boss Bounties, Collection Icon
+kill_nyms_themepark_boss_mine			kill_nyms_themepark_boss_mine_kill										hasKilledMineBoss				Mining Cave Boss Bounties, Collection Icon
+kill_nyms_themepark_boss_lab			kill_nyms_themepark_boss_lab_kill										hasKilledLabBoss				Research Facility Boss Bounties, Collection Icon
+kill_nyms_themepark_kill_boss	0.2		kill_nyms_themepark_master_boss,bdg_nyms_boss_kill_badge														XP, Title, Collection Icon
+kill_nyms_themepark_kill_elites	0.2		kill_nyms_themepark_master_elite,bdg_nyms_elite_kill_badge														XP, Title, Collection Icon
+kill_nyms_themepark_dungeon_kill_col	0.2		icon_killed_dungeon_enemies_icon_received		item_nym_themepark_decal_reward_01_01												Lok Revenants Decal, XP,Title, Collection Icon
+nyms_stronghold_duty_col	0.2		icon_duty_badge_received,bdge_nyms_duty_badge														Stronghold Duty Badge, Title, Collection Icon, XP 
+nyms_themepark_content_icon_col			bdge_nyms_theme_park_badge		weapon_jinkins_j1_01_01												Nym's Theme Park Badge, Jinkins J-1 Rifle Prototype
+kill_nyms_themepark_droideka_01	0.2		kill_nyms_icon_sulfur_lake_droideka														XP, Collection Icon
+kill_nyms_themepark_ldroideka_02	0.2		kill_nyms_icon_lab_droideka														XP, Collection Icon
+nyms_kusak_feeding	0.2				item_nym_themepark_backpack_01_01												Lok Revenants Backpack, XP
 mail_opt_in_4																	An Unrevealed Reward
 col_rare_loot_one			bdg_rare_loot														
 col_rare_loot_five					rare_loot_chest_quality_1												
 col_exceptional_loot_five					rare_loot_chest_quality_2												
 col_legendary_loot_five					rare_loot_chest_quality_3												
+col_esb_anniversary_30					item_esb_holocron_of_destiny												

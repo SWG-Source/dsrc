@@ -87,6 +87,7 @@ public class live_conversions extends script.base_script
         givePlayersDeathTroopersPrologQuestComlink(player);
         removeDeprecatedQuests(player);
         addPlayerScripts(player);
+        handleEsbAnniversaryGifts(player);
     }
     public void runOncePerTravelConversions(obj_id player) throws InterruptedException
     {
@@ -944,5 +945,24 @@ public class live_conversions extends script.base_script
             groundquests.clearQuest(player, "u16_nym_themepark_weed_pulling");
         }
         return true;
+    }
+    public void handleEsbAnniversaryGifts(obj_id player) throws InterruptedException {
+        if(!utils.checkConfigFlag("Custom", "grantEsbAnniversaryRewards")) {
+            return;
+        }
+        if(hasObjVar(player, "publish_gifts.has_esb_rewards")) {
+            return;
+        }
+        obj_id inv = utils.getInventoryContainer(player);
+        obj_id col1 = createObjectInInventoryAllowOverload("object/tangible/collection/esb_week_1.iff", player);
+        obj_id col2 = createObjectInInventoryAllowOverload("object/tangible/collection/esb_week_2.iff", player);
+        obj_id col3 = createObjectInInventoryAllowOverload("object/tangible/collection/esb_week_3.iff", player);
+        obj_id col4 = createObjectInInventoryAllowOverload("object/tangible/collection/esb_week_4.iff", player);
+        obj_id cos1 = static_item.createNewItemFunction("item_esb_luke_costume", inv);
+        obj_id cos2 = static_item.createNewItemFunction("item_esb_leia_costume", inv);
+        obj_id cos3 = static_item.createNewItemFunction("item_esb_han_solo_costume", inv);
+        obj_id cos4 = static_item.createNewItemFunction("item_esb_lando_costume", inv);
+        showLootBox(player, new obj_id[] {col1, col2, col3, col4, cos1, cos2, cos3, cos4});
+        setObjVar(player, "publish_gifts.has_esb_rewards", 1);
     }
 }
