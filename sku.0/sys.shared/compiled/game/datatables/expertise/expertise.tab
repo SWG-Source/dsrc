@@ -1,11 +1,11 @@
 NAME	TREE	TIER	GRID	RANK	PREREQ_LEVEL	PREREQ_FACTION	REQ_PROF
 s	i[1]	i[1]	i[1]	i[1]	i[1]	s	s[all]
-expertise_test_add_proc	99	1	1	1
-expertise_test_add_reac	99	1	2	1
-expertise_test_prereq1_1	99	3	3	1
-expertise_test_prereq2_1	99	3	4	1
-expertise_test_prereq3_1	99	3	5	1
-expertise_test_postreq_1	99	5	4	1
+expertise_test_add_proc	99	1	1	1			
+expertise_test_add_reac	99	1	2	1			
+expertise_test_prereq1_1	99	3	3	1			
+expertise_test_prereq2_1	99	3	4	1			
+expertise_test_prereq3_1	99	3	5	1			
+expertise_test_postreq_1	99	5	4	1			
 expertise_bh_ass_act_1	2	1	1	1			bounty_hunter
 expertise_bh_ass_act_2	2	1	1	2			bounty_hunter
 expertise_bh_ass_act_3	2	1	1	3			bounty_hunter
@@ -1023,9 +1023,6 @@ expertise_bm_incubation_mod_1	30	2	5	1			all
 expertise_bm_incubation_mod_2	30	2	5	2			all
 expertise_bm_incubation_mod_3	30	2	5	3			all
 expertise_bm_abilility_aquisition_mod_1	30	1	1	1			all
-expertise_bm_abilility_aquisition_mod_2	30	1	1	2			all
-expertise_bm_abilility_aquisition_mod_3	30	1	1	3			all
-expertise_bm_abilility_aquisition_mod_4	30	1	1	4			all
 expertise_bm_pet_tricks_1	30	1	6	1			all
 expertise_bm_loyalty_mod_1	30	1	5	1			all
 expertise_bm_loyalty_mod_2	30	1	5	2			all
@@ -1036,6 +1033,7 @@ expertise_bm_attack_1	30	1	3	1			all
 expertise_bm_metagame_mod_1	30	2	7	1			all
 expertise_bm_metagame_mod_2	30	2	7	2			all
 expertise_bm_metagame_mod_3	30	2	7	3			all
+expertise_bm_metagame_mod_4	30	2	7	4			all
 expertise_bm_add_second_pet_bar_1	30	3	3	1			all
 expertise_bm_swift_recovery_1	30	2	2	1			all
 expertise_bm_mending_1	30	2	3	1			all
@@ -1060,6 +1058,7 @@ expertise_bm_creature_knowledge_command_1	30	1	2	1			all
 expertise_bm_genetic_engineering_1	30	3	5	1			all
 expertise_bm_genetic_engineering_2	30	3	5	2			all
 expertise_bm_genetic_engineering_3	30	3	5	3			all
+expertise_bm_genetic_engineering_4	30	3	5	4			all
 expertise_bm_dna_harvesting_1	30	3	6	1			all
 expertise_bm_dna_harvesting_2	30	3	6	2			all
 expertise_bm_dna_harvesting_3	30	3	6	3			all
