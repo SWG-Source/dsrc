@@ -117,6 +117,7 @@ public class quest_convo extends script.base_script {
             }
         }
 
+        // If you've done all this guys missions he uses the "next" line to tell you.
         if (gating > maxGating) {
             CONVO = dataTableGetString(datatable, 1, "convo");
             chat.chat(self, new string_id(CONVO, "next"));
@@ -208,12 +209,6 @@ public class quest_convo extends script.base_script {
         // If the NPC is busy fighting, or the player for that matter, well then they shouldn't be talking about quests
         if (ai_lib.isInCombat(self) || ai_lib.isInCombat(speaker))
             return SCRIPT_OVERRIDE;
-        // If you've done all this guys missions he uses the "next" line to tell you.
-        else if (questNum >= maxGating) {
-            System.out.println("hitting max gating: " + maxGating);
-            chat.chat(self, new string_id(CONVO, "next"));
-            return SCRIPT_OVERRIDE;
-        }
         // Now we're getting into it.  This means you've failed his mission and you've come back for punishment.
         else if (hasObjVar(speaker, questID + ".failed")) {
             string_id failMessage = new string_id(CONVO, "npc_failure_" + questNum);
@@ -723,16 +718,19 @@ public class quest_convo extends script.base_script {
             sendSystemMessage(player, credits + " credits have been deposited in your bank account.", null);
         }
 
-        String factionReward;
+        String factionReward = dataTableGetString(datatable, questNum, "faction reward");
+        int factionAmt;
+        int maxFactionReward = 4;
 
-        for(int x = 1; x <= 4; x++) {
-            factionReward = dataTableGetString(datatable, questNum, "faction reward" + (x > 1 ? x : ""));
+        for(int x = 1; x <= maxFactionReward; x++) {
             if(!factionReward.equals("none")) {
-                int factionAmt = dataTableGetInt(datatable, questNum, "faction_reward" + (x > 1 ? x : "") + "_amount");
+                factionAmt = dataTableGetInt(datatable, questNum, "faction_reward" + (x > 1 ? x : "") + "_amount");
                 if (factionAmt != 0) {
                     factions.addFactionStanding(player, factionReward, factionAmt);
                 }
             }
+            if(x < maxFactionReward)
+                factionReward = dataTableGetString(datatable, questNum, "faction_reward" + (x + 1));
         }
 
         obj_id waypoint = getObjIdObjVar(player, questID + ".waypointhome");
