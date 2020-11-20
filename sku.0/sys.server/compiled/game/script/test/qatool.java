@@ -150,6 +150,7 @@ public class qatool extends script.base_script
         " qadna -- Creates valid DNA samples for testers.",
         " fish [n] -- Succesfully catches a fish. Optional parameter [n] = 1-100. Location is the current planet but does not test for valid fishing location.",
         " collectionclickbypass -- Sets scriptvar to allow 1 second clicks on collection items",
+        "* (command driven tool) clearAllCollections -- Removes every collection slot your character has earned.",
         "* (command driven tool) setScriptVar -- Sets a scriptvar on to 0 or a given value. If no current target then scriptvar is set on player.",
         "* (command driven tool) enzyme -- Creates an Enzyme with preset values the mutagen score and the purity score (for example /qatool enzyme 10 15).",
         "* (command driven tool) lyase or qalyase [color] -- Creates an Lyase Enzyme with randomStats set to 11. Optional parameter [color]",
@@ -1491,6 +1492,21 @@ public class qatool extends script.base_script
             utils.setScriptVar(self, "qabadge.mainMenu", badgeMenuArray);
             qa.refreshMenu(self, "Choose the Badge", "Badge Granter", badgeMenuArray, "mainMenuOptions", "qabadge.pid", sui.OK_CANCEL_REFRESH);
             return SCRIPT_CONTINUE;
+        }
+        else if ((toLower(command)).equalsIgnoreCase("clearAllCollections"))
+        {
+            String[] books = getAllCollectionBooks();
+            for(String book : books) {
+                String[] slots = getAllCollectionSlotsInBook(book);
+                for(String slot : slots) {
+                    if(getCollectionSlotMaxValue(slot) == 0) {
+                        modifyCollectionSlotValue(self, slot, -1);
+                    } else {
+                        long value = getCollectionSlotValue(self, slot);
+                        modifyCollectionSlotValue(self, slot, -value-1);
+                    }
+                }
+            }
         }
         else if ((toLower(command)).equals("qawearables"))
         {
