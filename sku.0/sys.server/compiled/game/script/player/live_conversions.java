@@ -965,4 +965,27 @@ public class live_conversions extends script.base_script
         showLootBox(player, new obj_id[] {col1, col2, col3, col4, cos1, cos2, cos3, cos4});
         setObjVar(player, "publish_gifts.has_esb_rewards", 1);
     }
+
+    public void handleMailOptInRewards(obj_id player) throws InterruptedException {
+        if(!utils.checkConfigFlag("Custom", "grantMailOptInRewards")) {
+            return;
+        }
+        if(hasObjVar(player, "publish_gifts.has_mail_opt_in_rewards")) {
+            return;
+        }
+        obj_id inv = utils.getInventoryContainer(player);
+        obj_id r1 = static_item.createNewItemFunction("col_mail_opt_in_1_01", inv);
+        obj_id r2 = static_item.createNewItemFunction("col_mail_opt_in_1_02", inv);
+        obj_id r3 = static_item.createNewItemFunction("col_mail_opt_in_1_03", inv);
+        obj_id r4 = static_item.createNewItemFunction("col_mail_opt_in_2_01", inv);
+        obj_id r5 = static_item.createNewItemFunction("col_mail_opt_in_2_02", inv);
+        obj_id r6 = static_item.createNewItemFunction("col_mail_opt_in_2_03", inv);
+        obj_id r7 = static_item.createNewItemFunction("col_mail_opt_in_3_01", inv);
+        obj_id r8 = static_item.createNewItemFunction("col_mail_opt_in_3_02", inv);
+        obj_id r9 = static_item.createNewItemFunction("col_mail_opt_in_3_03", inv);
+        obj_id r10 = static_item.createNewItemFunction("col_mail_opt_in_4_01", inv);
+        obj_id r11 = static_item.createNewItemFunction("col_mail_opt_in_4_02", inv);
+        showLootBox(player, new obj_id[] {r1, r2, r3, r4, r5, r6, r7, r8, r9, r10, r11});
+        setObjVar(player, "publish_gifts.has_mail_opt_in_rewards", 1);
+    }
 }

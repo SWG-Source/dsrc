@@ -1120,7 +1120,7 @@ item_color_crystal_02_24			int:jedi.crystal.stats.color=24,int:jedi.crystal.stat
 item_color_crystal_02_25			int:jedi.crystal.stats.color=25,int:jedi.crystal.stats.level=-1	index_color_1=25							
 item_color_crystal_02_26			int:jedi.crystal.stats.color=26,int:jedi.crystal.stats.level=-1	index_color_1=26							
 item_color_crystal_02_27			int:jedi.crystal.stats.color=27,int:jedi.crystal.stats.level=-1	index_color_1=27							
-item_crystal_allyas_redemption_01			int:jedi.crystal.stats.color=27,int:jedi.crystal.stats.level=-1	index_color_1=27
+item_crystal_allyas_redemption_01			int:jedi.crystal.stats.color=27,int:jedi.crystal.stats.level=-1	index_color_1=27							
 item_color_crystal_02_28			int:jedi.crystal.stats.color=28,int:jedi.crystal.stats.level=-1	index_color_1=28							
 item_color_crystal_02_29			int:jedi.crystal.stats.color=29,int:jedi.crystal.stats.level=-1	index_color_1=29							
 item_color_crystal_02_30			int:jedi.crystal.stats.color=30,int:jedi.crystal.stats.level=-1	index_color_1=30							
@@ -1136,7 +1136,7 @@ item_power_crystal_04_06			int:jedi.crystal.stats.min_dmg=6,int:jedi.crystal.sta
 item_power_crystal_04_07			int:jedi.crystal.stats.min_dmg=7,int:jedi.crystal.stats.max_dmg=8,int:jedi.crystal.stats.quality=2,int:jedi.crystal.stats.level=-1	index_color_1=31							
 item_power_crystal_04_08			int:jedi.crystal.stats.min_dmg=8,int:jedi.crystal.stats.max_dmg=9,int:jedi.crystal.stats.quality=2,int:jedi.crystal.stats.level=-1	index_color_1=31							
 item_power_crystal_04_09			int:jedi.crystal.stats.min_dmg=9,int:jedi.crystal.stats.max_dmg=10,int:jedi.crystal.stats.quality=3,int:jedi.crystal.stats.level=-1	index_color_1=31							
-item_power_crystal_04_10			int:jedi.crystal.stats.min_dmg=10,int:jedi.crystal.stats.max_dmg=11,int:jedi.crystal.stats.quality=3,int:jedi.crystal.stats.level=-1	index_color_1=31						
+item_power_crystal_04_10			int:jedi.crystal.stats.min_dmg=10,int:jedi.crystal.stats.max_dmg=11,int:jedi.crystal.stats.quality=3,int:jedi.crystal.stats.level=-1	index_color_1=31							
 item_power_crystal_04_11			int:jedi.crystal.stats.min_dmg=11,int:jedi.crystal.stats.max_dmg=12,int:jedi.crystal.stats.quality=3,int:jedi.crystal.stats.level=-1	index_color_1=31							
 item_power_crystal_04_12			int:jedi.crystal.stats.min_dmg=12,int:jedi.crystal.stats.max_dmg=13,int:jedi.crystal.stats.quality=4,int:jedi.crystal.stats.level=-1	index_color_1=31							
 item_power_crystal_04_13			int:jedi.crystal.stats.min_dmg=13,int:jedi.crystal.stats.max_dmg=14,int:jedi.crystal.stats.quality=4,int:jedi.crystal.stats.level=-1	index_color_1=31							
@@ -1147,7 +1147,7 @@ item_power_crystal_04_17			int:jedi.crystal.stats.min_dmg=17,int:jedi.crystal.st
 item_power_crystal_04_18			int:jedi.crystal.stats.min_dmg=18,int:jedi.crystal.stats.max_dmg=19,int:jedi.crystal.stats.quality=6,int:jedi.crystal.stats.level=-1	index_color_1=31							
 item_power_crystal_04_19			int:jedi.crystal.stats.min_dmg=19,int:jedi.crystal.stats.max_dmg=20,int:jedi.crystal.stats.quality=6,int:jedi.crystal.stats.level=-1	index_color_1=31							
 item_power_crystal_04_20			int:jedi.crystal.stats.min_dmg=20,int:jedi.crystal.stats.max_dmg=22,int:jedi.crystal.stats.quality=6,int:jedi.crystal.stats.level=-1	index_color_1=31							
-item_power_crystal_04_21			int:jedi.crystal.stats.min_dmg=23,int:jedi.crystal.stats.max_dmg=25,int:jedi.crystal.stats.quality=7,int:jedi.crystal.stats.level=-1	index_color_1=31
+item_power_crystal_04_21			int:jedi.crystal.stats.min_dmg=23,int:jedi.crystal.stats.max_dmg=25,int:jedi.crystal.stats.quality=7,int:jedi.crystal.stats.level=-1	index_color_1=31							
 item_npe_dance_prop_l_entertainer_02_01			int:nocert=1								
 item_npe_dance_prop_r_entertainer_02_01			int:nocert=1								
 item_npe_necklace_protection_02_01	agility_modified=3										
@@ -4596,6 +4596,7 @@ item_col_weed_nyms_themepark_01_08			string:collection.slotName=nyms_stronghold_
 item_col_weed_nyms_themepark_01_09			string:collection.slotName=nyms_stronghold_duty_col:icon_nyms_duty_09								
 item_col_weed_nyms_themepark_01_10			string:collection.slotName=nyms_stronghold_duty_col:icon_nyms_duty_10								
 col_mail_opt_in_4_01			string:collection.slotName=mail_opt_in_4:mail_opt_in_4_01								
+col_mail_opt_in_4_02			string:collection.slotName=mail_opt_in_4:mail_opt_in_4_02								
 item_space_shield_high_capacity_projector			string:loot_schematic.schematic=object/draft_schematic/space/shields/shield_high_capacity_projector_mk5.iff,int:loot_schematic.uses=5,string:loot_schematic.skill_req=class_structures_phase4_05								
 community_tcg_gcw_photo_contest_painting_2010_01											
 community_tcg_gcw_photo_contest_painting_2010_02											
@@ -4782,14 +4783,14 @@ item_zozpheratu_costume					costume_zozpheratu
 item_ponda_halloween_hand					scary_halloween_hand	itemBuffClick	39600				
 item_deed_atst_walker			string:vehicle_attribs.object_ref=atst_walker,float:hit_points=15000								
 item_deed_atxt_walker			string:vehicle_attribs.object_ref=atxt_walker,float:hit_points=15000								
-item_bracelet_l_set_ent_01_01	"strength_modified=30,agility_modified=30"		int:item.set.set_id=130001								
-item_bracelet_l_set_trader_01_01	"luck_modified=30,precision_modified=30,strength_modified=30"		int:item.set.set_id=140001								
-item_bracelet_r_set_ent_01_01	"strength_modified=30,agility_modified=30"		int:item.set.set_id=130001								
-item_bracelet_r_set_trader_01_01	"luck_modified=30,precision_modified=30,strength_modified=30"		int:item.set.set_id=140001								
-item_necklace_set_ent_01_01	"strength_modified=30,agility_modified=30"		int:item.set.set_id=130001								
-item_necklace_set_trader_01_01	"luck_modified=30,precision_modified=30,strength_modified=30"		int:item.set.set_id=140001								
-item_band_set_ent_01_01	"strength_modified=30,agility_modified=30"		int:item.set.set_id=130001								
-item_band_set_trader_01_01	"luck_modified=30,precision_modified=30,strength_modified=30"		int:item.set.set_id=140001								
-item_ring_set_ent_01_01	"strength_modified=30,agility_modified=30"		int:item.set.set_id=130001								
-item_ring_set_trader_01_01	"luck_modified=30,precision_modified=30,strength_modified=30"		int:item.set.set_id=140001								
+item_bracelet_l_set_ent_01_01	strength_modified=30,agility_modified=30		int:item.set.set_id=130001								
+item_bracelet_l_set_trader_01_01	luck_modified=30,precision_modified=30,strength_modified=30		int:item.set.set_id=140001								
+item_bracelet_r_set_ent_01_01	strength_modified=30,agility_modified=30		int:item.set.set_id=130001								
+item_bracelet_r_set_trader_01_01	luck_modified=30,precision_modified=30,strength_modified=30		int:item.set.set_id=140001								
+item_necklace_set_ent_01_01	strength_modified=30,agility_modified=30		int:item.set.set_id=130001								
+item_necklace_set_trader_01_01	luck_modified=30,precision_modified=30,strength_modified=30		int:item.set.set_id=140001								
+item_band_set_ent_01_01	strength_modified=30,agility_modified=30		int:item.set.set_id=130001								
+item_band_set_trader_01_01	luck_modified=30,precision_modified=30,strength_modified=30		int:item.set.set_id=140001								
+item_ring_set_ent_01_01	strength_modified=30,agility_modified=30		int:item.set.set_id=130001								
+item_ring_set_trader_01_01	luck_modified=30,precision_modified=30,strength_modified=30		int:item.set.set_id=140001								
 rebel_trooper_hat_schematic			string:loot_schematic.schematic=object/draft_schematic/clothing/clothing_hat_rebel_trooper.iff,int:loot_schematic.uses=1,string:loot_schematic.skill_req=class_domestics_phase4_master								
