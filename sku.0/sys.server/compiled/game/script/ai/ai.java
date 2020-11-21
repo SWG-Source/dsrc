@@ -1036,56 +1036,55 @@ public class ai extends script.base_script
         {
             hasLoot |= loot.addChronicleLoot(self);
         }
-        int corpseLevel = getLevel(self);
-        boolean doNotDropCard = false;
-        int difficultyClass = getIntObjVar(self, "difficultyClass");
-        int sourceSystem = scheduled_drop.SYSTEM_COMBAT_NORMAL;
-        switch (difficultyClass)
-        {
-            case 0:
-            sourceSystem = scheduled_drop.SYSTEM_COMBAT_NORMAL;
-            break;
-            case 1:
-            sourceSystem = scheduled_drop.SYSTEM_COMBAT_ELITE;
-            break;
-            case 2:
-            sourceSystem = scheduled_drop.SYSTEM_COMBAT_BOSS;
-            break;
-        }
-        int delayCount = 0;
-        for (obj_id pk1 : pks) {
-            if (isIdValid(pk1) && (corpseLevel + 5 < getLevel(pk1) || utils.isFreeTrial(pk1))) {
+
+        if(scheduled_drop.isSystemEnabled()) {
+            int corpseLevel = getLevel(self);
+            boolean doNotDropCard = false;
+            int difficultyClass = getIntObjVar(self, "difficultyClass");
+            int sourceSystem = scheduled_drop.SYSTEM_COMBAT_NORMAL;
+            switch (difficultyClass) {
+                case 0:
+                    sourceSystem = scheduled_drop.SYSTEM_COMBAT_NORMAL;
+                    break;
+                case 1:
+                    sourceSystem = scheduled_drop.SYSTEM_COMBAT_ELITE;
+                    break;
+                case 2:
+                    sourceSystem = scheduled_drop.SYSTEM_COMBAT_BOSS;
+                    break;
+            }
+            int delayCount = 0;
+            for (obj_id pk1 : pks) {
+                if (isIdValid(pk1) && (corpseLevel + 5 < getLevel(pk1) || utils.isFreeTrial(pk1))) {
+                    doNotDropCard = true;
+                }
+                if (isIdValid(pk1) && scheduled_drop.hasCardDelay(pk1, sourceSystem)) {
+                    delayCount++;
+                }
+            }
+            if (delayCount > pks.length / 2) {
                 doNotDropCard = true;
             }
-            if (isIdValid(pk1) && scheduled_drop.hasCardDelay(pk1, sourceSystem)) {
-                delayCount++;
-            }
-        }
-        if (delayCount > pks.length / 2)
-        {
-            doNotDropCard = true;
-        }
-        boolean canDrop = scheduled_drop.canDropCard(sourceSystem);
-        for (obj_id pk : pks) {
-            if (isIdValid(pk)) {
-                utils.setScriptVar(pk, scheduled_drop.PLAYER_SCRIPTVAR_DROP_TIME, getGameTime());
-                if (isGod(pk) && hasObjVar(pk, "qa_tcg_always_drop")) {
-                    if (!doNotDropCard) {
-                        canDrop = true;
+            boolean canDrop = scheduled_drop.canDropCard(sourceSystem);
+            for (obj_id pk : pks) {
+                if (isIdValid(pk)) {
+                    utils.setScriptVar(pk, scheduled_drop.PLAYER_SCRIPTVAR_DROP_TIME, getGameTime());
+                    if (isGod(pk) && hasObjVar(pk, "qa_tcg_always_drop")) {
+                        if (!doNotDropCard) {
+                            canDrop = true;
+                        }
+                    }
+                    if (isGod(pk) && hasObjVar(pk, "qa_tcg")) {
+                        sendSystemMessageTestingOnly(pk, "QA TCG COMBAT.  Do not drop card? " + doNotDropCard + " hasCardDelay? " + scheduled_drop.hasCardDelay(pk, sourceSystem) + " isTrial? " + utils.isFreeTrial(pk) + " bad level? " + (corpseLevel + 5 < getLevel(pk)));
                     }
                 }
-                if (isGod(pk) && hasObjVar(pk, "qa_tcg")) {
-                    sendSystemMessageTestingOnly(pk, "QA TCG COMBAT.  Do not drop card? " + doNotDropCard + " hasCardDelay? " + scheduled_drop.hasCardDelay(pk, sourceSystem) + " isTrial? " + utils.isFreeTrial(pk) + " bad level? " + (corpseLevel + 5 < getLevel(pk)));
-                }
             }
-        }
-        if (!doNotDropCard)
-        {
-            obj_id inv = utils.getInventoryContainer(self);
-            if (isIdValid(inv) && canDrop)
-            {
-                scheduled_drop.dropCard(sourceSystem, inv);
-                hasLoot = true;
+            if (!doNotDropCard) {
+                obj_id inv = utils.getInventoryContainer(self);
+                if (isIdValid(inv) && canDrop) {
+                    scheduled_drop.dropCard(sourceSystem, inv);
+                    hasLoot = true;
+                }
             }
         }
         if (hasLoot)

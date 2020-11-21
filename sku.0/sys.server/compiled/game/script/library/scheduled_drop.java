@@ -10,6 +10,18 @@ public class scheduled_drop extends script.base_script
     public scheduled_drop()
     {
     }
+
+    /**
+     * *******************************************************************************************
+     * NOTE: The scheduled drop system is disabled by default because it only contains deprecated values.
+     * The existing datatables from SOE end all drops in 2009, so they will need to be changed for future usage.
+     * This system runs a chance to drop on each kill of an NPC, crafted item, or buffed player, so it should
+     * not be enabled unless it will actually be used, due to the sheer amount of times it will run the checks.
+     *
+     * To enable this system, first update the tables in sys.server datatables/scheduled_drop for whatever you want to drop
+     * Then set enableScheduledDropSystem=true in localOptions.cfg.
+     * *******************************************************************************************
+     */
     public static final String DATATABLE_SCHEDULE = "datatables/scheduled_drop/schedule.iff";
     public static final String DATATABLE_PROMOTIONS = "datatables/scheduled_drop/promotions.iff";
     public static final String DATATABLE_SERVER_PERCENTAGES = "datatables/scheduled_drop/server_percentages.iff";
@@ -307,6 +319,9 @@ public class scheduled_drop extends script.base_script
     }
     public static void instantiatePromotionsOnCluster() throws InterruptedException
     {
+        if(!isSystemEnabled()) {
+            return;
+        }
         int lastUpdate = getLastClusterUpdateTime();
         int currentDate = getCalendarTime();
         if (currentDate - lastUpdate < 1800)
@@ -392,6 +407,9 @@ public class scheduled_drop extends script.base_script
     }
     public static boolean canDropCard(int systemToDrop) throws InterruptedException
     {
+        if(!isSystemEnabled()) {
+            return false;
+        }
         switch (systemToDrop)
         {
             case SYSTEM_COMBAT_NORMAL:
@@ -414,6 +432,9 @@ public class scheduled_drop extends script.base_script
     }
     public static obj_id dropCard(int systemToDrop, obj_id container) throws InterruptedException
     {
+        if(!isSystemEnabled()) {
+            return null;
+        }
         obj_id self = getSelf();
         String typeName = "card";
         instantiatePromotionsOnCluster();
@@ -473,5 +494,8 @@ public class scheduled_drop extends script.base_script
         params.put("promotionName", promotionName);
         messageTo(planet, "reducePromotion", params, 1.0f, true);
         return card;
+    }
+    public static boolean isSystemEnabled() throws InterruptedException {
+        return utils.checkConfigFlag("Custom", "enableScheduledDropSystem");
     }
 }

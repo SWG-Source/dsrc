@@ -398,45 +398,38 @@ public class base_tool extends script.base_script
         }
         obj_id relic = loot.chroniclesCraftingLootDrop(crafter);
         obj_id inv = utils.getInventoryContainer(crafter);
-        boolean canDrop = scheduled_drop.canDropCard(scheduled_drop.SYSTEM_CRAFTER);
-        boolean hasDelay = scheduled_drop.hasCardDelay(crafter, scheduled_drop.SYSTEM_CRAFTER);
-        if (isGod(crafter) && hasObjVar(crafter, "qa_tcg_always_drop"))
-        {
-            canDrop = true;
-            hasDelay = false;
-        }
-        if (isIdValid(inv) && canDrop && !hasDelay && isPlayerActive(crafter))
-        {
-            obj_id card = scheduled_drop.dropCard(scheduled_drop.SYSTEM_CRAFTER, inv);
-            if (isIdValid(card))
-            {
-                String[] cardNameList = split(getName(card), ':');
-                if (cardNameList != null && cardNameList.length > 1)
-                {
-                    string_id cardName = new string_id(cardNameList[0], cardNameList[1]);
-                    String name = getString(cardName);
-                    prose_package pp = new prose_package();
-                    pp = prose.setStringId(pp, new string_id("spam", "tcg_space_loot"));
-                    pp = prose.setTU(pp, name);
-                    sendSystemMessageProse(crafter, pp);
+
+        if(scheduled_drop.isSystemEnabled()) {
+            boolean canDrop = scheduled_drop.canDropCard(scheduled_drop.SYSTEM_CRAFTER);
+            boolean hasDelay = scheduled_drop.hasCardDelay(crafter, scheduled_drop.SYSTEM_CRAFTER);
+            if (isGod(crafter) && hasObjVar(crafter, "qa_tcg_always_drop")) {
+                canDrop = true;
+                hasDelay = false;
+            }
+            if (isIdValid(inv) && canDrop && !hasDelay && isPlayerActive(crafter)) {
+                obj_id card = scheduled_drop.dropCard(scheduled_drop.SYSTEM_CRAFTER, inv);
+                if (isIdValid(card)) {
+                    String[] cardNameList = split(getName(card), ':');
+                    if (cardNameList != null && cardNameList.length > 1) {
+                        string_id cardName = new string_id(cardNameList[0], cardNameList[1]);
+                        String name = getString(cardName);
+                        prose_package pp = new prose_package();
+                        pp = prose.setStringId(pp, new string_id("spam", "tcg_space_loot"));
+                        pp = prose.setTU(pp, name);
+                        sendSystemMessageProse(crafter, pp);
+                    }
+                } else {
+                    if (isGod(crafter) && hasObjVar(crafter, "qa_tcg")) {
+                        sendSystemMessageTestingOnly(crafter, "QA TCG CRAFTING NOT DROPPED.  Card is null. Random chance passed? " + canDrop + " Has Card Delay? " + hasDelay);
+                    }
+                }
+            } else {
+                if (isGod(crafter) && hasObjVar(crafter, "qa_tcg")) {
+                    sendSystemMessageTestingOnly(crafter, "QA TCG CRAFTING NOT DROPPED.  Random chance passed? " + canDrop + " Has Card Delay? " + hasDelay);
                 }
             }
-            else 
-            {
-                if (isGod(crafter) && hasObjVar(crafter, "qa_tcg"))
-                {
-                    sendSystemMessageTestingOnly(crafter, "QA TCG CRAFTING NOT DROPPED.  Card is null. Random chance passed? " + canDrop + " Has Card Delay? " + hasDelay);
-                }
-            }
+            utils.setScriptVar(crafter, scheduled_drop.PLAYER_SCRIPTVAR_DROP_TIME, getGameTime());
         }
-        else 
-        {
-            if (isGod(crafter) && hasObjVar(crafter, "qa_tcg"))
-            {
-                sendSystemMessageTestingOnly(crafter, "QA TCG CRAFTING NOT DROPPED.  Random chance passed? " + canDrop + " Has Card Delay? " + hasDelay);
-            }
-        }
-        utils.setScriptVar(crafter, scheduled_drop.PLAYER_SCRIPTVAR_DROP_TIME, getGameTime());
         return SCRIPT_CONTINUE;
     }
     public obj_id getFirstParentInWorldOrPlayer(obj_id obj) throws InterruptedException

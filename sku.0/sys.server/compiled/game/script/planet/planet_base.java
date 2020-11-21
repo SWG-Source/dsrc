@@ -54,7 +54,9 @@ public class planet_base extends script.base_script
                 CustomerServiceLog("holidayEvent", "planet_base.doSpawnSetup: Tatooine Planet detected. Script Not Attached. Attaching event.planet_event_handler");
                 attachScript(tatooinePlanet, "event.planet_event_handler");
             }
-            scheduled_drop.instantiatePromotionsOnCluster();
+            if(scheduled_drop.isSystemEnabled()) {
+                scheduled_drop.instantiatePromotionsOnCluster();
+            }
         }
         else 
         {

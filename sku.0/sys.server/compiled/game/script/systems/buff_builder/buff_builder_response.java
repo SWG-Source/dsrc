@@ -57,6 +57,9 @@ public class buff_builder_response extends script.base_script
     }
     public int OnBuffBuilderCompleted(obj_id self, obj_id bufferId, obj_id recipientId, int startingTime, int bufferRequiredCredits, int recipientPaidCredits, boolean accepted, String[] buffComponentKeys, int[] buffComponentValues) throws InterruptedException
     {
+        if(!isIdValid(bufferId) || !isIdValid(recipientId)) {
+            return SCRIPT_CONTINUE;
+        }
         if (bufferRequiredCredits > 0 && !money.pay(recipientId, bufferId, bufferRequiredCredits, "", null))
         {
             sendSystemMessage(recipientId, new string_id("spam", "buildabuff_nsf_buffee"));
@@ -86,7 +89,7 @@ public class buff_builder_response extends script.base_script
             {
                 utils.removeScriptVar(recipientId, "performance.inspireMaxReached");
             }
-            if (isIdValid(bufferId))
+            if (scheduled_drop.isSystemEnabled())
             {
                 obj_id inv = utils.getInventoryContainer(bufferId);
                 boolean canDrop = scheduled_drop.canDropCard(scheduled_drop.SYSTEM_ENTERTAINER);

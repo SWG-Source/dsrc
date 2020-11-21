@@ -888,7 +888,6 @@ public class space_combat extends script.base_script
     {
         final String LOOT_TABLE = "datatables/space_loot/loot_items.iff";
         final String LOOKUP_TABLE = "datatables/space_loot/loot_lookup.iff";
-        String strContainer = "object/tangible/container/drum/warren_drum_loot.iff";
         obj_id objContainer;
         obj_id objPilot = getPilotId(objAttacker);
         if (space_utils.isShipWithInterior(objAttacker))
@@ -907,8 +906,7 @@ public class space_combat extends script.base_script
         {
             return;
         }
-        if (isIdValid(objPilot))
-        {
+        if (scheduled_drop.isSystemEnabled()) {
             obj_id pilotInv = utils.getInventoryContainer(objPilot);
             boolean canDrop = scheduled_drop.canDropCard(scheduled_drop.SYSTEM_COMBAT_SPACE);
             boolean hasDelay = scheduled_drop.hasCardDelay(objPilot, scheduled_drop.SYSTEM_COMBAT_SPACE);
