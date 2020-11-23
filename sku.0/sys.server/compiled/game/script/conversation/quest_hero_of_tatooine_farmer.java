@@ -95,7 +95,7 @@ public class quest_hero_of_tatooine_farmer extends script.base_script
             return;
         }
         int bank_before = getBankBalance(player);
-        if (money.requestPayment(player, "hero_of_tatooine", 10000, null, null, false))
+        if (money.requestPayment(player, "hero_of_tatooine", 10000, "noHandler", null, false))
         {
             int bank_after = getBankBalance(player);
             int bank_delta = bank_before - bank_after;
