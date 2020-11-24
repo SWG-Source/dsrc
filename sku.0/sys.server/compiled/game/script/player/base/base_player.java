@@ -10835,8 +10835,12 @@ public class base_player extends script.base_script
     public int handleSellJunkSui(obj_id self, dictionary params) throws InterruptedException
     {
         obj_id player = sui.getPlayerId(params);
+        obj_id dealer = utils.getObjIdScriptVar(self, "junk_dealer_transaction");
         if (!isIdValid(player))
         {
+            return SCRIPT_CONTINUE;
+        }
+        if (utils.outOfRange(dealer, self, 10.0f, true)) {
             return SCRIPT_CONTINUE;
         }
         int idx = sui.getListboxSelectedRow(params);
@@ -10943,10 +10947,16 @@ public class base_player extends script.base_script
         boolean reshowSui = params.getBoolean("reshowSui");
         if (reshowSui && fence)
         {
+            if(utils.outOfRange(self, player, 10.0f, true)) {
+                return SCRIPT_CONTINUE;
+            }
             smuggler.showSellJunkSui(player, self, true, false);
         }
         else if (reshowSui && !fence)
         {
+            if(utils.outOfRange(self, player, 10.0f, true)) {
+                return SCRIPT_CONTINUE;
+            }
             smuggler.showSellJunkSui(player, self, false, false);
         }
         return SCRIPT_CONTINUE;
