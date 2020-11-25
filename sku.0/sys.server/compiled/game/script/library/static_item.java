@@ -5,6 +5,8 @@ import script.location;
 import script.obj_id;
 import script.string_id;
 
+import java.util.Arrays;
+
 public class static_item extends script.base_script
 {
     public static_item()
@@ -15,6 +17,8 @@ public class static_item extends script.base_script
     public static final String WEAPON_STAT_BALANCE_TABLE = "datatables/item/master_item/weapon_stats.iff";
     public static final String ARMOR_STAT_BALANCE_TABLE = "datatables/item/master_item/armor_stats.iff";
     public static final String ITEM_STAT_BALANCE_TABLE = "datatables/item/master_item/item_stats.iff";
+    public static final String ITEM_NO_TRADE_SHARED_TABLE = "datatables/no_trade/no_trade_shared.iff";
+    public static final String ITEM_NO_TRADE_REMOVABLE_TABLE = "datatables/no_trade/no_trade_removable.iff";
     public static final String WEAPON_EXAMINE_SCRIPT = "systems.combat.combat_weapon";
     public static final String COLUMN_CAN_RE = "can_reverse_engineer";
     public static final string_id SID_NOT_LINKED = new string_id("base_player", "not_linked");
@@ -32,6 +36,8 @@ public class static_item extends script.base_script
     public static final int IT_ITEM = 3;
     public static final java.text.NumberFormat noDecimalFormat = new java.text.DecimalFormat("###");
     public static final String SET_BONUS_TABLE = "datatables/item/item_sets.iff";
+    public static final String[] NO_TRADE_SHARED_ITEMS = dataTableGetStringColumn(ITEM_NO_TRADE_SHARED_TABLE, 0);
+    public static final String[] NO_TRADE_REMOVABLE_ITEMS = dataTableGetStringColumn(ITEM_NO_TRADE_REMOVABLE_TABLE, 0);
     public static obj_id createNewItemFunction(String itemName, obj_id container) throws InterruptedException
     {
         return createNewItemFunction(itemName, container, null, 0);
@@ -118,6 +124,9 @@ public class static_item extends script.base_script
         if (chargeList > 0 && chargeList <= 500)
         {
             setCount(newItem, chargeList);
+        }
+        if(Arrays.asList(NO_TRADE_SHARED_ITEMS).contains(itemName) || Arrays.asList(NO_TRADE_REMOVABLE_ITEMS).contains(itemName)) {
+            setObjVar(newItem, "noTrade", 1);
         }
         initializeObject(newItem, itemData);
         return newItem;
