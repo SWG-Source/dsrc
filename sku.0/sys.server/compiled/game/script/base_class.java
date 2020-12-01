@@ -1546,6 +1546,16 @@ public class base_class
     public static final int FACTION_HASH_BUBBLE_COMBAT = -377582139;
 
     /**
+     * Datatable Column Data Types
+     * Returned by datatableGetColumnType (uses basic types only)
+     * Must match enums used in src DataTableColumnType.cpp
+     */
+    public static final int DATATABLE_TYPE_INT = 0;  // returned for columns with type: int, enum, hash, bool, bit vector
+    public static final int DATATABLE_TYPE_FLOAT = 1; // returned for columns with type: float
+    public static final int DATATABLE_TYPE_STRING = 2; // returned for columns with type: string, packed objvars
+    public static final int DATATABLE_TYPE_UNKNOWN = -1; // returned for columns with errors or unknown type
+
+    /**
      * Returns an obj_id for a given id number.
      * In order to match compliance with previous behavior, will return null if id == 0
      * otherwishe, it will construct a new obj_id
