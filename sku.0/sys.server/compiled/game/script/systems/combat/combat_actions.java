@@ -14544,4 +14544,16 @@ public class combat_actions extends script.systems.combat.combat_base
         }
         return SCRIPT_CONTINUE;
     }
+    public int trader_heal(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException
+    {
+        if (!buff.hasBuff(self, "set_bonus_trader_3"))
+        {
+            return SCRIPT_OVERRIDE;
+        }
+        if (!combatStandardAction("trader_heal", self, target, params, "", ""))
+        {
+            return SCRIPT_OVERRIDE;
+        }
+        return SCRIPT_CONTINUE;
+    }
 }
