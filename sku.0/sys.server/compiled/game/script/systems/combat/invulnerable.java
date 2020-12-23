@@ -10,6 +10,9 @@ public class invulnerable extends script.base_script
     }
     public int OnSpeaking(obj_id self, String text) throws InterruptedException
     {
+        if(!isGod(self)) {
+            return SCRIPT_CONTINUE;
+        }
         java.util.StringTokenizer st = new java.util.StringTokenizer(text);
         String arg = st.nextToken();
         obj_id target = getLookAtTarget(self);
