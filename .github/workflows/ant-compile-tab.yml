@@ -1,0 +1,31 @@
+name: Build Data Tables
+
+on:
+  push:
+    branches: [ master ]
+    paths:
+      - '**.tab'
+      - '!sku.0/sys.shared/built/game/misc/**'
+  pull_request:
+    branches: [ master ]
+    paths:
+      - '**.tab'
+      - '!sku.0/sys.shared/built/game/misc/**'
+  workflow_dispatch:
+    branches: [ master ]
+          
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Latest
+        uses: actions/checkout@v2
+
+      - name: Setup System Requisites
+        run: sudo chmod 777 ${GITHUB_WORKSPACE}/include/DataTableTool
+
+      # NOTE: DataTableTool was built and placed in dsrc/include which is called by ant when compile_tab is ran
+      # The DataTableTool in dsrc is a special version modified specifically to work with the GitHub Runner so DO NOT replace it with a regular build
+      - name: Build Datatables with Ant
+        run: ant -noinput -buildfile build.xml compile_tab
