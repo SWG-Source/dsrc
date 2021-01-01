@@ -30,8 +30,7 @@
 	<property name="templates_sql_file" location="${build}/templates.sql"/>
 
 	<!-- Define where most of our compiled tools will live -->
-	<property name="tools_home" location="${build}/bin"/>
-	<property name="bin_home" location="${exe}/linux/bin"/>
+	<property name="tools_home" location="include"/>
 	<property environment="env"/>
 
 	<!-- The init target handles the environment setup - not much to do but create directories -->
@@ -90,7 +89,7 @@
 		<delete>
 		  <fileset dir="${data}" includes="**/.tmp"/>
 		</delete>
-		<apply executable="./Miff" dir="${tools_home}" dest="${data}" parallel="false" type="file">
+		<apply executable="./Miff" dir="${tools_home}" dest="${data_server}" parallel="false" type="file">
 			<env key="PATH" value="${env.PATH}:${tools_home}"/>
 			<arg value="-i"/>
 			<srcfile prefix="&quot;" suffix="&quot;"/>
@@ -114,7 +113,7 @@
 		<delete>
 			<fileset dir="${data}" includes="**/.tmp"/>
 		</delete>
-		<apply executable="./DataTableTool" dir="${tools_home}" dest="${data}" parallel="false" type="file" failonerror="true">
+		<apply executable="./DataTableTool" dir="${tools_home}" dest="${data_server}" parallel="false" type="file" failonerror="true">
 			<env key="PATH" value="${env.PATH}:${tools_home}"/>
 			<arg value="-i"/>
 			<srcfile prefix="&quot;" suffix="&quot;"/>
