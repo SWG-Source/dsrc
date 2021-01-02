@@ -10,3 +10,10 @@ nameGeneratorType = "human"
 
 sharedTemplate = "object/mobile/shared_halloween_vendor.iff"
 
+contents = [
+					[slotName = "inventory",
+					equipObject = true,
+					content = "object/tangible/inventory/vendor_inventory.iff"],
+					[slotName = "mission_bag",
+					equipObject = true,
+					content = "object/tangible/mission_bag/mission_bag.iff"]]
