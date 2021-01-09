@@ -2625,61 +2625,76 @@ expertise_engineering_cybernetic_negative_effects_reduction_1	expertise									
 expertise_engineering_cybernetic_negative_effects_reduction_2	expertise_engineering_cybernetic_negative_effects_reduction_1																					expertise_cybernetic_negative_effects_reduction=5				
 expertise_engineering_cybernetic_negative_effects_reduction_3	expertise_engineering_cybernetic_negative_effects_reduction_2																					expertise_cybernetic_negative_effects_reduction=5				
 expertise_engineering_cybernetic_negative_effects_reduction_4	expertise_engineering_cybernetic_negative_effects_reduction_3																					expertise_cybernetic_negative_effects_reduction=5				
-expertise_bm_incubation_base_1	expertise			1																	bm_collect_dna	expertise_bm_base_mod=100				
-expertise_bm_incubation_mod_1	expertise_bm_loyalty_mod_3									expertise_bm_loyalty_mod_3												expertise_bm_incubation_quality=5				
-expertise_bm_incubation_mod_2	expertise_bm_incubation_mod_1																					expertise_bm_incubation_quality=5				
-expertise_bm_incubation_mod_3	expertise_bm_incubation_mod_2																					expertise_bm_incubation_quality=10				
-expertise_bm_incubation_mod_4	expertise_bm_incubation_mod_3																					expertise_bm_incubation_quality=5				
-expertise_bm_abilility_aquisition_mod_1	expertise_bm_creature_knowledge_command_1									expertise_bm_creature_knowledge_command_1												expertise_bm_enhanced_skill_acquisition=15				
-expertise_bm_abilility_aquisition_mod_2	expertise_bm_abilility_aquisition_mod_1																					expertise_bm_enhanced_skill_acquisition=4				
-expertise_bm_abilility_aquisition_mod_3	expertise_bm_abilility_aquisition_mod_2																					expertise_bm_enhanced_skill_acquisition=4				
-expertise_bm_abilility_aquisition_mod_4	expertise_bm_abilility_aquisition_mod_3																					expertise_bm_enhanced_skill_acquisition=4				
-expertise_bm_pet_tricks_1	expertise_bm_loyalty_mod_3									expertise_bm_loyalty_mod_3											bm_pet_trick_1					
-expertise_bm_loyalty_mod_1	expertise_bm_incubation_base_1									expertise_bm_incubation_base_1												expertise_bm_pet_happiness=5				
-expertise_bm_loyalty_mod_2	expertise_bm_loyalty_mod_1																					expertise_bm_pet_happiness=5				
-expertise_bm_loyalty_mod_3	expertise_bm_loyalty_mod_2																					expertise_bm_pet_happiness=5				
-expertise_bm_train_mount_1	expertise_bm_pet_tricks_1									expertise_bm_pet_tricks_1												expertise_bm_train_mount=100				
-expertise_bm_add_first_pet_bar_1	expertise_bm_mending_1									expertise_bm_mending_1												expertise_bm_add_pet_bar=1				
-expertise_bm_attack_1	expertise_bm_incubation_base_1									expertise_bm_incubation_base_1											bm_pet_attack_1					
-expertise_bm_metagame_mod_1	expertise_bm_train_mount_1									expertise_bm_train_mount_1												expertise_bm_incubation_time=3				
-expertise_bm_metagame_mod_2	expertise_bm_metagame_mod_1																					expertise_bm_incubation_time=3				
-expertise_bm_metagame_mod_3	expertise_bm_metagame_mod_2			1																		expertise_bm_incubation_time=3				
-expertise_bm_metagame_mod_4	expertise_bm_metagame_mod_3																					expertise_bm_incubation_time=3				
-expertise_bm_swiftness_1	expertise_bm_metagame_mod_3																					expertise_bm_pet_movement_rate=30				
-expertise_bm_add_second_pet_bar_1	expertise_bm_pet_recovery_1									expertise_bm_pet_recovery_1												expertise_bm_add_pet_bar=1				
-expertise_bm_swift_recovery_1	expertise_bm_soothing_comfort_1									expertise_bm_soothing_comfort_1												expertise_bm_pet_revive_time=10				
-expertise_bm_mending_1	expertise_bm_swift_recovery_1									expertise_bm_swift_recovery_1											bm_mend_pet_1					
-expertise_bm_soothing_comfort_1	expertise_bm_abilility_aquisition_mod_1									expertise_bm_abilility_aquisition_mod_1											bm_soothing_comfort_1					
-expertise_bm_specialized_supplements_1	expertise_bm_dexterity_training_2									expertise_bm_dexterity_training_2												expertise_bm_pet_regen=100				
-expertise_bm_pet_recovery_1	expertise_bm_exceptional_nutrition_2									expertise_bm_exceptional_nutrition_2												expertise_bm_pet_recovery=50				
-expertise_bm_add_third_pet_bar_1	expertise_bm_specialized_supplements_1									expertise_bm_specialized_supplements_1												expertise_bm_add_pet_bar=1				
-expertise_bm_mutual_trust_1	expertise_bm_swift_recovery_1																					expertise_bm_self_debuff_reduction=5				
-expertise_bm_mutual_trust_2	expertise_bm_mutual_trust_1																					expertise_bm_self_debuff_reduction=10				
-expertise_bm_mutual_trust_3	expertise_bm_mutual_trust_2																					expertise_bm_self_debuff_reduction=10				
-expertise_bm_exceptional_nutrition_1	expertise_bm_soothing_comfort_1									expertise_bm_soothing_comfort_1												expertise_bm_pet_health=50				
-expertise_bm_exceptional_nutrition_2	expertise_bm_exceptional_nutrition_1																					expertise_bm_pet_health=50				
-expertise_bm_exceptional_nutrition_3	expertise_bm_exceptional_nutrition_2																									
-expertise_bm_dexterity_training_1	expertise_bm_exceptional_nutrition_2									expertise_bm_exceptional_nutrition_2												expertise_bm_pet_attack_speed=50				
-expertise_bm_dexterity_training_2	expertise_bm_dexterity_training_1																					expertise_bm_pet_attack_speed=50				
-expertise_bm_dexterity_training_3	expertise_bm_dexterity_training_2																									
-expertise_bm_fortitude_1	expertise_bm_dexterity_training_2									expertise_bm_dexterity_training_2												expertise_bm_pet_armor=40				
-expertise_bm_fortitude_2	expertise_bm_fortitude_1																					expertise_bm_pet_armor=40				
-expertise_bm_fortitude_3	expertise_bm_fortitude_2																					expertise_bm_pet_armor=40				
-expertise_bm_savagery_1	expertise_bm_fortitude_3									expertise_bm_fortitude_3												expertise_bm_pet_damage=30				
-expertise_bm_savagery_2	expertise_bm_savagery_1																					expertise_bm_pet_damage=30				
+expertise_bm_specialized_supplements_2	expertise_bm_specialized_supplements_1																									
+expertise_bm_beast_mastery_2	expertise_bm_beast_mastery_1																									
+expertise_bm_pet_tricks_1	expertise																									
+expertise_bm_dexterity_training_3	expertise																									
+expertise_bm_beast_mastery_3	expertise																									
+expertise_bm_mutual_trust_3	expertise_bm_mutual_trust_2																									
+expertise_bm_mutual_trust_2	expertise_bm_mutual_trust_1																									
+expertise_bm_mutual_trust_1	expertise_bm_swift_recovery_1																									
+expertise_bm_swift_recovery_3	expertise																									
+expertise_bm_swift_recovery_2	expertise																									
+expertise_bm_swift_recovery_1	expertise																									
+expertise_bm_abilility_aquisition_mod_4	expertise																									
+expertise_bm_abilility_aquisition_mod_3	expertise																									
+expertise_bm_swiftness_1	expertise_bm_metagame_mod_3																									
+test_bm_crafting																						weapon_assembly=100,weapon_experimentation=100,structure_assembly=100,structure_experimentation=100,droid_assembly=100,droid_experimentation=100,clothing_assembly=100,clothing_experimentation=10	testBmGroup		0	
+expertise_bm_erratic_genius_3	expertise_bm_erratic_genius_2																					bm_mutation_chance_increase=2				
+expertise_bm_erratic_genius_2	expertise_bm_erratic_genius_1																					bm_mutation_chance_increase=2				
+expertise_bm_erratic_genius_1	expertise_bm_genetic_engineering_4									expertise_bm_genetic_engineering_4												bm_mutation_chance_increase=2				
+expertise_bm_add_third_pet_bar_1	expertise																					expertise_bm_add_pet_bar=1				
 expertise_bm_savagery_3	expertise_bm_savagery_2																					expertise_bm_pet_damage=40				
-expertise_bm_beast_mastery_1	expertise_bm_savagery_3									expertise_bm_savagery_3												expertise_bm_self_debuff_reduction=5				
-expertise_bm_beast_mastery_2	expertise_bm_beast_mastery_1																					expertise_bm_self_debuff_reduction=10				
-expertise_bm_beast_mastery_3	expertise_bm_beast_mastery_2			1																		expertise_bm_self_debuff_reduction=10				
-expertise_bm_creature_knowledge_command_1	expertise_bm_attack_1									expertise_bm_attack_1											bm_creature_knowledge_command_1					
-expertise_bm_genetic_engineering_1	expertise_bm_incubation_mod_3									expertise_bm_incubation_mod_3												expertise_bm_genetic_engineering=30				
-expertise_bm_genetic_engineering_2	expertise_bm_genetic_engineering_1																					expertise_bm_genetic_engineering=30				
-expertise_bm_genetic_engineering_3	expertise_bm_genetic_engineering_2																					expertise_bm_genetic_engineering=30				
+expertise_bm_savagery_2	expertise_bm_savagery_1																					expertise_bm_pet_damage=30				
+expertise_bm_savagery_1	expertise_bm_dexterity_training_2									expertise_bm_dexterity_training_2												expertise_bm_pet_damage=30				
+expertise_bm_fortitude_3	expertise_bm_fortitude_2																					expertise_bm_pet_armor=40				
+expertise_bm_fortitude_2	expertise_bm_fortitude_1																					expertise_bm_pet_armor=40				
+expertise_bm_fortitude_1	expertise_bm_exceptional_nutrition_2									expertise_bm_exceptional_nutrition_2												expertise_bm_pet_armor=40				
+expertise_bm_add_second_pet_bar_1	expertise																					expertise_bm_add_pet_bar=1				
+expertise_bm_dexterity_training_2	expertise_bm_dexterity_training_1																					expertise_bm_pet_attack_speed=50				
+expertise_bm_dexterity_training_1	expertise																					expertise_bm_pet_attack_speed=50				
+expertise_bm_exceptional_nutrition_2	expertise_bm_exceptional_nutrition_1																					expertise_bm_pet_health=50				
+expertise_bm_exceptional_nutrition_1	expertise																					expertise_bm_pet_health=50				
+expertise_bm_pet_dodge_3	expertise_bm_pet_dodge_2																					expertise_pet_dodge=5				
+expertise_bm_pet_dodge_2	expertise_bm_pet_dodge_1																					expertise_pet_dodge=5				
+expertise_bm_pet_dodge_1	expertise_bm_evasion_3									expertise_bm_evasion_3												expertise_pet_dodge=5				
 expertise_bm_genetic_engineering_4	expertise_bm_genetic_engineering_3																					expertise_bm_genetic_engineering=30				
-expertise_bm_dna_harvesting_1	expertise_bm_pet_tricks_1									expertise_bm_pet_tricks_1												expertise_bm_dna_harvesting_1=30				
-expertise_bm_dna_harvesting_2	expertise_bm_dna_harvesting_1																					expertise_bm_dna_harvesting_1=30				
+expertise_bm_genetic_engineering_3	expertise_bm_genetic_engineering_2																					expertise_bm_genetic_engineering=30				
+expertise_bm_genetic_engineering_2	expertise_bm_genetic_engineering_1																					expertise_bm_genetic_engineering=30				
+expertise_bm_genetic_engineering_1	expertise_bm_incubation_mod_3									expertise_bm_incubation_mod_3												expertise_bm_genetic_engineering=30				
+expertise_bm_add_first_pet_bar_1	expertise_bm_abilility_aquisition_mod_1									expertise_bm_abilility_aquisition_mod_1												expertise_bm_add_pet_bar=1				
+expertise_bm_specialized_supplements_1	expertise																					expertise_bm_pet_regen=100				
+expertise_bm_evasion_3	expertise_bm_evasion_2																					expertise_bm_pet_evade_chance=5,expertise_bm_pet_evade_value=15				
+expertise_bm_evasion_2	expertise_bm_evasion_1																					expertise_bm_pet_evade_chance=5,expertise_bm_pet_evade_value=15				
+expertise_bm_evasion_1	expertise																					expertise_bm_pet_evade_chance=5,expertise_bm_pet_evade_value=15				
+expertise_bm_loyalty_mod_3	expertise_bm_loyalty_mod_2																					expertise_bm_pet_happiness=5				
+expertise_bm_loyalty_mod_2	expertise_bm_loyalty_mod_1																					expertise_bm_pet_happiness=5				
+expertise_bm_loyalty_mod_1	expertise																					expertise_bm_pet_happiness=5				
+expertise_bm_metagame_mod_4	expertise_bm_metagame_mod_3			1																		expertise_bm_incubation_time=3				
+expertise_bm_metagame_mod_3	expertise_bm_metagame_mod_2																					expertise_bm_incubation_time=3				
+expertise_bm_metagame_mod_2	expertise_bm_metagame_mod_1																					expertise_bm_incubation_time=3				
+expertise_bm_metagame_mod_1	expertise																					expertise_bm_incubation_time=3				
+expertise_bm_incubation_mod_4	expertise_bm_incubation_mod_3																					expertise_bm_incubation_quality=5				
+expertise_bm_incubation_mod_3	expertise_bm_incubation_mod_2																					expertise_bm_incubation_quality=10				
+expertise_bm_incubation_mod_2	expertise_bm_incubation_mod_1																					expertise_bm_incubation_quality=5				
+expertise_bm_incubation_mod_1	expertise_bm_dna_harvesting_3									expertise_bm_dna_harvesting_3												expertise_bm_incubation_quality=5				
+expertise_bm_beast_mastery_1	expertise			1																		expertise_bm_self_debuff_reduction=25				
+expertise_bm_abilility_aquisition_mod_1	expertise_bm_creature_knowledge_command_1									expertise_bm_creature_knowledge_command_1												expertise_bm_enhanced_skill_acquisition=15				
+expertise_bm_creature_knowledge_command_1	expertise																				bm_creature_knowledge_command_1					
+expertise_bm_improved_healing_3	expertise_bm_improved_healing_2																					expertise_bm_improved_pet_heal=20				
+expertise_bm_improved_healing_2	expertise_bm_improved_healing_1																					expertise_bm_improved_pet_heal=20				
+expertise_bm_improved_healing_1	expertise_bm_mending_1									expertise_bm_mending_1												expertise_bm_improved_pet_heal=20				
+expertise_bm_pet_recovery_3	expertise_bm_pet_recovery_2																					expertise_bm_pet_revive_time=5,expertise_bm_pet_recovery=25				
+expertise_bm_pet_recovery_2	expertise_bm_pet_recovery_1																					expertise_bm_pet_revive_time=5,expertise_bm_pet_recovery=25				
+expertise_bm_pet_recovery_1	expertise_bm_soothing_comfort_1									expertise_bm_soothing_comfort_1												expertise_bm_pet_revive_time=5,expertise_bm_pet_recovery=25				
+expertise_bm_train_mount_1	expertise_bm_dna_harvesting_3									expertise_bm_dna_harvesting_3												expertise_bm_train_mount=100				
 expertise_bm_dna_harvesting_3	expertise_bm_dna_harvesting_2			1																		expertise_bm_dna_harvesting_1=40				
-test_bm_crafting			0	0	0	0	0	0						0								weapon_assembly=100,weapon_experimentation=100,structure_assembly=100,structure_experimentation=100,droid_assembly=100,droid_experimentation=100,clothing_assembly=100,clothing_experimentation=10	testBmGroup		0	
+expertise_bm_dna_harvesting_2	expertise_bm_dna_harvesting_1																					expertise_bm_dna_harvesting_1=30				
+expertise_bm_dna_harvesting_1	expertise_bm_incubation_base_1									expertise_bm_incubation_base_1												expertise_bm_dna_harvesting_1=30				
+expertise_bm_attack_1	expertise_bm_incubation_base_1									expertise_bm_incubation_base_1											bm_pet_attack_1					
+expertise_bm_incubation_base_1	expertise			1																	bm_collect_dna	expertise_bm_base_mod=100				
+expertise_bm_mending_1	expertise_bm_attack_1									expertise_bm_attack_1											bm_mend_pet_1					
+expertise_bm_soothing_comfort_1	expertise_bm_mending_1									expertise_bm_mending_1											bm_soothing_comfort_1					
 costume			1	0	0	0	0	0						0											0	0
 costume_loveday_ewok_cupid	costume		0	0	0	0	0	0						0							costume_loveday_ewok_cupid				0	0
 costume_jawa	costume		0	0	0	0	0	0						0							costume_jawa				0	0
