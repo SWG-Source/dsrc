@@ -10478,21 +10478,17 @@ public class combat_actions extends script.systems.combat.combat_base
             setCommandTimerValue(self, TIMER_COOLDOWN, 0.0f);
             return SCRIPT_OVERRIDE;
         }
-        if (getDistance(getLocation(self), getLocation(beast)) > 7.0f)
-        {
-            sendSystemMessage(self, new string_id("spam", "stand_next_to_corpse"));
-            setCommandTimerValue(self, TIMER_COOLDOWN, 0.0f);
-            return SCRIPT_OVERRIDE;
-        }
         if (!combatStandardAction("bm_revive_pet_1", self, target, params, "", ""))
         {
             setCommandTimerValue(self, TIMER_COOLDOWN, 0.0f);
             return SCRIPT_OVERRIDE;
         }
+        float playerToPetRange = getDistance(getLocation(self), getLocation(beast));
+        float percentRangeMod = (playerToPetRange / 84f) * 100f;
         messageTo(self, "channelRevivePet", null, 0, false);
         float baseCooldownTime = getBaseCooldownTime("bm_revive_pet_1");
         float cooldownTimeMod = getEnhancedSkillStatisticModifierUncapped(self, "expertise_bm_pet_revive_time");
-        setCommandTimerValue(self, TIMER_COOLDOWN, baseCooldownTime - cooldownTimeMod);
+        setCommandTimerValue(self, TIMER_COOLDOWN, (baseCooldownTime - cooldownTimeMod) * percentRangeMod);
         return SCRIPT_CONTINUE;
     }
     public int bm_paralytic_poison_recourse(obj_id self, dictionary params) throws InterruptedException
