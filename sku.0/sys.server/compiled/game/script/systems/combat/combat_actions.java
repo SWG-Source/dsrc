@@ -1598,11 +1598,6 @@ public class combat_actions extends script.systems.combat.combat_base
     }
     public int fs_forsake_fear(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException
     {
-        if (!buff.isInStance(self))
-        {
-            sendSystemMessage(self, new string_id("spam", "fs_command_no_stance"));
-            return SCRIPT_OVERRIDE;
-        }
         if (!combatStandardAction("fs_forsake_fear", self, target, params, "", ""))
         {
             return SCRIPT_OVERRIDE;
