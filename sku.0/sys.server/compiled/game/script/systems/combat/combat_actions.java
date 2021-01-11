@@ -10489,7 +10489,7 @@ public class combat_actions extends script.systems.combat.combat_base
             setCommandTimerValue(self, TIMER_COOLDOWN, 0.0f);
             return SCRIPT_OVERRIDE;
         } 
-        float percentRangeMod = (playerToPetRange > 7f) ? (playerToPetRange / 84f) * 100f : 0f ; 
+        float percentRangeMod = (playerToPetRange > 7f) ? (playerToPetRange / 84f) * 10f : 0f ; 
         dictionary dict = new dictionary();
         dict.addFloat("extendedRange", percentRangeMod);
         messageTo(self, "channelRevivePet", dict, 0, false);
