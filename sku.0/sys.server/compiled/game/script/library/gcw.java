@@ -244,7 +244,7 @@ public class gcw extends script.base_script
     public static final int GCW_TOKENS_LOSER_PARTICIPANTS = 10;
     public static final int GCW_POINTS_CONSTRUCTION_PHASE = 100;
     public static final int GCW_TOKENS_CONSTRUCTION_PHASE = 20;
-    public static final String[] INVASION_CITIES = {"dearic", "keren", "bestine"};
+    public static final String[] INVASION_CITIES = {"bestine", "dearic", "keren"};
     public static final String DEARIC_CITY_TABLE = "datatables/gcw/gcw_city_dearic.iff";
     public static final String KEREN_CITY_TABLE = "datatables/gcw/gcw_city_keren.iff";
     public static final String BESTINE_CITY_TABLE = "datatables/gcw/gcw_city_bestine.iff";
