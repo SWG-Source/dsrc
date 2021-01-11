@@ -10484,8 +10484,10 @@ public class combat_actions extends script.systems.combat.combat_base
             return SCRIPT_OVERRIDE;
         }
         float playerToPetRange = getDistance(getLocation(self), getLocation(beast));
-        float percentRangeMod = (playerToPetRange / 84f) * 100f;
-        messageTo(self, "channelRevivePet", null, 0, false);
+        float percentRangeMod = (playerToPetRange > 7f) ? (playerToPetRange / 84f) * 100f : 0f ; 
+        dictionary dict = new dictionary();
+        dict.addFloat("extendedRange", percentRangeMod);
+        messageTo(self, "channelRevivePet", dict, 0, false);
         float baseCooldownTime = getBaseCooldownTime("bm_revive_pet_1");
         float cooldownTimeMod = getEnhancedSkillStatisticModifierUncapped(self, "expertise_bm_pet_revive_time");
         setCommandTimerValue(self, TIMER_COOLDOWN, (baseCooldownTime - cooldownTimeMod) * percentRangeMod);
