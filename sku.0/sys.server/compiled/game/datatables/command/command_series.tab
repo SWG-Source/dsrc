@@ -225,7 +225,8 @@ en_spiral_kick_4	en_spiral_kick_0	90
 en_holographic_recall	en_holographic_image	26
 bm_mend_pet_2	bm_mend_pet_1	54
 bm_mend_pet_3	bm_mend_pet_1	82
-bm_pet_trick_2	bm_pet_trick_1	10
+bm_pet_trick_1	bm_collect_dna	10
+bm_pet_trick_2	bm_collect_dna	10
 bm_revive_pet_1	bm_collect_dna	10
 bm_follow_1	bm_collect_dna	10
 bm_stay_1	bm_collect_dna	10
