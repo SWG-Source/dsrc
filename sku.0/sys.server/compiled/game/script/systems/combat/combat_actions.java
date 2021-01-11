@@ -10484,12 +10484,12 @@ public class combat_actions extends script.systems.combat.combat_base
             return SCRIPT_OVERRIDE;
         }
         float playerToPetRange = getDistance(getLocation(self), getLocation(beast));
-        if (playerToPetRange > 84f) {
+        if (playerToPetRange > 85f) {
             sendSystemMessage(self, new string_id("spam", "stand_next_to_corpse"));
             setCommandTimerValue(self, TIMER_COOLDOWN, 0.0f);
             return SCRIPT_OVERRIDE;
         } 
-        float percentRangeMod = (playerToPetRange > 7f) ? (playerToPetRange / 84f) * 10f : 0f ; 
+        float percentRangeMod = (playerToPetRange > 7f) ? (playerToPetRange / 85f) * 10f : 1f ; 
         dictionary dict = new dictionary();
         dict.addFloat("extendedRange", percentRangeMod);
         messageTo(self, "channelRevivePet", dict, 0, false);
