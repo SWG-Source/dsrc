@@ -13,7 +13,7 @@ public class beast_display extends script.base_script
     }
     public int OnObjectMenuRequest(obj_id self, obj_id player, menu_info mi) throws InterruptedException
     {
-        if (!hasObjVar(self, beast_lib.OBJVAR_OLD_PET_RENAMED) && getOwner(self) == player)
+        if (getOwner(self) == player)
         {
             mi.addRootMenu(menu_info_types.SERVER_MENU3, new string_id("beast", "name_beast"));
         }
@@ -22,7 +22,7 @@ public class beast_display extends script.base_script
     public int OnObjectMenuSelect(obj_id self, obj_id player, int item) throws InterruptedException
     {
         sendDirtyObjectMenuNotification(self);
-        if (item == menu_info_types.SERVER_MENU3 && !hasObjVar(self, beast_lib.OBJVAR_OLD_PET_RENAMED) && getOwner(self) == player)
+        if (item == menu_info_types.SERVER_MENU3 && getOwner(self) == player)
         {
             sui.inputbox(self, player, "@beast:name_d", sui.OK_CANCEL, "@beast:name_t", sui.INPUT_NORMAL, null, "handleSetBeastName", null);
         }
@@ -152,7 +152,6 @@ public class beast_display extends script.base_script
         }
         sendDirtyObjectMenuNotification(self);
         setObjVar(self, "beast.beastName", beastName);
-        setObjVar(self, beast_lib.OBJVAR_OLD_PET_RENAMED, 1);
         setObjVar(self, incubator.DNA_PARENT_NAME, beastName);
         return SCRIPT_CONTINUE;
     }

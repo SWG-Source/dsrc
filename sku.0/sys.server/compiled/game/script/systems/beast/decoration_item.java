@@ -22,12 +22,10 @@ public class decoration_item extends script.base_script
                 int management_root = mi.addRootMenu(menu_info_types.SERVER_MENU1, SID_CONVERT_PET_ITEM_TO_DNA);
             }
         }
-        if (!hasObjVar(self, beast_lib.OBJVAR_OLD_PET_REHUED) && getOwner(self) == player)
-        {
-            mi.addRootMenu(menu_info_types.SERVER_MENU2, PCOLOR);
-        }
-        if (!hasObjVar(self, beast_lib.OBJVAR_OLD_PET_RENAMED) && getOwner(self) == player)
-        {
+        if (getOwner(self) == player){
+            if (!hasObjVar(self, beast_lib.OBJVAR_OLD_PET_REHUED)){
+                mi.addRootMenu(menu_info_types.SERVER_MENU2, PCOLOR);
+            }
             mi.addRootMenu(menu_info_types.SERVER_MENU3, new string_id("beast", "name_beast"));
         }
         return SCRIPT_CONTINUE;
@@ -43,16 +41,14 @@ public class decoration_item extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        if (item == menu_info_types.SERVER_MENU2 && getOwner(self) == player)
-        {
-            if (!hasObjVar(self, beast_lib.OBJVAR_OLD_PET_REHUED))
-            {
-                sui.colorize(self, player, self, hue.INDEX_1, "handlePrimaryColorize");
+        if (getOwner(self) == player) {
+            if (item == menu_info_types.SERVER_MENU2) {
+                if (!hasObjVar(self, beast_lib.OBJVAR_OLD_PET_REHUED)){
+                    sui.colorize(self, player, self, hue.INDEX_1, "handlePrimaryColorize");
+                }
+            } else if (item == menu_info_types.SERVER_MENU3) {
+                sui.inputbox(self, player, "@beast:name_d", sui.OK_CANCEL, "@beast:name_t", sui.INPUT_NORMAL, null, "handleSetBeastName", null);
             }
-        }
-        if (item == menu_info_types.SERVER_MENU3 && !hasObjVar(self, beast_lib.OBJVAR_OLD_PET_RENAMED) && getOwner(self) == player)
-        {
-            sui.inputbox(self, player, "@beast:name_d", sui.OK_CANCEL, "@beast:name_t", sui.INPUT_NORMAL, null, "handleSetBeastName", null);
         }
         return SCRIPT_CONTINUE;
     }
@@ -146,7 +142,6 @@ public class decoration_item extends script.base_script
         }
         sendDirtyObjectMenuNotification(self);
         setName(self, beastName);
-        setObjVar(self, beast_lib.OBJVAR_OLD_PET_RENAMED, 1);
         setObjVar(self, incubator.DNA_PARENT_NAME, beastName);
         return SCRIPT_CONTINUE;
     }

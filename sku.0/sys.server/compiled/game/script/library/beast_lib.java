@@ -46,7 +46,6 @@ public class beast_lib extends script.base_script
     public static final String OBJVAR_BEAST_PARENT = "beast.parent_creature_template";
     public static final String OBJVAR_BEAST_INCUBATION_BONUSES = "beast.incubation_bonuses";
     public static final String OBJVAR_OLD_PET_IDENTIFIER = "beast.converted_pet";
-    public static final String OBJVAR_OLD_PET_RENAMED = "beast.old_pet_renamed";
     public static final String OBJVAR_OLD_PET_REHUED = "beast.old_pet_rehued";
     public static final String OBJVAR_BEAST_HUE = "beast.hue";
     public static final String OBJVAR_BEAST_HUE2 = "beast.hue2";
