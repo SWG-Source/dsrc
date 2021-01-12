@@ -1097,6 +1097,9 @@ public class beast_lib extends script.base_script
             modifiedHappiness *= multiplier;
         }
         float newLoyalty = loyalty + modifiedHappiness;
+        if (buff.hasBuff(getBCDBeastCalled(bcd), "bm_beast_steroid")) {
+            newLoyalty *= utils.getIntScriptVar(getBCDBeastCalled(bcd), "beastBuff.beastXpBonusPercent");
+        }
         if (loyalty < LOYALTY_LVL_TWO && newLoyalty >= LOYALTY_LVL_TWO)
         {
             incrementBeastLoyaltyLevel(bcd);
