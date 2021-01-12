@@ -1940,6 +1940,41 @@ public class beast_lib extends script.base_script
         setBeastExperience(beast, experience);
         setBCDBeastExperience(bcd, experience);
     }
+    public static void incrementBeastExperienceMission(obj_id beast, int xpAmountToGrant) throws InterruptedException {
+        if (!isValidBeast(beast)) {
+            return;
+        }
+        int experience = getBeastExperience(beast);
+        int previousExperience = experience;
+        obj_id bcd = getBeastBCD(beast);
+        if (!isValidBCD(bcd)) {
+            return;
+        }
+        float happinessAdjustment = (getBCDBeastHappiness(bcd) / 100.0f) + 1.0f;
+        if (happinessAdjustment > 1.5f) {
+            happinessAdjustment = 1.5f;
+        } else if (happinessAdjustment < 0.5f) {
+            happinessAdjustment = 0.5f;
+        }
+        float percentageBonuses = happinessAdjustment;
+        if (buff.hasBuff(beast, "bm_beast_steroid")) {
+            percentageBonuses += 0.01f * utils.getIntScriptVar(beast, "beastBuff.beastXpBonusPercent");
+        }
+        obj_id master = getMaster(beast);
+        if (isValidPlayer(master)) {
+            int experienceGain = Math.round(xpAmountToGrant * percentageBonuses);
+            experienceGain += experienceGain * 0.01f * getEnhancedSkillStatisticModifierUncapped(master, "bm_xp_mod_boost");
+            int multiplier = utils.stringToInt(getConfigSetting("GameServer", "xpMultiplier"));
+            if (multiplier > 1) {
+                experienceGain *= multiplier;
+            }
+            experience += experienceGain;
+            prose_package pp = prose.getPackage(xp.SID_FLYTEXT_XP, experience - previousExperience);
+            showFlyTextPrivate(beast, master, pp, 2.5f, new color(180, 60, 240, 255));
+        }
+        setBeastExperience(beast, experience);
+        setBCDBeastExperience(bcd, experience);
+    }
     public static void incrementBeastLevel(obj_id beast) throws InterruptedException
     {
         if (!isValidBeast(beast))

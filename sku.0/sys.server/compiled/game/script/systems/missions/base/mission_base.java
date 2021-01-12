@@ -158,8 +158,10 @@ public class mission_base extends script.base_script
             }
             float divisor = missions.alterMissionPayoutDivisorDaily(objPlayer);
             intReward = intReward / (int)divisor;
-            if (missions.canEarnDailyMissionXp(objPlayer) && missions.isDestroyMission(objMissionData))
-            {
+            if (missions.canEarnDailyMissionXp(objPlayer) && missions.isDestroyMission(objMissionData)){
+                if (beast_lib.isBeastMaster(objPlayer) && beast_lib.hasActiveBeast(objPlayer)) {
+                    beast_lib.incrementBeastExperienceMission(beast_lib.getBeastOnPlayer(objPlayer), xp.getMissionXpAmount(objPlayer, intPlayerDifficulty));
+                }
                 xp.grantMissionXp(objPlayer, intPlayerDifficulty);
             }
             transferBankCreditsFromNamedAccount(money.ACCT_MISSION_DYNAMIC, objPlayer, intReward, "testSuccess", "testFail", dctParams);
