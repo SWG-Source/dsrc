@@ -998,7 +998,7 @@ showFactionInformation		immediate	cmdShowFactionInformation	failAdmin				admin		
 showLockout		normal	cmdShowLockout																									1			0																																											none					0				0										
 showMusicianVisuals		immediate			showMusicianVisuals				1	0	1	0	0	0	0	0	0	0	0	0	0	0	0	1	0	0	0			0	0	0	0	1	0	0	0	0	1	1	1	0	0	0	0	0	0	0	0	0									0															none	0				0				0										
 showSpawnRegion		immediate	showSpawnRegion					admin	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	0	1	1	1	1		1	1	1	1	1	1	1	1	1	1	1	1	1	1																															40	csr	0										
-sitServer		immediate	sit		sitServer		2															0	0	0	0	0	0				0	1	0		0		0	1	0	0	0	0	0	0	0	0	0	0	0	0									0		0	0	0	0		0								none					0				0										
+sitServer		immediate	sit		sitServer		2															0	0	0	0	0	0				0	1	0		0		0	1	0	0	0	0	0	0	0	0	0	0	0	0									0		0	0	0	0										none					0				0										
 jumpServer		immediate			jumpServer				1	0	1	1	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0			0	0	0	0	0	0	0	0	0	1	1	1	0	0	0	0	0	0	0	0	0																								none	0				0				0										
 skill		immediate		failAdmin	console_skill			admin																				1	1		0	1												1																														none					0		40	csr	0										
 smokebomb		normal	cmdSmokeBomb					smokebomb	1	0	1	0	0	0	0	0	0	0	0	0	0	0	0	1	0	0	0			0	0	0	0	1	0	0	0	0	1	1	1	0	0	0	0	0	0	0	0	0									0		0	0	0	0								player.skill.performcommands		none	0	2		performance	0				1										
