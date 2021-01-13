@@ -88,6 +88,7 @@ public class live_conversions extends script.base_script
         removeDeprecatedQuests(player);
         addPlayerScripts(player);
         handleEsbAnniversaryGifts(player);
+        handleMailOptInRewards(player);
     }
     public void runOncePerTravelConversions(obj_id player) throws InterruptedException
     {
@@ -753,6 +754,21 @@ public class live_conversions extends script.base_script
             sui.msgbox(player, EXPERTISE_RESET_FROM_CHANGES);
             CustomerServiceLog("professionExpertiseReset:", " player " + getFirstName(player) + "(" + player + ") has had their expertise reset due to profession updates.");
             return true;
+        }
+        // handle beast master expertise reset as it doesn't fall under the profession checks
+        if(hasSkill(player, "expertise_bm_incubation_base_1")) {
+            int row = dataTableSearchColumnForString("beast_master", "profession", respec.EXPERTISE_VERSION_TABLE);
+            int bmExpertiseVersion = dataTableGetInt(respec.EXPERTISE_VERSION_TABLE, row, "version");
+            int playerBmVersion = 0;
+            if(hasObjVar(player, respec.BEAST_MASTER_EXPERTISE_VERSION_OBJVAR)) {
+                playerBmVersion = getIntObjVar(player, respec.BEAST_MASTER_EXPERTISE_VERSION_OBJVAR);
+            }
+            if(playerBmVersion != bmExpertiseVersion) {
+                messageTo(player, "fullExpertiseReset", null, 2, false);
+                sui.msgbox(player, EXPERTISE_RESET_FROM_CHANGES);
+                CustomerServiceLog("professionExpertiseReset:", " player " + getFirstName(player) + "(" + player + ") has had their expertise reset due to profession updates.");
+                return true;
+            }
         }
         return false;
     }

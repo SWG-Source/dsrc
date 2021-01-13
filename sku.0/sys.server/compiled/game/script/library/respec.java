@@ -11,6 +11,7 @@ public class respec extends script.base_script
     }
     public static final String EXPERTISE_VERSION_TABLE = "datatables/expertise/respec_version.iff";
     public static final String EXPERTISE_VERSION_OBJVAR = "professionExpertiseVersion";
+    public static final String BEAST_MASTER_EXPERTISE_VERSION_OBJVAR = "beastMasterExpertiseVersion";
     public static final int RESPEC_PRICE_MULTIPLIER = 10000;
     public static final int[] RESPEC_COST = new int[]
     {
