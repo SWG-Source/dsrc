@@ -17,6 +17,5 @@
 objectName = "static_item_n" "item_publish_gift_resource_crate"
 detailedDescription = "static_item_d" "item_publish_gift_resource_crate"
 lookAtText = "" ""
-appearanceFilename = "appearance/eqp_survey_survey_pad_advanced_s1.ap"
+appearanceFilename = "appearance/eqp_survey_survey_pad_advanced_s1.apt"
 gameObjectType = GOT_misc_furniture
-
