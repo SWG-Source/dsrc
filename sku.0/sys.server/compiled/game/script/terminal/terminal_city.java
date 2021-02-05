@@ -138,6 +138,7 @@ public class terminal_city extends script.base_script
     public static final string_id SID_ALIGN_NEUTRAL = new string_id(STF, "align_neutral");
     public static final string_id SID_BEGIN_GCW_REGION_DEFENDER = new string_id(STF, "begin_gcw_region_defender");
     public static final string_id SID_END_GCW_REGION_DEFENDER = new string_id(STF, "end_gcw_region_defender");
+    public static final string_id SID_DERANK_EXEMPT = new string_id("Toggle De-Rank Exemption");
     public int OnObjectMenuRequest(obj_id self, obj_id player, menu_info mi) throws InterruptedException
     {
         obj_id structure = getTopMostContainer(self);
@@ -219,6 +220,7 @@ public class terminal_city extends script.base_script
             int godMenu = mi.addRootMenu(menu_info_types.ITEM_USE_SELF, SID_CITY_HACKS);
             mi.addSubMenu(godMenu, menu_info_types.SERVER_MENU4, SID_CITY_FORCE_UPDATE);
             mi.addSubMenu(godMenu, menu_info_types.SERVER_MENU6, SID_CITY_RANK_UP);
+            mi.addSubMenu(godMenu, menu_info_types.SERVER_MENU24, SID_DERANK_EXEMPT);
             mi.addSubMenu(godMenu, menu_info_types.SERVER_MENU7, SID_CITY_RANK_DOWN);
             mi.addSubMenu(godMenu, menu_info_types.CITY_NAME, SID_CITY_NAME);
             mi.addSubMenu(godMenu, menu_info_types.SERVER_MENU9, SID_CITY_MAKE_MAYOR);
@@ -613,6 +615,15 @@ public class terminal_city extends script.base_script
             else if (item == menu_info_types.CITY_ADMIN_4)
             {
                 clearStructureScriptVars(player, self, city_id);
+            }
+            else if (item == menu_info_types.SERVER_MENU24) {
+                if(!hasObjVar(structure, city.OBJVAR_DERANK_EXEMPT)) {
+                    setObjVar(structure, city.OBJVAR_DERANK_EXEMPT, true);
+                    sendSystemMessageTestingOnly(player, "The city is now de-rank exempt and will not lose its rank standing during normal city reset cycles.");
+                } else {
+                    removeObjVar(structure, city.OBJVAR_DERANK_EXEMPT);
+                    sendSystemMessageTestingOnly(player, "The city is no longer de-rank exempt.");
+                }
             }
         }
         return SCRIPT_CONTINUE;
