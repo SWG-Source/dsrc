@@ -96,6 +96,10 @@ public class terminal_city_junk_dealer extends script.base_script
             return SCRIPT_CONTINUE;
         }
         utils.setScriptVar(player, "fence", false);
+        utils.setScriptVar(player, "junk_dealer_transaction", self);
+        if(!smuggler.hasBuyBackContainer(player)) {
+            smuggler.createBuyBackControlDeviceOnPlayer(player);
+        }
         messageTo(player, "handleSellJunkSui", params, 0.0f, false);
         return SCRIPT_CONTINUE;
     }
