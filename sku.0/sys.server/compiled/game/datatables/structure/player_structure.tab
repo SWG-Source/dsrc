@@ -395,7 +395,7 @@ object/building/player/player_house_tcg_8_bespin_house.iff	object/building/playe
 																							object/tangible/terminal/terminal_player_structure.iff	2.2	88.9	-5.9	entry	156	
 																							object/tangible/terminal/terminal_elevator_up.iff	0.75	1	2	elevator	-146	
 																							object/tangible/terminal/terminal_elevator_down.iff	0.75	90	2	elevator	-146	
-object/building/player/player_house_tcg_8_yoda_house.iff	object/building/player/construction/construction_player_house_tcg_8_yoda_house.iff			4	32								13	3	4320	800	1					4							
+object/building/player/player_house_tcg_8_yoda_house.iff	object/building/player/construction/construction_player_tcg_8_yoda_house.iff			4	32								13	3	4320	800	1					4							
 																							object/tangible/terminal/terminal_player_structure_nosnap.iff	8.8	1.1	1.73	entry	-91	
 object/building/player/player_house_yt1300.iff	object/building/player/construction/construction_player_house_yt1300.iff			5	32								13	5	7200	0	1												
 																							object/tangible/terminal/terminal_player_structure.iff	-3.5	5.2	-2.3	storage5	180	
