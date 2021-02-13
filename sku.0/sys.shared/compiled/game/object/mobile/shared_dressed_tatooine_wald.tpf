@@ -22,4 +22,4 @@ portalLayoutFilename = ""
 snapToTerrain = true
 tintPalette = "0"
 
-
+clientDataFile = "clientdata/npc/client_shared_npc_dressed_tatooine_wald.cdf"
