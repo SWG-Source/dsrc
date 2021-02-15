@@ -34,6 +34,7 @@ public class fishing extends script.base_script {
     public static final String OBJVAR_ELUSIVE_FISH_COUNT_TABLE_MADE = "elusive_fish.count_table_made";
     public static final String OBJVAR_ELUSIVE_FISH_COUNT_TOTAL= "elusive_fish.count_rewarded_total";
     public static final String OBJVAR_PLANET_OBJECT_REFERENCE = "master_fishing_object";
+    public static final String OBJVAR_LARGEST_FISH_CAUGHT_THIS_PERIOD = "fishing.record_fish_current_max";
 
     /**
      * getMasterFishingObject
@@ -320,6 +321,22 @@ public class fishing extends script.base_script {
             d.put(fish, getCountOfSpecificElusiveFishRewarded(fish));
         }
         return d;
+    }
+
+    /**
+     * Determines if you are eligible to contribute to your city's fishing score in the current period
+     * Based on the requirement that: You must have a declared residence in the city, and you must not have moved during the current period
+     */
+    public static boolean isCityMemberEligibleToContributeToCityFishingScore(obj_id player) throws InterruptedException {
+        return (getCitizenOfCityId(player) > 0) && (getIntObjVar(player, player_structure.VAR_RESIDENCE_CAN_DECLARE) > (getGameTime() + 25200));
+    }
+
+    /**
+     * Determines if you are eligible to contribute to your guild's fishing score in the current period
+     * Based on the requirement that you must be a member of a guild and held that membership for longer than the current period
+     */
+    public static boolean isGuildMemberEligibleToContributeToGuildFishingScore(obj_id player) throws InterruptedException {
+        return (getGuildId(player) > 0) && (getIntObjVar(player, guild.VAR_TIME_JOINED_CURRENT_GUILD) > (getGameTime() + 25200));
     }
 
 }

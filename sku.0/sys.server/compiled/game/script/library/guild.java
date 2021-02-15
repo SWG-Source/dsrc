@@ -234,6 +234,8 @@ public class guild extends script.base_script
     public static final int INTERFACE_GUILD_PERMISSION_LIST = 4;
     public static final int INTERFACE_GUILD_ELECTION = 5;
     public static final int INTERFACE_GUILD_WAR_PREFERENCES = 6;
+    public static final String VAR_TIME_JOINED_CURRENT_GUILD = "guild.timeJoinedCurrentGuild";
+
     public static String resolveGuildName(int guildId) throws InterruptedException
     {
         if (guildId != 0)
@@ -517,6 +519,7 @@ public class guild extends script.base_script
                 messageTo(memberId, "onGuildSponsorVerifyResponseProse", dict2, 0, false);
                 mailToGuild(guildId, GUILD_MAIL_ACCEPT_SUBJECT, GUILD_MAIL_ACCEPT_TEXT, getName(actor), memberName);
                 guildSetMemberPermissionAndAllegiance(guildId, memberId, GUILD_PERMISSION_MEMBER, guildGetLeader(guildId));
+                setObjVar(memberId, VAR_TIME_JOINED_CURRENT_GUILD, getGameTime());
                 mailToPerson(guildId, memberName, GUILD_MAIL_ACCEPT_TARGET_SUBJECT, GUILD_MAIL_ACCEPT_TARGET_TEXT, getName(actor), guildGetName(guildId));
                 messageTo(memberId, "onGuildCreateTerminalDataObject", null, 0, false);
             }
