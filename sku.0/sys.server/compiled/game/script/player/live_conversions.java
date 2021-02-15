@@ -60,6 +60,7 @@ public class live_conversions extends script.base_script
     }
     public void runOncePerSessionConversions(obj_id player) throws InterruptedException
     {
+        handleStoreUsername(player);
         grantFemaleMasterPilotMedals(player);
         clearDotEffectObjvars(player);
         fixConsentList(player);
@@ -299,6 +300,9 @@ public class live_conversions extends script.base_script
             }
             removeObjVar(player, pclib.VAR_CONSENT_FROM_NAME);
         }
+    }
+    public void handleStoreUsername(obj_id player) throws InterruptedException {
+        setObjVar(player, "system.accountUsername", _getPlayerUsernameDoNotUse(getLongWithNull(player)));
     }
     public void setUnarmedDamageRanges(obj_id player) throws InterruptedException
     {
