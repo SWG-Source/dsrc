@@ -4306,4 +4306,91 @@ public class cmd extends script.base_script
         }
         return SCRIPT_CONTINUE;
     }
+
+    // SWG Source Admin Command Additions (we nest them in here (e.g. /admin <subcommand> <params>)
+    public int cmdAdmin(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+
+        if(!isGod(self)) {
+            return SCRIPT_CONTINUE;
+        }
+        StringTokenizer st = new StringTokenizer(params);
+        String command;
+        if(st.hasMoreTokens()) {
+            command = st.nextToken();
+        } else {
+            showAdminCmdSyntax(self);
+            return SCRIPT_CONTINUE;
+        }
+
+        if(command.equalsIgnoreCase("getRotation")) {
+
+            obj_id oid;
+            if(!st.hasMoreTokens()) {
+                sendSystemMessageTestingOnly(self, "Syntax: /admin getRotation <oid>");
+                return SCRIPT_CONTINUE;
+            } else {
+                oid = obj_id.getObjId(Long.parseLong(st.nextToken()));
+            }
+            if (!isValidId(oid)) {
+                sendSystemMessageTestingOnly(self, "The object specified for getRotation was not valid.");
+                return SCRIPT_CONTINUE;
+            }
+            float[] q = getQuaternion(oid);
+            sendConsoleMessage(self, "Rotation Information for Object \\#FFFF00"+oid+"\\#.");
+            sendConsoleMessage(self, "\\#FFFF00Template:\\#. "+getTemplateName(oid));
+            sendConsoleMessage(self, "\\#FFFF00Rotation:\\#. "+getFurnitureRotationDegree(oid));
+            sendConsoleMessage(self, "\\#FFFF00Quaternions:\\#. qW "+q[0]+" qX "+q[1]+" qY "+q[2]+" qZ "+q[3]);
+            return SCRIPT_CONTINUE;
+        }
+
+        else if (command.equalsIgnoreCase("setWeather")) {
+
+            String weather;
+            if(st.hasMoreTokens()) {
+                weather = st.nextToken();
+            } else {
+                sendSystemMessageTestingOnly(self, "Syntax: /admin setWeather <clear | mild | heavy | severe>");
+                return SCRIPT_CONTINUE;
+            }
+            switch (weather) {
+                case "clear":
+                    sendSystemMessageTestingOnly(self, "setWeather: Setting Weather to Clear... It will take a minute to appear...");
+                    setWeatherData(0, 0.01f, 0.01f);
+                    break;
+                case "mild":
+                    sendSystemMessageTestingOnly(self, "setWeather: Setting Weather to Mild... It will take a minute to appear...");
+                    setWeatherData(1, 0.02f, 0.02f);
+                    break;
+                case "heavy":
+                    sendSystemMessageTestingOnly(self, "setWeather: Setting Weather to Heavy... It will take a minute to appear...");
+                    setWeatherData(2, 0.52f, 0.52f);
+                    break;
+                case "severe":
+                    sendSystemMessageTestingOnly(self, "setWeather: Setting Weather to Severe... It will take a minute to appear...");
+                    setWeatherData(3, 0.95f, 0.95f);
+                    break;
+                default:
+                    sendSystemMessageTestingOnly(self, "Syntax: /admin setWeather <clear | mild | heavy | severe>");
+                    break;
+            }
+            return SCRIPT_CONTINUE;
+        }
+
+        else {
+            showAdminCmdSyntax(self);
+        }
+
+        return SCRIPT_CONTINUE;
+    }
+
+    private static void showAdminCmdSyntax(obj_id self) throws InterruptedException {
+        sendSystemMessageTestingOnly(self, "Outputting nested commands and syntax of /admin to console");
+        sendConsoleMessage(self, "\\#ffff00 ============ Syntax: /admin commands ============ \\#.");
+        sendConsoleMessage(self, "\\#00ffff getRotation \\#bfff00 <oid> \\#.");
+        sendConsoleMessage(self, "returns the quaternions and rotation of an object");
+        sendConsoleMessage(self, "\\#00ffff setWeather \\#bfff00 <clear | mild | heavy | severe> \\#.");
+        sendConsoleMessage(self, "sets the weather for the current scene");
+        sendConsoleMessage(self, "\\#ffff00 ============ ============ ============ ============ \\#.");
+    }
+
 }
