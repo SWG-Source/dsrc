@@ -216,9 +216,11 @@ public class terminal_structure extends script.base_script
                 }
                 if (player_structure.isOwner(structure, player) && isGod(player))
                 {
-                    int decor_root = mi.addRootMenu(menu_info_types.SERVER_MENU14, SID_STRUCTURE_DECOR);
+                    int decor_root = mi.addRootMenu(menu_info_types.SERVER_MENU14, new string_id("GM Tools"));
                     mi.addSubMenu(decor_root, menu_info_types.SERVER_MENU15, SID_STRUCTURE_ADD_DECOR);
                     mi.addSubMenu(decor_root, menu_info_types.SERVER_MENU16, SID_STRUCTURE_REMOVE_DECOR);
+                    mi.addSubMenu(decor_root, menu_info_types.SERVER_MENU33, new string_id("Fix Terminal Placement"));
+                    mi.addSubMenu(decor_root, menu_info_types.SERVER_MENU34, new string_id("Fix Structure Sign"));
                 }
             }
             else if (player_structure.isInstallation(structure))
@@ -233,9 +235,6 @@ public class terminal_structure extends script.base_script
                     {
                         mi.addSubMenu(management_root, menu_info_types.SERVER_MENU6, SID_TERMINAL_MANAGEMENT_POWER);
                     }
-                }
-                else 
-                {
                 }
             }
         }
@@ -583,6 +582,31 @@ public class terminal_structure extends script.base_script
             }
             player_structure.displayAvailableNonGenericStorageTypes(player, self, structure);
         }
+        // GM Tool: fix a structure management terminal that has been accidentally moved/destroyed
+        else if (item == menu_info_types.SERVER_MENU33 && isGod(player))
+        {
+            obj_id top = player_structure.getStructure(self);
+            if(isIdValid(top)) {
+                sendSystemMessageTestingOnly(player, "Resetting placement of Structure Management Terminal...");
+                float yaw = getYaw(top);
+                if (yaw < 0.0f) { yaw = yaw + 360.0f; }
+                player_structure.createStructureObjects(top, (int)(yaw + 1) / 90);
+                destroyObject(self);
+            } else {
+                sendSystemMessageTestingOnly(player, "Fix attempt failed - Is the terminal inside a valid player structure?");
+            }
+        }
+        // GM Tool: fix a structure's sign that has been accidentally moved/destroyed
+        else if (item == menu_info_types.SERVER_MENU34 && isGod(player))
+        {
+            obj_id top = player_structure.getStructure(self);
+            if (isIdValid(top)) {
+                sendSystemMessageTestingOnly(player, "Requesting the generation of a new sign for this structure...");
+                player_structure.createStructureSign(top);
+            } else {
+                sendSystemMessageTestingOnly(player, "Fix attempt failed - Could not determine structure object.");
+            }
+        }
         return SCRIPT_CONTINUE;
     }
     public int handleStorageRedeedChoice(obj_id self, dictionary params) throws InterruptedException
@@ -859,5 +883,12 @@ public class terminal_structure extends script.base_script
             LOG(TERMINAL_LOGGING, msg);
         }
         return true;
+    }
+    // ensure GMs can't accidentally pick up a structure management terminal that's in a building
+    public int OnAboutToBeTransferred(obj_id self, obj_id destContainer, obj_id transferer) throws InterruptedException {
+        if(!utils.isNestedWithinAPlayer(self) && isGod(transferer)) {
+            return SCRIPT_OVERRIDE;
+        }
+        return SCRIPT_CONTINUE;
     }
 }
