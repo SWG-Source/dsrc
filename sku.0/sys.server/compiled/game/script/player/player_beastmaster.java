@@ -669,13 +669,7 @@ public class player_beastmaster extends script.base_script
         }
         float revivePercent = 10;
         float maxHealthFloat = getMaxAttrib(beast, HEALTH);
-        if (hasSkill(self, "expertise_bm_pet_recovery_3")) {
-            revivePercent = 75;
-        } else if (hasSkill(self, "expertise_bm_pet_recovery_2")) {
-            revivePercent = 50;
-        } else if (hasSkill(self, "expertise_bm_pet_recovery_1")) {
-            revivePercent = 25;
-        }
+        revivePercent += getEnhancedSkillStatisticModifierUncapped(self, "expertise_bm_pet_recovery");
         maxHealthFloat = maxHealthFloat * (revivePercent / 100);
         int maxHealth = (int)maxHealthFloat;
         beast_lib.checkForFavoriteLocation(bcd);
