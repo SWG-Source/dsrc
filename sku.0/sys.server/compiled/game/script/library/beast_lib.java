@@ -46,7 +46,6 @@ public class beast_lib extends script.base_script
     public static final String OBJVAR_BEAST_PARENT = "beast.parent_creature_template";
     public static final String OBJVAR_BEAST_INCUBATION_BONUSES = "beast.incubation_bonuses";
     public static final String OBJVAR_OLD_PET_IDENTIFIER = "beast.converted_pet";
-    public static final String OBJVAR_OLD_PET_RENAMED = "beast.old_pet_renamed";
     public static final String OBJVAR_OLD_PET_REHUED = "beast.old_pet_rehued";
     public static final String OBJVAR_BEAST_HUE = "beast.hue";
     public static final String OBJVAR_BEAST_HUE2 = "beast.hue2";
@@ -175,15 +174,15 @@ public class beast_lib extends script.base_script
     public static final String PLAYER_KNOWN_SKILLS_LIST = "beast_master.known_skills";
     public static final String ATTENTION_PENALTY_DEBUFF = "bm_attention_penalty_";
     public static final string_id SID_BEAST_WILD = new string_id("beast", "beast_wild");
-    public static final int LOYALTY_LVL_TWO = 2001;
+    public static final int LOYALTY_LVL_TWO = 1001;
     public static final string_id SID_BEAST_DISOBEDIENT = new string_id("beast", "beast_disobedient");
-    public static final int LOYALTY_LVL_THREE = 10001;
+    public static final int LOYALTY_LVL_THREE = 5001;
     public static final string_id SID_BEAST_TRAINED = new string_id("beast", "beast_trained");
-    public static final int LOYALTY_LVL_FOUR = 50001;
+    public static final int LOYALTY_LVL_FOUR = 25001;
     public static final string_id SID_BEAST_LOYAL = new string_id("beast", "beast_loyal");
-    public static final int LOYALTY_LVL_FIVE = 250001;
+    public static final int LOYALTY_LVL_FIVE = 125001;
     public static final string_id SID_BEAST_BFF = new string_id("beast", "beast_bff");
-    public static final int LOYALTY_MAX = 500000;
+    public static final int LOYALTY_MAX = 250000;
     public static final String BEAST_LOYALTY_TITLE = "beast_loyalty_title";
     public static final String BEAST_LOYALTY_PERCENTAGE_TITLE = "beast_loyalty_percentage_title";
     public static final String PET_LOYALTY_OBJVAR = "beastmood.beastLoyalty";
@@ -1098,6 +1097,9 @@ public class beast_lib extends script.base_script
             modifiedHappiness *= multiplier;
         }
         float newLoyalty = loyalty + modifiedHappiness;
+        if (buff.hasBuff(getBCDBeastCalled(bcd), "bm_beast_steroid")) {
+            newLoyalty *= utils.getIntScriptVar(getBCDBeastCalled(bcd), "beastBuff.beastXpBonusPercent");
+        }
         if (loyalty < LOYALTY_LVL_TWO && newLoyalty >= LOYALTY_LVL_TWO)
         {
             incrementBeastLoyaltyLevel(bcd);
@@ -1894,7 +1896,7 @@ public class beast_lib extends script.base_script
         stop(currentBeast);
         storeBeast(bcd);
     }
-    public static void incrementBeastExperience(obj_id beast) throws InterruptedException
+    public static void incrementBeastExperience(obj_id beast, dictionary params) throws InterruptedException
     {
         if (!isValidBeast(beast))
         {
@@ -1925,6 +1927,9 @@ public class beast_lib extends script.base_script
         if (isValidPlayer(master))
         {
             int experienceGain = Math.round(100 * percentageBonuses);
+            if (params.containsKey("xpAmount")) {
+                experienceGain = Math.round(params.getInt("xpAmount") * percentageBonuses);
+            }
             experienceGain += experienceGain * 0.01f * getEnhancedSkillStatisticModifierUncapped(master, "bm_xp_mod_boost");
             int multiplier = utils.stringToInt(getConfigSetting("GameServer", "xpMultiplier"));
             if (multiplier > 1)
@@ -2001,7 +2006,7 @@ public class beast_lib extends script.base_script
         int level = getBeastLevel(beast);
         if (level < 90)
         {
-            incrementBeastExperience(beast);
+            incrementBeastExperience(beast, new dictionary());
         }
         if (canBeastLevelUp(beast))
         {

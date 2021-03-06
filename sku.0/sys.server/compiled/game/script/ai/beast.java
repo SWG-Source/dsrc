@@ -749,10 +749,6 @@ public class beast extends script.base_script
         sendDirtyObjectMenuNotification(self);
         beast_lib.setBCDBeastName(beast_lib.getBeastBCD(self), beastName);
         beast_lib.setBeastName(self, beastName);
-        if (hasObjVar(beast_lib.getBeastBCD(self), beast_lib.OBJVAR_OLD_PET_IDENTIFIER))
-        {
-            setObjVar(beast_lib.getBeastBCD(self), beast_lib.OBJVAR_OLD_PET_RENAMED, 1);
-        }
         return SCRIPT_CONTINUE;
     }
     public int handleGroupInvite(obj_id self, dictionary params) throws InterruptedException

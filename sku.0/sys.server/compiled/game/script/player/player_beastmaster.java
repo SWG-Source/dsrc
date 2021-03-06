@@ -321,7 +321,7 @@ public class player_beastmaster extends script.base_script
             return;
         }
         debugSpeakMsg(beast, "Current experience: " + beast_lib.getBeastExperience(beast));
-        beast_lib.incrementBeastExperience(beast);
+        beast_lib.incrementBeastExperience(beast, new dictionary());
         debugSpeakMsg(beast, "Incremented experience: " + beast_lib.getBeastExperience(beast));
     }
     public void showHappiness(obj_id self) throws InterruptedException
