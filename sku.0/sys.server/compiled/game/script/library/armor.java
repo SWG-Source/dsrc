@@ -1624,7 +1624,7 @@ public class armor extends script.base_script
         {
             return false;
         }
-        else return utils.getIntScriptVar(wearer, "armor.armor_set_worn") > -1;
+        return utils.getIntScriptVar(wearer, "armor.armor_set_worn") > -1;
     }
     public static int getExpertiseArmorSetId(obj_id wearer) throws InterruptedException
     {
