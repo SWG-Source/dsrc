@@ -232,7 +232,7 @@ public class advanced_turret extends script.base_script
             return;
         }
         setObjVar(turret, MY_WEAPON, objWeapon);
-        setWeaponAttackSpeed(objWeapon, attackSpeed < 1.0f ? 1.0f : attackSpeed);
+        setWeaponAttackSpeed(objWeapon, Math.max(attackSpeed, 1.0f));
         int primaryType = DAMAGE_ENERGY;
         int secondaryType = DAMAGE_ELEMENTAL_HEAT;
         int primaryMinDamage = 0;

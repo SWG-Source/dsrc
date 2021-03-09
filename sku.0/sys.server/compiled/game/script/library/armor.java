@@ -424,7 +424,7 @@ public class armor extends script.base_script
             return null;
         }
         Object o = ARMOR_PENALTY_TYPE_MAP.get(armorCategory * 10 + armorLevel);
-        if (o == null || !(o instanceof Integer))
+        if (!(o instanceof Integer))
         {
             return null;
         }
@@ -437,7 +437,7 @@ public class armor extends script.base_script
         for (int i = 0; i < penalties.length; ++i)
         {
             o = ARMOR_PENALTY_COLUMN_MAP.get(ARMOR_PENALTY_INDEXES[i]);
-            if (o == null || !(o instanceof String))
+            if (!(o instanceof String))
             {
                 return null;
             }
@@ -881,19 +881,12 @@ public class armor extends script.base_script
             {
                 return false;
             }
-            if (!hasObjVar(target, baseObjvar + "." + OBJVAR_ARMOR_CATEGORY))
-            {
-                return false;
-            }
+            return hasObjVar(target, baseObjvar + "." + OBJVAR_ARMOR_CATEGORY);
         }
         else 
         {
-            if (!hasScript(target, SCRIPT_ARMOR_EXAMINE))
-            {
-                return false;
-            }
+            return hasScript(target, SCRIPT_ARMOR_EXAMINE);
         }
-        return true;
     }
     public static int getArmorLevel(obj_id armor) throws InterruptedException
     {
@@ -1376,7 +1369,7 @@ public class armor extends script.base_script
         }
         trial.bumpSession(objPlayer, "displayDefensiveMods");
         messageTo(objPlayer, "setDisplayOnlyDefensiveMods", trial.getSessionDict(objPlayer, "displayDefensiveMods"), 5, false);
-        final String strArmor[] = 
+        final String[] strArmor =
         {
             "chest2",
             "bicep_r",
@@ -1631,11 +1624,7 @@ public class armor extends script.base_script
         {
             return false;
         }
-        else if (utils.getIntScriptVar(wearer, "armor.armor_set_worn") > -1)
-        {
-            return true;
-        }
-        return false;
+        else return utils.getIntScriptVar(wearer, "armor.armor_set_worn") > -1;
     }
     public static int getExpertiseArmorSetId(obj_id wearer) throws InterruptedException
     {

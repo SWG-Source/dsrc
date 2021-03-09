@@ -198,7 +198,6 @@ public class arena extends script.base_script
         trace.log("force_rank", "Rank #" + rank + " now has a new challenge score of " + score[idx], null, trace.TL_CS_LOG);
         setObjVar(terminal, VAR_ALL_RANKS, ranks);
         setObjVar(terminal, VAR_RANK_CHALLENGE_SCORES, score);
-        return;
     }
     public static String[] getChallengeScoreStrings(obj_id terminal) throws InterruptedException
     {
@@ -249,7 +248,6 @@ public class arena extends script.base_script
             setObjVar(terminal, VAR_RANK_CHALLENGE_SCORES, scores);
             setObjVar(terminal, VAR_ALL_RANKS, ranks);
         }
-        return;
     }
     public static void initializeArena(obj_id terminal) throws InterruptedException
     {
@@ -286,7 +284,6 @@ public class arena extends script.base_script
                 attachScript(arenaCell, "systems.gcw.dark_jedi_arena");
             }
         }
-        return;
     }
     public static void cleanupChallengeData(obj_id terminal) throws InterruptedException
     {
@@ -397,11 +394,7 @@ public class arena extends script.base_script
             {
                 dishOutChallengeAnswerPointsToRanks(terminal);
             }
-            else 
-            {
-            }
         }
-        return;
     }
     public static void dishOutChallengeAnswerPointsToRanks(obj_id terminal) throws InterruptedException
     {
@@ -439,20 +432,17 @@ public class arena extends script.base_script
         }
         removeObjVar(terminal, VAR_CH_RANKS_GOT_CHALLENGED);
         removeObjVar(terminal, VAR_CH_RANKS_WHO_ANSWERED);
-        return;
     }
     public static void openArenaForChallenges(obj_id terminal) throws InterruptedException
     {
         trace.log("force_rank", "Opening arena for challenges (GameTime: " + getGameTime() + ").", null, trace.TL_CS_LOG | trace.TL_DEBUG);
         setObjVar(terminal, VAR_ARENA_OPEN_FOR_CHALLENGES, true);
         setObjVar(terminal, VAR_ARENA_LAST_OPEN_TIME, getGameTime());
-        return;
     }
     public static void closeArenaForChallenges(obj_id terminal) throws InterruptedException
     {
         trace.log("force_rank", "Closing arena for challenges (GameTime: " + getGameTime() + ").", null, trace.TL_CS_LOG | trace.TL_DEBUG);
         setObjVar(terminal, VAR_ARENA_OPEN_FOR_CHALLENGES, false);
-        return;
     }
     public static boolean isArenaOpenForChallenges(obj_id terminal) throws InterruptedException
     {
@@ -490,7 +480,6 @@ public class arena extends script.base_script
             sendSystemMessageProse(rankMember, ppRank);
             utils.sendMail(msgSubject, ppRank, utils.getRealPlayerFirstName(rankMember), MAIL_FROM_ENCLAVE);
         }
-        return;
     }
     public static void notifyChallengeAccepted(obj_id terminal, obj_id challenger, obj_id defender, int rankFightingFor) throws InterruptedException
     {
@@ -512,7 +501,6 @@ public class arena extends script.base_script
             sendSystemMessageProse(rankMember, ppAll);
             utils.sendMail(msgSubject, ppAll, utils.getRealPlayerFirstName(rankMember), MAIL_FROM_ENCLAVE);
         }
-        return;
     }
     public static void notifyChallengeConcluded(obj_id terminal, obj_id challenger, obj_id defender, boolean challengerWon, int rankFightingFor) throws InterruptedException
     {
@@ -540,7 +528,6 @@ public class arena extends script.base_script
             sendSystemMessageProse(rankMember, ppAll);
             utils.sendMail(msgSubject, ppAll, utils.getRealPlayerFirstName(rankMember), MAIL_FROM_ENCLAVE);
         }
-        return;
     }
     public static void notifyChallengeTimedOut(obj_id terminal, obj_id challenger, int rankChallenged) throws InterruptedException
     {
@@ -561,7 +548,6 @@ public class arena extends script.base_script
             sendSystemMessageProse(rankMember, ppAll);
             utils.sendMail(msgSubject, ppAll, utils.getRealPlayerFirstName(rankMember), MAIL_FROM_ENCLAVE);
         }
-        return;
     }
     public static Vector getChallengerIdsForRank(obj_id challengeTerminal, int rank) throws InterruptedException
     {
@@ -645,8 +631,7 @@ public class arena extends script.base_script
                 utils.addElement(players, utils.getRealPlayerFirstName(challengers[i]) + timeLeft);
             }
         }
-        String[] arrayNames = utils.toStaticStringArray(players);
-        return arrayNames;
+        return utils.toStaticStringArray(players);
     }
     public static boolean addChallengeIssueData(obj_id challengeTerminal, obj_id challenger, int rank) throws InterruptedException
     {
@@ -806,11 +791,7 @@ public class arena extends script.base_script
             return false;
         }
         location theloc = getLocation(player);
-        if (theloc.cell == arenaCell && theloc.x > ARENA_X_MIN && theloc.x < ARENA_X_MAX && theloc.z > ARENA_Z_MIN && theloc.z < ARENA_Z_MAX)
-        {
-            return true;
-        }
-        return false;
+        return theloc.cell == arenaCell && theloc.x > ARENA_X_MIN && theloc.x < ARENA_X_MAX && theloc.z > ARENA_Z_MIN && theloc.z < ARENA_Z_MAX;
     }
     public static boolean acceptChallenge(obj_id challengeTerminal, obj_id defender, obj_id challenger) throws InterruptedException
     {
@@ -847,7 +828,6 @@ public class arena extends script.base_script
         int defenderRank = force_rank.getForceRank(enclave, getRealPlayerFirstNameAuth(defender));
         force_rank.demoteForceRank(enclave, getRealPlayerFirstNameAuth(defender), defenderRank - 1);
         force_rank.promoteForceRank(challenger);
-        return;
     }
     public static void doChallengerLostPenalties(obj_id defender, obj_id challenger, obj_id enclave, boolean forfeit) throws InterruptedException
     {
@@ -857,7 +837,6 @@ public class arena extends script.base_script
             force_rank.adjustForceRankXP(challenger, pvp.getAdjustedForceRankXPDelta(challenger, defender, 1.0f, true));
             force_rank.adjustForceRankXP(defender, pvp.getAdjustedForceRankXPDelta(challenger, defender, 1.0f, false));
         }
-        return;
     }
     public static void duelistDied(obj_id player, obj_id opponent, obj_id enclave, boolean forfeit) throws InterruptedException
     {
@@ -970,7 +949,6 @@ public class arena extends script.base_script
             doDefenderLostPenalties(player, opponent, enclave, forfeit);
             notifyChallengeConcluded(challengeTerminal, opponent, player, true, rankChallenged);
         }
-        return;
     }
     public static void leftArenaDuringDuel(obj_id player) throws InterruptedException
     {
@@ -982,7 +960,6 @@ public class arena extends script.base_script
         obj_id enclave = force_rank.getEnclave(player);
         trace.log("force_rank", "Player %TU has somehow left the arena during a duel. Counting abandonment as death.", player, trace.TL_CS_LOG | trace.TL_DEBUG);
         duelistDied(player, utils.getObjIdScriptVar(player, arena.VAR_I_AM_DUELING), enclave, true);
-        return;
     }
     public static obj_id isEitherDuelistInADuel(obj_id challengeTerminal, obj_id duelist1, obj_id duelist2) throws InterruptedException
     {
@@ -1111,7 +1088,6 @@ public class arena extends script.base_script
         utils.setScriptVar(defender, "noBeneficialJediHelp", 1);
         force_rank.makePlayersPermaEnemies(challenger, defender);
         sendDirtyObjectMenuNotification(terminal);
-        return;
     }
     public static void teleportPlayerToRandomArenaLoc(obj_id player, obj_id arenaCell) throws InterruptedException
     {
@@ -1135,11 +1111,7 @@ public class arena extends script.base_script
             return false;
         }
         obj_id container = getTopMostContainer(player);
-        if (!isIdValid(container) || !hasScript(container, force_rank.SCRIPT_ENCLAVE_CONTROLLER))
-        {
-            return false;
-        }
-        return true;
+        return isIdValid(container) && hasScript(container, force_rank.SCRIPT_ENCLAVE_CONTROLLER);
     }
     public static String[] getPlayerNamesForIssuedChallenges(obj_id challengeTerminal, int rank) throws InterruptedException
     {
