@@ -3754,18 +3754,27 @@ public class cmd extends script.base_script
     }
     public int cmdNpeGotoMedicalBay(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException
     {
+        if(!isGod(self)) {
+            return SCRIPT_CONTINUE;
+        }
         sendSystemMessageTestingOnly(self, "Sending you to a medical bay instance");
         sendPlayerToTutorial(self);
         return SCRIPT_CONTINUE;
     }
     public int cmdNpeGotoMilleniumFalcon(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException
     {
+        if(!isGod(self)) {
+            return SCRIPT_CONTINUE;
+        }
         sendSystemMessageTestingOnly(self, "Sending you to a millenium falcon instance");
         npe.movePlayerFromHangarToFalcon(self);
         return SCRIPT_CONTINUE;
     }
     public int cmdNpeGotoTansariiStation(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException
     {
+        if(!isGod(self)) {
+            return SCRIPT_CONTINUE;
+        }
         java.util.StringTokenizer st = new java.util.StringTokenizer(params);
         int instanceId = 0;
         if (st.hasMoreTokens())
@@ -3783,6 +3792,9 @@ public class cmd extends script.base_script
     }
     public int cmdNpeGotoStationGamma(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException
     {
+        if(!isGod(self)) {
+            return SCRIPT_CONTINUE;
+        }
         java.util.StringTokenizer st = new java.util.StringTokenizer(params);
         int instanceId = 0;
         if (st.hasMoreTokens())
@@ -4343,6 +4355,30 @@ public class cmd extends script.base_script
             return SCRIPT_CONTINUE;
         }
 
+        else if (command.equalsIgnoreCase("getUsername")) {
+
+            if(!st.hasMoreTokens()) {
+                sendSystemMessageTestingOnly(self, "Syntax: /admin getUsername <player first name OR object ID>");
+                return SCRIPT_CONTINUE;
+            } else {
+                String toParse = st.nextToken();
+                obj_id player;
+                if(toParse.matches(".*\\d.*")) {
+                    player = obj_id.getObjId(Long.parseLong(toParse));
+                } else
+                {
+                    player = getPlayerIdFromFirstName(toParse);
+                }
+                if (isIdValid(player) && isPlayer(player)) {
+                    sendSystemMessageTestingOnly(self, "The username for "+getPlayerName(player)+" ("+player+") is: "+getPlayerAccountUsername(player));
+                } else {
+                    sendSystemMessageTestingOnly(self, "getUsername: Error: The name or OID you provided is not valid or is not a player.");
+                    sendSystemMessageTestingOnly(self, "Syntax: /admin getUsername <player first name OR object ID>");
+                }
+                return SCRIPT_CONTINUE;
+            }
+        }
+
         else if (command.equalsIgnoreCase("setWeather")) {
 
             String weather;
@@ -4388,6 +4424,8 @@ public class cmd extends script.base_script
         sendConsoleMessage(self, "\\#ffff00 ============ Syntax: /admin commands ============ \\#.");
         sendConsoleMessage(self, "\\#00ffff getRotation \\#bfff00 <oid> \\#.");
         sendConsoleMessage(self, "returns the quaternions and rotation of an object");
+        sendConsoleMessage(self, "\\#00ffff getUsername \\#bfff00 <player first name OR oid> \\#.");
+        sendConsoleMessage(self, "returns the account username of the specified player");
         sendConsoleMessage(self, "\\#00ffff setWeather \\#bfff00 <clear | mild | heavy | severe> \\#.");
         sendConsoleMessage(self, "sets the weather for the current scene");
         sendConsoleMessage(self, "\\#ffff00 ============ ============ ============ ============ \\#.");
