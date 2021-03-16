@@ -41,6 +41,7 @@ public class locked_crafting_room extends script.base_script
         obj_id self = getSelf();
         String fname = getFirstName(player);
         permissionsAddAllowed(self, fname);
+        sendDirtyCellPermissionsUpdate(self, player, true);
         if (group.isGrouped(player))
         {
             obj_id groupObj = getGroupObject(player);
@@ -51,6 +52,7 @@ public class locked_crafting_room extends script.base_script
                     if (groupie != player) {
                         String firstName = getFirstName(groupie);
                         permissionsAddAllowed(self, firstName);
+                        sendDirtyCellPermissionsUpdate(self, groupie, true);
                     }
                 }
             }
@@ -58,6 +60,7 @@ public class locked_crafting_room extends script.base_script
         else 
         {
             permissionsAddAllowed(self, fname);
+            sendDirtyCellPermissionsUpdate(self, player, true);
         }
         return;
     }
@@ -69,6 +72,7 @@ public class locked_crafting_room extends script.base_script
         {
             for (String thisMember : currentList) {
                 permissionsRemoveAllowed(self, thisMember);
+                sendDirtyCellPermissionsUpdate(self, getPlayerIdFromFirstName(thisMember), false);
             }
         }
         return;

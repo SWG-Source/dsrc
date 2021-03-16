@@ -31,6 +31,8 @@ public class door_lock extends script.base_script
                 String fname = getFirstName(thisPlayer);
                 permissionsAddAllowed(self, fname);
                 permissionsAddAllowed(getSmallRoom(), fname);
+                sendDirtyCellPermissionsUpdate(self, thisPlayer, true);
+                sendDirtyCellPermissionsUpdate(getSmallRoom(), thisPlayer, true);
             }
         }
         return SCRIPT_CONTINUE;
@@ -51,6 +53,8 @@ public class door_lock extends script.base_script
                 String fname = getFirstName(thisPlayer);
                 permissionsAddAllowed(self, fname);
                 permissionsAddAllowed(getSmallRoom(), fname);
+                sendDirtyCellPermissionsUpdate(self, thisPlayer, true);
+                sendDirtyCellPermissionsUpdate(getSmallRoom(), thisPlayer, true);
             }
         }
         return SCRIPT_CONTINUE;
@@ -124,6 +128,8 @@ public class door_lock extends script.base_script
             permList = utils.addElement(permList, player);
             utils.setResizeableBatchObjVar(room, VAR_ACCESS_LIST, permList);
         }
+        sendDirtyCellPermissionsUpdate(room, player, true);
+        sendDirtyCellPermissionsUpdate(getSmallRoom(), player, true);
         return SCRIPT_CONTINUE;
     }
     public int removeFromList(obj_id self, dictionary params) throws InterruptedException
@@ -148,6 +154,8 @@ public class door_lock extends script.base_script
         }
         permList = utils.removeElement(permList, player);
         utils.setResizeableBatchObjVar(room, VAR_ACCESS_LIST, permList);
+        sendDirtyCellPermissionsUpdate(room, player, false);
+        sendDirtyCellPermissionsUpdate(getSmallRoom(), player, false);
         return SCRIPT_CONTINUE;
     }
     public boolean convertAccessList(obj_id room) throws InterruptedException

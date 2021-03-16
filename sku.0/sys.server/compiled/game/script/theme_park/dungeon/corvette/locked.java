@@ -25,6 +25,7 @@ public class locked extends script.base_script
             if (isIdValid(thisPlayer)) {
                 String fname = getFirstName(thisPlayer);
                 permissionsAddAllowed(self, fname);
+                sendDirtyCellPermissionsUpdate(self, thisPlayer, true);
             }
         }
         return SCRIPT_CONTINUE;
@@ -43,6 +44,7 @@ public class locked extends script.base_script
             if (isIdValid(thisPlayer)) {
                 String fname = getFirstName(thisPlayer);
                 permissionsAddAllowed(self, fname);
+                sendDirtyCellPermissionsUpdate(self, thisPlayer, true);
             }
         }
         return SCRIPT_CONTINUE;
@@ -84,6 +86,7 @@ public class locked extends script.base_script
             permList = utils.addElement(permList, player);
             utils.setResizeableBatchObjVar(room, "access", permList);
         }
+        sendDirtyCellPermissionsUpdate(room, player, true);
         return SCRIPT_CONTINUE;
     }
     public int removeFromList(obj_id self, dictionary params) throws InterruptedException
@@ -107,6 +110,7 @@ public class locked extends script.base_script
         }
         permList = utils.removeElement(permList, player);
         utils.setResizeableBatchObjVar(room, "access", permList);
+        sendDirtyCellPermissionsUpdate(room, player, false);
         return SCRIPT_CONTINUE;
     }
     public int unlock(obj_id self, dictionary params) throws InterruptedException

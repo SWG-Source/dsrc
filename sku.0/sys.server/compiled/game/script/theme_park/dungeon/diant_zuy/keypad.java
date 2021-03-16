@@ -75,6 +75,7 @@ public class keypad extends script.base_script
                 String playerName = getFirstName(player);
                 obj_id pantry = getCellId(top, "pantry");
                 permissionsAddAllowed(pantry, playerName);
+                sendDirtyCellPermissionsUpdate(pantry, player, true);
             }
             else 
             {

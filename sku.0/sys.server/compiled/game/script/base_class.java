@@ -8,10 +8,7 @@ package script;
 import script.library.utils;
 
 import java.io.File;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.List;
-import java.util.Vector;
+import java.util.*;
 
 
 public class base_class
@@ -19853,6 +19850,22 @@ public class base_class
     {
         _expelFromBuilding(getLongWithNull(target));
     }
+
+    /**
+     * Sends a dirty cell permissions update message directly to a player's client to forcibly
+     * update the client's cell permissions cache with regards to the cell in question as a means of
+     * more quickly granting/revoking access to a cell (e.g. in Death Watch Bunker).
+     *
+     * @param cell the obj_id of the cell you are updating permissions for
+     * @param player the obj_id of the player (and thus their client) to send the notification to
+     * @param isAllowed true if they are being added to enter a cell, false if they are being removed/banned
+     */
+    public static void sendDirtyCellPermissionsUpdate(obj_id cell, obj_id player, boolean isAllowed) {
+        _sendDirtyCellPermissionsUpdateToClient(getLongWithNull(cell), getLongWithNull(player), isAllowed);
+    }
+    private static native void _sendDirtyCellPermissionsUpdateToClient(long cell, long player, boolean isAllowed);
+
+
 
     /*@}*/
 

@@ -3,6 +3,7 @@ package script.gm;
 import script.*;
 import script.library.*;
 
+import java.util.Arrays;
 import java.util.StringTokenizer;
 import java.util.Vector;
 
@@ -3999,6 +4000,7 @@ public class cmd extends script.base_script
                         instance.removePlayerFlagForInstance(target, flag);
                     }
                 }
+                removeObjVar(target, "mand.acknowledge");
                 sendSystemMessageTestingOnly(target, "You are no longer flagged for or overriding instance authorization.");
                 if(target != self) {
                     sendSystemMessageTestingOnly(self, "setInstanceAuthorized: You have removed flags and instance authorization for "+getPlayerName(target)+" ("+target+"). Use this command again to re-grant instance overrides.");
@@ -4012,6 +4014,7 @@ public class cmd extends script.base_script
                         instance.flagPlayerForInstance(target, flag);
                     }
                 }
+                setObjVar(target, "mand.acknowledge", 1);
                 sendSystemMessageTestingOnly(target, "You are now flagged for all instances and overriding instance authorization.");
                 if(target != self) {
                     sendSystemMessageTestingOnly(self, "setInstanceAuthorized: You have flagged "+getPlayerName(target)+" ("+target+") to access all instances and overrode their instance authorization. Use this command again to revert this override.");
@@ -4334,7 +4337,31 @@ public class cmd extends script.base_script
             return SCRIPT_CONTINUE;
         }
 
-        if(command.equalsIgnoreCase("getRotation")) {
+        if(command.equalsIgnoreCase("dumpPermsForCell")) {
+
+            obj_id oid;
+            if(!st.hasMoreTokens()) {
+                sendSystemMessageTestingOnly(self, "Syntax: /admin dumpPermsForCell <oid>");
+                return SCRIPT_CONTINUE;
+            } else {
+                oid = obj_id.getObjId(Long.parseLong(st.nextToken()));
+            }
+            if (!isValidId(oid)) {
+                sendSystemMessageTestingOnly(self, "The object specified for dumpPermsForCell was not valid.");
+                return SCRIPT_CONTINUE;
+            }
+
+            String message = "Access Permissions for Cell "+oid+":\n\n" +
+                    "Cell is Public? "+permissionsIsPublic(oid) + "\n\n" +
+                    "Allowed List: \n" + Arrays.toString(permissionsGetAllowed(oid)) + "\n\n" +
+                    "Banned List: \n" + Arrays.toString(permissionsGetBanned(oid)) + "\n\n";
+
+            sui.msgbox(self, self, message, sui.OK_ONLY, "Cell Permissions", "noHandler");
+
+            return SCRIPT_CONTINUE;
+        }
+
+        else if(command.equalsIgnoreCase("getRotation")) {
 
             obj_id oid;
             if(!st.hasMoreTokens()) {
@@ -4422,6 +4449,8 @@ public class cmd extends script.base_script
     private static void showAdminCmdSyntax(obj_id self) throws InterruptedException {
         sendSystemMessageTestingOnly(self, "Outputting nested commands and syntax of /admin to console");
         sendConsoleMessage(self, "\\#ffff00 ============ Syntax: /admin commands ============ \\#.");
+        sendConsoleMessage(self, "\\#00ffff dumpPermsForCell \\#bfff00 <oid> \\#.");
+        sendConsoleMessage(self, "returns the public status and permissions list for the provided cell");
         sendConsoleMessage(self, "\\#00ffff getRotation \\#bfff00 <oid> \\#.");
         sendConsoleMessage(self, "returns the quaternions and rotation of an object");
         sendConsoleMessage(self, "\\#00ffff getUsername \\#bfff00 <player first name OR oid> \\#.");

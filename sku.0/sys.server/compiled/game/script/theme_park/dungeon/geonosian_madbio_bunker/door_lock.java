@@ -28,6 +28,7 @@ public class door_lock extends script.base_script
             if (isIdValid(thisPlayer)) {
                 String fname = getFirstName(thisPlayer);
                 permissionsAddAllowed(self, fname);
+                sendDirtyCellPermissionsUpdate(self, thisPlayer, true);
             }
         }
         return SCRIPT_CONTINUE;
@@ -46,6 +47,7 @@ public class door_lock extends script.base_script
             if (isIdValid(thisPlayer)) {
                 String fname = getFirstName(thisPlayer);
                 permissionsAddAllowed(self, fname);
+                sendDirtyCellPermissionsUpdate(self, thisPlayer, true);
             }
         }
         return SCRIPT_CONTINUE;
@@ -79,6 +81,7 @@ public class door_lock extends script.base_script
         {
             CustomerServiceLog("DUNGEON_GeonosianBunker", "*Geonosian Finish: " + player + ": " + fname + " has entered the Last Room of the Bunker.");
         }
+        sendDirtyCellPermissionsUpdate(room, player, true);
         return SCRIPT_CONTINUE;
     }
     public int removeFromList(obj_id self, dictionary params) throws InterruptedException
@@ -102,6 +105,7 @@ public class door_lock extends script.base_script
         }
         permList = utils.removeElement(permList, player);
         utils.setResizeableBatchObjVar(room, VAR_ACCESS_LIST, permList);
+        sendDirtyCellPermissionsUpdate(room, player, false);
         return SCRIPT_CONTINUE;
     }
     public boolean convertAccessList(obj_id room) throws InterruptedException
