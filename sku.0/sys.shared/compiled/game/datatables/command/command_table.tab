@@ -698,7 +698,7 @@ gallop		immediate	gallop				01. Mai		1	0	1	1	1	0	1	1	1	0	0	0	0	0	0	0	1	1	0			0	0
 gallopStop		immediate	gallopStop				01. Mai		1	0	1	1	1	0	1	1	1	0	0	0	0	0	0	0	1	1	0			0	0	1	1		1	0	0	1	1	1	1	0	1	1	1	1	1	1	0	0									1	1														optional		3			0				0										
 gc		immediate			groupChat																							1	1		0	1												1																														none					0				0										
 gcwStatus		immediate	gcwStatus				0																								0	1												1																																							0										
-generateCraftedItem		immediate	cmdGenerateCraftedItem					admin																	1	1					0	1												1															1															optional							40	csr	0										
+generateCraftedItem		immediate	cmdGenerateCraftedItem					admin																	1	1					0	1												1															1													gm.cmd		optional							40	csr	0										
 getAccountInfo		immediate		failAdmin	getAccountInfo			admin																				1	1		0	1												1																														optional							40	csr	0										
 grantWarden		immediate		failAdmin	grantWarden			admin																				1	1		0	1												1																														optional							40	csr	0										
 revokeWarden		immediate		failAdmin	revokeWarden			admin																				1	1		0	1												1																														optional							40	csr	0										
