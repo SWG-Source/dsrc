@@ -211,7 +211,7 @@ public class ai extends script.base_script
             pathTo(npc, pathWaypoint);
             return;
         }
-        if (getConfigSetting("GameServer", "disableAILoitering") != null)
+        if (utils.checkConfigFlag("GameServer", "disableAILoitering"))
         {
             LOGC(aiLoggingEnabled(npc), "debug_ai", "ai::doDefaultCalmBehavior() npc(" + npc + ") disableAILoitering");
             return;
@@ -1005,12 +1005,6 @@ public class ai extends script.base_script
             return SCRIPT_CONTINUE;
         }
         boolean hasLoot = loot.addLoot(self);
-        String goldenTicketActive = getConfigSetting("EventTeam", "goldenTicket");
-        if(goldenTicketActive != null && goldenTicketActive.equals("true")) {
-            for (obj_id killer : killers) {
-                loot.addGoldenTicket(killer, self);
-            }
-        }
         boolean hasChanceToDropChroniclesLoot = false;
         if (hasObjVar(self, xp.VAR_TOP_GROUP))
         {
