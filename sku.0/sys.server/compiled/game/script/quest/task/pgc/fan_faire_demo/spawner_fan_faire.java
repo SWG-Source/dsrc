@@ -3,6 +3,7 @@ package script.quest.task.pgc.fan_faire_demo;
 import script.dictionary;
 import script.library.ai_lib;
 import script.library.create;
+import script.library.spawning;
 import script.library.utils;
 import script.location;
 import script.obj_id;
@@ -108,16 +109,7 @@ public class spawner_fan_faire extends script.base_script
     }
     public boolean canSpawnByConfigSetting() throws InterruptedException
     {
-        String disableSpawners = getConfigSetting("GameServer", "disableAreaSpawners");
-        if (disableSpawners == null)
-        {
-            return true;
-        }
-        if (disableSpawners.equals("true") || disableSpawners.equals("1"))
-        {
-            return false;
-        }
-        return true;
+        return spawning.AREA_SPAWNERS_DISABLED;
     }
     public int OnDestroy(obj_id self) throws InterruptedException
     {

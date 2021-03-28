@@ -7,18 +7,21 @@ import script.obj_id;
 
 public class battle_controller extends script.base_script {
 
-    public final int DEFAULT_TATOOINE_DELAY = 3;
-    public final int DEFAULT_CORELLIA_DELAY = 3;
-    public final int DEFAULT_DANTOOINE_DELAY = 3;
-    public final int DEFAULT_LOK_DELAY = 3;
-    public final int DEFAULT_NABOO_DELAY = 3;
-
-    public final int DEFAULT_TATOOINE_STAGGER = 0;
-    public final int DEFAULT_CORELLIA_STAGGER = 2;
-    public final int DEFAULT_DANTOOINE_STAGGER = 0;
-    public final int DEFAULT_LOK_STAGGER = 2;
-    public final int DEFAULT_NABOO_STAGGER = 4;
-
+    public static final boolean TATOOINE_ACTIVE = utils.checkConfigFlag("GameServer", "spaceGcwTatooineActive");
+    public static final boolean CORELLIA_ACTIVE = utils.checkConfigFlag("GameServer", "spaceGcwCorelliaActive");
+    public static final boolean DANTOOINE_ACTIVE = utils.checkConfigFlag("GameServer", "spaceGcwDantooineActive");
+    public static final boolean LOK_ACTIVE = utils.checkConfigFlag("GameServer", "spaceGcwLokActive");
+    public static final boolean NABOO_ACTIVE = utils.checkConfigFlag("GameServer", "spaceGcwNabooActive");
+    public static final int TATOOINE_DELAY = utils.getIntConfigSetting("GameServer", "spaceGcwTatooineDelay", 3);
+    public static final int CORELLIA_DELAY = utils.getIntConfigSetting("GameServer", "spaceGcwCorelliaDelay", 3);
+    public static final int DANTOOINE_DELAY = utils.getIntConfigSetting("GameServer", "spaceGcwDantooineDelay", 3);
+    public static final int LOK_DELAY = utils.getIntConfigSetting("GameServer", "spaceGcwLokDelay", 3);
+    public static final int NABOO_DELAY = utils.getIntConfigSetting("GameServer", "spaceGcwNabooDelay", 3);
+    public static final int TATOOINE_STAGGER = utils.getIntConfigSetting("GameServer", "spaceGcwTatooineStagger", 0);
+    public static final int CORELLIA_STAGGER = utils.getIntConfigSetting("GameServer", "spaceGcwCorelliaStagger", 2);
+    public static final int DANTOOINE_STAGGER = utils.getIntConfigSetting("GameServer", "spaceGcwDantooineStagger", 0);
+    public static final int LOK_STAGGER = utils.getIntConfigSetting("GameServer", "spaceGcwLokStagger", 2);
+    public static final int NABOO_STAGGER = utils.getIntConfigSetting("GameServer", "spaceGcwNabooStagger", 4);
     // Configuration Array:
     // 1. Zone.
     // 2. Initial Battle Type.
@@ -29,23 +32,6 @@ public class battle_controller extends script.base_script {
             {"space_lok", battle_spawner.BATTLE_TYPE_PVP},
             {"space_naboo", battle_spawner.BATTLE_TYPE_PVE}
     };
-    public boolean tatooineActive = true;
-    public boolean corelliaActive = true;
-    public boolean dantooineActive = true;
-    public boolean lokActive = true;
-    public boolean nabooActive = true;
-
-    public int tatooineDelay = 3;
-    public int corelliaDelay = 3;
-    public int dantooineDelay = 3;
-    public int lokDelay = 3;
-    public int nabooDelay = 3;
-
-    public int tatooineStagger = 0;
-    public int corelliaStagger = 2;
-    public int dantooineStagger = 0;
-    public int lokStagger = 2;
-    public int nabooStagger = 4;
 
     public int OnAttach(obj_id self) throws InterruptedException
     {
@@ -62,7 +48,6 @@ public class battle_controller extends script.base_script {
         int[] convertedCalendarTime = player_structure.convertSecondsTime(calendarTime);
         //float minutesToTopOfHour = 59 - convertedCalendarTime[2];
         float minutesToTopOfHour = 0;
-        getSettings();
         LOG("space_gcw", "battle_controller.OnInitialize: Starting check for battle status in roughly " + minutesToTopOfHour + " minutes.");
         // check battle status at the top of the hour
         messageTo(self, "checkBattleStatus", null, minutesToTopOfHour * 60.0f, false);
@@ -182,15 +167,15 @@ public class battle_controller extends script.base_script {
     public int getHoursBetweenBattles(String scene){
         switch(scene){
             case "space_tatooine":
-                return tatooineDelay;
+                return TATOOINE_DELAY;
             case "space_corellia":
-                return corelliaDelay;
+                return CORELLIA_DELAY;
             case "space_dantooine":
-                return dantooineDelay;
+                return DANTOOINE_DELAY;
             case "space_lok":
-                return lokDelay;
+                return LOK_DELAY;
             case "space_naboo":
-                return nabooDelay;
+                return NABOO_DELAY;
             default:
                 return 0;
         }
@@ -198,15 +183,15 @@ public class battle_controller extends script.base_script {
     public boolean isSceneActive(String zone) {
         switch(zone){
             case "space_tatooine":
-                return tatooineActive;
+                return TATOOINE_ACTIVE;
             case "space_corellia":
-                return corelliaActive;
+                return CORELLIA_ACTIVE;
             case "space_dantooine":
-                return dantooineActive;
+                return DANTOOINE_ACTIVE;
             case "space_lok":
-                return lokActive;
+                return LOK_ACTIVE;
             case "space_naboo":
-                return nabooActive;
+                return NABOO_ACTIVE;
         }
         return true;
     }
@@ -221,53 +206,19 @@ public class battle_controller extends script.base_script {
         int stagger = 0;
         switch(zone){
             case "space_tatooine":
-                return tatooineStagger;
+                return TATOOINE_STAGGER;
             case "space_corellia":
-                return corelliaStagger;
+                return CORELLIA_STAGGER;
             case "space_dantooine":
-                return dantooineStagger;
+                return DANTOOINE_STAGGER;
             case "space_lok":
-                return lokStagger;
+                return LOK_STAGGER;
             case "space_naboo":
-                return nabooStagger;
+                return NABOO_STAGGER;
         }
         return stagger;
     }
 
-    public void getSettings() throws InterruptedException {
-        LOG("space_gcw", "battle_controller.getSettings: The space battle sequencer object is getting settings.");
-
-        // check which zones are active
-        tatooineActive = utils.stringToInt(getConfigSetting("GameServer", "spaceGcwTatooineActive")) > 0;
-        corelliaActive = utils.stringToInt(getConfigSetting("GameServer", "spaceGcwCorelliaActive")) > 0;
-        dantooineActive = utils.stringToInt(getConfigSetting("GameServer", "spaceGcwDantooineActive")) > 0;
-        lokActive = utils.stringToInt(getConfigSetting("GameServer", "spaceGcwLokActive")) > 0;
-        nabooActive = utils.stringToInt(getConfigSetting("GameServer", "spaceGcwNabooActive")) > 0;
-
-        tatooineDelay = utils.stringToInt(getConfigSetting("GameServer", "spaceGcwTatooineDelay"));
-        if(tatooineDelay < 0) tatooineDelay = DEFAULT_TATOOINE_DELAY;
-        corelliaDelay = utils.stringToInt(getConfigSetting("GameServer", "spaceGcwCorelliaDelay"));
-        if(corelliaDelay < 0) corelliaDelay = DEFAULT_CORELLIA_DELAY;
-        dantooineDelay = utils.stringToInt(getConfigSetting("GameServer", "spaceGcwDantooineDelay"));
-        if(dantooineDelay < 0) dantooineDelay = DEFAULT_DANTOOINE_DELAY;
-        lokDelay = utils.stringToInt(getConfigSetting("GameServer", "spaceGcwLokDelay"));
-        if(lokDelay < 0) lokDelay = DEFAULT_LOK_DELAY;
-        nabooDelay = utils.stringToInt(getConfigSetting("GameServer", "spaceGcwNabooDelay"));
-        if(nabooDelay < 0) nabooDelay = DEFAULT_NABOO_DELAY;
-
-        tatooineStagger = utils.stringToInt(getConfigSetting("GameServer", "spaceGcwTatooineStagger"));
-        if(tatooineStagger < 0) tatooineStagger = DEFAULT_TATOOINE_STAGGER;
-        corelliaStagger = utils.stringToInt(getConfigSetting("GameServer", "spaceGcwCorelliaStagger"));
-        if(corelliaStagger < 0) corelliaStagger = DEFAULT_CORELLIA_STAGGER;
-        dantooineStagger = utils.stringToInt(getConfigSetting("GameServer", "spaceGcwDantooineStagger"));
-        if(dantooineStagger < 0) dantooineStagger = DEFAULT_DANTOOINE_STAGGER;
-        lokStagger = utils.stringToInt(getConfigSetting("GameServer", "spaceGcwLokStagger"));
-        if(lokStagger < 0) lokStagger = DEFAULT_LOK_STAGGER;
-        nabooStagger = utils.stringToInt(getConfigSetting("GameServer", "spaceGcwNabooStagger"));
-        if(nabooStagger < 0) nabooStagger = DEFAULT_NABOO_STAGGER;
-        LOG("space_gcw", "battle_controller.getSettings: The space battle sequencer object has finished getting settings.");
-
-    }
     /*
      * Helper method for command:
      *          /spaceBattleStatus <zone>

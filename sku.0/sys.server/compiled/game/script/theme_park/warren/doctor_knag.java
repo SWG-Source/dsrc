@@ -1,5 +1,6 @@
 package script.theme_park.warren;
 
+import script.ai.ai;
 import script.library.ai_lib;
 import script.library.chat;
 import script.obj_id;
@@ -16,7 +17,7 @@ public class doctor_knag extends script.base_script
     public static final String ACTION_THREATEN = "threaten";
     public int OnAttach(obj_id self) throws InterruptedException
     {
-        if (getConfigSetting("GameServer", "disableAITriggerVolumes") == null)
+        if (!ai.AI_TRIGGER_VOLUMES_DISABLED)
         {
             createTriggerVolume(ALERT_VOLUME_NAME, 15.0f, true);
         }

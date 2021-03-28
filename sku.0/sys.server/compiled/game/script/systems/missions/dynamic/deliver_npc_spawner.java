@@ -1,6 +1,7 @@
 package script.systems.missions.dynamic;
 
 import script.library.create;
+import script.library.events;
 import script.library.locations;
 import script.location;
 import script.obj_id;
@@ -12,23 +13,19 @@ public class deliver_npc_spawner extends script.base_script
     }
     public int OnAttach(obj_id self) throws InterruptedException
     {
-        String empiredayRunning = getConfigSetting("GameServer", "empireday_ceremony");
-        if (empiredayRunning != null)
+        if (events.isEventActive(events.EMPIRE_DAY))
         {
-            if (empiredayRunning.equals("true") || empiredayRunning.equals("1"))
+            location here = getLocation(self);
+            String city = locations.getCityName(here);
+            if (city == null)
             {
-                location here = getLocation(self);
-                String city = locations.getCityName(here);
-                if (city == null)
+                city = locations.getGuardSpawnerRegionName(here);
+            }
+            if (city != null && city.length() > 0)
+            {
+                if (city.equals("theed"))
                 {
-                    city = locations.getGuardSpawnerRegionName(here);
-                }
-                if (city != null && city.length() > 0)
-                {
-                    if (city.equals("theed"))
-                    {
-                        return SCRIPT_CONTINUE;
-                    }
+                   return SCRIPT_CONTINUE;
                 }
             }
         }

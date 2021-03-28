@@ -18,9 +18,7 @@ public class generic_spawner extends script.base_script
     {
         if (getTemplateName(self).equals("object/building/general/bunker_allum_mine.iff"))
         {
-            String setting = getConfigSetting("Dungeon", "Death_Watch");
-            if (setting == null || setting.equals("false") || setting.equals("0"))
-            {
+            if(!instance.DEATH_WATCH_DUNGEON_ENABLED) {
                 return SCRIPT_CONTINUE;
             }
         }
@@ -38,9 +36,7 @@ public class generic_spawner extends script.base_script
     {
         if (getTemplateName(self).equals("object/building/general/bunker_allum_mine.iff"))
         {
-            String setting = getConfigSetting("Dungeon", "Death_Watch");
-            if (setting == null || setting.equals("false") || setting.equals("0"))
-            {
+            if(!instance.DEATH_WATCH_DUNGEON_ENABLED) {
                 return SCRIPT_CONTINUE;
             }
         }
@@ -388,8 +384,7 @@ public class generic_spawner extends script.base_script
         }
     }
     public boolean canSpawnByConfigSetting() throws InterruptedException {
-        String disableSpawners = getConfigSetting("GameServer", "disableGenericSpawner");
-        return disableSpawners == null || !(disableSpawners.equals("true") || disableSpawners.equals("1"));
+        return !spawning.GENERIC_SPAWNERS_DISABLED;
     }
     public int getRandomPlanetCreatureLevel(obj_id spawner, String npcType, location here) throws InterruptedException
     {

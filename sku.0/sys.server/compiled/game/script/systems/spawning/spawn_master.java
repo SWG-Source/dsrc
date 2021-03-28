@@ -1,5 +1,6 @@
 package script.systems.spawning;
 
+import script.library.spawning;
 import script.obj_id;
 
 public class spawn_master extends script.systems.spawning.spawn_base
@@ -7,12 +8,12 @@ public class spawn_master extends script.systems.spawning.spawn_base
     public spawn_master()
     {
     }
+
+    /**
+     Bootstrap function for trigger volume creation. This will be moved to OnInitialization once it comes online.
+     */
     public int OnUniverseComplete(obj_id self) throws InterruptedException
     {
-        if (!hasObjVar(self, "boolSpawnerIsOn"))
-        {
-            setObjVar(self, "boolSpawnerIsOn", true);
-        }
         if (!hasObjVar(self, "intMaxPlanetSpawnCount"))
         {
             setObjVar(self, "intMaxPlanetSpawnCount", 10000);
@@ -29,26 +30,21 @@ public class spawn_master extends script.systems.spawning.spawn_base
         setObjVar(self, "intCurrentPlanetSpawnCount", 0);
         setObjVar(self, "intMinSpawnDelay", SPAWN_PLAYER_DELAY_MIN);
         setObjVar(self, "intMaxSpawnDelay", SPAWN_PLAYER_DELAY_MAX);
-        String strConfigSetting = getConfigSetting("GameServer", "spawningInitialState");
-        if (strConfigSetting != null)
-        {
-            if (strConfigSetting.equals("on"))
-            {
-                setObjVar(self, "boolSpawnerIsOn", true);
-            }
-            else if (strConfigSetting.equals("off"))
-            {
-                setObjVar(self, "boolSpawnerIsOn", false);
-            }
+        if (spawning.SPAWNER_INITIAL_STATE_OFF) {
+            setObjVar(self, "boolSpawnerIsOn", false);
+        } else {
+            setObjVar(self, "boolSpawnerIsOn", true);
         }
         return SCRIPT_CONTINUE;
     }
+
+    /**
+     * This is the initialization routine for the entire spawn system. This creates the master trigger volumes,
+     * and initializes all necessary spawn values. The values are derived from spawn_base
+     * These will be moved once we get a more concrete idea of spawn listings.
+     */
     public int OnAttach(obj_id self) throws InterruptedException
     {
-        if (!hasObjVar(self, "boolSpawnerIsOn"))
-        {
-            setObjVar(self, "boolSpawnerIsOn", true);
-        }
         if (!hasObjVar(self, "intMaxPlanetSpawnCount"))
         {
             setObjVar(self, "intMaxPlanetSpawnCount", 10000);
@@ -65,17 +61,10 @@ public class spawn_master extends script.systems.spawning.spawn_base
         setObjVar(self, "intCurrentPlanetSpawnCount", 0);
         setObjVar(self, "intMinSpawnDelay", SPAWN_PLAYER_DELAY_MIN);
         setObjVar(self, "intMaxSpawnDelay", SPAWN_PLAYER_DELAY_MAX);
-        String strConfigSetting = getConfigSetting("GameServer", "spawningInitialState");
-        if (strConfigSetting != null)
-        {
-            if (strConfigSetting.equals("on"))
-            {
-                setObjVar(self, "boolSpawnerIsOn", true);
-            }
-            else if (strConfigSetting.equals("off"))
-            {
-                setObjVar(self, "boolSpawnerIsOn", false);
-            }
+        if (spawning.SPAWNER_INITIAL_STATE_OFF) {
+            setObjVar(self, "boolSpawnerIsOn", false);
+        } else {
+            setObjVar(self, "boolSpawnerIsOn", true);
         }
         return SCRIPT_CONTINUE;
     }

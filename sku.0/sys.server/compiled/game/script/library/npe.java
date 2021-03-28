@@ -166,11 +166,11 @@ public class npe extends script.base_script
     }
     public static int getMinInstancePopulation() throws InterruptedException
     {
-        return utils.stringToInt(getConfigSetting("GameServer", "npeMinInstancePopulation"));
+        return utils.stringToInt(getConfigSetting("GameServer", "npeMinInstancePopulation")); // src set value, default is 20
     }
     public static int getMaxInstancePopulation() throws InterruptedException
     {
-        return utils.stringToInt(getConfigSetting("GameServer", "npeMaxInstancePopulation"));
+        return utils.stringToInt(getConfigSetting("GameServer", "npeMaxInstancePopulation")); // src set value, default is 50
     }
     public static int getBestStationInstanceIndex(obj_id player, dictionary[] stations) throws InterruptedException
     {

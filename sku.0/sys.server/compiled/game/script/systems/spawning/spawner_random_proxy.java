@@ -357,8 +357,7 @@ public class spawner_random_proxy extends script.base_script
         return SCRIPT_CONTINUE;
     }
     public boolean canSpawnByConfigSetting() throws InterruptedException {
-        String disableSpawners = getConfigSetting("GameServer", "disableAreaSpawners");
-        return disableSpawners == null || !(disableSpawners.equals("true") || disableSpawners.equals("1"));
+        return !spawning.AREA_SPAWNERS_DISABLED;
     }
     public int OnDestroy(obj_id self) throws InterruptedException
     {

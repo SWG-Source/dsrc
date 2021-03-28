@@ -24,14 +24,9 @@ public class battlefield_region extends script.base_script
         messageTo(self, "msgInitializeRegion", null, 0.0f, true);
         if (hasObjVar(self, battlefield.VAR_BATTLEFIELD))
         {
-            String config = getConfigSetting("GameServer", "disableBattlefields");
-            if (config != null)
-            {
-                if (config.equals("true"))
-                {
-                    battlefield.endBattlefield(self, false);
-                    return SCRIPT_CONTINUE;
-                }
+            if(battlefield.BATTLEFIELDS_DISABLED) {
+                battlefield.endBattlefield(self, false);
+                return SCRIPT_CONTINUE;
             }
             int version = battlefield.getBattlefieldVersion(self);
             LOG("LOG_CHANNEL", "version ->" + version + "  current_version ->" + battlefield.CURRENT_VERSION);

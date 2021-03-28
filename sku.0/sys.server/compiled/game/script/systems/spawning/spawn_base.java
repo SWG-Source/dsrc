@@ -13,21 +13,21 @@ public class spawn_base extends script.base_script
     }
     public static final int SPAWN_HEARBEAT_SPAWN_EVENT = 5;
     public static final int SPAWN_PLAYER_DELAY_MIN = 30;
-    public static final int SPAWN_PLAYER_DELAY_MAX = 60;
+    public static final int SPAWN_PLAYER_DELAY_MAX = 60; // delay for spawn_player spawn events
     public static final int SPAWN_DISTANCE_MIN = 12;
-    public static final int SPAWN_DISTANCE_MAX = 32;
-    public static final int SPAWN_CHECK_DISTANCE = 64;
-    public static final int SPAWN_CHECK_LIMIT = 15;
+    public static final int SPAWN_DISTANCE_MAX = 32; // for use until we get findvalidlocation
+    public static final int SPAWN_CHECK_DISTANCE = 64; // you must move X meters before you get more spawns after the limit
+    public static final int SPAWN_CHECK_LIMIT = 15; // you get X creatures!
     public static final int SPAWN_TEMPLATE_CHECK_DISTANCE = 128;
-    public static final int SPAWN_CHECK_TEMPLATE_LIMIT = 14;
+    public static final int SPAWN_CHECK_TEMPLATE_LIMIT = 14; // 14 templates allowed in an area
     public static final int SPAWN_THEATER_CHECK_DISTANCE = 200;
     public static final int SPAWN_CHECK_THEATER_LIMIT = 1;
-    public static final int EXTERIOR_SPAWN_CHANCE = 50;
+    public static final int EXTERIOR_SPAWN_CHANCE = 50; // chance of spawning something outside of a structure
     public static final int EXTERIOR_MAX_NPC = 10;
     public static final int INTERIOR_MAX_NPC = 10;
     public static final int EXTERIOR_MIN_NPC = 4;
     public static final int INTERIOR_MIN_NPC = 4;
-    public static final int PLAYER_TO_NPC_RATIO = 1;
+    public static final int PLAYER_TO_NPC_RATIO = 1; // for every 1 player, we decrease our max and min by 1
     public static final boolean boolFastSpawnEnabled = false;
     public static final int MAXIMUM_SPAWNING_RUN_TIME_RULES = 200;
     public static final float CREATURES_TO_PLAYERS_RATIO = 20;
@@ -35,6 +35,14 @@ public class spawn_base extends script.base_script
     {
         "tutorial"
     };
+
+    /**
+     this function takes the obj_id of the player, and the obj_id of the master spawn object.  It will eventually take a region object id, which will contain the necessary
+     spawn list information. Using this information, it culls out any templates at their max, as well as checks against the global spawn count. It then returns a dictionary with two elements
+     The first is an array of template id's, and the second element is the number of elements in the array. This is because we don't have any sort of dynamically resizable arrays
+     Eventually this function will also handle all culling based on player difficulty  and factional data.
+     @return dictionary Contains string array strSpawnTypes, and intSpawnListSize
+     */
     public int[] getValidSpawn(dictionary dctPlayerStats) throws InterruptedException
     {
         if (dctPlayerStats == null)
@@ -466,8 +474,7 @@ public class spawn_base extends script.base_script
     {
     }
     public boolean checkSpawnLogFailures() throws InterruptedException {
-        String strConfigSetting = getConfigSetting("GameServer", "fastSpawn");
-        return strConfigSetting != null && strConfigSetting.equals("true");
+        return spawning.FAST_SPAWN;
     }
     public boolean isSpawningAllowed(location locTest) throws InterruptedException
     {

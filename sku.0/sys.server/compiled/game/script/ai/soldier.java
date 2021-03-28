@@ -22,7 +22,7 @@ public class soldier extends script.base_script
         setAttributeInterested(self, attrib.THUG);
         setAttributeInterested(self, attrib.HERBIVORE);
         setAttributeInterested(self, attrib.CARNIVORE);
-        if (getConfigSetting("GameServer", "disableAITriggerVolumes") == null)
+        if (!ai.AI_TRIGGER_VOLUMES_DISABLED)
         {
             createTriggerVolume(ai_lib.ALERT_VOLUME_NAME, ai_lib.aiGetApproachTriggerRange(self), true);
         }
@@ -142,7 +142,7 @@ public class soldier extends script.base_script
         {
             return;
         }
-        if (getConfigSetting("GameServer", "disableAICombat") != null)
+        if (ai.AI_COMBAT_DISABLED)
         {
             return;
         }

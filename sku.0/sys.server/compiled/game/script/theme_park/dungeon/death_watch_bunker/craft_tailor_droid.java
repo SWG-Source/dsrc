@@ -3,6 +3,7 @@ package script.theme_park.dungeon.death_watch_bunker;
 import script.dictionary;
 import script.library.ai_lib;
 import script.library.create;
+import script.library.instance;
 import script.library.utils;
 import script.location;
 import script.obj_id;
@@ -31,9 +32,7 @@ public class craft_tailor_droid extends script.base_script
     public int OnGiveItem(obj_id self, obj_id item, obj_id giver) throws InterruptedException
     {
         CustomerServiceLog("DUNGEON_DeathWatchBunker", "*Mandalorian Armor: Player %TU has put an item in the tailor droid", giver);
-        String setting = getConfigSetting("Dungeon", "Death_Watch");
-        if (setting == null || setting.equals("false") || setting.equals("0"))
-        {
+        if(!instance.DEATH_WATCH_DUNGEON_ENABLED) {
             return SCRIPT_CONTINUE;
         }
         if (!hasSkill(giver, "class_domestics_phase4_master"))

@@ -1670,7 +1670,7 @@ public class guild extends script.base_script
             if (timeJoinedGcwDefenderRegion > 0)
             {
                 guildInfoStr += (" (started defending on " + getCalendarTimeStringLocal(timeJoinedGcwDefenderRegion) + ")\n");
-                final int gcwDaysRequiredForGcwRegionDefenderBonus = utils.stringToInt(getConfigSetting("GameServer", "gcwDaysRequiredForGcwRegionDefenderBonus"));
+                final int gcwDaysRequiredForGcwRegionDefenderBonus = utils.getIntConfigSetting("GameServer", "gcwDaysRequiredForGcwRegionDefenderBonus");
                 final int age = getCalendarTime() - timeJoinedGcwDefenderRegion;
                 if (age > (gcwDaysRequiredForGcwRegionDefenderBonus * 86400))
                 {

@@ -13,6 +13,8 @@ public class combat_mine_spawner extends script.base_script
     }
     public static final String dataTable = "datatables/combat/npc_landmines.iff";
     public static final boolean doLogging = false;
+    public static final boolean MINE_FIELDS_DISABLED = utils.checkConfigFlag("GameServer", "disableMineFields");
+
     public int OnAttach(obj_id self) throws InterruptedException
     {
         if (canSpawnByConfigSetting())
@@ -109,15 +111,6 @@ public class combat_mine_spawner extends script.base_script
     }
     public boolean canSpawnByConfigSetting() throws InterruptedException
     {
-        String disableSpawners = getConfigSetting("GameServer", "disableMineFields");
-        if (disableSpawners == null)
-        {
-            return true;
-        }
-        if (disableSpawners.equals("true") || disableSpawners.equals("1"))
-        {
-            return false;
-        }
-        return true;
+        return !MINE_FIELDS_DISABLED;
     }
 }

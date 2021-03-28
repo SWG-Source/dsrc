@@ -16,16 +16,13 @@ public class politician_event_master extends script.base_script
     }
     public int getElectionDuration() throws InterruptedException
     {
-        String durationConfigSetting = getConfigSetting("BestineEvents", "PoliticianEventDuration");
-        int electionDuration = utils.stringToInt(durationConfigSetting);
-        if (electionDuration == 0 || electionDuration == -1)
-        {
-            electionDuration = 2592000;
-        }
-        return electionDuration;
+        return utils.getIntConfigSetting("BestineEvents", "politicianEventDuration", 2592000);
     }
     public int beginBestineElection(obj_id self, dictionary params) throws InterruptedException
     {
+        if(utils.checkConfigFlag("BestineEvents", "disablePoliticianEvent")) {
+            return SCRIPT_CONTINUE;
+        }
         int electionNum = 1;
         if (hasObjVar(self, "bestine.electionEnded"))
         {

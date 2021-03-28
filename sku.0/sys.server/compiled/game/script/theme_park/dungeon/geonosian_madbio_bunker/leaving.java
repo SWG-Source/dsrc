@@ -1,6 +1,7 @@
 package script.theme_park.dungeon.geonosian_madbio_bunker;
 
 import script.dictionary;
+import script.library.instance;
 import script.obj_id;
 import script.string_id;
 
@@ -19,8 +20,7 @@ public class leaving extends script.base_script
         }
         if (!hasObjVar(item, "gm"))
         {
-            String setting = getConfigSetting("Dungeon", "Geonosian");
-            if (setting == null || setting.equals("false") || setting.equals("0"))
+            if (!instance.GEONOSIAN_BUNKER_ENABLED)
             {
                 string_id locked = new string_id(MSGS, "no_entry");
                 sendSystemMessage(item, locked);

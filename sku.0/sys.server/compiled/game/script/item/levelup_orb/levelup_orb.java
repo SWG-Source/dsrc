@@ -72,14 +72,11 @@ public class levelup_orb extends script.base_script
         int xpNeeded = dataTableGetInt("datatables/player/player_level.iff", currentLevel, "xp_required");
         int prevNeeded = dataTableGetInt("datatables/player/player_level.iff", currentLevel - 1, "xp_required");
         xpNeeded -= prevNeeded;
-        if (getConfigSetting("GameServer", "xpMultiplier") != null)
+        int xpMultiplier = utils.getIntConfigSetting("GameServer", "xpMultiplier");
+        if (xpMultiplier > 0)
         {
-            int xpBonusValue = utils.stringToInt(getConfigSetting("GameServer", "xpMultiplier"));
-            if (xpBonusValue > 1)
-            {
-                xpNeeded = xpNeeded / xpBonusValue;
-                xpNeeded += 1;
-            }
+            xpNeeded = xpNeeded / xpMultiplier;
+            xpNeeded += 1;
         }
         xp.grant(player, "combat_general", xpNeeded);
     }

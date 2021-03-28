@@ -3,6 +3,7 @@ package script.event.ewok_festival;
 import script.dictionary;
 import script.library.ai_lib;
 import script.library.create;
+import script.library.events;
 import script.library.utils;
 import script.location;
 import script.obj_id;
@@ -28,16 +29,7 @@ public class loveday_disillusion_blaire_spawner extends script.base_script
         {
             location spawnerLoc = getLocation(self);
             float spawnerYaw = getYaw(self);
-            boolean spawnBlaire = false;
-            String lovedayRunning = getConfigSetting("GameServer", "loveday");
-            if (lovedayRunning != null && lovedayRunning.length() > 0)
-            {
-                if (lovedayRunning.equals("true") || lovedayRunning.equals("1"))
-                {
-                    spawnBlaire = true;
-                }
-            }
-            if (spawnBlaire)
+            if (events.isEventActive(events.EWOK_FESTIVAL_OF_LOVE)) // spawn blaire
             {
                 obj_id blaire = create.object("loveday_ewok_disillusion_blaire", spawnerLoc);
                 if (isIdValid(blaire))

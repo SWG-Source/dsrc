@@ -15,8 +15,7 @@ public class corvette_rebel_pilot extends script.base_script
     }
     public boolean corvette_rebel_pilot_condition_hasRebelTicket(obj_id player, obj_id npc) throws InterruptedException
     {
-        String isDungeonActive = getConfigSetting("Dungeon", "Corellian_Corvette_Rebel");
-        if (isDungeonActive == null || isDungeonActive.equals("false") || isDungeonActive.equals("0"))
+        if (!instance.CORVETTE_REBEL_DUNGEON_ENABLED)
         {
             return false;
         }

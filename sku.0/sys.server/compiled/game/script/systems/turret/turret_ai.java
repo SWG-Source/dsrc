@@ -1,5 +1,6 @@
 package script.systems.turret;
 
+import script.ai.ai;
 import script.combat_engine.attacker_data;
 import script.combat_engine.defender_data;
 import script.combat_engine.hit_result;
@@ -187,7 +188,7 @@ public class turret_ai extends script.systems.combat.combat_base_old
     }
     public int OnSawAttack(obj_id self, obj_id defender, obj_id[] attackers) throws InterruptedException
     {
-        if (getConfigSetting("GameServer", "disableAICombat") != null)
+        if (ai.AI_COMBAT_DISABLED)
         {
             setWantSawAttackTriggers(self, false);
             return SCRIPT_CONTINUE;

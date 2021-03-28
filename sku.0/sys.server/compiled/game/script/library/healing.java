@@ -196,6 +196,8 @@ public class healing extends script.base_script
     public static final string_id SID_DROID_REPAIR_DAMAGE_OTHER = new string_id("healing", "droid_repair_damage_other");
     public static final String RESPONSE_TEXT = "datatables/healing/healing_response.iff";
     public static final String PP_FILE_LOC = "healing_response";
+    public static final boolean CYBERNETIC_DEATH_EVENT = utils.checkConfigFlag("EventTeam", "enableCyberneticDeathEvent");
+
     public static final int[] COMBAT_STATES = 
     {
         STATE_DIZZY,
@@ -1075,7 +1077,7 @@ public class healing extends script.base_script
         }
         if (woundPlayer)
         {
-            if (getConfigSetting("GameServer", "enableCybernetics") != null)
+            if (CYBERNETIC_DEATH_EVENT)
             {
                 cybernetic.applyDeathCybernetic(player);
             }

@@ -34,7 +34,7 @@ public class sarlacc extends script.base_script
     {
         if (volumeName.equals("sarlaccBreach"))
         {
-            if (!isPlayer(whoTriggeredMe))
+            if (!isPlayer(whoTriggeredMe) || isGod(whoTriggeredMe))
             {
                 return SCRIPT_CONTINUE;
             }
@@ -61,7 +61,7 @@ public class sarlacc extends script.base_script
         }
         else if (volumeName.equals("sarlaccPreBreach"))
         {
-            if (!isPlayer(whoTriggeredMe))
+            if (!isPlayer(whoTriggeredMe) || isGod(whoTriggeredMe))
             {
                 return SCRIPT_CONTINUE;
             }
@@ -84,7 +84,7 @@ public class sarlacc extends script.base_script
             if (contents != null)
             {
                 for (obj_id content : contents) {
-                    if (isPlayer(content)) {
+                    if (isPlayer(content) && !isGod(content)) {
                         playerHint = 1;
                         if (bile == 0) {
                             bile = 1;

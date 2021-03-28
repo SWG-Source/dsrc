@@ -2077,16 +2077,7 @@ public class terminal_character_builder extends script.base_script
     };
     public boolean checkConfigSetting(String configString) throws InterruptedException
     {
-        String enabled = toLower(getConfigSetting("CharacterBuilder", configString));
-        if (enabled == null)
-        {
-            return false;
-        }
-        if (enabled.equals("true") || enabled.equals("1"))
-        {
-            return true;
-        }
-        return false;
+        return utils.checkConfigFlag("CharacterBuilder", configString);
     }
     public int OnObjectMenuRequest(obj_id self, obj_id player, menu_info mi) throws InterruptedException
     {

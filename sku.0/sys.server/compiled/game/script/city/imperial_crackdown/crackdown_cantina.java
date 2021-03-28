@@ -53,17 +53,10 @@ public class crackdown_cantina extends script.base_script
         }
         else 
         {
-            String trouble = getConfigSetting("Imperial Crackdown", "troubleChance");
-            int chanceOfTrouble = utils.stringToInt(trouble);
-            if (chanceOfTrouble == 0 || chanceOfTrouble == -1)
-            {
-                chanceOfTrouble = 20;
-            }
-            int rollForTrouble = rand(1, 100);
-            if (rollForTrouble < chanceOfTrouble)
+            int chanceOfTrouble = utils.getIntConfigSetting("EventTeam", "crackdownTroubleChance", 20);
+            if (rand(1, 100) < chanceOfTrouble)
             {
                 messageTo(self, "createTrouble", null, 15, false);
-                return SCRIPT_CONTINUE;
             }
             else 
             {
@@ -71,8 +64,8 @@ public class crackdown_cantina extends script.base_script
                 {
                     removeObjVar(self, "checkingForTrouble");
                 }
-                return SCRIPT_CONTINUE;
             }
+            return SCRIPT_CONTINUE;
         }
     }
     public int createTrouble(obj_id self, dictionary params) throws InterruptedException

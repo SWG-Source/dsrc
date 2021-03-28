@@ -15,8 +15,7 @@ public class corvette_imperial_pilot extends script.base_script
     }
     public boolean corvette_imperial_pilot_condition_hasImperialTicket(obj_id player, obj_id npc) throws InterruptedException
     {
-        String isDungeonActive = getConfigSetting("Dungeon", "Corellian_Corvette_Imperial");
-        if (isDungeonActive == null || isDungeonActive.equals("false") || isDungeonActive.equals("0"))
+        if (!instance.CORVETTE_IMPERIAL_DUNGEON_ENABLED)
         {
             return false;
         }

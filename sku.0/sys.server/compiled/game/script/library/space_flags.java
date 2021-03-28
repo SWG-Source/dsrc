@@ -18,6 +18,8 @@ public class space_flags extends script.base_script
     public static final String REBEL_NABOO = "nabooRebel";
     public static final String REBEL_CORELLIA = "corelliaRebel";
     public static final String SPACE_TRACK_FLAG = "spaceTrackFlagListName";
+    public static final boolean LIVE_SPACE_SERVER_MODE_OFF = utils.checkConfigFlag("ScriptFlags", "liveSpaceServerModeOff");
+
     public static void setSpaceTrack(obj_id player, String spaceTrack) throws InterruptedException
     {
         clearSpaceTrack(player);

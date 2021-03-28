@@ -1,6 +1,7 @@
 package script.event;
 
 import script.dictionary;
+import script.library.events;
 import script.library.holiday;
 import script.library.utils;
 import script.obj_id;
@@ -10,6 +11,12 @@ public class holiday_controller extends script.base_script
     public holiday_controller()
     {
     }
+
+    public static final boolean GALACTIC_MOON_FESTIVAL_ENABLED = events.isEventActive(events.GALACTIC_MOON_FESTIVAL);
+    public static final boolean LIFEDAY_ENABLED = events.isEventActive(events.LIFEDAY);
+    public static final boolean EWOK_FESTIVAL_OF_LOVE_ENABLED = events.isEventActive(events.EWOK_FESTIVAL_OF_LOVE);
+    public static final boolean EMPIRE_DAY_ENABLED = events.isEventActive(events.EMPIRE_DAY);
+
     public int OnInitialize(obj_id self) throws InterruptedException
     {
         CustomerServiceLog("holidayEvent", "holiday_controller.OnInitialize planet initialized, holiday controller called.");
@@ -38,11 +45,7 @@ public class holiday_controller extends script.base_script
         {
             return SCRIPT_CONTINUE;
         }
-        String halloweenRunning = getConfigSetting("GameServer", "halloween");
-        String lifedayRunning = getConfigSetting("GameServer", "lifeday");
-        String lovedayRunning = getConfigSetting("GameServer", "loveday");
-        String empiredayRunning = getConfigSetting("GameServer", "empireday_ceremony");
-        if (halloweenRunning != null && (halloweenRunning.equals("true") || halloweenRunning.equals("1")))
+        if (GALACTIC_MOON_FESTIVAL_ENABLED)
         {
             names[idx] = "holiday_event";
             attribs[idx] = "Halloween Event Running = True";
@@ -54,7 +57,7 @@ public class holiday_controller extends script.base_script
             attribs[idx] = "Halloween Event Running = False";
             idx++;
         }
-        if (lifedayRunning != null && (lifedayRunning.equals("true") || lifedayRunning.equals("1")))
+        if (LIFEDAY_ENABLED)
         {
             names[idx] = "holiday_event";
             attribs[idx] = "Life Day Event Running = True";
@@ -66,7 +69,7 @@ public class holiday_controller extends script.base_script
             attribs[idx] = "Life Day Event Running = False";
             idx++;
         }
-        if (lovedayRunning != null && (lovedayRunning.equals("true") || lovedayRunning.equals("1")))
+        if (EWOK_FESTIVAL_OF_LOVE_ENABLED)
         {
             names[idx] = "holiday_event";
             attribs[idx] = "Love Day Event Running = True";
@@ -78,7 +81,7 @@ public class holiday_controller extends script.base_script
             attribs[idx] = "Love Day Event Running = False";
             idx++;
         }
-        if (empiredayRunning != null && (empiredayRunning.equals("true") || empiredayRunning.equals("1")))
+        if (EMPIRE_DAY_ENABLED)
         {
             names[idx] = "holiday_event";
             attribs[idx] = "Empire Day Event Running = True";
@@ -99,59 +102,55 @@ public class holiday_controller extends script.base_script
 
         String universeWideEvents = getCurrentUniverseWideEvents();
         int halloween = universeWideEvents.indexOf("halloween");
-        String halloweenRunning = getConfigSetting("GameServer", "halloween");
         int lifeday = universeWideEvents.indexOf("lifeday");
-        String lifedayRunning = getConfigSetting("GameServer", "lifeday");
         int loveday = universeWideEvents.indexOf("loveday");
-        String lovedayRunning = getConfigSetting("GameServer", "loveday");
         int empireday = universeWideEvents.indexOf("empireday_ceremony");
-        String empiredayRunning = getConfigSetting("GameServer", "empireday_ceremony");
 
         switch (text) {
             case "halloweenStart":
-                startHolidayEvent(speaker, "halloween", halloweenRunning, halloween);
+                startHolidayEvent(speaker, "halloween", GALACTIC_MOON_FESTIVAL_ENABLED, halloween);
                 return SCRIPT_OVERRIDE;
             case "halloweenStop":
-                stopHolidayEvent(speaker, "halloween", halloweenRunning, halloween);
+                stopHolidayEvent(speaker, "halloween", GALACTIC_MOON_FESTIVAL_ENABLED, halloween);
                 return SCRIPT_OVERRIDE;
             case "halloweenStartForReals":
-                startHolidayEventForReals(speaker, "halloween", halloweenRunning);
+                startHolidayEventForReals(speaker, "halloween", GALACTIC_MOON_FESTIVAL_ENABLED);
                 return SCRIPT_OVERRIDE;
             case "halloweenStopForReals":
                 stopHolidayEventForReals(speaker, "halloween");
                 return SCRIPT_OVERRIDE;
             case "lifedayStart":
-                startHolidayEvent(speaker, "lifeday", lifedayRunning, lifeday);
+                startHolidayEvent(speaker, "lifeday", LIFEDAY_ENABLED, lifeday);
                 return SCRIPT_OVERRIDE;
             case "lifedayStop":
-                stopHolidayEvent(speaker, "lifeday", lifedayRunning, lifeday);
+                stopHolidayEvent(speaker, "lifeday", LIFEDAY_ENABLED, lifeday);
                 return SCRIPT_OVERRIDE;
             case "lifedayStartForReals":
-                startHolidayEventForReals(speaker, "lifeday", lifedayRunning);
+                startHolidayEventForReals(speaker, "lifeday", LIFEDAY_ENABLED);
                 return SCRIPT_OVERRIDE;
             case "lifedayStopForReals":
                 stopHolidayEventForReals(speaker, "lifeday");
                 return SCRIPT_OVERRIDE;
             case "lovedayStart":
-                startHolidayEvent(speaker, "loveday", lovedayRunning, loveday);
+                startHolidayEvent(speaker, "loveday", EWOK_FESTIVAL_OF_LOVE_ENABLED, loveday);
                 return SCRIPT_OVERRIDE;
             case "lovedayStop":
-                stopHolidayEvent(speaker, "loveday", lovedayRunning, loveday);
+                stopHolidayEvent(speaker, "loveday", EWOK_FESTIVAL_OF_LOVE_ENABLED, loveday);
                 return SCRIPT_OVERRIDE;
             case "lovedayStartForReals":
-                startHolidayEventForReals(speaker, "loveday", lovedayRunning);
+                startHolidayEventForReals(speaker, "loveday", EWOK_FESTIVAL_OF_LOVE_ENABLED);
                 return SCRIPT_OVERRIDE;
             case "lovedayStopForReals":
                 stopHolidayEventForReals(speaker, "loveday");
                 return SCRIPT_OVERRIDE;
             case "empiredayStart":
-                startHolidayEvent(speaker, "empireday_ceremony", empiredayRunning, empireday);
+                startHolidayEvent(speaker, "empireday_ceremony", EMPIRE_DAY_ENABLED, empireday);
                 return SCRIPT_OVERRIDE;
             case "empiredayStop":
-                stopHolidayEvent(speaker, "empireday_ceremony", empiredayRunning, empireday);
+                stopHolidayEvent(speaker, "empireday_ceremony", EMPIRE_DAY_ENABLED, empireday);
                 return SCRIPT_OVERRIDE;
             case "empiredayStartForReals":
-                startHolidayEventForReals(speaker, "empireday_ceremony", empiredayRunning);
+                startHolidayEventForReals(speaker, "empireday_ceremony", EMPIRE_DAY_ENABLED);
                 return SCRIPT_OVERRIDE;
             case "empiredayStopForReals":
                 stopHolidayEventForReals(speaker, "empireday_ceremony");
@@ -166,14 +165,13 @@ public class holiday_controller extends script.base_script
         return SCRIPT_OVERRIDE;
     }
 
-    private void startHolidayEvent(obj_id speaker, String holidayName, String holidayRunning, int holidayStatus) throws InterruptedException
+    private void startHolidayEvent(obj_id speaker, String holidayName, boolean holidayRunning, int holidayStatus) throws InterruptedException
     {
-        if (holidayRunning == null)
+        if (!holidayRunning)
         {
             sendSystemMessageTestingOnly(speaker, "Server config is not marked as " + holidayName + " running");
-            return;
         }
-        if (holidayRunning.equals("true") || holidayRunning.equals("1"))
+        else
         {
             if (holidayStatus > -1)
             {
@@ -186,22 +184,21 @@ public class holiday_controller extends script.base_script
             }
         }
     }
-    private void startHolidayEventForReals(obj_id speaker, String holidayName, String holidayRunning) throws InterruptedException
+    private void startHolidayEventForReals(obj_id speaker, String holidayName, boolean holidayRunning) throws InterruptedException
     {
-        if (holidayRunning == null)
+        if (!holidayRunning)
         {
             sendSystemMessageTestingOnly(speaker, "Server config is not marked as " + holidayName + " running");
-            return;
         }
-        if (holidayRunning.equals("true") || holidayRunning.equals("1"))
+        else
         {
             sendSystemMessageTestingOnly(speaker, holidayName + " started.");
             startUniverseWideEvent(holidayName);
         }
     }
-    private void stopHolidayEvent(obj_id speaker, String holidayName, String holidayRunning, int holidayStatus) throws InterruptedException
+    private void stopHolidayEvent(obj_id speaker, String holidayName, boolean holidayRunning, int holidayStatus) throws InterruptedException
     {
-        if (holidayRunning.equals("true") || holidayRunning.equals("1"))
+        if (holidayRunning)
         {
             sendSystemMessageTestingOnly(speaker, "Server config is marked as " + holidayName + " running. If you are sure that it should not be running anyway, say " + holidayName + "StopForReals");
         }
@@ -216,9 +213,8 @@ public class holiday_controller extends script.base_script
         CustomerServiceLog("holidayEvent", "holiday_controller.halloweenServerStart Halloween event handler called.");
         String halloweenString = getCurrentUniverseWideEvents();
         int halloween = halloweenString.indexOf("halloween");
-        String halloweenRunning = getConfigSetting("GameServer", "halloween");
-        CustomerServiceLog("holidayEvent", "holiday_controller.halloweenServerStart halloweenString: " + halloweenString + " halloween: " + halloween + " halloweenRunning: " + halloweenRunning);
-        if (halloweenRunning == null)
+        CustomerServiceLog("holidayEvent", "holiday_controller.halloweenServerStart halloweenString: " + halloweenString + " halloween: " + halloween + " halloweenRunning: " + GALACTIC_MOON_FESTIVAL_ENABLED);
+        if (!GALACTIC_MOON_FESTIVAL_ENABLED)
         {
             CustomerServiceLog("holidayEvent", "holiday_controller.halloweenServerStart Halloween event is either not running or not in the server configs.");
             if (halloween > -1)
@@ -226,7 +222,7 @@ public class holiday_controller extends script.base_script
                 stopUniverseWideEvent("halloween");
             }
         }
-        else if (halloweenRunning.equals("true") || halloweenRunning.equals("1"))
+        else
         {
             if (halloween < 0)
             {
@@ -247,9 +243,8 @@ public class holiday_controller extends script.base_script
         CustomerServiceLog("holidayEvent", "holiday_controller.lifedayServerStart Life Day event handler called.");
         String lifedayString = getCurrentUniverseWideEvents();
         int lifeday = lifedayString.indexOf("lifeday");
-        String lifedayRunning = getConfigSetting("GameServer", "lifeday");
-        CustomerServiceLog("holidayEvent", "holiday_controller.lifedayServerStart lifedayString: " + lifedayString + " lifeday: " + lifeday + " lifedayRunning: " + lifedayRunning);
-        if (lifedayRunning == null)
+        CustomerServiceLog("holidayEvent", "holiday_controller.lifedayServerStart lifedayString: " + lifedayString + " lifeday: " + lifeday + " lifedayRunning: " + LIFEDAY_ENABLED);
+        if (!LIFEDAY_ENABLED)
         {
             CustomerServiceLog("holidayEvent", "holiday_controller.lifedayServerStart event is either not running or not in the server configs.");
             if (lifeday > -1)
@@ -257,7 +252,7 @@ public class holiday_controller extends script.base_script
                 stopUniverseWideEvent("lifeday");
             }
         }
-        else if (lifedayRunning.equals("true") || lifedayRunning.equals("1"))
+        else
         {
             if (lifeday < 0)
             {
@@ -278,9 +273,8 @@ public class holiday_controller extends script.base_script
         CustomerServiceLog("holidayEvent", "holiday_controller.lovedayServerStart Love Day event handler called.");
         String lovedayString = getCurrentUniverseWideEvents();
         int loveday = lovedayString.indexOf("loveday");
-        String lovedayRunning = getConfigSetting("GameServer", "loveday");
-        CustomerServiceLog("holidayEvent", "holiday_controller.lovedayServerStart lovedayString: " + lovedayString + " loveday: " + loveday + " lovedayRunning: " + lovedayRunning);
-        if (lovedayRunning == null)
+        CustomerServiceLog("holidayEvent", "holiday_controller.lovedayServerStart lovedayString: " + lovedayString + " loveday: " + loveday + " lovedayRunning: " + EWOK_FESTIVAL_OF_LOVE_ENABLED);
+        if (!EWOK_FESTIVAL_OF_LOVE_ENABLED)
         {
             CustomerServiceLog("holidayEvent", "holiday_controller.lovedayServerStart event is either not running or not in the server configs.");
             if (loveday > -1)
@@ -288,7 +282,7 @@ public class holiday_controller extends script.base_script
                 stopUniverseWideEvent("loveday");
             }
         }
-        else if (lovedayRunning.equals("true") || lovedayRunning.equals("1"))
+        else
         {
             if (loveday < 0)
             {
@@ -309,9 +303,8 @@ public class holiday_controller extends script.base_script
         CustomerServiceLog("holidayEvent", "holiday_controller.empiredayServerStart Empire Day event handler called.");
         String empiredayString = getCurrentUniverseWideEvents();
         int empireday = empiredayString.indexOf("empireday_ceremony");
-        String empiredayRunning = getConfigSetting("GameServer", "empireday_ceremony");
-        CustomerServiceLog("holidayEvent", "holiday_controller.empiredayServerStart empiredayString: " + empiredayString + " empireday: " + empireday + " empiredayRunning: " + empiredayRunning);
-        if (empiredayRunning == null)
+        CustomerServiceLog("holidayEvent", "holiday_controller.empiredayServerStart empiredayString: " + empiredayString + " empireday: " + empireday + " empiredayRunning: " + EMPIRE_DAY_ENABLED);
+        if (!EMPIRE_DAY_ENABLED)
         {
             CustomerServiceLog("holidayEvent", "holiday_controller.empiredayServerStart event is either not running or not in the server configs.");
             if (empireday > -1)
@@ -319,7 +312,7 @@ public class holiday_controller extends script.base_script
                 stopUniverseWideEvent("empireday_ceremony");
             }
         }
-        else if (empiredayRunning.equals("true") || empiredayRunning.equals("1"))
+        else
         {
             CustomerServiceLog("holidayEvent", "holiday_controller.empiredayServerStart event is starting.");
             if (empireday < 0)

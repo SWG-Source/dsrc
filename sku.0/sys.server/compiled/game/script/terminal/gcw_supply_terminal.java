@@ -95,7 +95,7 @@ public class gcw_supply_terminal extends script.base_script
                 if (factions.isImperialorImperialHelper(player))
                 {
                     sendSystemMessage(player, "You have recived an Imperial Token for your effort", null);
-                    float multiplier = utils.stringToFloat(getConfigSetting("GameServer", "gcwTokenBonus"));
+                    float multiplier = gcw.GCW_TOKEN_BONUS;
                     int count = 1;
                     if (multiplier > 1)
                     {
@@ -120,7 +120,7 @@ public class gcw_supply_terminal extends script.base_script
                 if (factions.isRebelorRebelHelper(player))
                 {
                     sendSystemMessage(player, "You have recived an Rebel Token for your effort", null);
-                    float multiplier = utils.stringToFloat(getConfigSetting("GameServer", "gcwTokenBonus"));
+                    float multiplier = gcw.GCW_TOKEN_BONUS;
                     int count = 1;
                     if (multiplier > 1)
                     {

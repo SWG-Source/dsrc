@@ -11,10 +11,9 @@ public class master_guild_object extends script.base_script
     public master_guild_object()
     {
     }
-    public static int guildProcessInterval = -1;
-    public static int guildUpdateInterval = -1;
-    public static final int DEFAULT_GUILD_PROCESS_INTERVAL = 60 * 60;
-    public static final int DEFAULT_GUILD_UPDATE_INTERVAL = 60 * 60 * 24 * 7;
+    public static final int GUILD_UPDATE_INTERVAL_CONFIG = utils.getIntConfigSetting("GameServer", "guildUpdateInterval", -1);
+    public static final int DEFAULT_GUILD_PROCESS_INTERVAL = 3600;
+    public static final int DEFAULT_GUILD_UPDATE_INTERVAL = 604800;
     public static final int MIN_GUILD_MEMBERS = 5;
     public static final String VAR_NAMECHANGE = "guildNamechange";
     public static final String VAR_NAMECHANGE_IDS = VAR_NAMECHANGE + ".ids";
@@ -260,36 +259,14 @@ public class master_guild_object extends script.base_script
     }
     public int getGuildProcessInterval() throws InterruptedException
     {
-        if (guildProcessInterval == -1)
-        {
-            String strGuildProcessInterval = getConfigSetting("GameServer", "guildProcessInterval");
-            if (strGuildProcessInterval != null)
-            {
-                guildProcessInterval = utils.stringToInt(strGuildProcessInterval);
-            }
-            if (guildProcessInterval <= 0)
-            {
-                guildProcessInterval = DEFAULT_GUILD_PROCESS_INTERVAL;
-            }
-            debugServerConsoleMsg(null, "guildProcessInterval set to " + guildProcessInterval + " seconds.");
-        }
-        return guildProcessInterval;
+        return DEFAULT_GUILD_PROCESS_INTERVAL;
     }
     public int getGuildUpdateInterval() throws InterruptedException
     {
-        if (guildUpdateInterval == -1)
-        {
-            String strGuildUpdateInterval = getConfigSetting("GameServer", "guildUpdateInterval");
-            if (strGuildUpdateInterval != null)
-            {
-                guildUpdateInterval = utils.stringToInt(strGuildUpdateInterval);
-            }
-            if (guildUpdateInterval <= 0)
-            {
-                guildUpdateInterval = DEFAULT_GUILD_UPDATE_INTERVAL;
-            }
-            debugServerConsoleMsg(null, "guildUpdateInterval set to " + guildUpdateInterval + " seconds.");
+        if (GUILD_UPDATE_INTERVAL_CONFIG < 0 || GUILD_UPDATE_INTERVAL_CONFIG < getGuildProcessInterval()) {
+            return DEFAULT_GUILD_UPDATE_INTERVAL;
+        } else {
+            return GUILD_UPDATE_INTERVAL_CONFIG;
         }
-        return guildUpdateInterval;
     }
 }

@@ -1,9 +1,6 @@
 package script.conversation;
 
-import script.library.ai_lib;
-import script.library.chat;
-import script.library.group;
-import script.library.space_dungeon;
+import script.library.*;
 import script.*;
 
 public class corvette_neutral_pilot extends script.base_script
@@ -18,8 +15,7 @@ public class corvette_neutral_pilot extends script.base_script
     }
     public boolean corvette_neutral_pilot_condition_hasNeutralTicket(obj_id player, obj_id npc) throws InterruptedException
     {
-        String isDungeonActive = getConfigSetting("Dungeon", "Corellian_Corvette_Neutral");
-        if (isDungeonActive == null || isDungeonActive.equals("false") || isDungeonActive.equals("0"))
+        if (!instance.CORVETTE_NEUTRAL_DUNGEON_ENABLED)
         {
             return false;
         }

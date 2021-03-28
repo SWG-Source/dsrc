@@ -3,6 +3,7 @@ package script.npc.celebrity;
 import script.dictionary;
 import script.library.ai_lib;
 import script.library.create;
+import script.library.events;
 import script.obj_id;
 
 public class event_ls_npc_spawner extends script.base_script
@@ -16,12 +17,7 @@ public class event_ls_npc_spawner extends script.base_script
         {
             setObjVar(self, "event.lost_squadron.num_rewards", 0);
         }
-        String setting = getConfigSetting("EventTeam", "lostSquadron");
-        if (setting == null || setting.equals(""))
-        {
-            return SCRIPT_CONTINUE;
-        }
-        if (setting.equals("true") || setting.equals("1"))
+        if (events.isEventActive(events.LOST_SQUADRON))
         {
             String spawn = getStringObjVar(self, "spawns");
             obj_id celeb = create.object(spawn, getLocation(self));

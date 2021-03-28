@@ -3,6 +3,7 @@ package script.systems.gcw.static_base;
 import script.dictionary;
 import script.library.ai_lib;
 import script.library.create;
+import script.library.spawning;
 import script.library.utils;
 import script.location;
 import script.obj_id;
@@ -223,15 +224,6 @@ public class base_spawner extends script.base_script
     }
     public boolean canSpawnByConfigSetting() throws InterruptedException
     {
-        String disableSpawners = getConfigSetting("GameServer", "disableGenericSpawner");
-        if (disableSpawners == null)
-        {
-            return true;
-        }
-        if (disableSpawners.equals("true") || disableSpawners.equals("1"))
-        {
-            return false;
-        }
-        return true;
+        return !spawning.GENERIC_SPAWNERS_DISABLED;
     }
 }

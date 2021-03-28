@@ -1,6 +1,7 @@
 package script.event.lost_squadron;
 
 import script.dictionary;
+import script.library.events;
 import script.library.utils;
 import script.location;
 import script.obj_id;
@@ -18,8 +19,7 @@ public class spawner extends script.base_script
     };
     public int OnInitialize(obj_id self) throws InterruptedException
     {
-        String setting = getConfigSetting("EventTeam", "lostSquadron");
-        if (setting == null || setting.equals("") || !setting.equals("true"))
+        if (!events.isEventActive(events.LOST_SQUADRON))
         {
             return SCRIPT_CONTINUE;
         }

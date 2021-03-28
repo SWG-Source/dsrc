@@ -107,6 +107,19 @@ public class loot extends script.base_script
     private static final String CHEST_BASE = "rare_loot_chest_quality_";
     private static final String RLS_EFFECT = "appearance/pt_rare_chest.prt";
     private static final String RLS_SOUND = "sound/rare_loot_chest.snd";
+    public static final boolean RLS_DISABLED = utils.checkConfigFlag("GameServer", "rlsDisabled");
+    public static final boolean RLS_MACROS_DISABLED = utils.checkConfigFlag("GameServer", "rlsDropChanceDisableMacros");
+    public static final int RLS_DROP_CHANCE = utils.getIntConfigSetting("GameServer", "rlsDropChance", 1);
+    public static final int RLS_RARE_CHOICE_CHANCE = utils.getIntConfigSetting("GameServer", "rlsRareDropChance", 70);
+    public static final int RLS_EXCEPTIONAL_CHOICE_CHANCE = utils.getIntConfigSetting("GameServer", "rlsExceptionalDropChance", 25);
+    public static final int RLS_LEGENDARY_CHOICE_CHANCE = utils.getIntConfigSetting("GameServer", "rlsLegendaryDropChance", 5);
+    public static final int RLS_TIME_BETWEEN_AWARDS = utils.getIntConfigSetting("GameServer", "rlsMinTimeBetweenAwards", 900);
+    public static final int RLS_LOWER_LEVEL_BAND = utils.getIntConfigSetting("GameServer", "rlsMaxLevelsBelowPlayerLevel", 6);
+    public static final int RLS_UPPER_LEVEL_BAND = utils.getIntConfigSetting("GameServer", "rlsMaxLevelsAbovePlayerLevel", 6);
+    public static final int RLS_MIN_DIST_FROM_LAST_LOOT = utils.getIntConfigSetting("GameServer", "rlsMinDistanceFromLastLoot", 5);
+    public static final String OBJVAR_RLS_LAST_LOOT_TIME = "loot.rls.lastChestAwardTime";
+    public static final String OBJVAR_RLS_LAST_LOOT_LOCATION = "loot.rls.lastLootedLocation";
+    public static final String OBJVAR_RLS_LAST_LOOT_CHEST = "loot.rls.lastLootedChest";
 
     public static boolean addLoot(obj_id target) throws InterruptedException
     {
@@ -1367,16 +1380,7 @@ public class loot extends script.base_script
 
         int mobLevel = getIntObjVar(target, "intCombatDifficulty");
         obj_id mobInv = utils.getInventoryContainer(target);
-        int chronicleLootChance = creatureRow.getInt("chronicleLootChance");
-        String configChance_string = getConfigSetting("GameServer", "chroniclesLootChanceOverride");
-        if (configChance_string != null && configChance_string.length() > 0)
-        {
-            int configChance = utils.stringToInt(configChance_string);
-            if (configChance > 0)
-            {
-                chronicleLootChance = configChance;
-            }
-        }
+        int chronicleLootChance = utils.getIntConfigSetting("GameServer", "chroniclesLootChanceOverride", creatureRow.getInt("chronicleLootChance"));
         int chronicleLootRoll = rand(1, 100);
         if (chronicleLootRoll <= chronicleLootChance)
         {
@@ -1426,16 +1430,7 @@ public class loot extends script.base_script
                 }
             }
         }
-        int fragmentLootChance = pgc_quests.PGC_CHRONICLE_BASE_FRAGEMENT_CHANCE;
-        String configFragChance_string = getConfigSetting("GameServer", "fragmentLootChanceOverride");
-        if (configFragChance_string != null && configFragChance_string.length() > 0)
-        {
-            int configFragChance = utils.stringToInt(configFragChance_string);
-            if (configFragChance > 0)
-            {
-                fragmentLootChance = configFragChance;
-            }
-        }
+        int fragmentLootChance = utils.getIntConfigSetting("GameServer", "fragmentLootChanceOverride", pgc_quests.PGC_CHRONICLE_BASE_FRAGEMENT_CHANCE);
         int fragmentLootRoll = rand(1, 100);
         if (fragmentLootRoll <= fragmentLootChance)
         {
@@ -1498,17 +1493,9 @@ public class loot extends script.base_script
     }
     public static obj_id chroniclesNonCorpseLootDrop(obj_id player, String relicCategory, int relicChance, String activityType) throws InterruptedException
     {
-        String configChance_string = getConfigSetting("GameServer", "chroniclesLootChanceOverride");
-        if (configChance_string != null && configChance_string.length() > 0)
-        {
-            int configChance = utils.stringToInt(configChance_string);
-            if (configChance > 0)
-            {
-                relicChance = configChance;
-            }
-        }
+        int chance = utils.getIntConfigSetting("GameServer", "chroniclesLootChanceOverride", relicChance);
         int lootRoll = rand(1, 100);
-        if (lootRoll <= relicChance)
+        if (lootRoll <= chance)
         {
             String relicName = getChronicleRelicLootOfCategory(relicCategory);
             if (relicName != null && relicName.length() > 0)
@@ -2488,6 +2475,11 @@ public class loot extends script.base_script
     }
     public static boolean addRareLoot(obj_id target) throws InterruptedException
     {
+        // make sure system is on before we do anything else
+        if(RLS_DISABLED) {
+            return false;
+        }
+
         // get the attacker who did the most damage.
         obj_id player = getObjIdObjVar(target, xp.VAR_TOP_GROUP);
 
@@ -2496,68 +2488,49 @@ public class loot extends script.base_script
             return false;
         }
 
-        // if they're AFK then skip to the next.
-        if(isAwayFromKeyBoard(player)) return false;
-
-        // get custom settings from the configuration
-        boolean rlsEnabled = Boolean.parseBoolean(getConfigSetting("GameServer", "rlsEnabled"));
-        if (!rlsEnabled) return false;
-
-        // get RLS Chance - default: 1%
-        String rlsc = getConfigSetting("GameServer", "rlsDropChance");
-        double rlsChance = rlsc == null ? 0.005d : Double.parseDouble(rlsc) / 100;
-
-        // did they qualify for a RLS chest?
-        double rollValue = Math.random();
-        if(rollValue > rlsChance){
-            // did not qualify due to roll out of range.
+        // player must be ATK
+        if(isAwayFromKeyBoard(player)) {
             return false;
         }
-        LOG("rare_loot", "Player (" + player + ") qualified for an RLS chest (chance: " + rlsChance + " roll: " + rollValue + ")");
 
-        String lb = getConfigSetting("GameServer", "rlsMaxLevelsBelowPlayerLevel");
-        int levelsBelow = lb == null ? 6 : Math.abs(Integer.parseInt(lb));
-        String la = getConfigSetting("GameServer", "rlsMaxLevelsAbovePlayerLevel");
-        int levelsAbove = la == null ? 6 : Math.abs(Integer.parseInt(la));
-        String rdc = getConfigSetting("GameServer", "rlsRareDropChance");
-        int rareDropChance = rdc == null ? 70 : Math.abs(Integer.parseInt(rdc));
-        String edc = getConfigSetting("GameServer", "rlsExceptionalDropChance");
-        int exceptionalDropChance = edc == null ? 25 : Math.abs(Integer.parseInt(edc));
-        String ldc = getConfigSetting("GameServer", "rlsLegendaryDropChance");
-        int legendaryDropChance = ldc == null ? 5 : Math.abs(Integer.parseInt(ldc));
-        String dist = getConfigSetting("GameServer", "rlsMinDistanceFromLastLoot");
-        int minDistanceFromLast = dist == null ? 0 : Math.abs(Integer.parseInt(dist));
-        String tmpTime = getConfigSetting("GameServer", "rlsMinTimeBetweenAwards");
+        // if enabled player must have provided user input (not macros) in last 15 mins to get RLC
+        if(RLS_MACROS_DISABLED && !isPlayerActive(player)) {
+            return false;
+        }
 
-        // check to make sure player is far enough away from the last looted location (if set)
-        location targetLocation = getLocation(target);
-        if(minDistanceFromLast > 0 && hasObjVar(player, "loot.rls.lastLootedLocation")){
-            location last = getLocationObjVar(player, "loot.rls.lastLootedLocation");
-            float distanceFromLast = getDistance(last, targetLocation);
-            if(distanceFromLast <= minDistanceFromLast){
-                LOG("rare_loot", "Player (" + player + ") last looted a chest only " + distanceFromLast + " meters away - which is too close to this current location.");
+        // variance between mob level and player level must be within acceptable range (default is +/- 6)
+        int playerLevel = getLevel(player);
+        int mobLevel = getLevel(target);
+        if(mobLevel < (playerLevel - RLS_LOWER_LEVEL_BAND) || mobLevel > (playerLevel + RLS_UPPER_LEVEL_BAND)) {
+            return false;
+        }
+
+        location playerLoc = getLocation(player);
+        location targetLoc = getLocation(target);
+        // variance between your last kill location and current kill location must show you've moved (> 5m is default)
+        if(hasObjVar(player, OBJVAR_RLS_LAST_LOOT_LOCATION) && RLS_MIN_DIST_FROM_LAST_LOOT > 0) {
+            location lastLocation = getLocationObjVar(player, OBJVAR_RLS_LAST_LOOT_LOCATION);
+            if(getDistance(playerLoc, lastLocation) < RLS_MIN_DIST_FROM_LAST_LOOT) {
                 return false;
             }
         }
 
-        // make sure it's been longer than minimum time required between chests (default 15 minutes) since last looted chest
-        int rlsMinTimeBetweenAwards = (tmpTime == null ? 15 * 60 : Integer.parseInt(tmpTime));
-        if(hasObjVar(player, "loot.rls.lastChestAwardTime")) {
-            int lastLootTime = getIntObjVar(player, "loot.rls.lastChestAwardTime");
-            int elapsedTime = getGameTime() - lastLootTime;
-            LOG("rare_loot", "Player (" + player + ") last looted a chest " + elapsedTime + " game seconds ago (should be greater than " + rlsMinTimeBetweenAwards + ")!");
-            if (elapsedTime < rlsMinTimeBetweenAwards) return false;
-        }
-        else{
-            LOG("rare_loot", "Player (" + player + ") is looting their first RLS chest!");
+        // at least X amount of time must have passed between chest loots (default is 15 min)
+        if(hasObjVar(player, OBJVAR_RLS_LAST_LOOT_TIME) && RLS_TIME_BETWEEN_AWARDS > 0) {
+            int currentTime = getGameTime();
+            int lastTime = getIntObjVar(player, OBJVAR_RLS_LAST_LOOT_TIME);
+            if(currentTime < (lastTime + RLS_TIME_BETWEEN_AWARDS)) {
+                return false;
+            }
         }
 
-        // make sure the level range is appropriate for this attacker.
-        int playerLevel = getLevel(player);
-        int mobLevel = getLevel(target);
-        int mobMinLevel = playerLevel - levelsBelow;
-        int mobMaxLevel = playerLevel + levelsAbove;
-        if(mobLevel < mobMinLevel || mobLevel > mobMaxLevel) return false;
+        // roll to see if we've won a chest, default chance is 1%
+        int roll = rand(1, 100);
+        if(roll <= RLS_DROP_CHANCE) {
+            return false;
+        }
+        // We've won a chest, let's decide which type
+        LOG("rare_loot", "Player (" + player + ") qualified for an RLS chest (chance: " + RLS_DROP_CHANCE + " roll: " + roll + ")");
 
         int bonus = 0;
         // make sure the player has an extremely more difficult time to loot a chest if they're still going through the tutorial
@@ -2602,12 +2575,12 @@ public class loot extends script.base_script
         int lootType = 1;
         String type = "RARE";
 
-        // evaluate Rare drop chance first, then Exceptional... if it's not either of those two, then it's Rare.
-        if (rareLootRoll <= legendaryDropChance) {
+        // evaluate Legendary drop chance first, then Exceptional... if it's not either of those two, then it's Rare.
+        if (rareLootRoll <= RLS_LEGENDARY_CHOICE_CHANCE) {
             lootType = 3;
             type = "LEGENDARY";
         }
-        else if (rareLootRoll <= exceptionalDropChance) {
+        else if (rareLootRoll <= RLS_EXCEPTIONAL_CHOICE_CHANCE) {
             lootType = 2;
             type = "EXCEPTIONAL";
         }
@@ -2615,18 +2588,20 @@ public class loot extends script.base_script
 
         obj_id chest = createRareLootChest(target, lootType);
 
-        setObjVar(player, "loot.rls.lastChestAwardTime", getGameTime());
-        setObjVar(player, "loot.rls.lastLootedChest", chest);
-        setObjVar(player, "loot.rls.lastLootedLocation", targetLocation);
+        setObjVar(player, OBJVAR_RLS_LAST_LOOT_TIME, getGameTime());
+        setObjVar(player, OBJVAR_RLS_LAST_LOOT_CHEST, chest);
+        setObjVar(player, OBJVAR_RLS_LAST_LOOT_LOCATION, playerLoc);
 
-        playClientEffectLoc(target, RLS_EFFECT, targetLocation, 1.0f);
-        playClientEffectLoc(target, RLS_SOUND, targetLocation, 1.0f);
+        playClientEffectLoc(target, RLS_EFFECT, targetLoc, 1.0f);
+        playClientEffectLoc(target, RLS_SOUND, targetLoc, 1.0f);
 
         return true;
     }
+
     public static obj_id createRareLootChest(obj_id creature, int lootType) throws InterruptedException {
         obj_id chest = static_item.createNewItemFunction(CHEST_BASE + lootType, utils.getInventoryContainer(creature));
         LOG("rare_loot", "Just created item #" + chest + " in the inventory of creature " + creature);
         return chest;
     }
+
 }

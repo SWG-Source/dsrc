@@ -691,11 +691,7 @@ public class player_instance extends script.base_script
         {
             count = params.getInt("tokenCount");
         }
-        float multiplier = utils.stringToFloat(getConfigSetting("GameServer", "heroicTokenBonus"));
-        if (multiplier > 1)
-        {
-            count = (int)(count * (float)multiplier);
-        }
+        count *= instance.HEROIC_TOKEN_MULTIPLIER;
         if (tokenIndex < 0 || tokenIndex >= trial.HEROIC_TOKENS.length)
         {
             sendSystemMessageTestingOnly(self, "DEBUG: handleAwardtoken sent with out of range tokenIndex.");

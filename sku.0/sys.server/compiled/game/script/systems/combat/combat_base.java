@@ -34,6 +34,8 @@ public class combat_base extends script.base_script
     public static final int HIT_RESULT_STRIKETHROUGH = 9;
     public static final String PROGRESSIVE_DAMAGE_COUNTER = "hitData.progressive.counter";
     public static final string_id SID_NONE = new string_id();
+    public static final boolean PVP_DISABLED = utils.checkConfigFlag("GameServer", "disablePvP");
+
     public boolean combatStandardAction(String actionName, obj_id self, obj_id target, String params, String successHandler, String failHandler) throws InterruptedException
     {
         return combatStandardAction(actionName, self, target, getCurrentWeapon(self), params, null, false, false, 0);
@@ -731,13 +733,8 @@ public class combat_base extends script.base_script
         verbose = false;
         if ((isPlayer(attackerData.id) && isPlayer(defenderData[0].id)) && (attackerData.id != defenderData[0].id))
         {
-            String setting = getConfigSetting("GameServer", "disablePvP");
-            if (setting != null && (setting.equals("1") || setting.equals("true")))
-            {
-                if (verbose)
-                {
-                    return false;
-                }
+            if(PVP_DISABLED) {
+                return false;
             }
         }
         if (isDead(attackerData.id))

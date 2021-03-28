@@ -9,27 +9,28 @@ import java.util.List;
 import java.util.Vector;
 
 public class battle_spawner extends script.base_class {
+
     public static final String CONTROLLER_SCRIPT = "systems.gcw.space.battle_controller";
     public static final String IMPERIAL_SHIP_TEMPLATE = "imperial_lancer";
     public static final String REBEL_SHIP_TEMPLATE = "nebulon_frigate";
     private static final String HERO_PILOT_DATA = "datatables/npc/space/space_gcw_hero.iff";
-    public static float DEFAULT_BATTLE_TIME_PREPATORY = 900.0f;  // 900 == 15 minutes
-    public static float DEFAULT_BATTLE_TIME_LENGTH = 3600.0f;  // 3600 == 60 minutes
-    public static int DEFAULT_MAX_SUPPORT_CRAFT = 30;
-    public static int DEFAULT_MAX_SUPPORT_SPAWN = 60;
     public static final double HERO_SPAWN_CHANCE = 0.20d;  // 0.20d == 20% chance a hero will spawn
-    public static final float DEFAULT_PVP_POINT_MULTIPLIER = 2.0f;
-    public static final float DEFAULT_PVE_POINT_MULTIPLIER = 1.0f;
-    public static final float DEFAULT_PVP_TOKEN_MULTIPLIER = 2.0f;
-    public static final float DEFAULT_PVE_TOKEN_MULTIPLIER = 1.0f;
-    public static final float DEFAULT_WIN_POINT_MULTIPLIER = 2.0f;
-    public static final float DEFAULT_LOSS_POINT_MULTIPLIER = 1.0f;
-    public static final float DEFAULT_WIN_TOKEN_MULTIPLIER = 2.0f;
-    public static final float DEFAULT_LOSS_TOKEN_MULTIPLIER = 1.0f;
-    public static final int DEFAULT_POB_PLAYER_CEILING = 4;
-    public static final int DEFAULT_GUNSHIP_PLAYER_CEILING = 10;
-    public static final int DEFAULT_TOKEN_AWARD = 25;
-    public static final int DEFAULT_POINT_AWARD = 2500;
+    public static final int DEFAULT_POINT_AWARD = utils.getIntConfigSetting("GameServer", "spaceGcwPointAward", 2500);
+    public static final int DEFAULT_TOKEN_AWARD = utils.getIntConfigSetting("GameServer", "spaceGcwTokenAward", 25);
+    public static final float PVP_POINT_MULTIPLIER = utils.getFloatConfigSetting("GameServer", "spaceGcwPvPPointModifier", 2.0f);
+    public static final float PVE_POINT_MULTIPLIER = utils.getFloatConfigSetting("GameServer", "spaceGcwPvEPointModifier", 1.0f);
+    public static final float WIN_POINT_MULTIPLIER = utils.getFloatConfigSetting("GameServer", "spaceGcwWinPointModifier", 2.0f);
+    public static final float LOSS_POINT_MULTIPLIER = utils.getFloatConfigSetting("GameServer", "spaceGcwLossPointModifier", 1.0f);
+    public static final float PVP_TOKEN_MULTIPLIER = utils.getFloatConfigSetting("GameServer", "spaceGcwPvPTokenModifier", 2.0f);
+    public static final float PVE_TOKEN_MULTIPLIER = utils.getFloatConfigSetting("GameServer", "spaceGcwPvETokenModifier", 1.0f);
+    public static final float WIN_TOKEN_MULTIPLIER = utils.getFloatConfigSetting("GameServer", "spaceGcwWinTokenModifier", 2.0f);
+    public static final float LOSS_TOKEN_MULTIPLIER = utils.getFloatConfigSetting("GameServer", "spaceGcwLossTokenModifier", 1.0f);
+    public static final int POB_PLAYER_CEILING = utils.getIntConfigSetting("GameServer", "spaceGcwPobPlayerCeiling", 4);
+    public static final int GUNSHIP_PLAYER_CEILING = utils.getIntConfigSetting("GameServer", "spaceGcwGunshipPlayerCeiling", 10);
+    public static final float PREP_TIME = utils.getFloatConfigSetting("GameServer", "spaceGcwPrepatoryTime", 900.0f); // 15 mins in seconds
+    public static final float BATTLE_TIME = utils.getFloatConfigSetting("GameServer", "spaceGcwLengthOfBattle", 3600.0f); // 60 mins in seconds
+    public static final int MAX_SUPPORT_SHIPS = utils.getIntConfigSetting("GameServer", "spaceGcwMaxSupportShips", 30);
+    public static final int MAX_SUPPORT_SPAWNS = utils.getIntConfigSetting("GameServer", "spaceGcwTotalSupportSpawn", 60);
 
     public static final String[] IMPERIAL_SUPPORT_CRAFT = {
             "tieaggressor_tier7",
@@ -78,23 +79,6 @@ public class battle_spawner extends script.base_class {
             BATTLE_TYPE_PVP
     };
 
-    public float customPveBattleModifier;
-    public float customPvpBattleModifier;
-    public float customPvePointModifier;
-    public float customPvpPointModifier;
-    public float customWinTokenModifier;
-    public float customLossTokenModifier;
-    public float customWinPointModifier;
-    public float customLossPointModifier;
-    public int pobPlayerCeiling;
-    public int gunshipPlayerCeiling;
-    public int customTokenAward;
-    public int customPointAward;
-    public float battleTimeLength;
-    public float prepatoryTimeLength;
-    public static int maxSupportShips;
-    public static int maxSupportSpawn;
-
     // This script is the spawner for the Space GCW (GCW 2) battles.
     // It uses Tatooine to track battles (the controller) and places the following object vars
     // on the planet object to keep track of various aspects:
@@ -115,7 +99,6 @@ public class battle_spawner extends script.base_class {
         setObjVar(self, "controller", controller);
         setObjVar(controller, "space_gcw." + battleLocation.area + ".spawner", self);
         spaceLog( "--- Registering battle spawner (" + self + ") in zone: " + battleLocation.area);
-        getSettings();
         return SCRIPT_CONTINUE;
     }
     public int startSpaceGCWBattle(obj_id self, dictionary params) throws InterruptedException {
@@ -178,8 +161,8 @@ public class battle_spawner extends script.base_class {
         params.put("defendingShip", defendingShip);
 
         // spawn attacking capital ship
-        spaceLog( "In startSpaceGCWBattle... starting battle in " + prepatoryTimeLength / 60.0f + " minutes.");
-        messageTo(self, "spawnAttack", params, prepatoryTimeLength, false);
+        spaceLog( "In startSpaceGCWBattle... starting battle in " + PREP_TIME / 60.0f + " minutes.");
+        messageTo(self, "spawnAttack", params, PREP_TIME, false);
 
         return SCRIPT_CONTINUE;
     }
@@ -234,7 +217,7 @@ public class battle_spawner extends script.base_class {
         messageTo(self, "spawnSupportCraft", params, 20.0f, false);
 
         // set timer to keep track of battle time - set config value for length of battle
-        messageTo(self, "endBattle", params, battleTimeLength, false);
+        messageTo(self, "endBattle", params, BATTLE_TIME, false);
 
         return SCRIPT_CONTINUE;
     }
@@ -271,7 +254,7 @@ public class battle_spawner extends script.base_class {
         int totalSpawnedThisFight = 0;
         if(hasObjVar(motherShip, "totalSpawnedSupportCraft")){
             totalSpawnedThisFight = getIntObjVar(motherShip, "totalSpawnedSupportCraft");
-            if(totalSpawnedThisFight >= maxSupportSpawn)
+            if(totalSpawnedThisFight >= MAX_SUPPORT_SPAWNS)
                 return getResizeableObjIdArrayObjVar(motherShip, "supportCraft");
         }
         Vector shipList = getResizeableObjIdArrayObjVar(motherShip, "supportCraft");
@@ -283,14 +266,14 @@ public class battle_spawner extends script.base_class {
         }
         obj_id ship;
 
-        for (int i = shipList.size(); i < maxSupportShips; i++) {
+        for (int i = shipList.size(); i < MAX_SUPPORT_SHIPS; i++) {
             if (heroSpawned || Math.random() > HERO_SPAWN_CHANCE) {
                 ship = spawnStandardShip(motherShip);
-                spaceLog( "In spawnSupportShips... just spawned a regular ship (" + ship + ":" + getTemplateName(ship) + ") #" + (i+1) + " / " + maxSupportShips + " ships.");
+                spaceLog( "In spawnSupportShips... just spawned a regular ship (" + ship + ":" + getTemplateName(ship) + ") #" + (i+1) + " / " + MAX_SUPPORT_SHIPS + " ships.");
             } else {
                 ship = spawnAcePilot(motherShip);
                 heroSpawned = true;
-                spaceLog( "In spawnSupportShips... just spawned a hero ship (" + ship + ":" + getName(ship) + ") #" + (i+1) + " / " + maxSupportShips + " ships.");
+                spaceLog( "In spawnSupportShips... just spawned a hero ship (" + ship + ":" + getName(ship) + ") #" + (i+1) + " / " + MAX_SUPPORT_SHIPS + " ships.");
             }
             if(isValidId(ship)) {
                 totalSpawnedThisFight++;
@@ -305,7 +288,7 @@ public class battle_spawner extends script.base_class {
         int totalSpawnedThisFight = 0;
         if(hasObjVar(motherShip, "totalSpawnedSupportCraft")){
             totalSpawnedThisFight = getIntObjVar(motherShip, "totalSpawnedSupportCraft");
-            if(totalSpawnedThisFight >= maxSupportSpawn)
+            if(totalSpawnedThisFight >= MAX_SUPPORT_SPAWNS)
                 return null;
         }
         obj_id ship = createUnit(motherShip, support_ship_types[rand(0, support_ship_types.length - 1)], 200.0f);
@@ -320,7 +303,7 @@ public class battle_spawner extends script.base_class {
         int totalSpawnedThisFight = 0;
         if(hasObjVar(motherShip, "totalSpawnedSupportCraft")){
             totalSpawnedThisFight = getIntObjVar(motherShip, "totalSpawnedSupportCraft");
-            if(totalSpawnedThisFight >= maxSupportSpawn)
+            if(totalSpawnedThisFight >= MAX_SUPPORT_SPAWNS)
                 return null;
         }
         dictionary pilot = choosePilot(getAcePilotList(motherShip));
@@ -434,7 +417,7 @@ public class battle_spawner extends script.base_class {
         pointAwardedPlayers.addAll(
             processShip(
                 getObjVarList(self, "space_gcw.participant." + battleId),
-                pobPlayerCeiling,
+                POB_PLAYER_CEILING,
                 self,
                 pointAwardedPlayers,
                 attackingFaction,
@@ -450,7 +433,7 @@ public class battle_spawner extends script.base_class {
         pointAwardedPlayers.addAll(
             processShip(
                 getObjVarList(self, "space_gcw.gunship.participant." + battleId),
-                gunshipPlayerCeiling,
+                GUNSHIP_PLAYER_CEILING,
                 self,
                 pointAwardedPlayers,
                 attackingFaction,
@@ -465,7 +448,7 @@ public class battle_spawner extends script.base_class {
         // distribute to pob qualifiers
         processShip(
             getObjVarList(self, "space_gcw.pob.participant." + battleId),
-            pobPlayerCeiling,
+            POB_PLAYER_CEILING,
             self,
             pointAwardedPlayers,
             attackingFaction,
@@ -621,18 +604,18 @@ public class battle_spawner extends script.base_class {
     public int calculateAwardedPoints(boolean wonBattle, String battleType) {
         if(!wonBattle){
             if(battleType.equals(BATTLE_TYPE_PVE)){
-                return Float.valueOf(customPointAward * customPvePointModifier * customLossPointModifier).intValue();
+                return Float.valueOf(DEFAULT_POINT_AWARD * PVE_POINT_MULTIPLIER * LOSS_POINT_MULTIPLIER).intValue();
             }
             else{
-                return Float.valueOf(customPointAward * customPvpPointModifier * customLossPointModifier).intValue();
+                return Float.valueOf(DEFAULT_POINT_AWARD * PVP_POINT_MULTIPLIER * LOSS_POINT_MULTIPLIER).intValue();
             }
         }
         else{
             if(battleType.equals(BATTLE_TYPE_PVE)){
-                return Float.valueOf(customPointAward * customPvePointModifier * customWinPointModifier).intValue();
+                return Float.valueOf(DEFAULT_POINT_AWARD * PVE_POINT_MULTIPLIER * WIN_POINT_MULTIPLIER).intValue();
             }
             else{
-                return Float.valueOf(customPointAward * customPvpPointModifier * customWinPointModifier).intValue();
+                return Float.valueOf(DEFAULT_POINT_AWARD * PVP_POINT_MULTIPLIER * WIN_POINT_MULTIPLIER).intValue();
             }
         }
 
@@ -640,18 +623,18 @@ public class battle_spawner extends script.base_class {
     public int calculateAwardedTokens(boolean wonBattle, String battleType, String faction) {
         if(!wonBattle){
             if(battleType.equals(BATTLE_TYPE_PVE)){
-                return Float.valueOf(customTokenAward * customPveBattleModifier * customLossTokenModifier).intValue();
+                return Float.valueOf(DEFAULT_TOKEN_AWARD * PVE_TOKEN_MULTIPLIER * LOSS_TOKEN_MULTIPLIER).intValue();
             }
             else{
-                return Float.valueOf(customTokenAward * customPvpBattleModifier * customLossTokenModifier).intValue();
+                return Float.valueOf(DEFAULT_TOKEN_AWARD * PVP_TOKEN_MULTIPLIER * LOSS_TOKEN_MULTIPLIER).intValue();
             }
         }
         else{
             if(battleType.equals(BATTLE_TYPE_PVE)){
-                return Float.valueOf(customTokenAward * customPveBattleModifier * customWinTokenModifier).intValue();
+                return Float.valueOf(DEFAULT_TOKEN_AWARD * PVE_TOKEN_MULTIPLIER * WIN_TOKEN_MULTIPLIER).intValue();
             }
             else{
-                return Float.valueOf(customTokenAward * customPvpBattleModifier * customWinTokenModifier).intValue();
+                return Float.valueOf(DEFAULT_TOKEN_AWARD * PVP_TOKEN_MULTIPLIER * WIN_TOKEN_MULTIPLIER).intValue();
             }
         }
 
@@ -769,56 +752,4 @@ public class battle_spawner extends script.base_class {
         LOG("space_gcw", "Zone " + zone + ": " + message);
     }
 
-    public void getSettings() throws InterruptedException {
-        spaceLog( "Getting Settings...");
-        // get customized settings
-        customPveBattleModifier = utils.stringToFloat(getConfigSetting("GameServer", "spaceGcwPvETokenModifier"));
-        if (customPveBattleModifier < 0) customPveBattleModifier = DEFAULT_PVE_TOKEN_MULTIPLIER;
-
-        customPvpBattleModifier = utils.stringToFloat(getConfigSetting("GameServer", "spaceGcwPvPTokenModifier"));
-        if (customPvpBattleModifier < 0) customPvpBattleModifier = DEFAULT_PVP_TOKEN_MULTIPLIER;
-
-        customWinTokenModifier = utils.stringToFloat(getConfigSetting("GameServer", "spaceGcwWinTokenModifier"));
-        if (customWinTokenModifier < 0) customWinTokenModifier = DEFAULT_WIN_TOKEN_MULTIPLIER;
-
-        customLossTokenModifier = utils.stringToFloat(getConfigSetting("GameServer", "spaceGcwLossTokenModifier"));
-        if (customLossTokenModifier < 0) customLossTokenModifier = DEFAULT_LOSS_TOKEN_MULTIPLIER;
-
-        customTokenAward = utils.stringToInt(getConfigSetting("GameServer", "spaceGcwTokenAward"));
-        if (customTokenAward < 0) customTokenAward = DEFAULT_TOKEN_AWARD;
-
-        customPointAward = utils.stringToInt(getConfigSetting("GameServer", "spaceGcwPointAward"));
-        if (customPointAward < 0) customPointAward = DEFAULT_POINT_AWARD;
-
-        customPvePointModifier = utils.stringToFloat(getConfigSetting("GameServer", "spaceGcwPvEPointModifier"));
-        if (customPvePointModifier < 0) customPvePointModifier = DEFAULT_PVE_POINT_MULTIPLIER;
-
-        customPvpPointModifier = utils.stringToFloat(getConfigSetting("GameServer", "spaceGcwPvPPointModifier"));
-        if (customPvpPointModifier < 0) customPvpPointModifier = DEFAULT_PVP_POINT_MULTIPLIER;
-
-        customWinPointModifier = utils.stringToFloat(getConfigSetting("GameServer", "spaceGcwWinPointModifier"));
-        if (customWinPointModifier < 0) customWinPointModifier = DEFAULT_WIN_POINT_MULTIPLIER;
-
-        customLossPointModifier = utils.stringToFloat(getConfigSetting("GameServer", "spaceGcwLossPointModifier"));
-        if (customLossPointModifier < 0) customLossPointModifier = DEFAULT_LOSS_POINT_MULTIPLIER;
-
-        pobPlayerCeiling = utils.stringToInt(getConfigSetting("GameServer", "spaceGcwPobPlayerCeiling"));
-        if (pobPlayerCeiling < 0) pobPlayerCeiling = DEFAULT_POB_PLAYER_CEILING;
-
-        gunshipPlayerCeiling = utils.stringToInt(getConfigSetting("GameServer", "spaceGcwGunshipPlayerCeiling"));
-        if (gunshipPlayerCeiling < 0) gunshipPlayerCeiling = DEFAULT_GUNSHIP_PLAYER_CEILING;
-
-        battleTimeLength = utils.stringToFloat(getConfigSetting("GameServer", "spaceGcwLengthOfBattle"));
-        if (battleTimeLength <= 0) battleTimeLength = DEFAULT_BATTLE_TIME_LENGTH;
-
-        prepatoryTimeLength = utils.stringToFloat(getConfigSetting("GameServer", "spaceGcwPrepatoryTime"));
-        if (prepatoryTimeLength <= 0) prepatoryTimeLength = DEFAULT_BATTLE_TIME_PREPATORY;
-
-        maxSupportShips = utils.stringToInt(getConfigSetting("GameServer", "spaceGcwMaxSupportShips"));
-        if (maxSupportShips <= 0) maxSupportShips = DEFAULT_MAX_SUPPORT_CRAFT;
-
-        maxSupportSpawn = utils.stringToInt(getConfigSetting("GameServer", "spaceGcwTotalSupportSpawn"));
-        if (maxSupportSpawn <= 0) maxSupportSpawn = DEFAULT_MAX_SUPPORT_SPAWN;
-        spaceLog( "Done getting settings...");
-    }
 }

@@ -241,6 +241,7 @@ public class holiday extends script.base_script
     public static final String LOVEDAY_CUPID_ELEMENT_NAME = "loveday_cupid_spawner_";
     public static final String LOVEDAY_CUPID_SPAWNER_CITY_VAR = "loveday_city";
     public static final String GETTING_CUPID_SPAWNER_IDS = "manager_gettingCupidSpawnerIds";
+    public static final int EMPIRE_DAY_MAX_CEREMONY_WINNERS_CONFIG = utils.getIntConfigSetting("GameServer", "empireday_ceremony_winners", MAXIMUM_EMPIRE_DAY_WINNERS);
     public static final String[] LOVEDAY_LOCATIONS = 
     {
         "endor",
@@ -654,19 +655,7 @@ public class holiday extends script.base_script
         {
             return null;
         }
-        int maxEmpireDayWinners = MAXIMUM_EMPIRE_DAY_WINNERS;
-        String empiredayWinnerConfig = getConfigSetting("GameServer", "empireday_ceremony_winners");
-        if (empiredayWinnerConfig != null && utils.stringToInt(empiredayWinnerConfig) > -1)
-        {
-            CustomerServiceLog("holidayEvent", "holiday.getEmpireDayWinningPlayers: The max badge winners was: " + maxEmpireDayWinners + " but there is a server config that might overwrite this amount.");
-            int configWinners = utils.stringToInt(empiredayWinnerConfig);
-            CustomerServiceLog("holidayEvent", "holiday.getEmpireDayWinningPlayers: The server config shows the max badge winners should be: " + configWinners + " checking to see if that is less or more than the current amount.");
-            if (configWinners != maxEmpireDayWinners)
-            {
-                CustomerServiceLog("holidayEvent", "holiday.getEmpireDayWinningPlayers: The server config if a different amount than the current max so we are using the server config.");
-                maxEmpireDayWinners = configWinners;
-            }
-        }
+        int maxEmpireDayWinners = EMPIRE_DAY_MAX_CEREMONY_WINNERS_CONFIG;
         int originalListSize = eligiblePlayers.size();
         if (originalListSize <= maxEmpireDayWinners)
         {

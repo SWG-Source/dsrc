@@ -14,7 +14,7 @@ public class hunter extends script.base_script
     {
         setAttributeInterested(self, attrib.HERBIVORE);
         setAttributeInterested(self, attrib.CARNIVORE);
-        if (getConfigSetting("GameServer", "disableAITriggerVolumes") == null)
+        if (!ai.AI_TRIGGER_VOLUMES_DISABLED)
         {
             createTriggerVolume(ALERT_VOLUME_NAME, ai_lib.aiGetApproachTriggerRange(self), true);
         }

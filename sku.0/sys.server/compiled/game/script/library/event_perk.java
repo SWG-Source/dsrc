@@ -29,6 +29,8 @@ public class event_perk extends script.base_script
     public static final string_id SHAPECHANGE_SPACE = new string_id("spam", "shapechange_space");
     public static final String DATATABLE = "datatables/event_perk/perk_data.iff";
     public static final String STF_FILE = "event_perk";
+    public static final int COIN_LIMIT_OVERRIDE = utils.getIntConfigSetting("GameServer", "halloweenCoinLimit", event_perk.COIN_LIMIT);
+
     public static boolean canPlaceEventPerkHere(obj_id self, obj_id player, location here) throws InterruptedException
     {
         if (!isIdValid(player) || (here == null))
@@ -158,12 +160,7 @@ public class event_perk extends script.base_script
             int currentCoinLimit = getIntObjVar(player, COUNTER);
             int newCoinLimit = currentCoinLimit + COIN_AMOUNT_LOW;
             setObjVar(player, COUNTER, newCoinLimit);
-            int limit = utils.stringToInt(getConfigSetting("GameServer", "halloweenCoinLimit"));
-            if (limit <= 0)
-            {
-                limit = event_perk.COIN_LIMIT;
-            }
-            if (newCoinLimit > limit)
+            if (COIN_LIMIT_OVERRIDE != -1 && newCoinLimit > COIN_LIMIT_OVERRIDE)
             {
                 buff.applyBuff(player, "event_halloween_coin_limit");
             }
@@ -289,12 +286,7 @@ public class event_perk extends script.base_script
     }
     public static boolean timeStampCheck(obj_id player) throws InterruptedException
     {
-        int limit = utils.stringToInt(getConfigSetting("GameServer", "halloweenCoinLimit"));
-        if (limit <= 0)
-        {
-            limit = event_perk.COIN_LIMIT;
-        }
-        if (newDayOrNot(player) == true)
+        if (newDayOrNot(player))
         {
             if (buff.hasBuff(player, "event_halloween_coin_limit"))
             {
@@ -327,7 +319,7 @@ public class event_perk extends script.base_script
                     }
                 }
                 int currentCoinCount = getIntObjVar(player, event_perk.COUNTER);
-                if (currentCoinCount > limit)
+                if (COIN_LIMIT_OVERRIDE != -1 && currentCoinCount > COIN_LIMIT_OVERRIDE)
                 {
                     buff.applyBuff(player, "event_halloween_coin_limit");
                     sendSystemMessage(player, event_perk.REACHED_LIMIT);
@@ -336,12 +328,12 @@ public class event_perk extends script.base_script
             }
             return true;
         }
-        if (newDayOrNot(player) == false)
+        if (!newDayOrNot(player))
         {
             if (hasObjVar(player, event_perk.COUNTER))
             {
                 int currentCoinCount = getIntObjVar(player, event_perk.COUNTER);
-                if (currentCoinCount > limit)
+                if (COIN_LIMIT_OVERRIDE != -1 && currentCoinCount > COIN_LIMIT_OVERRIDE)
                 {
                     if (!buff.hasBuff(player, "event_halloween_coin_limit"))
                     {

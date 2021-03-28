@@ -2,6 +2,7 @@ package script.npc.celebrity;
 
 import script.library.ai_lib;
 import script.library.create;
+import script.library.instance;
 import script.obj_id;
 
 public class herald_spawner extends script.base_script
@@ -11,18 +12,8 @@ public class herald_spawner extends script.base_script
     }
     public int OnInitialize(obj_id self) throws InterruptedException
     {
-        if (hasObjVar(self, "switch"))
-        {
-            String serverSwitch = getStringObjVar(self, "switch");
-            String switchValue = getConfigSetting("Dungeon", serverSwitch);
-            if (switchValue == null || switchValue.equals(""))
-            {
-                return SCRIPT_CONTINUE;
-            }
-            if ((toLower(switchValue)).equals("false"))
-            {
-                return SCRIPT_CONTINUE;
-            }
+        if(!instance.GEONOSIAN_BUNKER_ENABLED) {
+            return SCRIPT_CONTINUE;
         }
         String spawn = getStringObjVar(self, "spawns");
         obj_id celeb = create.object(spawn, getLocation(self));

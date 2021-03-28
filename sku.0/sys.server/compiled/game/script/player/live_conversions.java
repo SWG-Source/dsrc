@@ -9,6 +9,13 @@ import java.util.Vector;
 
 public class live_conversions extends script.base_script
 {
+    /**
+     * This file is used to handle "conversions" which is anything that needs to change
+     * about a player when they login or travel. This script is attached to every player
+     * so you can easily add a handler/task that needs to impact/touch/check all players.
+     * Add a void method to the bottom of the script and then call that method in either
+     * RunOncePerSessionConversions or RunOncePerTravelConversions
+     */
     public live_conversions()
     {
     }
@@ -32,6 +39,14 @@ public class live_conversions extends script.base_script
     public static final String UPDATE_COLLECTION_SLOT_TO_GRANT = "slot_to_grant";
     public static final String UPDATE_COLLECTION_INCREMENT_AMOUNT = "increment_amount";
     public static final String FORCE_RESPEC_OBJVAR = "configEnforcedRespecVersion";
+
+    public static final boolean FORCE_PROFESION_RESPEC = utils.checkConfigFlag("GameServer", "forceProfessionRespec");
+    public static final boolean GRANT_ESB_AWARDS = utils.checkConfigFlag("Custom", "grantEsbAnniversaryRewards");
+    public static final boolean GRANT_MAIL_OPT_IN_AWARDS = utils.checkConfigFlag("Custom", "grantMailOptInRewards");
+    public static final boolean GRANT_ELDER_BUFF = utils.checkConfigFlag("Custom", "grantElderBuff");
+    public static final int CU_REWARD_LEVEL = utils.getIntConfigSetting("GameServer", "combatUpgradeReward", 0);
+    public static final int CU_REWARD_AGE_REQUIRED = utils.getIntConfigSetting("GameServer", "combatUpgradeRewardAge", 365);
+
     public int OnAttach(obj_id self) throws InterruptedException
     {
         runOncePerSessionConversions(self);
@@ -79,17 +94,16 @@ public class live_conversions extends script.base_script
         validateExpertises(player);
         expertiseRespecCheck(player);
         updatePermanentSchematics(player);
-        updateHothFlawless(player);
         utils.updateCTSObjVars(player);
         respec.checkRespecDecay(player);
         updateRenameCharacterComplete(player);
         forceRespecBasedOnConfig(player);
         givePlayersDeathTroopersOutbreakQuest(player);
         givePlayersDeathTroopersPrologQuestComlink(player);
-        removeDeprecatedQuests(player);
         addPlayerScripts(player);
         handleEsbAnniversaryGifts(player);
         handleMailOptInRewards(player);
+        handleCombatUpgradePlaqueReward(player);
     }
     public void runOncePerTravelConversions(obj_id player) throws InterruptedException
     {
@@ -341,15 +355,7 @@ public class live_conversions extends script.base_script
         setConversionFlag(player, POLITICIAN_CONVERSION);
     }
     public static final int NPE_BIRTH_DATE = 1777;
-    public void grantElderBuff(obj_id player) throws InterruptedException
-    {
-        String config = getConfigSetting("Custom", "grantElderBuff");
-        if(config != null && utils.stringToInt(config) == 1) {
-            if (!hasCommand(player, "veteranPlayerBuff")) {
-                grantCommand(player, "veteranPlayerBuff");
-            }
-        }
-    }
+
     public int handleBirthDateCallBack(obj_id self, dictionary params) throws InterruptedException
     {
         obj_id player = self;
@@ -737,7 +743,6 @@ public class live_conversions extends script.base_script
     public void validateExpertises(obj_id player) throws InterruptedException
     {
         skill.validateExpertise(player);
-        return;
     }
     public boolean expertiseRespecCheck(obj_id player) throws InterruptedException
     {
@@ -780,11 +785,6 @@ public class live_conversions extends script.base_script
     {
         return craftinglib.updatePermanentSchematics(player);
     }
-    public int fullExpertiseReset(obj_id self, dictionary params) throws InterruptedException
-    {
-        utils.fullExpertiseReset(self, false);
-        return SCRIPT_CONTINUE;
-    }
     public void updateCollectionSlots(obj_id player) throws InterruptedException
     {
         if (!isIdValid(player) && !exists(player))
@@ -811,25 +811,6 @@ public class live_conversions extends script.base_script
             }
         }
     }
-    public void updateHothFlawless(obj_id player) throws InterruptedException
-    {
-        if (!isIdValid(player) && !exists(player))
-        {
-            return;
-        }
-        if (hasObjVar(player, "hoth.flawless_reward"))
-        {
-            return;
-        }
-        if (badge.hasBadge(player, "champion_of_hoth"))
-        {
-            obj_id[] rewards = new obj_id[1];
-            obj_id inventory = utils.getInventoryContainer(player);
-            rewards[0] = static_item.createNewItemFunction("item_hoth_flawless_painting", inventory);
-            showLootBox(player, rewards);
-            setObjVar(player, "hoth.flawless_reward", 1);
-        }
-    }
     public void updateRenameCharacterComplete(obj_id player) throws InterruptedException
     {
         if (!isIdValid(player) || !exists(player))
@@ -847,14 +828,10 @@ public class live_conversions extends script.base_script
             removeObjVar(player, "renameCharacterRequest.requestNewName");
         }
     }
+
     public void forceRespecBasedOnConfig(obj_id player) throws InterruptedException
     {
-        if (getConfigSetting("GameServer", "forceProfessionRespec") == null)
-        {
-            return;
-        }
-        if (!hasObjVar(player, "character_builder"))
-        {
+        if(!FORCE_PROFESION_RESPEC) {
             return;
         }
         if (hasObjVar(player, FORCE_RESPEC_OBJVAR))
@@ -876,68 +853,54 @@ public class live_conversions extends script.base_script
             setObjVar(player, FORCE_RESPEC_OBJVAR, FORCED_RESPEC_VERSION);
         }
     }
-    public boolean givePlayersDeathTroopersOutbreakQuest(obj_id player) throws InterruptedException
+
+    public void givePlayersDeathTroopersOutbreakQuest(obj_id player) throws InterruptedException
     {
-        CustomerServiceLog("outbreak_themepark", "givePlayersDeathTroopersOutbreakQuest: Player: " + player + " is being checked for old prolog quest line.");
         if (!groundquests.isQuestActiveOrComplete(player, "quest_08_dathomir_outpost"))
         {
-            return false;
+            return;
         }
-        CustomerServiceLog("outbreak_themepark", "givePlayersDeathTroopersOutbreakQuest: The Player: " + player + " has quest quest_08_dathomir_outpost active or completed.");
         if (groundquests.isQuestActiveOrComplete(player, "outbreak_live_conversion_rebel") || groundquests.isQuestActiveOrComplete(player, "outbreak_live_conversion_imperial") || groundquests.isQuestActiveOrComplete(player, "outbreak_live_conversion_neutral") || groundquests.isQuestActiveOrComplete(player, "outbreak_switch_to_neutral") || groundquests.isQuestActiveOrComplete(player, "outbreak_switch_to_rebel") || groundquests.isQuestActiveOrComplete(player, "outbreak_switch_to_imperial"))
         {
-            return false;
+            return;
         }
-        CustomerServiceLog("outbreak_themepark", "givePlayersDeathTroopersOutbreakQuest: The Player: " + player + " does not have quest outbreak_live_conversion_rebel, imperial or neutral active or completed.");
         if (groundquests.isQuestActive(player, "quest_08_dathomir_outpost"))
         {
-            CustomerServiceLog("outbreak_themepark", "givePlayersDeathTroopersOutbreakQuest: The Player: " + player + " has quest quest_08_dathomir_outpost currently active!");
             if (groundquests.isTaskActive(player, "quest_08_dathomir_outpost", "travelDathomir"))
             {
-                CustomerServiceLog("outbreak_themepark", "givePlayersDeathTroopersOutbreakQuest: The Player: " + player + " has quest quest_08_dathomir_outpost with task travelDathomir currently active! We need to complete this quest immediatly so this player is not gated!");
                 int questid = questGetQuestId("quest/quest_08_dathomir_outpost");
-                CustomerServiceLog("outbreak_themepark", "givePlayersDeathTroopersOutbreakQuest: The Player: " + player + " has quest quest_08_dathomir_outpost and that quest ID is: " + questid);
                 if (questid != 0)
                 {
-                    CustomerServiceLog("outbreak_themepark", "givePlayersDeathTroopersOutbreakQuest: The Player: " + player + " is having quest quest_08_dathomir_outpost completed to avoid a gate!");
                     questCompleteQuest(questid, player);
                 }
             }
             else 
             {
-                CustomerServiceLog("outbreak_themepark", "givePlayersDeathTroopersOutbreakQuest: The Player: " + player + " does not have the quest quest_08_dathomir_outpost task travelDathomir currently so we are not completing the quest prematurely.");
-                return false;
+                return;
             }
         }
         if (factions.isRebel(player))
         {
-            CustomerServiceLog("outbreak_themepark", "givePlayersDeathTroopersOutbreakQuest: Granting Player: " + player + " the outbreak_live_conversion_rebel quest because they are currently of rebel faction.");
             groundquests.grantQuest(player, "outbreak_live_conversion_rebel");
-            return true;
+            return;
         }
         else if (factions.isImperial(player))
         {
-            CustomerServiceLog("outbreak_themepark", "givePlayersDeathTroopersOutbreakQuest: Granting Player: " + player + " the outbreak_live_conversion_rebel quest because they are currently of imp faction.");
             groundquests.grantQuest(player, "outbreak_live_conversion_imperial");
-            return true;
+            return;
         }
-        CustomerServiceLog("outbreak_themepark", "givePlayersDeathTroopersOutbreakQuest: Granting Player: " + player + " the outbreak_live_conversion_rebel quest because they are currently of neutral faction.");
         groundquests.grantQuest(player, "outbreak_live_conversion_neutral");
-        return true;
     }
-    public boolean givePlayersDeathTroopersPrologQuestComlink(obj_id player) throws InterruptedException
+
+    public void givePlayersDeathTroopersPrologQuestComlink(obj_id player) throws InterruptedException
     {
-        if (isFreeTrialAccount(player))
-        {
-            return false;
-        }
         if (isInTutorialArea(player))
         {
-            return false;
+            return;
         }
         if (hasObjVar(player, "prologComlink"))
         {
-            return false;
+            return;
         }
         if (!groundquests.isQuestActiveOrComplete(player, "quest_01_comlink_call_to_adventure_neg_faction") && !groundquests.isQuestActiveOrComplete(player, "quest_01_comlink_call_to_adventure_neut_faction") && !groundquests.isQuestActiveOrComplete(player, "quest_01_comlink_call_to_adventure_pos_faction"))
         {
@@ -945,29 +908,24 @@ public class live_conversions extends script.base_script
             obj_id inventory = utils.getInventoryContainer(player);
             if (!isValidId(inventory))
             {
-                return false;
+                return;
             }
             rewards[0] = static_item.createNewItemFunction("item_publish_gift_update_14_comlink", inventory);
             if (!isValidId(rewards[0]))
             {
-                return false;
+                return;
             }
             showLootBox(player, rewards);
         }
         sendSystemMessage(player, JABBAS_COMLINK);
         setObjVar(player, "prologComlink", true);
-        return true;
     }
-    public boolean removeDeprecatedQuests(obj_id player) throws InterruptedException
-    {
-        if (groundquests.isQuestActive(player, "u16_nym_themepark_weed_pulling"))
-        {
-            groundquests.clearQuest(player, "u16_nym_themepark_weed_pulling");
-        }
-        return true;
-    }
+
+    /**
+     * Gives players the unattainable awards for participating in the Empire Strikes Back Anniversary Events
+     */
     public void handleEsbAnniversaryGifts(obj_id player) throws InterruptedException {
-        if(!utils.checkConfigFlag("Custom", "grantEsbAnniversaryRewards")) {
+        if(!GRANT_ESB_AWARDS) {
             return;
         }
         if(hasObjVar(player, "publish_gifts.has_esb_rewards")) {
@@ -986,8 +944,11 @@ public class live_conversions extends script.base_script
         setObjVar(player, "publish_gifts.has_esb_rewards", 1);
     }
 
+    /**
+     * Gives players the unattainable rewards for opting into the SOE mailing list
+     */
     public void handleMailOptInRewards(obj_id player) throws InterruptedException {
-        if(!utils.checkConfigFlag("Custom", "grantMailOptInRewards")) {
+        if(!GRANT_MAIL_OPT_IN_AWARDS) {
             return;
         }
         if(hasObjVar(player, "publish_gifts.has_mail_opt_in_rewards")) {
@@ -1008,4 +969,41 @@ public class live_conversions extends script.base_script
         showLootBox(player, new obj_id[] {r1, r2, r3, r4, r5, r6, r7, r8, r9, r10, r11});
         setObjVar(player, "publish_gifts.has_mail_opt_in_rewards", 1);
     }
+
+    /**
+     * Gives a player the Combat Upgrade Reward Plaque if they have reached a specified age
+     * and if the setting is enabled. Gives the Silver plaque if setting = 1 or the gold if setting = 2
+     * Note: age = days since they created the character, so 45 "age" is 45 days after character creation
+     */
+    public void handleCombatUpgradePlaqueReward(obj_id player) throws InterruptedException {
+        if (CU_REWARD_LEVEL != 0) {
+            if (!hasObjVar(player, "publish_gifts.hasCombatUpgradePlaque")) {
+                int playerAge = getCurrentBirthDate() - getPlayerBirthDate(player);
+                if (playerAge >= CU_REWARD_AGE_REQUIRED) {
+                    obj_id reward = obj_id.NULL_ID;
+                    if (CU_REWARD_LEVEL == 1) {
+                        reward = createObjectInInventoryAllowOverload("object/tangible/event_perk/frn_loyalty_award_plaque_silver.iff", player);
+                    } else if (CU_REWARD_LEVEL == 2) {
+                        reward = createObjectInInventoryAllowOverload("object/tangible/event_perk/frn_loyalty_award_plaque_gold.iff", player);
+                    }
+                    if (isIdValid(reward)) {
+                        showLootBox(player, new obj_id[]{reward});
+                    }
+                }
+            }
+        }
+    }
+
+    /**
+     * Gives every player the otherwise unattainable Elder Buff
+     */
+    public void grantElderBuff(obj_id player) throws InterruptedException
+    {
+        if(GRANT_ELDER_BUFF) {
+            if (!hasCommand(player, "veteranPlayerBuff")) {
+                grantCommand(player, "veteranPlayerBuff");
+            }
+        }
+    }
+
 }

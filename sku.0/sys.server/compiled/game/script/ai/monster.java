@@ -13,7 +13,7 @@ public class monster extends script.base_script
     public int OnAttach(obj_id self) throws InterruptedException
     {
         setAttributeInterested(self, attrib.NPC);
-        if (getConfigSetting("GameServer", "disableAITriggerVolumes") == null)
+        if (!ai.AI_TRIGGER_VOLUMES_DISABLED)
         {
             createTriggerVolume(ALERT_VOLUME_NAME, ai_lib.aiGetApproachTriggerRange(self), true);
         }

@@ -97,14 +97,17 @@ public class veteran_deprecated extends script.base_script
     public static final string_id SID_UNAVAILABLE_NEEDS_EXPANSION = new string_id(VETERAN_STRING_TABLE, "unavailable_needs_expansion");
     public static final string_id SID_UNAVAILABLE_NOT_ENOUGH_MILESTONE = new string_id(VETERAN_STRING_TABLE, "unavailable_not_enough_milestone");
     public static final string_id SID_UNKNOWN = new string_id(VETERAN_STRING_TABLE, "unknown");
+    public static final boolean VETERAN_REWARDS_ENABLED = utils.checkConfigFlag("GameServer", "enableVeteranRewards");
+    public static final boolean ONE_YEAR_ANNIV_ENABLED = utils.checkConfigFlag("GameServer", "enableOneYearAnniversary");
+    public static final boolean FLASH_SPEEDER_REWARD_ENABLED = utils.checkConfigFlag("GameServer", "flashSpeederReward");
+
     public static void updateVeteranTime(obj_id player) throws InterruptedException
     {
         if (!isIdValid(player))
         {
             return;
         }
-        if (!("true").equals(getConfigSetting("GameServer", "enableVeteranRewards")))
-        {
+        if (!VETERAN_REWARDS_ENABLED) {
             return;
         }
         if ((player.getScriptVars()).hasKey(SCRIPTVAR_VETERAN_LOGGED_IN))
@@ -641,8 +644,7 @@ public class veteran_deprecated extends script.base_script
     }
     public static void giveOneYearAnniversaryReward(obj_id player) throws InterruptedException
     {
-        if (!("true").equals(getConfigSetting("GameServer", "enableOneYearAnniversary")))
-        {
+        if(!ONE_YEAR_ANNIV_ENABLED) {
             return;
         }
         if (!isPlayer(player))
@@ -698,42 +700,22 @@ public class veteran_deprecated extends script.base_script
     }
     public static boolean checkFlashSpeederReward(obj_id player) throws InterruptedException
     {
-        if (!isIdValid(player))
-        {
-            LOG("flash_speeder", "veteran_deprecated.checkFlashSpeeder: Player is invalid.");
-            return false;
-        }
-        if (!isPlayer(player))
-        {
-            LOG("flash_speeder", "veteran_deprecated.checkFlashSpeeder: " + player + " is not a player.");
-            return false;
-        }
-        if (isUsingAdminLogin(player))
+        if (!isIdValid(player) || !isPlayer(player))
         {
             return false;
         }
-        String config = getConfigSetting("GameServer", "flashSpeederReward");
-        if (config != null && config.equals("true"))
-        {
-            int sub_bits = getGameFeatureBits(player);
-            if (hasObjVar(player, "flash_speeder.eligible"))
-            {
-                sub_bits = getIntObjVar(player, "flash_speeder.eligible");
-            }
-            if ((features.isSpaceEdition(player) && utils.checkBit(sub_bits, 3)) || features.isJPCollectorEdition(player))
-            {
-                if (!hasObjVar(player, "flash_speeder.granted"))
-                {
-                    createObjectInInventoryAllowOverload("object/tangible/deed/vehicle_deed/speederbike_flash_deed.iff", player);
-                    CustomerServiceLog("flash_speeder", "%TU has received a JtL pre-order Flash Speeder.", player);
-                    string_id sub = new string_id(VETERAN_STRING_TABLE, "flash_speeder_granted_sub");
-                    string_id body = new string_id(VETERAN_STRING_TABLE, "flash_speeder_granted_body");
-                    utils.sendMail(sub, body, player, "System");
-                    setObjVar(player, "flash_speeder.granted", 1);
-                    return true;
-                }
+        if (FLASH_SPEEDER_REWARD_ENABLED) {
+            if (!hasObjVar(player, "flash_speeder.granted")) {
+                createObjectInInventoryAllowOverload("object/tangible/deed/vehicle_deed/speederbike_flash_deed.iff", player);
+                CustomerServiceLog("flash_speeder", "%TU has received a JtL pre-order Flash Speeder.", player);
+                string_id sub = new string_id(VETERAN_STRING_TABLE, "flash_speeder_granted_sub");
+                string_id body = new string_id(VETERAN_STRING_TABLE, "flash_speeder_granted_body");
+                utils.sendMail(sub, body, player, "System");
+                setObjVar(player, "flash_speeder.granted", 1);
+                return true;
             }
         }
         return false;
     }
+
 }

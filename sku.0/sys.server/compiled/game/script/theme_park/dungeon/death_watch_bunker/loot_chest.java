@@ -2,6 +2,7 @@ package script.theme_park.dungeon.death_watch_bunker;
 
 import script.*;
 import script.library.create;
+import script.library.instance;
 import script.library.permissions;
 import script.library.utils;
 
@@ -175,9 +176,7 @@ public class loot_chest extends script.base_script
     }
     public obj_id spawnLoot(obj_id self) throws InterruptedException
     {
-        String setting = getConfigSetting("Dungeon", "Death_Watch");
-        if (setting == null || setting.equals("false") || setting.equals("0"))
-        {
+        if(!instance.DEATH_WATCH_DUNGEON_ENABLED) {
             return obj_id.NULL_ID;
         }
         String newLoot = pickNewLoot();

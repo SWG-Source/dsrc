@@ -1,6 +1,7 @@
 package script.event;
 
 import script.dictionary;
+import script.library.events;
 import script.library.holiday;
 import script.obj_id;
 
@@ -9,14 +10,16 @@ public class planet_event_handler extends script.base_script
     public planet_event_handler()
     {
     }
+
     private static final String EVENT_TIMESTAMP = "lifeday.time_stamp";
+    private static final boolean LIFEDAY_ACTIVE = events.isEventActive(events.LIFEDAY);
+
     public int OnAttach(obj_id self) throws InterruptedException
     {
         CustomerServiceLog("holidayEvent", "planet_event_handler.OnAttach: trigger initialized.");
-        String lifedayRunning = getConfigSetting("GameServer", "lifeday");
-        if (lifedayRunning != null && !lifedayRunning.equals("false"))
+        if (LIFEDAY_ACTIVE)
         {
-            CustomerServiceLog("holidayEvent", "planet_event_handler.OnAttach: Life Day oconfig found.");
+            CustomerServiceLog("holidayEvent", "planet_event_handler.OnAttach: Life Day config found.");
             checkLifeDayData(self);
         }
         else
@@ -32,8 +35,7 @@ public class planet_event_handler extends script.base_script
     public int OnInitialize(obj_id self) throws InterruptedException
     {
         CustomerServiceLog("holidayEvent", "planet_event_handler.OnInitialize: trigger initialized.");
-        String lifedayRunning = getConfigSetting("GameServer", "lifeday");
-        if (lifedayRunning != null && !lifedayRunning.equals("false"))
+        if (LIFEDAY_ACTIVE)
         {
             CustomerServiceLog("holidayEvent", "planet_event_handler.OnInitialize: Life Day oconfig found.");
             checkLifeDayData(self);
@@ -166,8 +168,7 @@ public class planet_event_handler extends script.base_script
     }
     public int lifeDayDailyAlarm(obj_id self, dictionary params) throws InterruptedException
     {
-        String lifedayRunning = getConfigSetting("GameServer", "lifeday");
-        if (lifedayRunning != null && !lifedayRunning.equals("false"))
+        if (LIFEDAY_ACTIVE)
         {
             checkLifeDayData(self);
         }
@@ -267,8 +268,7 @@ public class planet_event_handler extends script.base_script
             return false;
         }
         CustomerServiceLog("holidayEvent", "planet_event_handler.checkForHolidayEventConfigs: Function initialized.");
-        String empiredayRunning = getConfigSetting("GameServer", "empireday_ceremony");
-        if (empiredayRunning != null && (empiredayRunning.equals("true") || empiredayRunning.equals("1")))
+        if (events.isEventActive(events.EMPIRE_DAY))
         {
             CustomerServiceLog("holidayEvent", "planet_event_handler.checkForHolidayEventConfigs: EMPIRE DAY CONFIG FOUND.");
             dictionary params = new dictionary();

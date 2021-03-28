@@ -21,16 +21,13 @@ public class museum_event_master extends script.base_script
 
     public int getMuseumEventDuration() throws InterruptedException
     {
-        String durationConfigSetting = getConfigSetting("BestineEvents", "MuseumEventDuration");
-        int museumEventDuration = utils.stringToInt(durationConfigSetting);
-        if (museumEventDuration == 0 || museumEventDuration == -1)
-        {
-            museumEventDuration = 1209600;
-        }
-        return museumEventDuration;
+        return utils.getIntConfigSetting("BestineEvents", "museumEventDuration", 1209600);
     }
     public int beginBestineMuseumEvent(obj_id self, dictionary params) throws InterruptedException
     {
+        if(utils.checkConfigFlag("BestineEvents", "disableMuseumEvent")) {
+            return SCRIPT_CONTINUE;
+        }
         int museumEventNum = 1;
         if (hasObjVar(self, "bestine.museumEventEnded"))
         {

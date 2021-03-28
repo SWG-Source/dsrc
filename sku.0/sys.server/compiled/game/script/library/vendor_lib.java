@@ -140,6 +140,8 @@ public class vendor_lib extends script.base_script
     public static final string_id SID_GREETER_PACK_UP_SUCCESS = new string_id("player_structure", "greeter_packup_success");
     public static final string_id SID_GREETER_PACK_UP_FAILURE = new string_id("player_structure", "greeter_packup_failure");
     public static final string_id SID_MUST_BE_IN_VALID_LOCATION = new string_id("player_structure", "must_be_valid_location");
+    public static final boolean VENDOR_PACKUP_ALLOWED = utils.checkConfigFlag("GameServer", "allowPlayersToPackVendors");
+
     public static boolean payMaintenance(obj_id player, obj_id vendor, int amt) throws InterruptedException
     {
         if (player == null || player == obj_id.NULL_ID)
@@ -333,7 +335,7 @@ public class vendor_lib extends script.base_script
     }
     public static boolean isVendorPackUpEnabled() throws InterruptedException
     {
-        return utils.checkConfigFlag("GameServer", "allowPlayersToPackVendors");
+        return VENDOR_PACKUP_ALLOWED;
     }
     public static obj_id getAuctionContainer(obj_id vendor) throws InterruptedException
     {

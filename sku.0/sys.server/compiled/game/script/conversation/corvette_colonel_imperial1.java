@@ -80,12 +80,7 @@ public class corvette_colonel_imperial1 extends script.base_script
     }
     public boolean corvette_colonel_imperial1_condition_dungeonInactive(obj_id player, obj_id npc) throws InterruptedException
     {
-        String isDungeonActive = getConfigSetting("Dungeon", "Corellian_Corvette_Imperial");
-        if (isDungeonActive == null || isDungeonActive.equals("false") || isDungeonActive.equals("0"))
-        {
-            return true;
-        }
-        return false;
+        return !instance.CORVETTE_IMPERIAL_DUNGEON_ENABLED;
     }
     public boolean corvette_colonel_imperial1_condition_onDifferentCorvetteQuest(obj_id player, obj_id npc) throws InterruptedException
     {

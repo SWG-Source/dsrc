@@ -1,10 +1,7 @@
 package script.event.gcwraids;
 
 import script.dictionary;
-import script.library.badge;
-import script.library.create;
-import script.library.gcw;
-import script.library.locations;
+import script.library.*;
 import script.location;
 import script.obj_id;
 import script.string_id;
@@ -29,8 +26,7 @@ public class gcwraid extends script.base_script
         {
             attachScript(self, "systems.gcw.gcw_data_updater");
         }
-        String setting = getConfigSetting("EventTeam", "gcwraid");
-        if (setting == null || setting.equals("") || !setting.equals("true"))
+        if (!utils.checkConfigFlag("EventTeam", "gcwraid"))
         {
             return SCRIPT_CONTINUE;
         }

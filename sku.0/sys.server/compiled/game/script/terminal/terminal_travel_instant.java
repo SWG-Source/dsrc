@@ -92,11 +92,9 @@ public class terminal_travel_instant extends script.base_script
                 debugLogging("//***// OnObjectMenuSelect: ", "////>>>> city name at player's location is: " + travel_point);
             }
             LOG("LOG_CHANNEL", "player ->" + player + " planet ->" + planet + " travel_point ->" + travel_point);
-            String config = getConfigSetting("GameServer", "disableTravelSystem");
-            if (config != null) {
-                if (config.equals("on")) {
-                    return SCRIPT_CONTINUE;
-                }
+            if(travel.TRAVEL_SYSTEM_DISABLED) {
+                sendSystemMessageTestingOnly(player, "The Travel System is currently unavailable. Please try again later.");
+                return SCRIPT_CONTINUE;
             }
             utils.setScriptVar(player, travel.SCRIPT_VAR_TERMINAL, self);
             utils.setScriptVar(player, "instantTravel", true);

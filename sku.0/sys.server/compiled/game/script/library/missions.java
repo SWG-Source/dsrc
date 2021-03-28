@@ -33,13 +33,11 @@ public class missions extends script.base_script
     public static final String DAILY_MISSION_OBJVAR = "missions.daily";
     public static final String DAILY_MISSION_CLOCK_OBJVAR = "missions.dailyClock";
     public static final string_id DAILY_REWARD_XP = new string_id("base_player", "prose_mission_xp_amount");
+    public static final int DAILY_XP_LIMIT = utils.getIntConfigSetting("Custom", "dailyMissionXpLimit", DAILY_MISSION_XP_REWARD_DEFAULT);
+
     public static int getDailyMissionXpLimit() throws InterruptedException
     {
-        String config = getConfigSetting("Custom", "dailyMissionXpLimit");
-        if (config != null && config.length() > 0) {
-            return utils.stringToInt(config);
-        }
-        return DAILY_MISSION_XP_REWARD_DEFAULT;
+        return DAILY_XP_LIMIT;
     }
     public static void sendBountyFail(obj_id hunter, obj_id target) throws InterruptedException
     {

@@ -153,14 +153,6 @@ public class interplanetary_survey extends script.base_script
         Vector surveyToolList = utils.getResizeableObjIdArrayScriptVar(self, "surveyToolId");
         obj_id[] resourceIdList = getAvailablePlanetResources(planet, (String)surveyResourceList.get(idx));
         int time = getSurveyTime();
-        if (isGod(player))
-        {
-            String delayStr = getConfigSetting("GameServer", "InterplanetarySurveyDelay");
-            if (delayStr != null && !delayStr.equals(""))
-            {
-                time = Integer.parseInt(delayStr);
-            }
-        }
         dictionary data = new dictionary();
         data.put("resourceList", resourceIdList);
         data.put("planetName", planet);

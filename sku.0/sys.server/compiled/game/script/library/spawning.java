@@ -11,6 +11,13 @@ public class spawning extends script.base_script
     public spawning()
     {
     }
+
+    public static final boolean AREA_SPAWNERS_DISABLED = utils.checkConfigFlag("GameServer", "disableAreaSpawners");
+    public static final boolean GENERIC_SPAWNERS_DISABLED = utils.checkConfigFlag("GameServer", "disableGenericSpawner");
+    public static final boolean PATROL_SPAWNERS_DISABLED = utils.checkConfigFlag("GameServer", "disablePatrolSpawners");
+    public static final boolean FAST_SPAWN = utils.checkConfigFlag("GameServer", "fastSpawn");
+    public static final boolean SPAWNER_INITIAL_STATE_OFF = utils.checkConfigFlag("GameServer", "spawningInitialStateDefaultOff");
+
     public static void activateSpawnerHack(obj_id objPlayer) throws InterruptedException
     {
         obj_id[] objSpawners = getAllObjectsWithObjVar(getLocation(objPlayer), 24000, "intSpawnSystem");

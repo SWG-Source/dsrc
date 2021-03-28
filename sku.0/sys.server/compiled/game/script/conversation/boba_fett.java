@@ -23,12 +23,7 @@ public class boba_fett extends script.base_script
     }
     public boolean boba_fett_condition_dungeonInactive(obj_id player, obj_id npc) throws InterruptedException
     {
-        String isDungeonActive = getConfigSetting("Dungeon", "Death_Watch");
-        if (isDungeonActive == null || isDungeonActive.equals("false") || isDungeonActive.equals("0"))
-        {
-            return true;
-        }
-        return false;
+        return !instance.DEATH_WATCH_DUNGEON_ENABLED;
     }
     public boolean boba_fett_condition_hasCompletedQuestOne(obj_id player, obj_id npc) throws InterruptedException
     {

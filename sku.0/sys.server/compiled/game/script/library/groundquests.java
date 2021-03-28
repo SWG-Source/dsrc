@@ -1088,11 +1088,7 @@ public class groundquests extends script.base_script
                 {
                     declared = true;
                 }
-                float multiplier = utils.stringToFloat(getConfigSetting("GameServer", "gcwTokenBonus"));
-                if (multiplier > 1)
-                {
-                    grantGcwRebRewardCount *= multiplier;
-                }
+                grantGcwRebRewardCount *= utils.getFloatConfigSetting("GameServer", "gcwTokenBonus", 1.0f);
                 if (declared && grantGcwSFRewardMultip != 0)
                 {
                     grantGcwRebRewardCount *= grantGcwSFRewardMultip;
@@ -1126,11 +1122,7 @@ public class groundquests extends script.base_script
                 {
                     declared = true;
                 }
-                float multiplier = utils.stringToFloat(getConfigSetting("GameServer", "gcwTokenBonus"));
-                if (multiplier > 1)
-                {
-                    grantGcwImpRewardCount *= multiplier;
-                }
+                grantGcwImpRewardCount *= utils.getFloatConfigSetting("GameServer", "gcwTokenBonus", 1.0f);
                 if (declared && grantGcwSFRewardMultip != 0)
                 {
                     grantGcwImpRewardCount *= grantGcwSFRewardMultip;

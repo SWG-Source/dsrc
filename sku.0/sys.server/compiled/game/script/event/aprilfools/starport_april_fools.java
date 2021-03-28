@@ -3,6 +3,7 @@ package script.event.aprilfools;
 import script.dictionary;
 import script.library.ai_lib;
 import script.library.create;
+import script.library.events;
 import script.library.utils;
 import script.location;
 import script.obj_id;
@@ -21,35 +22,20 @@ public class starport_april_fools extends script.base_script
     public static final String SPAWN_DATATABLE = "datatables/event/aprilfools/aprilfools09.iff";
     public int OnInitialize(obj_id self) throws InterruptedException
     {
+        if(!events.isEventActive(events.FOOLS_DAY)) {
+            return SCRIPT_CONTINUE;
+        }
         setObjVar(self, LAST_SPAWN, 0);
         messageTo(self, "heartbeat", null, 60.0f, false);
         return SCRIPT_CONTINUE;
     }
     public int heartbeat(obj_id self, dictionary params) throws InterruptedException
     {
-        String foolsDayRunning = getConfigSetting("GameServer", "foolsDay");
-        if(foolsDayRunning == null || foolsDayRunning.equals("false") || foolsDayRunning.equals("0")){
-            return SCRIPT_CONTINUE;
-        }
-        if (foolsDayRunning.length() <= 0)
-        {
+        int currentTime = getCalendarTime();
+        if(!events.isEventRunning(events.FOOLS_DAY)) {
+            messageTo(self, "cleanupCreatures", null, 0.0f, false);
             messageTo(self, "heartbeat", null, 60.0f, false);
             return SCRIPT_CONTINUE;
-        }
-        Calendar cal = Calendar.getInstance();
-        int currentTime = getCalendarTime();
-        int midnightOnAprilFoolsDay = getCalendarTime(cal.get(Calendar.YEAR), 4, 1, 0, 0, 0);
-        int midnightOnDayAfterAprilFools = getCalendarTime(cal.get(Calendar.YEAR), 4, 2, 0, 0, 0);
-        String forceAprilFools = getConfigSetting("EventTeam", "forceFoolsDay");
-        if (forceAprilFools == null || forceAprilFools.length() <= 0)
-        {
-            LOG("AprilFools", "Fools day is being forced into the April Fools real 24 hour period because the [EventTeam] forceFoolsDay setting is null or not set.");
-            if (currentTime < midnightOnAprilFoolsDay || currentTime > midnightOnDayAfterAprilFools)
-            {
-                messageTo(self, "cleanupCreatures", null, 0.0f, false);
-                messageTo(self, "heartbeat", null, 60.0f, false);
-                return SCRIPT_CONTINUE;
-            }
         }
         if (!hasObjVar(self, CITY_OBJVAR))
         {
@@ -64,9 +50,9 @@ public class starport_april_fools extends script.base_script
             LOG("AprilFools", "Failed to open table " + spawnDatatable);
             return SCRIPT_CONTINUE;
         }
-        int spawnTime = 60 * 60;
-        int configTime = utils.stringToInt(getConfigSetting("GameServer", "foolsDayTimer"));
-        if (configTime >= 0)
+        int spawnTime = 3600;
+        int configTime = utils.getIntConfigSetting("GameServer", "foolsDayTimer");
+        if (configTime >= 1)
         {
             spawnTime = configTime * 60;
         }

@@ -1,6 +1,7 @@
 package script.event.lifeday;
 
 import script.library.badge;
+import script.library.events;
 import script.library.static_item;
 import script.library.utils;
 import script.menu_info;
@@ -27,13 +28,8 @@ public class lifeday_tree extends script.base_script
     }
     public int OnObjectMenuRequest(obj_id self, obj_id player, menu_info mi) throws InterruptedException
     {
-        String config = getConfigSetting("GameServer", "grantGift");
-        if (config != null)
-        {
-            if (config.equals("false"))
-            {
-                return SCRIPT_CONTINUE;
-            }
+        if(!events.isEventActive(events.LIFEDAY) || !utils.checkConfigFlag("GameServer", "grantGift")) {
+            return SCRIPT_CONTINUE;
         }
         if (!hasObjVar(player, currentYearObjVar()))
         {

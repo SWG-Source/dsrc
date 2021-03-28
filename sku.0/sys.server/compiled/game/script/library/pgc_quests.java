@@ -13,8 +13,6 @@ public class pgc_quests extends script.base_script
     public static final int CHRONICLE_HOLOCRON_VERSION = 0;
     public static final int CHRONICLE_CREATION_XP_BASE = 99;
     public static final int CHRONICLE_SHARED_XP_BASE = 4;
-    public static final int CHRONICLES_QUESTOR_GOLD_TOKEN_CHANCE = 5;
-    public static final int CHRONICLES_CHRONICLER_GOLD_TOKEN_CHANCE = 5;
     public static final float CHRONICLE_SILVER_TOKENS_FOR_CHRONICLER_MOD = 0.42f;
     public static final float CHRONICLE_SILVER_TOKENS_FOR_QUESTOR_MOD = 1.2f;
     public static final boolean TEXT_FILTER_DISABLED = false;
@@ -126,6 +124,11 @@ public class pgc_quests extends script.base_script
     public static final int PGC_NUM_QUESTS_YOU_COMPLETED_HIGH_QUALITY_INDEX = 11;
     public static final float PGC_MIN_MID_QUALITY_QUEST_WEIGHT = 15.0f;
     public static final float PGC_MIN_HIGH_QUALITY_QUEST_WEIGHT = 30.0f;
+    public static final float CHRONICLES_XP_MODIFIER = utils.getFloatConfigSetting("GameServer", "chroniclesXpModifier", 1.0f);
+    public static final float CHRONICLES_CHRONCILER_SILVER_TOKEN_MODIFIER = utils.getFloatConfigSetting("GameServer", "chroniclesChroniclerSilverTokenNumModifier", 1.0f);
+    public static final float CHRONICLES_QUESTOR_SILVER_TOKEN_MODIFIER = utils.getFloatConfigSetting("GameServer", "chroniclesQuestorSilverTokenNumModifier", 1.0f);
+    public static final int CHRONICLES_GOLD_TOKEN_CHANCE_SETTING = utils.getIntConfigSetting("GameServer", "chroniclesGoldTokenChanceOverride", 5);
+
     public static boolean activateQuestHolocron(obj_id questHolocron, obj_id player) throws InterruptedException
     {
         obj_id datapad = utils.getPlayerDatapad(player);
@@ -1089,16 +1092,7 @@ public class pgc_quests extends script.base_script
     }
     public static int getConfigModifiedChroniclesXPAmount(int xpAmount) throws InterruptedException
     {
-        String configMod_string = getConfigSetting("GameServer", "chroniclesXpModifier");
-        if (configMod_string != null && configMod_string.length() > 0)
-        {
-            float configMod = utils.stringToFloat(configMod_string);
-            if (configMod > 0)
-            {
-                xpAmount *= configMod;
-            }
-        }
-        return xpAmount;
+        return xpAmount *= CHRONICLES_XP_MODIFIER;
     }
     public static void checkForGainedChroniclesLevel(obj_id player) throws InterruptedException
     {
@@ -1287,18 +1281,8 @@ public class pgc_quests extends script.base_script
                         }
                         if (questWeight >= pgc_quests.PGC_MIN_MID_QUALITY_QUEST_WEIGHT && !isCompletingYourOwnChronicleQuest(player, questHolocron))
                         {
-                            int goldTokenChance = CHRONICLES_QUESTOR_GOLD_TOKEN_CHANCE;
-                            String configChance_string = getConfigSetting("GameServer", "chroniclesQuestorGoldTokenChanceOverride");
-                            if (configChance_string != null && configChance_string.length() > 0)
-                            {
-                                int configChance = utils.stringToInt(configChance_string);
-                                if (configChance > 0)
-                                {
-                                    goldTokenChance = configChance;
-                                }
-                            }
                             int goldTokenRoll = rand(1, 100);
-                            if (goldTokenRoll <= goldTokenChance)
+                            if (goldTokenRoll <= CHRONICLES_GOLD_TOKEN_CHANCE_SETTING)
                             {
                                 grantGoldChroniclesRewardTokens(player, 1);
                                 showFlyText(player, new string_id("saga_system", "bonus_gold_token"), 2.0f, colors.GOLDENROD);
@@ -1390,15 +1374,7 @@ public class pgc_quests extends script.base_script
         float relicTypeDiversity = getFloatObjVar(questHolocron, PCG_QUEST_RELIC_DIVERSITY);
         int count = 1;
         count = (int)((float)(count + (questWeight * relicTypeDiversity)) * CHRONICLE_SILVER_TOKENS_FOR_CHRONICLER_MOD);
-        String tokenNumMod_string = getConfigSetting("GameServer", "chroniclesChroniclerSilverTokenNumModifier");
-        if (tokenNumMod_string != null && tokenNumMod_string.length() > 0)
-        {
-            float tokenNumMod = utils.stringToFloat(tokenNumMod_string);
-            if (tokenNumMod > 0)
-            {
-                count *= tokenNumMod;
-            }
-        }
+        count *= CHRONICLES_CHRONCILER_SILVER_TOKEN_MODIFIER;
         return count;
     }
     public static int getNumQuestCompleteQuestorRewardTokens(obj_id player, obj_id questHolocron) throws InterruptedException
@@ -1411,15 +1387,7 @@ public class pgc_quests extends script.base_script
         float relicTypeDiversity = getFloatObjVar(questHolocron, PCG_QUEST_RELIC_DIVERSITY);
         int count = 1;
         count = (int)((float)(count + (questWeight * relicTypeDiversity)) * CHRONICLE_SILVER_TOKENS_FOR_QUESTOR_MOD);
-        String tokenNumMod_string = getConfigSetting("GameServer", "chroniclesQuestorSilverTokenNumModifier");
-        if (tokenNumMod_string != null && tokenNumMod_string.length() > 0)
-        {
-            float tokenNumMod = utils.stringToFloat(tokenNumMod_string);
-            if (tokenNumMod > 0)
-            {
-                count *= tokenNumMod;
-            }
-        }
+        count *= CHRONICLES_QUESTOR_SILVER_TOKEN_MODIFIER;
         return count;
     }
     public static obj_id grantSilverChroniclesRewardTokens(obj_id player, int count) throws InterruptedException

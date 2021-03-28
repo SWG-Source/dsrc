@@ -45,6 +45,9 @@ public class player_travel extends script.base_script
     public static final int SHIP_TYPE_TCG_LOCATION_SHIP = 6;
     public static final int SHIP_TYPE_SNOWSPEEDER_SHIP = 7;
     public static final int SHIP_TYPE_TCG_SLAVE1_SHIP = 8;
+    public static final boolean ITV_DISABLED = utils.checkConfigFlag("GameServer", "disableInstantTravelVehicles");
+    public static final int ITV_MIN_LEVEL_TO_USE = utils.getIntConfigSetting("GameServer", "itvMinUsageLevel", 1);
+
     public int OnInitialize(obj_id self) throws InterruptedException
     {
         LOG("LOG_CHANNEL", "player_travel.OnInitialize");
@@ -1071,17 +1074,20 @@ public class player_travel extends script.base_script
     }
     public boolean canCallForPickup(obj_id player) throws InterruptedException
     {
-        debugLogging("//***// canCallForPickup", "////>>>> ENTERED");
-        // get the setting for minimum ITV level (if its not set, make it the max player level)
-        String minLevelSetting = getConfigSetting("GameServer", "itvMinUsageLevel");
-        if(minLevelSetting == null) minLevelSetting = "0";
 
-        int minimumLevel = Integer.parseInt(minLevelSetting);
-        obj_id playerCurrentMount = getMountId(player);
-        if(getLevel(player) < minimumLevel){
-            sendSystemMessage(player, "Instant Travel vehicles may not be used until you have reached level " + minLevelSetting, null);
+        if(ITV_DISABLED) {
+            sendSystemMessageTestingOnly(player, "You cannot call an Instant Travel Vehicle because they are currently disabled.");
             return false;
         }
+
+        if(ITV_MIN_LEVEL_TO_USE > 1) {
+            if(getLevel(player) < ITV_MIN_LEVEL_TO_USE) {
+                sendSystemMessageTestingOnly(player, "You cannot call an Instant Travel Vehicle until you reach level "+ITV_MIN_LEVEL_TO_USE+".");
+                return false;
+            }
+        }
+
+        obj_id playerCurrentMount = getMountId(player);
         if (isIdValid(playerCurrentMount))
         {
             sendSystemMessage(player, SID_INSTANT_MOUNT_NO);

@@ -83,7 +83,7 @@ public class ship_interior extends script.base_script
                             utils.setScriptVar(self, strLocationList[intI] + "Cells", objCells);
                         }
                     }
-                    if (!utils.checkConfigFlag("ScriptFlags", "liveSpaceServer"))
+                    if (space_flags.LIVE_SPACE_SERVER_MODE_OFF)
                     {
                         obj_id objTest = createObject(strTemplates[intI], tr, objCell);
                         if (!strObjVars[intI].equals(""))

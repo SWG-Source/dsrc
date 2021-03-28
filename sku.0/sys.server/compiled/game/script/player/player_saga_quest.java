@@ -968,16 +968,7 @@ public class player_saga_quest extends script.base_script
                         }
                         if (questWeight >= pgc_quests.PGC_MIN_MID_QUALITY_QUEST_WEIGHT)
                         {
-                            int goldTokenChance = pgc_quests.CHRONICLES_CHRONICLER_GOLD_TOKEN_CHANCE;
-                            String configChance_string = getConfigSetting("GameServer", "chroniclesChroniclerGoldTokenChanceOverride");
-                            if (configChance_string != null && configChance_string.length() > 0)
-                            {
-                                int configChance = utils.stringToInt(configChance_string);
-                                if (configChance > 0)
-                                {
-                                    goldTokenChance = configChance;
-                                }
-                            }
+                            int goldTokenChance = pgc_quests.CHRONICLES_GOLD_TOKEN_CHANCE_SETTING;
                             int goldTokenRoll = rand(1, 100);
                             if (goldTokenRoll <= goldTokenChance)
                             {

@@ -299,29 +299,25 @@ public class gcw_spawner extends script.base_script
                 hard = true;
             }
         }
-        String empiredayRunning = getConfigSetting("GameServer", "empireday_ceremony");
-        if (empiredayRunning != null)
+        if (events.isEventActive(events.EMPIRE_DAY))
         {
-            if (empiredayRunning.equals("true") || empiredayRunning.equals("1"))
+            location here = getLocation(self);
+            String city = locations.getCityName(here);
+            if (city == null)
             {
-                location here = getLocation(self);
-                String city = locations.getCityName(here);
-                if (city == null)
+                city = locations.getGuardSpawnerRegionName(here);
+            }
+            if (city != null && city.length() > 0)
+            {
+                if (city.equals("coronet"))
                 {
-                    city = locations.getGuardSpawnerRegionName(here);
+                    faction = "rebel";
+                    hard = false;
                 }
-                if (city != null && city.length() > 0)
+                else if (city.equals("theed"))
                 {
-                    if (city.equals("coronet"))
-                    {
-                        faction = "rebel";
-                        hard = false;
-                    }
-                    else if (city.equals("theed"))
-                    {
-                        faction = "imperial";
-                        hard = false;
-                    }
+                    faction = "imperial";
+                    hard = false;
                 }
             }
         }

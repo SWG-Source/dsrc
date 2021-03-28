@@ -36,6 +36,13 @@ public class instance extends script.base_script
     public static final int FAIL_INSTANCE_FEW_PLAYERS = 5;
     public static final int FAIL_WARN_TOO_FEW = 6;
     public static final string_id SID_UNDER_FIVE_MINUTE_WARNING = new string_id("instance", "five_minute_warning");
+    public static final boolean CORVETTE_REBEL_DUNGEON_ENABLED = utils.checkConfigFlag("Dungeon", "Corellian_Corvette_Rebel");
+    public static final boolean CORVETTE_IMPERIAL_DUNGEON_ENABLED = utils.checkConfigFlag("Dungeon", "Corellian_Corvette_Imperial");
+    public static final boolean CORVETTE_NEUTRAL_DUNGEON_ENABLED = utils.checkConfigFlag("Dungeon", "Corellian_Corvette_Neutral");
+    public static final boolean DEATH_WATCH_DUNGEON_ENABLED = utils.checkConfigFlag("Dungeon", "Death_Watch");
+    public static final boolean GEONOSIAN_BUNKER_ENABLED = utils.checkConfigFlag("Dungeon", "Geonosian");
+    public static final float HEROIC_TOKEN_MULTIPLIER = utils.getFloatConfigSetting("GameServer", "heroicTokenBonus", 1.0f);
+
     public static void registerInstance(obj_id instance_id) throws InterruptedException
     {
         registerInstance(instance_id, getInstanceName(instance_id));

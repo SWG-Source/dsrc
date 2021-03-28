@@ -64,6 +64,8 @@ public class space_combat extends script.base_script
     public static final int NPC_DAMAGE_MULTIPLIER = 4;
     public static final string_id SID_DISABLED = new string_id("space/space_interaction", "disabled");
     public static final String SPACE_COLLECTIONS_LOOT_TABLE = "datatables/space_loot/space_collection_loot.iff";
+    public static final boolean GROUND_XP_IN_SPACE_DISABLED = utils.checkConfigFlag("GameServer", "disableGroundXpInSpace");
+
     public static void addToCombatDamage(obj_id objAttacker, obj_id objDefender, int intDamage) throws InterruptedException
     {
         Vector objAttackers = utils.getResizeableObjIdArrayLocalVar(objDefender, "damage.objAttackers");
@@ -635,8 +637,7 @@ public class space_combat extends script.base_script
                                 String information = getName(objDefender);
                                 gcw.grantModifiedGcwPoints(((obj_id) objPlayer), credit, gcw.GCW_POINT_TYPE_SPACE_PVE, information);
                             }
-                            String disableGroundXp = getConfigSetting("GameServer", "disableGroundXpInSpace");
-                            if (disableGroundXp == null || disableGroundXp.equals("false") || disableGroundXp.equals("0")) {
+                            if (!GROUND_XP_IN_SPACE_DISABLED) {
                                 if (!utils.isProfession(((obj_id) objPlayer), utils.TRADER) && !utils.isProfession(((obj_id) objPlayer), utils.ENTERTAINER)) {
                                     int combatLevel = getLevel(((obj_id) objPlayer));
                                     if (combatLevel < 90) {
@@ -997,15 +998,18 @@ public class space_combat extends script.base_script
             if (strItems.length > 0)
             {
                 int intRoll2 = rand(0, strItems.length - 1);
-                String itemTemplateName;
+                String itemTemplateName = strItems[intRoll2];
+                /*
+                // deprecated from Publish 26
                 if (getConfigSetting("GameServer", "enableLevelUpLoot") != null && (rand(1, 10000) == 1))
                 {
                     itemTemplateName = "object/tangible/loot/quest/levelup_lifeday_orb.iff";
                 }
-                else 
+                else
                 {
-                    itemTemplateName = strItems[intRoll2];
+                   itemTemplateName = strItems[intRoll2];
                 }
+                 */
                 if (space_battlefield.isInBattlefield(objAttacker))
                 {
                     CustomerServiceLog("battlefield", "%TU Created " + itemTemplateName + " in " + objContainer + " contained by " + objAttacker, getOwner(objAttacker));
@@ -1641,7 +1645,7 @@ public class space_combat extends script.base_script
     public static obj_id getClosestSpaceStation(obj_id objShip) throws InterruptedException
     {
         obj_id objQuestManager;
-        if (!utils.checkConfigFlag("ScriptFlags", "liveSpaceServer"))
+        if (space_flags.LIVE_SPACE_SERVER_MODE_OFF)
         {
             try
             {

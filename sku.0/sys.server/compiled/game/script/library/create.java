@@ -1,6 +1,7 @@
 package script.library;
 
 import script.*;
+import script.ai.ai;
 
 import java.util.Vector;
 
@@ -810,7 +811,7 @@ public class create extends script.base_script
     }
     public static void attachCreatureScripts(obj_id creature, String scriptList, boolean withAi) throws InterruptedException
     {
-        if (getConfigSetting("GameServer", "disableAI") != null)
+        if (ai.AI_SCRIPTS_DISABLED)
         {
             return;
         }
@@ -935,23 +936,6 @@ public class create extends script.base_script
         if (!hasScript(npc, "systems.combat.combat_actions"))
         {
             attachScript(npc, "systems.combat.combat_actions");
-        }
-        obj_id primaryWeapon = aiGetPrimaryWeapon(npc);
-        obj_id secondaryWeapon = aiGetSecondaryWeapon(npc);
-        boolean hasJediWeapon = false;
-        if (isIdValid(primaryWeapon))
-        {
-            if (jedi.isLightsaber(primaryWeapon))
-            {
-                hasJediWeapon = true;
-            }
-        }
-        if (isIdValid(secondaryWeapon))
-        {
-            if (jedi.isLightsaber(secondaryWeapon))
-            {
-                hasJediWeapon = true;
-            }
         }
     }
     public static void applySkillStatisticModifiers(obj_id creature, int toHitChance, int defenseValue) throws InterruptedException

@@ -49,13 +49,9 @@ public class terminal_travel extends script.base_script
                 }
             }
             LOG("LOG_CHANNEL", "player ->" + player + " planet ->" + planet + " travel_point ->" + travel_point);
-            String config = getConfigSetting("GameServer", "disableTravelSystem");
-            if (config != null)
-            {
-                if (config.equals("on"))
-                {
-                    return SCRIPT_CONTINUE;
-                }
+            if(travel.TRAVEL_SYSTEM_DISABLED) {
+                sendSystemMessageTestingOnly(player, "The Travel System is currently unavailable. Please try again later.");
+                return SCRIPT_CONTINUE;
             }
             utils.setScriptVar(player, travel.SCRIPT_VAR_TERMINAL, self);
             enterClientTicketPurchaseMode(player, planet, travel_point, false);

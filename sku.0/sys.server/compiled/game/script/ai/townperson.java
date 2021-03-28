@@ -19,7 +19,7 @@ public class townperson extends script.base_script
     public static final String CREATURE_TABLE = "datatables/mob/creatures.iff";
     public int OnAttach(obj_id self) throws InterruptedException
     {
-        if (getConfigSetting("GameServer", "disableAITriggerVolumes") == null)
+        if (!ai.AI_TRIGGER_VOLUMES_DISABLED)
         {
             createTriggerVolume(SOCIAL_VOLUME, SOCIAL_RANGE, false);
         }
@@ -53,7 +53,7 @@ public class townperson extends script.base_script
     public int OnAddedToWorld(obj_id self) throws InterruptedException
     {
         utils.removeScriptVar(self, "ai.speaking");
-        if (getConfigSetting("GameServer", "disableAITriggerVolumes") == null)
+        if (!ai.AI_TRIGGER_VOLUMES_DISABLED)
         {
             createTriggerVolume(SOCIAL_VOLUME, SOCIAL_RANGE, false);
         }
@@ -321,7 +321,7 @@ public class townperson extends script.base_script
     }
     public int OnSawAttack(obj_id self, obj_id defender, obj_id[] attackers) throws InterruptedException
     {
-        if (getConfigSetting("GameServer", "disableAICombat") != null)
+        if (ai.AI_COMBAT_DISABLED)
         {
             setWantSawAttackTriggers(self, false);
             return SCRIPT_OVERRIDE;

@@ -1,9 +1,6 @@
 package script.conversation;
 
-import script.library.ai_lib;
-import script.library.chat;
-import script.library.factions;
-import script.library.utils;
+import script.library.*;
 import script.*;
 
 public class death_watch_imperial_herald extends script.base_script
@@ -43,12 +40,7 @@ public class death_watch_imperial_herald extends script.base_script
     }
     public boolean death_watch_imperial_herald_condition_dungeonInactive(obj_id player, obj_id npc) throws InterruptedException
     {
-        String isDungeonActive = getConfigSetting("Dungeon", "Death_Watch");
-        if (isDungeonActive == null || isDungeonActive.equals("false") || isDungeonActive.equals("0"))
-        {
-            return true;
-        }
-        return false;
+        return !instance.DEATH_WATCH_DUNGEON_ENABLED;
     }
     public boolean death_watch_imperial_herald_condition_QuestComplete(obj_id player, obj_id npc) throws InterruptedException
     {

@@ -1,5 +1,6 @@
 package script.theme_park.warren;
 
+import script.ai.ai;
 import script.library.ai_lib;
 import script.library.chat;
 import script.library.utils;
@@ -22,7 +23,7 @@ public class trooper extends script.base_script
         {
             setObjVar(self, "ai.diction", "military");
         }
-        if (getConfigSetting("GameServer", "disableAITriggerVolumes") == null)
+        if (!ai.AI_TRIGGER_VOLUMES_DISABLED)
         {
             createTriggerVolume(ALERT_VOLUME_NAME, 15.0f, true);
         }
@@ -80,7 +81,7 @@ public class trooper extends script.base_script
     }
     public int OnSawAttack(obj_id self, obj_id defender, obj_id[] attackers) throws InterruptedException
     {
-        if (getConfigSetting("GameServer", "disableAICombat") != null)
+        if (ai.AI_COMBAT_DISABLED)
         {
             setWantSawAttackTriggers(self, false);
             return SCRIPT_OVERRIDE;

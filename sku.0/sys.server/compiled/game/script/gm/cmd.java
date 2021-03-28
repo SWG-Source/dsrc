@@ -3067,11 +3067,15 @@ public class cmd extends script.base_script
     }
     public int cmdHasVeteranReward(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException
     {
-        if (!("true").equalsIgnoreCase(getConfigSetting("GameServer", "enableVeteranRewards")))
-        {
+        if(!isGod(self)) {
             return SCRIPT_CONTINUE;
         }
-        if (isGod(self) && veteran_deprecated.checkVeteranTarget(target))
+        if (!veteran_deprecated.VETERAN_REWARDS_ENABLED)
+        {
+            sendSystemMessageTestingOnly(self, "Veteran rewards are currently disabled.");
+            return SCRIPT_CONTINUE;
+        }
+        if (veteran_deprecated.checkVeteranTarget(target))
         {
             if (params == null || params.length() == 0)
             {
@@ -3099,11 +3103,15 @@ public class cmd extends script.base_script
     }
     public int cmdSetVeteranReward(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException
     {
-        if (!("true").equalsIgnoreCase(getConfigSetting("GameServer", "enableVeteranRewards")))
-        {
+        if(!isGod(self)) {
             return SCRIPT_CONTINUE;
         }
-        if (isGod(self) && veteran_deprecated.checkVeteranTarget(target))
+        if (!veteran_deprecated.VETERAN_REWARDS_ENABLED)
+        {
+            sendSystemMessageTestingOnly(self, "Veteran rewards are currently disabled.");
+            return SCRIPT_CONTINUE;
+        }
+        if (veteran_deprecated.checkVeteranTarget(target))
         {
             if (params == null || params.length() == 0)
             {
@@ -3126,11 +3134,15 @@ public class cmd extends script.base_script
     }
     public int cmdClearVeteranReward(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException
     {
-        if (!("true").equalsIgnoreCase(getConfigSetting("GameServer", "enableVeteranRewards")))
-        {
+        if(!isGod(self)) {
             return SCRIPT_CONTINUE;
         }
-        if (isGod(self) && veteran_deprecated.checkVeteranTarget(target))
+        if (!veteran_deprecated.VETERAN_REWARDS_ENABLED)
+        {
+            sendSystemMessageTestingOnly(self, "Veteran rewards are currently disabled.");
+            return SCRIPT_CONTINUE;
+        }
+        if (veteran_deprecated.checkVeteranTarget(target))
         {
             if (params == null || params.length() == 0)
             {
@@ -3153,12 +3165,14 @@ public class cmd extends script.base_script
     }
     public int cmdOverrideActiveMonths(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException
     {
-        if (!("true").equalsIgnoreCase(getConfigSetting("GameServer", "enableVeteranRewards")))
-        {
+        if(!isGod(self)) {
             return SCRIPT_CONTINUE;
         }
-        if (isGod(self))
+        if (!veteran_deprecated.VETERAN_REWARDS_ENABLED)
         {
+            sendSystemMessageTestingOnly(self, "Veteran rewards are currently disabled.");
+            return SCRIPT_CONTINUE;
+        }
             if (params == null || params.length() == 0)
             {
                 sendSystemMessageTestingOnly(self, "format: /overrideActiveMonths <months>");
@@ -3181,7 +3195,6 @@ public class cmd extends script.base_script
                 setObjVar(self, veteran_deprecated.OBJVAR_TIME_ACTIVE, days);
                 sendSystemMessage(self, veteran_deprecated.SID_OK);
             }
-        }
         return SCRIPT_CONTINUE;
     }
     public int parseMilestone(String params) throws InterruptedException

@@ -166,8 +166,7 @@ public class gcw_city extends script.base_script
                     debugSpeakMsg(self, "GCW Controller: Failed to find city name.");
                     return SCRIPT_CONTINUE;
                 }
-                String cityConfig = getConfigSetting("GameServer", "gcwcity" + city);
-                if (cityConfig == null || cityConfig.length() <= 0) {
+                if (!gcw.gcwIsInvasionCityOn(city)) {
                     sendSystemMessageTestingOnly(objSpeaker, "The city configuration (gcwcity" + city + ") is turned off.  OVERRIDING");
                     utils.setScriptVar(self, "gcw.configOverride", 1);
                 }

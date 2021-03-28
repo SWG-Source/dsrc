@@ -1,6 +1,7 @@
 package script.theme_park.rebel;
 
 import script.dictionary;
+import script.library.spawning;
 import script.location;
 import script.obj_id;
 
@@ -81,15 +82,6 @@ public class rtp_luke_plants extends script.base_script
     }
     public boolean canSpawnByConfigSetting() throws InterruptedException
     {
-        String disableSpawners = getConfigSetting("GameServer", "disableAreaSpawners");
-        if (disableSpawners == null)
-        {
-            return true;
-        }
-        if (disableSpawners.equals("true") || disableSpawners.equals("1"))
-        {
-            return false;
-        }
-        return true;
+        return !spawning.AREA_SPAWNERS_DISABLED;
     }
 }

@@ -13,6 +13,8 @@ public class guard_spawner extends script.base_script
     {
     }
     public static final String guardTable = "datatables/npc/guard_spawner/guard.iff";
+    public static final boolean EMPIRE_DAY_RUNNING = utils.checkConfigFlag("GameServer", "empireday_ceremony");
+
     public int OnAttach(obj_id self) throws InterruptedException
     {
         messageTo(self, "checkForStart", null, 3, false);
@@ -33,8 +35,7 @@ public class guard_spawner extends script.base_script
             }
             else if (city.equals("theed"))
             {
-                String empiredayRunning = getConfigSetting("GameServer", "empireday_ceremony");
-                if (empiredayRunning != null && (empiredayRunning.equals("true") || empiredayRunning.equals("1")))
+                if (EMPIRE_DAY_RUNNING)
                 {
                     utils.setScriptVar(self, "OFF", "DUE TO EMPIRE DAY");
                     return SCRIPT_CONTINUE;
@@ -294,19 +295,15 @@ public class guard_spawner extends script.base_script
             String test_city = city;
             if (planet.equals("naboo") || planet.equals("corellia"))
             {
-                String empiredayRunning = getConfigSetting("GameServer", "empireday_ceremony");
-                if (empiredayRunning != null)
+                if (EMPIRE_DAY_RUNNING)
                 {
-                    if (empiredayRunning.equals("true") || empiredayRunning.equals("1"))
+                    if (city.equals("coronet"))
                     {
-                        if (city.equals("coronet"))
-                        {
-                            return test_city + "_rebel_hard";
-                        }
-                        else if (city.equals("theed"))
-                        {
-                            return test_city + "_imperial_hard";
-                        }
+                        return test_city + "_rebel_hard";
+                    }
+                    else if (city.equals("theed"))
+                    {
+                        return test_city + "_imperial_hard";
                     }
                 }
             }

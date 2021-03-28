@@ -4745,6 +4745,11 @@ public class utils extends script.base_script
     {
         return getIntBatchScriptVar(target, base_path) != null;
     }
+
+    /**
+     * Gets a config value where the anticipated value is an int and parses it
+     * If it doesn't find a value, returns 0
+     */
     public static int getIntConfigSetting(String section, String key)
     {
         String setting = getConfigSetting(section, key);
@@ -4761,6 +4766,22 @@ public class utils extends script.base_script
         }
         return 0;
     }
+
+    /**
+     * Overload of getIntConfigSetting which allows you to provide a default value that will
+     * be returned if the regular getIntConfigSetting does not find the setting set in config.
+     * @param defaultValueIfNotFound the value to use if we get a 0 from getFloatConfigSetting
+     */
+    public static int getIntConfigSetting(String section, String key, int defaultValueIfNotFound)
+    {
+        int value = getIntConfigSetting(section, key);
+        return value == 0 ? defaultValueIfNotFound : value;
+    }
+
+    /**
+     * Gets a config value where the anticipated value is a float and parses it
+     * If it doesn't find a value, returns 0
+     */
     public static float getFloatConfigSetting(String section, String key)
     {
         String setting = getConfigSetting(section, key);
@@ -4777,11 +4798,31 @@ public class utils extends script.base_script
         }
         return 0;
     }
+
+    /**
+     * Overload of getFloatConfigSetting which allows you to provide a default value that will
+     * be returned if the regular getFloatConfigSetting does not find the setting set in config.
+     * @param defaultValueIfNotFound the value to use if we get a 0 from getFloatConfigSetting
+     */
+    public static float getFloatConfigSetting(String section, String key, float defaultValueIfNotFound)
+    {
+        float value = getFloatConfigSetting(section, key);
+        return value == 0 ? defaultValueIfNotFound : value;
+    }
+
+    /**
+     * Parses a config option where a boolean is anticipated.
+     * Returns true if it finds a value and the value equals true or 1.
+     * Otherwise (e.g. improper value, value not set in config, or false/0) returns false.
+     * @param strSection the section header of the target config option, e.g. GameServer
+     * @param strConfigSetting the actual option to check, e.g. disableMuseumEvent
+     */
     public static boolean checkConfigFlag(String strSection, String strConfigSetting)
     {
         String strTest = toLower(getConfigSetting(strSection, strConfigSetting));
         return (strTest != null && (strTest.equals("true") || strTest.equals("1")));
     }
+
     public static boolean checkServerSpawnLimits() throws InterruptedException
     {
         final int intNumPlayers = getNumPlayers();
@@ -6708,48 +6749,6 @@ public class utils extends script.base_script
             return null;
         }
         return newList;
-    }
-    public static boolean grantGift(obj_id player) throws InterruptedException
-    {
-        if ((getCurrentBirthDate() - getPlayerBirthDate(player)) < 10)
-        {
-            return false;
-        }
-        if (hasObjVar(player, XMAS_RECEIVED_VI1))
-        {
-            return false;
-        }
-        if (!isIdValid(player))
-        {
-            return false;
-        }
-        String config = getConfigSetting("GameServer", "grantGift");
-        if (config != null)
-        {
-            if (config.equals("false"))
-            {
-                return false;
-            }
-        }
-        if (isInTutorialArea(player))
-        {
-            setObjVar(player, XMAS_NOT_RECEIVED_TUTORIAL, 1);
-            CustomerServiceLog("grantGift", getFirstName(player) + "(" + player + ") did not receive Christmas '06 gift because they logged in on the tutorial planet.");
-            return false;
-        }
-        removeObjVar(player, XMAS_NOT_RECEIVED_TUTORIAL);
-        obj_id inv = utils.getInventoryContainer(player);
-        if (!isIdValid(inv))
-        {
-            CustomerServiceLog("grantGift", getFirstName(player) + "(" + player + ") did not have an inventory container. Didn't receive Christmas '06 gift, but not blocked from future attempt.");
-            return false;
-        }
-        obj_id giftOther = static_item.createNewItemFunction("item_lifeday_gift_other_01_02", inv);
-        setObjVar(giftOther, LIFEDAY_OWNER, player);
-        utils.sendMail(GIFT_GRANTED_SUB, GIFT_GRANTED, player, "System");
-        setObjVar(player, XMAS_RECEIVED_VI1, 1);
-        CustomerServiceLog("grantGift", getFirstName(player) + "(" + player + ") has received his Christmas '06 gift.");
-        return true;
     }
     public static void fullExpertiseReset(obj_id player, boolean storeBeast) throws InterruptedException
     {

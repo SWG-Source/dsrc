@@ -1955,7 +1955,7 @@ public class player_guild extends script.base_script
         {
             return SCRIPT_CONTINUE;
         }
-        if (guildGetCountMembersOnly(guildId) < utils.stringToInt(getConfigSetting("GameServer", "gcwGuildMinMembersForGcwRegionDefender")))
+        if (guildGetCountMembersOnly(guildId) < utils.getIntConfigSetting("GameServer", "gcwGuildMinMembersForGcwRegionDefender", 10))
         {
             return SCRIPT_CONTINUE;
         }

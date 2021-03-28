@@ -10,8 +10,8 @@ public class master_city_object extends script.base_script
     public master_city_object()
     {
     }
-    public static final int CITY_PROCESS_INTERVAL = 60 * 60;
-    public static final int CITY_UPDATE_INTERVAL = 60 * 60 * 24 * 7;
+    public static final int CITY_PROCESS_INTERVAL = 3600; // 1 hour in seconds
+    public static final int CITY_UPDATE_INTERVAL = 604800; // 1 week in seconds
     public static final string_id ELECTION_INCUMBENT_WIN_SUBJECT = new string_id("city/city", "election_incumbent_win_subject");
     public static final string_id ELECTION_INCUMBENT_WIN_BODY = new string_id("city/city", "election_incumbent_win_body");
     public static final string_id ELECTION_INCUMBENT_LOST_SUBJECT = new string_id("city/city", "election_incumbent_lost_subject");
@@ -47,12 +47,7 @@ public class master_city_object extends script.base_script
     {
         int[] cityUpdateIds = objvar_mangle.getMangledIntArrayObjVar(self, "cityUpdate.ids");
         int[] cityUpdateTimes = objvar_mangle.getMangledIntArrayObjVar(self, "cityUpdate.times");
-        String strCityUpdateInterval = getConfigSetting("GameServer", "cityUpdateInterval");
-        int cityUpdateInterval = 0;
-        if (strCityUpdateInterval != null)
-        {
-            cityUpdateInterval = utils.stringToInt(strCityUpdateInterval);
-        }
+        int cityUpdateInterval = utils.getIntConfigSetting("GameServer", "cityUpdateInterval", CITY_UPDATE_INTERVAL);
         if (cityUpdateInterval < CITY_PROCESS_INTERVAL)
         {
             cityUpdateInterval = CITY_UPDATE_INTERVAL;

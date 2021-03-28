@@ -1,10 +1,7 @@
 package script.event.aprilfools;
 
 import script.dictionary;
-import script.library.ai_lib;
-import script.library.chat;
-import script.library.create;
-import script.library.utils;
+import script.library.*;
 import script.location;
 import script.obj_id;
 import script.string_id;
@@ -28,8 +25,7 @@ public class cantina_controller extends script.base_script
     }
     public int OnInitialize(obj_id self) throws InterruptedException
     {
-        String setting = getConfigSetting("GameServer", "foolsDay");
-        if (setting == null || setting.equals("") || !setting.equals("true"))
+        if (!events.isEventActive(events.FOOLS_DAY))
         {
             return SCRIPT_CONTINUE;
         }

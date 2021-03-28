@@ -59,20 +59,6 @@ public class player_utility extends script.base_script
     public static final String GUARD_OCCUPIED = "occupied";
     public int OnLogin(obj_id self) throws InterruptedException
     {
-        if (utils.checkConfigFlag("GameServer", "jediTestResources"))
-        {
-            if (hasSkill(self, "class_bountyhunter_phase4_novice"))
-            {
-                createNewBHResources(self);
-            }
-        }
-        if (utils.checkConfigFlag("GameServer", "jediTestBuffs"))
-        {
-            if (hasSkill(self, "class_bountyhunter_phase4_novice"))
-            {
-                createBuffs(self);
-            }
-        }
         removeObjVar(self, VAR_FIND_BASE);
         if (buff.hasBuff(self, "tcg_series3_hands_of_seduction"))
         {

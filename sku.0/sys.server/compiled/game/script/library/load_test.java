@@ -79,12 +79,7 @@ public class load_test extends script.base_script
     };
     public static boolean loadClientSupportEnabled() throws InterruptedException
     {
-        String value = getConfigSetting("GameServer", "loadClientSupportEnabled");
-        if (value != null && (value.equals("1") || value.equals("true") || value.equals("yes")))
-        {
-            return true;
-        }
-        return false;
+        return utils.checkConfigFlag("GameServer", "loadClientSupportEnabled");
     }
     public static void handleLoadClientSetup(obj_id clientCreature, String optionsString) throws InterruptedException
     {

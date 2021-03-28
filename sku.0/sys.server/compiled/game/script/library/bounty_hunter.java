@@ -471,21 +471,8 @@ public class bounty_hunter extends script.base_script
             return false;
         }
         int numHunters = hunters.length;
-        String Smax = getConfigSetting("GameServer", "maxJediBounties");
-        int maxHunters = 3;
-        if (Smax != null && !Smax.equals(""))
-        {
-            Integer Imax = Integer.getInteger(Smax);
-            if (Imax != null)
-            {
-                maxHunters = Imax;
-            }
-        }
-        if (numHunters >= maxHunters)
-        {
-            return true;
-        }
-        return false;
+        int maxHunters = utils.getIntConfigSetting("GameServer", "maxJediBounties", 3);
+        return numHunters >= maxHunters;
     }
     public static float getBountyFactionPointAdjustment(obj_id hunter, obj_id target) throws InterruptedException
     {

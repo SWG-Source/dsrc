@@ -814,11 +814,7 @@ public class player_pvp extends script.base_script
                 tokens = 5;
             }
         }
-        float multiplier = utils.stringToFloat(getConfigSetting("GameServer", "gcwTokenBonus"));
-        if (multiplier > 1)
-        {
-            tokens *= multiplier;
-        }
+        tokens *= gcw.GCW_TOKEN_BONUS;
         if (canReceiveReward(self))
         {
             gcw._grantGcwPoints(null, self, gcwCredits, false, gcw.GCW_POINT_TYPE_GROUND_PVP_REGION, "");

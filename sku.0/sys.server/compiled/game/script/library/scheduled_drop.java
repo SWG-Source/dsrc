@@ -79,6 +79,8 @@ public class scheduled_drop extends script.base_script
         "entertainer",
         "crafter"
     };
+    public static final boolean SYSTEM_ENABLED = utils.checkConfigFlag("Custom", "enableScheduledDropSystem");
+
     public static void testingSpam(obj_id self, String str) throws InterruptedException
     {
         if (isIdValid(self) && isGod(self) && hasObjVar(self, "qa_tcg"))
@@ -496,6 +498,6 @@ public class scheduled_drop extends script.base_script
         return card;
     }
     public static boolean isSystemEnabled() throws InterruptedException {
-        return utils.checkConfigFlag("Custom", "enableScheduledDropSystem");
+        return SYSTEM_ENABLED;
     }
 }

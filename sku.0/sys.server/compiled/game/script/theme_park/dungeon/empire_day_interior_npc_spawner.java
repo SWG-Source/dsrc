@@ -1,10 +1,7 @@
 package script.theme_park.dungeon;
 
 import script.dictionary;
-import script.library.ai_lib;
-import script.library.create;
-import script.library.holiday;
-import script.library.utils;
+import script.library.*;
 import script.location;
 import script.obj_id;
 
@@ -308,8 +305,7 @@ public class empire_day_interior_npc_spawner extends script.base_script
     public boolean isEmpireDayRunning() throws InterruptedException
     {
         CustomerServiceLog("holidayEvent", "empire_day_interior_npc_spawner.isEmpireDayRunning: Initializing check for building.");
-        String empiredayRunning = getConfigSetting("GameServer", "empireday_ceremony");
-        if(empiredayRunning == null || empiredayRunning.equals("0") || empiredayRunning.equals("false")){
+        if(!events.isEventActive(events.EMPIRE_DAY)) {
             return false;
         }
         String empiredayString = getCurrentUniverseWideEvents();
@@ -317,15 +313,11 @@ public class empire_day_interior_npc_spawner extends script.base_script
         if (empireday < 0)
         {
             CustomerServiceLog("holidayEvent", "empire_day_interior_npc_spawner.isEmpireDayRunning: event is NOT runing or starting.");
-            if (empiredayRunning.equals("true") || empiredayRunning.equals("1"))
+            if (events.isEventActive(events.EMPIRE_DAY))
             {
                 obj_id self = getSelf();
                 CustomerServiceLog("holidayEvent", "empire_day_interior_npc_spawner.isEmpireDayRunning: There is a config that shows the event is running. Sending a message to later to see if we tried to spawn too soon.");
                 messageTo(self, "beginEmpireDaySpawning", null, (holiday.EMPIRE_DAY_EVENT_START_DELAY + 300), false);
-            }
-            else 
-            {
-                CustomerServiceLog("holidayEvent", "empire_day_interior_npc_spawner.isEmpireDayRunning: There is a config that shows the event is NOT running.");
             }
             return false;
         }

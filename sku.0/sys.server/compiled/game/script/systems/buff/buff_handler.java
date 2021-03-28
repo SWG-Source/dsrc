@@ -3827,8 +3827,7 @@ public class buff_handler extends script.base_script
     }
     public int lifedayCompetitiveBuffRemoveBuffHandler(obj_id self, String effectName, String subtype, float duration, float value, String buffName, obj_id caster) throws InterruptedException
     {
-        String lifedayRunning = getConfigSetting("GameServer", "lifeday");
-        if (lifedayRunning != null && !lifedayRunning.equals("false"))
+        if (events.isEventActive(events.LIFEDAY))
         {
             obj_id tatooine = getPlanetByName("tatooine");
             setObjVar(self, "lifeday.locked_out", 1);

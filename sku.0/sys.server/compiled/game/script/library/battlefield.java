@@ -147,6 +147,8 @@ public class battlefield extends script.base_script
     public static final String STRING_TRIG_BOUNDARY = "battlefield_boundary";
     public static final String STRING_TRIG_OUTER_PERIMETER = "battlefield_outer_perimeter";
     public static final String GAME_SCRIPT_PATH = "systems.battlefield.game_";
+    public static final boolean BATTLEFIELDS_DISABLED = utils.checkConfigFlag("GameServer", "disableBattlefields");
+
     public static void createBattlefieldRegions(String area) throws InterruptedException
     {
         int numItems = dataTableGetNumRows(BATTLEFIELD_DATATABLE);

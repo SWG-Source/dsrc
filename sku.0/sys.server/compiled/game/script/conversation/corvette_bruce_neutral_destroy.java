@@ -75,12 +75,7 @@ public class corvette_bruce_neutral_destroy extends script.base_script
     }
     public boolean corvette_bruce_neutral_destroy_condition_dungeonInactive(obj_id player, obj_id npc) throws InterruptedException
     {
-        String isDungeonActive = getConfigSetting("Dungeon", "Corellian_Corvette_Neutral");
-        if (isDungeonActive == null || isDungeonActive.equals("false") || isDungeonActive.equals("0"))
-        {
-            return true;
-        }
-        return false;
+        return !instance.CORVETTE_NEUTRAL_DUNGEON_ENABLED;
     }
     public boolean corvette_bruce_neutral_destroy_condition_onDifferentCorvetteQuest(obj_id player, obj_id npc) throws InterruptedException
     {

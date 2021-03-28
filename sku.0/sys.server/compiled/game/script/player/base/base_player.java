@@ -283,6 +283,11 @@ public class base_player extends script.base_script
     };
     public static final boolean LOGGING_ON = true;
     public static final String LOGNAME = "junk_log";
+    public static final int EXTRAORDINARY_WEALTH_LOGGING_THRESHOLD = 10000000;
+    public static final int PROFIT_LOGGING_THRESHOLD = 500000;
+    public static final boolean FORCE_SKIP_TUTORIAL = utils.checkConfigFlag("GameServer", "skipTutorial");
+    public static final boolean WALL_OF_MIST_DISABLED = utils.checkConfigFlag("GameServer", "fsWallOfMistDisabled");
+
     public int OnCustomizeFinished(obj_id self, obj_id object, String params) throws InterruptedException
     {
         if (utils.hasScriptVar(self, "armor_colorize.tool_oid") || utils.hasScriptVar(self, "structure_colorize.tool_oid"))
@@ -629,17 +634,9 @@ public class base_player extends script.base_script
         }
         int totalMoney = getTotalMoney(self);
         utils.setScriptVar(self, "profit", totalMoney);
-        String balanceThreshold = getConfigSetting("GameServer", "wealthLoggingThreshold");
-        if (balanceThreshold == null || balanceThreshold.equals(""))
+        if (totalMoney > EXTRAORDINARY_WEALTH_LOGGING_THRESHOLD)
         {
-            balanceThreshold = "10000000";
-        }
-        if (utils.stringToInt(balanceThreshold) > -1)
-        {
-            if (totalMoney > utils.stringToInt(balanceThreshold))
-            {
-                CustomerServiceLog("Wealth", "Extraordinary Wealth: " + getName(self) + " (" + self + ") logged in with " + totalMoney + " credits");
-            }
+            CustomerServiceLog("Wealth", "Extraordinary Wealth: " + getName(self) + " (" + self + ") logged in with " + totalMoney + " credits");
         }
         utils.unequipAndNotifyUncerted(self);
         utils.checkInventoryForSnowflakeItemSwaps(self);
@@ -1297,8 +1294,7 @@ public class base_player extends script.base_script
     }
     public int OnMadeAuthoritative(obj_id self) throws InterruptedException
     {
-        String flag = getConfigSetting("GameServer", "skipTutorial");
-        if (flag != null && (flag.equals("true") || flag.equals("1")))
+        if (FORCE_SKIP_TUTORIAL)
         {
             setObjVar(self, "skipTutorial", 1);
         }
@@ -1375,13 +1371,6 @@ public class base_player extends script.base_script
             setObjVar(self, "combatLevel", getIntObjVar(self, "clickRespec.combatLevel"));
             removeObjVar(self, "clickRespec.combatLevel");
         }
-        if (getConfigSetting("GameServer", "combatUpgradeReward") != null)
-        {
-            if (!hasScript(self, "cureward.cureward"))
-            {
-                attachScript(self, "cureward.cureward");
-            }
-        }
         obj_id bldg = getTopMostContainer(self);
         if (isIdValid(bldg))
         {
@@ -1389,10 +1378,9 @@ public class base_player extends script.base_script
             parms.put("player", self);
             messageTo(bldg, "handlePlayerLogin", parms, 0, false);
             String bldgName = getTemplateName(bldg);
-            String setting = getConfigSetting("Dungeon", "Death_Watch");
             if (bldgName.equals("object/building/general/bunker_allum_mine.iff"))
             {
-                if (setting == null || setting.equals("false") || setting.equals("0"))
+                if (instance.DEATH_WATCH_DUNGEON_ENABLED)
                 {
                     CustomerServiceLog("DUNGEON_DeathWatchBunker", "*Death Watch Unauthorized Entry: %TU entered the death watch bunker while it was turned off.", self);
                 }
@@ -1872,8 +1860,7 @@ public class base_player extends script.base_script
                     }
                 }
             }
-            String halloweenRunning = getConfigSetting("GameServer", "halloween");
-            if (halloweenRunning == null)
+            if (!events.isEventActive(events.GALACTIC_MOON_FESTIVAL))
             {
                 if (hasObjVar(self, event_perk.COUNTER_TIMESTAMP))
                 {
@@ -1888,15 +1875,14 @@ public class base_player extends script.base_script
                     removeObjVar(self, event_perk.COUNTER_RESTARTTIME);
                 }
             }
-            String lifedayRunning = getConfigSetting("GameServer", "lifeday");
-            if (lifedayRunning == null)
+            if (!events.isEventActive(events.LIFEDAY))
             {
                 if (hasObjVar(self, "lifeday"))
                 {
                     removeObjVar(self, "lifeday");
                 }
             }
-            if (lifedayRunning != null)
+            else
             {
                 if (lifeDayNewDay(self))
                 {
@@ -2200,17 +2186,9 @@ public class base_player extends script.base_script
             int startMoney = utils.getIntScriptVar(self, "profit");
             int endMoney = getTotalMoney(self);
             utils.removeScriptVar(self, "profit");
-            String profitThreshold = getConfigSetting("GameServer", "profitLoggingThreshold");
-            if (profitThreshold == null || profitThreshold.equals(""))
+            if ((endMoney - startMoney) > PROFIT_LOGGING_THRESHOLD)
             {
-                profitThreshold = "500000";
-            }
-            if (utils.stringToInt(profitThreshold) > -1)
-            {
-                if ((endMoney - startMoney) > utils.stringToInt(profitThreshold))
-                {
-                    CustomerServiceLog("Wealth", "Extraordinary Profit: " + getName(self) + " (" + self + ") logged in with " + startMoney + " credits and logged out with " + endMoney + " credits, for a profit of " + (endMoney - startMoney) + " credits");
-                }
+                CustomerServiceLog("Wealth", "Extraordinary Profit: " + getName(self) + " (" + self + ") logged in with " + startMoney + " credits and logged out with " + endMoney + " credits, for a profit of " + (endMoney - startMoney) + " credits");
             }
         }
         if (guild.hasWindowPid(self))
@@ -9581,7 +9559,7 @@ public class base_player extends script.base_script
     }
     public int cmdGetVeteranRewardTime(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException
     {
-        if (!("true").equals(getConfigSetting("GameServer", "enableVeteranRewards")))
+        if (!veteran_deprecated.VETERAN_REWARDS_ENABLED)
         {
             return SCRIPT_CONTINUE;
         }
@@ -9620,7 +9598,7 @@ public class base_player extends script.base_script
     }
     public int cmdListVeteranRewards(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException
     {
-        if (!("true").equals(getConfigSetting("GameServer", "enableVeteranRewards")))
+        if (!veteran_deprecated.VETERAN_REWARDS_ENABLED)
         {
             return SCRIPT_CONTINUE;
         }
@@ -9780,9 +9758,7 @@ public class base_player extends script.base_script
     }
     public int cmdFlashSpeeder(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException
     {
-        String config = getConfigSetting("GameServer", "flashSpeederReward");
-        if (config == null || !config.equals("true"))
-        {
+        if (!veteran_deprecated.FLASH_SPEEDER_REWARD_ENABLED) {
             return SCRIPT_CONTINUE;
         }
         int sub_bits = getGameFeatureBits(self);
@@ -9979,13 +9955,8 @@ public class base_player extends script.base_script
         }
         else if (regionName.equals("dathomir_fs_village_unpassable"))
         {
-            String config = getConfigSetting("GameServer", "fsWallOfMistEnabled");
-            if (config != null)
-            {
-                if (config.equals("false"))
-                {
-                    return SCRIPT_CONTINUE;
-                }
+            if(WALL_OF_MIST_DISABLED) {
+                return SCRIPT_CONTINUE;
             }
             if (!township.isTownshipEligible(self) || ai_lib.isInCombat(self))
             {

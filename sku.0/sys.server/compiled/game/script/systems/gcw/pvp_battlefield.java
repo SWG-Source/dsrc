@@ -37,6 +37,8 @@ public class pvp_battlefield extends script.base_script
     public static final int BATTLEFIELD_MAXIMUM_TEAM_SIZE = 16;
     public static final int BATTLEFIELD_PLAYER_KILL_VALUE = 10;
     public static final int BATTLEFIELD_TERMINAL_CAPTURE_VALUE = 500;
+    public static final int BATTLEFIELD_MINIMUM_TEAM_SIZE_OVERRIDE = utils.getIntConfigSetting("GameServer", "BfMinimumTeamSize", BATTLEFIELD_MINIMUM_TEAM_SIZE);
+    public static final int BATTLEFIELD_MAXIMUM_TEAM_SIZE_OVERRIDE = utils.getIntConfigSetting("GameServer", "BfTeamSize", BATTLEFIELD_MAXIMUM_TEAM_SIZE);
     public void doLogging(String section, String message) throws InterruptedException
     {
     }
@@ -223,11 +225,7 @@ public class pvp_battlefield extends script.base_script
             extra = " Rebels Accepted: " + bfActiveGetRebelCount(self) + " Imperials Accepted: " + bfActiveGetImperialCount(self);
             break;
             case pvp.PVP_STATE_INVITE_OVER:
-            int minimumTeamSize = BATTLEFIELD_MINIMUM_TEAM_SIZE;
-            if (getConfigSetting("GameServer", "BfMinimumTeamSize") != null && (getConfigSetting("GameServer", "BfMinimumTeamSize")).length() > 0)
-            {
-                minimumTeamSize = utils.stringToInt(getConfigSetting("GameServer", "BfMinimumTeamSize"));
-            }
+            int minimumTeamSize = BATTLEFIELD_MINIMUM_TEAM_SIZE_OVERRIDE;
             extra = "checkBattlefieldState Invitations over.  minimumTeamSize: " + minimumTeamSize;
             if (bfActiveGetRebelCount(self) < minimumTeamSize || bfActiveGetImperialCount(self) < minimumTeamSize)
             {
@@ -970,11 +968,7 @@ public class pvp_battlefield extends script.base_script
         }
         int rebelPlayersSize = bfQueueGetSize(controller, BATTLEFIELD_REBEL_INDIVIDUAL_QUEUE);
         int imperialPlayersSize = bfQueueGetSize(controller, BATTLEFIELD_IMPERIAL_INDIVIDUAL_QUEUE);
-        int minimumTeamSize = BATTLEFIELD_MINIMUM_TEAM_SIZE;
-        if (getConfigSetting("GameServer", "BfMinimumTeamSize") != null && (getConfigSetting("GameServer", "BfMinimumTeamSize")).length() > 0)
-        {
-            minimumTeamSize = utils.stringToInt(getConfigSetting("GameServer", "BfMinimumTeamSize"));
-        }
+        int minimumTeamSize = BATTLEFIELD_MINIMUM_TEAM_SIZE_OVERRIDE;
         if (rebelPlayersSize < minimumTeamSize || imperialPlayersSize < minimumTeamSize)
         {
             return false;
@@ -988,11 +982,7 @@ public class pvp_battlefield extends script.base_script
         imperials.setSize(0);
         int potentialRebels = 0;
         int potentialImperials = 0;
-        int maxTeamSize = BATTLEFIELD_MAXIMUM_TEAM_SIZE;
-        if (getConfigSetting("GameServer", "BfTeamSize") != null && (getConfigSetting("GameServer", "BfTeamSize")).length() > 0)
-        {
-            maxTeamSize = utils.stringToInt(getConfigSetting("GameServer", "BfTeamSize"));
-        }
+        int maxTeamSize = BATTLEFIELD_MAXIMUM_TEAM_SIZE_OVERRIDE;
         blog(controller, "bfQueueBuildPotentialEnemies maxTeamSize: " + maxTeamSize);
         for (int i = 0, j = (rebelPlayersSize < maxTeamSize - potentialRebels ? rebelPlayersSize : maxTeamSize - potentialRebels); i < j; i++)
         {

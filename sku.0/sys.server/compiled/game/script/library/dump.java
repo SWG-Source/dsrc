@@ -643,11 +643,17 @@ public class dump extends script.base_script
         {
             String playerFullName = getName(objTarget);
             String playerCodeString = getPlayerName(objTarget);
-            strTest += "PLAYER FULL NAME: \t";
+            strTest += "\nPLAYER FULL NAME: \t\t";
             strTest += playerFullName + "\r\n";
-            strTest += "INTERNAL NAME: \t\t";
+            strTest += "INTERNAL NAME: \t\t\t";
             strTest += playerCodeString + "\r\n";
-            strTest += "LOTS USED: \t\t\t" + getAccountNumLots(objTarget) + "\r\n\r\n";
+            strTest += "ACCOUNT USERNAME: \t\t";
+            strTest += getPlayerAccountUsername(objTarget) + "\r\n";
+            strTest += "LOTS USED: \t\t\t\t" + getAccountNumLots(objTarget) + "\r\n";
+            strTest += "PLAYER PLAY TIME:\t\t" + getPlayerPlayedTime(objTarget) + "\r\n";
+            strTest += "PLAYER AGE: \t\t\t\t" + (getCurrentBirthDate() - getPlayerBirthDate(objTarget)) + "\r\n";
+            strTest += "PLAYER BIRTHDAY: \t\t" + getPlayerBirthDate(objTarget) + "\r\n\r\n";
+
         }
         if (isMob(objTarget) || isPlayer(objTarget))
         {

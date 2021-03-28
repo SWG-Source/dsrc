@@ -49,7 +49,7 @@ public class tusken_raider extends script.base_script
     public int OnAiTetherComplete(obj_id self) throws InterruptedException
     {
         LOGC(aiLoggingEnabled(self), "debug_ai", "tusken_raider::OnAiTetherComplete() self(" + self + ":" + getName(self) + ")");
-        if (getConfigSetting("GameServer", "disableAITriggerVolumes") == null)
+        if (!ai.AI_TRIGGER_VOLUMES_DISABLED)
         {
             createTriggerVolume(SOCIAL_VOLUME, SOCIAL_RANGE, false);
         }
@@ -273,7 +273,6 @@ public class tusken_raider extends script.base_script
             }
             if (newBehavior >= BEHAVIOR_ALERT && newBehavior < BEHAVIOR_ATTACK)
             {
-                doAgitateBehavior(self, newBehavior);
                 return SCRIPT_OVERRIDE;
             }
             return SCRIPT_CONTINUE;
@@ -288,18 +287,6 @@ public class tusken_raider extends script.base_script
             return SCRIPT_CONTINUE;
         }
         return SCRIPT_CONTINUE;
-    }
-    public void doAgitateBehavior(obj_id npc, int behavior) throws InterruptedException
-    {
-        if (isInvulnerable(npc))
-        {
-            return;
-        }
-        if (getConfigSetting("GameServer", "disableAICombat") != null)
-        {
-            return;
-        }
-        return;
     }
     public void followTusken(obj_id npc, obj_id target) throws InterruptedException
     {

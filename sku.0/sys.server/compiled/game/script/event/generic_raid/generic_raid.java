@@ -4,6 +4,7 @@ import script.dictionary;
 import script.library.badge;
 import script.library.create;
 import script.library.locations;
+import script.library.utils;
 import script.location;
 import script.obj_id;
 import script.string_id;
@@ -16,8 +17,7 @@ public class generic_raid extends script.base_script
     public static final String DATATABLE = "datatables/event/generic_raid/city_data.iff";
     public int OnInitialize(obj_id self) throws InterruptedException
     {
-        String setting = getConfigSetting("EventTeam", "genericRaids");
-        if (setting == null || setting.equals("") || !setting.equals("true"))
+        if (utils.checkConfigFlag("EventTeam", "genericRaids"))
         {
             return SCRIPT_CONTINUE;
         }
