@@ -12,11 +12,12 @@ public class spawning extends script.base_script
     {
     }
 
-    public static final boolean AREA_SPAWNERS_DISABLED = utils.checkConfigFlag("GameServer", "disableAreaSpawners");
-    public static final boolean GENERIC_SPAWNERS_DISABLED = utils.checkConfigFlag("GameServer", "disableGenericSpawner");
-    public static final boolean PATROL_SPAWNERS_DISABLED = utils.checkConfigFlag("GameServer", "disablePatrolSpawners");
-    public static final boolean FAST_SPAWN = utils.checkConfigFlag("GameServer", "fastSpawn");
-    public static final boolean SPAWNER_INITIAL_STATE_OFF = utils.checkConfigFlag("GameServer", "spawningInitialStateDefaultOff");
+    public static final String AREA_SPAWNERS = "areaSpawners";
+    public static final String GENERIC_SPAWNERS = "genericSpawners";
+    public static final String PATROL_SPAWNERS = "patrolSpawners";
+    private static final boolean AREA_SPAWNERS_DISABLED = utils.checkConfigFlag("GameServer", "disableAreaSpawners");
+    private static final boolean GENERIC_SPAWNERS_DISABLED = utils.checkConfigFlag("GameServer", "disableGenericSpawner");
+    private static final boolean PATROL_SPAWNERS_DISABLED = utils.checkConfigFlag("GameServer", "disablePatrolSpawners");
 
     public static void activateSpawnerHack(obj_id objPlayer) throws InterruptedException
     {
@@ -266,4 +267,19 @@ public class spawning extends script.base_script
 
         return true;
     }
+
+    public static boolean isSpawnerTypeDisabled(String spawnerType) {
+        switch (spawnerType) {
+            case AREA_SPAWNERS:
+                return AREA_SPAWNERS_DISABLED;
+            case PATROL_SPAWNERS:
+                return PATROL_SPAWNERS_DISABLED;
+            case GENERIC_SPAWNERS:
+                return GENERIC_SPAWNERS_DISABLED;
+            default:
+                WARNING("spawning.isSpawnerTypeDisabled() called with unknown spawner type: "+spawnerType);
+                return false;
+        }
+    }
+
 }

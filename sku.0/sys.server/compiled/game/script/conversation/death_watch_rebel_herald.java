@@ -1,10 +1,7 @@
 package script.conversation;
 
-import script.library.ai_lib;
-import script.library.chat;
-import script.library.factions;
+import script.library.*;
 import script.*;
-import script.library.instance;
 
 public class death_watch_rebel_herald extends script.base_script
 {
@@ -72,7 +69,7 @@ public class death_watch_rebel_herald extends script.base_script
     }
     public boolean death_watch_rebel_herald_condition_dungeonInactive(obj_id player, obj_id npc) throws InterruptedException
     {
-        return !instance.DEATH_WATCH_DUNGEON_ENABLED;
+        return !events.isEventActive(events.DEATH_WATCH);
     }
     public void death_watch_rebel_herald_action_RescueandReward(obj_id player, obj_id npc) throws InterruptedException
     {

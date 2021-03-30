@@ -9,6 +9,8 @@ public class levelup_orb extends script.base_script
     public levelup_orb()
     {
     }
+    private static final int XP_MULTIPLIER = utils.getIntConfigSetting("GameServer", "xpMultiplier", 0);
+
     public int OnInitialize(obj_id self) throws InterruptedException
     {
         if (!hasScript(self, "item.special.nomove"))
@@ -72,10 +74,9 @@ public class levelup_orb extends script.base_script
         int xpNeeded = dataTableGetInt("datatables/player/player_level.iff", currentLevel, "xp_required");
         int prevNeeded = dataTableGetInt("datatables/player/player_level.iff", currentLevel - 1, "xp_required");
         xpNeeded -= prevNeeded;
-        int xpMultiplier = utils.getIntConfigSetting("GameServer", "xpMultiplier");
-        if (xpMultiplier > 0)
+        if (XP_MULTIPLIER > 0)
         {
-            xpNeeded = xpNeeded / xpMultiplier;
+            xpNeeded = xpNeeded / XP_MULTIPLIER;
             xpNeeded += 1;
         }
         xp.grant(player, "combat_general", xpNeeded);

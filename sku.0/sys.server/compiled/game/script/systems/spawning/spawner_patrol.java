@@ -370,7 +370,7 @@ public class spawner_patrol extends script.base_script
         return SCRIPT_CONTINUE;
     }
     public boolean canSpawnByConfigSetting() throws InterruptedException {
-        return !spawning.PATROL_SPAWNERS_DISABLED;
+        return !spawning.isSpawnerTypeDisabled(spawning.AREA_SPAWNERS);
     }
     public int OnDestroy(obj_id self) throws InterruptedException
     {

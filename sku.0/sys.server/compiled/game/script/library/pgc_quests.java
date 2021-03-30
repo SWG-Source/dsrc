@@ -124,10 +124,10 @@ public class pgc_quests extends script.base_script
     public static final int PGC_NUM_QUESTS_YOU_COMPLETED_HIGH_QUALITY_INDEX = 11;
     public static final float PGC_MIN_MID_QUALITY_QUEST_WEIGHT = 15.0f;
     public static final float PGC_MIN_HIGH_QUALITY_QUEST_WEIGHT = 30.0f;
-    public static final float CHRONICLES_XP_MODIFIER = utils.getFloatConfigSetting("GameServer", "chroniclesXpModifier", 1.0f);
-    public static final float CHRONICLES_CHRONCILER_SILVER_TOKEN_MODIFIER = utils.getFloatConfigSetting("GameServer", "chroniclesChroniclerSilverTokenNumModifier", 1.0f);
-    public static final float CHRONICLES_QUESTOR_SILVER_TOKEN_MODIFIER = utils.getFloatConfigSetting("GameServer", "chroniclesQuestorSilverTokenNumModifier", 1.0f);
-    public static final int CHRONICLES_GOLD_TOKEN_CHANCE_SETTING = utils.getIntConfigSetting("GameServer", "chroniclesGoldTokenChanceOverride", 5);
+    private static final float CHRONICLES_XP_MODIFIER = utils.getFloatConfigSetting("GameServer", "chroniclesXpModifier", 1.0f);
+    private static final float CHRONICLES_CHRONCILER_SILVER_TOKEN_MODIFIER = utils.getFloatConfigSetting("GameServer", "chroniclesChroniclerSilverTokenNumModifier", 1.0f);
+    private static final float CHRONICLES_QUESTOR_SILVER_TOKEN_MODIFIER = utils.getFloatConfigSetting("GameServer", "chroniclesQuestorSilverTokenNumModifier", 1.0f);
+    private static final int CHRONICLES_GOLD_TOKEN_CHANCE_SETTING = utils.getIntConfigSetting("GameServer", "chroniclesGoldTokenChanceOverride", 5);
 
     public static boolean activateQuestHolocron(obj_id questHolocron, obj_id player) throws InterruptedException
     {

@@ -17,13 +17,16 @@ public class trooper extends script.base_script
     public static final String ALERT_VOLUME_NAME = "alertVolume";
     public static final String ACTION_ALERT = "alert";
     public static final String ACTION_THREATEN = "threaten";
+    private static final boolean AI_TRIGGER_VOLUMES_DISABLED = utils.checkConfigFlag("GameServer", "disableAITriggerVolumes");
+    private static final boolean AI_COMBAT_DISABLED = utils.checkConfigFlag("GameServer", "disableAICombat");
+
     public int OnAttach(obj_id self) throws InterruptedException
     {
         if (!hasObjVar(self, "ai.diction"))
         {
             setObjVar(self, "ai.diction", "military");
         }
-        if (!ai.AI_TRIGGER_VOLUMES_DISABLED)
+        if (!AI_TRIGGER_VOLUMES_DISABLED)
         {
             createTriggerVolume(ALERT_VOLUME_NAME, 15.0f, true);
         }
@@ -81,7 +84,7 @@ public class trooper extends script.base_script
     }
     public int OnSawAttack(obj_id self, obj_id defender, obj_id[] attackers) throws InterruptedException
     {
-        if (ai.AI_COMBAT_DISABLED)
+        if (AI_COMBAT_DISABLED)
         {
             setWantSawAttackTriggers(self, false);
             return SCRIPT_OVERRIDE;

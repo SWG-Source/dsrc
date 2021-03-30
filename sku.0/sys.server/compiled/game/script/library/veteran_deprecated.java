@@ -97,9 +97,9 @@ public class veteran_deprecated extends script.base_script
     public static final string_id SID_UNAVAILABLE_NEEDS_EXPANSION = new string_id(VETERAN_STRING_TABLE, "unavailable_needs_expansion");
     public static final string_id SID_UNAVAILABLE_NOT_ENOUGH_MILESTONE = new string_id(VETERAN_STRING_TABLE, "unavailable_not_enough_milestone");
     public static final string_id SID_UNKNOWN = new string_id(VETERAN_STRING_TABLE, "unknown");
-    public static final boolean VETERAN_REWARDS_ENABLED = utils.checkConfigFlag("GameServer", "enableVeteranRewards");
-    public static final boolean ONE_YEAR_ANNIV_ENABLED = utils.checkConfigFlag("GameServer", "enableOneYearAnniversary");
-    public static final boolean FLASH_SPEEDER_REWARD_ENABLED = utils.checkConfigFlag("GameServer", "flashSpeederReward");
+    private static final boolean VETERAN_REWARDS_ENABLED = utils.checkConfigFlag("GameServer", "enableVeteranRewards");
+    private static final boolean ONE_YEAR_ANNIV_ENABLED = utils.checkConfigFlag("GameServer", "enableOneYearAnniversary");
+    private static final boolean FLASH_SPEEDER_REWARD_ENABLED = utils.checkConfigFlag("GameServer", "flashSpeederReward");
 
     public static void updateVeteranTime(obj_id player) throws InterruptedException
     {

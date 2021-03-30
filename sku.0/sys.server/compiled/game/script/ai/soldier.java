@@ -3,6 +3,7 @@ package script.ai;
 import script.library.ai_lib;
 import script.library.attrib;
 import script.library.factions;
+import script.library.utils;
 import script.obj_id;
 
 public class soldier extends script.base_script
@@ -12,6 +13,8 @@ public class soldier extends script.base_script
     }
     public static final String ACTION_ALERT = "alert";
     public static final String ACTION_THREATEN = "threaten";
+    private static final boolean AI_TRIGGER_VOLUMES_DISABLED = utils.checkConfigFlag("GameServer", "disableAITriggerVolumes");
+
     public int OnAttach(obj_id self) throws InterruptedException
     {
         if (!hasObjVar(self, "ai.diction"))
@@ -22,7 +25,7 @@ public class soldier extends script.base_script
         setAttributeInterested(self, attrib.THUG);
         setAttributeInterested(self, attrib.HERBIVORE);
         setAttributeInterested(self, attrib.CARNIVORE);
-        if (!ai.AI_TRIGGER_VOLUMES_DISABLED)
+        if (!AI_TRIGGER_VOLUMES_DISABLED)
         {
             createTriggerVolume(ai_lib.ALERT_VOLUME_NAME, ai_lib.aiGetApproachTriggerRange(self), true);
         }
@@ -124,7 +127,6 @@ public class soldier extends script.base_script
         {
             if (newBehavior >= BEHAVIOR_THREATEN && newBehavior < BEHAVIOR_ATTACK)
             {
-                doAgitateBehavior(self, newBehavior);
                 return SCRIPT_OVERRIDE;
             }
             return SCRIPT_CONTINUE;
@@ -135,16 +137,5 @@ public class soldier extends script.base_script
             return SCRIPT_CONTINUE;
         }
         return SCRIPT_CONTINUE;
-    }
-    public void doAgitateBehavior(obj_id npc, int behavior) throws InterruptedException
-    {
-        if (isInvulnerable(npc))
-        {
-            return;
-        }
-        if (ai.AI_COMBAT_DISABLED)
-        {
-            return;
-        }
     }
 }

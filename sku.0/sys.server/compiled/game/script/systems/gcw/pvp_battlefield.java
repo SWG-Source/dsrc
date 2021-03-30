@@ -37,8 +37,9 @@ public class pvp_battlefield extends script.base_script
     public static final int BATTLEFIELD_MAXIMUM_TEAM_SIZE = 16;
     public static final int BATTLEFIELD_PLAYER_KILL_VALUE = 10;
     public static final int BATTLEFIELD_TERMINAL_CAPTURE_VALUE = 500;
-    public static final int BATTLEFIELD_MINIMUM_TEAM_SIZE_OVERRIDE = utils.getIntConfigSetting("GameServer", "BfMinimumTeamSize", BATTLEFIELD_MINIMUM_TEAM_SIZE);
-    public static final int BATTLEFIELD_MAXIMUM_TEAM_SIZE_OVERRIDE = utils.getIntConfigSetting("GameServer", "BfTeamSize", BATTLEFIELD_MAXIMUM_TEAM_SIZE);
+    private static final int BATTLEFIELD_MINIMUM_TEAM_SIZE_OVERRIDE = utils.getIntConfigSetting("GameServer", "BfMinimumTeamSize", BATTLEFIELD_MINIMUM_TEAM_SIZE);
+    private static final int BATTLEFIELD_MAXIMUM_TEAM_SIZE_OVERRIDE = utils.getIntConfigSetting("GameServer", "BfTeamSize", BATTLEFIELD_MAXIMUM_TEAM_SIZE);
+
     public void doLogging(String section, String message) throws InterruptedException
     {
     }

@@ -75,7 +75,7 @@ public class corvette_bronell_neutral_assassin extends script.base_script
     }
     public boolean corvette_bronell_neutral_assassin_condition_dungeonInactive(obj_id player, obj_id npc) throws InterruptedException
     {
-        return !instance.CORVETTE_NEUTRAL_DUNGEON_ENABLED;
+        return !events.isEventActive(events.CORVETTE_NEUTRAL);
     }
     public boolean corvette_bronell_neutral_assassin_condition_onDifferentCorvetteQuest(obj_id player, obj_id npc) throws InterruptedException
     {

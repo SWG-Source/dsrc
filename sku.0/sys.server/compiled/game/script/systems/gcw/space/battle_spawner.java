@@ -15,22 +15,22 @@ public class battle_spawner extends script.base_class {
     public static final String REBEL_SHIP_TEMPLATE = "nebulon_frigate";
     private static final String HERO_PILOT_DATA = "datatables/npc/space/space_gcw_hero.iff";
     public static final double HERO_SPAWN_CHANCE = 0.20d;  // 0.20d == 20% chance a hero will spawn
-    public static final int DEFAULT_POINT_AWARD = utils.getIntConfigSetting("GameServer", "spaceGcwPointAward", 2500);
-    public static final int DEFAULT_TOKEN_AWARD = utils.getIntConfigSetting("GameServer", "spaceGcwTokenAward", 25);
-    public static final float PVP_POINT_MULTIPLIER = utils.getFloatConfigSetting("GameServer", "spaceGcwPvPPointModifier", 2.0f);
-    public static final float PVE_POINT_MULTIPLIER = utils.getFloatConfigSetting("GameServer", "spaceGcwPvEPointModifier", 1.0f);
-    public static final float WIN_POINT_MULTIPLIER = utils.getFloatConfigSetting("GameServer", "spaceGcwWinPointModifier", 2.0f);
-    public static final float LOSS_POINT_MULTIPLIER = utils.getFloatConfigSetting("GameServer", "spaceGcwLossPointModifier", 1.0f);
-    public static final float PVP_TOKEN_MULTIPLIER = utils.getFloatConfigSetting("GameServer", "spaceGcwPvPTokenModifier", 2.0f);
-    public static final float PVE_TOKEN_MULTIPLIER = utils.getFloatConfigSetting("GameServer", "spaceGcwPvETokenModifier", 1.0f);
-    public static final float WIN_TOKEN_MULTIPLIER = utils.getFloatConfigSetting("GameServer", "spaceGcwWinTokenModifier", 2.0f);
-    public static final float LOSS_TOKEN_MULTIPLIER = utils.getFloatConfigSetting("GameServer", "spaceGcwLossTokenModifier", 1.0f);
-    public static final int POB_PLAYER_CEILING = utils.getIntConfigSetting("GameServer", "spaceGcwPobPlayerCeiling", 4);
-    public static final int GUNSHIP_PLAYER_CEILING = utils.getIntConfigSetting("GameServer", "spaceGcwGunshipPlayerCeiling", 10);
-    public static final float PREP_TIME = utils.getFloatConfigSetting("GameServer", "spaceGcwPrepatoryTime", 900.0f); // 15 mins in seconds
-    public static final float BATTLE_TIME = utils.getFloatConfigSetting("GameServer", "spaceGcwLengthOfBattle", 3600.0f); // 60 mins in seconds
-    public static final int MAX_SUPPORT_SHIPS = utils.getIntConfigSetting("GameServer", "spaceGcwMaxSupportShips", 30);
-    public static final int MAX_SUPPORT_SPAWNS = utils.getIntConfigSetting("GameServer", "spaceGcwTotalSupportSpawn", 60);
+    private static final int DEFAULT_POINT_AWARD = utils.getIntConfigSetting("GameServer", "spaceGcwPointAward", 2500);
+    private static final int DEFAULT_TOKEN_AWARD = utils.getIntConfigSetting("GameServer", "spaceGcwTokenAward", 25);
+    private static final float PVP_POINT_MULTIPLIER = utils.getFloatConfigSetting("GameServer", "spaceGcwPvPPointModifier", 2.0f);
+    private static final float PVE_POINT_MULTIPLIER = utils.getFloatConfigSetting("GameServer", "spaceGcwPvEPointModifier", 1.0f);
+    private static final float WIN_POINT_MULTIPLIER = utils.getFloatConfigSetting("GameServer", "spaceGcwWinPointModifier", 2.0f);
+    private static final float LOSS_POINT_MULTIPLIER = utils.getFloatConfigSetting("GameServer", "spaceGcwLossPointModifier", 1.0f);
+    private static final float PVP_TOKEN_MULTIPLIER = utils.getFloatConfigSetting("GameServer", "spaceGcwPvPTokenModifier", 2.0f);
+    private static final float PVE_TOKEN_MULTIPLIER = utils.getFloatConfigSetting("GameServer", "spaceGcwPvETokenModifier", 1.0f);
+    private static final float WIN_TOKEN_MULTIPLIER = utils.getFloatConfigSetting("GameServer", "spaceGcwWinTokenModifier", 2.0f);
+    private static final float LOSS_TOKEN_MULTIPLIER = utils.getFloatConfigSetting("GameServer", "spaceGcwLossTokenModifier", 1.0f);
+    private static final int POB_PLAYER_CEILING = utils.getIntConfigSetting("GameServer", "spaceGcwPobPlayerCeiling", 4);
+    private static final int GUNSHIP_PLAYER_CEILING = utils.getIntConfigSetting("GameServer", "spaceGcwGunshipPlayerCeiling", 10);
+    private static final float PREP_TIME = utils.getFloatConfigSetting("GameServer", "spaceGcwPrepatoryTime", 900.0f); // 15 mins in seconds
+    private static final float BATTLE_TIME = utils.getFloatConfigSetting("GameServer", "spaceGcwLengthOfBattle", 3600.0f); // 60 mins in seconds
+    private static final int MAX_SUPPORT_SHIPS = utils.getIntConfigSetting("GameServer", "spaceGcwMaxSupportShips", 30);
+    private static final int MAX_SUPPORT_SPAWNS = utils.getIntConfigSetting("GameServer", "spaceGcwTotalSupportSpawn", 60);
 
     public static final String[] IMPERIAL_SUPPORT_CRAFT = {
             "tieaggressor_tier7",

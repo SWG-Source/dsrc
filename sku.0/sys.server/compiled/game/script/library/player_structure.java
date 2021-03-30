@@ -225,10 +225,10 @@ public class player_structure extends script.base_script
     public static final string_id SID_NO_CITY = new string_id("city/city", "no_city_during_packup");
     public static final string_id SID_GENERIC_CITY_PACKUP_ERROR = new string_id("city/city", "city_packup_generic_fail");
     public static final string_id SID_MAYOR_PROTECTED = new string_id("city/city", "city_packup_mayor_protected");
-    public static final boolean STRUCTURE_FEES_DISABLED = utils.checkConfigFlag("GameServer", "disableStructureFees");
-    public static final int STRUCTURE_MAINTENANCE_HEARTBEAT = utils.getIntConfigSetting("GameServer", "maintenanceHeartbeat", 1800);
-    public static final boolean ENABLE_ABANDONED_STRUCTURES_SYSTEM = utils.checkConfigFlag("GameServer", "enableAbandonedHousePackup");
-    public static final boolean ALLOW_PACKING_ABANDONED_STRUCTURES = utils.checkConfigFlag("GameServer", "allowPlayersToPackAbandonedStructures");
+    private static final boolean STRUCTURE_FEES_DISABLED = utils.checkConfigFlag("GameServer", "disableStructureFees");
+    private static final int STRUCTURE_MAINTENANCE_HEARTBEAT = utils.getIntConfigSetting("GameServer", "maintenanceHeartbeat", 1800);
+    private static final boolean ENABLE_ABANDONED_STRUCTURES_SYSTEM = utils.checkConfigFlag("GameServer", "enableAbandonedHousePackup");
+    private static final boolean ALLOW_PACKING_ABANDONED_STRUCTURES = utils.checkConfigFlag("GameServer", "allowPlayersToPackAbandonedStructures");
 
     public static obj_id createPlayerStructure(String template, obj_id owner, location loc, int rotation, dictionary deed_info) throws InterruptedException
     {

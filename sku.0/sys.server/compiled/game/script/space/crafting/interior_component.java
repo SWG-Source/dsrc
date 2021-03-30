@@ -13,6 +13,8 @@ public class interior_component extends script.base_script
     public interior_component()
     {
     }
+    private static final boolean LIVE_SPACE_SERVER_MODE_OFF = utils.checkConfigFlag("ScriptFlags", "liveSpaceServerModeOff");
+
     public int OnAttach(obj_id self) throws InterruptedException
     {
         LOG("space", "ONATTACH GOING OFF ON INTERIOR COMPONETNES");
@@ -54,7 +56,7 @@ public class interior_component extends script.base_script
             else 
             {
                 LOG("space", "Component " + intSlot + " is not installed on " + objShip + " cleaning up interior piece");
-                if (space_flags.LIVE_SPACE_SERVER_MODE_OFF)
+                if (LIVE_SPACE_SERVER_MODE_OFF)
                 {
                     destroyObject(self);
                 }

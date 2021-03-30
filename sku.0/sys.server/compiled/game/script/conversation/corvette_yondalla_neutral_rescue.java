@@ -75,7 +75,7 @@ public class corvette_yondalla_neutral_rescue extends script.base_script
     }
     public boolean corvette_yondalla_neutral_rescue_condition_dungeonInactive(obj_id player, obj_id npc) throws InterruptedException
     {
-        return !instance.CORVETTE_NEUTRAL_DUNGEON_ENABLED;
+        return !events.isEventActive(events.CORVETTE_NEUTRAL);
     }
     public boolean corvette_yondalla_neutral_rescue_condition_onDifferentCorvetteQuest(obj_id player, obj_id npc) throws InterruptedException
     {

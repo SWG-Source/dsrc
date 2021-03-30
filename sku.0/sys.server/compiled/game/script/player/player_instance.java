@@ -10,6 +10,8 @@ public class player_instance extends script.base_script
     public player_instance()
     {
     }
+    private static final float HEROIC_TOKEN_MULTIPLIER = utils.getFloatConfigSetting("GameServer", "heroicTokenBonus", 1.0f);
+
     public int OnHearSpeech(obj_id self, obj_id speaker, String text) throws InterruptedException
     {
         if (!isGod(self))
@@ -691,7 +693,7 @@ public class player_instance extends script.base_script
         {
             count = params.getInt("tokenCount");
         }
-        count *= instance.HEROIC_TOKEN_MULTIPLIER;
+        count *= HEROIC_TOKEN_MULTIPLIER;
         if (tokenIndex < 0 || tokenIndex >= trial.HEROIC_TOKENS.length)
         {
             sendSystemMessageTestingOnly(self, "DEBUG: handleAwardtoken sent with out of range tokenIndex.");

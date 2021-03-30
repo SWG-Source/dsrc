@@ -226,7 +226,7 @@ public class spawner_area extends script.base_script
     }
     public boolean canSpawnByConfigSetting() throws InterruptedException
     {
-        return !spawning.AREA_SPAWNERS_DISABLED;
+        return !spawning.isSpawnerTypeDisabled(spawning.AREA_SPAWNERS);
     }
     public int OnDestroy(obj_id self) throws InterruptedException
     {

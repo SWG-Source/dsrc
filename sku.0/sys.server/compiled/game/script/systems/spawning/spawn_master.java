@@ -1,6 +1,7 @@
 package script.systems.spawning;
 
 import script.library.spawning;
+import script.library.utils;
 import script.obj_id;
 
 public class spawn_master extends script.systems.spawning.spawn_base
@@ -8,6 +9,7 @@ public class spawn_master extends script.systems.spawning.spawn_base
     public spawn_master()
     {
     }
+    private static final boolean SPAWNER_INITIAL_STATE_OFF = utils.checkConfigFlag("GameServer", "spawningInitialStateDefaultOff");
 
     /**
      Bootstrap function for trigger volume creation. This will be moved to OnInitialization once it comes online.
@@ -30,7 +32,7 @@ public class spawn_master extends script.systems.spawning.spawn_base
         setObjVar(self, "intCurrentPlanetSpawnCount", 0);
         setObjVar(self, "intMinSpawnDelay", SPAWN_PLAYER_DELAY_MIN);
         setObjVar(self, "intMaxSpawnDelay", SPAWN_PLAYER_DELAY_MAX);
-        if (spawning.SPAWNER_INITIAL_STATE_OFF) {
+        if (SPAWNER_INITIAL_STATE_OFF) {
             setObjVar(self, "boolSpawnerIsOn", false);
         } else {
             setObjVar(self, "boolSpawnerIsOn", true);
@@ -61,7 +63,7 @@ public class spawn_master extends script.systems.spawning.spawn_base
         setObjVar(self, "intCurrentPlanetSpawnCount", 0);
         setObjVar(self, "intMinSpawnDelay", SPAWN_PLAYER_DELAY_MIN);
         setObjVar(self, "intMaxSpawnDelay", SPAWN_PLAYER_DELAY_MAX);
-        if (spawning.SPAWNER_INITIAL_STATE_OFF) {
+        if (SPAWNER_INITIAL_STATE_OFF) {
             setObjVar(self, "boolSpawnerIsOn", false);
         } else {
             setObjVar(self, "boolSpawnerIsOn", true);

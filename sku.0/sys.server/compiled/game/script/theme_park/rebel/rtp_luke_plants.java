@@ -82,6 +82,6 @@ public class rtp_luke_plants extends script.base_script
     }
     public boolean canSpawnByConfigSetting() throws InterruptedException
     {
-        return !spawning.AREA_SPAWNERS_DISABLED;
+        return !spawning.isSpawnerTypeDisabled(spawning.AREA_SPAWNERS);
     }
 }

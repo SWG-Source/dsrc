@@ -1,10 +1,7 @@
 package script.theme_park.dungeon;
 
 import script.dictionary;
-import script.library.ai_lib;
-import script.library.create;
-import script.library.instance;
-import script.library.utils;
+import script.library.*;
 import script.location;
 import script.obj_id;
 
@@ -18,7 +15,7 @@ public class ep3_clone_relics_generic_spawner extends script.base_script
         String name = getTemplateName(self);
         if (name.equals("object/building/general/bunker_allum_mine.iff"))
         {
-            if(!instance.DEATH_WATCH_DUNGEON_ENABLED) {
+            if(!events.isEventActive(events.DEATH_WATCH)) {
                 return SCRIPT_CONTINUE;
             }
         }
@@ -33,7 +30,7 @@ public class ep3_clone_relics_generic_spawner extends script.base_script
         String name = getTemplateName(self);
         if (name.equals("object/building/general/bunker_allum_mine.iff"))
         {
-            if(!instance.DEATH_WATCH_DUNGEON_ENABLED) {
+            if(!events.isEventActive(events.DEATH_WATCH)) {
                 return SCRIPT_CONTINUE;
             }
         }

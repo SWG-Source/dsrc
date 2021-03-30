@@ -12,6 +12,8 @@ public class cmd extends script.base_script
     public cmd()
     {
     }
+    private static final boolean VETERAN_REWARDS_ENABLED = utils.checkConfigFlag("GameServer", "enableVeteranRewards");
+
     public int cmdGetPlayerId(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException
     {
         if (params == null || params.equalsIgnoreCase(""))
@@ -3070,7 +3072,7 @@ public class cmd extends script.base_script
         if(!isGod(self)) {
             return SCRIPT_CONTINUE;
         }
-        if (!veteran_deprecated.VETERAN_REWARDS_ENABLED)
+        if (!VETERAN_REWARDS_ENABLED)
         {
             sendSystemMessageTestingOnly(self, "Veteran rewards are currently disabled.");
             return SCRIPT_CONTINUE;
@@ -3106,7 +3108,7 @@ public class cmd extends script.base_script
         if(!isGod(self)) {
             return SCRIPT_CONTINUE;
         }
-        if (!veteran_deprecated.VETERAN_REWARDS_ENABLED)
+        if (!VETERAN_REWARDS_ENABLED)
         {
             sendSystemMessageTestingOnly(self, "Veteran rewards are currently disabled.");
             return SCRIPT_CONTINUE;
@@ -3137,7 +3139,7 @@ public class cmd extends script.base_script
         if(!isGod(self)) {
             return SCRIPT_CONTINUE;
         }
-        if (!veteran_deprecated.VETERAN_REWARDS_ENABLED)
+        if (!VETERAN_REWARDS_ENABLED)
         {
             sendSystemMessageTestingOnly(self, "Veteran rewards are currently disabled.");
             return SCRIPT_CONTINUE;
@@ -3168,7 +3170,7 @@ public class cmd extends script.base_script
         if(!isGod(self)) {
             return SCRIPT_CONTINUE;
         }
-        if (!veteran_deprecated.VETERAN_REWARDS_ENABLED)
+        if (!VETERAN_REWARDS_ENABLED)
         {
             sendSystemMessageTestingOnly(self, "Veteran rewards are currently disabled.");
             return SCRIPT_CONTINUE;

@@ -254,10 +254,10 @@ public class gcw extends script.base_script
     public static final String GCW_TUTORIAL_FLAG = "gcw_tutorial_flag.has_received_tutorial";
     public static final String COLOR_REBELS = "\\" + colors_hex.COLOR_REBELS;
     public static final String COLOR_IMPERIALS = "\\" + colors_hex.COLOR_IMPERIALS;
-    public static final float GCW_POINT_BONUS = utils.getFloatConfigSetting("GameServer", "gcwPointBonus", 1.0f);
-    public static final float GCW_TOKEN_BONUS = utils.getFloatConfigSetting("GameServer", "gcwTokenBonus", 1.0f);
-    public static final int GCW_CYCLE_INVASION_TIME = utils.getIntConfigSetting("GameServer", "gcwInvasionCycleTime", 3);
-    public static final int GCW_MAX_INVASION_CITY_RUNNING = utils.getIntConfigSetting("GameServer", "gcwInvasionCityMaximumRunning", 3);
+    private static final float GCW_POINT_BONUS = utils.getFloatConfigSetting("GameServer", "gcwPointBonus", 1.0f);
+    private static final float GCW_TOKEN_BONUS = utils.getFloatConfigSetting("GameServer", "gcwTokenBonus", 1.0f);
+    private static final int GCW_CYCLE_INVASION_TIME = utils.getIntConfigSetting("GameServer", "gcwInvasionCycleTime", 3);
+    private static final int GCW_MAX_INVASION_CITY_RUNNING = utils.getIntConfigSetting("GameServer", "gcwInvasionCityMaximumRunning", 3);
 
     public static void assignScanInterests(obj_id npc) throws InterruptedException
     {
@@ -2659,7 +2659,7 @@ public class gcw extends script.base_script
             return utils.checkConfigFlag("GameServer", "gcwcity"+city);
         }
         else if (city.equalsIgnoreCase("dearic")) {
-            if(events.isEventActive(events.LIFEDAY)) {
+            if(events.isEventActive(events.LIFEDAY)) { // do not run city invasions in Dearic if Life Day is on
                 return false;
             } else {
                 return utils.checkConfigFlag("GameServer", "gcwcity"+city);

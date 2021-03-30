@@ -30,10 +30,7 @@ public class ai extends script.base_script
     public static final string_id SID_GAVE_RECRUIT_ITEM = new string_id("collection", "gave_recruit_item");
     public static final string_id SID_NPC_MEATLUMP_SPEAK = new string_id("collection", "npc_meatlump_speak");
     public static final string_id SID_NO_RECRUIT_REB_IMP = new string_id("collection", "no_recruit_reb_imp");
-    public static final boolean AI_TRIGGER_VOLUMES_DISABLED = utils.checkConfigFlag("GameServer", "disableAITriggerVolumes");
-    public static final boolean AI_COMBAT_DISABLED = utils.checkConfigFlag("GameServer", "disableAICombat");
-    public static final boolean AI_LOITER_DISABLED = utils.checkConfigFlag("GameServer", "disableAILoitering");
-    public static final boolean AI_SCRIPTS_DISABLED = utils.checkConfigFlag("GameServer", "disableAI");
+    private static final boolean AI_LOITER_DISABLED = utils.checkConfigFlag("GameServer", "disableAILoitering");
 
     public void initializeScript() throws InterruptedException
     {

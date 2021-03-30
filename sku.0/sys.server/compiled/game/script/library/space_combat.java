@@ -64,7 +64,8 @@ public class space_combat extends script.base_script
     public static final int NPC_DAMAGE_MULTIPLIER = 4;
     public static final string_id SID_DISABLED = new string_id("space/space_interaction", "disabled");
     public static final String SPACE_COLLECTIONS_LOOT_TABLE = "datatables/space_loot/space_collection_loot.iff";
-    public static final boolean GROUND_XP_IN_SPACE_DISABLED = utils.checkConfigFlag("GameServer", "disableGroundXpInSpace");
+    private static final boolean GROUND_XP_IN_SPACE_DISABLED = utils.checkConfigFlag("GameServer", "disableGroundXpInSpace");
+    private static final boolean LIVE_SPACE_SERVER_MODE_OFF = utils.checkConfigFlag("ScriptFlags", "liveSpaceServerModeOff");
 
     public static void addToCombatDamage(obj_id objAttacker, obj_id objDefender, int intDamage) throws InterruptedException
     {
@@ -1645,7 +1646,7 @@ public class space_combat extends script.base_script
     public static obj_id getClosestSpaceStation(obj_id objShip) throws InterruptedException
     {
         obj_id objQuestManager;
-        if (space_flags.LIVE_SPACE_SERVER_MODE_OFF)
+        if (LIVE_SPACE_SERVER_MODE_OFF)
         {
             try
             {

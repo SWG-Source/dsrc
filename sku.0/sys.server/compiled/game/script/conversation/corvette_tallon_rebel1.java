@@ -80,16 +80,13 @@ public class corvette_tallon_rebel1 extends script.base_script
     }
     public boolean corvette_tallon_rebel1_condition_dungeonInactive(obj_id player, obj_id npc) throws InterruptedException
     {
-        return !instance.CORVETTE_REBEL_DUNGEON_ENABLED;
+        return !events.isEventActive(events.CORVETTE_REBEL);
     }
     public boolean corvette_tallon_rebel1_condition_onDifferentCorvetteQuest(obj_id player, obj_id npc) throws InterruptedException
     {
         if (hasObjVar(player, "corl_corvette"))
         {
-            if (!hasObjVar(player, "corl_corvette.rebel_rescue"))
-            {
-                return true;
-            }
+            return !hasObjVar(player, "corl_corvette.rebel_rescue");
         }
         return false;
     }

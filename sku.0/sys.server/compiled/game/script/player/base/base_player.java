@@ -285,8 +285,9 @@ public class base_player extends script.base_script
     public static final String LOGNAME = "junk_log";
     public static final int EXTRAORDINARY_WEALTH_LOGGING_THRESHOLD = 10000000;
     public static final int PROFIT_LOGGING_THRESHOLD = 500000;
-    public static final boolean FORCE_SKIP_TUTORIAL = utils.checkConfigFlag("GameServer", "skipTutorial");
-    public static final boolean WALL_OF_MIST_DISABLED = utils.checkConfigFlag("GameServer", "fsWallOfMistDisabled");
+    private static final boolean FORCE_SKIP_TUTORIAL = utils.checkConfigFlag("GameServer", "skipTutorial");
+    private static final boolean WALL_OF_MIST_DISABLED = utils.checkConfigFlag("GameServer", "fsWallOfMistDisabled");
+    private static final boolean VETERAN_REWARDS_ENABLED = utils.checkConfigFlag("GameServer", "enableVeteranRewards");
 
     public int OnCustomizeFinished(obj_id self, obj_id object, String params) throws InterruptedException
     {
@@ -1380,7 +1381,7 @@ public class base_player extends script.base_script
             String bldgName = getTemplateName(bldg);
             if (bldgName.equals("object/building/general/bunker_allum_mine.iff"))
             {
-                if (instance.DEATH_WATCH_DUNGEON_ENABLED)
+                if (!events.isEventActive(events.DEATH_WATCH))
                 {
                     CustomerServiceLog("DUNGEON_DeathWatchBunker", "*Death Watch Unauthorized Entry: %TU entered the death watch bunker while it was turned off.", self);
                 }
@@ -9559,7 +9560,7 @@ public class base_player extends script.base_script
     }
     public int cmdGetVeteranRewardTime(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException
     {
-        if (!veteran_deprecated.VETERAN_REWARDS_ENABLED)
+        if (!VETERAN_REWARDS_ENABLED)
         {
             return SCRIPT_CONTINUE;
         }
@@ -9598,7 +9599,7 @@ public class base_player extends script.base_script
     }
     public int cmdListVeteranRewards(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException
     {
-        if (!veteran_deprecated.VETERAN_REWARDS_ENABLED)
+        if (!VETERAN_REWARDS_ENABLED)
         {
             return SCRIPT_CONTINUE;
         }
@@ -9709,9 +9710,6 @@ public class base_player extends script.base_script
             veteran_deprecated.cleanupPlayerData(self);
             sendSystemMessage(self, veteran_deprecated.SID_REWARD_ERROR);
         }
-        else 
-        {
-        }
         return SCRIPT_CONTINUE;
     }
     public int handleVeteranRewardConfirmed(obj_id self, dictionary params) throws InterruptedException
@@ -9758,7 +9756,7 @@ public class base_player extends script.base_script
     }
     public int cmdFlashSpeeder(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException
     {
-        if (!veteran_deprecated.FLASH_SPEEDER_REWARD_ENABLED) {
+        if (!VETERAN_REWARDS_ENABLED) {
             return SCRIPT_CONTINUE;
         }
         int sub_bits = getGameFeatureBits(self);

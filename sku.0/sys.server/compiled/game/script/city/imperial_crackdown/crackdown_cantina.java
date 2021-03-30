@@ -12,6 +12,8 @@ public class crackdown_cantina extends script.base_script
     {
     }
     public static String CONVO = "npc_reaction/imperial_crackdown_cantina";
+    private static final int CHANCE_OF_TROUBLE = utils.getIntConfigSetting("EventTeam", "crackdownTroubleChance", 20);
+
     public int OnAttach(obj_id self) throws InterruptedException
     {
         obj_id foyer = getCellId(self, "foyer1");
@@ -53,8 +55,8 @@ public class crackdown_cantina extends script.base_script
         }
         else 
         {
-            int chanceOfTrouble = utils.getIntConfigSetting("EventTeam", "crackdownTroubleChance", 20);
-            if (rand(1, 100) < chanceOfTrouble)
+
+            if (rand(1, 100) < CHANCE_OF_TROUBLE)
             {
                 messageTo(self, "createTrouble", null, 15, false);
             }

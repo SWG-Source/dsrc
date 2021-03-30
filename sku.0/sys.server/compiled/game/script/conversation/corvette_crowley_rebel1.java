@@ -80,7 +80,7 @@ public class corvette_crowley_rebel1 extends script.base_script
     }
     public boolean corvette_crowley_rebel1_condition_dungeonInactive(obj_id player, obj_id npc) throws InterruptedException
     {
-        return !instance.CORVETTE_REBEL_DUNGEON_ENABLED;
+        return !events.isEventActive(events.CORVETTE_REBEL);
     }
     public boolean corvette_crowley_rebel1_condition_onDifferentCorvetteQuest(obj_id player, obj_id npc) throws InterruptedException
     {

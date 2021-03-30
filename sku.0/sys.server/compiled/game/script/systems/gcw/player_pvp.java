@@ -62,6 +62,8 @@ public class player_pvp extends script.base_script
     };
     public static final String COLOR_REBELS = "\\" + colors_hex.COLOR_REBELS;
     public static final String COLOR_IMPERIALS = "\\" + colors_hex.COLOR_IMPERIALS;
+    private static final float GCW_TOKEN_BONUS = utils.getFloatConfigSetting("GameServer", "gcwTokenBonus", 1.0f);
+
     public void blog(obj_id controller, String text) throws InterruptedException
     {
         String battlefieldName = "none";
@@ -814,7 +816,7 @@ public class player_pvp extends script.base_script
                 tokens = 5;
             }
         }
-        tokens *= gcw.GCW_TOKEN_BONUS;
+        tokens *= GCW_TOKEN_BONUS;
         if (canReceiveReward(self))
         {
             gcw._grantGcwPoints(null, self, gcwCredits, false, gcw.GCW_POINT_TYPE_GROUND_PVP_REGION, "");

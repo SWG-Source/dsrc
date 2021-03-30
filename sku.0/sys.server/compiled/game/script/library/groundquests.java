@@ -155,6 +155,8 @@ public class groundquests extends script.base_script
     public static final String objvarEntranceWaypoint = "entranceWaypoint";
     public static final String objvarWaypointInActive = "waypointInactive";
     public static final String timeObjVar = "playedTimeEnd";
+    private static final float GCW_TOKEN_BONUS = utils.getFloatConfigSetting("GameServer", "gcwTokenBonus", 1.0f);
+
     public static String getStringDataEntry(String datatableName, int questId, int taskId, String columnName) throws InterruptedException
     {
         String result = null;
@@ -1088,7 +1090,7 @@ public class groundquests extends script.base_script
                 {
                     declared = true;
                 }
-                grantGcwRebRewardCount *= utils.getFloatConfigSetting("GameServer", "gcwTokenBonus", 1.0f);
+                grantGcwRebRewardCount *= GCW_TOKEN_BONUS;
                 if (declared && grantGcwSFRewardMultip != 0)
                 {
                     grantGcwRebRewardCount *= grantGcwSFRewardMultip;
@@ -1122,7 +1124,7 @@ public class groundquests extends script.base_script
                 {
                     declared = true;
                 }
-                grantGcwImpRewardCount *= utils.getFloatConfigSetting("GameServer", "gcwTokenBonus", 1.0f);
+                grantGcwImpRewardCount *= GCW_TOKEN_BONUS;
                 if (declared && grantGcwSFRewardMultip != 0)
                 {
                     grantGcwImpRewardCount *= grantGcwSFRewardMultip;

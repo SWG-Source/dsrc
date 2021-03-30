@@ -3,6 +3,7 @@ package script.theme_park.warren;
 import script.ai.ai;
 import script.library.ai_lib;
 import script.library.chat;
+import script.library.utils;
 import script.obj_id;
 import script.string_id;
 
@@ -16,13 +17,14 @@ public class cell_guard extends script.base_script
     public static final String AGGRO_VOLUME_NAME = "aggroVolume";
     public static final String ACTION_ALERT = "alert";
     public static final String ACTION_THREATEN = "threaten";
+    private static final boolean AI_TRIGGER_VOLUMES_DISABLED = utils.checkConfigFlag("GameServer", "disableAITriggerVolumes");
     public int OnAttach(obj_id self) throws InterruptedException
     {
         if (!hasObjVar(self, "ai.diction"))
         {
             setObjVar(self, "ai.diction", "military");
         }
-        if (!ai.AI_TRIGGER_VOLUMES_DISABLED)
+        if (!AI_TRIGGER_VOLUMES_DISABLED)
         {
             createTriggerVolume(ALERT_VOLUME_NAME, 15.0f, true);
             createTriggerVolume(AGGRO_VOLUME_NAME, 8.0f, true);
@@ -38,7 +40,7 @@ public class cell_guard extends script.base_script
     }
     public int OnInitialize(obj_id self) throws InterruptedException
     {
-        if (!ai.AI_TRIGGER_VOLUMES_DISABLED)
+        if (!AI_TRIGGER_VOLUMES_DISABLED)
         {
             createTriggerVolume(ALERT_VOLUME_NAME, 15.0f, true);
             createTriggerVolume(AGGRO_VOLUME_NAME, 8.0f, true);

@@ -84,7 +84,7 @@ public class corvette_velso_imperial_destroy extends script.base_script
     }
     public boolean corvette_velso_imperial_destroy_condition_dungeonInactive(obj_id player, obj_id npc) throws InterruptedException
     {
-        return !instance.CORVETTE_IMPERIAL_DUNGEON_ENABLED;
+        return !events.isEventActive(events.CORVETTE_IMPERIAL);
     }
     public boolean corvette_velso_imperial_destroy_condition_onDifferentCorvetteQuest(obj_id player, obj_id npc) throws InterruptedException
     {

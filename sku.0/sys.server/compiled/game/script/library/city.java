@@ -131,6 +131,7 @@ public class city extends script.base_script
     public static final String OBJVAR_DERANK_EXEMPT = "city.derank_exempt";
     public static final String CITIZEN_LIST_QUERIED = "cityhall.citizen_list_queried";
     public static final String CITIZEN_LIST_DATA = "cityhall.citizen_list_data";
+    private static final boolean STRUCTURE_FEES_DISABLED = utils.checkConfigFlag("GameServer", "disableStructureFees");
     public static int canBuildCityHere(obj_id player, location loc) throws InterruptedException
     {
         int[] all_cities = getAllCityIds();
@@ -1082,7 +1083,7 @@ public class city extends script.base_script
         {
             return 0;
         }
-        if (player_structure.STRUCTURE_FEES_DISABLED)
+        if (STRUCTURE_FEES_DISABLED)
         {
             return 0;
         }

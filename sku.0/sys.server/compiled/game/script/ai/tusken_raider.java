@@ -17,6 +17,8 @@ public class tusken_raider extends script.base_script
     public static final String ACTION_ALERT = "alert";
     public static final String ACTION_THREATEN = "threaten";
     public static final String CREATURE_TABLE = "datatables/mob/creatures.iff";
+    private static final boolean AI_TRIGGER_VOLUMES_DISABLED = utils.checkConfigFlag("GameServer", "disableAITriggerVolumes");
+
     public void initializeScript() throws InterruptedException
     {
         obj_id self = getSelf();
@@ -49,7 +51,7 @@ public class tusken_raider extends script.base_script
     public int OnAiTetherComplete(obj_id self) throws InterruptedException
     {
         LOGC(aiLoggingEnabled(self), "debug_ai", "tusken_raider::OnAiTetherComplete() self(" + self + ":" + getName(self) + ")");
-        if (!ai.AI_TRIGGER_VOLUMES_DISABLED)
+        if (!AI_TRIGGER_VOLUMES_DISABLED)
         {
             createTriggerVolume(SOCIAL_VOLUME, SOCIAL_RANGE, false);
         }

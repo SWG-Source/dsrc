@@ -80,7 +80,7 @@ public class corvette_colonel_imperial1 extends script.base_script
     }
     public boolean corvette_colonel_imperial1_condition_dungeonInactive(obj_id player, obj_id npc) throws InterruptedException
     {
-        return !instance.CORVETTE_IMPERIAL_DUNGEON_ENABLED;
+        return !events.isEventActive(events.CORVETTE_IMPERIAL);
     }
     public boolean corvette_colonel_imperial1_condition_onDifferentCorvetteQuest(obj_id player, obj_id npc) throws InterruptedException
     {

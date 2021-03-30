@@ -67,7 +67,7 @@ public class travel extends script.base_script
     public static final string_id SID_MUSTAFAR_UNAUTHORIZED = new string_id("travel", "mustafar_unauthorized");
     public static final string_id SID_KASHYYYK_UNAUTHORIZED = new string_id("travel", "kashyyyk_unauthorized");
     public static final int TRAVEL_BLOCK_ALLOW_LAUNCH = 1;
-    public static final boolean TRAVEL_SYSTEM_DISABLED = utils.checkConfigFlag("GameServer", "disableTravelSystem");
+    private static final boolean TRAVEL_SYSTEM_DISABLED = utils.checkConfigFlag("GameServer", "disableTravelSystem");
 
     public static boolean initializeStarport(obj_id structure, String travel_point, int travel_cost, boolean civic) throws InterruptedException
     {
@@ -1394,5 +1394,8 @@ public class travel extends script.base_script
         {
             utils.removeScriptVar(player, "travelBlock");
         }
+    }
+    public static boolean isTravelSystemDisabled() {
+        return TRAVEL_SYSTEM_DISABLED;
     }
 }

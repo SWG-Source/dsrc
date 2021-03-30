@@ -1,6 +1,7 @@
 package script.theme_park.dungeon.death_watch_bunker;
 
 import script.dictionary;
+import script.library.events;
 import script.library.instance;
 import script.obj_id;
 import script.string_id;
@@ -20,7 +21,7 @@ public class leaving extends script.base_script
         }
         if (!hasObjVar(item, "gm"))
         {
-            if(!instance.DEATH_WATCH_DUNGEON_ENABLED) {
+            if(!events.isEventActive(events.DEATH_WATCH)) {
                 string_id locked = new string_id(MSGS, "no_entry");
                 sendSystemMessage(item, locked);
                 return SCRIPT_OVERRIDE;

@@ -12,10 +12,10 @@ public class holiday_controller extends script.base_script
     {
     }
 
-    public static final boolean GALACTIC_MOON_FESTIVAL_ENABLED = events.isEventActive(events.GALACTIC_MOON_FESTIVAL);
-    public static final boolean LIFEDAY_ENABLED = events.isEventActive(events.LIFEDAY);
-    public static final boolean EWOK_FESTIVAL_OF_LOVE_ENABLED = events.isEventActive(events.EWOK_FESTIVAL_OF_LOVE);
-    public static final boolean EMPIRE_DAY_ENABLED = events.isEventActive(events.EMPIRE_DAY);
+    private static final boolean GALACTIC_MOON_FESTIVAL_ENABLED = events.isEventActive(events.GALACTIC_MOON_FESTIVAL);
+    private static final boolean LIFEDAY_ENABLED = events.isEventActive(events.LIFEDAY);
+    private static final boolean EWOK_FESTIVAL_OF_LOVE_ENABLED = events.isEventActive(events.EWOK_FESTIVAL_OF_LOVE);
+    private static final boolean EMPIRE_DAY_ENABLED = events.isEventActive(events.EMPIRE_DAY);
 
     public int OnInitialize(obj_id self) throws InterruptedException
     {

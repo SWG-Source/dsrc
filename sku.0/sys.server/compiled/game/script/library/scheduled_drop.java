@@ -79,7 +79,7 @@ public class scheduled_drop extends script.base_script
         "entertainer",
         "crafter"
     };
-    public static final boolean SYSTEM_ENABLED = utils.checkConfigFlag("Custom", "enableScheduledDropSystem");
+    private static final boolean SYSTEM_ENABLED = utils.checkConfigFlag("Custom", "enableScheduledDropSystem");
 
     public static void testingSpam(obj_id self, String str) throws InterruptedException
     {

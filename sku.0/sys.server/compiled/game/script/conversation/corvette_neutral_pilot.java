@@ -15,16 +15,12 @@ public class corvette_neutral_pilot extends script.base_script
     }
     public boolean corvette_neutral_pilot_condition_hasNeutralTicket(obj_id player, obj_id npc) throws InterruptedException
     {
-        if (!instance.CORVETTE_NEUTRAL_DUNGEON_ENABLED)
+        if (!events.isEventActive(events.CORVETTE_NEUTRAL))
         {
             return false;
         }
         obj_id[] tickets = space_dungeon.findValidDungeonTickets(player, npc);
-        if (tickets != null && tickets.length > 0)
-        {
-            return true;
-        }
-        return false;
+        return tickets != null && tickets.length > 0;
     }
     public boolean corvette_neutral_pilot_condition_tooManyInGroup(obj_id player, obj_id npc) throws InterruptedException
     {
@@ -34,10 +30,7 @@ public class corvette_neutral_pilot extends script.base_script
             if (isIdValid(groupObj))
             {
                 int numGroupMembers = getGroupSize(groupObj);
-                if (numGroupMembers > 10)
-                {
-                    return true;
-                }
+                return numGroupMembers > 10;
             }
         }
         return false;
@@ -48,12 +41,10 @@ public class corvette_neutral_pilot extends script.base_script
     public void corvette_neutral_pilot_action_sendToDungeon(obj_id player, obj_id npc) throws InterruptedException
     {
         space_dungeon.selectDungeonTicket(npc, player);
-        return;
     }
     public void corvette_neutral_pilot_action_facePlayer(obj_id player, obj_id npc) throws InterruptedException
     {
         faceTo(npc, player);
-        return;
     }
     public int OnInitialize(obj_id self) throws InterruptedException
     {

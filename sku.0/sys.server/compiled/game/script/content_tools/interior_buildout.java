@@ -14,6 +14,7 @@ public class interior_buildout extends script.base_script
     public interior_buildout()
     {
     }
+    private static final boolean LIVE_SPACE_SERVER_MODE_OFF = utils.checkConfigFlag("ScriptFlags", "liveSpaceServerModeOff");
 
     public int OnInitialize(obj_id self) throws InterruptedException
     {
@@ -82,7 +83,7 @@ public class interior_buildout extends script.base_script
                             utils.setScriptVar(self, strLocationList[intI] + "Cells", objCells);
                         }
                     }
-                    if (space_flags.LIVE_SPACE_SERVER_MODE_OFF)
+                    if (LIVE_SPACE_SERVER_MODE_OFF)
                     {
                         obj_id objTest = createObject(strTemplates[intI], tr, objCell);
                         if (!strObjVars[intI].equals(""))

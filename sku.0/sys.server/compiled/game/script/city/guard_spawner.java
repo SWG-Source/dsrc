@@ -13,7 +13,7 @@ public class guard_spawner extends script.base_script
     {
     }
     public static final String guardTable = "datatables/npc/guard_spawner/guard.iff";
-    public static final boolean EMPIRE_DAY_RUNNING = utils.checkConfigFlag("GameServer", "empireday_ceremony");
+    private static final boolean EMPIRE_DAY_RUNNING = events.isEventActive(events.EMPIRE_DAY);
 
     public int OnAttach(obj_id self) throws InterruptedException
     {

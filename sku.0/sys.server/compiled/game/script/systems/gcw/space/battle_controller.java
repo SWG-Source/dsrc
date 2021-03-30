@@ -7,21 +7,21 @@ import script.obj_id;
 
 public class battle_controller extends script.base_script {
 
-    public static final boolean TATOOINE_ACTIVE = utils.checkConfigFlag("GameServer", "spaceGcwTatooineActive");
-    public static final boolean CORELLIA_ACTIVE = utils.checkConfigFlag("GameServer", "spaceGcwCorelliaActive");
-    public static final boolean DANTOOINE_ACTIVE = utils.checkConfigFlag("GameServer", "spaceGcwDantooineActive");
-    public static final boolean LOK_ACTIVE = utils.checkConfigFlag("GameServer", "spaceGcwLokActive");
-    public static final boolean NABOO_ACTIVE = utils.checkConfigFlag("GameServer", "spaceGcwNabooActive");
-    public static final int TATOOINE_DELAY = utils.getIntConfigSetting("GameServer", "spaceGcwTatooineDelay", 3);
-    public static final int CORELLIA_DELAY = utils.getIntConfigSetting("GameServer", "spaceGcwCorelliaDelay", 3);
-    public static final int DANTOOINE_DELAY = utils.getIntConfigSetting("GameServer", "spaceGcwDantooineDelay", 3);
-    public static final int LOK_DELAY = utils.getIntConfigSetting("GameServer", "spaceGcwLokDelay", 3);
-    public static final int NABOO_DELAY = utils.getIntConfigSetting("GameServer", "spaceGcwNabooDelay", 3);
-    public static final int TATOOINE_STAGGER = utils.getIntConfigSetting("GameServer", "spaceGcwTatooineStagger", 0);
-    public static final int CORELLIA_STAGGER = utils.getIntConfigSetting("GameServer", "spaceGcwCorelliaStagger", 2);
-    public static final int DANTOOINE_STAGGER = utils.getIntConfigSetting("GameServer", "spaceGcwDantooineStagger", 0);
-    public static final int LOK_STAGGER = utils.getIntConfigSetting("GameServer", "spaceGcwLokStagger", 2);
-    public static final int NABOO_STAGGER = utils.getIntConfigSetting("GameServer", "spaceGcwNabooStagger", 4);
+    private static final boolean TATOOINE_ACTIVE = utils.checkConfigFlag("GameServer", "spaceGcwTatooineActive");
+    private static final boolean CORELLIA_ACTIVE = utils.checkConfigFlag("GameServer", "spaceGcwCorelliaActive");
+    private static final boolean DANTOOINE_ACTIVE = utils.checkConfigFlag("GameServer", "spaceGcwDantooineActive");
+    private static final boolean LOK_ACTIVE = utils.checkConfigFlag("GameServer", "spaceGcwLokActive");
+    private static final boolean NABOO_ACTIVE = utils.checkConfigFlag("GameServer", "spaceGcwNabooActive");
+    private static final int TATOOINE_DELAY = utils.getIntConfigSetting("GameServer", "spaceGcwTatooineDelay", 3);
+    private static final int CORELLIA_DELAY = utils.getIntConfigSetting("GameServer", "spaceGcwCorelliaDelay", 3);
+    private static final int DANTOOINE_DELAY = utils.getIntConfigSetting("GameServer", "spaceGcwDantooineDelay", 3);
+    private static final int LOK_DELAY = utils.getIntConfigSetting("GameServer", "spaceGcwLokDelay", 3);
+    private static final int NABOO_DELAY = utils.getIntConfigSetting("GameServer", "spaceGcwNabooDelay", 3);
+    private static final int TATOOINE_STAGGER = utils.getIntConfigSetting("GameServer", "spaceGcwTatooineStagger", 0);
+    private static final int CORELLIA_STAGGER = utils.getIntConfigSetting("GameServer", "spaceGcwCorelliaStagger", 2);
+    private static final int DANTOOINE_STAGGER = utils.getIntConfigSetting("GameServer", "spaceGcwDantooineStagger", 0);
+    private static final int LOK_STAGGER = utils.getIntConfigSetting("GameServer", "spaceGcwLokStagger", 2);
+    private static final int NABOO_STAGGER = utils.getIntConfigSetting("GameServer", "spaceGcwNabooStagger", 4);
     // Configuration Array:
     // 1. Zone.
     // 2. Initial Battle Type.

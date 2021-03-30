@@ -48,11 +48,7 @@ public class corvette_pashna_rebel1 extends script.base_script
     public boolean corvette_pashna_rebel1_condition_notRebel(obj_id player, obj_id npc) throws InterruptedException
     {
         String playerFaction = factions.getFaction(player);
-        if (playerFaction == null || !playerFaction.equals("Rebel"))
-        {
-            return true;
-        }
-        return false;
+        return playerFaction == null || !playerFaction.equals("Rebel");
     }
     public boolean corvette_pashna_rebel1_condition_hasTravelTicket(obj_id player, obj_id npc) throws InterruptedException
     {
@@ -80,16 +76,13 @@ public class corvette_pashna_rebel1 extends script.base_script
     }
     public boolean corvette_pashna_rebel1_condition_dungeonInactive(obj_id player, obj_id npc) throws InterruptedException
     {
-        return !instance.CORVETTE_REBEL_DUNGEON_ENABLED;
+        return !events.isEventActive(events.CORVETTE_REBEL);
     }
     public boolean corvette_pashna_rebel1_condition_onDifferentCorvetteQuest(obj_id player, obj_id npc) throws InterruptedException
     {
         if (hasObjVar(player, "corl_corvette"))
         {
-            if (!hasObjVar(player, "corl_corvette.rebel_assassin"))
-            {
-                return true;
-            }
+            return !hasObjVar(player, "corl_corvette.rebel_assassin");
         }
         return false;
     }
@@ -103,27 +96,21 @@ public class corvette_pashna_rebel1 extends script.base_script
         if (isIdValid(playerInv))
         {
             int free_space = getVolumeFree(playerInv);
-            if (free_space > 0)
-            {
-                return true;
-            }
+            return free_space > 0;
         }
         return false;
     }
     public void corvette_pashna_rebel1_action_heardLocation1(obj_id player, obj_id npc) throws InterruptedException
     {
         utils.setScriptVar(player, "corl_corvette.heardLocation1", 1);
-        return;
     }
     public void corvette_pashna_rebel1_action_heardLocation2(obj_id player, obj_id npc) throws InterruptedException
     {
         utils.setScriptVar(player, "corl_corvette.heardLocation2", 1);
-        return;
     }
     public void corvette_pashna_rebel1_action_heardLocation3(obj_id player, obj_id npc) throws InterruptedException
     {
         utils.setScriptVar(player, "corl_corvette.heardLocation3", 1);
-        return;
     }
     public void corvette_pashna_rebel1_action_acceptsQuest(obj_id player, obj_id npc) throws InterruptedException
     {
@@ -133,7 +120,6 @@ public class corvette_pashna_rebel1 extends script.base_script
         }
         String custLogMsg = "*Corvette Ground Quest: Player %TU has started the rebel assassin quest.";
         CustomerServiceLog("DUNGEON_CorellianCorvette", custLogMsg, player);
-        return;
     }
     public void corvette_pashna_rebel1_action_clearLocations(obj_id player, obj_id npc) throws InterruptedException
     {
@@ -149,7 +135,6 @@ public class corvette_pashna_rebel1 extends script.base_script
         {
             utils.removeScriptVar(player, "corl_corvette.heardLocation3");
         }
-        return;
     }
     public void corvette_pashna_rebel1_action_giveTicket(obj_id player, obj_id npc) throws InterruptedException
     {
@@ -166,7 +151,6 @@ public class corvette_pashna_rebel1 extends script.base_script
             String custLogMsg = "*Corvette Ground Quest: Player %TU finished the rebel assassin quest and received a rebel corvette ticket.";
             CustomerServiceLog("DUNGEON_CorellianCorvette", custLogMsg, player);
         }
-        return;
     }
     public void corvette_pashna_rebel1_action_takeObject2(obj_id player, obj_id npc) throws InterruptedException
     {
@@ -184,7 +168,6 @@ public class corvette_pashna_rebel1 extends script.base_script
                 }
             }
         }
-        return;
     }
     public void corvette_pashna_rebel1_action_takeObject3(obj_id player, obj_id npc) throws InterruptedException
     {
@@ -202,7 +185,6 @@ public class corvette_pashna_rebel1 extends script.base_script
                 }
             }
         }
-        return;
     }
     public void corvette_pashna_rebel1_action_removeTicket(obj_id player, obj_id npc) throws InterruptedException
     {
@@ -221,7 +203,6 @@ public class corvette_pashna_rebel1 extends script.base_script
                 }
             }
         }
-        return;
     }
     public void corvette_pashna_rebel1_action_quitCorvetteQuest(obj_id player, obj_id npc) throws InterruptedException
     {
@@ -265,12 +246,10 @@ public class corvette_pashna_rebel1 extends script.base_script
                 }
             }
         }
-        return;
     }
     public void corvette_pashna_rebel1_action_facePlayer(obj_id player, obj_id npc) throws InterruptedException
     {
         faceTo(npc, player);
-        return;
     }
     public void corvette_pashna_rebel1_action_giveCorvetteReward(obj_id player, obj_id npc) throws InterruptedException
     {
@@ -281,7 +260,6 @@ public class corvette_pashna_rebel1 extends script.base_script
             removeObjVar(player, "corvette.rebel_assassin.finished");
             CustomerServiceLog("DUNGEON_CorellianCorvette", "*Corvette Reward: Player %TU has been given an AV-21 schematic.", player);
         }
-        return;
     }
     public int corvette_pashna_rebel1_handleBranch3(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {

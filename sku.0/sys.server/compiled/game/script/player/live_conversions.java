@@ -40,12 +40,12 @@ public class live_conversions extends script.base_script
     public static final String UPDATE_COLLECTION_INCREMENT_AMOUNT = "increment_amount";
     public static final String FORCE_RESPEC_OBJVAR = "configEnforcedRespecVersion";
 
-    public static final boolean FORCE_PROFESION_RESPEC = utils.checkConfigFlag("GameServer", "forceProfessionRespec");
-    public static final boolean GRANT_ESB_AWARDS = utils.checkConfigFlag("Custom", "grantEsbAnniversaryRewards");
-    public static final boolean GRANT_MAIL_OPT_IN_AWARDS = utils.checkConfigFlag("Custom", "grantMailOptInRewards");
-    public static final boolean GRANT_ELDER_BUFF = utils.checkConfigFlag("Custom", "grantElderBuff");
-    public static final int CU_REWARD_LEVEL = utils.getIntConfigSetting("GameServer", "combatUpgradeReward", 0);
-    public static final int CU_REWARD_AGE_REQUIRED = utils.getIntConfigSetting("GameServer", "combatUpgradeRewardAge", 365);
+    private static final boolean FORCE_PROFESION_RESPEC = utils.checkConfigFlag("GameServer", "forceProfessionRespec");
+    private static final boolean GRANT_ESB_AWARDS = utils.checkConfigFlag("Custom", "grantEsbAnniversaryRewards");
+    private static final boolean GRANT_MAIL_OPT_IN_AWARDS = utils.checkConfigFlag("Custom", "grantMailOptInRewards");
+    private static final boolean GRANT_ELDER_BUFF = utils.checkConfigFlag("Custom", "grantElderBuff");
+    private static final int CU_REWARD_LEVEL = utils.getIntConfigSetting("GameServer", "combatUpgradeReward", 0);
+    private static final int CU_REWARD_AGE_REQUIRED = utils.getIntConfigSetting("GameServer", "combatUpgradeRewardAge", 365);
 
     public int OnAttach(obj_id self) throws InterruptedException
     {

@@ -21,6 +21,8 @@ public class gcw_supply_terminal extends script.base_script
         "Operations Core",
         "Reset"
     };
+    private static final float GCW_TOKEN_BONUS = utils.getFloatConfigSetting("GameServer", "gcwTokenBonus", 1.0f);
+
     public int OnInitialize(obj_id self) throws InterruptedException
     {
         if (!isIdValid(self) || !exists(self))
@@ -95,7 +97,7 @@ public class gcw_supply_terminal extends script.base_script
                 if (factions.isImperialorImperialHelper(player))
                 {
                     sendSystemMessage(player, "You have recived an Imperial Token for your effort", null);
-                    float multiplier = gcw.GCW_TOKEN_BONUS;
+                    float multiplier = GCW_TOKEN_BONUS;
                     int count = 1;
                     if (multiplier > 1)
                     {
@@ -120,7 +122,7 @@ public class gcw_supply_terminal extends script.base_script
                 if (factions.isRebelorRebelHelper(player))
                 {
                     sendSystemMessage(player, "You have recived an Rebel Token for your effort", null);
-                    float multiplier = gcw.GCW_TOKEN_BONUS;
+                    float multiplier = GCW_TOKEN_BONUS;
                     int count = 1;
                     if (multiplier > 1)
                     {

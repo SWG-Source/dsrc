@@ -84,6 +84,6 @@ public class rtp_leia_crime_scene extends script.base_script
     }
     public boolean canSpawnByConfigSetting() throws InterruptedException
     {
-        return !spawning.AREA_SPAWNERS_DISABLED;
+        return !spawning.isSpawnerTypeDisabled(spawning.AREA_SPAWNERS);
     }
 }

@@ -13,6 +13,8 @@ public class battlefield_region extends script.base_script
     public static final string_id SID_BATTLEFIELD_STATUS = new string_id("battlefield", "status");
     public static final string_id SID_GAME_STATUS = new string_id("battlefield", "game_status");
     public static final String VAR_TIME_WARNING_LEVEL = "battlefield.game.time_warning_level";
+    private static final boolean BATTLEFIELDS_DISABLED = utils.checkConfigFlag("GameServer", "disableBattlefields");
+
     public int OnAttach(obj_id self) throws InterruptedException
     {
         LOG("LOG_CHANNEL", "battlefield_region::OnAttach");
@@ -24,7 +26,7 @@ public class battlefield_region extends script.base_script
         messageTo(self, "msgInitializeRegion", null, 0.0f, true);
         if (hasObjVar(self, battlefield.VAR_BATTLEFIELD))
         {
-            if(battlefield.BATTLEFIELDS_DISABLED) {
+            if(BATTLEFIELDS_DISABLED) {
                 battlefield.endBattlefield(self, false);
                 return SCRIPT_CONTINUE;
             }

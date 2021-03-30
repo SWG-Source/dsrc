@@ -18,6 +18,8 @@ public class turret_ai extends script.systems.combat.combat_base_old
     public turret_ai()
     {
     }
+    private static final boolean AI_COMBAT_DISABLED = utils.checkConfigFlag("GameServer", "disableAICombat");
+
     public int OnAttach(obj_id self) throws InterruptedException
     {
         turret.activateTurret(self);
@@ -188,7 +190,7 @@ public class turret_ai extends script.systems.combat.combat_base_old
     }
     public int OnSawAttack(obj_id self, obj_id defender, obj_id[] attackers) throws InterruptedException
     {
-        if (ai.AI_COMBAT_DISABLED)
+        if (AI_COMBAT_DISABLED)
         {
             setWantSawAttackTriggers(self, false);
             return SCRIPT_CONTINUE;

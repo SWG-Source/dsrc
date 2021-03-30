@@ -2,6 +2,7 @@ package script.ai;
 
 import script.library.ai_lib;
 import script.library.attrib;
+import script.library.utils;
 import script.obj_id;
 
 public class monster extends script.base_script
@@ -10,10 +11,12 @@ public class monster extends script.base_script
     {
     }
     public static final String ALERT_VOLUME_NAME = "alertTriggerVolume";
+    private static final boolean AI_TRIGGER_VOLUMES_DISABLED = utils.checkConfigFlag("GameServer", "disableAITriggerVolumes");
+
     public int OnAttach(obj_id self) throws InterruptedException
     {
         setAttributeInterested(self, attrib.NPC);
-        if (!ai.AI_TRIGGER_VOLUMES_DISABLED)
+        if (!AI_TRIGGER_VOLUMES_DISABLED)
         {
             createTriggerVolume(ALERT_VOLUME_NAME, ai_lib.aiGetApproachTriggerRange(self), true);
         }

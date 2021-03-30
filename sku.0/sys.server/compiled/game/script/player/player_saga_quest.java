@@ -8,6 +8,8 @@ public class player_saga_quest extends script.base_script
     public player_saga_quest()
     {
     }
+    private static final int CHRONICLES_GOLD_TOKEN_CHANCE_SETTING = utils.getIntConfigSetting("GameServer", "chroniclesGoldTokenChanceOverride", 5);
+
     public int OnAttach(obj_id self) throws InterruptedException
     {
         messageTo(self, "handleChronicleProfessionGranted", null, 14, false);
@@ -968,7 +970,7 @@ public class player_saga_quest extends script.base_script
                         }
                         if (questWeight >= pgc_quests.PGC_MIN_MID_QUALITY_QUEST_WEIGHT)
                         {
-                            int goldTokenChance = pgc_quests.CHRONICLES_GOLD_TOKEN_CHANCE_SETTING;
+                            int goldTokenChance = CHRONICLES_GOLD_TOKEN_CHANCE_SETTING;
                             int goldTokenRoll = rand(1, 100);
                             if (goldTokenRoll <= goldTokenChance)
                             {

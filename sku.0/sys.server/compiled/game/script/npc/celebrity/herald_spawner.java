@@ -2,6 +2,7 @@ package script.npc.celebrity;
 
 import script.library.ai_lib;
 import script.library.create;
+import script.library.events;
 import script.library.instance;
 import script.obj_id;
 
@@ -12,7 +13,7 @@ public class herald_spawner extends script.base_script
     }
     public int OnInitialize(obj_id self) throws InterruptedException
     {
-        if(!instance.GEONOSIAN_BUNKER_ENABLED) {
+        if(!events.isEventActive(events.GEONOSIAN)) {
             return SCRIPT_CONTINUE;
         }
         String spawn = getStringObjVar(self, "spawns");

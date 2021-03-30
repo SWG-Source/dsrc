@@ -17,9 +17,12 @@ public class townperson extends script.base_script
     public static final String ACTION_THREATEN = "threaten";
     public static final int CONVO_LENGTH = 300;
     public static final String CREATURE_TABLE = "datatables/mob/creatures.iff";
+    private static final boolean AI_TRIGGER_VOLUMES_DISABLED = utils.checkConfigFlag("GameServer", "disableAITriggerVolumes");
+    private static final boolean AI_COMBAT_DISABLED = utils.checkConfigFlag("GameServer", "disableAICombat");
+
     public int OnAttach(obj_id self) throws InterruptedException
     {
-        if (!ai.AI_TRIGGER_VOLUMES_DISABLED)
+        if (!AI_TRIGGER_VOLUMES_DISABLED)
         {
             createTriggerVolume(SOCIAL_VOLUME, SOCIAL_RANGE, false);
         }
@@ -53,7 +56,7 @@ public class townperson extends script.base_script
     public int OnAddedToWorld(obj_id self) throws InterruptedException
     {
         utils.removeScriptVar(self, "ai.speaking");
-        if (!ai.AI_TRIGGER_VOLUMES_DISABLED)
+        if (!AI_TRIGGER_VOLUMES_DISABLED)
         {
             createTriggerVolume(SOCIAL_VOLUME, SOCIAL_RANGE, false);
         }
@@ -237,11 +240,7 @@ public class townperson extends script.base_script
             }
             if (newBehavior >= BEHAVIOR_ALERT && newBehavior < BEHAVIOR_ATTACK)
             {
-                doAgitateBehavior(self, newBehavior);
                 return SCRIPT_OVERRIDE;
-            }
-            else 
-            {
             }
             return SCRIPT_CONTINUE;
         }
@@ -259,14 +258,6 @@ public class townperson extends script.base_script
             }
         }
         return SCRIPT_CONTINUE;
-    }
-    public void doAgitateBehavior(obj_id npc, int behavior) throws InterruptedException
-    {
-        if (isInvulnerable(npc))
-        {
-            return;
-        }
-        return;
     }
     public int OnTargeted(obj_id self, obj_id attacker) throws InterruptedException
     {
@@ -321,7 +312,7 @@ public class townperson extends script.base_script
     }
     public int OnSawAttack(obj_id self, obj_id defender, obj_id[] attackers) throws InterruptedException
     {
-        if (ai.AI_COMBAT_DISABLED)
+        if (AI_COMBAT_DISABLED)
         {
             setWantSawAttackTriggers(self, false);
             return SCRIPT_OVERRIDE;

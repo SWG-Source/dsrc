@@ -40,6 +40,7 @@ public class create extends script.base_script
         "maxMind",
         "maxWillpower"
     };
+    private static final boolean AI_SCRIPTS_DISABLED = utils.checkConfigFlag("GameServer", "disableAI");
     public static obj_id staticObject(String objectName, location spawnLocation) throws InterruptedException
     {
         if (objectName == null)
@@ -811,7 +812,7 @@ public class create extends script.base_script
     }
     public static void attachCreatureScripts(obj_id creature, String scriptList, boolean withAi) throws InterruptedException
     {
-        if (ai.AI_SCRIPTS_DISABLED)
+        if (AI_SCRIPTS_DISABLED)
         {
             return;
         }

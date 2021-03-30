@@ -25,7 +25,7 @@ public class space_transition extends script.base_script
     public static final String SHIP_PILOT_SLOT_NAME = "ship_pilot";
     public static final string_id SID_PVP_NOW_OVERT = new string_id("space/space_interaction", "pvp_now_overt");
     public static final string_id SID_PVP_NOW_NEUTRAL = new string_id("space/space_interaction", "pvp_now_neutral");
-    public static final boolean SEND_TO_GROUND_ON_LOGOUT = utils.checkConfigFlag("ScriptFlags", "sendToGroundOnLogout");
+    //private static final boolean SEND_TO_GROUND_ON_LOGOUT = utils.checkConfigFlag("ScriptFlags", "sendToGroundOnLogout");
 
     public static void handlePotentialSceneChange(obj_id player) throws InterruptedException
     {
@@ -190,7 +190,7 @@ public class space_transition extends script.base_script
     }
     public static boolean shouldSendToGroundOnLogout() throws InterruptedException
     {
-        return SEND_TO_GROUND_ON_LOGOUT;
+        return false;
     }
     public static void setLaunchInfo(obj_id player, obj_id ship, int startLocationIndex, location groundLoc) throws InterruptedException
     {

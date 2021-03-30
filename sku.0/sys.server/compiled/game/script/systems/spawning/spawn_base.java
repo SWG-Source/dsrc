@@ -35,6 +35,7 @@ public class spawn_base extends script.base_script
     {
         "tutorial"
     };
+    private static final boolean FAST_SPAWN = utils.checkConfigFlag("GameServer", "fastSpawn");
 
     /**
      this function takes the obj_id of the player, and the obj_id of the master spawn object.  It will eventually take a region object id, which will contain the necessary
@@ -474,7 +475,7 @@ public class spawn_base extends script.base_script
     {
     }
     public boolean checkSpawnLogFailures() throws InterruptedException {
-        return spawning.FAST_SPAWN;
+        return FAST_SPAWN;
     }
     public boolean isSpawningAllowed(location locTest) throws InterruptedException
     {

@@ -357,7 +357,7 @@ public class spawner_random_proxy extends script.base_script
         return SCRIPT_CONTINUE;
     }
     public boolean canSpawnByConfigSetting() throws InterruptedException {
-        return !spawning.AREA_SPAWNERS_DISABLED;
+        return !spawning.isSpawnerTypeDisabled(spawning.AREA_SPAWNERS);
     }
     public int OnDestroy(obj_id self) throws InterruptedException
     {

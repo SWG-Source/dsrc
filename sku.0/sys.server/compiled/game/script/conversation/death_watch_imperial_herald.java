@@ -40,7 +40,7 @@ public class death_watch_imperial_herald extends script.base_script
     }
     public boolean death_watch_imperial_herald_condition_dungeonInactive(obj_id player, obj_id npc) throws InterruptedException
     {
-        return !instance.DEATH_WATCH_DUNGEON_ENABLED;
+        return !events.isEventActive(events.DEATH_WATCH);
     }
     public boolean death_watch_imperial_herald_condition_QuestComplete(obj_id player, obj_id npc) throws InterruptedException
     {

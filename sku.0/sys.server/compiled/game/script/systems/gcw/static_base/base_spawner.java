@@ -224,6 +224,6 @@ public class base_spawner extends script.base_script
     }
     public boolean canSpawnByConfigSetting() throws InterruptedException
     {
-        return !spawning.GENERIC_SPAWNERS_DISABLED;
+        return !spawning.isSpawnerTypeDisabled(spawning.GENERIC_SPAWNERS);
     }
 }
