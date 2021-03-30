@@ -286,9 +286,25 @@ public class cmd extends script.base_script
     }
     public int cmdKill(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException
     {
-        if (!isIdValid(target) || !isMob(target))
+        // If you're in space, kill the space ship you're targeting
+        if(isSpaceScene()) {
+            target = getLookAtTarget(self);
+            if(!isIdValid(target)) {
+                sendSystemMessageTestingOnly(self, "/kill: Your target for /kill was not valid.");
+                return SCRIPT_CONTINUE;
+            }
+            if(isPlayer(target)) {
+                sendSystemMessageTestingOnly(self, "/kill: You cannot use /kill on a player controlled ship. Use /killPlayer.");
+                return SCRIPT_CONTINUE;
+            }
+            messageTo(target, "megaDamage", null, 0f, false);
+            return SCRIPT_CONTINUE;
+        }
+
+        // If you're on the ground, do damage to the target to kill it (creature or static like a barricade or turret)
+        if (!isIdValid(target))
         {
-            sendSystemMessageTestingOnly(self, "/kill: you must have a valid creature target to use this command");
+            sendSystemMessageTestingOnly(self, "/kill: The target specified was invalid.");
             return SCRIPT_CONTINUE;
         }
         if (params.contains(gm.KEYWORD_TARGET))
@@ -308,7 +324,7 @@ public class cmd extends script.base_script
         {
             if (!isIncapacitated(target))
             {
-                setPosture(target, POSTURE_INCAPACITATED);
+                damage(target, 1, 0, 999999999);
             }
         }
         return SCRIPT_CONTINUE;
@@ -668,74 +684,48 @@ public class cmd extends script.base_script
     }
     public int cmdSetRank(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException
     {
-        if (utils.hasScriptVar(self, "setRank.pid"))
+        int currentRank = pvpGetCurrentGcwRank(target);
+        int faction = pvpGetAlignedFaction(target);
+
+        if (params.contains(gm.KEYWORD_TARGET))
         {
-            int oldpid = utils.getIntScriptVar(self, "setRank.pid");
-            sui.closeSUI(self, oldpid);
-            utils.removeScriptVarTree(self, "setRank");
+            params = gm.removeKeyword(params, gm.KEYWORD_TARGET);
         }
-        dictionary d = gm.parseTarget(params, target, "SETRANK");
-        if (d == null)
-        {
-            return SCRIPT_CONTINUE;
-        }
-        else if (d.isEmpty())
-        {
-        }
-        else
-        {
-            params = d.getString("params");
-            obj_id oid = d.getObjId("oid");
-            if (isIdValid(oid))
-            {
-                target = oid;
-            }
-            else
-            {
-                target = self;
-            }
-        }
-        if (!isIdValid(target) || !isPlayer(target))
-        {
-            target = self;
-        }
-        String faction = factions.getFaction(target);
         if (params == null || params.equalsIgnoreCase(""))
         {
-            int rank = pvpGetCurrentGcwRank(target);
-            String title = "Set Player Rank";
-            String prompt = "Select the desired rank to set the player to.\n\n";
-            prompt += "Target = (" + target + ") " + getName(target) + "\n";
-            prompt += "Current Rank = (" + rank + ") " + getString(new string_id("faction_recruiter", factions.getRankName(rank, faction)));
-            Vector entries = new Vector();
-            entries.setSize(0);
-            for (int i = 0; i <= factions.MAXIMUM_RANK; i++)
-            {
-                entries = utils.addElement(entries, "(" + i + ") " + getString(new string_id("faction_recruiter", factions.getRankName(i, faction))));
-            }
-            int pid = sui.listbox(self, self, prompt, sui.OK_CANCEL, title, entries, "handleSetRankSelection");
-            if (pid > -1)
-            {
-                utils.setScriptVar(self, "setRank.pid", pid);
-                utils.setScriptVar(self, "setRank.target", target);
-                gm.attachHandlerScript(self);
-            }
-        }
-        int newrank = utils.stringToInt(params);
-        if (newrank < 0 || newrank > factions.MAXIMUM_RANK)
-        {
-            sendSystemMessageTestingOnly(self, "/setRank: unable to parse rank. Please choose a rank between 0 & " + factions.MAXIMUM_RANK);
+            sendSystemMessageTestingOnly(self, "Syntax: /setRank -target <1 to 12> (e.g. 1 is Private, 12 is General)");
             return SCRIPT_CONTINUE;
         }
-        if (factions.setRank(target, newrank))
-        {
-            int urank = pvpGetCurrentGcwRank(target);
-            sendSystemMessageTestingOnly(self, "(" + target + ") " + getName(target) + "'s rank updated to (" + urank + ") " + getString(new string_id("faction_recruiter", factions.getRankName(urank, faction))));
+        StringTokenizer st = new StringTokenizer(params);
+        String tempGoalRank = st.nextToken();
+        int goalRank = Integer.parseInt(tempGoalRank);
+
+        if (goalRank < 1 || goalRank > 12) {
+            sendSystemMessageTestingOnly(self, "Rank must be an integer between 1 (Private) and 12 (General).");
+            return SCRIPT_CONTINUE;
         }
-        else
-        {
-            sendSystemMessageTestingOnly(self, "The system was unable to update (" + target + ") " + getName(target) + "'s rank updated to (" + newrank + ") " + getString(new string_id("faction_recruiter", factions.getRankName(newrank, faction))));
+        if (currentRank == goalRank) {
+            sendSystemMessageTestingOnly(self, "The desired rank you specified is already the current rank of "+getPlayerName(target));
+            return SCRIPT_CONTINUE;
         }
+        if (faction == 0) {
+            sendSystemMessageTestingOnly(self, getPlayerName(target)+" is currently neutral and not aligned with a faction so you cannot set their rank.");
+            return SCRIPT_CONTINUE;
+        }
+
+        int neededRankChange = goalRank - currentRank;
+        if (neededRankChange > 0) {
+            do {
+                gcw.increaseGcwRatingToNextRank(target);
+                currentRank = pvpGetCurrentGcwRank(target);
+            } while (currentRank != goalRank);
+        } else if (neededRankChange < 0) {
+            do {
+                gcw.decreaseGcwRatingToPreviousRank(target);
+                currentRank = pvpGetCurrentGcwRank(target);
+            } while (currentRank != goalRank);
+        }
+        sendSystemMessageTestingOnly(self, "Successfully changed the rank of "+getPlayerName(target)+ "("+target+").");
         return SCRIPT_CONTINUE;
     }
     public int cmdGrantSkill(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException
@@ -4454,6 +4444,46 @@ public class cmd extends script.base_script
             return SCRIPT_CONTINUE;
         }
 
+        else if (command.equalsIgnoreCase("startGcwSpaceBattle")) {
+
+            if(!st.hasMoreTokens()) {
+                sendSystemMessageTestingOnly(self, "Syntax: /admin startGcwSpaceBattle <scene> <type>");
+                return SCRIPT_CONTINUE;
+            }
+            else {
+                String scene = st.nextToken();
+                String[] allowedScenes = {"tatooine", "dantooine", "lok", "naboo", "corellia"};
+                if(!Arrays.asList(allowedScenes).contains(scene)) {
+                    sendSystemMessageTestingOnly(self, "Error: The scene you specified was not valid. Valid scenes are: "+ Arrays.toString(allowedScenes));
+                    return SCRIPT_CONTINUE;
+                } else {
+                    if(!st.hasMoreTokens()) {
+                        sendSystemMessageTestingOnly(self, "Syntax: /admin startGcwSpaceBattle <scene> <type>");
+                        return SCRIPT_CONTINUE;
+                    }
+                    String type = st.nextToken();
+                    if(!type.equalsIgnoreCase("pvp") && !type.equalsIgnoreCase("pve")) {
+                        sendSystemMessageTestingOnly(self, "Error: Battle type must be pvp or pve.");
+                        return SCRIPT_CONTINUE;
+                    }
+                    obj_id masterObject = getPlanetByName("tatooine");
+                    if(!hasObjVar(masterObject, "space_gcw.space_"+scene+".spawner")) {
+                        sendSystemMessageTestingOnly(self, "Error: Couldn't find the spawner for that scene. Have you started the space scene and visited it before so it can initialize?");
+                        return SCRIPT_CONTINUE;
+                    } else {
+                        obj_id spawner = getObjIdObjVar(masterObject, "space_gcw.space_"+scene+".spawner");
+                        dictionary d = new dictionary();
+                        d.put("battle_type", type);
+                        d.put("controller", masterObject);
+                        messageTo(spawner, "startSpaceGCWBattle", d, 0f, false);
+                        sendSystemMessageTestingOnly(self, "Successfully requested start for battle in the space zone of "+scene+" of type "+type);
+                        sendConsoleMessage(self, "\\#00FFFF ***startSpaceGcwBattle REMINDER: The battle will start after the configured prep time and will not begin if the space zone isn't currently active with at least 1 player in it so you may need to re-send the command when the zone is active.\\#.");
+                        return SCRIPT_CONTINUE;
+                    }
+                }
+            }
+        }
+
         else {
             showAdminCmdSyntax(self);
         }
@@ -4472,6 +4502,8 @@ public class cmd extends script.base_script
         sendConsoleMessage(self, "returns the account username of the specified player");
         sendConsoleMessage(self, "\\#00ffff setWeather \\#bfff00 <clear | mild | heavy | severe> \\#.");
         sendConsoleMessage(self, "sets the weather for the current scene");
+        sendConsoleMessage(self, "\\#00ffff startGcwSpaceBattle \\#bfff00 <planet> <type> \\#.");
+        sendConsoleMessage(self, "sends a request to start the GCW2 space battle for the specified scene and type");
         sendConsoleMessage(self, "\\#ffff00 ============ ============ ============ ============ \\#.");
     }
 
