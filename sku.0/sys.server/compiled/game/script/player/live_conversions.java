@@ -104,6 +104,7 @@ public class live_conversions extends script.base_script
         handleEsbAnniversaryGifts(player);
         handleMailOptInRewards(player);
         handleCombatUpgradePlaqueReward(player);
+        startFactionalPresenceTrackingLoop(player);
     }
     public void runOncePerTravelConversions(obj_id player) throws InterruptedException
     {
@@ -1004,6 +1005,13 @@ public class live_conversions extends script.base_script
                 grantCommand(player, "veteranPlayerBuff");
             }
         }
+    }
+
+    /**
+     * Handles looper to start tracking factional presence
+     */
+    public void startFactionalPresenceTrackingLoop(obj_id player) throws InterruptedException {
+        recurringMessageTo(player, "playerFactionalPresenceHeartbeat", null, 60.0f);
     }
 
 }

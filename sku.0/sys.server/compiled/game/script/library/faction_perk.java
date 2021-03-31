@@ -86,6 +86,15 @@ public class faction_perk extends script.base_script
     public static final string_id SID_ALREADY_HAVE = new string_id("gcw", "comm_already_used");
     public static final string_id SID_TOO_LOW_LEVEL = new string_id("gcw", "player_too_low");
     public static final string_id SID_INDOORS = new string_id("gcw", "player_is_indoors");
+    private static final float BASE_MODIFIER_01_PVE = utils.getFloatConfigSetting("GameServer", "gcwFactionBase01PvEBonusAmount", 0.01f);
+    private static final float BASE_MODIFIER_01_PVP = utils.getFloatConfigSetting("GameServer", "gcwFactionBase01PvPBonusAmount", 0.02f);
+    private static final float BASE_MODIFIER_02_PVE = utils.getFloatConfigSetting("GameServer", "gcwFactionBase02PvEBonusAmount", 0.03f);
+    private static final float BASE_MODIFIER_02_PVP = utils.getFloatConfigSetting("GameServer", "gcwFactionBase02PvPBonusAmount", 0.05f);
+    private static final float BASE_MODIFIER_03_PVE = utils.getFloatConfigSetting("GameServer", "gcwFactionBase03PvEBonusAmount", 0.06f);
+    private static final float BASE_MODIFIER_03_PVP = utils.getFloatConfigSetting("GameServer", "gcwFactionBase03PvPBonusAmount", 0.08f);
+    private static final float BASE_MODIFIER_04_PVE = utils.getFloatConfigSetting("GameServer", "gcwFactionBase04PvEBonusAmount", 0.10f);
+    private static final float BASE_MODIFIER_04_PVP = utils.getFloatConfigSetting("GameServer", "gcwFactionBase04PvPBonusAmount", 0.12f);
+
     public static int prejudicePerkCost(obj_id player, String faction, int base_cost) throws InterruptedException
     {
         if (!isIdValid(player) || (faction == null) || (faction.equals("")) || (base_cost < 1))
@@ -157,6 +166,21 @@ public class faction_perk extends script.base_script
             sendSystemMessage(player, new string_id("gcw", "cannot_place_additional_base"));
             return false;
         }
+
+        // GU 17.2 cannot place base in contested region your faction doesn't control at least 51%
+        int impScore = gcw.getGcwImperialScorePercentile(gcw.getGcwRegion(player));
+        if(pvpGetAlignedFaction(player) == FACTION_HASH_IMPERIAL) {
+            if(impScore < 51) {
+                sendSystemMessage(player, new string_id("gcw", "not_controlling_contested_region"));
+                return false;
+            }
+        } else if (pvpGetAlignedFaction(player) == FACTION_HASH_REBEL) {
+            if(impScore > 49) {
+                sendSystemMessage(player, new string_id("gcw", "not_controlling_contested_region"));
+                return false;
+            }
+        }
+
         int used = getIntObjVar(player, player_structure.VAR_LOTS_USED);
         String fp_template = player_structure.getFootprintTemplate(template);
         if ((fp_template == null) || (fp_template.equals("")))
@@ -1053,4 +1077,83 @@ public class faction_perk extends script.base_script
         }
         return true;
     }
+
+    /**
+     * Wrapper for getRebel/ImperialFactionBases methods to pass faction hash
+     */
+    public static Vector<obj_id> getFactionBasesForFaction(int faction) {
+        if(faction == FACTION_HASH_IMPERIAL) {
+            return getImperialFactionBases();
+        } else if (faction == FACTION_HASH_REBEL) {
+            return getRebelFactionBases();
+        }
+        return null;
+    }
+
+    /**
+     * Returns a Vector of obj_ids of all Rebel bases in the galaxy
+     */
+    public static Vector<obj_id> getRebelFactionBases() {
+        Vector<obj_id> bases = new Vector<obj_id>();
+        map_location[] locs = getPlanetaryMapLocations("player_placed_factional_base", "player_placed_factional_base_rebel");
+        for (map_location loc : locs) {
+            bases.add(loc.getLocationId());
+        }
+        return bases;
+    }
+
+    /**
+     * Returns a Vector of obj_ids of all Imperial bases in the galaxy
+     */
+    public static Vector<obj_id> getImperialFactionBases() {
+        Vector<obj_id> bases = new Vector<obj_id>();
+        map_location[] locs = getPlanetaryMapLocations("player_placed_factional_base", "player_placed_factional_base_imperial");
+        for (map_location loc : locs) {
+            bases.add(loc.getLocationId());
+        }
+        return bases;
+    }
+
+    /**
+     * Provides the bonus multiplier to GCW points/presence for a particular base type
+     */
+    public static float getBaseBonusValueByTemplate(String template) {
+
+        switch (template) {
+            // Forward Outpost
+            case "object/building/faction_perk/hq/hq_s01_imp.iff":
+            case "object/building/faction_perk/hq/hq_s01_rebel.iff":
+                return BASE_MODIFIER_01_PVE;
+            // SF Forward Outpost
+            case "object/building/faction_perk/hq/hq_s01_imp_pvp.iff":
+            case "object/building/faction_perk/hq/hq_s01_rebel_pvp.iff":
+                return BASE_MODIFIER_01_PVP;
+            // Field Hospital
+            case "object/building/faction_perk/hq/hq_s02_imp.iff":
+            case "object/building/faction_perk/hq/hq_s02_rebel.iff":
+                return BASE_MODIFIER_02_PVE;
+            // SF Field Hospital
+            case "object/building/faction_perk/hq/hq_s02_imp_pvp.iff":
+            case "object/building/faction_perk/hq/hq_s02_rebel_pvp.iff":
+                return BASE_MODIFIER_02_PVP;
+            // Tactical Center
+            case "object/building/faction_perk/hq/hq_s03_imp.iff":
+            case "object/building/faction_perk/hq/hq_s03_rebel.iff":
+                return BASE_MODIFIER_03_PVE;
+            // SF Tactical Center
+            case "object/building/faction_perk/hq/hq_s03_imp_pvp.iff":
+            case "object/building/faction_perk/hq/hq_s03_rebel_pvp.iff":
+                return BASE_MODIFIER_03_PVP;
+            // Detachment HQ
+            case "object/building/faction_perk/hq/hq_s04_imp.iff":
+            case "object/building/faction_perk/hq/hq_s04_rebel.iff":
+                return BASE_MODIFIER_04_PVE;
+            // SF Detachment HQ
+            case "object/building/faction_perk/hq/hq_s04_imp_pvp.iff":
+            case "object/building/faction_perk/hq/hq_s04_rebel_pvp.iff":
+                return BASE_MODIFIER_04_PVP;
+        }
+        return 0.0f;
+    }
+
 }

@@ -4558,4 +4558,83 @@ public class cmd extends script.base_script
         return SCRIPT_CONTINUE;
     }
 
+    public int cmdGmRevive(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+
+        if (params.contains(gm.KEYWORD_TARGET))
+        {
+            params = gm.removeKeyword(params, gm.KEYWORD_TARGET);
+            target = getTarget(self);
+        } else {
+            sendSystemMessageTestingOnly(self, "[Syntax] /gmRevive -target");
+            return SCRIPT_CONTINUE;
+        }
+
+        // fix a disabled vehicle
+        if(isGameObjectTypeOf(target, GOT_vehicle)) {
+            if(isDisabled(target)) {
+                clearCondition(target, CONDITION_DISABLED);
+            }
+            setHitpoints(target, getMaxHitpoints(target));
+            sendSystemMessageTestingOnly(self, "The vehicle (" + target + ") was restored.");
+            return SCRIPT_CONTINUE;
+        }
+
+        // revive a dead pet
+        if (pet_lib.isPet(target)) {
+            obj_id bcd = beast_lib.getBeastBCD(target);
+            obj_id master = beast_lib.getMaster(target);
+            if(pet_lib.isDead(target)) {
+                int maxHealth = getMaxAttrib(target, HEALTH);
+                beast_lib.storeBeast(bcd);
+                beast_lib.setBCDBeastIsDead(bcd, false);
+                beast_lib.setBCDBeastHealth(bcd, maxHealth);
+                beast_lib.createBeastFromBCD(master, bcd);
+            } else {
+                setHealth(target, getMaxHealth(target));
+                setAction(target, getMaxAction(target));
+                buff.removeAllDebuffs(target);
+            }
+            sendSystemMessageTestingOnly(self, beast_lib.getBeastName(target) + " (" + target + ") [beast] was restored.");
+            return SCRIPT_CONTINUE;
+        }
+
+        // Heal a player and remove all debuffs. Also revive them if they're dead.
+        if (isPlayer(target)) {
+            if (getPosture(target) == POSTURE_DEAD) {
+                pclib.clearEffectsForDeath(target);
+                int suiClone = utils.getIntScriptVar(target, pclib.VAR_SUI_CLONE);
+                sui.closeSUI(target, suiClone);
+                utils.removeScriptVar(target, pclib.VAR_SUI_CLONE);
+                utils.removeScriptVar(target, pclib.VAR_REVIVE_OPTIONS);
+                pclib.trimLastKiller(target);
+                pvpRemoveAllTempEnemyFlags(target);
+                removeObjVar(target, pclib.VAR_BEEN_COUPDEGRACED);
+                playClientEffectObj(target, "clienteffect/player_clone_compile.cef", target, null);
+            }
+            healing.fullHealEveryone(target);
+            setAttrib(target, HEALTH, getMaxAttrib(target, HEALTH));
+            setAttrib(target, ACTION, getMaxAttrib(target, ACTION));
+            dot.removeAllDots(target);
+            buff.removeAllDebuffs(target);
+            sendSystemMessageTestingOnly(target, "You have been restored...");
+            sendSystemMessageTestingOnly(self, getPlayerName(target)+" ("+target+") [player] was restored.");
+            return SCRIPT_CONTINUE;
+
+        } else {
+           // heal an NPC, unless they're dead, in which case you can't revive them
+            if(isDead(target)) {
+                sendSystemMessageTestingOnly(self, "gmRevive: Unable to restore "+target+" because they are an NPC/Object and cannot return from death.");
+                return SCRIPT_CONTINUE;
+            } else {
+                setHealth(target, getMaxHealth(target));
+                setAttrib(target, HEALTH, getMaxAttrib(target, HEALTH));
+                setAction(target, getMaxAction(target));
+                setAttrib(target, ACTION, getMaxAttrib(target, ACTION));
+                buff.removeAllDebuffs(target);
+                sendSystemMessageTestingOnly(self, getName(target) + " (" + target + ") [npc/obj] was restored.");
+                return SCRIPT_CONTINUE;
+            }
+        }
+    }
+
 }

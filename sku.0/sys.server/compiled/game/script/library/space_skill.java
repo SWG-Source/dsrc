@@ -170,4 +170,50 @@ public class space_skill extends script.base_script
         }
         return false;
     }
+    public static boolean hasTier3Skills(obj_id player) throws InterruptedException {
+        if (hasRebelSkill(player))
+        {
+            return (hasSkill(player, "pilot_rebel_navy_droid_03"));
+        }
+        if (hasImperialSkill(player))
+        {
+            return (hasSkill(player, "pilot_imperial_navy_droid_03"));
+        }
+        if (hasPilotSkill(player))
+        {
+            return (hasSkill(player, "pilot_neutral_droid_03"));
+        }
+        return false;
+    }
+    public static boolean hasTier2Skills(obj_id player) throws InterruptedException {
+        if (hasRebelSkill(player))
+        {
+            return (hasSkill(player, "pilot_rebel_navy_droid_02"));
+        }
+        if (hasImperialSkill(player))
+        {
+            return (hasSkill(player, "pilot_imperial_navy_droid_02"));
+        }
+        if (hasPilotSkill(player))
+        {
+            return (hasSkill(player, "pilot_neutral_droid_02"));
+        }
+        return false;
+    }
+    public static boolean hasTier1Skills(obj_id player) throws InterruptedException {
+        if (hasRebelSkill(player))
+        {
+            return (hasSkill(player, "pilot_rebel_navy_droid_01"));
+        }
+        if (hasImperialSkill(player))
+        {
+            return (hasSkill(player, "pilot_imperial_navy_droid_01"));
+        }
+        if (hasPilotSkill(player))
+        {
+            return (hasSkill(player, "pilot_neutral_droid_01"));
+        }
+        return false;
+    }
+
 }

@@ -14,22 +14,22 @@ guild_university	11	0	1
 hotel	12					
 medicalcenter	13			1		
 shuttleport	14					
-starport	15			
-themepark	16			
-city	17			
-waypoint	18			
-trainer	19			
-trainer_brawler	20	0	1	
-trainer_artisan	21	0	1	
-trainer_scout	22	0	1	
-trainer_marksman	23	0	1	
-trainer_entertainer	24	0	1	
-trainer_medic	25	0	1	
-junkshop	26			
-tavern	27			1
-barracks	28			1
-vendor	29			
-vendor_armor	30	0	1	
+starport	15					
+themepark	16					
+city	17					
+waypoint	18					
+trainer	19					
+trainer_brawler	20	0	1			
+trainer_artisan	21	0	1			
+trainer_scout	22	0	1			
+trainer_marksman	23	0	1			
+trainer_entertainer	24	0	1			
+trainer_medic	25	0	1			
+junkshop	26					
+tavern	27			1		
+barracks	28			1		
+vendor	29					
+vendor_armor	30	0	1			
 vendor_clothing	31	0	1			
 vendor_components	32	0	1			
 vendor_droids	33	0	1			
@@ -88,3 +88,7 @@ gcw_factional_presence	83
 gcw_factional_presence_rebel_only	84	0	1			
 gcw_factional_presence_imperial_only	85	0	1			
 gcw_factional_presence_rebel_and_imperial	86	0	1			
+player_placed_factional_base	87	1	0	0		
+player_placed_factional_base_rebel	88	0	1	1		
+player_placed_factional_base_imperial	89	0	1	1		
+vendor_chronicles	90	0	1	0		

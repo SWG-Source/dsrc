@@ -12281,4 +12281,8 @@ public class base_player extends script.base_script
         warpPlayer(self, loc.area, loc.x, loc.y, loc.z, loc.cell, 0, 0, 0, "noHandler", false);
         return SCRIPT_CONTINUE;
     }
+    public int playerFactionalPresenceHeartbeat(obj_id self, dictionary params) throws InterruptedException {
+        gcw.grantGcwFactionalPresenceScore(self);
+        return SCRIPT_CONTINUE;
+    }
 }

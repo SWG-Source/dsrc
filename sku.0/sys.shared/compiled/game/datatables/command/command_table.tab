@@ -732,9 +732,9 @@ gmForceCommand		immediate	gmForceCommand					admin																							0	1				
 gmForceRank		immediate	cmdGMForceRank					admin																				1	1		0	1												1																	0	0	0	0										optional					0		40	csr	0										
 gmFsVillage		immediate	cmdGMFsVillage					admin																				1	1		0	1												1																	0	0	0	0										optional					0		40	csr	0										
 gmJediState		immediate	gmJediState					admin																							0	1												1																												gm.cmd		optional					0		40	csr	0										
-gmr		immediate	gmRevive					admin																				1	1		0	1												1																														none					0		40	csr	0										
+gmr		immediate	cmdGmRevive					admin																				1	1		0	1												1																												gm.cmd		none					0		40	csr	0										
 gmregrantQuest		immediate	cmdGmRegrantQuest					admin																							0													1																												gm.cmd		none					0		40	csr	0										
-gmRevive		immediate	gmRevive					admin																				1	1		0	1												1																														none					0		40	csr	0										
+gmRevive		immediate	cmdGmRevive					admin																				1	1		0	1												1																												gm.cmd		none					0		40	csr	0										
 gmShowQuest		immediate	cmdGmShowQuest					admin																							0													1																												gm.cmd		none					0		40	csr	0										
 gmWeapon		immediate	cmdGmWeapon					admin																				1	1		0	1												1																	0	0	0	0										optional					0		40	csr	0										
 goto		immediate	cmdGoto	failAdmin				admin																				1	1		0	1												1																												gm.cmd		optional	0				0		40	csr	0										
