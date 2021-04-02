@@ -27,11 +27,13 @@ public class force_shrine extends script.base_script
             int menuOption = mi.addRootMenu(menu_info_types.SERVER_ITEM_OPTIONS, MEDITATE_MENU);
             if (utils.isProfession(player, utils.FORCE_SENSITIVE) && !utils.playerHasItemByTemplateInInventoryOrEquipped(player, PADAWAN_ROBE))
             {
-                mi.addRootMenu(menu_info_types.SERVER_MENU5, ISSUE_ROBE_MENU);
+                if(!hasObjVar(player, "item.fs_padawan_robe_redeemed")) {
+                    mi.addRootMenu(menu_info_types.SERVER_MENU5, ISSUE_ROBE_MENU);
+                }
             }
             if (utils.isProfession(player, utils.FORCE_SENSITIVE) && canGetUltraCloak(player))
             {
-                if (!jedi.hasAnyUltraCloak(player) && getState(player, STATE_MEDITATE) == 1)
+                if (!jedi.hasAnyUltraCloak(player) && getState(player, STATE_MEDITATE) == 1 && !hasObjVar(player, "item.fs_ultra_robe_redeemed"))
                 {
                     mi.addRootMenu(menu_info_types.SERVER_MENU6, ISSUE_ULTRA_ROBE_LIGHT_MENU);
                     mi.addRootMenu(menu_info_types.SERVER_MENU7, ISSUE_ULTRA_ROBE_DARK_MENU);
@@ -229,6 +231,7 @@ public class force_shrine extends script.base_script
         }
         static_item.createNewItemFunction("item_jedi_robe_padawan_04_01", pInv);
         sendSystemMessage(player, new string_id("jedi_trials", "robe_issued"));
+        setObjVar(player, "item.fs_padawan_robe_redeemed", true);
     }
     public boolean canGetUltraCloak(obj_id player) throws InterruptedException
     {
@@ -281,6 +284,7 @@ public class force_shrine extends script.base_script
             playClientEffectObj(player, clientEffect, player, "");
             sendSystemMessage(player, robeSpam);
             buff.applyBuff(player, "utlra_jedi_cloak_block");
+            setObjVar(player, "item.fs_ultra_robe_redeemed", true);
         }
     }
 }
