@@ -1562,4 +1562,23 @@ public class buff extends script.base_script
         }
         return true;
     }
+    public static boolean removeAllDebuffs(obj_id target) throws InterruptedException
+    {
+        if (!isIdValid(target) || !exists(target))
+        {
+            return false;
+        }
+        int[] buffs = getAllBuffs(target);
+        if (buffs == null || buffs.length == 0)
+        {
+            return true;
+        }
+        for (int b : buffs) {
+            buff_data bdata = combat_engine.getBuffData(b);
+            if (bdata.debuff == 1) {
+                removeBuff(target, b);
+            }
+        }
+        return true;
+    }
 }
