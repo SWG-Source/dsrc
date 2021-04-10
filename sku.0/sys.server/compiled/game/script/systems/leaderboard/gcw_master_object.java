@@ -115,6 +115,11 @@ public class gcw_master_object extends script.base_script {
             leaderboard.debugMsg("Skipping period heartbeat because we're already in the middle of running one or in a reset...");
             return SCRIPT_CONTINUE;
         }
+        // don't run if there's no players online
+        if(getNumPlayers() < 1) {
+            leaderboard.debugMsg("Skipping period heartbeat because no players are online...");
+            return SCRIPT_CONTINUE;
+        }
         // don't run in a buffer, grab all participants
         if(leaderboard.isWithinPeriodBuffer() || leaderboard.isWithinStartupBuffer()) {
             leaderboard.debugMsg("Skipping period heartbeat because we're within a period or startup buffer...");
@@ -308,6 +313,8 @@ public class gcw_master_object extends script.base_script {
      */
     public int handleFinishedCurrentPeriodUpdate(obj_id self, dictionary params) throws InterruptedException {
 
+        //todo @pre-production-deployment: refactor for compression
+
         final int period = leaderboard.LEADERBOARD_PERIOD_CURRENT;
         final obj_id[] imperialPlayers = leaderboard.getRankedPlayersForPeriod(TYPE, FACTION_HASH_IMPERIAL, period);
         final obj_id[] rebelPlayers = leaderboard.getRankedPlayersForPeriod(TYPE, FACTION_HASH_REBEL, period);
@@ -321,7 +328,7 @@ public class gcw_master_object extends script.base_script {
         obj_id leader;
         if(imperialPlayers != null) {
             for (obj_id i : imperialPlayers) {
-                if(getIntObjVar(i, leaderboard.OBJVAR_LAST_NOTIFIED_RANK_GCW_PLAYER) != rank) {
+                if(getIntObjVar(i, leaderboard.OBJVAR_LAST_NOTIFIED_RANK_GCW_PLAYER) != rank && isIdValid(i)) {
                     sendSystemMessageTestingOnly(i, "[GCW Leaderboard] Congratulations! You are now ranked in position " + rank + " on the Current Imperial Players GCW Leaderboard.");
                     leaderboard.announceGcwLeaderboardRankChangeToDiscord(getPlayerFullName(i)+" is now ranked in position "+rank+" on the Current Imperial Players GCW Leaderboard.");
                     setObjVar(i, leaderboard.OBJVAR_LAST_NOTIFIED_RANK_GCW_PLAYER, rank);
@@ -332,7 +339,7 @@ public class gcw_master_object extends script.base_script {
         if(rebelPlayers != null) {
             rank = 1;
             for (obj_id i : rebelPlayers) {
-                if(getIntObjVar(i, leaderboard.OBJVAR_LAST_NOTIFIED_RANK_GCW_PLAYER) != rank) {
+                if(getIntObjVar(i, leaderboard.OBJVAR_LAST_NOTIFIED_RANK_GCW_PLAYER) != rank && isIdValid(i)) {
                     sendSystemMessageTestingOnly(i, "[GCW Leaderboard] Congratulations! You are now ranked in position " + rank + " on the Current Rebel Players GCW Leaderboard.");
                     leaderboard.announceGcwLeaderboardRankChangeToDiscord(getPlayerFullName(i)+" is now ranked in position "+rank+" on the Current Rebel Players GCW Leaderboard.");
                     setObjVar(i, leaderboard.OBJVAR_LAST_NOTIFIED_RANK_GCW_PLAYER, rank);
@@ -344,7 +351,7 @@ public class gcw_master_object extends script.base_script {
             rank = 1;
             for (int i : imperialCities) {
                 leader = cityGetLeader(i);
-                if(getIntObjVar(leader, leaderboard.OBJVAR_LAST_NOTIFIED_RANK_GCW_CITY) != rank) {
+                if(getIntObjVar(leader, leaderboard.OBJVAR_LAST_NOTIFIED_RANK_GCW_CITY) != rank && isIdValid(leader)) {
                     channel = city.getChatChannelForCity(i);
                     chatSendToRoom(channel, "[GCW Leaderboard] Congratulations! Your city is now ranked in position " + rank + " on the Current Imperial Cities GCW Leaderboard.", "");
                     leaderboard.announceGcwLeaderboardRankChangeToDiscord(cityGetName(i)+" is now ranked in position "+rank+" on the Current Imperial Cities GCW Leaderboard.");
@@ -357,7 +364,7 @@ public class gcw_master_object extends script.base_script {
             rank = 1;
             for (int i : rebelCities) {
                 leader = cityGetLeader(i);
-                if(getIntObjVar(leader, leaderboard.OBJVAR_LAST_NOTIFIED_RANK_GCW_CITY) != rank) {
+                if(getIntObjVar(leader, leaderboard.OBJVAR_LAST_NOTIFIED_RANK_GCW_CITY) != rank && isIdValid(leader)) {
                     channel = city.getChatChannelForCity(i);
                     chatSendToRoom(channel, "[GCW Leaderboard] Congratulations! Your city is now ranked in position " + rank + " on the Current Rebel Cities GCW Leaderboard.", "");
                     leaderboard.announceGcwLeaderboardRankChangeToDiscord(cityGetName(i)+" is now ranked in position "+rank+" on the Current Rebel Cities GCW Leaderboard.");
@@ -370,7 +377,7 @@ public class gcw_master_object extends script.base_script {
             rank = 1;
             for (int i : imperialGuilds) {
                 leader = guildGetLeader(i);
-                if(getIntObjVar(leader, leaderboard.OBJVAR_LAST_NOTIFIED_RANK_GCW_GUILD) != rank) {
+                if(getIntObjVar(leader, leaderboard.OBJVAR_LAST_NOTIFIED_RANK_GCW_GUILD) != rank && isIdValid(leader)) {
                     channel = guild.getChatChannelForGuild(i);
                     chatSendToRoom(channel, "[GCW Leaderboard] Congratulations! Your guild is now ranked in position " + rank + " on the Current Imperial Guild GCW Leaderboard.", "");
                     leaderboard.announceGcwLeaderboardRankChangeToDiscord(guildGetName(i)+" ("+guildGetAbbrev(i)+") is now ranked in position "+rank+" on the Current Imperial Guild GCW Leaderboard.");
@@ -383,7 +390,7 @@ public class gcw_master_object extends script.base_script {
             rank = 1;
             for (int i : rebelGuilds) {
                 leader = guildGetLeader(i);
-                if(getIntObjVar(leader, leaderboard.OBJVAR_LAST_NOTIFIED_RANK_GCW_GUILD) != rank) {
+                if(getIntObjVar(leader, leaderboard.OBJVAR_LAST_NOTIFIED_RANK_GCW_GUILD) != rank && isIdValid(leader)) {
                     channel = guild.getChatChannelForGuild(i);
                     chatSendToRoom(channel, "[GCW Leaderboard] Congratulations! Your guild is now ranked in position " + rank + " on the Current Rebel Guild GCW Leaderboard.", "");
                     leaderboard.announceGcwLeaderboardRankChangeToDiscord(guildGetName(i)+" ("+guildGetAbbrev(i)+") is now ranked in position "+rank+" on the Current Rebel Guild GCW Leaderboard.");
