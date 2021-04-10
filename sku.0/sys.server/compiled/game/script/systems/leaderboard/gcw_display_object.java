@@ -1,6 +1,7 @@
 package script.systems.leaderboard;
 
 import script.library.leaderboard;
+import script.library.utils;
 import script.menu_info;
 import script.menu_info_types;
 import script.obj_id;
@@ -74,146 +75,153 @@ public class gcw_display_object extends script.terminal.base.base_terminal {
     public int OnObjectMenuSelect(obj_id self, obj_id player, int item) throws InterruptedException {
 
         if(item == menu_info_types.SERVER_MENU21) {
-            if(!leaderboard.isWithinPeriodBuffer()) {
+            if(isLeaderboardAvailable()) {
                 leaderboard.renderGcwLeaderboardDataToPlayer(player, self, 1);
             } else {
                 notifyPlayerBoardUnavailable(player);
             }
         }
         if(item == menu_info_types.SERVER_MENU22) {
-            if(!leaderboard.isWithinPeriodBuffer()) {
+            if(isLeaderboardAvailable()) {
                 leaderboard.renderGcwLeaderboardDataToPlayer(player, self, 2);
             } else {
                 notifyPlayerBoardUnavailable(player);
             }
         }
         if(item == menu_info_types.SERVER_MENU23) {
-            if(!leaderboard.isWithinPeriodBuffer()) {
+            if(isLeaderboardAvailable()) {
                 leaderboard.renderGcwLeaderboardDataToPlayer(player, self, 3);
             } else {
                 notifyPlayerBoardUnavailable(player);
             }
         }
         if(item == menu_info_types.SERVER_MENU24) {
-            if(!leaderboard.isWithinPeriodBuffer()) {
+            if(isLeaderboardAvailable()) {
                 leaderboard.renderGcwLeaderboardDataToPlayer(player, self, 4);
             } else {
                 notifyPlayerBoardUnavailable(player);
             }
         }
         if(item == menu_info_types.SERVER_MENU25) {
-            if(!leaderboard.isWithinPeriodBuffer()) {
+            if(isLeaderboardAvailable()) {
                 leaderboard.renderGcwLeaderboardDataToPlayer(player, self, 5);
             } else {
                 notifyPlayerBoardUnavailable(player);
             }
         }
         if(item == menu_info_types.SERVER_MENU26) {
-            if(!leaderboard.isWithinPeriodBuffer()) {
+            if(isLeaderboardAvailable()) {
                 leaderboard.renderGcwLeaderboardDataToPlayer(player, self, 6);
             } else {
                 notifyPlayerBoardUnavailable(player);
             }
         }
         if(item == menu_info_types.SERVER_MENU27) {
-            if(!leaderboard.isWithinPeriodBuffer()) {
+            if(isLeaderboardAvailable()) {
                 leaderboard.renderGcwLeaderboardDataToPlayer(player, self, 7);
             } else {
                 notifyPlayerBoardUnavailable(player);
             }
         }
         if(item == menu_info_types.SERVER_MENU28) {
-            if(!leaderboard.isWithinPeriodBuffer()) {
+            if(isLeaderboardAvailable()) {
                 leaderboard.renderGcwLeaderboardDataToPlayer(player, self, 8);
             } else {
                 notifyPlayerBoardUnavailable(player);
             }
         }
         if(item == menu_info_types.SERVER_MENU29) {
-            if(!leaderboard.isWithinPeriodBuffer()) {
+            if(isLeaderboardAvailable()) {
                 leaderboard.renderGcwLeaderboardDataToPlayer(player, self, 9);
             } else {
                 notifyPlayerBoardUnavailable(player);
             }
         }
         if(item == menu_info_types.SERVER_MENU30) {
-            if(!leaderboard.isWithinPeriodBuffer()) {
+            if(isLeaderboardAvailable()) {
                 leaderboard.renderGcwLeaderboardDataToPlayer(player, self, 10);
             } else {
                 notifyPlayerBoardUnavailable(player);
             }
         }
         if(item == menu_info_types.SERVER_MENU31) {
-            if(!leaderboard.isWithinPeriodBuffer()) {
+            if(isLeaderboardAvailable()) {
                 leaderboard.renderGcwLeaderboardDataToPlayer(player, self, 11);
             } else {
                 notifyPlayerBoardUnavailable(player);
             }
         }
         if(item == menu_info_types.SERVER_MENU32) {
-            if(!leaderboard.isWithinPeriodBuffer()) {
+            if(isLeaderboardAvailable()) {
                 leaderboard.renderGcwLeaderboardDataToPlayer(player, self, 12);
             } else {
                 notifyPlayerBoardUnavailable(player);
             }
         }
         if(item == menu_info_types.SERVER_MENU33) {
-            if(!leaderboard.isWithinPeriodBuffer()) {
+            if(isLeaderboardAvailable()) {
                 leaderboard.renderGcwLeaderboardDataToPlayer(player, self, 13);
             } else {
                 notifyPlayerBoardUnavailable(player);
             }
         }
         if(item == menu_info_types.SERVER_MENU34) {
-            if(!leaderboard.isWithinPeriodBuffer()) {
+            if(isLeaderboardAvailable()) {
                 leaderboard.renderGcwLeaderboardDataToPlayer(player, self, 14);
             } else {
                 notifyPlayerBoardUnavailable(player);
             }
         }
         if(item == menu_info_types.SERVER_MENU35) {
-            if(!leaderboard.isWithinPeriodBuffer()) {
+            if(isLeaderboardAvailable()) {
                 leaderboard.renderGcwLeaderboardDataToPlayer(player, self, 15);
             } else {
                 notifyPlayerBoardUnavailable(player);
             }
         }
         if(item == menu_info_types.SERVER_MENU36) {
-            if(!leaderboard.isWithinPeriodBuffer()) {
+            if(isLeaderboardAvailable()) {
                 leaderboard.renderGcwLeaderboardDataToPlayer(player, self, 16);
             } else {
                 notifyPlayerBoardUnavailable(player);
             }
         }
         if(item == menu_info_types.SERVER_MENU37) {
-            if(!leaderboard.isWithinPeriodBuffer()) {
+            if(isLeaderboardAvailable()) {
                 leaderboard.renderGcwLeaderboardDataToPlayer(player, self, 17);
             } else {
                 notifyPlayerBoardUnavailable(player);
             }
         }
         if(item == menu_info_types.SERVER_MENU38) {
-            if(!leaderboard.isWithinPeriodBuffer()) {
+            if(isLeaderboardAvailable()) {
                 leaderboard.renderGcwLeaderboardDataToPlayer(player, self, 18);
             } else {
                 notifyPlayerBoardUnavailable(player);
             }
         }
         if(item == menu_info_types.SERVER_MENU39 && getGuildId(player) > 0) {
-            if(!leaderboard.isWithinPeriodBuffer()) {
+            if(isLeaderboardAvailable()) {
                 leaderboard.renderGcwLeaderboardEntityHistory(player, self, false);
             } else {
                 notifyPlayerBoardUnavailable(player);
             }
         }
         if(item == menu_info_types.SERVER_MENU40 && getCitizenOfCityId(player) > 0) {
-            if(!leaderboard.isWithinPeriodBuffer()) {
+            if(isLeaderboardAvailable()) {
                 leaderboard.renderGcwLeaderboardEntityHistory(player, self, true);
             } else {
                 notifyPlayerBoardUnavailable(player);
             }
         }
         return SCRIPT_CONTINUE;
+    }
+
+    public static boolean isLeaderboardAvailable() throws InterruptedException {
+        final obj_id masterObject = leaderboard.getMasterLeaderboardObject();
+        return !utils.hasScriptVar(masterObject, "heartbeat_is_in_progress") &&
+                !utils.hasScriptVar(masterObject, "reset_is_in_progress") &&
+                !leaderboard.isWithinPeriodBuffer();
     }
 
     public static void notifyPlayerBoardUnavailable(obj_id player) {
