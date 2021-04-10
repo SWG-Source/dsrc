@@ -132,6 +132,8 @@ public class city extends script.base_script
     public static final String CITIZEN_LIST_QUERIED = "cityhall.citizen_list_queried";
     public static final String CITIZEN_LIST_DATA = "cityhall.citizen_list_data";
     private static final boolean STRUCTURE_FEES_DISABLED = utils.checkConfigFlag("GameServer", "disableStructureFees");
+    public static final String VAR_LEADERBOARD_PERIOD_ON_JOIN = "guild.leaderboardPeriodOnJoin";
+
     public static int canBuildCityHere(obj_id player, location loc) throws InterruptedException
     {
         int[] all_cities = getAllCityIds();
@@ -547,6 +549,7 @@ public class city extends script.base_script
         String cname = cityGetCitizenName(city_id, citizen);
         bodypp = prose.getPackage(NEW_CITY_CITIZEN_OTHER_BODY, mayor_name, citizen_name, city_name);
         utils.sendMail(NEW_CITY_CITIZEN_OTHER_SUBJECT, bodypp, cname, "City Hall");
+        setObjVar(citizen, VAR_LEADERBOARD_PERIOD_ON_JOIN, leaderboard.getCurrentLeaderboardPeriod());
     }
     public static void removeCitizen(obj_id citizen, obj_id residence) throws InterruptedException
     {
@@ -1880,5 +1883,13 @@ public class city extends script.base_script
         }
         obj_id[] returnArray = utils.toStaticObjIdArray(safeHouseCitizens);
         return returnArray;
+    }
+
+    /**
+     * Returns the City Chat channel name for the specified City
+     * e.g. chatSendToRoom(city.getChatChannelForCity(cityId), "message", "");
+     */
+    public static String getChatChannelForCity(int cityId) throws InterruptedException {
+        return getGameChatCode() + "." + getGalaxyName() + "." + "city." + cityId + ".CityChat";
     }
 }

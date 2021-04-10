@@ -348,12 +348,7 @@ public class base_player extends script.base_script
     {
         if ((toLower(skill)).startsWith("pilot"))
         {
-            int godLevel = -1;
-            if (isGod(self))
-            {
-                godLevel = getGodLevel(self);
-            }
-            if (!utils.hasScriptVar(self, "revokePilotSkill") && (godLevel < 50))
+            if (!utils.hasScriptVar(self, "revokePilotSkill") && !isGod(self))
             {
                 space_skill.retireWarning(self, skill);
                 return SCRIPT_OVERRIDE;
@@ -12285,4 +12280,28 @@ public class base_player extends script.base_script
         gcw.grantGcwFactionalPresenceScore(self);
         return SCRIPT_CONTINUE;
     }
+    public int playerFactionalPresenceReportingHeartbeat(obj_id self, dictionary params) throws InterruptedException {
+        int points = utils.getIntScriptVar(self, "leaderboard_factional_presence_tracking");
+        gcw.handleGcwLeaderboardUpdates(self, points, gcw.GCW_POINT_TYPE_MAX);
+        utils.setScriptVar(self, "leaderboard_factional_presence_tracking", 0);
+        leaderboard.debugMsg("Player "+getPlayerName(self)+" ("+self+") reported to leaderboard from presence heartbeat a total of "+points+" points which have now been reset to 0.");
+        return SCRIPT_CONTINUE;
+    }
+    public int handleCsLeaderboardDataMenuSelection(obj_id self, dictionary params) throws InterruptedException {
+        if ((params == null) || (params.isEmpty()) || !isGod(self)) {
+            return SCRIPT_CONTINUE;
+        }
+        obj_id player = sui.getPlayerId(params);
+        int btn = sui.getIntButtonPressed(params);
+        int idx = sui.getListboxSelectedRow(params);
+        if (btn == sui.BP_CANCEL) {
+            return SCRIPT_CONTINUE;
+        }
+        if (idx == -1) {
+            return SCRIPT_CONTINUE;
+        }
+        leaderboard.handleGcwLeaderboardDataRequestCsInternalOnly(self, idx);
+        return SCRIPT_CONTINUE;
+    }
+
 }

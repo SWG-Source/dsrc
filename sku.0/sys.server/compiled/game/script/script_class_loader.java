@@ -359,6 +359,14 @@ public class script_class_loader extends ClassLoader
 		defaultLoad.add("script.custom_var");
 		defaultLoad.add("script.deltadictionary");
 		defaultLoad.add("script.dictionary");
+		defaultLoad.add("script.DiscordWebhook");
+		defaultLoad.add("script.DiscordWebhook$EmbedObject");
+		defaultLoad.add("script.DiscordWebhook$EmbedObject$Field");
+		defaultLoad.add("script.DiscordWebhook$EmbedObject$Thumbnail");
+		defaultLoad.add("script.DiscordWebhook$EmbedObject$Image");
+		defaultLoad.add("script.DiscordWebhook$EmbedObject$Author");
+		defaultLoad.add("script.DiscordWebhook$EmbedObject$Footer");
+		defaultLoad.add("script.DiscordWebhook$JSONObject");
 		defaultLoad.add("script.draft_schematic");
 		defaultLoad.add("script.draft_schematic$simple_ingredient");
 		defaultLoad.add("script.draft_schematic$slot");
@@ -387,6 +395,7 @@ public class script_class_loader extends ClassLoader
 		defaultLoad.add("script.prose_package$participant_info");
 		defaultLoad.add("script.random");
 		defaultLoad.add("script.ranged_int_custom_var");
+		defaultLoad.add("script.rank_pair");
 		defaultLoad.add("script.region");
 		defaultLoad.add("script.resource_attribute");
 		defaultLoad.add("script.resource_density");

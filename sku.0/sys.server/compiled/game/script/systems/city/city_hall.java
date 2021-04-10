@@ -127,6 +127,7 @@ public class city_hall extends script.base_script
         outparams.put("city_hall", self);
         messageTo(cityMaster, "confirmCityRemoved", outparams, 600, true);
         int city_id = findCityByCityHall(self);
+        leaderboard.purgeEntityGcwLeaderboardHistory(city_id, true);
         obj_id[] structures = cityGetStructureIds(city_id);
         if (structures != null)
         {

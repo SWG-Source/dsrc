@@ -66,14 +66,24 @@ public class player_faction extends script.base_script
         {
             pp = prose.setStringId(pp, SID_OVERT_TO_COVERT);
             commPlayer(self, self, pp, recruiter);
-            factions.goCovertWithDelay(self, 300.0f);
+            if(isGod(self)) {
+                sendSystemMessageTestingOnly(self, "GOD MODE: Overriding your /pvp effect delay to immediate because you are in God Mode.");
+                factions.goCovertWithDelay(self, 1.0f);
+            } else {
+                factions.goCovertWithDelay(self, 300.0f);
+            }
             return SCRIPT_CONTINUE;
         }
         if (pvpGetType(self) == PVPTYPE_COVERT)
         {
             pp = prose.setStringId(pp, SID_COVERT_TO_OVERT);
             commPlayer(self, self, pp, recruiter);
-            factions.goOvertWithDelay(self, 30.0f);
+            if(isGod(self)) {
+                sendSystemMessageTestingOnly(self, "GOD MODE: Overriding your /pvp effect delay to immediate because you are in God Mode.");
+                factions.goOvertWithDelay(self, 1.0f);
+            } else {
+                factions.goOvertWithDelay(self, 30.0f);
+            }
             return SCRIPT_CONTINUE;
         }
         return SCRIPT_OVERRIDE;

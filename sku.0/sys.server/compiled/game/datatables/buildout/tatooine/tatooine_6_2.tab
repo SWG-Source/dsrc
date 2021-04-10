@@ -1326,3 +1326,4 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 1187929	1187917	object/cell/cell.iff	12	0	0	0	1	0	0	0		$|
 -19844656	0	object/tangible/planet_map_location/city.iff	0	1570.98	5	1342.91	0.938444	0	0.345432	0		$|
 -90069420	0	object/tangible/theme_park/invisible_object.iff	0	1475.19	5	1371.49	1	0	0	0	fishing.controller	$|
+-90069421	0	object/tangible/theme_park/invisible_object.iff	0	1478.41	5	1369.71	1	0	0	0	systems.leaderboard.controller	$|

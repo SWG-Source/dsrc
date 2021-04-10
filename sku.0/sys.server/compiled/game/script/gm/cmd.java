@@ -725,7 +725,7 @@ public class cmd extends script.base_script
                 currentRank = pvpGetCurrentGcwRank(target);
             } while (currentRank != goalRank);
         }
-        sendSystemMessageTestingOnly(self, "Successfully changed the rank of "+getPlayerName(target)+ "("+target+").");
+        sendSystemMessageTestingOnly(self, "Successfully changed the rank of "+getPlayerName(target)+ " ("+target+").");
         return SCRIPT_CONTINUE;
     }
     public int cmdGrantSkill(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException
@@ -4342,7 +4342,37 @@ public class cmd extends script.base_script
             return SCRIPT_CONTINUE;
         }
 
-        if(command.equalsIgnoreCase("dumpPermsForCell")) {
+        if(command.equalsIgnoreCase("dumpLeaderboardInfo")) {
+            obj_id oid;
+            if(!st.hasMoreTokens()) {
+                sendSystemMessageTestingOnly(self, "Syntax: /admin dumpLeaderboardInfo <oid>");
+                return SCRIPT_CONTINUE;
+            } else {
+                oid = obj_id.getObjId(Long.parseLong(st.nextToken()));
+            }
+            if (!isValidId(oid)) {
+                sendSystemMessageTestingOnly(self, "The object specified for dumpLeaderboardInfo was not valid.");
+                return SCRIPT_CONTINUE;
+            }
+
+            String message = "Leaderboard Information for "+getPlayerFullName(oid)+" ("+oid+") \n\n" +
+                    "Current Leaderboard Period to System: \t" + leaderboard.getCurrentLeaderboardPeriod()+ "\n" +
+                    "Current Leaderboard to Player: \t\t\t"+ getIntObjVar(oid, leaderboard.OBJVAR_LEADERBOARD_PLAYER_PERIOD) + "\n\n" +
+                    "Data from Individual Player: \n" +
+                    "Player Score (Imperial): \t\t\t"+ getIntObjVar(oid, leaderboard.OBJVAR_LEADERBOARD_PLAYER_SCORE_IMPERIAL) + "\n" +
+                    "Player Score (Rebel): \t\t\t\t"+ getIntObjVar(oid, leaderboard.OBJVAR_LEADERBOARD_PLAYER_SCORE_REBEL) + "\n" +
+                    "Guild Score Contribution Eligible?: \t"+ gcw.canContributeToGcwLeaderboardForGuild(oid) + "\n" +
+                    "Guild Score (Imperial): \t\t\t\t"+ getIntObjVar(oid, leaderboard.OBJVAR_LEADERBOARD_GUILD_SCORE_IMPERIAL) + "\n" +
+                    "Guild Score (Rebel): \t\t\t\t"+ getIntObjVar(oid, leaderboard.OBJVAR_LEADERBOARD_GUILD_SCORE_REBEL) + "\n" +
+                    "City Score Contribution Eligible?: \t"+ gcw.canContributeToGcwLeaderboardForCity(oid) + "\n" +
+                    "City Score (Imperial): \t\t\t\t"+ getIntObjVar(oid, leaderboard.OBJVAR_LEADERBOARD_CITY_SCORE_IMPERIAL) + "\n" +
+                    "City Score (Rebel): \t\t\t\t\t"+ getIntObjVar(oid, leaderboard.OBJVAR_LEADERBOARD_CITY_SCORE_REBEL) + "\n\n" +
+                    "Factional Presence Tracking: \t" + utils.getIntScriptVar(oid, "leaderboard_factional_presence_tracking") + "\n" +
+                    "In Current Period Participant List? \t";
+            sui.msgbox(self, self, message, sui.OK_ONLY, "Leaderboard Info", "noHandler");
+        }
+
+        else if(command.equalsIgnoreCase("dumpPermsForCell")) {
 
             obj_id oid;
             if(!st.hasMoreTokens()) {
@@ -4363,6 +4393,11 @@ public class cmd extends script.base_script
 
             sui.msgbox(self, self, message, sui.OK_ONLY, "Cell Permissions", "noHandler");
 
+            return SCRIPT_CONTINUE;
+        }
+
+        else if(command.equalsIgnoreCase("gcwLeaderboard")) {
+            leaderboard.promptGcwLeaderboardDataRequestCsInternalOnly(self);
             return SCRIPT_CONTINUE;
         }
 
@@ -4408,6 +4443,96 @@ public class cmd extends script.base_script
                     sendSystemMessageTestingOnly(self, "Syntax: /admin getUsername <player first name OR object ID>");
                 }
                 return SCRIPT_CONTINUE;
+            }
+        }
+
+        else if (command.equalsIgnoreCase("grantGcwPoints")) {
+
+            if(!st.hasMoreTokens()) {
+                sendSystemMessageTestingOnly(self, "Syntax: /admin grantGcwPoints <player first name OR object ID> <amount>");
+                return SCRIPT_CONTINUE;
+            } else {
+                String toParse = st.nextToken();
+                obj_id player;
+                if(toParse.matches(".*\\d.*")) {
+                    player = obj_id.getObjId(Long.parseLong(toParse));
+                } else
+                {
+                    player = getPlayerIdFromFirstName(toParse);
+                }
+                if (isIdValid(player) && isPlayer(player)) {
+                    if(!st.hasMoreTokens()) {
+                        sendSystemMessageTestingOnly(self, "Syntax: /admin grantGcwPoints <player first name OR object ID> <amount>");
+                        return SCRIPT_CONTINUE;
+                    } else {
+                        int points = Integer.parseInt(st.nextToken());
+                        if(points < 1 || points > 1000) {
+                            sendSystemMessageTestingOnly(self, "grantGcwPoints: Error: You may only grant a minimum of 1 and a maximum of 1000 points.");
+                            return SCRIPT_CONTINUE;
+                        }
+                        gcw.grantUnmodifiedGcwPoints(player, points/5);
+                        sendSystemMessageTestingOnly(self, "Successfully granted "+points+" GCW Points to "+getPlayerName(player)+" ("+player+")");
+                        return SCRIPT_CONTINUE;
+                    }
+                } else {
+                    sendSystemMessageTestingOnly(self, "grantGcwPoints: Error: The name or OID you provided is not valid or is not a player.");
+                    return SCRIPT_CONTINUE;
+                }
+            }
+        }
+
+        else if (command.equalsIgnoreCase("grantGcwPointsArea")) {
+
+            if(!st.hasMoreTokens()) {
+                sendSystemMessageTestingOnly(self, "Syntax: /admin grantGcwPointsArea <range> <amount>");
+                return SCRIPT_CONTINUE;
+            } else {
+                float range = Float.parseFloat(st.nextToken());
+                if(range < 1 || range > 1024) {
+                    sendSystemMessageTestingOnly(self, "gcwGrantPointsArea: Error: Range must be between 1 and 1024.");
+                    return SCRIPT_CONTINUE;
+                }
+                if(!st.hasMoreTokens()) {
+                    sendSystemMessageTestingOnly(self, "Syntax: /admin grantGcwPointsArea <range> <amount>");
+                    return SCRIPT_CONTINUE;
+                } else {
+                    int points = Integer.parseInt(st.nextToken());
+                    if(points < 1 || points > 1000) {
+                        sendSystemMessageTestingOnly(self, "gcwGrantPointsArea: Error: You may only grant a minimum of 1 and a maximum of 1000 points.");
+                        return SCRIPT_CONTINUE;
+                    }
+                    int count = 0;
+                    obj_id[] players = getAllPlayers(getLocation(self), range);
+                    if(players.length < 1) {
+                        sendSystemMessageTestingOnly(self, "gcwGrantPointsArea: Error: No players were found in the requested range.");
+                        return SCRIPT_CONTINUE;
+                    }
+                    for (obj_id player : players) {
+                        gcw.grantUnmodifiedGcwPoints(player, points/5);
+                        count++;
+                    }
+                    sendSystemMessageTestingOnly(self, "Successfully granted "+points+" GCW Points to a total of "+count+" players within range.");
+                    return SCRIPT_CONTINUE;
+                }
+            }
+        }
+
+        else if (command.equalsIgnoreCase("removeAllScriptVars")) {
+
+            if (!st.hasMoreTokens()) {
+                sendSystemMessageTestingOnly(self, "Syntax: /admin removeAllScriptVars <oid>");
+                return SCRIPT_CONTINUE;
+            } else {
+                String toParse = st.nextToken();
+                obj_id thing = obj_id.getObjId(Long.parseLong(toParse));
+                if(!isIdValid(thing)) {
+                    sendSystemMessageTestingOnly(self, "removeAllScriptVars: Error: The OID you provided is not valid.");
+                    return SCRIPT_CONTINUE;
+                } else {
+                    thing.clearScriptVars();
+                    sendSystemMessageTestingOnly(self, "Successfully removed all ScriptVars from Object "+thing);
+                    return SCRIPT_CONTINUE;
+                }
             }
         }
 
@@ -4494,12 +4619,20 @@ public class cmd extends script.base_script
     private static void showAdminCmdSyntax(obj_id self) throws InterruptedException {
         sendSystemMessageTestingOnly(self, "Outputting nested commands and syntax of /admin to console");
         sendConsoleMessage(self, "\\#ffff00 ============ Syntax: /admin commands ============ \\#.");
+        sendConsoleMessage(self, "\\#00ffff dumpLeaderboardInfo \\#bfff00 <oid> \\#.");
+        sendConsoleMessage(self, "returns the current leaderboard information for the provided player");
         sendConsoleMessage(self, "\\#00ffff dumpPermsForCell \\#bfff00 <oid> \\#.");
         sendConsoleMessage(self, "returns the public status and permissions list for the provided cell");
+        sendConsoleMessage(self, "\\#00ffff gcwLeaderboard \\#bfff00 <oid> \\#.");
+        sendConsoleMessage(self, "opens a SUI window with GM/Debug options for the GCW Leaderboard");
         sendConsoleMessage(self, "\\#00ffff getRotation \\#bfff00 <oid> \\#.");
         sendConsoleMessage(self, "returns the quaternions and rotation of an object");
         sendConsoleMessage(self, "\\#00ffff getUsername \\#bfff00 <player first name OR oid> \\#.");
         sendConsoleMessage(self, "returns the account username of the specified player");
+        sendConsoleMessage(self, "\\#00ffff grantGcwPoints \\#bfff00 <player first name OR oid> <points> \\#.");
+        sendConsoleMessage(self, "grants the number of GCW points to the provided player");
+        sendConsoleMessage(self, "\\#00ffff grantGcwPointsArea \\#bfff00 <range> <points> \\#.");
+        sendConsoleMessage(self, "grants the number of GCW points to all players within range");
         sendConsoleMessage(self, "\\#00ffff setWeather \\#bfff00 <clear | mild | heavy | severe> \\#.");
         sendConsoleMessage(self, "sets the weather for the current scene");
         sendConsoleMessage(self, "\\#00ffff startGcwSpaceBattle \\#bfff00 <planet> <type> \\#.");

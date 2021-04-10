@@ -7213,4 +7213,7 @@ public class utils extends script.base_script
     public static boolean inDebugMode() throws InterruptedException {
         return (utils.getIntConfigSetting("GameServer", "debugMode") == 1);
     }
+    public static void throwWarning(String message) {
+        WARNING(message);
+    }
 }

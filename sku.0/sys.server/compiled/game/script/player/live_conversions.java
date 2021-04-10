@@ -63,6 +63,11 @@ public class live_conversions extends script.base_script
         runOncePerTravelConversions(self);
         return SCRIPT_CONTINUE;
     }
+    public int OnLogout(obj_id self) throws InterruptedException
+    {
+        endFactionalPresenceReportingLoops(self);
+        return SCRIPT_CONTINUE;
+    }
     public int OnNewbieTutorialResponse(obj_id self, String action) throws InterruptedException
     {
         if (action.equals("clientReady"))
@@ -105,6 +110,7 @@ public class live_conversions extends script.base_script
         handleMailOptInRewards(player);
         handleCombatUpgradePlaqueReward(player);
         startFactionalPresenceTrackingLoop(player);
+        startFactionalPresenceReportingLoop(player);
     }
     public void runOncePerTravelConversions(obj_id player) throws InterruptedException
     {
@@ -1012,6 +1018,20 @@ public class live_conversions extends script.base_script
      */
     public void startFactionalPresenceTrackingLoop(obj_id player) throws InterruptedException {
         recurringMessageTo(player, "playerFactionalPresenceHeartbeat", null, 60.0f);
+    }
+
+    /**
+     * Handles looper for reporting factional presence to leaderboard
+     * Pulls ScriptVar store of factional presence every 12 minutes to reduce
+     * the amount of times we're running leaderboard queries
+     */
+    public void startFactionalPresenceReportingLoop(obj_id player) throws InterruptedException {
+        recurringMessageTo(player, "playerFactionalPresenceReportingHeartbeat", null, 720.0f);
+    }
+
+    public void endFactionalPresenceReportingLoops(obj_id player) throws InterruptedException {
+        cancelRecurringMessageTo(player, "playerFactionalPresenceHeartbeat");
+        cancelRecurringMessageTo(player, "playerFactionalPresenceReportingHeartbeat");
     }
 
 }

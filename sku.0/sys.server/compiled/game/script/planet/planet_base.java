@@ -17,6 +17,7 @@ public class planet_base extends script.base_script
     }
     public int OnUniverseComplete(obj_id self) throws InterruptedException
     {
+
         CustomerServiceLog("holidayEvent", "planet_base.OnUniverseComplete: trigger initialized.");
         dictionary dctParams = new dictionary();
         messageTo(self, "doSpawnSetup", dctParams, 60, true);
@@ -48,6 +49,7 @@ public class planet_base extends script.base_script
         obj_id tatooinePlanet = getPlanetByName("tatooine");
         if (isIdValid(tatooinePlanet) && exists(tatooinePlanet))
         {
+            setObjVar(tatooinePlanet, "server_start_time", getCalendarTime());
             CustomerServiceLog("holidayEvent", "planet_base.doSpawnSetup: Tatooine Planet detected obj_id: " + tatooinePlanet);
             if (!hasScript(tatooinePlanet, "event.planet_event_handler"))
             {

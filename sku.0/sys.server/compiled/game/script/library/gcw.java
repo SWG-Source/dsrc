@@ -67,9 +67,7 @@ public class gcw extends script.base_script
     public static final int GCW_POINT_TYPE_GROUND_QUEST = 6;
     public static final int GCW_POINT_TYPE_TRADING = 7;
     public static final int GCW_POINT_TYPE_ENTERTAINING = 8;
-    public static final int GCW_POINT_TYPE_CITY_INVASION = 9;
-    public static final int GCW_POINT_TYPE_GCW2_SPACE_BATTLE = 10;
-    public static final int GCW_POINT_TYPE_MAX = 11;
+    public static final int GCW_POINT_TYPE_MAX = 9;
     public static final String[] validScenes =
     {
         "tatooine",
@@ -274,6 +272,11 @@ public class gcw extends script.base_script
     private static final int PRESENCE_ALIGNED_CITY_BONUS = utils.getIntConfigSetting("GameServer", "gcwFactionalPresenceAlignedCityBonusPct", 100);
     private static final int PRESENCE_CITY_RANK_BONUS = utils.getIntConfigSetting("GameServer", "gcwFactionalPresenceAlignedCityRankBonusPct", 10);
     private static final int PRESENCE_CITY_AGE_BONUS = utils.getIntConfigSetting("GameServer", "gcwFactionalPresenceAlignedCityAgeBonusPct", 5);
+    private static final float LEADERBOARD_BONUS_GROUND_PVE = utils.getFloatConfigSetting("GameServer","leaderboardGcwGroundPvEBonus", 1.0f);
+    private static final float LEADERBOARD_BONUS_GROUND_PVP = utils.getFloatConfigSetting("GameServer","leaderboardGcwGroundPvPBonus", 1.0f);
+    private static final float LEADERBOARD_BONUS_SPACE_PVE = utils.getFloatConfigSetting("GameServer","leaderboardGcwSpacePvEBonus", 1.0f);
+    private static final float LEADERBOARD_BONUS_SPACE_PVP = utils.getFloatConfigSetting("GameServer","leaderboardGcwSpacePvPBonus", 1.0f);
+    private static final float LEADERBOARD_BONUS_BASE_BUST = utils.getFloatConfigSetting("GameServer","leaderboardGcwBaseBustingBonus", 1.0f);
 
     public static void assignScanInterests(obj_id npc) throws InterruptedException
     {
@@ -1315,6 +1318,7 @@ public class gcw extends script.base_script
         doGcwPointCsLogging(attacker, pointValue, pointType, information);
         gcwInvasionCreditForGCW(attacker, pointValue);
         grantGcwPointsToRegion(attacker, pointValue, pointType);
+        handleGcwLeaderboardUpdates(attacker, pointValue, pointType);
     }
     public static void doGcwPointCsLogging(obj_id player, int pointValue, int pointType, String information) throws InterruptedException
     {
@@ -3043,6 +3047,7 @@ public class gcw extends script.base_script
      * It was ported from the SRC to DSRC to allow ease of customization/advancement
      * This is called in a 60-second loop in base_player the entire time a player is
      * online, replicating how it was handled in the SRC (through LFG updater loop)
+     * See: player.live_conversions for when heartbeat/loops are called.
      *
      * Calculation:
      * bonus = 100
@@ -3147,6 +3152,12 @@ public class gcw extends script.base_script
                 adjustGcwRebelScore("FactionalPresence", player, region, points);
             }
 
+            // Add Presence Points to Leaderboard Score as 50% of their total value
+            // e.g. Lvl 90 SF Imperial General without any other modifiers would contribute ~10 points per minute
+            final int pointsForLeaderboard = Math.max(1, (int)(points * 0.50f));
+            final int existingPoints = utils.getIntScriptVar(player, "leaderboard_factional_presence_tracking");
+            utils.setScriptVar(player, "leaderboard_factional_presence_tracking", (pointsForLeaderboard + existingPoints));
+
             // Log the Points
             LOG("factional_presence", "Player "+getPlayerName(player)+" ("+player+") added "+points+" of presence with bonus "+bonus+" to region "+region+" for faction "+faction);
         }
@@ -3171,6 +3182,151 @@ public class gcw extends script.base_script
         }
         String region = getGcwRegion(player);
         return region != null && !region.equalsIgnoreCase("");
+    }
+
+    /**
+     * Validates if a player can contribute to their city's GCW Leaderboard Score
+     * Present requirements are:
+     * Must be same faction as city, and
+     * Must not have joined during current period
+     */
+    public static boolean canContributeToGcwLeaderboardForCity(obj_id player) throws InterruptedException {
+        final int cityId = getCitizenOfCityId(player);
+        if(cityId > 0) {
+            if(cityGetFaction(cityId) != pvpGetAlignedFaction(player)) {
+                return false;
+            }
+            if(!hasObjVar(player, city.VAR_LEADERBOARD_PERIOD_ON_JOIN)) {
+                setObjVar(player, city.VAR_LEADERBOARD_PERIOD_ON_JOIN, leaderboard.getCurrentLeaderboardPeriod());
+                return false;
+            }
+            return getIntObjVar(player, city.VAR_LEADERBOARD_PERIOD_ON_JOIN) != leaderboard.getCurrentLeaderboardPeriod();
+        }
+        return false;
+    }
+
+    /**
+     * Validates if a player can contribute to their guild's GCW Leaderboard Score
+     * Present requirements are:
+     * Must be same faction as guild, and
+     * Must not have joined during current period
+     */
+    public static boolean canContributeToGcwLeaderboardForGuild(obj_id player) throws InterruptedException {
+        final int guildId = getGuildId(player);
+        if(guildId > 0) {
+            if(guildGetCurrentFaction(guildId) != pvpGetAlignedFaction(player)) {
+                return false;
+            }
+            if(!hasObjVar(player, guild.VAR_LEADERBOARD_PERIOD_ON_JOIN)) {
+                setObjVar(player, guild.VAR_LEADERBOARD_PERIOD_ON_JOIN, leaderboard.getCurrentLeaderboardPeriod());
+                return false;
+            }
+            return getIntObjVar(player, guild.VAR_LEADERBOARD_PERIOD_ON_JOIN) != leaderboard.getCurrentLeaderboardPeriod();
+        }
+        return false;
+    }
+
+    /**
+     * Called when a player does some point/presence earning activity that contributes to
+     * their leaderboard score to handle tracking and score tally updates.
+     *
+     * The pointType can be specified so you can apply a bonus % to certain activities, e.g.
+     * 10% leaderboard bonus to base busting versus just ground PvE.
+     *
+     * Note: GCW contributions are stored on the player. The leaderboard object just tracks
+     * who participated so it knows who to grab scores from when calculating winners and is
+     * responsible for tracking the history.
+     */
+    public static void handleGcwLeaderboardUpdates(obj_id player, int pointsEarned, int pointType) throws InterruptedException {
+        final int playerFaction = pvpGetAlignedFaction(player);
+        if(!hasObjVar(player, leaderboard.OBJVAR_LEADERBOARD_PLAYER_PERIOD)) { // first time
+            setObjVar(player, leaderboard.OBJVAR_LEADERBOARD_PLAYER_PERIOD, leaderboard.getCurrentLeaderboardPeriod());
+        }
+        final int leaderboardPeriodToPlayer = getIntObjVar(player, leaderboard.OBJVAR_LEADERBOARD_PLAYER_PERIOD);
+        final int leaderboardPeriodToSystem = leaderboard.getCurrentLeaderboardPeriod();
+        leaderboard.debugMsg("handleGcwLeaderboardUpdates called to grant "+pointsEarned+" points of type "+pointType+" to "+getPlayerName(player)+" ("+player+")");
+
+        // Apply Bonus Multipliers
+        switch (pointType) {
+            case GCW_POINT_TYPE_GROUND_PVE:
+                pointsEarned *= LEADERBOARD_BONUS_GROUND_PVE;
+                break;
+            case GCW_POINT_TYPE_GROUND_PVP:
+            case GCW_POINT_TYPE_GROUND_PVP_REGION:
+                pointsEarned *= LEADERBOARD_BONUS_GROUND_PVP;
+                break;
+            case GCW_POINT_TYPE_SPACE_PVE:
+                pointsEarned *= LEADERBOARD_BONUS_SPACE_PVE;
+                break;
+            case GCW_POINT_TYPE_SPACE_PVP:
+                pointsEarned *= LEADERBOARD_BONUS_SPACE_PVP;
+                break;
+            case GCW_POINT_TYPE_BASE_BUSTING:
+                pointsEarned *= LEADERBOARD_BONUS_BASE_BUST;
+                break;
+        }
+        float pointsFinal = (float)pointsEarned;
+
+        // If we've earned points, let's set them
+        if(pointsFinal > 0) {
+            // For Imperials
+            if (playerFaction == FACTION_HASH_IMPERIAL) {
+                // If you're missing the ObjVar or in the wrong period, we're resetting the period and your current points is your 1st value
+                if(!hasObjVar(player, leaderboard.OBJVAR_LEADERBOARD_PLAYER_SCORE_IMPERIAL) || leaderboardPeriodToPlayer != leaderboardPeriodToSystem) {
+                    setObjVar(player, leaderboard.OBJVAR_LEADERBOARD_PLAYER_SCORE_IMPERIAL, pointsFinal);
+                    setObjVar(player, leaderboard.OBJVAR_LEADERBOARD_PLAYER_PERIOD, leaderboard.getCurrentLeaderboardPeriod());
+                } else { // add to your existing value
+                    pointsFinal += getFloatObjVar(player, leaderboard.OBJVAR_LEADERBOARD_PLAYER_SCORE_IMPERIAL);
+                    setObjVar(player, leaderboard.OBJVAR_LEADERBOARD_PLAYER_SCORE_IMPERIAL, pointsFinal);
+                }
+                // Repeat the logic above for Guild/City
+                if(canContributeToGcwLeaderboardForCity(player)) {
+                    if(!hasObjVar(player, leaderboard.OBJVAR_LEADERBOARD_CITY_SCORE_IMPERIAL) || leaderboardPeriodToPlayer != leaderboardPeriodToSystem) {
+                        setObjVar(player, leaderboard.OBJVAR_LEADERBOARD_CITY_SCORE_IMPERIAL, pointsFinal);
+                    } else {
+                        pointsFinal += getFloatObjVar(player, leaderboard.OBJVAR_LEADERBOARD_CITY_SCORE_IMPERIAL);
+                        setObjVar(player, leaderboard.OBJVAR_LEADERBOARD_CITY_SCORE_IMPERIAL, pointsFinal);
+                    }
+                }
+                if (canContributeToGcwLeaderboardForGuild(player)) {
+                    if(!hasObjVar(player, leaderboard.OBJVAR_LEADERBOARD_GUILD_SCORE_IMPERIAL) || leaderboardPeriodToPlayer != leaderboardPeriodToSystem) {
+                        setObjVar(player, leaderboard.OBJVAR_LEADERBOARD_GUILD_SCORE_IMPERIAL, pointsFinal);
+                    } else {
+                        pointsFinal += getFloatObjVar(player, leaderboard.OBJVAR_LEADERBOARD_GUILD_SCORE_IMPERIAL);
+                        setObjVar(player, leaderboard.OBJVAR_LEADERBOARD_GUILD_SCORE_IMPERIAL, pointsFinal);
+                    }
+                }
+            }
+            // Same thing for Rebel Faction
+            else if (playerFaction == FACTION_HASH_REBEL) {
+                // If you're missing the ObjVar or in the wrong period, we're resetting the period and your current points is your 1st value
+                if(!hasObjVar(player, leaderboard.OBJVAR_LEADERBOARD_PLAYER_SCORE_REBEL) || leaderboardPeriodToPlayer != leaderboardPeriodToSystem) {
+                    setObjVar(player, leaderboard.OBJVAR_LEADERBOARD_PLAYER_SCORE_REBEL, pointsFinal);
+                    setObjVar(player, leaderboard.OBJVAR_LEADERBOARD_PLAYER_PERIOD, leaderboard.getCurrentLeaderboardPeriod());
+                } else { // add to your existing value
+                    pointsFinal += getFloatObjVar(player, leaderboard.OBJVAR_LEADERBOARD_PLAYER_SCORE_REBEL);
+                    setObjVar(player, leaderboard.OBJVAR_LEADERBOARD_PLAYER_SCORE_REBEL, pointsFinal);
+                }
+                // Repeat the logic above for Guild/City
+                if(canContributeToGcwLeaderboardForCity(player)) {
+                    if(!hasObjVar(player, leaderboard.OBJVAR_LEADERBOARD_CITY_SCORE_REBEL) || leaderboardPeriodToPlayer != leaderboardPeriodToSystem) {
+                        setObjVar(player, leaderboard.OBJVAR_LEADERBOARD_CITY_SCORE_REBEL, pointsFinal);
+                    } else {
+                        pointsFinal += getFloatObjVar(player, leaderboard.OBJVAR_LEADERBOARD_CITY_SCORE_REBEL);
+                        setObjVar(player, leaderboard.OBJVAR_LEADERBOARD_CITY_SCORE_REBEL, pointsFinal);
+                    }
+                }
+                if (canContributeToGcwLeaderboardForGuild(player)) {
+                    if(!hasObjVar(player, leaderboard.OBJVAR_LEADERBOARD_GUILD_SCORE_REBEL) || leaderboardPeriodToPlayer != leaderboardPeriodToSystem) {
+                        setObjVar(player, leaderboard.OBJVAR_LEADERBOARD_GUILD_SCORE_REBEL, pointsFinal);
+                    } else {
+                        pointsFinal += getFloatObjVar(player, leaderboard.OBJVAR_LEADERBOARD_GUILD_SCORE_REBEL);
+                        setObjVar(player, leaderboard.OBJVAR_LEADERBOARD_GUILD_SCORE_REBEL, pointsFinal);
+                    }
+                }
+            }
+            leaderboard.addLeaderboardParticipantToCurrentPeriod(player, leaderboard.LEADERBOARD_TYPE_GCW);
+        }
     }
 
 }

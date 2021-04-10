@@ -58,6 +58,18 @@ public class terminal_gcw_publish_gift extends script.terminal.base.base_termina
             "TATOOINE"
         }
     };
+    public int OnInitialize(obj_id self) throws InterruptedException {
+        if(!hasScript(self, "systems.leaderboard.gcw_display_object")) {
+            attachScript(self, "systems.leaderboard.gcw_display_object");
+        }
+        return SCRIPT_CONTINUE;
+    }
+    public int OnAttach(obj_id self) throws InterruptedException {
+        if(!hasScript(self, "systems.leaderboard.gcw_display_object")) {
+            attachScript(self, "systems.leaderboard.gcw_display_object");
+        }
+        return SCRIPT_CONTINUE;
+    }
     public int OnObjectMenuRequest(obj_id self, obj_id player, menu_info mi) throws InterruptedException
     {
         menu_info_data data = mi.getMenuItemByType(menu_info_types.ITEM_USE);
