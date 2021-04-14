@@ -62,34 +62,40 @@ public class cmd extends script.base_script
     }
     public int cmdForceCommand(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException
     {
-        if (!isIdValid(target) || !isPlayer(target) || params == null || params.equalsIgnoreCase(""))
-        {
-            sendSystemMessageTestingOnly(self, "[Syntax] /forceCommand -target <command> <params> (with lookat target)");
-            return SCRIPT_CONTINUE;
-        }
-        if (params.contains(gm.KEYWORD_TARGET))
-        {
-            params = gm.removeKeyword(params, gm.KEYWORD_TARGET);
-        }
-        else
-        {
-            sendSystemMessageTestingOnly(self, "[Syntax] /forceCommand -target <command> <params> (with lookat target)");
+        if(!isGod(self)) {
             return SCRIPT_CONTINUE;
         }
         StringTokenizer st = new StringTokenizer(params);
-        String cmd = st.nextToken();
-        obj_id cmdTarget = null;
-        String cmdParams = "";
-        while (st.hasMoreTokens())
-        {
-            String tmp = st.nextToken();
-            if (tmp != null && !tmp.equalsIgnoreCase(""))
-            {
-                cmdParams += tmp + " ";
+        if(!st.hasMoreTokens()) {
+            sendSystemMessageTestingOnly(self, "Syntax: /forceCommand <-target OR <oid>> </command with params>");
+            sendSystemMessageTestingOnly(self, "Example: /forceCommand 9248492842 /tell aconite hi");
+        } else {
+            String focus = st.nextToken();
+            if(focus.contains("target")) {
+                target = getLookAtTarget(self);
+            } else {
+                if (focus.matches(".*\\d.*")) {
+                    target = obj_id.getObjId(Long.parseLong(focus));
+                } else {
+                    sendSystemMessageTestingOnly(self, "Syntax: /forceCommand <-target OR objId> <command with params>");
+                    sendSystemMessageTestingOnly(self, "Example: /forceCommand 9248492842 tell aconite hi");
+                    return SCRIPT_CONTINUE;
+                }
             }
+            if(!isIdValid(target) || !isPlayer(target)) {
+                sendSystemMessageTestingOnly(self, "forceCommand: Error: Target was not valid. Target must be a player.");
+                return SCRIPT_CONTINUE;
+            }
+            if(!st.hasMoreTokens()) {
+                sendSystemMessageTestingOnly(self, "Syntax: /forceCommand <-target OR objId> <command with params>");
+                sendSystemMessageTestingOnly(self, "Example: /forceCommand 9248492842 tell aconite hi");
+            } else {
+                String cmd = st.nextToken("").replaceFirst(" ", "/");
+                sendConsoleCommand(cmd, target);
+                sendSystemMessageTestingOnly(self, "forceCommand: Successfully sent forceful command "+cmd+" request to "+getPlayerName(target)+ "("+target+").");
+            }
+            return SCRIPT_CONTINUE;
         }
-        cmdParams.trim();
-        sendSystemMessageTestingOnly(self, "/forceCommand: attempting to queue command: '" + cmd + " " + cmdParams + "' for (" + target + ")" + getName(target));
         return SCRIPT_CONTINUE;
     }
     public int cmdMoney(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException
