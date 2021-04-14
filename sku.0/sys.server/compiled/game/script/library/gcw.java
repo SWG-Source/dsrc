@@ -3,6 +3,8 @@ package script.library;
 import script.*;
 
 import java.util.*;
+import java.util.concurrent.atomic.AtomicInteger;
+import java.util.stream.IntStream;
 
 public class gcw extends script.base_script
 {
@@ -3329,4 +3331,69 @@ public class gcw extends script.base_script
         }
     }
 
+    /**
+     * Helper to determine if the given faction is winning the given control group
+     * by at least the provided threshold
+     *
+     * @param controlGroup string of a GcwGroup in gcw_score_category.iff, for example
+     *                     "tatooine" or "galaxy"
+     * @param faction  int hash of faction (from e.g. pvpGetAlignedFaction() or
+     *                 FACTION_HASH_* const
+     * @param thresholdToWinBy the % score, between 1 and 100, that the faction control
+     *                         group must be winning by
+     * @return true if winning by at least the given threshold
+     */
+    public static boolean isWinningByControlScoreForGroup(String controlGroup, int faction, int thresholdToWinBy) {
+        if(faction == FACTION_HASH_IMPERIAL) {
+            return getGcwGroupImperialScorePercentile(controlGroup) >= thresholdToWinBy;
+        } else if (faction == FACTION_HASH_REBEL) {
+            return (100 - getGcwGroupImperialScorePercentile(controlGroup)) >= thresholdToWinBy;
+        }
+        return false;
+    }
+
+    /**
+     * This is a helper method for scaling a number based on a GCW Control Score Grouping
+     * for the given player's faction. It is used, for example, to scale the cloning sickness
+     * time and cost of GCW Officers to provide either a perk or penalty for not controlling
+     * that particular planet.
+     *
+     * @param controlGroup string of a GcwGroup in gcw_score_category.iff. In general, this can
+     *                     either be "galaxy" for the entire game or a specific planet name such
+     *                     as "tatooine"
+     * @param faction int hash of faction (from e.g. pvpGetAlignedFaction() or FACTION_HASH_* const
+     * @param initialValue int value as the base number to add multipliers to if it meets criteria
+     *                     otherwise you'll just get returned this value
+     * @param threshold the planetary control score that must be met for the faction as the minimum
+     *                  to start any multiplier actions (e.g. 70 is 70% planetary control)
+     * @param multiply boolean true if the thresholdSlide should multiply, false if it should divide
+     * @param atThresholdSlide the slide is what is applied to the base if the score at least meets
+     *                         the threshold and before any additional iteration. E.g. if at 70% means
+     *                         you've met the minimum, so the base should be cut in half, set this to 2.
+     *                         Set to 0 to do nothing.
+     * @param aboveThresholdIterateBy the amount of change that should happen for each score point above
+     *                                the threshold (e.g. continue to reduce base by 5 for each score point
+     *                                above the threshold. Can be positive or negative. Set to 0 to disable.
+     * @return scaled value if it meets the requirements, otherwise returns the initial value
+     */
+    public static int getScaledValueFromControlScore(String controlGroup, int faction, int initialValue, int threshold,
+                                                     boolean multiply, int atThresholdSlide, int aboveThresholdIterateBy) {
+        AtomicInteger scale = new AtomicInteger(initialValue);
+        int score = 0;
+            if(faction == FACTION_HASH_IMPERIAL) {
+                score = getGcwGroupImperialScorePercentile(controlGroup);
+            } else if (faction == FACTION_HASH_REBEL) {
+                score = (100 - getGcwGroupImperialScorePercentile(controlGroup));
+            }
+            if(score >= threshold) {
+                if(atThresholdSlide != 0) {
+                    scale.updateAndGet(v -> multiply ? v * atThresholdSlide : v / atThresholdSlide);
+                }
+                if(score > threshold && aboveThresholdIterateBy != 0) {
+                    IntStream.rangeClosed(threshold, score).forEach(x -> {
+                        scale.addAndGet(aboveThresholdIterateBy);});
+                }
+            }
+        return scale.intValue();
+    }
 }

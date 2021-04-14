@@ -160,6 +160,19 @@ public class pclib extends script.base_script
     public static final float MAX_CLONING_SICKNESS_COST = 5000;
     public static int getCloningSicknessCureCost(obj_id player) throws InterruptedException
     {
+        final String area = getLocation(player).area;
+        final int faction = pvpGetAlignedFaction(player);
+        final int oppositeFaction = faction == FACTION_HASH_IMPERIAL ? FACTION_HASH_REBEL : FACTION_HASH_IMPERIAL;
+        final int rank = pvpGetCurrentGcwRank(player);
+        // GU 17.2 for GCW Officers of the losing faction, the cost is 50,000CR for up to first 2 min after clone, based on other side's score
+        if(rank > 6 && gcw.isWinningByControlScoreForGroup(area, oppositeFaction, 70)) {
+            if(buff.hasBuff(player, "cloning_sickness") && buff.getBuffTimeRemaining(player, "cloning_sickness") >= 480) {
+                int penaltyTime = gcw.getScaledValueFromControlScore(area, oppositeFaction, 60, 70, false, 0, 2);
+                if(buff.getBuffTimeRemaining(player, "cloning_sickness") + penaltyTime >= 480) {
+                    return 50000;
+                }
+            }
+        }
         float minCost = MIN_CLONING_SICKNESS_COST;
         float maxCost = MAX_CLONING_SICKNESS_COST;
         int city_id = city.checkCity(player, false);
@@ -168,7 +181,13 @@ public class pclib extends script.base_script
             minCost = MIN_CLONING_SICKNESS_COST / 2;
             maxCost = MAX_CLONING_SICKNESS_COST / 2;
         }
-        return (int) (minCost + ((maxCost - minCost) * (getLevel(player) / 90.0f)));
+        // GU 17.2 for winners of the current faction, modify the cost of cloning based on planetary control score
+        final int costWithoutGcwModifier = (int) (minCost + ((maxCost - minCost) * (getLevel(player) / 90.0f)));
+        if(rank > 6) {
+            return Math.max((int)MIN_CLONING_SICKNESS_COST, gcw.getScaledValueFromControlScore(area, faction, costWithoutGcwModifier, 70, false, 2, -50));
+        } else {
+            return costWithoutGcwModifier;
+        }
     }
     public static boolean canAffordCloningSicknessCure(obj_id player) throws InterruptedException
     {
