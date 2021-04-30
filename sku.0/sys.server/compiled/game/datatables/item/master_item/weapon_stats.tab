@@ -263,14 +263,14 @@ weapon_borvo_carbine_03_01	1	1000	93	186	0		electric	12	60	1	100	0	50				lvl 25	
 weapon_borvo_rifle_03_01	1	1000	124	248	0		electric	15	80	1	100	0	64				lvl 25	233	233
 weapon_content_pistol_lvl33_02_01	1	1000	87	173	0				40	1	100	0	35	precision_modified=12			lvl 35 content	325	325
 weapon_mandalorian_lightsaber_04_01	1	1000	700	1400	0				100	1	100	0	5	"strength_modified=10,constitution_modified=5"	"int:jedi.saber.base_stats.min_dmg=700,int:jedi.saber.base_stats.max_dmg=1400,float:jedi.saber.base_stats.speed=1.00,float:jedi.saber.base_stats.wound=1.0,int:jedi.saber.base_stats.attack_cost=100,float:jedi.saber.base_stats.damage=0.0"		hec	1050	1050
-weapon_mandalorian_sword_04_01	1	1000	750	1350	0	kinetic			100	1	100	0	5	"strength_modified=10,constitution_modified=5"			hec	1050	1050
-weapon_mandalorian_pistol_04_01	1	1000	270	510	0				40	1	100	0	35	"precision_modified=10,constitution_modified=5"			hec	975	975
-weapon_mandalorian_carbine_04_01	1	1000	415	755	0				60	1	100	0	50	"precision_modified=10,constitution_modified=5"			hec	975	975
-weapon_mandalorian_rifle_04_01	1	1000	530	1030	0				80	1	100	0	64	"precision_modified=10,constitution_modified=5"			hec	975	975
+weapon_mandalorian_sword_04_01	1	1000	750	1350	0	kinetic			100	1	100	0	5	"strength_modified=10,constitution_modified=5"	int:wp.canBeDisMantled=1		hec	1050	1050
+weapon_mandalorian_pistol_04_01	1	1000	270	510	0				40	1	100	0	35	"precision_modified=10,constitution_modified=5"	int:wp.canBeDisMantled=1		hec	975	975
+weapon_mandalorian_carbine_04_01	1	1000	415	755	0				60	1	100	0	50	"precision_modified=10,constitution_modified=5"	int:wp.canBeDisMantled=1		hec	975	975
+weapon_mandalorian_rifle_04_01	1	1000	530	1030	0				80	1	100	0	64	"precision_modified=10,constitution_modified=5"	int:wp.canBeDisMantled=1		hec	975	975
 weapon_mandalorian_heavy_04_01	1	1000	800	1300	0	kinetic	electric	50	100	1	100	0	64	"precision_modified=10,constitution_modified=5"	int:wp.canBeDisMantled=1		hec	1050	1050
 weapon_rebel_sword_04_01	1	1000	600	1500	0	kinetic			100	1	100	0	5	"strength_modified=10,constitution_modified=5"	int:wp.canBeDisMantled=1		hec	1050	1050
-weapon_rebel_pistol_04_01	1	1000	290	450	0		cold	20	40	1	100	0	35	"precision_modified=10,constitution_modified=5"			hec	975	925
-weapon_rebel_rifle_04_01	1	1000	560	960	0		cold	20	80	1	100	0	64	"precision_modified=10,constitution_modified=5"			hec	975	950
+weapon_rebel_pistol_04_01	1	1000	290	450	0		cold	20	40	1	100	0	35	"precision_modified=10,constitution_modified=5"	int:wp.canBeDisMantled=1		hec	975	925
+weapon_rebel_rifle_04_01	1	1000	560	960	0		cold	20	80	1	100	0	64	"precision_modified=10,constitution_modified=5"	int:wp.canBeDisMantled=1		hec	975	950
 weapon_rebel_heavy_04_01	1	1000	800	1300	0	kinetic	kinetic	50	100	1	100	0	64	"precision_modified=10,constitution_modified=5"	int:wp.canBeDisMantled=1		hec	1050	1050
 weapon_content_carbine_talus_selonian_04_01	1	1000	150	307	0	kinetic	electric	10	60	1	100	0	50	precision_modified=10			lvl40	381	381
 weapon_content_pistol_talus_slaver_04_01	1	1000	85	220	0		cold	10	40	1	100	0	35	precision_modified=10			lvl30	381	381
