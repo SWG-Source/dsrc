@@ -10,7 +10,7 @@ attributes = [
 	[name = "crafting" "woundChance", experiment = "" "", value = 1..1],
 	[name = "crafting" "attackSpeed", experiment = "" "", value = 100..100],
 	[name = "crafting" "hitPoints", experiment = "" "", value = 800..1100],
-	[name = "crafting" "maxRange", experiment = "" "", value = 4..4],
+	[name = "crafting" "maxRange", experiment = "" "", value = 5..5],
 	[name = "crafting" "attackCost", experiment = "" "", value = 100..100],
 	[name = "crafting" "damageType", experiment = "" "", value = 2..2],
 	[name = "crafting" "elementalType", experiment = "" "", value = 256..256],
