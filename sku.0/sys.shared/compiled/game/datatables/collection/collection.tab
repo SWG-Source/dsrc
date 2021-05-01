@@ -3839,7 +3839,7 @@ achievement_book				0	-1	-1																		sound/music_acq_miner.snd	gray	0	0	
 		col_boss_badge_collection		0	-1	-1																		sound/music_acq_miner.snd	gray	0	0						0	0
 			undead_minor_bosses_killed	15340	-1	-1																		sound/music_acq_miner.snd	gray	0	0						0	0
 			undead_cornburr_killed	15341	-1	-1	kill_outbreak_afflicted_maintenance_boss																	sound/music_acq_miner.snd	gray	0	0						0	0
-			undead_rancor_killed	15342	-1	-1																		sound/music_acq_miner.snd	gray	0	0						0	0
+			undead_rancor_killed	15342	-1	-1	kill_outbreak_afflicted_rancor																	sound/music_acq_miner.snd	gray	0	0						0	0
 	meatlump_theme_park			0	-1	-1																		sound/music_acq_miner.snd	gray	0	0						0	0
 		col_meatlump_rank_01		0	-1	-1																		sound/music_acq_miner.snd	gray	0	0						0	0
 			meatlump_rank_01_01	5908	-1	-1																		sound/music_acq_miner.snd	gray	0	0						0	0
