@@ -713,69 +713,68 @@ public class groundquests extends script.base_script
     }
     public static location getRandom2DLocationAroundLocation(obj_id player, float relativeOffsetX, float relativeOffsetZ, float minimumDistance, float maximumDistance) throws InterruptedException
     {
-        boolean onAFloor = isOnAFloor(player);
-        location playerLocation = getLocation(player);
-        boolean inACell = (playerLocation.cell != null) && (playerLocation.cell != obj_id.NULL_ID);
+        final boolean onAFloor = isOnAFloor(player);
+        final location playerLocation = getLocation(player);
+        final boolean inACell = (playerLocation.cell != null) && (playerLocation.cell != obj_id.NULL_ID);
         location newLocation = new location(playerLocation);
         newLocation.x += relativeOffsetX;
         newLocation.z += relativeOffsetZ;
         newLocation = utils.getRandomLocationInRing(newLocation, minimumDistance, maximumDistance);
-        if (!isValidQuestSpawnPoint(player, newLocation, onAFloor, inACell))
-        {
-            float xDelta = (playerLocation.x - newLocation.x) * 2;
-            float zDelta = (playerLocation.z - newLocation.z) * 2;
-            if (newLocation.x < playerLocation.x)
-            {
-                newLocation.x += xDelta;
-            }
-            else 
-            {
-                newLocation.x -= xDelta;
-            }
-            if (!isValidQuestSpawnPoint(player, newLocation, onAFloor, inACell))
-            {
-                if (newLocation.z < playerLocation.z)
-                {
-                    newLocation.z += zDelta;
+        // try to find a suitable location around the player relative to the requested params
+        int count = 0;
+        float xDelta = 0f;
+        float zDelta = 0f;
+        while(!isValidQuestSpawnPoint(player, newLocation, onAFloor, inACell) && count < 100) {
+            if (count % 2 == 0)  {
+                xDelta = (playerLocation.x - newLocation.x) * 2f;
+                if (newLocation.x < playerLocation.x) {
+                    newLocation.x += xDelta;
+                } else {
+                    newLocation.x -= xDelta;
                 }
-                else 
-                {
+            } else {
+                zDelta = (playerLocation.z - newLocation.z) * 2f;
+                if (newLocation.z < playerLocation.z) {
+                    newLocation.z += zDelta;
+                } else {
                     newLocation.z -= zDelta;
                 }
-                if (!isValidQuestSpawnPoint(player, newLocation, onAFloor, inACell))
-                {
-                    if (newLocation.x < playerLocation.x)
-                    {
-                        newLocation.x += xDelta;
-                    }
-                    else 
-                    {
-                        newLocation.x -= xDelta;
-                    }
-                    if (!isValidQuestSpawnPoint(player, newLocation, onAFloor, inACell))
-                    {
-                        newLocation = (location)playerLocation.clone();
-                    }
+            }
+            if(getDistance(playerLocation, newLocation) > maximumDistance) {
+                if(rand(0, 1) == 0) {
+                    newLocation.x = playerLocation.x + rand(minimumDistance, maximumDistance);
+                } else {
+                    newLocation.z = playerLocation.z + rand(minimumDistance, maximumDistance);
                 }
             }
+            count++;
         }
-        if (onAFloor)
-        {
+        if(count >= 100) {
+            // if we can't find a suitable location, return really close around the player, but still random for effect
+            WARNING("groundquests.getRandom2DLocationAroundLocation() was unable to find a suitable location for "+player+" at "+playerLocation.area+" "+playerLocation.x+" "+playerLocation.z);
+            newLocation = (location)playerLocation.clone();
+            newLocation.x += rand(-2f, 2f);
+            newLocation.z += rand(-2f, 2f);
+        }
+        if (onAFloor) {
             newLocation.y = getFloorHeightAtRelativePointOnSameFloorAsObject(player, newLocation.x - playerLocation.x, newLocation.z - playerLocation.z);
-        }
-        else 
-        {
+        } else {
             newLocation.y = getHeightAtLocation(newLocation.x, newLocation.z);
         }
         return newLocation;
     }
     public static boolean isValidQuestSpawnPoint(obj_id player, location newLocation, boolean onAFloor, boolean inACell) throws InterruptedException
     {
-        boolean validPoint = true;
-        location playerLocation = getLocation(player);
-        if (validPoint)
-        {
-            validPoint = !getCollidesWithObject(newLocation, 1.0f);
+        final location playerLocation = getLocation(player);
+        boolean validPoint = !getCollidesWithObject(newLocation, 2f); // FYI this method doesn't appear to do anything
+        // prevent spawns inside building walls when location should be outside in world
+        if(validPoint && !inACell) {
+            obj_id[] objects = getNonCreaturesInRange(newLocation, 0.5f);
+            for (obj_id o : objects) {
+                if(getTemplateName(o).contains("building")) {
+                    return false;
+                }
+            }
         }
         if (validPoint && onAFloor)
         {
