@@ -26839,4 +26839,20 @@ public class base_class
         }
     }
 
+	/**
+	 * Registers an Object to the Universe by adding it to the
+	 * tracking list of the Universe Process so that the object
+	 * will always be proxied on every Game Server and thereby
+	 * accessible in any context.
+	 *
+	 * Primary implementation is intended for special Master Objects.
+	 * This should not be used on players or regular tangibles.
+	 *
+	 * @param object the object to register
+	 */
+	public static void registerObjectToUniverse(obj_id object) {
+    	_registerObjectToUniverse(getLongWithNull(object));
+	}
+    private static native void _registerObjectToUniverse(long target);
+
 }   // class base_class

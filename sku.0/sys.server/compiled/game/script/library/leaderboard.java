@@ -314,7 +314,7 @@ public class leaderboard extends script.base_script {
                             }
                         }
                         setObjVar(player, OBJVAR_PLAYER_TRACKING_CITY_ALREADY, true);
-                        debugMsg("Adding new city to GCW Leaderboard Participant Group: " + cityGetName(guildId) + " (" + cityId + ")");
+                        debugMsg("Adding new city to GCW Leaderboard Participant Group: " + cityGetName(cityId) + " (" + cityId + ")");
                     }
                 }
                 break;

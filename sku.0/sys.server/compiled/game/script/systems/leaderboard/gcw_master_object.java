@@ -21,6 +21,7 @@ public class gcw_master_object extends script.base_script {
     }
 
     public int OnInitialize(obj_id self) throws InterruptedException {
+        registerObjectToUniverse(self);
         messageTo(self, "handleLeaderboardInitialization", null, 60f, true);
         return SCRIPT_CONTINUE;
     }
@@ -28,6 +29,11 @@ public class gcw_master_object extends script.base_script {
     public int OnAboutToBeTransferred(obj_id self, obj_id destContainer, obj_id transferer) throws InterruptedException {
         sendSystemMessageTestingOnly(transferer, "You cannot move this item!");
         return SCRIPT_OVERRIDE;
+    }
+
+    public int OnDestroy(obj_id self) throws InterruptedException {
+        removeObjVar(getPlanetByName("tatooine"), "leaderboard.master_object");
+        return SCRIPT_CONTINUE;
     }
 
     public int OnHearSpeech(obj_id self, obj_id objSpeaker, String strText) throws InterruptedException {
@@ -52,7 +58,7 @@ public class gcw_master_object extends script.base_script {
 
         // First Time Setup
         if(!hasObjVar(tatooine, "leaderboard.master_object")) {
-            setObjVar(getPlanetByName("tatooine"), "leaderboard.master_object", self);
+            setObjVar(tatooine, "leaderboard.master_object", self);
             messageTo(self, "handleLeaderboardFirstTimeSetup", null, 0f, true);
             leaderboard.debugMsg("Handling board initialization as first time setup...");
         } else {
@@ -115,11 +121,7 @@ public class gcw_master_object extends script.base_script {
             leaderboard.debugMsg("Skipping period heartbeat because we're already in the middle of running one or in a reset...");
             return SCRIPT_CONTINUE;
         }
-        // don't run if there's no players online
-        if(getNumPlayers() < 1) {
-            leaderboard.debugMsg("Skipping period heartbeat because no players are online...");
-            return SCRIPT_CONTINUE;
-        }
+
         // don't run in a buffer, grab all participants
         if(leaderboard.isWithinPeriodBuffer() || leaderboard.isWithinStartupBuffer()) {
             leaderboard.debugMsg("Skipping period heartbeat because we're within a period or startup buffer...");
