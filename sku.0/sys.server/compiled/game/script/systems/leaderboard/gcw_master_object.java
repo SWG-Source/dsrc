@@ -330,7 +330,7 @@ public class gcw_master_object extends script.base_script {
         obj_id leader;
         if(imperialPlayers != null) {
             for (obj_id i : imperialPlayers) {
-                if(getIntObjVar(i, leaderboard.OBJVAR_LAST_NOTIFIED_RANK_GCW_PLAYER) != rank && isIdValid(i)) {
+                if(getIntObjVar(i, leaderboard.OBJVAR_LAST_NOTIFIED_RANK_GCW_PLAYER) != rank && isIdValid(i) && isPlayerConnected(i)) {
                     sendSystemMessageTestingOnly(i, "[GCW Leaderboard] Congratulations! You are now ranked in position " + rank + " on the Current Imperial Players GCW Leaderboard.");
                     leaderboard.announceGcwLeaderboardRankChangeToDiscord(getPlayerFullName(i)+" is now ranked in position "+rank+" on the Current Imperial Players GCW Leaderboard.");
                     setObjVar(i, leaderboard.OBJVAR_LAST_NOTIFIED_RANK_GCW_PLAYER, rank);
@@ -341,7 +341,7 @@ public class gcw_master_object extends script.base_script {
         if(rebelPlayers != null) {
             rank = 1;
             for (obj_id i : rebelPlayers) {
-                if(getIntObjVar(i, leaderboard.OBJVAR_LAST_NOTIFIED_RANK_GCW_PLAYER) != rank && isIdValid(i)) {
+                if(getIntObjVar(i, leaderboard.OBJVAR_LAST_NOTIFIED_RANK_GCW_PLAYER) != rank && isIdValid(i) && isPlayerConnected(i)) {
                     sendSystemMessageTestingOnly(i, "[GCW Leaderboard] Congratulations! You are now ranked in position " + rank + " on the Current Rebel Players GCW Leaderboard.");
                     leaderboard.announceGcwLeaderboardRankChangeToDiscord(getPlayerFullName(i)+" is now ranked in position "+rank+" on the Current Rebel Players GCW Leaderboard.");
                     setObjVar(i, leaderboard.OBJVAR_LAST_NOTIFIED_RANK_GCW_PLAYER, rank);
