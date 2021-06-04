@@ -1088,6 +1088,7 @@ public class smuggler extends script.base_script
             return false;
         }
         // This should be a vendor... and if so, we don't care if it's full because the vendor does NOT try to move.
+        detachScript(object, "object.buyback");
         if (putInOverloaded(object, objContainer))
         {
             removeObjVar(object, BUYBACK_OBJ_TIMESTAMP);
@@ -1095,6 +1096,7 @@ public class smuggler extends script.base_script
             removeObjVar(object, BUYBACK_OBJ_SOLD);
             return true;
         }
+        attachScript(object, "object.buyback");
         CustomerServiceLog("Junk_Dealer: ", "smuggler.moveBuyBackObjectIntoInventory() - Player (OID: " + player + ") could not put object: " + object + " in buy back container.");
         return false;
     }

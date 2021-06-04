@@ -119,6 +119,9 @@ public class autostack extends script.base_script
     }
     public void restackIt(obj_id self) throws InterruptedException
     {
+        if(isPendingJunkDeal(self)) {
+            return;
+        }
         blog("restackIt init");
         if (!isIdValid(self) || !exists(self))
         {
@@ -149,7 +152,7 @@ public class autostack extends script.base_script
         obj_id item = loot.findItemToStack(self);
         if (isIdValid(item) && !isInSecureTrade(item))
         {
-            if (utils.hasScriptVar(self, "unstacking") || utils.hasScriptVar(item, "unstacking"))
+            if (utils.hasScriptVar(self, "unstacking") || utils.hasScriptVar(item, "unstacking") || isPendingJunkDeal(item))
             {
                 return;
             }
@@ -165,6 +168,9 @@ public class autostack extends script.base_script
     }
     public void unstackIt(obj_id self, obj_id player) throws InterruptedException
     {
+        if(isPendingJunkDeal(self)) {
+            return;
+        }
         if (!isInSecureTrade(self))
         {
             if (getCount(self) == 2)
@@ -296,4 +302,9 @@ public class autostack extends script.base_script
         LOG(BLOGGING_CATEGORY, msg);
         return true;
     }
+    // Used to block stack/split if item should be in Junk Dealer Buy Back Container
+    public boolean isPendingJunkDeal(obj_id item) {
+        return hasObjVar(item, smuggler.BUYBACK_OBJ_SOLD);
+    }
+
 }

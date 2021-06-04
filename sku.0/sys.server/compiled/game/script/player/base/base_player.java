@@ -10918,6 +10918,7 @@ public class base_player extends script.base_script
         sendSystemMessageProse(player, ppSoldJunk);
         setObjVar(item, smuggler.BUYBACK_OBJ_SOLD, getGameTime());
         smuggler.moveBuyBackObjectIntoContainer(player, item, price);
+        attachScript(item, "object.buyback");
         CustomerServiceLog("Junk_Dealer: ", "junk_dealer.handleSoldJunk() - Player: " + self + " has sold item: " + item + " and the item has been marked sold. The item is about to be moved to the buy back container.");
         boolean reshowSui = params.getBoolean("reshowSui");
         if (reshowSui && fence)
