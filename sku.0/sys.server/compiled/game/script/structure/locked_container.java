@@ -74,7 +74,7 @@ public class locked_container extends script.base_script
     }
     public void addPlayerToAccess(obj_id container, obj_id player) throws InterruptedException
     {
-        if (!isIdValid(container) || !exists(container) || !isIdValid(player) || !exists(player))
+        if (!isIdValid(container) || !exists(container) || !isIdValid(player))
         {
             return;
         }
@@ -82,7 +82,7 @@ public class locked_container extends script.base_script
     }
     public void removePlayerFromAccess(obj_id container, obj_id player) throws InterruptedException
     {
-        if (!isIdValid(container) || !exists(container) || !isIdValid(player) || !exists(player))
+        if (!isIdValid(container) || !exists(container) || !isIdValid(player))
         {
             return;
         }
@@ -239,11 +239,7 @@ public class locked_container extends script.base_script
         if (sui.getIntButtonPressed(params) == sui.BP_OK)
         {
             String accessorName = sui.getInputBoxText(params);
-            obj_id target = utils.getNearbyPlayerByName(player, accessorName);
-            if (!isIdValid(target))
-            {
-                target = getPlayerIdFromFirstName(accessorName);
-            }
+            obj_id target = getPlayerIdFromFirstName(accessorName);
             if (isIdValid(target))
             {
                 addPlayerToAccess(self, target);
@@ -266,11 +262,7 @@ public class locked_container extends script.base_script
         if (sui.getIntButtonPressed(params) == sui.BP_OK)
         {
             String accessorName = sui.getInputBoxText(params);
-            obj_id target = utils.getNearbyPlayerByName(player, accessorName);
-            if (!isIdValid(target))
-            {
-                target = getPlayerIdFromFirstName(accessorName);
-            }
+            obj_id target = getPlayerIdFromFirstName(accessorName);
             if (lockedBy == target)
             {
                 return SCRIPT_CONTINUE;
