@@ -2376,13 +2376,13 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 -6027317	0	object/building/kashyyyk/thm_kash_column_wood.iff	0	3584.37	18.6497	3988.95	1	0	0	0		$|
 -6027316	0	object/static/structure/dantooine/dant_fence_4m.iff	0	3582.87	18.7761	3988.95	1	0	0	0		$|
 -6027315	0	object/building/kashyyyk/thm_kash_column_wood.iff	0	3581.37	18.7254	3988.95	1	0	0	0		$|
--6027314	0	object/static/structure/dantooine/dant_fence_4m.iff	0	3582.87	20	3988.95	1	0	0	0		$|
+-6027314	0	object/static/structure/dantooine/dant_fence_4m_no_col.iff	0	3582.87	20	3988.95	1	0	0	0		$|
 -6027313	0	object/static/structure/dantooine/dant_fence_4m.iff	0	3581.41	18.7257	3987.32	0.707107	0	0.707107	0		$|
--6027312	0	object/static/structure/dantooine/dant_fence_4m.iff	0	3581.41	19.9496	3987.32	0.707107	0	0.707107	0		$|
+-6027312	0	object/static/structure/dantooine/dant_fence_4m_no_col.iff	0	3581.41	19.9496	3987.32	0.707107	0	0.707107	0		$|
 -6027311	0	object/static/structure/dantooine/dant_fence_4m.iff	0	3584.5	18.8355	3987.34	0.707107	0	0.707107	0		$|
--6027310	0	object/static/structure/dantooine/dant_fence_4m.iff	0	3584.5	20.0594	3987.34	0.707107	0	0.707107	0		$|
+-6027310	0	object/static/structure/dantooine/dant_fence_4m_no_col.iff	0	3584.5	20.0594	3987.34	0.707107	0	0.707107	0		$|
 -6027309	0	object/building/kashyyyk/thm_kash_column_wood.iff	0	3584.36	18.6901	3985.62	1	0	0	0		$|
--6027308	0	object/static/structure/dantooine/dant_fence_4m.iff	0	3582.86	19.9604	3985.62	1	0	0	0		$|
+-6027308	0	object/static/structure/dantooine/dant_fence_4m_no_col.iff	0	3582.86	19.9604	3985.62	1	0	0	0		$|
 -6027307	0	object/static/structure/dantooine/dant_fence_4m.iff	0	3582.86	18.7365	3985.62	1	0	0	0		$|
 -6027306	0	object/building/kashyyyk/thm_kash_column_wood.iff	0	3581.36	18.6892	3985.62	1	0	0	0		$|
 -6027305	0	object/building/kashyyyk/rock_kashyyyk_small_s01.iff	0	3388.75	18.0757	3963.66	0.157797	0.887776	-0.303943	0.307527		$|
