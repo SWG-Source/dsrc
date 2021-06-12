@@ -26855,4 +26855,92 @@ public class base_class
 	}
     private static native void _registerObjectToUniverse(long target);
 
+    /**
+     * Log Channel list
+     * Any channel you log to should be kept here
+     */
+    public enum LogChannel
+    {
+        admin,          // CSR/GM Admin Log
+        audit,          // Routine Collection of Randomized Auditing
+        buff,           // Buffing
+        bug,            // Tracking for potential implementation issues
+        cheater,        // Exploit/Suspicious Activity Detection
+        city,           // City Activity (Militia, Mayor, Rank, etc.)
+        collection,     // Collections and Badges
+        combo,          // Transactions for combinations (reverse engineering, sarlacc trash can, etc.)
+        commodity,      // All market transactions/activity (bazaar and vendor)
+        container,      // Every container transfer for any object (includes trade)
+        crafting,       // All Crafting
+        death,          // Tracking of Deaths and Cloning
+        event,          // Holidays and Events
+        faction,        // Faction Points
+        fishing,        // Fishing
+        gambling,       // All Gambling
+        gcwPlayer,      // GCW Points, GCW Rank Changes, Join/Leave Faction
+        gcwSystem,      // GCW Systems (City Invasions, HQ Bases, Restuss)
+        group,          // Groups Join/Leave/Create/Set
+        guild,          // Guild Activity (e.g. Kick, Join, etc.)
+        instances,      // Heroic/Instance activity
+        item,           // Creates/Changes/Records of Items
+        junk,           // Junk Dealers
+        leaderboard,    // Leaderboard System
+        loot,           // Looted Items
+        mini_game,      // Mini Games (excluding Fishing & Gambling)
+        mission,        // Accepted/Completed/Discarded Missions
+        money,          // Any monetary transactions or transfer/use of credits
+        profession,     // Profession/Level/Expertise
+        pve,            // PvE Kills
+        pvp,            // PvP Kills
+        quest,          // Activated/Completed/Abandoned Quests
+        resource,       // Resources
+        reward,         // Given Rewards, e.g. Veteran Rewards, Publish Gifts, etc.
+        skill,          // Earned/Lost Skills
+        spawning,       // Spawns
+        structure,      // Player Structures (includes harvester/installation/extractor)
+        startup,        // All Events from System Startup/Initialization
+        travel          // Travel activity (region/scene transfers)
+    }
+
+    /**
+     * nLog ("new" Log), simplified wrapper around logging system
+     * for cleaner logging events (SWG Source Addition)
+     *
+     * @param channel the channel to log to (LogChannel enum)
+     * @param message the message to log
+     */
+    public static void nLOG(LogChannel channel, String message)
+    {
+        LOG("n_"+channel.name(), message);
+    }
+
+    /**
+     * nLog ("new" Log), simplified wrapper around logging system
+     * for cleaner logging events (SWG Source Addition)
+     *
+     * @param channel the channel to log to (LogChannel enum)
+     * @param player the player who triggered this log action
+     * @param message the message to log with %s (%s) for the player
+     */
+    public static void nLOG(LogChannel channel, obj_id player, String message)
+    {
+        LOG("n_"+channel.name(), String.format(message, getPlayerName(player), player));
+    }
+
+    /**
+     * nLog ("new" Log), simplified wrapper around logging system
+     * for cleaner logging events (SWG Source Addition)
+     *
+     * @param channel the channel to log to (LogChannel enum)
+     * @param player the player who triggered this log action
+     * @param target the target player/object being acted upon
+     * @param message the message to log with %s (%s) for both player and target
+     */
+    public static void nLOG(LogChannel channel, obj_id player, obj_id target, String message)
+    {
+        LOG("n_"+channel.name(), String.format(message, getPlayerName(player), player,
+                isPlayer(target) ? getPlayerName(target) : getName(target), target));
+    }
+
+
 }   // class base_class
