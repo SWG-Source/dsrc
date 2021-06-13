@@ -4794,3 +4794,4 @@ item_band_set_trader_01_01	luck_modified=30,precision_modified=30,strength_modif
 item_ring_set_ent_01_01	strength_modified=30,agility_modified=30		int:item.set.set_id=130001								
 item_ring_set_trader_01_01	luck_modified=30,precision_modified=30,strength_modified=30		int:item.set.set_id=140001								
 rebel_trooper_hat_schematic			string:loot_schematic.schematic=object/draft_schematic/clothing/clothing_hat_rebel_trooper.iff,int:loot_schematic.uses=1,string:loot_schematic.skill_req=class_domestics_phase4_master								
+item_tauntaun_dna			string:beast.dna.creature_template=object/mobile/beast_master/bm_tauntaun.iff,float:beast.dna.quality=90.000000,int:beast.dna.cs_item=1								
