@@ -3,8 +3,7 @@ package script.player.base;
 import script.*;
 import script.library.*;
 
-import java.util.Set;
-import java.util.Vector;
+import java.util.*;
 
 public class base_player extends script.base_script
 {
@@ -287,6 +286,7 @@ public class base_player extends script.base_script
     private static final boolean FORCE_SKIP_TUTORIAL = utils.checkConfigFlag("GameServer", "skipTutorial");
     private static final boolean WALL_OF_MIST_DISABLED = utils.checkConfigFlag("GameServer", "fsWallOfMistDisabled");
     private static final boolean VETERAN_REWARDS_ENABLED = utils.checkConfigFlag("GameServer", "enableVeteranRewards");
+    public static final String REPORT_URL = getConfigSetting("GameServer", "chatReportUrl");
 
     public int OnCustomizeFinished(obj_id self, obj_id object, String params) throws InterruptedException
     {
@@ -12307,6 +12307,18 @@ public class base_player extends script.base_script
             return SCRIPT_CONTINUE;
         }
         leaderboard.handleGcwLeaderboardDataRequestCsInternalOnly(self, idx);
+        return SCRIPT_CONTINUE;
+    }
+    public int OnPlayerReportedChat(obj_id self, obj_id reported, String chatLog) throws InterruptedException {
+        Map<Object, Object> data = new HashMap<>();
+        data.put("log", chatLog);
+        data.put("reporterOID", self);
+        data.put("reporterSID", getPlayerStationId(self));
+        data.put("reporterChar", getPlayerName(self));
+        data.put("reportedOID", reported);
+        data.put("reportedSID", getPlayerStationId(reported));
+        data.put("reportedChar", getPlayerName(reported));
+        web_api.sendDataAsPost(REPORT_URL, data);
         return SCRIPT_CONTINUE;
     }
 
