@@ -40,6 +40,10 @@ public class resource_90month extends script.base_script
     }
     public int OnObjectMenuRequest(obj_id self, obj_id player, menu_info item) throws InterruptedException
     {
+        if(hasScript(self, "systems.veteran_reward.resource"))
+        {
+            detachScript(self, "systems.veteran_reward.resource");
+        }
         if (hasObjVar(self, OBJVAR_RESOURCE_REWARDED))
         {
             return SCRIPT_CONTINUE;
