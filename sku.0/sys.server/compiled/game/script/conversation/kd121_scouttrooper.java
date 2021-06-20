@@ -77,7 +77,7 @@ public class kd121_scouttrooper extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int kd121_scouttrooper_handleBranch3(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -91,7 +91,7 @@ public class kd121_scouttrooper extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int kd121_scouttrooper_handleBranch6(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -129,7 +129,7 @@ public class kd121_scouttrooper extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int kd121_scouttrooper_handleBranch7(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -147,7 +147,7 @@ public class kd121_scouttrooper extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int kd121_scouttrooper_handleBranch10(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -162,7 +162,7 @@ public class kd121_scouttrooper extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int OnInitialize(obj_id self) throws InterruptedException
     {

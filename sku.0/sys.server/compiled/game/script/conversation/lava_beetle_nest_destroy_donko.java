@@ -96,7 +96,7 @@ public class lava_beetle_nest_destroy_donko extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int lava_beetle_nest_destroy_donko_handleBranch3(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -113,7 +113,7 @@ public class lava_beetle_nest_destroy_donko extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int lava_beetle_nest_destroy_donko_handleBranch5(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -175,7 +175,7 @@ public class lava_beetle_nest_destroy_donko extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int lava_beetle_nest_destroy_donko_handleBranch7(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -204,7 +204,7 @@ public class lava_beetle_nest_destroy_donko extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int lava_beetle_nest_destroy_donko_handleBranch10(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -244,7 +244,7 @@ public class lava_beetle_nest_destroy_donko extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int lava_beetle_nest_destroy_donko_handleBranch11(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -284,7 +284,7 @@ public class lava_beetle_nest_destroy_donko extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int lava_beetle_nest_destroy_donko_handleBranch12(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -301,7 +301,7 @@ public class lava_beetle_nest_destroy_donko extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int OnInitialize(obj_id self) throws InterruptedException
     {

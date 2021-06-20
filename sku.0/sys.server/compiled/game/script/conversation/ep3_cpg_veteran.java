@@ -100,7 +100,7 @@ public class ep3_cpg_veteran extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_cpg_veteran_handleBranch7(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -115,7 +115,7 @@ public class ep3_cpg_veteran extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_cpg_veteran_handleBranch10(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -189,7 +189,7 @@ public class ep3_cpg_veteran extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_cpg_veteran_handleBranch11(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -204,7 +204,7 @@ public class ep3_cpg_veteran extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_cpg_veteran_handleBranch13(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -219,7 +219,7 @@ public class ep3_cpg_veteran extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_cpg_veteran_handleBranch16(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -258,7 +258,7 @@ public class ep3_cpg_veteran extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_cpg_veteran_handleBranch17(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -297,7 +297,7 @@ public class ep3_cpg_veteran extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_cpg_veteran_handleBranch18(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -347,7 +347,7 @@ public class ep3_cpg_veteran extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_cpg_veteran_handleBranch19(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -374,7 +374,7 @@ public class ep3_cpg_veteran extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_cpg_veteran_handleBranch22(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -413,7 +413,7 @@ public class ep3_cpg_veteran extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_cpg_veteran_handleBranch23(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -463,7 +463,7 @@ public class ep3_cpg_veteran extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_cpg_veteran_handleBranch24(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -489,7 +489,7 @@ public class ep3_cpg_veteran extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int OnInitialize(obj_id self) throws InterruptedException
     {

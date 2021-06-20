@@ -296,7 +296,7 @@ public class grenz_zittoun extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int grenz_zittoun_handleBranch3(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -318,7 +318,7 @@ public class grenz_zittoun extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int grenz_zittoun_handleBranch6(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -334,7 +334,7 @@ public class grenz_zittoun extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int grenz_zittoun_handleBranch9(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -383,7 +383,7 @@ public class grenz_zittoun extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int grenz_zittoun_handleBranch10(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -432,7 +432,7 @@ public class grenz_zittoun extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int grenz_zittoun_handleBranch11(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -471,7 +471,7 @@ public class grenz_zittoun extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int grenz_zittoun_handleBranch12(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -532,7 +532,7 @@ public class grenz_zittoun extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int grenz_zittoun_handleBranch13(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -570,7 +570,7 @@ public class grenz_zittoun extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int grenz_zittoun_handleBranch18(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -592,7 +592,7 @@ public class grenz_zittoun extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int grenz_zittoun_handleBranch21(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -608,7 +608,7 @@ public class grenz_zittoun extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int grenz_zittoun_handleBranch24(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -664,7 +664,7 @@ public class grenz_zittoun extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int grenz_zittoun_handleBranch25(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -703,7 +703,7 @@ public class grenz_zittoun extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int grenz_zittoun_handleBranch26(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -763,7 +763,7 @@ public class grenz_zittoun extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int grenz_zittoun_handleBranch27(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -795,7 +795,7 @@ public class grenz_zittoun extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int grenz_zittoun_handleBranch32(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -816,7 +816,7 @@ public class grenz_zittoun extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int grenz_zittoun_handleBranch35(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -837,7 +837,7 @@ public class grenz_zittoun extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int grenz_zittoun_handleBranch37(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -888,7 +888,7 @@ public class grenz_zittoun extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int grenz_zittoun_handleBranch38(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -937,7 +937,7 @@ public class grenz_zittoun extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int grenz_zittoun_handleBranch39(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -976,7 +976,7 @@ public class grenz_zittoun extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int grenz_zittoun_handleBranch40(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1016,7 +1016,7 @@ public class grenz_zittoun extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int grenz_zittoun_handleBranch41(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1037,7 +1037,7 @@ public class grenz_zittoun extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int OnInitialize(obj_id self) throws InterruptedException
     {

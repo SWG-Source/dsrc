@@ -231,7 +231,7 @@ public class talus_dearic_coa_dathnaeya extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int talus_dearic_coa_dathnaeya_handleBranch3(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -248,7 +248,7 @@ public class talus_dearic_coa_dathnaeya extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int talus_dearic_coa_dathnaeya_handleBranch5(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -400,7 +400,7 @@ public class talus_dearic_coa_dathnaeya extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int talus_dearic_coa_dathnaeya_handleBranch6(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -546,7 +546,7 @@ public class talus_dearic_coa_dathnaeya extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int talus_dearic_coa_dathnaeya_handleBranch7(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -623,7 +623,7 @@ public class talus_dearic_coa_dathnaeya extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int talus_dearic_coa_dathnaeya_handleBranch8(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -664,7 +664,7 @@ public class talus_dearic_coa_dathnaeya extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int talus_dearic_coa_dathnaeya_handleBranch9(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -682,7 +682,7 @@ public class talus_dearic_coa_dathnaeya extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int talus_dearic_coa_dathnaeya_handleBranch11(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -723,7 +723,7 @@ public class talus_dearic_coa_dathnaeya extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int talus_dearic_coa_dathnaeya_handleBranch12(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -764,7 +764,7 @@ public class talus_dearic_coa_dathnaeya extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int talus_dearic_coa_dathnaeya_handleBranch13(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -781,7 +781,7 @@ public class talus_dearic_coa_dathnaeya extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int talus_dearic_coa_dathnaeya_handleBranch15(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -859,7 +859,7 @@ public class talus_dearic_coa_dathnaeya extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int talus_dearic_coa_dathnaeya_handleBranch16(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -900,7 +900,7 @@ public class talus_dearic_coa_dathnaeya extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int talus_dearic_coa_dathnaeya_handleBranch17(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -917,7 +917,7 @@ public class talus_dearic_coa_dathnaeya extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int talus_dearic_coa_dathnaeya_handleBranch19(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -959,7 +959,7 @@ public class talus_dearic_coa_dathnaeya extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int talus_dearic_coa_dathnaeya_handleBranch20(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -977,7 +977,7 @@ public class talus_dearic_coa_dathnaeya extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int talus_dearic_coa_dathnaeya_handleBranch22(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1054,7 +1054,7 @@ public class talus_dearic_coa_dathnaeya extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int talus_dearic_coa_dathnaeya_handleBranch23(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1095,7 +1095,7 @@ public class talus_dearic_coa_dathnaeya extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int talus_dearic_coa_dathnaeya_handleBranch24(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1112,7 +1112,7 @@ public class talus_dearic_coa_dathnaeya extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int talus_dearic_coa_dathnaeya_handleBranch26(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1154,7 +1154,7 @@ public class talus_dearic_coa_dathnaeya extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int talus_dearic_coa_dathnaeya_handleBranch27(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1171,7 +1171,7 @@ public class talus_dearic_coa_dathnaeya extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int talus_dearic_coa_dathnaeya_handleBranch29(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1317,7 +1317,7 @@ public class talus_dearic_coa_dathnaeya extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int talus_dearic_coa_dathnaeya_handleBranch30(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1333,7 +1333,7 @@ public class talus_dearic_coa_dathnaeya extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int talus_dearic_coa_dathnaeya_handleBranch32(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1456,7 +1456,7 @@ public class talus_dearic_coa_dathnaeya extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int talus_dearic_coa_dathnaeya_handleBranch33(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1494,7 +1494,7 @@ public class talus_dearic_coa_dathnaeya extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int talus_dearic_coa_dathnaeya_handleBranch34(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1508,7 +1508,7 @@ public class talus_dearic_coa_dathnaeya extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int talus_dearic_coa_dathnaeya_handleBranch36(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1546,7 +1546,7 @@ public class talus_dearic_coa_dathnaeya extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int talus_dearic_coa_dathnaeya_handleBranch37(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1560,7 +1560,7 @@ public class talus_dearic_coa_dathnaeya extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int talus_dearic_coa_dathnaeya_handleBranch40(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1612,7 +1612,7 @@ public class talus_dearic_coa_dathnaeya extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int talus_dearic_coa_dathnaeya_handleBranch42(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1628,7 +1628,7 @@ public class talus_dearic_coa_dathnaeya extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int talus_dearic_coa_dathnaeya_handleBranch44(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1643,7 +1643,7 @@ public class talus_dearic_coa_dathnaeya extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int talus_dearic_coa_dathnaeya_handleBranch46(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1742,7 +1742,7 @@ public class talus_dearic_coa_dathnaeya extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int talus_dearic_coa_dathnaeya_handleBranch47(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1876,7 +1876,7 @@ public class talus_dearic_coa_dathnaeya extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int talus_dearic_coa_dathnaeya_handleBranch48(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1928,7 +1928,7 @@ public class talus_dearic_coa_dathnaeya extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int talus_dearic_coa_dathnaeya_handleBranch49(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1982,7 +1982,7 @@ public class talus_dearic_coa_dathnaeya extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int talus_dearic_coa_dathnaeya_handleBranch50(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1998,7 +1998,7 @@ public class talus_dearic_coa_dathnaeya extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int talus_dearic_coa_dathnaeya_handleBranch53(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -2051,7 +2051,7 @@ public class talus_dearic_coa_dathnaeya extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int talus_dearic_coa_dathnaeya_handleBranch55(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -2067,7 +2067,7 @@ public class talus_dearic_coa_dathnaeya extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int talus_dearic_coa_dathnaeya_handleBranch57(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -2119,7 +2119,7 @@ public class talus_dearic_coa_dathnaeya extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int talus_dearic_coa_dathnaeya_handleBranch59(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -2135,7 +2135,7 @@ public class talus_dearic_coa_dathnaeya extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int OnInitialize(obj_id self) throws InterruptedException
     {

@@ -257,7 +257,7 @@ public class ep3_clone_relics_nym_starmap_nym extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_clone_relics_nym_starmap_nym_handleBranch3(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -295,7 +295,7 @@ public class ep3_clone_relics_nym_starmap_nym extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_clone_relics_nym_starmap_nym_handleBranch4(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -342,7 +342,7 @@ public class ep3_clone_relics_nym_starmap_nym extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_clone_relics_nym_starmap_nym_handleBranch5(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -358,7 +358,7 @@ public class ep3_clone_relics_nym_starmap_nym extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_clone_relics_nym_starmap_nym_handleBranch7(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -474,7 +474,7 @@ public class ep3_clone_relics_nym_starmap_nym extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_clone_relics_nym_starmap_nym_handleBranch8(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -513,7 +513,7 @@ public class ep3_clone_relics_nym_starmap_nym extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_clone_relics_nym_starmap_nym_handleBranch9(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -529,7 +529,7 @@ public class ep3_clone_relics_nym_starmap_nym extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_clone_relics_nym_starmap_nym_handleBranch11(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -633,7 +633,7 @@ public class ep3_clone_relics_nym_starmap_nym extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_clone_relics_nym_starmap_nym_handleBranch14(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -764,7 +764,7 @@ public class ep3_clone_relics_nym_starmap_nym extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_clone_relics_nym_starmap_nym_handleBranch16(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -802,7 +802,7 @@ public class ep3_clone_relics_nym_starmap_nym extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_clone_relics_nym_starmap_nym_handleBranch17(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -818,7 +818,7 @@ public class ep3_clone_relics_nym_starmap_nym extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_clone_relics_nym_starmap_nym_handleBranch19(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -934,7 +934,7 @@ public class ep3_clone_relics_nym_starmap_nym extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_clone_relics_nym_starmap_nym_handleBranch20(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -980,7 +980,7 @@ public class ep3_clone_relics_nym_starmap_nym extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_clone_relics_nym_starmap_nym_handleBranch21(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -996,7 +996,7 @@ public class ep3_clone_relics_nym_starmap_nym extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_clone_relics_nym_starmap_nym_handleBranch23(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1124,7 +1124,7 @@ public class ep3_clone_relics_nym_starmap_nym extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_clone_relics_nym_starmap_nym_handleBranch25(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1143,7 +1143,7 @@ public class ep3_clone_relics_nym_starmap_nym extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_clone_relics_nym_starmap_nym_handleBranch27(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1271,7 +1271,7 @@ public class ep3_clone_relics_nym_starmap_nym extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_clone_relics_nym_starmap_nym_handleBranch28(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1310,7 +1310,7 @@ public class ep3_clone_relics_nym_starmap_nym extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_clone_relics_nym_starmap_nym_handleBranch29(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1326,7 +1326,7 @@ public class ep3_clone_relics_nym_starmap_nym extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_clone_relics_nym_starmap_nym_handleBranch32(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1451,7 +1451,7 @@ public class ep3_clone_relics_nym_starmap_nym extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_clone_relics_nym_starmap_nym_handleBranch33(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1489,7 +1489,7 @@ public class ep3_clone_relics_nym_starmap_nym extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_clone_relics_nym_starmap_nym_handleBranch34(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1528,7 +1528,7 @@ public class ep3_clone_relics_nym_starmap_nym extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_clone_relics_nym_starmap_nym_handleBranch35(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1566,7 +1566,7 @@ public class ep3_clone_relics_nym_starmap_nym extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_clone_relics_nym_starmap_nym_handleBranch36(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1582,7 +1582,7 @@ public class ep3_clone_relics_nym_starmap_nym extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_clone_relics_nym_starmap_nym_handleBranch38(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1709,7 +1709,7 @@ public class ep3_clone_relics_nym_starmap_nym extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_clone_relics_nym_starmap_nym_handleBranch40(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1724,7 +1724,7 @@ public class ep3_clone_relics_nym_starmap_nym extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_clone_relics_nym_starmap_nym_handleBranch42(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1876,7 +1876,7 @@ public class ep3_clone_relics_nym_starmap_nym extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_clone_relics_nym_starmap_nym_handleBranch43(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1915,7 +1915,7 @@ public class ep3_clone_relics_nym_starmap_nym extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_clone_relics_nym_starmap_nym_handleBranch44(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1964,7 +1964,7 @@ public class ep3_clone_relics_nym_starmap_nym extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_clone_relics_nym_starmap_nym_handleBranch45(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1991,7 +1991,7 @@ public class ep3_clone_relics_nym_starmap_nym extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_clone_relics_nym_starmap_nym_handleBranch48(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -2006,7 +2006,7 @@ public class ep3_clone_relics_nym_starmap_nym extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_clone_relics_nym_starmap_nym_handleBranch50(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -2100,7 +2100,7 @@ public class ep3_clone_relics_nym_starmap_nym extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_clone_relics_nym_starmap_nym_handleBranch51(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -2172,7 +2172,7 @@ public class ep3_clone_relics_nym_starmap_nym extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_clone_relics_nym_starmap_nym_handleBranch52(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -2187,7 +2187,7 @@ public class ep3_clone_relics_nym_starmap_nym extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_clone_relics_nym_starmap_nym_handleBranch54(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -2225,7 +2225,7 @@ public class ep3_clone_relics_nym_starmap_nym extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_clone_relics_nym_starmap_nym_handleBranch56(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -2352,7 +2352,7 @@ public class ep3_clone_relics_nym_starmap_nym extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_clone_relics_nym_starmap_nym_handleBranch58(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -2401,7 +2401,7 @@ public class ep3_clone_relics_nym_starmap_nym extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_clone_relics_nym_starmap_nym_handleBranch59(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -2497,7 +2497,7 @@ public class ep3_clone_relics_nym_starmap_nym extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_clone_relics_nym_starmap_nym_handleBranch60(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -2638,7 +2638,7 @@ public class ep3_clone_relics_nym_starmap_nym extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_clone_relics_nym_starmap_nym_handleBranch61(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -2733,7 +2733,7 @@ public class ep3_clone_relics_nym_starmap_nym extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_clone_relics_nym_starmap_nym_handleBranch62(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -2795,7 +2795,7 @@ public class ep3_clone_relics_nym_starmap_nym extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_clone_relics_nym_starmap_nym_handleBranch64(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -2822,7 +2822,7 @@ public class ep3_clone_relics_nym_starmap_nym extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_clone_relics_nym_starmap_nym_handleBranch67(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -2884,7 +2884,7 @@ public class ep3_clone_relics_nym_starmap_nym extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_clone_relics_nym_starmap_nym_handleBranch69(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -2946,7 +2946,7 @@ public class ep3_clone_relics_nym_starmap_nym extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_clone_relics_nym_starmap_nym_handleBranch71(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -3009,7 +3009,7 @@ public class ep3_clone_relics_nym_starmap_nym extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_clone_relics_nym_starmap_nym_handleBranch73(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -3070,7 +3070,7 @@ public class ep3_clone_relics_nym_starmap_nym extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_clone_relics_nym_starmap_nym_handleBranch74(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -3129,7 +3129,7 @@ public class ep3_clone_relics_nym_starmap_nym extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_clone_relics_nym_starmap_nym_handleBranch80(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -3291,7 +3291,7 @@ public class ep3_clone_relics_nym_starmap_nym extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_clone_relics_nym_starmap_nym_handleBranch81(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -3318,7 +3318,7 @@ public class ep3_clone_relics_nym_starmap_nym extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_clone_relics_nym_starmap_nym_handleBranch84(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -3333,7 +3333,7 @@ public class ep3_clone_relics_nym_starmap_nym extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int OnInitialize(obj_id self) throws InterruptedException
     {

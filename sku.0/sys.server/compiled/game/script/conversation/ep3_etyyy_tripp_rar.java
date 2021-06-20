@@ -217,7 +217,7 @@ public class ep3_etyyy_tripp_rar extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_etyyy_tripp_rar_handleBranch2(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -232,7 +232,7 @@ public class ep3_etyyy_tripp_rar extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_etyyy_tripp_rar_handleBranch4(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -333,7 +333,7 @@ public class ep3_etyyy_tripp_rar extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_etyyy_tripp_rar_handleBranch6(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -403,7 +403,7 @@ public class ep3_etyyy_tripp_rar extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_etyyy_tripp_rar_handleBranch7(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -504,7 +504,7 @@ public class ep3_etyyy_tripp_rar extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_etyyy_tripp_rar_handleBranch11(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -574,7 +574,7 @@ public class ep3_etyyy_tripp_rar extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_etyyy_tripp_rar_handleBranch12(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -667,7 +667,7 @@ public class ep3_etyyy_tripp_rar extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_etyyy_tripp_rar_handleBranch15(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -737,7 +737,7 @@ public class ep3_etyyy_tripp_rar extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_etyyy_tripp_rar_handleBranch16(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -830,7 +830,7 @@ public class ep3_etyyy_tripp_rar extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_etyyy_tripp_rar_handleBranch19(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -900,7 +900,7 @@ public class ep3_etyyy_tripp_rar extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_etyyy_tripp_rar_handleBranch20(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1027,7 +1027,7 @@ public class ep3_etyyy_tripp_rar extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_etyyy_tripp_rar_handleBranch21(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1054,7 +1054,7 @@ public class ep3_etyyy_tripp_rar extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_etyyy_tripp_rar_handleBranch25(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1124,7 +1124,7 @@ public class ep3_etyyy_tripp_rar extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_etyyy_tripp_rar_handleBranch26(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1139,7 +1139,7 @@ public class ep3_etyyy_tripp_rar extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int OnInitialize(obj_id self) throws InterruptedException
     {

@@ -190,7 +190,7 @@ public class computer_console_level_02_command_console extends script.base_scrip
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int computer_console_level_02_command_console_handleBranch2(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -673,7 +673,7 @@ public class computer_console_level_02_command_console extends script.base_scrip
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int computer_console_level_02_command_console_handleBranch3(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1156,7 +1156,7 @@ public class computer_console_level_02_command_console extends script.base_scrip
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int computer_console_level_02_command_console_handleBranch4(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1639,7 +1639,7 @@ public class computer_console_level_02_command_console extends script.base_scrip
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int computer_console_level_02_command_console_handleBranch5(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1689,7 +1689,7 @@ public class computer_console_level_02_command_console extends script.base_scrip
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int computer_console_level_02_command_console_handleBranch6(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1793,7 +1793,7 @@ public class computer_console_level_02_command_console extends script.base_scrip
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int computer_console_level_02_command_console_handleBranch7(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -2276,7 +2276,7 @@ public class computer_console_level_02_command_console extends script.base_scrip
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int computer_console_level_02_command_console_handleBranch8(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -2759,7 +2759,7 @@ public class computer_console_level_02_command_console extends script.base_scrip
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int computer_console_level_02_command_console_handleBranch9(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -3242,7 +3242,7 @@ public class computer_console_level_02_command_console extends script.base_scrip
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int computer_console_level_02_command_console_handleBranch11(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -3257,7 +3257,7 @@ public class computer_console_level_02_command_console extends script.base_scrip
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int computer_console_level_02_command_console_handleBranch13(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -3271,7 +3271,7 @@ public class computer_console_level_02_command_console extends script.base_scrip
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int OnInitialize(obj_id self) throws InterruptedException
     {

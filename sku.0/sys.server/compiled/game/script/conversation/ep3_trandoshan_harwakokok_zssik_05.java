@@ -88,7 +88,7 @@ public class ep3_trandoshan_harwakokok_zssik_05 extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_trandoshan_harwakokok_zssik_05_handleBranch6(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -128,7 +128,7 @@ public class ep3_trandoshan_harwakokok_zssik_05 extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_trandoshan_harwakokok_zssik_05_handleBranch7(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -168,7 +168,7 @@ public class ep3_trandoshan_harwakokok_zssik_05 extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_trandoshan_harwakokok_zssik_05_handleBranch8(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -208,7 +208,7 @@ public class ep3_trandoshan_harwakokok_zssik_05 extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_trandoshan_harwakokok_zssik_05_handleBranch9(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -248,7 +248,7 @@ public class ep3_trandoshan_harwakokok_zssik_05 extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_trandoshan_harwakokok_zssik_05_handleBranch10(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -288,7 +288,7 @@ public class ep3_trandoshan_harwakokok_zssik_05 extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_trandoshan_harwakokok_zssik_05_handleBranch11(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -339,7 +339,7 @@ public class ep3_trandoshan_harwakokok_zssik_05 extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_trandoshan_harwakokok_zssik_05_handleBranch12(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -367,7 +367,7 @@ public class ep3_trandoshan_harwakokok_zssik_05 extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int OnInitialize(obj_id self) throws InterruptedException
     {

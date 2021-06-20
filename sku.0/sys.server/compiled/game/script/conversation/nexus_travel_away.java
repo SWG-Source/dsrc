@@ -69,7 +69,7 @@ public class nexus_travel_away extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int nexus_travel_away_handleBranch2(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -83,7 +83,7 @@ public class nexus_travel_away extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int nexus_travel_away_handleBranch4(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -152,7 +152,7 @@ public class nexus_travel_away extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int nexus_travel_away_handleBranch5(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -184,7 +184,7 @@ public class nexus_travel_away extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int nexusTravelFromAurilliaSub(obj_id self, dictionary params) throws InterruptedException
     {

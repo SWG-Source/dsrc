@@ -207,7 +207,7 @@ public class dath_bh_wanted_list_01 extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int dath_bh_wanted_list_01_handleBranch6(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -236,7 +236,7 @@ public class dath_bh_wanted_list_01 extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int dath_bh_wanted_list_01_handleBranch9(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -252,7 +252,7 @@ public class dath_bh_wanted_list_01 extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int dath_bh_wanted_list_01_handleBranch11(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -292,7 +292,7 @@ public class dath_bh_wanted_list_01 extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int dath_bh_wanted_list_01_handleBranch12(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -351,7 +351,7 @@ public class dath_bh_wanted_list_01 extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int dath_bh_wanted_list_01_handleBranch13(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -419,7 +419,7 @@ public class dath_bh_wanted_list_01 extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int dath_bh_wanted_list_01_handleBranch14(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -472,7 +472,7 @@ public class dath_bh_wanted_list_01 extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int dath_bh_wanted_list_01_handleBranch15(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -535,7 +535,7 @@ public class dath_bh_wanted_list_01 extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int dath_bh_wanted_list_01_handleBranch16(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -572,7 +572,7 @@ public class dath_bh_wanted_list_01 extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int dath_bh_wanted_list_01_handleBranch22(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -620,7 +620,7 @@ public class dath_bh_wanted_list_01 extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int dath_bh_wanted_list_01_handleBranch23(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -659,7 +659,7 @@ public class dath_bh_wanted_list_01 extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int dath_bh_wanted_list_01_handleBranch24(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -711,7 +711,7 @@ public class dath_bh_wanted_list_01 extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int dath_bh_wanted_list_01_handleBranch25(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -780,7 +780,7 @@ public class dath_bh_wanted_list_01 extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int dath_bh_wanted_list_01_handleBranch26(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -849,7 +849,7 @@ public class dath_bh_wanted_list_01 extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int dath_bh_wanted_list_01_handleBranch28(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -889,7 +889,7 @@ public class dath_bh_wanted_list_01 extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int dath_bh_wanted_list_01_handleBranch29(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -929,7 +929,7 @@ public class dath_bh_wanted_list_01 extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int dath_bh_wanted_list_01_handleBranch30(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -991,7 +991,7 @@ public class dath_bh_wanted_list_01 extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int dath_bh_wanted_list_01_handleBranch31(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1120,7 +1120,7 @@ public class dath_bh_wanted_list_01 extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int dath_bh_wanted_list_01_handleBranch33(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1249,7 +1249,7 @@ public class dath_bh_wanted_list_01 extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int dath_bh_wanted_list_01_handleBranch34(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1378,7 +1378,7 @@ public class dath_bh_wanted_list_01 extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int dath_bh_wanted_list_01_handleBranch35(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1418,7 +1418,7 @@ public class dath_bh_wanted_list_01 extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int dath_bh_wanted_list_01_handleBranch36(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1480,7 +1480,7 @@ public class dath_bh_wanted_list_01 extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int dath_bh_wanted_list_01_handleBranch37(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1634,7 +1634,7 @@ public class dath_bh_wanted_list_01 extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int dath_bh_wanted_list_01_handleBranch38(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1697,7 +1697,7 @@ public class dath_bh_wanted_list_01 extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int dath_bh_wanted_list_01_handleBranch39(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1826,7 +1826,7 @@ public class dath_bh_wanted_list_01 extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int dath_bh_wanted_list_01_handleBranch40(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1955,7 +1955,7 @@ public class dath_bh_wanted_list_01 extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int dath_bh_wanted_list_01_handleBranch41(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -2084,7 +2084,7 @@ public class dath_bh_wanted_list_01 extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int dath_bh_wanted_list_01_handleBranch43(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -2238,7 +2238,7 @@ public class dath_bh_wanted_list_01 extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int dath_bh_wanted_list_01_handleBranch44(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -2392,7 +2392,7 @@ public class dath_bh_wanted_list_01 extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int OnInitialize(obj_id self) throws InterruptedException
     {

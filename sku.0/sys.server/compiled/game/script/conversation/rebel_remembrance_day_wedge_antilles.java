@@ -328,7 +328,7 @@ public class rebel_remembrance_day_wedge_antilles extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int rebel_remembrance_day_wedge_antilles_handleBranch5(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -536,7 +536,7 @@ public class rebel_remembrance_day_wedge_antilles extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int rebel_remembrance_day_wedge_antilles_handleBranch6(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -551,7 +551,7 @@ public class rebel_remembrance_day_wedge_antilles extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int rebel_remembrance_day_wedge_antilles_handleBranch8(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -590,7 +590,7 @@ public class rebel_remembrance_day_wedge_antilles extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int rebel_remembrance_day_wedge_antilles_handleBranch9(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -605,7 +605,7 @@ public class rebel_remembrance_day_wedge_antilles extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int rebel_remembrance_day_wedge_antilles_handleBranch10(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -644,7 +644,7 @@ public class rebel_remembrance_day_wedge_antilles extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int rebel_remembrance_day_wedge_antilles_handleBranch11(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -659,7 +659,7 @@ public class rebel_remembrance_day_wedge_antilles extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int rebel_remembrance_day_wedge_antilles_handleBranch12(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -698,7 +698,7 @@ public class rebel_remembrance_day_wedge_antilles extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int rebel_remembrance_day_wedge_antilles_handleBranch13(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -713,7 +713,7 @@ public class rebel_remembrance_day_wedge_antilles extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int rebel_remembrance_day_wedge_antilles_handleBranch14(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -752,7 +752,7 @@ public class rebel_remembrance_day_wedge_antilles extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int rebel_remembrance_day_wedge_antilles_handleBranch15(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -767,7 +767,7 @@ public class rebel_remembrance_day_wedge_antilles extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int rebel_remembrance_day_wedge_antilles_handleBranch16(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -806,7 +806,7 @@ public class rebel_remembrance_day_wedge_antilles extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int rebel_remembrance_day_wedge_antilles_handleBranch17(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -821,7 +821,7 @@ public class rebel_remembrance_day_wedge_antilles extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int rebel_remembrance_day_wedge_antilles_handleBranch19(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -859,7 +859,7 @@ public class rebel_remembrance_day_wedge_antilles extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int rebel_remembrance_day_wedge_antilles_handleBranch20(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -898,7 +898,7 @@ public class rebel_remembrance_day_wedge_antilles extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int rebel_remembrance_day_wedge_antilles_handleBranch21(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -920,7 +920,7 @@ public class rebel_remembrance_day_wedge_antilles extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int rebel_remembrance_day_wedge_antilles_handleBranch23(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1116,7 +1116,7 @@ public class rebel_remembrance_day_wedge_antilles extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int rebel_remembrance_day_wedge_antilles_handleBranch24(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1168,7 +1168,7 @@ public class rebel_remembrance_day_wedge_antilles extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int rebel_remembrance_day_wedge_antilles_handleBranch26(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1214,7 +1214,7 @@ public class rebel_remembrance_day_wedge_antilles extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int rebel_remembrance_day_wedge_antilles_handleBranch27(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1252,7 +1252,7 @@ public class rebel_remembrance_day_wedge_antilles extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int rebel_remembrance_day_wedge_antilles_handleBranch28(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1304,7 +1304,7 @@ public class rebel_remembrance_day_wedge_antilles extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int rebel_remembrance_day_wedge_antilles_handleBranch30(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1356,7 +1356,7 @@ public class rebel_remembrance_day_wedge_antilles extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int rebel_remembrance_day_wedge_antilles_handleBranch31(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1394,7 +1394,7 @@ public class rebel_remembrance_day_wedge_antilles extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int rebel_remembrance_day_wedge_antilles_handleBranch32(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1432,7 +1432,7 @@ public class rebel_remembrance_day_wedge_antilles extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int rebel_remembrance_day_wedge_antilles_handleBranch33(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1492,7 +1492,7 @@ public class rebel_remembrance_day_wedge_antilles extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int rebel_remembrance_day_wedge_antilles_handleBranch34(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1581,7 +1581,7 @@ public class rebel_remembrance_day_wedge_antilles extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int rebel_remembrance_day_wedge_antilles_handleBranch35(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1601,7 +1601,7 @@ public class rebel_remembrance_day_wedge_antilles extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int rebel_remembrance_day_wedge_antilles_handleBranch36(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1621,7 +1621,7 @@ public class rebel_remembrance_day_wedge_antilles extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int rebel_remembrance_day_wedge_antilles_handleBranch39(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1660,7 +1660,7 @@ public class rebel_remembrance_day_wedge_antilles extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int rebel_remembrance_day_wedge_antilles_handleBranch40(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1699,7 +1699,7 @@ public class rebel_remembrance_day_wedge_antilles extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int rebel_remembrance_day_wedge_antilles_handleBranch41(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1737,7 +1737,7 @@ public class rebel_remembrance_day_wedge_antilles extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int rebel_remembrance_day_wedge_antilles_handleBranch42(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1775,7 +1775,7 @@ public class rebel_remembrance_day_wedge_antilles extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int rebel_remembrance_day_wedge_antilles_handleBranch43(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1790,7 +1790,7 @@ public class rebel_remembrance_day_wedge_antilles extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int OnInitialize(obj_id self) throws InterruptedException
     {

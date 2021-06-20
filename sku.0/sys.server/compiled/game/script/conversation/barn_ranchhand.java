@@ -129,7 +129,7 @@ public class barn_ranchhand extends script.conversation.base.conversation_base
             npcEndConversationWithMessage(player, new string_id(c_stringFile, "s_24"));
             return SCRIPT_CONTINUE;
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     private int barn_ranchhand_handleBranch8(obj_id player, string_id response) throws InterruptedException
     {
@@ -139,7 +139,7 @@ public class barn_ranchhand extends script.conversation.base.conversation_base
             npcEndConversationWithMessage(player, new string_id(c_stringFile, "s_30"));
             return SCRIPT_CONTINUE;
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int OnInitialize(obj_id self) throws InterruptedException
     {

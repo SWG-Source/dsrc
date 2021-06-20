@@ -57,7 +57,7 @@ public class naboo_theed_sgt_brunser extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int naboo_theed_sgt_brunser_handleBranch5(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -95,7 +95,7 @@ public class naboo_theed_sgt_brunser extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int naboo_theed_sgt_brunser_handleBranch6(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -110,7 +110,7 @@ public class naboo_theed_sgt_brunser extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int OnInitialize(obj_id self) throws InterruptedException
     {

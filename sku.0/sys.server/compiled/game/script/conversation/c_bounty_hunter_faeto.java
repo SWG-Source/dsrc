@@ -60,7 +60,7 @@ public class c_bounty_hunter_faeto extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int c_bounty_hunter_faeto_handleBranch4(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -74,7 +74,7 @@ public class c_bounty_hunter_faeto extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int c_bounty_hunter_faeto_handleBranch6(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -158,7 +158,7 @@ public class c_bounty_hunter_faeto extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int c_bounty_hunter_faeto_handleBranch7(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -172,7 +172,7 @@ public class c_bounty_hunter_faeto extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int c_bounty_hunter_faeto_handleBranch9(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -211,7 +211,7 @@ public class c_bounty_hunter_faeto extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int c_bounty_hunter_faeto_handleBranch10(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -250,7 +250,7 @@ public class c_bounty_hunter_faeto extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int c_bounty_hunter_faeto_handleBranch11(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -299,7 +299,7 @@ public class c_bounty_hunter_faeto extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int c_bounty_hunter_faeto_handleBranch12(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -474,7 +474,7 @@ public class c_bounty_hunter_faeto extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int c_bounty_hunter_faeto_handleBranch13(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -513,7 +513,7 @@ public class c_bounty_hunter_faeto extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int OnInitialize(obj_id self) throws InterruptedException
     {

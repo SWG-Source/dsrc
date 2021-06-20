@@ -65,7 +65,7 @@ public class barada extends script.conversation.base.conversation_base
             npcEndConversationWithMessage(player, new string_id(c_stringFile, "s_42"));
             return SCRIPT_CONTINUE;
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     private int barada_handleBranch6(obj_id player, string_id response) throws InterruptedException
     {
@@ -80,7 +80,7 @@ public class barada extends script.conversation.base.conversation_base
             npcEndConversationWithMessage(player, new string_id(c_stringFile, "s_38"));
             return SCRIPT_CONTINUE;
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     private int barada_handleBranch7(obj_id player, string_id response) throws InterruptedException
     {
@@ -95,7 +95,7 @@ public class barada extends script.conversation.base.conversation_base
             npcEndConversationWithMessage(player, new string_id(c_stringFile, "s_38"));
             return SCRIPT_CONTINUE;
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     private int barada_handleBranch8(obj_id player, string_id response) throws InterruptedException
     {
@@ -112,7 +112,7 @@ public class barada extends script.conversation.base.conversation_base
             npcEndConversationWithMessage(player, new string_id(c_stringFile, "s_42"));
             return SCRIPT_CONTINUE;
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int OnInitialize(obj_id self) throws InterruptedException
     {

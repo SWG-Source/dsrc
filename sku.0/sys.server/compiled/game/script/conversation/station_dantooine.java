@@ -887,7 +887,7 @@ public class station_dantooine extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int station_dantooine_handleBranch4(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1201,7 +1201,7 @@ public class station_dantooine extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int station_dantooine_handleBranch5(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1439,7 +1439,7 @@ public class station_dantooine extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int station_dantooine_handleBranch7(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1753,7 +1753,7 @@ public class station_dantooine extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int station_dantooine_handleBranch8(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1991,7 +1991,7 @@ public class station_dantooine extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int station_dantooine_handleBranch10(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -2305,7 +2305,7 @@ public class station_dantooine extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int station_dantooine_handleBranch11(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -2543,7 +2543,7 @@ public class station_dantooine extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int station_dantooine_handleBranch13(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -2857,7 +2857,7 @@ public class station_dantooine extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int station_dantooine_handleBranch14(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -3095,7 +3095,7 @@ public class station_dantooine extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int station_dantooine_handleBranch16(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -3409,7 +3409,7 @@ public class station_dantooine extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int station_dantooine_handleBranch17(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -3647,7 +3647,7 @@ public class station_dantooine extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int station_dantooine_handleBranch19(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -3961,7 +3961,7 @@ public class station_dantooine extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int station_dantooine_handleBranch20(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -4199,7 +4199,7 @@ public class station_dantooine extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int station_dantooine_handleBranch22(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -4513,7 +4513,7 @@ public class station_dantooine extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int station_dantooine_handleBranch23(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -4827,7 +4827,7 @@ public class station_dantooine extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int station_dantooine_handleBranch24(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -5141,7 +5141,7 @@ public class station_dantooine extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int station_dantooine_handleBranch25(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -5455,7 +5455,7 @@ public class station_dantooine extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int station_dantooine_handleBranch26(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -5769,7 +5769,7 @@ public class station_dantooine extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int station_dantooine_handleBranch28(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -5852,7 +5852,7 @@ public class station_dantooine extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int station_dantooine_handleBranch29(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -6166,7 +6166,7 @@ public class station_dantooine extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int station_dantooine_handleBranch30(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -6248,7 +6248,7 @@ public class station_dantooine extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int station_dantooine_handleBranch31(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -6562,7 +6562,7 @@ public class station_dantooine extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int station_dantooine_handleBranch32(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -6876,7 +6876,7 @@ public class station_dantooine extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int station_dantooine_handleBranch33(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -6958,7 +6958,7 @@ public class station_dantooine extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int station_dantooine_handleBranch34(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -7153,7 +7153,7 @@ public class station_dantooine extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int station_dantooine_handleBranch35(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -7178,7 +7178,7 @@ public class station_dantooine extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int station_dantooine_handleBranch38(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -7203,7 +7203,7 @@ public class station_dantooine extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int station_dantooine_handleBranch41(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -7228,7 +7228,7 @@ public class station_dantooine extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int station_dantooine_handleBranch45(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -7253,7 +7253,7 @@ public class station_dantooine extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int station_dantooine_handleBranch48(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -7347,7 +7347,7 @@ public class station_dantooine extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int station_dantooine_handleBranch49(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -7443,7 +7443,7 @@ public class station_dantooine extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int station_dantooine_handleBranch51(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -7539,7 +7539,7 @@ public class station_dantooine extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int station_dantooine_handleBranch53(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -7785,7 +7785,7 @@ public class station_dantooine extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int station_dantooine_handleBranch54(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -7810,7 +7810,7 @@ public class station_dantooine extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int station_dantooine_handleBranch57(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -7835,7 +7835,7 @@ public class station_dantooine extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int station_dantooine_handleBranch60(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -7860,7 +7860,7 @@ public class station_dantooine extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int station_dantooine_handleBranch63(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -7966,7 +7966,7 @@ public class station_dantooine extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int station_dantooine_handleBranch65(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -8090,7 +8090,7 @@ public class station_dantooine extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int station_dantooine_handleBranch67(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -8115,7 +8115,7 @@ public class station_dantooine extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int station_dantooine_handleBranch71(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -8503,7 +8503,7 @@ public class station_dantooine extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int station_dantooine_handleBranch72(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -8638,7 +8638,7 @@ public class station_dantooine extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int station_dantooine_handleBranch85(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -8653,7 +8653,7 @@ public class station_dantooine extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int station_dantooine_handleBranch87(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -8967,7 +8967,7 @@ public class station_dantooine extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int station_dantooine_handleBranch88(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -9015,7 +9015,7 @@ public class station_dantooine extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int station_dantooine_handleBranch94(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -9040,7 +9040,7 @@ public class station_dantooine extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int station_dantooine_handleBranch98(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -9089,7 +9089,7 @@ public class station_dantooine extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int station_dantooine_handleBranch99(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -9148,7 +9148,7 @@ public class station_dantooine extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int station_dantooine_handleBranch100(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -9173,7 +9173,7 @@ public class station_dantooine extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int station_dantooine_handleBranch105(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -9221,7 +9221,7 @@ public class station_dantooine extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int station_dantooine_handleBranch106(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -9259,7 +9259,7 @@ public class station_dantooine extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int station_dantooine_handleBranch107(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -9308,7 +9308,7 @@ public class station_dantooine extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int station_dantooine_handleBranch108(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -9333,7 +9333,7 @@ public class station_dantooine extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int OnInitialize(obj_id self) throws InterruptedException
     {

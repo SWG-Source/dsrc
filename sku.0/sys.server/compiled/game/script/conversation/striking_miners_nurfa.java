@@ -78,7 +78,7 @@ public class striking_miners_nurfa extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int striking_miners_nurfa_handleBranch3(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -95,7 +95,7 @@ public class striking_miners_nurfa extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int striking_miners_nurfa_handleBranch5(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -110,7 +110,7 @@ public class striking_miners_nurfa extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int striking_miners_nurfa_handleBranch7(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -149,7 +149,7 @@ public class striking_miners_nurfa extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int striking_miners_nurfa_handleBranch8(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -189,7 +189,7 @@ public class striking_miners_nurfa extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int striking_miners_nurfa_handleBranch9(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -228,7 +228,7 @@ public class striking_miners_nurfa extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int striking_miners_nurfa_handleBranch10(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -268,7 +268,7 @@ public class striking_miners_nurfa extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int striking_miners_nurfa_handleBranch11(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -284,7 +284,7 @@ public class striking_miners_nurfa extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int OnInitialize(obj_id self) throws InterruptedException
     {

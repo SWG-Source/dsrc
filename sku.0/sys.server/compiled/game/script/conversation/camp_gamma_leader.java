@@ -54,7 +54,7 @@ public class camp_gamma_leader extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int camp_gamma_leader_handleBranch3(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -92,7 +92,7 @@ public class camp_gamma_leader extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int camp_gamma_leader_handleBranch4(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -107,7 +107,7 @@ public class camp_gamma_leader extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int camp_gamma_leader_handleBranch6(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -146,7 +146,7 @@ public class camp_gamma_leader extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int camp_gamma_leader_handleBranch7(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -184,7 +184,7 @@ public class camp_gamma_leader extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int camp_gamma_leader_handleBranch8(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -222,7 +222,7 @@ public class camp_gamma_leader extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int camp_gamma_leader_handleBranch9(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -260,7 +260,7 @@ public class camp_gamma_leader extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int camp_gamma_leader_handleBranch10(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -299,7 +299,7 @@ public class camp_gamma_leader extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int camp_gamma_leader_handleBranch11(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -314,7 +314,7 @@ public class camp_gamma_leader extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int OnInitialize(obj_id self) throws InterruptedException
     {

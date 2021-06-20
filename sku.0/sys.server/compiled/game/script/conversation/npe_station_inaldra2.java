@@ -180,7 +180,7 @@ public class npe_station_inaldra2 extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int npe_station_inaldra2_handleBranch3(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -195,7 +195,7 @@ public class npe_station_inaldra2 extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int npe_station_inaldra2_handleBranch5(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -256,7 +256,7 @@ public class npe_station_inaldra2 extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int npe_station_inaldra2_handleBranch6(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -372,7 +372,7 @@ public class npe_station_inaldra2 extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int npe_station_inaldra2_handleBranch7(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -410,7 +410,7 @@ public class npe_station_inaldra2 extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int npe_station_inaldra2_handleBranch8(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -449,7 +449,7 @@ public class npe_station_inaldra2 extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int npe_station_inaldra2_handleBranch9(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -464,7 +464,7 @@ public class npe_station_inaldra2 extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int npe_station_inaldra2_handleBranch11(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -525,7 +525,7 @@ public class npe_station_inaldra2 extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int npe_station_inaldra2_handleBranch12(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -586,7 +586,7 @@ public class npe_station_inaldra2 extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int OnInitialize(obj_id self) throws InterruptedException
     {

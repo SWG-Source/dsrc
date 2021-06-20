@@ -108,7 +108,7 @@ public class legacy_naboo_rabe extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int legacy_naboo_rabe_handleBranch3(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -147,7 +147,7 @@ public class legacy_naboo_rabe extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int legacy_naboo_rabe_handleBranch4(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -186,7 +186,7 @@ public class legacy_naboo_rabe extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int legacy_naboo_rabe_handleBranch5(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -225,7 +225,7 @@ public class legacy_naboo_rabe extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int legacy_naboo_rabe_handleBranch6(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -264,7 +264,7 @@ public class legacy_naboo_rabe extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int legacy_naboo_rabe_handleBranch7(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -280,7 +280,7 @@ public class legacy_naboo_rabe extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int legacy_naboo_rabe_handleBranch9(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -319,7 +319,7 @@ public class legacy_naboo_rabe extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int OnInitialize(obj_id self) throws InterruptedException
     {

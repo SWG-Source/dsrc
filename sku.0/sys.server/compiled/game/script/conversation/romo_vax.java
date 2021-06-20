@@ -144,7 +144,7 @@ public class romo_vax extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int romo_vax_handleBranch4(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -182,7 +182,7 @@ public class romo_vax extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int romo_vax_handleBranch5(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -220,7 +220,7 @@ public class romo_vax extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int romo_vax_handleBranch6(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -234,7 +234,7 @@ public class romo_vax extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int romo_vax_handleBranch8(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -272,7 +272,7 @@ public class romo_vax extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int romo_vax_handleBranch10(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -310,7 +310,7 @@ public class romo_vax extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int romo_vax_handleBranch11(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -325,7 +325,7 @@ public class romo_vax extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int OnInitialize(obj_id self) throws InterruptedException
     {

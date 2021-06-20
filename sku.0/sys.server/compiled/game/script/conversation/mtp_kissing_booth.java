@@ -77,7 +77,7 @@ public class mtp_kissing_booth extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int mtp_kissing_booth_handleBranch4(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -91,7 +91,7 @@ public class mtp_kissing_booth extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int mtp_kissing_booth_handleBranch6(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -139,7 +139,7 @@ public class mtp_kissing_booth extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int mtp_kissing_booth_handleBranch8(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -153,7 +153,7 @@ public class mtp_kissing_booth extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public static final string_id SID_NOT_A_LUMP = new string_id("collection", "not_a_lump");
     public static final string_id SID_ALREADY_HAS_KISS_BUFF = new string_id("collection", "has_kiss_buff");

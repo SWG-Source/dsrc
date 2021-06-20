@@ -920,7 +920,7 @@ public class fan_faire_pgc_c3po extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int fan_faire_pgc_c3po_handleBranch2(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1813,7 +1813,7 @@ public class fan_faire_pgc_c3po extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int fan_faire_pgc_c3po_handleBranch3(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -2706,7 +2706,7 @@ public class fan_faire_pgc_c3po extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int fan_faire_pgc_c3po_handleBranch4(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -3598,7 +3598,7 @@ public class fan_faire_pgc_c3po extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int fan_faire_pgc_c3po_handleBranch5(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -4490,7 +4490,7 @@ public class fan_faire_pgc_c3po extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int fan_faire_pgc_c3po_handleBranch6(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -5382,7 +5382,7 @@ public class fan_faire_pgc_c3po extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int fan_faire_pgc_c3po_handleBranch7(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -6274,7 +6274,7 @@ public class fan_faire_pgc_c3po extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int fan_faire_pgc_c3po_handleBranch8(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -7166,7 +7166,7 @@ public class fan_faire_pgc_c3po extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int fan_faire_pgc_c3po_handleBranch9(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -8058,7 +8058,7 @@ public class fan_faire_pgc_c3po extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int fan_faire_pgc_c3po_handleBranch10(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -8950,7 +8950,7 @@ public class fan_faire_pgc_c3po extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int fan_faire_pgc_c3po_handleBranch11(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -9842,7 +9842,7 @@ public class fan_faire_pgc_c3po extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int fan_faire_pgc_c3po_handleBranch12(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -10735,7 +10735,7 @@ public class fan_faire_pgc_c3po extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int fan_faire_pgc_c3po_handleBranch13(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -11628,7 +11628,7 @@ public class fan_faire_pgc_c3po extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int fan_faire_pgc_c3po_handleBranch14(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -12521,7 +12521,7 @@ public class fan_faire_pgc_c3po extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int fan_faire_pgc_c3po_handleBranch15(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -13414,7 +13414,7 @@ public class fan_faire_pgc_c3po extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int fan_faire_pgc_c3po_handleBranch16(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -14307,7 +14307,7 @@ public class fan_faire_pgc_c3po extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int fan_faire_pgc_c3po_handleBranch17(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -15200,7 +15200,7 @@ public class fan_faire_pgc_c3po extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int OnInitialize(obj_id self) throws InterruptedException
     {

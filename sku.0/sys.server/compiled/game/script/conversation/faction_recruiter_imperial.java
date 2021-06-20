@@ -243,7 +243,7 @@ public class faction_recruiter_imperial extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int faction_recruiter_imperial_handleBranch2(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -269,7 +269,7 @@ public class faction_recruiter_imperial extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int faction_recruiter_imperial_handleBranch7(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -455,7 +455,7 @@ public class faction_recruiter_imperial extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int faction_recruiter_imperial_handleBranch12(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -703,7 +703,7 @@ public class faction_recruiter_imperial extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int faction_recruiter_imperial_handleBranch13(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -785,7 +785,7 @@ public class faction_recruiter_imperial extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int faction_recruiter_imperial_handleBranch15(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -971,7 +971,7 @@ public class faction_recruiter_imperial extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int faction_recruiter_imperial_handleBranch16(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1053,7 +1053,7 @@ public class faction_recruiter_imperial extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int faction_recruiter_imperial_handleBranch18(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1239,7 +1239,7 @@ public class faction_recruiter_imperial extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int faction_recruiter_imperial_handleBranch19(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1322,7 +1322,7 @@ public class faction_recruiter_imperial extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int faction_recruiter_imperial_handleBranch21(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1508,7 +1508,7 @@ public class faction_recruiter_imperial extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int faction_recruiter_imperial_handleBranch22(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1533,7 +1533,7 @@ public class faction_recruiter_imperial extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int faction_recruiter_imperial_handleBranch25(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1719,7 +1719,7 @@ public class faction_recruiter_imperial extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int faction_recruiter_imperial_handleBranch26(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1905,7 +1905,7 @@ public class faction_recruiter_imperial extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int faction_recruiter_imperial_handleBranch27(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -2020,7 +2020,7 @@ public class faction_recruiter_imperial extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int faction_recruiter_imperial_handleBranch30(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -2076,7 +2076,7 @@ public class faction_recruiter_imperial extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int faction_recruiter_imperial_handleBranch31(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -2120,7 +2120,7 @@ public class faction_recruiter_imperial extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int faction_recruiter_imperial_handleBranch37(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -2200,7 +2200,7 @@ public class faction_recruiter_imperial extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int faction_recruiter_imperial_handleBranch38(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -2239,7 +2239,7 @@ public class faction_recruiter_imperial extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int faction_recruiter_imperial_handleBranch39(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -2417,7 +2417,7 @@ public class faction_recruiter_imperial extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int faction_recruiter_imperial_handleBranch40(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -2595,7 +2595,7 @@ public class faction_recruiter_imperial extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int OnInitialize(obj_id self) throws InterruptedException
     {

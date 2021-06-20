@@ -138,7 +138,7 @@ public class kole extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int kole_handleBranch4(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -157,7 +157,7 @@ public class kole extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int kole_handleBranch6(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -172,7 +172,7 @@ public class kole extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int kole_handleBranch7(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -210,7 +210,7 @@ public class kole extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int kole_handleBranch8(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -248,7 +248,7 @@ public class kole extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int kole_handleBranch9(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -263,7 +263,7 @@ public class kole extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int kole_handleBranch12(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -301,7 +301,7 @@ public class kole extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int kole_handleBranch13(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -350,7 +350,7 @@ public class kole extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int kole_handleBranch14(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -433,7 +433,7 @@ public class kole extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int kole_handleBranch15(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -505,7 +505,7 @@ public class kole extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int kole_handleBranch16(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -543,7 +543,7 @@ public class kole extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int kole_handleBranch17(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -558,7 +558,7 @@ public class kole extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int kole_handleBranch19(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -596,7 +596,7 @@ public class kole extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int kole_handleBranch20(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -645,7 +645,7 @@ public class kole extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int OnInitialize(obj_id self) throws InterruptedException
     {

@@ -192,7 +192,7 @@ public class c_kashyyyk_hunter extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int c_kashyyyk_hunter_handleBranch2(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -323,7 +323,7 @@ public class c_kashyyyk_hunter extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int c_kashyyyk_hunter_handleBranch3(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -441,7 +441,7 @@ public class c_kashyyyk_hunter extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int c_kashyyyk_hunter_handleBranch4(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -550,7 +550,7 @@ public class c_kashyyyk_hunter extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int c_kashyyyk_hunter_handleBranch5(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -589,7 +589,7 @@ public class c_kashyyyk_hunter extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int c_kashyyyk_hunter_handleBranch6(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -604,7 +604,7 @@ public class c_kashyyyk_hunter extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int c_kashyyyk_hunter_handleBranch8(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -735,7 +735,7 @@ public class c_kashyyyk_hunter extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int c_kashyyyk_hunter_handleBranch9(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -854,7 +854,7 @@ public class c_kashyyyk_hunter extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int c_kashyyyk_hunter_handleBranch10(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -963,7 +963,7 @@ public class c_kashyyyk_hunter extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int c_kashyyyk_hunter_handleBranch11(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1002,7 +1002,7 @@ public class c_kashyyyk_hunter extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int c_kashyyyk_hunter_handleBranch12(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1017,7 +1017,7 @@ public class c_kashyyyk_hunter extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int c_kashyyyk_hunter_handleBranch14(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1149,7 +1149,7 @@ public class c_kashyyyk_hunter extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int c_kashyyyk_hunter_handleBranch15(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1210,7 +1210,7 @@ public class c_kashyyyk_hunter extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int c_kashyyyk_hunter_handleBranch16(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1330,7 +1330,7 @@ public class c_kashyyyk_hunter extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int c_kashyyyk_hunter_handleBranch17(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1369,7 +1369,7 @@ public class c_kashyyyk_hunter extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int c_kashyyyk_hunter_handleBranch18(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1384,7 +1384,7 @@ public class c_kashyyyk_hunter extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int OnInitialize(obj_id self) throws InterruptedException
     {

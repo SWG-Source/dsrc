@@ -127,7 +127,7 @@ public class ep3_etyyy_kerssoc extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_etyyy_kerssoc_handleBranch7(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -154,7 +154,7 @@ public class ep3_etyyy_kerssoc extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_etyyy_kerssoc_handleBranch10(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -189,7 +189,7 @@ public class ep3_etyyy_kerssoc extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_etyyy_kerssoc_handleBranch14(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -224,7 +224,7 @@ public class ep3_etyyy_kerssoc extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_etyyy_kerssoc_handleBranch19(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -274,7 +274,7 @@ public class ep3_etyyy_kerssoc extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_etyyy_kerssoc_handleBranch20(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -309,7 +309,7 @@ public class ep3_etyyy_kerssoc extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_etyyy_kerssoc_handleBranch24(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -324,7 +324,7 @@ public class ep3_etyyy_kerssoc extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_etyyy_kerssoc_handleBranch26(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -374,7 +374,7 @@ public class ep3_etyyy_kerssoc extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_etyyy_kerssoc_handleBranch27(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -424,7 +424,7 @@ public class ep3_etyyy_kerssoc extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_etyyy_kerssoc_handleBranch28(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -451,7 +451,7 @@ public class ep3_etyyy_kerssoc extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_etyyy_kerssoc_handleBranch32(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -501,7 +501,7 @@ public class ep3_etyyy_kerssoc extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_etyyy_kerssoc_handleBranch33(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -551,7 +551,7 @@ public class ep3_etyyy_kerssoc extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_etyyy_kerssoc_handleBranch34(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -601,7 +601,7 @@ public class ep3_etyyy_kerssoc extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_etyyy_kerssoc_handleBranch35(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -651,7 +651,7 @@ public class ep3_etyyy_kerssoc extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int OnInitialize(obj_id self) throws InterruptedException
     {

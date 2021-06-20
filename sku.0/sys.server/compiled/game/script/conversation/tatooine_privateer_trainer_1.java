@@ -580,7 +580,7 @@ public class tatooine_privateer_trainer_1 extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int tatooine_privateer_trainer_1_handleBranch2(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -755,7 +755,7 @@ public class tatooine_privateer_trainer_1 extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int tatooine_privateer_trainer_1_handleBranch3(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -931,7 +931,7 @@ public class tatooine_privateer_trainer_1 extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int tatooine_privateer_trainer_1_handleBranch4(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1107,7 +1107,7 @@ public class tatooine_privateer_trainer_1 extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int tatooine_privateer_trainer_1_handleBranch5(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1283,7 +1283,7 @@ public class tatooine_privateer_trainer_1 extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int tatooine_privateer_trainer_1_handleBranch6(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1458,7 +1458,7 @@ public class tatooine_privateer_trainer_1 extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int tatooine_privateer_trainer_1_handleBranch7(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1633,7 +1633,7 @@ public class tatooine_privateer_trainer_1 extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int tatooine_privateer_trainer_1_handleBranch11(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1713,7 +1713,7 @@ public class tatooine_privateer_trainer_1 extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int tatooine_privateer_trainer_1_handleBranch12(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1928,7 +1928,7 @@ public class tatooine_privateer_trainer_1 extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int tatooine_privateer_trainer_1_handleBranch14(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -2130,7 +2130,7 @@ public class tatooine_privateer_trainer_1 extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int tatooine_privateer_trainer_1_handleBranch15(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -2228,7 +2228,7 @@ public class tatooine_privateer_trainer_1 extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int tatooine_privateer_trainer_1_handleBranch16(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -2326,7 +2326,7 @@ public class tatooine_privateer_trainer_1 extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int tatooine_privateer_trainer_1_handleBranch17(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -2377,7 +2377,7 @@ public class tatooine_privateer_trainer_1 extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int tatooine_privateer_trainer_1_handleBranch18(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -2428,7 +2428,7 @@ public class tatooine_privateer_trainer_1 extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int tatooine_privateer_trainer_1_handleBranch19(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -2513,7 +2513,7 @@ public class tatooine_privateer_trainer_1 extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int tatooine_privateer_trainer_1_handleBranch20(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -2553,7 +2553,7 @@ public class tatooine_privateer_trainer_1 extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int tatooine_privateer_trainer_1_handleBranch21(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -2614,7 +2614,7 @@ public class tatooine_privateer_trainer_1 extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int tatooine_privateer_trainer_1_handleBranch23(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -2664,7 +2664,7 @@ public class tatooine_privateer_trainer_1 extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int tatooine_privateer_trainer_1_handleBranch24(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -2725,7 +2725,7 @@ public class tatooine_privateer_trainer_1 extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int tatooine_privateer_trainer_1_handleBranch25(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -2832,7 +2832,7 @@ public class tatooine_privateer_trainer_1 extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int tatooine_privateer_trainer_1_handleBranch26(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -2881,7 +2881,7 @@ public class tatooine_privateer_trainer_1 extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int tatooine_privateer_trainer_1_handleBranch27(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -2988,7 +2988,7 @@ public class tatooine_privateer_trainer_1 extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int tatooine_privateer_trainer_1_handleBranch28(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -3060,7 +3060,7 @@ public class tatooine_privateer_trainer_1 extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int tatooine_privateer_trainer_1_handleBranch32(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -3145,7 +3145,7 @@ public class tatooine_privateer_trainer_1 extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int tatooine_privateer_trainer_1_handleBranch33(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -3184,7 +3184,7 @@ public class tatooine_privateer_trainer_1 extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int tatooine_privateer_trainer_1_handleBranch34(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -3258,7 +3258,7 @@ public class tatooine_privateer_trainer_1 extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int tatooine_privateer_trainer_1_handleBranch35(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -3297,7 +3297,7 @@ public class tatooine_privateer_trainer_1 extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int tatooine_privateer_trainer_1_handleBranch36(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -3404,7 +3404,7 @@ public class tatooine_privateer_trainer_1 extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int tatooine_privateer_trainer_1_handleBranch37(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -3474,7 +3474,7 @@ public class tatooine_privateer_trainer_1 extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int tatooine_privateer_trainer_1_handleBranch40(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -3534,7 +3534,7 @@ public class tatooine_privateer_trainer_1 extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int tatooine_privateer_trainer_1_handleBranch41(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -3559,7 +3559,7 @@ public class tatooine_privateer_trainer_1 extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int tatooine_privateer_trainer_1_handleBranch52(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -4961,7 +4961,7 @@ public class tatooine_privateer_trainer_1 extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int tatooine_privateer_trainer_1_handleBranch53(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -4977,7 +4977,7 @@ public class tatooine_privateer_trainer_1 extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int tatooine_privateer_trainer_1_handleBranch55(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -6379,7 +6379,7 @@ public class tatooine_privateer_trainer_1 extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int tatooine_privateer_trainer_1_handleBranch56(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -6395,7 +6395,7 @@ public class tatooine_privateer_trainer_1 extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int tatooine_privateer_trainer_1_handleBranch58(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -7799,7 +7799,7 @@ public class tatooine_privateer_trainer_1 extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int tatooine_privateer_trainer_1_handleBranch59(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -7818,7 +7818,7 @@ public class tatooine_privateer_trainer_1 extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int tatooine_privateer_trainer_1_handleBranch61(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -9220,7 +9220,7 @@ public class tatooine_privateer_trainer_1 extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int tatooine_privateer_trainer_1_handleBranch62(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -9240,7 +9240,7 @@ public class tatooine_privateer_trainer_1 extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int tatooine_privateer_trainer_1_handleBranch64(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -9286,7 +9286,7 @@ public class tatooine_privateer_trainer_1 extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int tatooine_privateer_trainer_1_handleBranch65(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -9325,7 +9325,7 @@ public class tatooine_privateer_trainer_1 extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int tatooine_privateer_trainer_1_handleBranch66(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -9340,7 +9340,7 @@ public class tatooine_privateer_trainer_1 extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int tatooine_privateer_trainer_1_handleBranch68(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -9378,7 +9378,7 @@ public class tatooine_privateer_trainer_1 extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int tatooine_privateer_trainer_1_handleBranch69(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -9393,7 +9393,7 @@ public class tatooine_privateer_trainer_1 extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int tatooine_privateer_trainer_1_handleBranch71(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -9524,7 +9524,7 @@ public class tatooine_privateer_trainer_1 extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int tatooine_privateer_trainer_1_handleBranch72(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -9539,7 +9539,7 @@ public class tatooine_privateer_trainer_1 extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int tatooine_privateer_trainer_1_handleBranch74(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -9554,7 +9554,7 @@ public class tatooine_privateer_trainer_1 extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int tatooine_privateer_trainer_1_handleBranch76(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -9569,7 +9569,7 @@ public class tatooine_privateer_trainer_1 extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int tatooine_privateer_trainer_1_handleBranch78(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -9584,7 +9584,7 @@ public class tatooine_privateer_trainer_1 extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int tatooine_privateer_trainer_1_handleBranch80(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -9799,7 +9799,7 @@ public class tatooine_privateer_trainer_1 extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int tatooine_privateer_trainer_1_handleBranch81(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -10014,7 +10014,7 @@ public class tatooine_privateer_trainer_1 extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int tatooine_privateer_trainer_1_handleBranch82(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -10066,7 +10066,7 @@ public class tatooine_privateer_trainer_1 extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int tatooine_privateer_trainer_1_handleBranch87(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -10281,7 +10281,7 @@ public class tatooine_privateer_trainer_1 extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int OnInitialize(obj_id self) throws InterruptedException
     {

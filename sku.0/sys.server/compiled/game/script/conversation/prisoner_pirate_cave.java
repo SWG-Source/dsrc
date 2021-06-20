@@ -87,7 +87,7 @@ public class prisoner_pirate_cave extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int prisoner_pirate_cave_handleBranch4(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -102,7 +102,7 @@ public class prisoner_pirate_cave extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public static final string_id SID_TOO_FAR = new string_id("spam", "too_far_from_prisoner");
     public int OnInitialize(obj_id self) throws InterruptedException

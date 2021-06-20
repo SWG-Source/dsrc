@@ -393,7 +393,7 @@ public class ep3_eyma extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_eyma_handleBranch2(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -411,7 +411,7 @@ public class ep3_eyma extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_eyma_handleBranch4(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -429,7 +429,7 @@ public class ep3_eyma extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_eyma_handleBranch6(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -447,7 +447,7 @@ public class ep3_eyma extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_eyma_handleBranch8(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -462,7 +462,7 @@ public class ep3_eyma extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_eyma_handleBranch10(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -481,7 +481,7 @@ public class ep3_eyma extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_eyma_handleBranch12(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -578,7 +578,7 @@ public class ep3_eyma extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_eyma_handleBranch14(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -634,7 +634,7 @@ public class ep3_eyma extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_eyma_handleBranch16(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -652,7 +652,7 @@ public class ep3_eyma extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_eyma_handleBranch18(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -690,7 +690,7 @@ public class ep3_eyma extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_eyma_handleBranch19(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -704,7 +704,7 @@ public class ep3_eyma extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_eyma_handleBranch21(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -743,7 +743,7 @@ public class ep3_eyma extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_eyma_handleBranch22(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -757,7 +757,7 @@ public class ep3_eyma extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_eyma_handleBranch24(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -878,7 +878,7 @@ public class ep3_eyma extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_eyma_handleBranch26(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -926,7 +926,7 @@ public class ep3_eyma extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_eyma_handleBranch27(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -945,7 +945,7 @@ public class ep3_eyma extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_eyma_handleBranch30(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1056,7 +1056,7 @@ public class ep3_eyma extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_eyma_handleBranch31(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1094,7 +1094,7 @@ public class ep3_eyma extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_eyma_handleBranch32(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1132,7 +1132,7 @@ public class ep3_eyma extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_eyma_handleBranch33(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1170,7 +1170,7 @@ public class ep3_eyma extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_eyma_handleBranch34(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1189,7 +1189,7 @@ public class ep3_eyma extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_eyma_handleBranch36(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1280,7 +1280,7 @@ public class ep3_eyma extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_eyma_handleBranch37(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1318,7 +1318,7 @@ public class ep3_eyma extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_eyma_handleBranch38(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1356,7 +1356,7 @@ public class ep3_eyma extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_eyma_handleBranch39(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1375,7 +1375,7 @@ public class ep3_eyma extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_eyma_handleBranch41(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1447,7 +1447,7 @@ public class ep3_eyma extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_eyma_handleBranch42(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1485,7 +1485,7 @@ public class ep3_eyma extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_eyma_handleBranch43(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1504,7 +1504,7 @@ public class ep3_eyma extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_eyma_handleBranch45(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1542,7 +1542,7 @@ public class ep3_eyma extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_eyma_handleBranch46(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1580,7 +1580,7 @@ public class ep3_eyma extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_eyma_handleBranch47(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1599,7 +1599,7 @@ public class ep3_eyma extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_eyma_handleBranch49(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1648,7 +1648,7 @@ public class ep3_eyma extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_eyma_handleBranch50(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1721,7 +1721,7 @@ public class ep3_eyma extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_eyma_handleBranch51(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1740,7 +1740,7 @@ public class ep3_eyma extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_eyma_handleBranch53(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1778,7 +1778,7 @@ public class ep3_eyma extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_eyma_handleBranch54(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1797,7 +1797,7 @@ public class ep3_eyma extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_eyma_handleBranch56(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1823,7 +1823,7 @@ public class ep3_eyma extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_eyma_handleBranch60(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1873,7 +1873,7 @@ public class ep3_eyma extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_eyma_handleBranch61(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1923,7 +1923,7 @@ public class ep3_eyma extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_eyma_handleBranch62(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1938,7 +1938,7 @@ public class ep3_eyma extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_eyma_handleBranch65(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1988,7 +1988,7 @@ public class ep3_eyma extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_eyma_handleBranch66(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -2102,7 +2102,7 @@ public class ep3_eyma extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_eyma_handleBranch67(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -2132,7 +2132,7 @@ public class ep3_eyma extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_eyma_handleBranch70(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -2217,7 +2217,7 @@ public class ep3_eyma extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_eyma_handleBranch71(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -2243,7 +2243,7 @@ public class ep3_eyma extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_eyma_handleBranch74(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -2258,7 +2258,7 @@ public class ep3_eyma extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_eyma_handleBranch77(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -2283,7 +2283,7 @@ public class ep3_eyma extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_eyma_handleBranch80(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -2302,7 +2302,7 @@ public class ep3_eyma extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_eyma_handleBranch82(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -2363,7 +2363,7 @@ public class ep3_eyma extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_eyma_handleBranch83(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -2515,7 +2515,7 @@ public class ep3_eyma extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_eyma_handleBranch84(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -2530,7 +2530,7 @@ public class ep3_eyma extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_eyma_handleBranch86(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -2682,7 +2682,7 @@ public class ep3_eyma extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_eyma_handleBranch87(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -2834,7 +2834,7 @@ public class ep3_eyma extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_eyma_handleBranch88(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -2976,7 +2976,7 @@ public class ep3_eyma extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_eyma_handleBranch89(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -3060,7 +3060,7 @@ public class ep3_eyma extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_eyma_handleBranch90(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -3099,7 +3099,7 @@ public class ep3_eyma extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_eyma_handleBranch91(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -3184,7 +3184,7 @@ public class ep3_eyma extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_eyma_handleBranch92(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -3199,7 +3199,7 @@ public class ep3_eyma extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_eyma_handleBranch94(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -3273,7 +3273,7 @@ public class ep3_eyma extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_eyma_handleBranch95(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -3288,7 +3288,7 @@ public class ep3_eyma extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_eyma_handleBranch97(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -3303,7 +3303,7 @@ public class ep3_eyma extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_eyma_handleBranch99(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -3364,7 +3364,7 @@ public class ep3_eyma extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_eyma_handleBranch101(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -3414,7 +3414,7 @@ public class ep3_eyma extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_eyma_handleBranch103(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -3429,7 +3429,7 @@ public class ep3_eyma extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_eyma_handleBranch105(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -3479,7 +3479,7 @@ public class ep3_eyma extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int OnInitialize(obj_id self) throws InterruptedException
     {

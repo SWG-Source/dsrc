@@ -462,7 +462,7 @@ public class village_whip extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int village_whip_handleBranch9(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -500,7 +500,7 @@ public class village_whip extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int village_whip_handleBranch10(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -538,7 +538,7 @@ public class village_whip extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int village_whip_handleBranch11(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -587,7 +587,7 @@ public class village_whip extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int village_whip_handleBranch12(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -646,7 +646,7 @@ public class village_whip extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int village_whip_handleBranch13(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -705,7 +705,7 @@ public class village_whip extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int village_whip_handleBranch14(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -730,7 +730,7 @@ public class village_whip extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int village_whip_handleBranch24(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -834,7 +834,7 @@ public class village_whip extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int village_whip_handleBranch25(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -893,7 +893,7 @@ public class village_whip extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int village_whip_handleBranch26(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -952,7 +952,7 @@ public class village_whip extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int village_whip_handleBranch27(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1022,7 +1022,7 @@ public class village_whip extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int village_whip_handleBranch28(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1137,7 +1137,7 @@ public class village_whip extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int village_whip_handleBranch29(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1241,7 +1241,7 @@ public class village_whip extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int village_whip_handleBranch30(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1300,7 +1300,7 @@ public class village_whip extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int village_whip_handleBranch31(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1325,7 +1325,7 @@ public class village_whip extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int village_whip_handleBranch35(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1384,7 +1384,7 @@ public class village_whip extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int village_whip_handleBranch38(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1454,7 +1454,7 @@ public class village_whip extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int OnInitialize(obj_id self) throws InterruptedException
     {

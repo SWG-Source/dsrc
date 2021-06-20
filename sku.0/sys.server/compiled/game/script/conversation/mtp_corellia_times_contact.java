@@ -272,7 +272,7 @@ public class mtp_corellia_times_contact extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int mtp_corellia_times_contact_handleBranch5(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -310,7 +310,7 @@ public class mtp_corellia_times_contact extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int mtp_corellia_times_contact_handleBranch6(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -348,7 +348,7 @@ public class mtp_corellia_times_contact extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int mtp_corellia_times_contact_handleBranch7(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -387,7 +387,7 @@ public class mtp_corellia_times_contact extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int mtp_corellia_times_contact_handleBranch8(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -425,7 +425,7 @@ public class mtp_corellia_times_contact extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int mtp_corellia_times_contact_handleBranch9(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -463,7 +463,7 @@ public class mtp_corellia_times_contact extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int mtp_corellia_times_contact_handleBranch10(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -502,7 +502,7 @@ public class mtp_corellia_times_contact extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int mtp_corellia_times_contact_handleBranch11(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -541,7 +541,7 @@ public class mtp_corellia_times_contact extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int mtp_corellia_times_contact_handleBranch12(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -556,7 +556,7 @@ public class mtp_corellia_times_contact extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int mtp_corellia_times_contact_handleBranch14(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -626,7 +626,7 @@ public class mtp_corellia_times_contact extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int OnInitialize(obj_id self) throws InterruptedException
     {

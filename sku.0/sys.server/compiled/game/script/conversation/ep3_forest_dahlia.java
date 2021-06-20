@@ -145,7 +145,7 @@ public class ep3_forest_dahlia extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_forest_dahlia_handleBranch3(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -252,7 +252,7 @@ public class ep3_forest_dahlia extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_forest_dahlia_handleBranch4(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -290,7 +290,7 @@ public class ep3_forest_dahlia extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_forest_dahlia_handleBranch5(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -304,7 +304,7 @@ public class ep3_forest_dahlia extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_forest_dahlia_handleBranch7(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -343,7 +343,7 @@ public class ep3_forest_dahlia extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_forest_dahlia_handleBranch8(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -381,7 +381,7 @@ public class ep3_forest_dahlia extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_forest_dahlia_handleBranch9(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -395,7 +395,7 @@ public class ep3_forest_dahlia extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_forest_dahlia_handleBranch11(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -433,7 +433,7 @@ public class ep3_forest_dahlia extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_forest_dahlia_handleBranch12(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -448,7 +448,7 @@ public class ep3_forest_dahlia extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_forest_dahlia_handleBranch16(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -587,7 +587,7 @@ public class ep3_forest_dahlia extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_forest_dahlia_handleBranch17(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -660,7 +660,7 @@ public class ep3_forest_dahlia extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_forest_dahlia_handleBranch18(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -674,7 +674,7 @@ public class ep3_forest_dahlia extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_forest_dahlia_handleBranch20(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -688,7 +688,7 @@ public class ep3_forest_dahlia extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_forest_dahlia_handleBranch22(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -737,7 +737,7 @@ public class ep3_forest_dahlia extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_forest_dahlia_handleBranch23(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -751,7 +751,7 @@ public class ep3_forest_dahlia extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_forest_dahlia_handleBranch26(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -800,7 +800,7 @@ public class ep3_forest_dahlia extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_forest_dahlia_handleBranch27(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -839,7 +839,7 @@ public class ep3_forest_dahlia extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_forest_dahlia_handleBranch28(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -853,7 +853,7 @@ public class ep3_forest_dahlia extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_forest_dahlia_handleBranch31(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -962,7 +962,7 @@ public class ep3_forest_dahlia extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_forest_dahlia_handleBranch32(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -976,7 +976,7 @@ public class ep3_forest_dahlia extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_forest_dahlia_handleBranch34(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -990,7 +990,7 @@ public class ep3_forest_dahlia extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_forest_dahlia_handleBranch36(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1004,7 +1004,7 @@ public class ep3_forest_dahlia extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_forest_dahlia_handleBranch38(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1018,7 +1018,7 @@ public class ep3_forest_dahlia extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_forest_dahlia_handleBranch40(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1125,7 +1125,7 @@ public class ep3_forest_dahlia extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_forest_dahlia_handleBranch41(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1174,7 +1174,7 @@ public class ep3_forest_dahlia extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_forest_dahlia_handleBranch42(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1199,7 +1199,7 @@ public class ep3_forest_dahlia extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_forest_dahlia_handleBranch45(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1237,7 +1237,7 @@ public class ep3_forest_dahlia extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_forest_dahlia_handleBranch46(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1286,7 +1286,7 @@ public class ep3_forest_dahlia extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_forest_dahlia_handleBranch47(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1311,7 +1311,7 @@ public class ep3_forest_dahlia extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_forest_dahlia_handleBranch50(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1349,7 +1349,7 @@ public class ep3_forest_dahlia extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_forest_dahlia_handleBranch51(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1387,7 +1387,7 @@ public class ep3_forest_dahlia extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_forest_dahlia_handleBranch52(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1436,7 +1436,7 @@ public class ep3_forest_dahlia extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_forest_dahlia_handleBranch53(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1485,7 +1485,7 @@ public class ep3_forest_dahlia extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_forest_dahlia_handleBranch54(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1499,7 +1499,7 @@ public class ep3_forest_dahlia extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_forest_dahlia_handleBranch57(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1608,7 +1608,7 @@ public class ep3_forest_dahlia extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_forest_dahlia_handleBranch58(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1622,7 +1622,7 @@ public class ep3_forest_dahlia extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_forest_dahlia_handleBranch60(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1636,7 +1636,7 @@ public class ep3_forest_dahlia extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_forest_dahlia_handleBranch62(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1650,7 +1650,7 @@ public class ep3_forest_dahlia extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_forest_dahlia_handleBranch64(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1664,7 +1664,7 @@ public class ep3_forest_dahlia extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_forest_dahlia_handleBranch66(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1781,7 +1781,7 @@ public class ep3_forest_dahlia extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_forest_dahlia_handleBranch67(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1830,7 +1830,7 @@ public class ep3_forest_dahlia extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_forest_dahlia_handleBranch68(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1879,7 +1879,7 @@ public class ep3_forest_dahlia extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_forest_dahlia_handleBranch69(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1893,7 +1893,7 @@ public class ep3_forest_dahlia extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_forest_dahlia_handleBranch72(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1942,7 +1942,7 @@ public class ep3_forest_dahlia extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_forest_dahlia_handleBranch73(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1967,7 +1967,7 @@ public class ep3_forest_dahlia extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_forest_dahlia_handleBranch76(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -2051,7 +2051,7 @@ public class ep3_forest_dahlia extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_forest_dahlia_handleBranch77(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -2076,7 +2076,7 @@ public class ep3_forest_dahlia extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_forest_dahlia_handleBranch80(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -2125,7 +2125,7 @@ public class ep3_forest_dahlia extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_forest_dahlia_handleBranch81(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -2184,7 +2184,7 @@ public class ep3_forest_dahlia extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_forest_dahlia_handleBranch82(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -2209,7 +2209,7 @@ public class ep3_forest_dahlia extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_forest_dahlia_handleBranch86(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -2223,7 +2223,7 @@ public class ep3_forest_dahlia extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_forest_dahlia_handleBranch89(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -2237,7 +2237,7 @@ public class ep3_forest_dahlia extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int OnInitialize(obj_id self) throws InterruptedException
     {

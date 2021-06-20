@@ -127,7 +127,7 @@ public class u13_lieutenant_tarc extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int u13_lieutenant_tarc_handleBranch2(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -149,7 +149,7 @@ public class u13_lieutenant_tarc extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int u13_lieutenant_tarc_handleBranch6(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -164,7 +164,7 @@ public class u13_lieutenant_tarc extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int u13_lieutenant_tarc_handleBranch9(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -179,7 +179,7 @@ public class u13_lieutenant_tarc extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int u13_lieutenant_tarc_handleBranch12(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -217,7 +217,7 @@ public class u13_lieutenant_tarc extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int u13_lieutenant_tarc_handleBranch13(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -232,7 +232,7 @@ public class u13_lieutenant_tarc extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int OnInitialize(obj_id self) throws InterruptedException
     {

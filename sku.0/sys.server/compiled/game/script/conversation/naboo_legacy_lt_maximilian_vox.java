@@ -157,7 +157,7 @@ public class naboo_legacy_lt_maximilian_vox extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int naboo_legacy_lt_maximilian_vox_handleBranch4(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -182,7 +182,7 @@ public class naboo_legacy_lt_maximilian_vox extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int naboo_legacy_lt_maximilian_vox_handleBranch6(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -220,7 +220,7 @@ public class naboo_legacy_lt_maximilian_vox extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int naboo_legacy_lt_maximilian_vox_handleBranch7(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -270,7 +270,7 @@ public class naboo_legacy_lt_maximilian_vox extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int naboo_legacy_lt_maximilian_vox_handleBranch8(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -295,7 +295,7 @@ public class naboo_legacy_lt_maximilian_vox extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int naboo_legacy_lt_maximilian_vox_handleBranch16(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -343,7 +343,7 @@ public class naboo_legacy_lt_maximilian_vox extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int naboo_legacy_lt_maximilian_vox_handleBranch17(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -382,7 +382,7 @@ public class naboo_legacy_lt_maximilian_vox extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int naboo_legacy_lt_maximilian_vox_handleBranch19(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -430,7 +430,7 @@ public class naboo_legacy_lt_maximilian_vox extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int naboo_legacy_lt_maximilian_vox_handleBranch20(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -469,7 +469,7 @@ public class naboo_legacy_lt_maximilian_vox extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int naboo_legacy_lt_maximilian_vox_handleBranch21(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -484,7 +484,7 @@ public class naboo_legacy_lt_maximilian_vox extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int OnInitialize(obj_id self) throws InterruptedException
     {

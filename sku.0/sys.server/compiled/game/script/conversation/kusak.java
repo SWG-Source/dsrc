@@ -442,7 +442,7 @@ public class kusak extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int kusak_handleBranch2(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -556,7 +556,7 @@ public class kusak extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public static final String[] ALL_WEED_TEMPLATES = 
     {

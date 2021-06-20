@@ -342,7 +342,7 @@ public class naboo_privateer_trainer_2 extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int naboo_privateer_trainer_2_handleBranch5(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -382,7 +382,7 @@ public class naboo_privateer_trainer_2 extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int naboo_privateer_trainer_2_handleBranch7(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -396,7 +396,7 @@ public class naboo_privateer_trainer_2 extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int naboo_privateer_trainer_2_handleBranch10(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -446,7 +446,7 @@ public class naboo_privateer_trainer_2 extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int naboo_privateer_trainer_2_handleBranch11(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -518,7 +518,7 @@ public class naboo_privateer_trainer_2 extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int naboo_privateer_trainer_2_handleBranch12(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -556,7 +556,7 @@ public class naboo_privateer_trainer_2 extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int naboo_privateer_trainer_2_handleBranch13(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -594,7 +594,7 @@ public class naboo_privateer_trainer_2 extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int naboo_privateer_trainer_2_handleBranch14(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -610,7 +610,7 @@ public class naboo_privateer_trainer_2 extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int naboo_privateer_trainer_2_handleBranch16(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -648,7 +648,7 @@ public class naboo_privateer_trainer_2 extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int naboo_privateer_trainer_2_handleBranch17(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -686,7 +686,7 @@ public class naboo_privateer_trainer_2 extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int naboo_privateer_trainer_2_handleBranch18(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -724,7 +724,7 @@ public class naboo_privateer_trainer_2 extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int naboo_privateer_trainer_2_handleBranch19(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -740,7 +740,7 @@ public class naboo_privateer_trainer_2 extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int naboo_privateer_trainer_2_handleBranch21(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -754,7 +754,7 @@ public class naboo_privateer_trainer_2 extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int naboo_privateer_trainer_2_handleBranch23(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -769,7 +769,7 @@ public class naboo_privateer_trainer_2 extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int naboo_privateer_trainer_2_handleBranch25(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -784,7 +784,7 @@ public class naboo_privateer_trainer_2 extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int naboo_privateer_trainer_2_handleBranch27(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -799,7 +799,7 @@ public class naboo_privateer_trainer_2 extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int naboo_privateer_trainer_2_handleBranch29(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -814,7 +814,7 @@ public class naboo_privateer_trainer_2 extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int naboo_privateer_trainer_2_handleBranch31(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -865,7 +865,7 @@ public class naboo_privateer_trainer_2 extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int naboo_privateer_trainer_2_handleBranch32(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -925,7 +925,7 @@ public class naboo_privateer_trainer_2 extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int naboo_privateer_trainer_2_handleBranch34(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -955,7 +955,7 @@ public class naboo_privateer_trainer_2 extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int naboo_privateer_trainer_2_handleBranch37(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -985,7 +985,7 @@ public class naboo_privateer_trainer_2 extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int naboo_privateer_trainer_2_handleBranch40(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1047,7 +1047,7 @@ public class naboo_privateer_trainer_2 extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int naboo_privateer_trainer_2_handleBranch41(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1697,7 +1697,7 @@ public class naboo_privateer_trainer_2 extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int naboo_privateer_trainer_2_handleBranch43(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1737,7 +1737,7 @@ public class naboo_privateer_trainer_2 extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int naboo_privateer_trainer_2_handleBranch44(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1796,7 +1796,7 @@ public class naboo_privateer_trainer_2 extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int naboo_privateer_trainer_2_handleBranch45(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1820,7 +1820,7 @@ public class naboo_privateer_trainer_2 extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int naboo_privateer_trainer_2_handleBranch48(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1961,7 +1961,7 @@ public class naboo_privateer_trainer_2 extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int naboo_privateer_trainer_2_handleBranch49(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1999,7 +1999,7 @@ public class naboo_privateer_trainer_2 extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int naboo_privateer_trainer_2_handleBranch50(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -2037,7 +2037,7 @@ public class naboo_privateer_trainer_2 extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int naboo_privateer_trainer_2_handleBranch51(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -2056,7 +2056,7 @@ public class naboo_privateer_trainer_2 extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int naboo_privateer_trainer_2_handleBranch52(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -2094,7 +2094,7 @@ public class naboo_privateer_trainer_2 extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int naboo_privateer_trainer_2_handleBranch54(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -2155,7 +2155,7 @@ public class naboo_privateer_trainer_2 extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int naboo_privateer_trainer_2_handleBranch55(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -2195,7 +2195,7 @@ public class naboo_privateer_trainer_2 extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int naboo_privateer_trainer_2_handleBranch59(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -2326,7 +2326,7 @@ public class naboo_privateer_trainer_2 extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int naboo_privateer_trainer_2_handleBranch60(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -2475,7 +2475,7 @@ public class naboo_privateer_trainer_2 extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int naboo_privateer_trainer_2_handleBranch61(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -2549,7 +2549,7 @@ public class naboo_privateer_trainer_2 extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int naboo_privateer_trainer_2_handleBranch62(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -2588,7 +2588,7 @@ public class naboo_privateer_trainer_2 extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int naboo_privateer_trainer_2_handleBranch63(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -2626,7 +2626,7 @@ public class naboo_privateer_trainer_2 extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int naboo_privateer_trainer_2_handleBranch64(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -2664,7 +2664,7 @@ public class naboo_privateer_trainer_2 extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int naboo_privateer_trainer_2_handleBranch65(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -2686,7 +2686,7 @@ public class naboo_privateer_trainer_2 extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int naboo_privateer_trainer_2_handleBranch68(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -2725,7 +2725,7 @@ public class naboo_privateer_trainer_2 extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int naboo_privateer_trainer_2_handleBranch69(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -2763,7 +2763,7 @@ public class naboo_privateer_trainer_2 extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int naboo_privateer_trainer_2_handleBranch70(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -2801,7 +2801,7 @@ public class naboo_privateer_trainer_2 extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int naboo_privateer_trainer_2_handleBranch71(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -2823,7 +2823,7 @@ public class naboo_privateer_trainer_2 extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int naboo_privateer_trainer_2_handleBranch74(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -2861,7 +2861,7 @@ public class naboo_privateer_trainer_2 extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int naboo_privateer_trainer_2_handleBranch75(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -2899,7 +2899,7 @@ public class naboo_privateer_trainer_2 extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int naboo_privateer_trainer_2_handleBranch76(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -2914,7 +2914,7 @@ public class naboo_privateer_trainer_2 extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int naboo_privateer_trainer_2_handleBranch78(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -2952,7 +2952,7 @@ public class naboo_privateer_trainer_2 extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int naboo_privateer_trainer_2_handleBranch79(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -2971,7 +2971,7 @@ public class naboo_privateer_trainer_2 extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int naboo_privateer_trainer_2_handleBranch81(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -3009,7 +3009,7 @@ public class naboo_privateer_trainer_2 extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int naboo_privateer_trainer_2_handleBranch82(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -3024,7 +3024,7 @@ public class naboo_privateer_trainer_2 extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int naboo_privateer_trainer_2_handleBranch84(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -3160,7 +3160,7 @@ public class naboo_privateer_trainer_2 extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int naboo_privateer_trainer_2_handleBranch85(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -3198,7 +3198,7 @@ public class naboo_privateer_trainer_2 extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int naboo_privateer_trainer_2_handleBranch86(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -3236,7 +3236,7 @@ public class naboo_privateer_trainer_2 extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int naboo_privateer_trainer_2_handleBranch87(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -3255,7 +3255,7 @@ public class naboo_privateer_trainer_2 extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int naboo_privateer_trainer_2_handleBranch88(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -3293,7 +3293,7 @@ public class naboo_privateer_trainer_2 extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int naboo_privateer_trainer_2_handleBranch89(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -3429,7 +3429,7 @@ public class naboo_privateer_trainer_2 extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int naboo_privateer_trainer_2_handleBranch90(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -3467,7 +3467,7 @@ public class naboo_privateer_trainer_2 extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int naboo_privateer_trainer_2_handleBranch91(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -3505,7 +3505,7 @@ public class naboo_privateer_trainer_2 extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int naboo_privateer_trainer_2_handleBranch92(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -3524,7 +3524,7 @@ public class naboo_privateer_trainer_2 extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int naboo_privateer_trainer_2_handleBranch93(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -3562,7 +3562,7 @@ public class naboo_privateer_trainer_2 extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int naboo_privateer_trainer_2_handleBranch94(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -3698,7 +3698,7 @@ public class naboo_privateer_trainer_2 extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int naboo_privateer_trainer_2_handleBranch95(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -3736,7 +3736,7 @@ public class naboo_privateer_trainer_2 extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int naboo_privateer_trainer_2_handleBranch96(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -3774,7 +3774,7 @@ public class naboo_privateer_trainer_2 extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int naboo_privateer_trainer_2_handleBranch97(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -3793,7 +3793,7 @@ public class naboo_privateer_trainer_2 extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int naboo_privateer_trainer_2_handleBranch98(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -3831,7 +3831,7 @@ public class naboo_privateer_trainer_2 extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int OnInitialize(obj_id self) throws InterruptedException
     {

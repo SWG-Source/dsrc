@@ -352,7 +352,7 @@ public class trehla_keelo extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int trehla_keelo_handleBranch2(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -439,7 +439,7 @@ public class trehla_keelo extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int trehla_keelo_handleBranch3(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -489,7 +489,7 @@ public class trehla_keelo extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int trehla_keelo_handleBranch4(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -565,7 +565,7 @@ public class trehla_keelo extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int trehla_keelo_handleBranch5(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -641,7 +641,7 @@ public class trehla_keelo extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int trehla_keelo_handleBranch6(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -690,7 +690,7 @@ public class trehla_keelo extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int trehla_keelo_handleBranch7(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -739,7 +739,7 @@ public class trehla_keelo extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int trehla_keelo_handleBranch8(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -801,7 +801,7 @@ public class trehla_keelo extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int trehla_keelo_handleBranch9(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -829,7 +829,7 @@ public class trehla_keelo extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int trehla_keelo_handleBranch14(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -905,7 +905,7 @@ public class trehla_keelo extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int trehla_keelo_handleBranch15(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -944,7 +944,7 @@ public class trehla_keelo extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int trehla_keelo_handleBranch16(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -983,7 +983,7 @@ public class trehla_keelo extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int trehla_keelo_handleBranch17(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -997,7 +997,7 @@ public class trehla_keelo extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int trehla_keelo_handleBranch20(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1106,7 +1106,7 @@ public class trehla_keelo extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int trehla_keelo_handleBranch21(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1145,7 +1145,7 @@ public class trehla_keelo extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int trehla_keelo_handleBranch22(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1184,7 +1184,7 @@ public class trehla_keelo extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int trehla_keelo_handleBranch23(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1223,7 +1223,7 @@ public class trehla_keelo extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int trehla_keelo_handleBranch24(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1263,7 +1263,7 @@ public class trehla_keelo extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int trehla_keelo_handleBranch25(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1302,7 +1302,7 @@ public class trehla_keelo extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int trehla_keelo_handleBranch26(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1318,7 +1318,7 @@ public class trehla_keelo extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int trehla_keelo_handleBranch29(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1390,7 +1390,7 @@ public class trehla_keelo extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int trehla_keelo_handleBranch30(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1472,7 +1472,7 @@ public class trehla_keelo extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int trehla_keelo_handleBranch31(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1554,7 +1554,7 @@ public class trehla_keelo extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int trehla_keelo_handleBranch32(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1736,7 +1736,7 @@ public class trehla_keelo extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int trehla_keelo_handleBranch33(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1808,7 +1808,7 @@ public class trehla_keelo extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int trehla_keelo_handleBranch34(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1847,7 +1847,7 @@ public class trehla_keelo extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int trehla_keelo_handleBranch35(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1862,7 +1862,7 @@ public class trehla_keelo extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int trehla_keelo_handleBranch37(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1901,7 +1901,7 @@ public class trehla_keelo extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int trehla_keelo_handleBranch38(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1916,7 +1916,7 @@ public class trehla_keelo extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int trehla_keelo_handleBranch41(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1988,7 +1988,7 @@ public class trehla_keelo extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int trehla_keelo_handleBranch42(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -2005,7 +2005,7 @@ public class trehla_keelo extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int trehla_keelo_handleBranch44(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -2043,7 +2043,7 @@ public class trehla_keelo extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int trehla_keelo_handleBranch45(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -2059,7 +2059,7 @@ public class trehla_keelo extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int trehla_keelo_handleBranch49(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -2097,7 +2097,7 @@ public class trehla_keelo extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int trehla_keelo_handleBranch50(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -2136,7 +2136,7 @@ public class trehla_keelo extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int trehla_keelo_handleBranch51(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -2150,7 +2150,7 @@ public class trehla_keelo extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int trehla_keelo_handleBranch55(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -2233,7 +2233,7 @@ public class trehla_keelo extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int trehla_keelo_handleBranch56(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -2440,7 +2440,7 @@ public class trehla_keelo extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int trehla_keelo_handleBranch57(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -2612,7 +2612,7 @@ public class trehla_keelo extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int trehla_keelo_handleBranch58(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -2784,7 +2784,7 @@ public class trehla_keelo extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int trehla_keelo_handleBranch59(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -3001,7 +3001,7 @@ public class trehla_keelo extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int trehla_keelo_handleBranch60(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -3208,7 +3208,7 @@ public class trehla_keelo extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int trehla_keelo_handleBranch61(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -3380,7 +3380,7 @@ public class trehla_keelo extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int trehla_keelo_handleBranch62(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -3587,7 +3587,7 @@ public class trehla_keelo extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int trehla_keelo_handleBranch63(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -3804,7 +3804,7 @@ public class trehla_keelo extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int trehla_keelo_handleBranch64(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -4011,7 +4011,7 @@ public class trehla_keelo extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int trehla_keelo_handleBranch65(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -4183,7 +4183,7 @@ public class trehla_keelo extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int trehla_keelo_handleBranch66(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -4390,7 +4390,7 @@ public class trehla_keelo extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int trehla_keelo_handleBranch67(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -4607,7 +4607,7 @@ public class trehla_keelo extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int trehla_keelo_handleBranch68(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -4814,7 +4814,7 @@ public class trehla_keelo extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int trehla_keelo_handleBranch69(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -4986,7 +4986,7 @@ public class trehla_keelo extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int trehla_keelo_handleBranch70(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -5193,7 +5193,7 @@ public class trehla_keelo extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int trehla_keelo_handleBranch71(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -5365,7 +5365,7 @@ public class trehla_keelo extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int trehla_keelo_handleBranch72(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -5582,7 +5582,7 @@ public class trehla_keelo extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int trehla_keelo_handleBranch73(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -5789,7 +5789,7 @@ public class trehla_keelo extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int trehla_keelo_handleBranch74(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -5961,7 +5961,7 @@ public class trehla_keelo extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int trehla_keelo_handleBranch75(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -6168,7 +6168,7 @@ public class trehla_keelo extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int trehla_keelo_handleBranch76(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -6385,7 +6385,7 @@ public class trehla_keelo extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int trehla_keelo_handleBranch77(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -6592,7 +6592,7 @@ public class trehla_keelo extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int trehla_keelo_handleBranch78(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -6764,7 +6764,7 @@ public class trehla_keelo extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int trehla_keelo_handleBranch79(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -6971,7 +6971,7 @@ public class trehla_keelo extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int trehla_keelo_handleBranch80(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -7188,7 +7188,7 @@ public class trehla_keelo extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int trehla_keelo_handleBranch81(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -7395,7 +7395,7 @@ public class trehla_keelo extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int trehla_keelo_handleBranch82(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -7567,7 +7567,7 @@ public class trehla_keelo extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int trehla_keelo_handleBranch83(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -7774,7 +7774,7 @@ public class trehla_keelo extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int trehla_keelo_handleBranch84(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -7946,7 +7946,7 @@ public class trehla_keelo extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int trehla_keelo_handleBranch85(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -8163,7 +8163,7 @@ public class trehla_keelo extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int trehla_keelo_handleBranch86(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -8370,7 +8370,7 @@ public class trehla_keelo extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int trehla_keelo_handleBranch87(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -8542,7 +8542,7 @@ public class trehla_keelo extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int trehla_keelo_handleBranch88(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -8749,7 +8749,7 @@ public class trehla_keelo extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int trehla_keelo_handleBranch89(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -8966,7 +8966,7 @@ public class trehla_keelo extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int trehla_keelo_handleBranch90(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -9173,7 +9173,7 @@ public class trehla_keelo extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int trehla_keelo_handleBranch91(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -9345,7 +9345,7 @@ public class trehla_keelo extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int trehla_keelo_handleBranch92(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -9552,7 +9552,7 @@ public class trehla_keelo extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int trehla_keelo_handleBranch93(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -9769,7 +9769,7 @@ public class trehla_keelo extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int trehla_keelo_handleBranch94(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -9976,7 +9976,7 @@ public class trehla_keelo extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int trehla_keelo_handleBranch95(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -10148,7 +10148,7 @@ public class trehla_keelo extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int trehla_keelo_handleBranch96(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -10355,7 +10355,7 @@ public class trehla_keelo extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int trehla_keelo_handleBranch97(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -10437,7 +10437,7 @@ public class trehla_keelo extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int trehla_keelo_handleBranch98(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -10644,7 +10644,7 @@ public class trehla_keelo extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int trehla_keelo_handleBranch99(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -10726,7 +10726,7 @@ public class trehla_keelo extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int trehla_keelo_handleBranch100(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -10933,7 +10933,7 @@ public class trehla_keelo extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int trehla_keelo_handleBranch101(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -11015,7 +11015,7 @@ public class trehla_keelo extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int trehla_keelo_handleBranch102(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -11222,7 +11222,7 @@ public class trehla_keelo extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int trehla_keelo_handleBranch103(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -11296,7 +11296,7 @@ public class trehla_keelo extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int trehla_keelo_handleBranch104(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -11310,7 +11310,7 @@ public class trehla_keelo extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int trehla_keelo_handleBranch106(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -11324,7 +11324,7 @@ public class trehla_keelo extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int trehla_keelo_handleBranch108(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -11506,7 +11506,7 @@ public class trehla_keelo extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int trehla_keelo_handleBranch111(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -11612,7 +11612,7 @@ public class trehla_keelo extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int OnInitialize(obj_id self) throws InterruptedException
     {

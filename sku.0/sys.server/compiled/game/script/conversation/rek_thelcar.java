@@ -244,7 +244,7 @@ public class rek_thelcar extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int rek_thelcar_handleBranch3(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -261,7 +261,7 @@ public class rek_thelcar extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int rek_thelcar_handleBranch6(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -276,7 +276,7 @@ public class rek_thelcar extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int rek_thelcar_handleBranch8(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -327,7 +327,7 @@ public class rek_thelcar extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int rek_thelcar_handleBranch9(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -366,7 +366,7 @@ public class rek_thelcar extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int rek_thelcar_handleBranch10(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -416,7 +416,7 @@ public class rek_thelcar extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int rek_thelcar_handleBranch11(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -445,7 +445,7 @@ public class rek_thelcar extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int rek_thelcar_handleBranch16(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -484,7 +484,7 @@ public class rek_thelcar extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int rek_thelcar_handleBranch17(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -500,7 +500,7 @@ public class rek_thelcar extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int rek_thelcar_handleBranch20(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -515,7 +515,7 @@ public class rek_thelcar extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int rek_thelcar_handleBranch22(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -603,7 +603,7 @@ public class rek_thelcar extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int rek_thelcar_handleBranch23(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -642,7 +642,7 @@ public class rek_thelcar extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int rek_thelcar_handleBranch24(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -681,7 +681,7 @@ public class rek_thelcar extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int rek_thelcar_handleBranch25(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -731,7 +731,7 @@ public class rek_thelcar extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int rek_thelcar_handleBranch26(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -759,7 +759,7 @@ public class rek_thelcar extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int rek_thelcar_handleBranch31(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -798,7 +798,7 @@ public class rek_thelcar extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int rek_thelcar_handleBranch32(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -815,7 +815,7 @@ public class rek_thelcar extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int rek_thelcar_handleBranch35(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -830,7 +830,7 @@ public class rek_thelcar extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int rek_thelcar_handleBranch37(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -883,7 +883,7 @@ public class rek_thelcar extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int rek_thelcar_handleBranch38(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -922,7 +922,7 @@ public class rek_thelcar extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int rek_thelcar_handleBranch39(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -972,7 +972,7 @@ public class rek_thelcar extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int rek_thelcar_handleBranch40(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1000,7 +1000,7 @@ public class rek_thelcar extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int OnInitialize(obj_id self) throws InterruptedException
     {

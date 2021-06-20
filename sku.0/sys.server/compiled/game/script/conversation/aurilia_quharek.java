@@ -38,7 +38,7 @@ public class aurilia_quharek extends script.conversation.base.conversation_base
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int OnStartNpcConversation(obj_id self, obj_id player) throws InterruptedException
     {

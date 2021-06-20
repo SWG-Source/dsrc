@@ -570,7 +570,7 @@ public class halloween_vendor extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int halloween_vendor_handleBranch8(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -605,7 +605,7 @@ public class halloween_vendor extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int halloween_vendor_handleBranch11(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -643,7 +643,7 @@ public class halloween_vendor extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int halloween_vendor_handleBranch12(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -692,7 +692,7 @@ public class halloween_vendor extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int halloween_vendor_handleBranch13(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -734,7 +734,7 @@ public class halloween_vendor extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int OnInitialize(obj_id self) throws InterruptedException
     {

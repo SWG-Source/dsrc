@@ -72,7 +72,7 @@ public class ep3_trandoshan_unluto_bartender extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_trandoshan_unluto_bartender_handleBranch2(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -111,7 +111,7 @@ public class ep3_trandoshan_unluto_bartender extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_trandoshan_unluto_bartender_handleBranch3(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -150,7 +150,7 @@ public class ep3_trandoshan_unluto_bartender extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_trandoshan_unluto_bartender_handleBranch4(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -189,7 +189,7 @@ public class ep3_trandoshan_unluto_bartender extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_trandoshan_unluto_bartender_handleBranch5(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -239,7 +239,7 @@ public class ep3_trandoshan_unluto_bartender extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_trandoshan_unluto_bartender_handleBranch6(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -313,7 +313,7 @@ public class ep3_trandoshan_unluto_bartender extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_trandoshan_unluto_bartender_handleBranch7(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -352,7 +352,7 @@ public class ep3_trandoshan_unluto_bartender extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_trandoshan_unluto_bartender_handleBranch8(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -391,7 +391,7 @@ public class ep3_trandoshan_unluto_bartender extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_trandoshan_unluto_bartender_handleBranch9(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -407,7 +407,7 @@ public class ep3_trandoshan_unluto_bartender extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_trandoshan_unluto_bartender_handleBranch11(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -446,7 +446,7 @@ public class ep3_trandoshan_unluto_bartender extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_trandoshan_unluto_bartender_handleBranch12(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -462,7 +462,7 @@ public class ep3_trandoshan_unluto_bartender extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int OnInitialize(obj_id self) throws InterruptedException
     {

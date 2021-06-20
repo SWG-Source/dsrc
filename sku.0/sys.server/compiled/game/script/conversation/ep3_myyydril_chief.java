@@ -167,7 +167,7 @@ public class ep3_myyydril_chief extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_myyydril_chief_handleBranch4(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -206,7 +206,7 @@ public class ep3_myyydril_chief extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_myyydril_chief_handleBranch5(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -220,7 +220,7 @@ public class ep3_myyydril_chief extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_myyydril_chief_handleBranch8(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -269,7 +269,7 @@ public class ep3_myyydril_chief extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_myyydril_chief_handleBranch9(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -294,7 +294,7 @@ public class ep3_myyydril_chief extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_myyydril_chief_handleBranch12(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -333,7 +333,7 @@ public class ep3_myyydril_chief extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_myyydril_chief_handleBranch13(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -347,7 +347,7 @@ public class ep3_myyydril_chief extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_myyydril_chief_handleBranch16(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -372,7 +372,7 @@ public class ep3_myyydril_chief extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_myyydril_chief_handleBranch19(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -411,7 +411,7 @@ public class ep3_myyydril_chief extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_myyydril_chief_handleBranch20(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -425,7 +425,7 @@ public class ep3_myyydril_chief extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_myyydril_chief_handleBranch22(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -439,7 +439,7 @@ public class ep3_myyydril_chief extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_myyydril_chief_handleBranch24(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -464,7 +464,7 @@ public class ep3_myyydril_chief extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_myyydril_chief_handleBranch27(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -479,7 +479,7 @@ public class ep3_myyydril_chief extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_myyydril_chief_handleBranch29(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -527,7 +527,7 @@ public class ep3_myyydril_chief extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_myyydril_chief_handleBranch31(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -575,7 +575,7 @@ public class ep3_myyydril_chief extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_myyydril_chief_handleBranch32(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -590,7 +590,7 @@ public class ep3_myyydril_chief extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int OnInitialize(obj_id self) throws InterruptedException
     {

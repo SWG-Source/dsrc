@@ -43,7 +43,7 @@ public class aurilia_junk_dealer extends script.conversation.base.conversation_b
             npcEndConversationWithMessage(player, new string_id(c_stringFile, "s_df5bd64e"));
             return SCRIPT_CONTINUE;
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int OnStartNpcConversation(obj_id self, obj_id player) throws InterruptedException
     {

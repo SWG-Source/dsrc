@@ -192,7 +192,7 @@ public class community_painting_handout_2009 extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int community_painting_handout_2009_handleBranch3(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -262,7 +262,7 @@ public class community_painting_handout_2009 extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int community_painting_handout_2009_handleBranch4(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -299,7 +299,7 @@ public class community_painting_handout_2009 extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public static string_id SID_NOT_OLD_ENOUGH = new string_id("collection", "not_old_enough");
     public int OnInitialize(obj_id self) throws InterruptedException

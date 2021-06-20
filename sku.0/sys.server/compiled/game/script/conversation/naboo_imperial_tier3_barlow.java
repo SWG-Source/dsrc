@@ -133,7 +133,7 @@ public class naboo_imperial_tier3_barlow extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int naboo_imperial_tier3_barlow_handleBranch3(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -231,7 +231,7 @@ public class naboo_imperial_tier3_barlow extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int naboo_imperial_tier3_barlow_handleBranch4(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -319,7 +319,7 @@ public class naboo_imperial_tier3_barlow extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int naboo_imperial_tier3_barlow_handleBranch5(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -370,7 +370,7 @@ public class naboo_imperial_tier3_barlow extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int naboo_imperial_tier3_barlow_handleBranch6(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -470,7 +470,7 @@ public class naboo_imperial_tier3_barlow extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int naboo_imperial_tier3_barlow_handleBranch7(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -585,7 +585,7 @@ public class naboo_imperial_tier3_barlow extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int naboo_imperial_tier3_barlow_handleBranch8(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -637,7 +637,7 @@ public class naboo_imperial_tier3_barlow extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int naboo_imperial_tier3_barlow_handleBranch9(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -736,7 +736,7 @@ public class naboo_imperial_tier3_barlow extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int naboo_imperial_tier3_barlow_handleBranch10(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -825,7 +825,7 @@ public class naboo_imperial_tier3_barlow extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int naboo_imperial_tier3_barlow_handleBranch11(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -877,7 +877,7 @@ public class naboo_imperial_tier3_barlow extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int naboo_imperial_tier3_barlow_handleBranch12(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -965,7 +965,7 @@ public class naboo_imperial_tier3_barlow extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int naboo_imperial_tier3_barlow_handleBranch13(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1006,7 +1006,7 @@ public class naboo_imperial_tier3_barlow extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int naboo_imperial_tier3_barlow_handleBranch14(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1058,7 +1058,7 @@ public class naboo_imperial_tier3_barlow extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int naboo_imperial_tier3_barlow_handleBranch15(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1135,7 +1135,7 @@ public class naboo_imperial_tier3_barlow extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int naboo_imperial_tier3_barlow_handleBranch16(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1176,7 +1176,7 @@ public class naboo_imperial_tier3_barlow extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int naboo_imperial_tier3_barlow_handleBranch17(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1227,7 +1227,7 @@ public class naboo_imperial_tier3_barlow extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int naboo_imperial_tier3_barlow_handleBranch18(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1314,7 +1314,7 @@ public class naboo_imperial_tier3_barlow extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int naboo_imperial_tier3_barlow_handleBranch19(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1355,7 +1355,7 @@ public class naboo_imperial_tier3_barlow extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int naboo_imperial_tier3_barlow_handleBranch20(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1405,7 +1405,7 @@ public class naboo_imperial_tier3_barlow extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int naboo_imperial_tier3_barlow_handleBranch21(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1481,7 +1481,7 @@ public class naboo_imperial_tier3_barlow extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int naboo_imperial_tier3_barlow_handleBranch22(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1521,7 +1521,7 @@ public class naboo_imperial_tier3_barlow extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int naboo_imperial_tier3_barlow_handleBranch23(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1561,7 +1561,7 @@ public class naboo_imperial_tier3_barlow extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int naboo_imperial_tier3_barlow_handleBranch24(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1611,7 +1611,7 @@ public class naboo_imperial_tier3_barlow extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int naboo_imperial_tier3_barlow_handleBranch25(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1696,7 +1696,7 @@ public class naboo_imperial_tier3_barlow extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int naboo_imperial_tier3_barlow_handleBranch26(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1735,7 +1735,7 @@ public class naboo_imperial_tier3_barlow extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int naboo_imperial_tier3_barlow_handleBranch27(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1785,7 +1785,7 @@ public class naboo_imperial_tier3_barlow extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int naboo_imperial_tier3_barlow_handleBranch28(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1860,7 +1860,7 @@ public class naboo_imperial_tier3_barlow extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int naboo_imperial_tier3_barlow_handleBranch29(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1899,7 +1899,7 @@ public class naboo_imperial_tier3_barlow extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int naboo_imperial_tier3_barlow_handleBranch30(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1940,7 +1940,7 @@ public class naboo_imperial_tier3_barlow extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int naboo_imperial_tier3_barlow_handleBranch31(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1980,7 +1980,7 @@ public class naboo_imperial_tier3_barlow extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int naboo_imperial_tier3_barlow_handleBranch32(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -2020,7 +2020,7 @@ public class naboo_imperial_tier3_barlow extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int naboo_imperial_tier3_barlow_handleBranch33(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -2059,7 +2059,7 @@ public class naboo_imperial_tier3_barlow extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int naboo_imperial_tier3_barlow_handleBranch34(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -2098,7 +2098,7 @@ public class naboo_imperial_tier3_barlow extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int naboo_imperial_tier3_barlow_handleBranch35(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -2160,7 +2160,7 @@ public class naboo_imperial_tier3_barlow extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int naboo_imperial_tier3_barlow_handleBranch36(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -2205,7 +2205,7 @@ public class naboo_imperial_tier3_barlow extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int naboo_imperial_tier3_barlow_handleBranch40(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -2255,7 +2255,7 @@ public class naboo_imperial_tier3_barlow extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int naboo_imperial_tier3_barlow_handleBranch41(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -2332,7 +2332,7 @@ public class naboo_imperial_tier3_barlow extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int naboo_imperial_tier3_barlow_handleBranch42(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -2382,7 +2382,7 @@ public class naboo_imperial_tier3_barlow extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int naboo_imperial_tier3_barlow_handleBranch43(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -2423,7 +2423,7 @@ public class naboo_imperial_tier3_barlow extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int naboo_imperial_tier3_barlow_handleBranch44(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -2473,7 +2473,7 @@ public class naboo_imperial_tier3_barlow extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int naboo_imperial_tier3_barlow_handleBranch45(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -2523,7 +2523,7 @@ public class naboo_imperial_tier3_barlow extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int naboo_imperial_tier3_barlow_handleBranch46(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -2600,7 +2600,7 @@ public class naboo_imperial_tier3_barlow extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int naboo_imperial_tier3_barlow_handleBranch47(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -2640,7 +2640,7 @@ public class naboo_imperial_tier3_barlow extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int naboo_imperial_tier3_barlow_handleBranch48(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -2702,7 +2702,7 @@ public class naboo_imperial_tier3_barlow extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int naboo_imperial_tier3_barlow_handleBranch49(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -2764,7 +2764,7 @@ public class naboo_imperial_tier3_barlow extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int naboo_imperial_tier3_barlow_handleBranch50(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -2840,7 +2840,7 @@ public class naboo_imperial_tier3_barlow extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int naboo_imperial_tier3_barlow_handleBranch51(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -2881,7 +2881,7 @@ public class naboo_imperial_tier3_barlow extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int naboo_imperial_tier3_barlow_handleBranch52(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -2932,7 +2932,7 @@ public class naboo_imperial_tier3_barlow extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int naboo_imperial_tier3_barlow_handleBranch53(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -2983,7 +2983,7 @@ public class naboo_imperial_tier3_barlow extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int naboo_imperial_tier3_barlow_handleBranch54(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -3024,7 +3024,7 @@ public class naboo_imperial_tier3_barlow extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int naboo_imperial_tier3_barlow_handleBranch55(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -3063,7 +3063,7 @@ public class naboo_imperial_tier3_barlow extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int naboo_imperial_tier3_barlow_handleBranch56(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -3114,7 +3114,7 @@ public class naboo_imperial_tier3_barlow extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int naboo_imperial_tier3_barlow_handleBranch57(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -3155,7 +3155,7 @@ public class naboo_imperial_tier3_barlow extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int naboo_imperial_tier3_barlow_handleBranch58(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -3206,7 +3206,7 @@ public class naboo_imperial_tier3_barlow extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int naboo_imperial_tier3_barlow_handleBranch59(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -3257,7 +3257,7 @@ public class naboo_imperial_tier3_barlow extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int naboo_imperial_tier3_barlow_handleBranch60(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -3343,7 +3343,7 @@ public class naboo_imperial_tier3_barlow extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int naboo_imperial_tier3_barlow_handleBranch61(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -3418,7 +3418,7 @@ public class naboo_imperial_tier3_barlow extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int naboo_imperial_tier3_barlow_handleBranch62(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -3458,7 +3458,7 @@ public class naboo_imperial_tier3_barlow extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int naboo_imperial_tier3_barlow_handleBranch63(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -3497,7 +3497,7 @@ public class naboo_imperial_tier3_barlow extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int naboo_imperial_tier3_barlow_handleBranch64(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -3547,7 +3547,7 @@ public class naboo_imperial_tier3_barlow extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int naboo_imperial_tier3_barlow_handleBranch65(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -3633,7 +3633,7 @@ public class naboo_imperial_tier3_barlow extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int naboo_imperial_tier3_barlow_handleBranch66(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -3718,7 +3718,7 @@ public class naboo_imperial_tier3_barlow extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int naboo_imperial_tier3_barlow_handleBranch67(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -3804,7 +3804,7 @@ public class naboo_imperial_tier3_barlow extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int naboo_imperial_tier3_barlow_handleBranch68(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -3833,7 +3833,7 @@ public class naboo_imperial_tier3_barlow extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int naboo_imperial_tier3_barlow_handleBranch71(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -3872,7 +3872,7 @@ public class naboo_imperial_tier3_barlow extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int naboo_imperial_tier3_barlow_handleBranch72(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -3889,7 +3889,7 @@ public class naboo_imperial_tier3_barlow extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int naboo_imperial_tier3_barlow_handleBranch74(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -3928,7 +3928,7 @@ public class naboo_imperial_tier3_barlow extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int naboo_imperial_tier3_barlow_handleBranch75(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -3967,7 +3967,7 @@ public class naboo_imperial_tier3_barlow extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int naboo_imperial_tier3_barlow_handleBranch76(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -4043,7 +4043,7 @@ public class naboo_imperial_tier3_barlow extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int naboo_imperial_tier3_barlow_handleBranch77(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -4094,7 +4094,7 @@ public class naboo_imperial_tier3_barlow extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int naboo_imperial_tier3_barlow_handleBranch78(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -4133,7 +4133,7 @@ public class naboo_imperial_tier3_barlow extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int naboo_imperial_tier3_barlow_handleBranch79(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -4184,7 +4184,7 @@ public class naboo_imperial_tier3_barlow extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int naboo_imperial_tier3_barlow_handleBranch80(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -4260,7 +4260,7 @@ public class naboo_imperial_tier3_barlow extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int naboo_imperial_tier3_barlow_handleBranch81(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -4299,7 +4299,7 @@ public class naboo_imperial_tier3_barlow extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int naboo_imperial_tier3_barlow_handleBranch82(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -4350,7 +4350,7 @@ public class naboo_imperial_tier3_barlow extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int naboo_imperial_tier3_barlow_handleBranch83(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -4389,7 +4389,7 @@ public class naboo_imperial_tier3_barlow extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int naboo_imperial_tier3_barlow_handleBranch84(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -4429,7 +4429,7 @@ public class naboo_imperial_tier3_barlow extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int naboo_imperial_tier3_barlow_handleBranch85(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -4515,7 +4515,7 @@ public class naboo_imperial_tier3_barlow extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int naboo_imperial_tier3_barlow_handleBranch86(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -4566,7 +4566,7 @@ public class naboo_imperial_tier3_barlow extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int OnInitialize(obj_id self) throws InterruptedException
     {

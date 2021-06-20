@@ -142,7 +142,7 @@ public class station_rebel_outpost extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int station_rebel_outpost_handleBranch8(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -158,7 +158,7 @@ public class station_rebel_outpost extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int station_rebel_outpost_handleBranch10(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -174,7 +174,7 @@ public class station_rebel_outpost extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int station_rebel_outpost_handleBranch12(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -225,7 +225,7 @@ public class station_rebel_outpost extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int station_rebel_outpost_handleBranch13(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -299,7 +299,7 @@ public class station_rebel_outpost extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int station_rebel_outpost_handleBranch14(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -314,7 +314,7 @@ public class station_rebel_outpost extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int station_rebel_outpost_handleBranch16(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -353,7 +353,7 @@ public class station_rebel_outpost extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int station_rebel_outpost_handleBranch17(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -368,7 +368,7 @@ public class station_rebel_outpost extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int station_rebel_outpost_handleBranch19(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -513,7 +513,7 @@ public class station_rebel_outpost extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int station_rebel_outpost_handleBranch20(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -624,7 +624,7 @@ public class station_rebel_outpost extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int station_rebel_outpost_handleBranch21(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -697,7 +697,7 @@ public class station_rebel_outpost extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int station_rebel_outpost_handleBranch23(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -770,7 +770,7 @@ public class station_rebel_outpost extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int station_rebel_outpost_handleBranch26(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -902,7 +902,7 @@ public class station_rebel_outpost extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int station_rebel_outpost_handleBranch27(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -917,7 +917,7 @@ public class station_rebel_outpost extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int station_rebel_outpost_handleBranch29(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -978,7 +978,7 @@ public class station_rebel_outpost extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int station_rebel_outpost_handleBranch30(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1110,7 +1110,7 @@ public class station_rebel_outpost extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int station_rebel_outpost_handleBranch31(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1242,7 +1242,7 @@ public class station_rebel_outpost extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int station_rebel_outpost_handleBranch33(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1258,7 +1258,7 @@ public class station_rebel_outpost extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int station_rebel_outpost_handleBranch35(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1324,7 +1324,7 @@ public class station_rebel_outpost extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int station_rebel_outpost_handleBranch38(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1363,7 +1363,7 @@ public class station_rebel_outpost extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int station_rebel_outpost_handleBranch39(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1432,7 +1432,7 @@ public class station_rebel_outpost extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int station_rebel_outpost_handleBranch40(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1498,7 +1498,7 @@ public class station_rebel_outpost extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int OnInitialize(obj_id self) throws InterruptedException
     {

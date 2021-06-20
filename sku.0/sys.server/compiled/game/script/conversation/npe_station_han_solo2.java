@@ -549,7 +549,7 @@ public class npe_station_han_solo2 extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int npe_station_han_solo2_handleBranch2(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -702,7 +702,7 @@ public class npe_station_han_solo2 extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int npe_station_han_solo2_handleBranch3(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -718,7 +718,7 @@ public class npe_station_han_solo2 extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int npe_station_han_solo2_handleBranch5(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -769,7 +769,7 @@ public class npe_station_han_solo2 extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int npe_station_han_solo2_handleBranch6(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -845,7 +845,7 @@ public class npe_station_han_solo2 extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int npe_station_han_solo2_handleBranch7(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -885,7 +885,7 @@ public class npe_station_han_solo2 extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int npe_station_han_solo2_handleBranch8(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -936,7 +936,7 @@ public class npe_station_han_solo2 extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int npe_station_han_solo2_handleBranch9(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1012,7 +1012,7 @@ public class npe_station_han_solo2 extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int npe_station_han_solo2_handleBranch10(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1027,7 +1027,7 @@ public class npe_station_han_solo2 extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int npe_station_han_solo2_handleBranch11(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1042,7 +1042,7 @@ public class npe_station_han_solo2 extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int npe_station_han_solo2_handleBranch12(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1069,7 +1069,7 @@ public class npe_station_han_solo2 extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int npe_station_han_solo2_handleBranch15(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1084,7 +1084,7 @@ public class npe_station_han_solo2 extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int npe_station_han_solo2_handleBranch17(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1135,7 +1135,7 @@ public class npe_station_han_solo2 extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int npe_station_han_solo2_handleBranch18(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1162,7 +1162,7 @@ public class npe_station_han_solo2 extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int npe_station_han_solo2_handleBranch21(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1202,7 +1202,7 @@ public class npe_station_han_solo2 extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int npe_station_han_solo2_handleBranch22(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1218,7 +1218,7 @@ public class npe_station_han_solo2 extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int npe_station_han_solo2_handleBranch24(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1233,7 +1233,7 @@ public class npe_station_han_solo2 extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int npe_station_han_solo2_handleBranch27(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1354,7 +1354,7 @@ public class npe_station_han_solo2 extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int npe_station_han_solo2_handleBranch28(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1393,7 +1393,7 @@ public class npe_station_han_solo2 extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int npe_station_han_solo2_handleBranch29(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1409,7 +1409,7 @@ public class npe_station_han_solo2 extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int npe_station_han_solo2_handleBranch31(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1449,7 +1449,7 @@ public class npe_station_han_solo2 extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int npe_station_han_solo2_handleBranch32(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1489,7 +1489,7 @@ public class npe_station_han_solo2 extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int npe_station_han_solo2_handleBranch33(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1540,7 +1540,7 @@ public class npe_station_han_solo2 extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int npe_station_han_solo2_handleBranch35(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1580,7 +1580,7 @@ public class npe_station_han_solo2 extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int npe_station_han_solo2_handleBranch36(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1620,7 +1620,7 @@ public class npe_station_han_solo2 extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int npe_station_han_solo2_handleBranch37(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1682,7 +1682,7 @@ public class npe_station_han_solo2 extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int npe_station_han_solo2_handleBranch38(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1803,7 +1803,7 @@ public class npe_station_han_solo2 extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int npe_station_han_solo2_handleBranch41(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1843,7 +1843,7 @@ public class npe_station_han_solo2 extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int npe_station_han_solo2_handleBranch42(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1858,7 +1858,7 @@ public class npe_station_han_solo2 extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int npe_station_han_solo2_handleBranch45(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1898,7 +1898,7 @@ public class npe_station_han_solo2 extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int npe_station_han_solo2_handleBranch46(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1938,7 +1938,7 @@ public class npe_station_han_solo2 extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int npe_station_han_solo2_handleBranch47(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1977,7 +1977,7 @@ public class npe_station_han_solo2 extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int npe_station_han_solo2_handleBranch48(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -2281,7 +2281,7 @@ public class npe_station_han_solo2 extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int npe_station_han_solo2_handleBranch49(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -2296,7 +2296,7 @@ public class npe_station_han_solo2 extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int npe_station_han_solo2_handleBranch51(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -2311,7 +2311,7 @@ public class npe_station_han_solo2 extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int npe_station_han_solo2_handleBranch52(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -2326,7 +2326,7 @@ public class npe_station_han_solo2 extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int npe_station_han_solo2_handleBranch53(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -2341,7 +2341,7 @@ public class npe_station_han_solo2 extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int npe_station_han_solo2_handleBranch54(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -2356,7 +2356,7 @@ public class npe_station_han_solo2 extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int npe_station_han_solo2_handleBranch55(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -2371,7 +2371,7 @@ public class npe_station_han_solo2 extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int npe_station_han_solo2_handleBranch56(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -2386,7 +2386,7 @@ public class npe_station_han_solo2 extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int npe_station_han_solo2_handleBranch57(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -2401,7 +2401,7 @@ public class npe_station_han_solo2 extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int npe_station_han_solo2_handleBranch58(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -2440,7 +2440,7 @@ public class npe_station_han_solo2 extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int OnInitialize(obj_id self) throws InterruptedException
     {

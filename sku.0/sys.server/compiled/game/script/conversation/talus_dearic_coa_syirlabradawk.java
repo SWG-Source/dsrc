@@ -144,7 +144,7 @@ public class talus_dearic_coa_syirlabradawk extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int talus_dearic_coa_syirlabradawk_handleBranch3(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -159,7 +159,7 @@ public class talus_dearic_coa_syirlabradawk extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int talus_dearic_coa_syirlabradawk_handleBranch6(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -223,7 +223,7 @@ public class talus_dearic_coa_syirlabradawk extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int talus_dearic_coa_syirlabradawk_handleBranch8(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -249,7 +249,7 @@ public class talus_dearic_coa_syirlabradawk extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int talus_dearic_coa_syirlabradawk_handleBranch11(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -289,7 +289,7 @@ public class talus_dearic_coa_syirlabradawk extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int talus_dearic_coa_syirlabradawk_handleBranch12(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -383,7 +383,7 @@ public class talus_dearic_coa_syirlabradawk extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int talus_dearic_coa_syirlabradawk_handleBranch13(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -450,7 +450,7 @@ public class talus_dearic_coa_syirlabradawk extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int talus_dearic_coa_syirlabradawk_handleBranch15(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -468,7 +468,7 @@ public class talus_dearic_coa_syirlabradawk extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int talus_dearic_coa_syirlabradawk_handleBranch18(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -486,7 +486,7 @@ public class talus_dearic_coa_syirlabradawk extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int talus_dearic_coa_syirlabradawk_handleBranch20(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -502,7 +502,7 @@ public class talus_dearic_coa_syirlabradawk extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int talus_dearic_coa_syirlabradawk_handleBranch22(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -554,7 +554,7 @@ public class talus_dearic_coa_syirlabradawk extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int talus_dearic_coa_syirlabradawk_handleBranch23(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -594,7 +594,7 @@ public class talus_dearic_coa_syirlabradawk extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int talus_dearic_coa_syirlabradawk_handleBranch24(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -646,7 +646,7 @@ public class talus_dearic_coa_syirlabradawk extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int talus_dearic_coa_syirlabradawk_handleBranch25(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -722,7 +722,7 @@ public class talus_dearic_coa_syirlabradawk extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int talus_dearic_coa_syirlabradawk_handleBranch26(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -739,7 +739,7 @@ public class talus_dearic_coa_syirlabradawk extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int talus_dearic_coa_syirlabradawk_handleBranch28(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -755,7 +755,7 @@ public class talus_dearic_coa_syirlabradawk extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int talus_dearic_coa_syirlabradawk_handleBranch31(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -771,7 +771,7 @@ public class talus_dearic_coa_syirlabradawk extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int OnInitialize(obj_id self) throws InterruptedException
     {

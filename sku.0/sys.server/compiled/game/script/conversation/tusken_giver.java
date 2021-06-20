@@ -84,7 +84,7 @@ public class tusken_giver extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int tusken_giver_handleBranch3(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -99,7 +99,7 @@ public class tusken_giver extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int tusken_giver_handleBranch5(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -148,7 +148,7 @@ public class tusken_giver extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int tusken_giver_handleBranch6(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -173,7 +173,7 @@ public class tusken_giver extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int tusken_giver_handleBranch9(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -211,7 +211,7 @@ public class tusken_giver extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int tusken_giver_handleBranch10(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -249,7 +249,7 @@ public class tusken_giver extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int tusken_giver_handleBranch11(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -288,7 +288,7 @@ public class tusken_giver extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int tusken_giver_handleBranch12(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -303,7 +303,7 @@ public class tusken_giver extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int OnInitialize(obj_id self) throws InterruptedException
     {

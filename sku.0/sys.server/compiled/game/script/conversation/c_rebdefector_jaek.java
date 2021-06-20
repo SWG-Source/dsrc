@@ -146,7 +146,7 @@ public class c_rebdefector_jaek extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int c_rebdefector_jaek_handleBranch3(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -173,7 +173,7 @@ public class c_rebdefector_jaek extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int c_rebdefector_jaek_handleBranch9(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -223,7 +223,7 @@ public class c_rebdefector_jaek extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int c_rebdefector_jaek_handleBranch10(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -251,7 +251,7 @@ public class c_rebdefector_jaek extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int c_rebdefector_jaek_handleBranch13(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -280,7 +280,7 @@ public class c_rebdefector_jaek extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int OnInitialize(obj_id self) throws InterruptedException
     {

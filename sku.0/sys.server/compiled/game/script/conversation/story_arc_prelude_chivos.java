@@ -113,7 +113,7 @@ public class story_arc_prelude_chivos extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int story_arc_prelude_chivos_handleBranch3(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -128,7 +128,7 @@ public class story_arc_prelude_chivos extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int story_arc_prelude_chivos_handleBranch5(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -143,7 +143,7 @@ public class story_arc_prelude_chivos extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int story_arc_prelude_chivos_handleBranch7(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -192,7 +192,7 @@ public class story_arc_prelude_chivos extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int story_arc_prelude_chivos_handleBranch9(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -243,7 +243,7 @@ public class story_arc_prelude_chivos extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int story_arc_prelude_chivos_handleBranch10(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -293,7 +293,7 @@ public class story_arc_prelude_chivos extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int story_arc_prelude_chivos_handleBranch11(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -332,7 +332,7 @@ public class story_arc_prelude_chivos extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int story_arc_prelude_chivos_handleBranch12(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -370,7 +370,7 @@ public class story_arc_prelude_chivos extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int story_arc_prelude_chivos_handleBranch13(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -409,7 +409,7 @@ public class story_arc_prelude_chivos extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int story_arc_prelude_chivos_handleBranch14(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -448,7 +448,7 @@ public class story_arc_prelude_chivos extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int story_arc_prelude_chivos_handleBranch15(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -487,7 +487,7 @@ public class story_arc_prelude_chivos extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int story_arc_prelude_chivos_handleBranch16(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -537,7 +537,7 @@ public class story_arc_prelude_chivos extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int story_arc_prelude_chivos_handleBranch17(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -563,7 +563,7 @@ public class story_arc_prelude_chivos extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int story_arc_prelude_chivos_handleBranch20(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -578,7 +578,7 @@ public class story_arc_prelude_chivos extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int story_arc_prelude_chivos_handleBranch22(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -628,7 +628,7 @@ public class story_arc_prelude_chivos extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int story_arc_prelude_chivos_handleBranch23(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -654,7 +654,7 @@ public class story_arc_prelude_chivos extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int story_arc_prelude_chivos_handleBranch26(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -693,7 +693,7 @@ public class story_arc_prelude_chivos extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int story_arc_prelude_chivos_handleBranch27(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -732,7 +732,7 @@ public class story_arc_prelude_chivos extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int story_arc_prelude_chivos_handleBranch28(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -772,7 +772,7 @@ public class story_arc_prelude_chivos extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int story_arc_prelude_chivos_handleBranch29(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -822,7 +822,7 @@ public class story_arc_prelude_chivos extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int story_arc_prelude_chivos_handleBranch30(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -849,7 +849,7 @@ public class story_arc_prelude_chivos extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int OnInitialize(obj_id self) throws InterruptedException
     {

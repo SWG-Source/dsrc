@@ -208,7 +208,7 @@ public class coa3wcoordinator extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int coa3wcoordinator_handleBranch3(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -289,7 +289,7 @@ public class coa3wcoordinator extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int coa3wcoordinator_handleBranch4(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -370,7 +370,7 @@ public class coa3wcoordinator extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int coa3wcoordinator_handleBranch5(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -440,7 +440,7 @@ public class coa3wcoordinator extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int coa3wcoordinator_handleBranch6(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -465,7 +465,7 @@ public class coa3wcoordinator extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int coa3wcoordinator_handleBranch18(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -490,7 +490,7 @@ public class coa3wcoordinator extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int coa3wcoordinator_handleBranch22(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -526,7 +526,7 @@ public class coa3wcoordinator extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int coa3wcoordinator_handleBranch27(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -596,7 +596,7 @@ public class coa3wcoordinator extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int coa3wcoordinator_handleBranch28(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -634,7 +634,7 @@ public class coa3wcoordinator extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int coa3wcoordinator_handleBranch29(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -672,7 +672,7 @@ public class coa3wcoordinator extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int coa3wcoordinator_handleBranch30(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -686,7 +686,7 @@ public class coa3wcoordinator extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int coa3wcoordinator_handleBranch35(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -735,7 +735,7 @@ public class coa3wcoordinator extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int coa3wcoordinator_handleBranch36(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -749,7 +749,7 @@ public class coa3wcoordinator extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int coa3wcoordinator_handleBranch39(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -819,7 +819,7 @@ public class coa3wcoordinator extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int coa3wcoordinator_handleBranch40(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -844,7 +844,7 @@ public class coa3wcoordinator extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int OnInitialize(obj_id self) throws InterruptedException
     {

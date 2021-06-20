@@ -204,7 +204,7 @@ public class npe_profession_entertainer extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int npe_profession_entertainer_handleBranch2(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -243,7 +243,7 @@ public class npe_profession_entertainer extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int npe_profession_entertainer_handleBranch3(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -282,7 +282,7 @@ public class npe_profession_entertainer extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int npe_profession_entertainer_handleBranch4(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -333,7 +333,7 @@ public class npe_profession_entertainer extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int npe_profession_entertainer_handleBranch5(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -406,7 +406,7 @@ public class npe_profession_entertainer extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int npe_profession_entertainer_handleBranch6(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -421,7 +421,7 @@ public class npe_profession_entertainer extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int npe_profession_entertainer_handleBranch9(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -460,7 +460,7 @@ public class npe_profession_entertainer extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int npe_profession_entertainer_handleBranch10(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -475,7 +475,7 @@ public class npe_profession_entertainer extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int npe_profession_entertainer_handleBranch12(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -514,7 +514,7 @@ public class npe_profession_entertainer extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int npe_profession_entertainer_handleBranch13(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -565,7 +565,7 @@ public class npe_profession_entertainer extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int npe_profession_entertainer_handleBranch14(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -638,7 +638,7 @@ public class npe_profession_entertainer extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int npe_profession_entertainer_handleBranch15(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -654,7 +654,7 @@ public class npe_profession_entertainer extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int npe_profession_entertainer_handleBranch18(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -693,7 +693,7 @@ public class npe_profession_entertainer extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int npe_profession_entertainer_handleBranch19(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -732,7 +732,7 @@ public class npe_profession_entertainer extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int npe_profession_entertainer_handleBranch20(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -748,7 +748,7 @@ public class npe_profession_entertainer extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int npe_profession_entertainer_handleBranch23(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -786,7 +786,7 @@ public class npe_profession_entertainer extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int npe_profession_entertainer_handleBranch24(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -801,7 +801,7 @@ public class npe_profession_entertainer extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int OnInitialize(obj_id self) throws InterruptedException
     {

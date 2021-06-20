@@ -100,7 +100,7 @@ public class prof_spy_11_kaesii extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int prof_spy_11_kaesii_handleBranch3(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -138,7 +138,7 @@ public class prof_spy_11_kaesii extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int prof_spy_11_kaesii_handleBranch4(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -176,7 +176,7 @@ public class prof_spy_11_kaesii extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int prof_spy_11_kaesii_handleBranch5(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -214,7 +214,7 @@ public class prof_spy_11_kaesii extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int prof_spy_11_kaesii_handleBranch6(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -229,7 +229,7 @@ public class prof_spy_11_kaesii extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int prof_spy_11_kaesii_handleBranch8(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -267,7 +267,7 @@ public class prof_spy_11_kaesii extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int prof_spy_11_kaesii_handleBranch9(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -281,7 +281,7 @@ public class prof_spy_11_kaesii extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int prof_spy_11_kaesii_handleBranch11(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -319,7 +319,7 @@ public class prof_spy_11_kaesii extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int prof_spy_11_kaesii_handleBranch12(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -368,7 +368,7 @@ public class prof_spy_11_kaesii extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int prof_spy_11_kaesii_handleBranch13(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -417,7 +417,7 @@ public class prof_spy_11_kaesii extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int prof_spy_11_kaesii_handleBranch14(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -500,7 +500,7 @@ public class prof_spy_11_kaesii extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int prof_spy_11_kaesii_handleBranch15(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -583,7 +583,7 @@ public class prof_spy_11_kaesii extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int prof_spy_11_kaesii_handleBranch16(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -598,7 +598,7 @@ public class prof_spy_11_kaesii extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int prof_spy_11_kaesii_handleBranch17(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -646,7 +646,7 @@ public class prof_spy_11_kaesii extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int prof_spy_11_kaesii_handleBranch18(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -661,7 +661,7 @@ public class prof_spy_11_kaesii extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int prof_spy_11_kaesii_handleBranch21(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -699,7 +699,7 @@ public class prof_spy_11_kaesii extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int prof_spy_11_kaesii_handleBranch22(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -737,7 +737,7 @@ public class prof_spy_11_kaesii extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int prof_spy_11_kaesii_handleBranch23(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -775,7 +775,7 @@ public class prof_spy_11_kaesii extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int prof_spy_11_kaesii_handleBranch24(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -790,7 +790,7 @@ public class prof_spy_11_kaesii extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int prof_spy_11_kaesii_handleBranch25(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -839,7 +839,7 @@ public class prof_spy_11_kaesii extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int prof_spy_11_kaesii_handleBranch26(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -887,7 +887,7 @@ public class prof_spy_11_kaesii extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int prof_spy_11_kaesii_handleBranch27(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -925,7 +925,7 @@ public class prof_spy_11_kaesii extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int prof_spy_11_kaesii_handleBranch28(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -963,7 +963,7 @@ public class prof_spy_11_kaesii extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int prof_spy_11_kaesii_handleBranch29(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -977,7 +977,7 @@ public class prof_spy_11_kaesii extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int OnInitialize(obj_id self) throws InterruptedException
     {

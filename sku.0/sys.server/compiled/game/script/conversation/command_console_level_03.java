@@ -168,7 +168,7 @@ public class command_console_level_03 extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int command_console_level_03_handleBranch2(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -183,7 +183,7 @@ public class command_console_level_03 extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int command_console_level_03_handleBranch6(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -354,7 +354,7 @@ public class command_console_level_03 extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int command_console_level_03_handleBranch7(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -456,7 +456,7 @@ public class command_console_level_03 extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int command_console_level_03_handleBranch8(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -471,7 +471,7 @@ public class command_console_level_03 extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int command_console_level_03_handleBranch10(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -486,7 +486,7 @@ public class command_console_level_03 extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int command_console_level_03_handleBranch15(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -550,7 +550,7 @@ public class command_console_level_03 extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int OnInitialize(obj_id self) throws InterruptedException
     {

@@ -425,7 +425,7 @@ public class rebel_remembrance_day_rieekan extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int rebel_remembrance_day_rieekan_handleBranch8(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -625,7 +625,7 @@ public class rebel_remembrance_day_rieekan extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int rebel_remembrance_day_rieekan_handleBranch9(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1010,7 +1010,7 @@ public class rebel_remembrance_day_rieekan extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int rebel_remembrance_day_rieekan_handleBranch10(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1395,7 +1395,7 @@ public class rebel_remembrance_day_rieekan extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int rebel_remembrance_day_rieekan_handleBranch11(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1410,7 +1410,7 @@ public class rebel_remembrance_day_rieekan extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int rebel_remembrance_day_rieekan_handleBranch13(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1429,7 +1429,7 @@ public class rebel_remembrance_day_rieekan extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int rebel_remembrance_day_rieekan_handleBranch15(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1444,7 +1444,7 @@ public class rebel_remembrance_day_rieekan extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int rebel_remembrance_day_rieekan_handleBranch17(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1463,7 +1463,7 @@ public class rebel_remembrance_day_rieekan extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int rebel_remembrance_day_rieekan_handleBranch19(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1478,7 +1478,7 @@ public class rebel_remembrance_day_rieekan extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int rebel_remembrance_day_rieekan_handleBranch23(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1524,7 +1524,7 @@ public class rebel_remembrance_day_rieekan extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int rebel_remembrance_day_rieekan_handleBranch24(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1570,7 +1570,7 @@ public class rebel_remembrance_day_rieekan extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int rebel_remembrance_day_rieekan_handleBranch25(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1609,7 +1609,7 @@ public class rebel_remembrance_day_rieekan extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int rebel_remembrance_day_rieekan_handleBranch30(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1648,7 +1648,7 @@ public class rebel_remembrance_day_rieekan extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int rebel_remembrance_day_rieekan_handleBranch35(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1686,7 +1686,7 @@ public class rebel_remembrance_day_rieekan extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int rebel_remembrance_day_rieekan_handleBranch36(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1724,7 +1724,7 @@ public class rebel_remembrance_day_rieekan extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int rebel_remembrance_day_rieekan_handleBranch37(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1763,7 +1763,7 @@ public class rebel_remembrance_day_rieekan extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int rebel_remembrance_day_rieekan_handleBranch42(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1818,7 +1818,7 @@ public class rebel_remembrance_day_rieekan extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int rebel_remembrance_day_rieekan_handleBranch47(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1864,7 +1864,7 @@ public class rebel_remembrance_day_rieekan extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int rebel_remembrance_day_rieekan_handleBranch48(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1919,7 +1919,7 @@ public class rebel_remembrance_day_rieekan extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int rebel_remembrance_day_rieekan_handleBranch54(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -2043,7 +2043,7 @@ public class rebel_remembrance_day_rieekan extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int rebel_remembrance_day_rieekan_handleBranch55(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -2154,7 +2154,7 @@ public class rebel_remembrance_day_rieekan extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int rebel_remembrance_day_rieekan_handleBranch56(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -2265,7 +2265,7 @@ public class rebel_remembrance_day_rieekan extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int rebel_remembrance_day_rieekan_handleBranch57(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -2381,7 +2381,7 @@ public class rebel_remembrance_day_rieekan extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int rebel_remembrance_day_rieekan_handleBranch58(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -2492,7 +2492,7 @@ public class rebel_remembrance_day_rieekan extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int rebel_remembrance_day_rieekan_handleBranch59(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -2603,7 +2603,7 @@ public class rebel_remembrance_day_rieekan extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int rebel_remembrance_day_rieekan_handleBranch60(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -2652,7 +2652,7 @@ public class rebel_remembrance_day_rieekan extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int rebel_remembrance_day_rieekan_handleBranch62(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -2667,7 +2667,7 @@ public class rebel_remembrance_day_rieekan extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int rebel_remembrance_day_rieekan_handleBranch64(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -2740,7 +2740,7 @@ public class rebel_remembrance_day_rieekan extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int rebel_remembrance_day_rieekan_handleBranch65(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -2779,7 +2779,7 @@ public class rebel_remembrance_day_rieekan extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int OnInitialize(obj_id self) throws InterruptedException
     {

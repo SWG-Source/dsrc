@@ -86,7 +86,7 @@ public class som_storm_lord_jural extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int som_storm_lord_jural_handleBranch5(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -136,7 +136,7 @@ public class som_storm_lord_jural extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int som_storm_lord_jural_handleBranch6(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -163,7 +163,7 @@ public class som_storm_lord_jural extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int som_storm_lord_jural_handleBranch10(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -203,7 +203,7 @@ public class som_storm_lord_jural extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int som_storm_lord_jural_handleBranch11(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -242,7 +242,7 @@ public class som_storm_lord_jural extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int som_storm_lord_jural_handleBranch12(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -293,7 +293,7 @@ public class som_storm_lord_jural extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int som_storm_lord_jural_handleBranch13(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -320,7 +320,7 @@ public class som_storm_lord_jural extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int som_storm_lord_jural_handleBranch17(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -359,7 +359,7 @@ public class som_storm_lord_jural extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int som_storm_lord_jural_handleBranch18(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -409,7 +409,7 @@ public class som_storm_lord_jural extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int som_storm_lord_jural_handleBranch19(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -435,7 +435,7 @@ public class som_storm_lord_jural extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int som_storm_lord_jural_handleBranch23(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -474,7 +474,7 @@ public class som_storm_lord_jural extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int som_storm_lord_jural_handleBranch24(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -513,7 +513,7 @@ public class som_storm_lord_jural extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int som_storm_lord_jural_handleBranch25(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -552,7 +552,7 @@ public class som_storm_lord_jural extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int som_storm_lord_jural_handleBranch26(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -591,7 +591,7 @@ public class som_storm_lord_jural extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int som_storm_lord_jural_handleBranch27(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -629,7 +629,7 @@ public class som_storm_lord_jural extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int som_storm_lord_jural_handleBranch28(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -668,7 +668,7 @@ public class som_storm_lord_jural extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int som_storm_lord_jural_handleBranch29(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -707,7 +707,7 @@ public class som_storm_lord_jural extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int som_storm_lord_jural_handleBranch30(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -746,7 +746,7 @@ public class som_storm_lord_jural extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int som_storm_lord_jural_handleBranch31(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -786,7 +786,7 @@ public class som_storm_lord_jural extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int som_storm_lord_jural_handleBranch32(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -825,7 +825,7 @@ public class som_storm_lord_jural extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int som_storm_lord_jural_handleBranch33(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -875,7 +875,7 @@ public class som_storm_lord_jural extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int som_storm_lord_jural_handleBranch34(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -903,7 +903,7 @@ public class som_storm_lord_jural extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int OnInitialize(obj_id self) throws InterruptedException
     {

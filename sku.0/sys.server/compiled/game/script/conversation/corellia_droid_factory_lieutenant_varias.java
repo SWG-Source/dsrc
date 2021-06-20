@@ -113,7 +113,7 @@ public class corellia_droid_factory_lieutenant_varias extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int corellia_droid_factory_lieutenant_varias_handleBranch2(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -128,7 +128,7 @@ public class corellia_droid_factory_lieutenant_varias extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int corellia_droid_factory_lieutenant_varias_handleBranch5(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -177,7 +177,7 @@ public class corellia_droid_factory_lieutenant_varias extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int corellia_droid_factory_lieutenant_varias_handleBranch6(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -202,7 +202,7 @@ public class corellia_droid_factory_lieutenant_varias extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int corellia_droid_factory_lieutenant_varias_handleBranch12(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -395,7 +395,7 @@ public class corellia_droid_factory_lieutenant_varias extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int corellia_droid_factory_lieutenant_varias_handleBranch13(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -433,7 +433,7 @@ public class corellia_droid_factory_lieutenant_varias extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int corellia_droid_factory_lieutenant_varias_handleBranch14(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -493,7 +493,7 @@ public class corellia_droid_factory_lieutenant_varias extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int corellia_droid_factory_lieutenant_varias_handleBranch15(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -599,7 +599,7 @@ public class corellia_droid_factory_lieutenant_varias extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int corellia_droid_factory_lieutenant_varias_handleBranch16(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -614,7 +614,7 @@ public class corellia_droid_factory_lieutenant_varias extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int corellia_droid_factory_lieutenant_varias_handleBranch18(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -652,7 +652,7 @@ public class corellia_droid_factory_lieutenant_varias extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int corellia_droid_factory_lieutenant_varias_handleBranch19(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -845,7 +845,7 @@ public class corellia_droid_factory_lieutenant_varias extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int corellia_droid_factory_lieutenant_varias_handleBranch20(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1038,7 +1038,7 @@ public class corellia_droid_factory_lieutenant_varias extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public static final boolean U13_QUESTS_ENABLED = true;
     public int OnInitialize(obj_id self) throws InterruptedException

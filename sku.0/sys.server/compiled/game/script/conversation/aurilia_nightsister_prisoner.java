@@ -35,7 +35,7 @@ public class aurilia_nightsister_prisoner extends script.conversation.base.conve
             npcEndConversationWithMessage(player, new string_id(c_stringFile, "s_9"));
             return SCRIPT_CONTINUE;
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int OnStartNpcConversation(obj_id self, obj_id player) throws InterruptedException
     {

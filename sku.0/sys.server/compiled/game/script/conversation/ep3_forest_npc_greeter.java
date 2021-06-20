@@ -52,7 +52,7 @@ public class ep3_forest_npc_greeter extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_forest_npc_greeter_handleBranch2(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -157,7 +157,7 @@ public class ep3_forest_npc_greeter extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_forest_npc_greeter_handleBranch3(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -448,7 +448,7 @@ public class ep3_forest_npc_greeter extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_forest_npc_greeter_handleBranch4(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -553,7 +553,7 @@ public class ep3_forest_npc_greeter extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_forest_npc_greeter_handleBranch5(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -844,7 +844,7 @@ public class ep3_forest_npc_greeter extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_forest_npc_greeter_handleBranch6(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -949,7 +949,7 @@ public class ep3_forest_npc_greeter extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_forest_npc_greeter_handleBranch7(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1240,7 +1240,7 @@ public class ep3_forest_npc_greeter extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_forest_npc_greeter_handleBranch8(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1345,7 +1345,7 @@ public class ep3_forest_npc_greeter extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_forest_npc_greeter_handleBranch9(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1636,7 +1636,7 @@ public class ep3_forest_npc_greeter extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_forest_npc_greeter_handleBranch10(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1741,7 +1741,7 @@ public class ep3_forest_npc_greeter extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_forest_npc_greeter_handleBranch11(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -2032,7 +2032,7 @@ public class ep3_forest_npc_greeter extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_forest_npc_greeter_handleBranch12(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -2071,7 +2071,7 @@ public class ep3_forest_npc_greeter extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_forest_npc_greeter_handleBranch13(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -2176,7 +2176,7 @@ public class ep3_forest_npc_greeter extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_forest_npc_greeter_handleBranch14(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -2467,7 +2467,7 @@ public class ep3_forest_npc_greeter extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_forest_npc_greeter_handleBranch15(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -2758,7 +2758,7 @@ public class ep3_forest_npc_greeter extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int OnInitialize(obj_id self) throws InterruptedException
     {

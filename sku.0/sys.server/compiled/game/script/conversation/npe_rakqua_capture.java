@@ -81,7 +81,7 @@ public class npe_rakqua_capture extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int npe_rakqua_capture_handleBranch2(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -121,7 +121,7 @@ public class npe_rakqua_capture extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int npe_rakqua_capture_handleBranch3(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -160,7 +160,7 @@ public class npe_rakqua_capture extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int npe_rakqua_capture_handleBranch4(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -198,7 +198,7 @@ public class npe_rakqua_capture extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int npe_rakqua_capture_handleBranch5(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -214,7 +214,7 @@ public class npe_rakqua_capture extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int npe_rakqua_capture_handleBranch7(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -231,7 +231,7 @@ public class npe_rakqua_capture extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int npe_rakqua_capture_handleBranch10(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -270,7 +270,7 @@ public class npe_rakqua_capture extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int npe_rakqua_capture_handleBranch11(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -310,7 +310,7 @@ public class npe_rakqua_capture extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int npe_rakqua_capture_handleBranch12(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -349,7 +349,7 @@ public class npe_rakqua_capture extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int npe_rakqua_capture_handleBranch13(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -366,7 +366,7 @@ public class npe_rakqua_capture extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int OnInitialize(obj_id self) throws InterruptedException
     {

@@ -844,7 +844,7 @@ public class hx_138 extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int hx_138_handleBranch4(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -883,7 +883,7 @@ public class hx_138 extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int hx_138_handleBranch5(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -921,7 +921,7 @@ public class hx_138 extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int hx_138_handleBranch6(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -959,7 +959,7 @@ public class hx_138 extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int hx_138_handleBranch7(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -997,7 +997,7 @@ public class hx_138 extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int hx_138_handleBranch8(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1017,7 +1017,7 @@ public class hx_138 extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int hx_138_handleBranch10(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1076,7 +1076,7 @@ public class hx_138 extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int hx_138_handleBranch16(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1135,7 +1135,7 @@ public class hx_138 extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int hx_138_handleBranch22(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1194,7 +1194,7 @@ public class hx_138 extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int hx_138_handleBranch32(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1209,7 +1209,7 @@ public class hx_138 extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int hx_138_handleBranch34(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1247,7 +1247,7 @@ public class hx_138 extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int hx_138_handleBranch35(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1285,7 +1285,7 @@ public class hx_138 extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int hx_138_handleBranch36(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1323,7 +1323,7 @@ public class hx_138 extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int hx_138_handleBranch37(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1361,7 +1361,7 @@ public class hx_138 extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int hx_138_handleBranch38(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1376,7 +1376,7 @@ public class hx_138 extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int hx_138_handleBranch40(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1395,7 +1395,7 @@ public class hx_138 extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int hx_138_handleBranch42(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1523,7 +1523,7 @@ public class hx_138 extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int hx_138_handleBranch43(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1542,7 +1542,7 @@ public class hx_138 extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int hx_138_handleBranch46(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1590,7 +1590,7 @@ public class hx_138 extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int hx_138_handleBranch51(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1605,7 +1605,7 @@ public class hx_138 extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int hx_138_handleBranch53(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1710,7 +1710,7 @@ public class hx_138 extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int hx_138_handleBranch54(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1729,7 +1729,7 @@ public class hx_138 extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int hx_138_handleBranch56(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1777,7 +1777,7 @@ public class hx_138 extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int hx_138_handleBranch61(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1792,7 +1792,7 @@ public class hx_138 extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int hx_138_handleBranch63(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1874,7 +1874,7 @@ public class hx_138 extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int hx_138_handleBranch65(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1922,7 +1922,7 @@ public class hx_138 extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int hx_138_handleBranch70(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1938,7 +1938,7 @@ public class hx_138 extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int hx_138_handleBranch77(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -2043,7 +2043,7 @@ public class hx_138 extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int hx_138_handleBranch78(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -2058,7 +2058,7 @@ public class hx_138 extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int hx_138_handleBranch80(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -2106,7 +2106,7 @@ public class hx_138 extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int hx_138_handleBranch85(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -2121,7 +2121,7 @@ public class hx_138 extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int OnInitialize(obj_id self) throws InterruptedException
     {

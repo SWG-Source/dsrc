@@ -179,7 +179,7 @@ public class biogenic_securitytech extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int biogenic_securitytech_handleBranch2(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -227,7 +227,7 @@ public class biogenic_securitytech extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int biogenic_securitytech_handleBranch3(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -241,7 +241,7 @@ public class biogenic_securitytech extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int biogenic_securitytech_handleBranch6(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -289,7 +289,7 @@ public class biogenic_securitytech extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int biogenic_securitytech_handleBranch7(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -303,7 +303,7 @@ public class biogenic_securitytech extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int biogenic_securitytech_handleBranch13(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -363,7 +363,7 @@ public class biogenic_securitytech extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int biogenic_securitytech_handleBranch14(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -445,7 +445,7 @@ public class biogenic_securitytech extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int biogenic_securitytech_handleBranch15(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -616,7 +616,7 @@ public class biogenic_securitytech extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int biogenic_securitytech_handleBranch16(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -720,7 +720,7 @@ public class biogenic_securitytech extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int biogenic_securitytech_handleBranch17(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -779,7 +779,7 @@ public class biogenic_securitytech extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int biogenic_securitytech_handleBranch18(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -803,7 +803,7 @@ public class biogenic_securitytech extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int biogenic_securitytech_handleBranch22(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -827,7 +827,7 @@ public class biogenic_securitytech extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int biogenic_securitytech_handleBranch26(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -931,7 +931,7 @@ public class biogenic_securitytech extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int biogenic_securitytech_handleBranch27(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -990,7 +990,7 @@ public class biogenic_securitytech extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int biogenic_securitytech_handleBranch28(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1014,7 +1014,7 @@ public class biogenic_securitytech extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int biogenic_securitytech_handleBranch32(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1038,7 +1038,7 @@ public class biogenic_securitytech extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int biogenic_securitytech_handleBranch36(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1062,7 +1062,7 @@ public class biogenic_securitytech extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int biogenic_securitytech_handleBranch42(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1225,7 +1225,7 @@ public class biogenic_securitytech extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int biogenic_securitytech_handleBranch43(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1295,7 +1295,7 @@ public class biogenic_securitytech extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int biogenic_securitytech_handleBranch44(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1399,7 +1399,7 @@ public class biogenic_securitytech extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int biogenic_securitytech_handleBranch45(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1460,7 +1460,7 @@ public class biogenic_securitytech extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int biogenic_securitytech_handleBranch46(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1542,7 +1542,7 @@ public class biogenic_securitytech extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int biogenic_securitytech_handleBranch47(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1713,7 +1713,7 @@ public class biogenic_securitytech extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int biogenic_securitytech_handleBranch48(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1817,7 +1817,7 @@ public class biogenic_securitytech extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int biogenic_securitytech_handleBranch49(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1876,7 +1876,7 @@ public class biogenic_securitytech extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int biogenic_securitytech_handleBranch50(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1900,7 +1900,7 @@ public class biogenic_securitytech extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int biogenic_securitytech_handleBranch54(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1924,7 +1924,7 @@ public class biogenic_securitytech extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int biogenic_securitytech_handleBranch58(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -2028,7 +2028,7 @@ public class biogenic_securitytech extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int biogenic_securitytech_handleBranch59(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -2087,7 +2087,7 @@ public class biogenic_securitytech extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int biogenic_securitytech_handleBranch60(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -2111,7 +2111,7 @@ public class biogenic_securitytech extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int biogenic_securitytech_handleBranch64(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -2135,7 +2135,7 @@ public class biogenic_securitytech extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int biogenic_securitytech_handleBranch68(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -2159,7 +2159,7 @@ public class biogenic_securitytech extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int biogenic_securitytech_handleBranch74(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -2220,7 +2220,7 @@ public class biogenic_securitytech extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int biogenic_securitytech_handleBranch75(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -2302,7 +2302,7 @@ public class biogenic_securitytech extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int biogenic_securitytech_handleBranch76(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -2473,7 +2473,7 @@ public class biogenic_securitytech extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int biogenic_securitytech_handleBranch77(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -2577,7 +2577,7 @@ public class biogenic_securitytech extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int biogenic_securitytech_handleBranch78(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -2636,7 +2636,7 @@ public class biogenic_securitytech extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int biogenic_securitytech_handleBranch79(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -2660,7 +2660,7 @@ public class biogenic_securitytech extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int biogenic_securitytech_handleBranch83(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -2684,7 +2684,7 @@ public class biogenic_securitytech extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int biogenic_securitytech_handleBranch87(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -2788,7 +2788,7 @@ public class biogenic_securitytech extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int biogenic_securitytech_handleBranch88(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -2847,7 +2847,7 @@ public class biogenic_securitytech extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int biogenic_securitytech_handleBranch89(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -2871,7 +2871,7 @@ public class biogenic_securitytech extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int biogenic_securitytech_handleBranch93(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -2895,7 +2895,7 @@ public class biogenic_securitytech extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int biogenic_securitytech_handleBranch97(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -2919,7 +2919,7 @@ public class biogenic_securitytech extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int biogenic_securitytech_handleBranch105(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -2989,7 +2989,7 @@ public class biogenic_securitytech extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int biogenic_securitytech_handleBranch106(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -3093,7 +3093,7 @@ public class biogenic_securitytech extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int biogenic_securitytech_handleBranch107(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -3154,7 +3154,7 @@ public class biogenic_securitytech extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int biogenic_securitytech_handleBranch108(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -3236,7 +3236,7 @@ public class biogenic_securitytech extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int biogenic_securitytech_handleBranch109(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -3407,7 +3407,7 @@ public class biogenic_securitytech extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int biogenic_securitytech_handleBranch110(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -3511,7 +3511,7 @@ public class biogenic_securitytech extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int biogenic_securitytech_handleBranch111(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -3570,7 +3570,7 @@ public class biogenic_securitytech extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int biogenic_securitytech_handleBranch112(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -3594,7 +3594,7 @@ public class biogenic_securitytech extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int biogenic_securitytech_handleBranch116(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -3618,7 +3618,7 @@ public class biogenic_securitytech extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int biogenic_securitytech_handleBranch120(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -3722,7 +3722,7 @@ public class biogenic_securitytech extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int biogenic_securitytech_handleBranch121(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -3781,7 +3781,7 @@ public class biogenic_securitytech extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int biogenic_securitytech_handleBranch122(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -3805,7 +3805,7 @@ public class biogenic_securitytech extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int biogenic_securitytech_handleBranch126(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -3829,7 +3829,7 @@ public class biogenic_securitytech extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int biogenic_securitytech_handleBranch130(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -3853,7 +3853,7 @@ public class biogenic_securitytech extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int biogenic_securitytech_handleBranch136(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -3914,7 +3914,7 @@ public class biogenic_securitytech extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int biogenic_securitytech_handleBranch137(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -3996,7 +3996,7 @@ public class biogenic_securitytech extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int biogenic_securitytech_handleBranch138(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -4167,7 +4167,7 @@ public class biogenic_securitytech extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int biogenic_securitytech_handleBranch139(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -4271,7 +4271,7 @@ public class biogenic_securitytech extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int biogenic_securitytech_handleBranch140(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -4330,7 +4330,7 @@ public class biogenic_securitytech extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int biogenic_securitytech_handleBranch141(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -4354,7 +4354,7 @@ public class biogenic_securitytech extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int biogenic_securitytech_handleBranch145(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -4378,7 +4378,7 @@ public class biogenic_securitytech extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int biogenic_securitytech_handleBranch149(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -4482,7 +4482,7 @@ public class biogenic_securitytech extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int biogenic_securitytech_handleBranch150(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -4541,7 +4541,7 @@ public class biogenic_securitytech extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int biogenic_securitytech_handleBranch151(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -4565,7 +4565,7 @@ public class biogenic_securitytech extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int biogenic_securitytech_handleBranch155(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -4589,7 +4589,7 @@ public class biogenic_securitytech extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int biogenic_securitytech_handleBranch159(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -4613,7 +4613,7 @@ public class biogenic_securitytech extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int biogenic_securitytech_handleBranch167(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -4717,7 +4717,7 @@ public class biogenic_securitytech extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int biogenic_securitytech_handleBranch168(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -4778,7 +4778,7 @@ public class biogenic_securitytech extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int biogenic_securitytech_handleBranch169(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -4860,7 +4860,7 @@ public class biogenic_securitytech extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int biogenic_securitytech_handleBranch170(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -5031,7 +5031,7 @@ public class biogenic_securitytech extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int biogenic_securitytech_handleBranch171(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -5135,7 +5135,7 @@ public class biogenic_securitytech extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int biogenic_securitytech_handleBranch172(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -5194,7 +5194,7 @@ public class biogenic_securitytech extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int biogenic_securitytech_handleBranch173(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -5218,7 +5218,7 @@ public class biogenic_securitytech extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int biogenic_securitytech_handleBranch177(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -5242,7 +5242,7 @@ public class biogenic_securitytech extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int biogenic_securitytech_handleBranch181(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -5346,7 +5346,7 @@ public class biogenic_securitytech extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int biogenic_securitytech_handleBranch182(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -5405,7 +5405,7 @@ public class biogenic_securitytech extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int biogenic_securitytech_handleBranch183(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -5429,7 +5429,7 @@ public class biogenic_securitytech extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int biogenic_securitytech_handleBranch187(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -5453,7 +5453,7 @@ public class biogenic_securitytech extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int biogenic_securitytech_handleBranch191(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -5477,7 +5477,7 @@ public class biogenic_securitytech extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int biogenic_securitytech_handleBranch197(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -5538,7 +5538,7 @@ public class biogenic_securitytech extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int biogenic_securitytech_handleBranch198(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -5620,7 +5620,7 @@ public class biogenic_securitytech extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int biogenic_securitytech_handleBranch199(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -5791,7 +5791,7 @@ public class biogenic_securitytech extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int biogenic_securitytech_handleBranch200(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -5895,7 +5895,7 @@ public class biogenic_securitytech extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int biogenic_securitytech_handleBranch201(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -5954,7 +5954,7 @@ public class biogenic_securitytech extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int biogenic_securitytech_handleBranch202(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -5978,7 +5978,7 @@ public class biogenic_securitytech extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int biogenic_securitytech_handleBranch206(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -6002,7 +6002,7 @@ public class biogenic_securitytech extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int biogenic_securitytech_handleBranch210(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -6106,7 +6106,7 @@ public class biogenic_securitytech extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int biogenic_securitytech_handleBranch211(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -6165,7 +6165,7 @@ public class biogenic_securitytech extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int biogenic_securitytech_handleBranch212(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -6189,7 +6189,7 @@ public class biogenic_securitytech extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int biogenic_securitytech_handleBranch216(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -6213,7 +6213,7 @@ public class biogenic_securitytech extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int biogenic_securitytech_handleBranch220(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -6237,7 +6237,7 @@ public class biogenic_securitytech extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int OnInitialize(obj_id self) throws InterruptedException
     {

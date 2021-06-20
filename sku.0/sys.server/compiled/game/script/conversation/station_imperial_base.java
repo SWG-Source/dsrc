@@ -196,7 +196,7 @@ public class station_imperial_base extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int station_imperial_base_handleBranch7(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -228,7 +228,7 @@ public class station_imperial_base extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int station_imperial_base_handleBranch11(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -260,7 +260,7 @@ public class station_imperial_base extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int station_imperial_base_handleBranch13(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -276,7 +276,7 @@ public class station_imperial_base extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int station_imperial_base_handleBranch15(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -315,7 +315,7 @@ public class station_imperial_base extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int station_imperial_base_handleBranch16(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -354,7 +354,7 @@ public class station_imperial_base extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int station_imperial_base_handleBranch17(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -393,7 +393,7 @@ public class station_imperial_base extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int station_imperial_base_handleBranch18(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -409,7 +409,7 @@ public class station_imperial_base extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int station_imperial_base_handleBranch20(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -518,7 +518,7 @@ public class station_imperial_base extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int station_imperial_base_handleBranch21(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -614,7 +614,7 @@ public class station_imperial_base extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int station_imperial_base_handleBranch22(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -676,7 +676,7 @@ public class station_imperial_base extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int station_imperial_base_handleBranch24(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -738,7 +738,7 @@ public class station_imperial_base extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int station_imperial_base_handleBranch26(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -777,7 +777,7 @@ public class station_imperial_base extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int station_imperial_base_handleBranch27(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -816,7 +816,7 @@ public class station_imperial_base extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int station_imperial_base_handleBranch28(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -855,7 +855,7 @@ public class station_imperial_base extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int station_imperial_base_handleBranch29(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -894,7 +894,7 @@ public class station_imperial_base extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int station_imperial_base_handleBranch30(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -910,7 +910,7 @@ public class station_imperial_base extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int station_imperial_base_handleBranch32(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -926,7 +926,7 @@ public class station_imperial_base extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int station_imperial_base_handleBranch34(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -992,7 +992,7 @@ public class station_imperial_base extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int station_imperial_base_handleBranch37(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1031,7 +1031,7 @@ public class station_imperial_base extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int station_imperial_base_handleBranch38(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1100,7 +1100,7 @@ public class station_imperial_base extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int station_imperial_base_handleBranch39(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1166,7 +1166,7 @@ public class station_imperial_base extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int OnInitialize(obj_id self) throws InterruptedException
     {

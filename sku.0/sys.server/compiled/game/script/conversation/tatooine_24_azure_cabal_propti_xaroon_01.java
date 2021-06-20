@@ -198,7 +198,7 @@ public class tatooine_24_azure_cabal_propti_xaroon_01 extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int tatooine_24_azure_cabal_propti_xaroon_01_handleBranch2(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -258,7 +258,7 @@ public class tatooine_24_azure_cabal_propti_xaroon_01 extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int tatooine_24_azure_cabal_propti_xaroon_01_handleBranch3(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -318,7 +318,7 @@ public class tatooine_24_azure_cabal_propti_xaroon_01 extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int tatooine_24_azure_cabal_propti_xaroon_01_handleBranch4(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -383,7 +383,7 @@ public class tatooine_24_azure_cabal_propti_xaroon_01 extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int tatooine_24_azure_cabal_propti_xaroon_01_handleBranch5(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -437,7 +437,7 @@ public class tatooine_24_azure_cabal_propti_xaroon_01 extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int tatooine_24_azure_cabal_propti_xaroon_01_handleBranch6(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -456,7 +456,7 @@ public class tatooine_24_azure_cabal_propti_xaroon_01 extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int tatooine_24_azure_cabal_propti_xaroon_01_handleBranch8(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -526,7 +526,7 @@ public class tatooine_24_azure_cabal_propti_xaroon_01 extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int tatooine_24_azure_cabal_propti_xaroon_01_handleBranch9(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -586,7 +586,7 @@ public class tatooine_24_azure_cabal_propti_xaroon_01 extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int tatooine_24_azure_cabal_propti_xaroon_01_handleBranch10(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -656,7 +656,7 @@ public class tatooine_24_azure_cabal_propti_xaroon_01 extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int tatooine_24_azure_cabal_propti_xaroon_01_handleBranch11(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -795,7 +795,7 @@ public class tatooine_24_azure_cabal_propti_xaroon_01 extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int tatooine_24_azure_cabal_propti_xaroon_01_handleBranch12(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -865,7 +865,7 @@ public class tatooine_24_azure_cabal_propti_xaroon_01 extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int tatooine_24_azure_cabal_propti_xaroon_01_handleBranch14(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -935,7 +935,7 @@ public class tatooine_24_azure_cabal_propti_xaroon_01 extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int tatooine_24_azure_cabal_propti_xaroon_01_handleBranch15(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1005,7 +1005,7 @@ public class tatooine_24_azure_cabal_propti_xaroon_01 extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int tatooine_24_azure_cabal_propti_xaroon_01_handleBranch17(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1075,7 +1075,7 @@ public class tatooine_24_azure_cabal_propti_xaroon_01 extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int tatooine_24_azure_cabal_propti_xaroon_01_handleBranch18(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1147,7 +1147,7 @@ public class tatooine_24_azure_cabal_propti_xaroon_01 extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int tatooine_24_azure_cabal_propti_xaroon_01_handleBranch20(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1209,7 +1209,7 @@ public class tatooine_24_azure_cabal_propti_xaroon_01 extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int tatooine_24_azure_cabal_propti_xaroon_01_handleBranch21(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1271,7 +1271,7 @@ public class tatooine_24_azure_cabal_propti_xaroon_01 extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int tatooine_24_azure_cabal_propti_xaroon_01_handleBranch22(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1322,7 +1322,7 @@ public class tatooine_24_azure_cabal_propti_xaroon_01 extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int tatooine_24_azure_cabal_propti_xaroon_01_handleBranch23(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1338,7 +1338,7 @@ public class tatooine_24_azure_cabal_propti_xaroon_01 extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int OnInitialize(obj_id self) throws InterruptedException
     {

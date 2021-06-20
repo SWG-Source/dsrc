@@ -128,7 +128,7 @@ public class reelo_baruk extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int reelo_baruk_handleBranch7(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -142,7 +142,7 @@ public class reelo_baruk extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int reelo_baruk_handleBranch10(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -212,7 +212,7 @@ public class reelo_baruk extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int reelo_baruk_handleBranch12(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -261,7 +261,7 @@ public class reelo_baruk extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int reelo_baruk_handleBranch13(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -299,7 +299,7 @@ public class reelo_baruk extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int reelo_baruk_handleBranch14(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -337,7 +337,7 @@ public class reelo_baruk extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int reelo_baruk_handleBranch15(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -352,7 +352,7 @@ public class reelo_baruk extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int OnInitialize(obj_id self) throws InterruptedException
     {

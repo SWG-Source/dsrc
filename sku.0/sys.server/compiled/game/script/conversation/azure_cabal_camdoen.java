@@ -134,7 +134,7 @@ public class azure_cabal_camdoen extends script.conversation.base.conversation_b
         {
             return craft_response(new String[] {"s_181", "s_182", "s_183"}, 3, player);
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     private int azure_cabal_camdoen_handleBranch3(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -151,7 +151,7 @@ public class azure_cabal_camdoen extends script.conversation.base.conversation_b
             npcEndConversationWithMessage(player, new string_id(c_stringFile, "s_185"));
             return SCRIPT_CONTINUE;
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     private int azure_cabal_camdoen_handleBranch5(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -166,7 +166,7 @@ public class azure_cabal_camdoen extends script.conversation.base.conversation_b
         {
             return craft_response(new String[] {"s_177", "s_178", "s_179"}, 7, player);
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     private int azure_cabal_camdoen_handleBranch7(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -183,7 +183,7 @@ public class azure_cabal_camdoen extends script.conversation.base.conversation_b
             npcEndConversationWithMessage(player, new string_id(c_stringFile, "s_186"));
             return SCRIPT_CONTINUE;
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     private int azure_cabal_camdoen_handleBranch9(obj_id player, string_id response) throws InterruptedException
     {
@@ -193,7 +193,7 @@ public class azure_cabal_camdoen extends script.conversation.base.conversation_b
             npcEndConversationWithMessage(player, new string_id(c_stringFile, "s_198"));
             return SCRIPT_CONTINUE;
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     private int azure_cabal_camdoen_handleBranch11(obj_id player, string_id response) throws InterruptedException
     {
@@ -229,7 +229,7 @@ public class azure_cabal_camdoen extends script.conversation.base.conversation_b
             npcEndConversationWithMessage(player, new string_id(c_stringFile, "s_195"));
             return SCRIPT_CONTINUE;
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     private int azure_cabal_camdoen_handleBranch12(obj_id player, string_id response) throws InterruptedException
     {
@@ -241,7 +241,7 @@ public class azure_cabal_camdoen extends script.conversation.base.conversation_b
         {
             return craft_response(new String[] {"s_219", "s_228", "s_227"}, 16, player);
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     private int azure_cabal_camdoen_handleBranch13(obj_id player, string_id response) throws InterruptedException
     {
@@ -273,7 +273,7 @@ public class azure_cabal_camdoen extends script.conversation.base.conversation_b
             return SCRIPT_CONTINUE;
             */
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     private int azure_cabal_camdoen_handleBranch14(obj_id player, string_id response) throws InterruptedException
     {
@@ -307,7 +307,7 @@ public class azure_cabal_camdoen extends script.conversation.base.conversation_b
             npcEndConversationWithMessage(player, new string_id(c_stringFile, "s_167"));
             return SCRIPT_CONTINUE;
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     private int azure_cabal_camdoen_handleBranch15(obj_id player, string_id response) throws InterruptedException
     {
@@ -315,7 +315,7 @@ public class azure_cabal_camdoen extends script.conversation.base.conversation_b
         {
             return craft_response(new String[] {"s_219", "s_228", "s_227"}, 16, player);
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     private int azure_cabal_camdoen_handleBranch16(obj_id player, string_id response) throws InterruptedException
     {
@@ -349,7 +349,7 @@ public class azure_cabal_camdoen extends script.conversation.base.conversation_b
             npcEndConversationWithMessage(player, new string_id(c_stringFile, "s_167"));
             return SCRIPT_CONTINUE;
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     private int azure_cabal_camdoen_handleBranch17(obj_id player, string_id response) throws InterruptedException
     {
@@ -389,7 +389,7 @@ public class azure_cabal_camdoen extends script.conversation.base.conversation_b
             npcEndConversationWithMessage(player, new string_id(c_stringFile, "s_195"));
             return SCRIPT_CONTINUE;
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     private int azure_cabal_camdoen_handleBranch18(obj_id player, string_id response) throws InterruptedException
     {
@@ -425,7 +425,7 @@ public class azure_cabal_camdoen extends script.conversation.base.conversation_b
             npcEndConversationWithMessage(player, new string_id(c_stringFile, "s_167"));
             return SCRIPT_CONTINUE;
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     private int azure_cabal_camdoen_handleBranch19(obj_id player, string_id response) throws InterruptedException
     {
@@ -437,7 +437,7 @@ public class azure_cabal_camdoen extends script.conversation.base.conversation_b
         {
             return craft_response(new String[] {"s_242", "s_245", "s_246"}, 22, player);
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     private int azure_cabal_camdoen_handleBranch20(obj_id player, string_id response) throws InterruptedException
     {
@@ -455,7 +455,7 @@ public class azure_cabal_camdoen extends script.conversation.base.conversation_b
             npcEndConversationWithMessage(player, new string_id(c_stringFile, "s_195"));
             return SCRIPT_CONTINUE;
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     private int azure_cabal_camdoen_handleBranch21(obj_id player, string_id response) throws InterruptedException
     {
@@ -469,7 +469,7 @@ public class azure_cabal_camdoen extends script.conversation.base.conversation_b
             npcEndConversationWithMessage(player, new string_id(c_stringFile, "s_195"));
             return SCRIPT_CONTINUE;
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     private int azure_cabal_camdoen_handleBranch22(obj_id player, string_id response) throws InterruptedException
     {
@@ -483,7 +483,7 @@ public class azure_cabal_camdoen extends script.conversation.base.conversation_b
             npcEndConversationWithMessage(player, new string_id(c_stringFile, "s_195"));
             return SCRIPT_CONTINUE;
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     private int azure_cabal_camdoen_handleBranch23(obj_id player, string_id response) throws InterruptedException
     {
@@ -497,7 +497,7 @@ public class azure_cabal_camdoen extends script.conversation.base.conversation_b
             npcEndConversationWithMessage(player, new string_id(c_stringFile, "s_195"));
             return SCRIPT_CONTINUE;
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     private int azure_cabal_camdoen_handleBranch24(obj_id player, string_id response) throws InterruptedException
     {
@@ -507,7 +507,7 @@ public class azure_cabal_camdoen extends script.conversation.base.conversation_b
             npcEndConversationWithMessage(player, new string_id(c_stringFile, "s_195"));
             return SCRIPT_CONTINUE;
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     private int azure_cabal_camdoen_handleBranch25(obj_id player, string_id response) throws InterruptedException
     {
@@ -519,7 +519,7 @@ public class azure_cabal_camdoen extends script.conversation.base.conversation_b
         {
             return craft_response(new String[] {"s_120", "s_121", "s_123"}, 29, player);
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     private int azure_cabal_camdoen_handleBranch26(obj_id player, string_id response) throws InterruptedException
     {
@@ -531,7 +531,7 @@ public class azure_cabal_camdoen extends script.conversation.base.conversation_b
         {
             return craft_response(new String[] {"s_120", "s_121", "s_123"}, 29, player);
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     private int azure_cabal_camdoen_handleBranch27(obj_id player, string_id response) throws InterruptedException
     {
@@ -545,7 +545,7 @@ public class azure_cabal_camdoen extends script.conversation.base.conversation_b
         {
             return craft_response(new String[] {"s_120", "s_121", "s_123"}, 29, player);
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     private int azure_cabal_camdoen_handleBranch29(obj_id player, string_id response) throws InterruptedException
     {
@@ -579,7 +579,7 @@ public class azure_cabal_camdoen extends script.conversation.base.conversation_b
             npcEndConversationWithMessage(player, new string_id(c_stringFile, "s_167"));
             return SCRIPT_CONTINUE;
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     private int azure_cabal_camdoen_handleBranch30(obj_id player, string_id response) throws InterruptedException
     {
@@ -615,7 +615,7 @@ public class azure_cabal_camdoen extends script.conversation.base.conversation_b
             npcEndConversationWithMessage(player, new string_id(c_stringFile, "s_167"));
             return SCRIPT_CONTINUE;
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     private int azure_cabal_camdoen_handleBranch32(obj_id player, string_id response) throws InterruptedException
     {
@@ -627,7 +627,7 @@ public class azure_cabal_camdoen extends script.conversation.base.conversation_b
         {
             return craft_response(new String[] {"s_127", "s_132", "s_340"}, 37, player);
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     private int azure_cabal_camdoen_handleBranch33(obj_id player, string_id response) throws InterruptedException
     {
@@ -639,7 +639,7 @@ public class azure_cabal_camdoen extends script.conversation.base.conversation_b
         {
             return craft_response(new String[] {"s_127", "s_132", "s_340"}, 37, player);
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     private int azure_cabal_camdoen_handleBranch34(obj_id player, string_id response) throws InterruptedException
     {
@@ -651,7 +651,7 @@ public class azure_cabal_camdoen extends script.conversation.base.conversation_b
         {
             return craft_response(new String[] {"s_127", "s_132", "s_340"}, 37, player);
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     private int azure_cabal_camdoen_handleBranch35(obj_id player, string_id response) throws InterruptedException
     {
@@ -659,7 +659,7 @@ public class azure_cabal_camdoen extends script.conversation.base.conversation_b
         {
             return craft_response(new String[] {"s_133", "s_139"}, 36, player);
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     private int azure_cabal_camdoen_handleBranch36(obj_id player, string_id response) throws InterruptedException
     {
@@ -667,7 +667,7 @@ public class azure_cabal_camdoen extends script.conversation.base.conversation_b
         {
             return craft_response(new String[] {"s_127", "s_132", "s_340"}, 37, player);
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     private int azure_cabal_camdoen_handleBranch37(obj_id player, string_id response) throws InterruptedException
     {
@@ -701,7 +701,7 @@ public class azure_cabal_camdoen extends script.conversation.base.conversation_b
             npcEndConversationWithMessage(player, new string_id(c_stringFile, "s_167"));
             return SCRIPT_CONTINUE;
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     private int azure_cabal_camdoen_handleBranch38(obj_id player, string_id response) throws InterruptedException
     {
@@ -737,7 +737,7 @@ public class azure_cabal_camdoen extends script.conversation.base.conversation_b
             npcEndConversationWithMessage(player, new string_id(c_stringFile, "s_167"));
             return SCRIPT_CONTINUE;
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     private int azure_cabal_camdoen_handleBranch40(obj_id player, string_id response) throws InterruptedException
     {
@@ -749,7 +749,7 @@ public class azure_cabal_camdoen extends script.conversation.base.conversation_b
         {
             return craft_response(new String[] {"s_305", "s_307", "s_309"}, 48, player);
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     private int azure_cabal_camdoen_handleBranch41(obj_id player, string_id response) throws InterruptedException
     {
@@ -761,7 +761,7 @@ public class azure_cabal_camdoen extends script.conversation.base.conversation_b
         {
             return craft_response(new String[] {"s_305", "s_307", "s_309"}, 48, player);
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     private int azure_cabal_camdoen_handleBranch42(obj_id player, string_id response) throws InterruptedException
     {
@@ -773,7 +773,7 @@ public class azure_cabal_camdoen extends script.conversation.base.conversation_b
         {
             return craft_response(new String[] {"s_305", "s_307", "s_309"}, 48, player);
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     private int azure_cabal_camdoen_handleBranch43(obj_id player, string_id response) throws InterruptedException
     {
@@ -785,7 +785,7 @@ public class azure_cabal_camdoen extends script.conversation.base.conversation_b
         {
             return craft_response(new String[] {"s_305", "s_307", "s_309"}, 48, player);
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     private int azure_cabal_camdoen_handleBranch44(obj_id player, string_id response) throws InterruptedException
     {
@@ -797,7 +797,7 @@ public class azure_cabal_camdoen extends script.conversation.base.conversation_b
         {
             return craft_response(new String[] {"s_305", "s_307", "s_309"}, 48, player);
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     private int azure_cabal_camdoen_handleBranch45(obj_id player, string_id response) throws InterruptedException
     {
@@ -809,7 +809,7 @@ public class azure_cabal_camdoen extends script.conversation.base.conversation_b
         {
             return craft_response(new String[] {"s_305", "s_307", "s_309"}, 48, player);
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     private int azure_cabal_camdoen_handleBranch46(obj_id player, string_id response) throws InterruptedException
     {
@@ -823,7 +823,7 @@ public class azure_cabal_camdoen extends script.conversation.base.conversation_b
         {
             return craft_response(new String[] {"s_305", "s_307", "s_309"}, 48, player);
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     private int azure_cabal_camdoen_handleBranch48(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -838,7 +838,7 @@ public class azure_cabal_camdoen extends script.conversation.base.conversation_b
             npcEndConversationWithMessage(player, new string_id(c_stringFile, "s_311"));
             return SCRIPT_CONTINUE;
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     private int azure_cabal_camdoen_handleBranch52(obj_id player, string_id response) throws InterruptedException
     {
@@ -848,7 +848,7 @@ public class azure_cabal_camdoen extends script.conversation.base.conversation_b
             npcEndConversationWithMessage(player, new string_id(c_stringFile, "s_198"));
             return SCRIPT_CONTINUE;
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     private int azure_cabal_camdoen_handleBranch53(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -887,7 +887,7 @@ public class azure_cabal_camdoen extends script.conversation.base.conversation_b
             npcEndConversationWithMessage(player, new string_id(c_stringFile, "s_195"));
             return SCRIPT_CONTINUE;
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     private int azure_cabal_camdoen_handleBranch54(obj_id player, string_id response) throws InterruptedException
     {
@@ -905,7 +905,7 @@ public class azure_cabal_camdoen extends script.conversation.base.conversation_b
             npcEndConversationWithMessage(player, new string_id(c_stringFile, "s_195"));
             return SCRIPT_CONTINUE;
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     private int azure_cabal_camdoen_handleBranch55(obj_id player, string_id response) throws InterruptedException
     {
@@ -923,7 +923,7 @@ public class azure_cabal_camdoen extends script.conversation.base.conversation_b
         {
             return craft_response(new String[] {"s_386", "s_388", "s_390"}, 58, player);
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     private int azure_cabal_camdoen_handleBranch56(obj_id player, string_id response) throws InterruptedException
     {
@@ -941,7 +941,7 @@ public class azure_cabal_camdoen extends script.conversation.base.conversation_b
         {
             return craft_response(new String[] {"s_386", "s_388", "s_390"}, 58, player);
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     private int azure_cabal_camdoen_handleBranch57(obj_id player, string_id response) throws InterruptedException
     {
@@ -955,7 +955,7 @@ public class azure_cabal_camdoen extends script.conversation.base.conversation_b
         {
             return craft_response(new String[] {"s_386", "s_388", "s_390"}, 58, player);
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     private int azure_cabal_camdoen_handleBranch58(obj_id player, string_id response) throws InterruptedException
     {
@@ -969,7 +969,7 @@ public class azure_cabal_camdoen extends script.conversation.base.conversation_b
         {
             return craft_response(new String[] {"s_392", "s_394"}, 59, player);
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     private int azure_cabal_camdoen_handleBranch59(obj_id player, string_id response) throws InterruptedException
     {
@@ -979,7 +979,7 @@ public class azure_cabal_camdoen extends script.conversation.base.conversation_b
             npcEndConversationWithMessage(player, new string_id(c_stringFile, "s_195"));
             return SCRIPT_CONTINUE;
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     private int azure_cabal_camdoen_handleBranch60(obj_id player, string_id response) throws InterruptedException
     {
@@ -997,7 +997,7 @@ public class azure_cabal_camdoen extends script.conversation.base.conversation_b
             npcEndConversationWithMessage(player, new string_id(c_stringFile, "s_195"));
             return SCRIPT_CONTINUE;
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     private int azure_cabal_camdoen_handleBranch61(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1040,7 +1040,7 @@ public class azure_cabal_camdoen extends script.conversation.base.conversation_b
             npcEndConversationWithMessage(player, new string_id(c_stringFile, "s_354"));
             return SCRIPT_CONTINUE;
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     private int azure_cabal_camdoen_handleBranch62(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1083,7 +1083,7 @@ public class azure_cabal_camdoen extends script.conversation.base.conversation_b
             npcEndConversationWithMessage(player, new string_id(c_stringFile, "s_354"));
             return SCRIPT_CONTINUE;
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     private int azure_cabal_camdoen_handleBranch63(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1122,7 +1122,7 @@ public class azure_cabal_camdoen extends script.conversation.base.conversation_b
             npcEndConversationWithMessage(player, new string_id(c_stringFile, "s_354"));
             return SCRIPT_CONTINUE;
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     private int azure_cabal_camdoen_handleBranch64(obj_id player, string_id response) throws InterruptedException
     {
@@ -1136,7 +1136,7 @@ public class azure_cabal_camdoen extends script.conversation.base.conversation_b
         {
             return craft_response(new String[] {"s_290", "s_292", "s_294", "s_310"}, 61, player);
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     private int azure_cabal_camdoen_handleBranch65(obj_id player, string_id response) throws InterruptedException
     {
@@ -1154,7 +1154,7 @@ public class azure_cabal_camdoen extends script.conversation.base.conversation_b
             npcEndConversationWithMessage(player, new string_id(c_stringFile, "s_195"));
             return SCRIPT_CONTINUE;
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     private int azure_cabal_camdoen_handleBranch66(obj_id player, string_id response) throws InterruptedException
     {
@@ -1166,7 +1166,7 @@ public class azure_cabal_camdoen extends script.conversation.base.conversation_b
         {
             return craft_response(new String[] {"s_411", "s_413", "s_414"}, 68, player);
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     private int azure_cabal_camdoen_handleBranch67(obj_id player, string_id response) throws InterruptedException
     {
@@ -1180,7 +1180,7 @@ public class azure_cabal_camdoen extends script.conversation.base.conversation_b
             npcEndConversationWithMessage(player, new string_id(c_stringFile, "s_195"));
             return SCRIPT_CONTINUE;
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     private int azure_cabal_camdoen_handleBranch68(obj_id player, string_id response) throws InterruptedException
     {
@@ -1194,7 +1194,7 @@ public class azure_cabal_camdoen extends script.conversation.base.conversation_b
             npcEndConversationWithMessage(player, new string_id(c_stringFile, "s_195"));
             return SCRIPT_CONTINUE;
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     private int azure_cabal_camdoen_handleBranch69(obj_id player, string_id response) throws InterruptedException
     {
@@ -1204,7 +1204,7 @@ public class azure_cabal_camdoen extends script.conversation.base.conversation_b
             npcEndConversationWithMessage(player, new string_id(c_stringFile, "s_195"));
             return SCRIPT_CONTINUE;
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     private int azure_cabal_camdoen_handleBranch70(obj_id player, string_id response) throws InterruptedException
     {
@@ -1222,7 +1222,7 @@ public class azure_cabal_camdoen extends script.conversation.base.conversation_b
             npcEndConversationWithMessage(player, new string_id(c_stringFile, "s_195"));
             return SCRIPT_CONTINUE;
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     private int azure_cabal_camdoen_handleBranch71(obj_id player, string_id response) throws InterruptedException
     {
@@ -1236,7 +1236,7 @@ public class azure_cabal_camdoen extends script.conversation.base.conversation_b
             npcEndConversationWithMessage(player, new string_id(c_stringFile, "s_195"));
             return SCRIPT_CONTINUE;
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     private int azure_cabal_camdoen_handleBranch72(obj_id player, string_id response) throws InterruptedException
     {
@@ -1250,7 +1250,7 @@ public class azure_cabal_camdoen extends script.conversation.base.conversation_b
             npcEndConversationWithMessage(player, new string_id(c_stringFile, "s_195"));
             return SCRIPT_CONTINUE;
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     private int azure_cabal_camdoen_handleBranch73(obj_id player, string_id response) throws InterruptedException
     {
@@ -1264,7 +1264,7 @@ public class azure_cabal_camdoen extends script.conversation.base.conversation_b
             npcEndConversationWithMessage(player, new string_id(c_stringFile, "s_195"));
             return SCRIPT_CONTINUE;
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     private int azure_cabal_camdoen_handleBranch74(obj_id player, string_id response) throws InterruptedException
     {
@@ -1278,7 +1278,7 @@ public class azure_cabal_camdoen extends script.conversation.base.conversation_b
             npcEndConversationWithMessage(player, new string_id(c_stringFile, "s_195"));
             return SCRIPT_CONTINUE;
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     private int azure_cabal_camdoen_handleBranch75(obj_id player, string_id response) throws InterruptedException
     {
@@ -1288,7 +1288,7 @@ public class azure_cabal_camdoen extends script.conversation.base.conversation_b
             npcEndConversationWithMessage(player, new string_id(c_stringFile, "s_195"));
             return SCRIPT_CONTINUE;
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int OnStartNpcConversation(obj_id self, obj_id player) throws InterruptedException
     {

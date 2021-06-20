@@ -134,7 +134,7 @@ public class imperial_title_grant extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int imperial_title_grant_handleBranch3(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -239,7 +239,7 @@ public class imperial_title_grant extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int imperial_title_grant_handleBranch4(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -309,7 +309,7 @@ public class imperial_title_grant extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int imperial_title_grant_handleBranch6(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -386,7 +386,7 @@ public class imperial_title_grant extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int OnInitialize(obj_id self) throws InterruptedException
     {

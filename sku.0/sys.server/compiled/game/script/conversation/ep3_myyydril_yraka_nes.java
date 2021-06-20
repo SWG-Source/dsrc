@@ -151,7 +151,7 @@ public class ep3_myyydril_yraka_nes extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_myyydril_yraka_nes_handleBranch3(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -190,7 +190,7 @@ public class ep3_myyydril_yraka_nes extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_myyydril_yraka_nes_handleBranch4(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -204,7 +204,7 @@ public class ep3_myyydril_yraka_nes extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_myyydril_yraka_nes_handleBranch6(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -218,7 +218,7 @@ public class ep3_myyydril_yraka_nes extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_myyydril_yraka_nes_handleBranch8(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -267,7 +267,7 @@ public class ep3_myyydril_yraka_nes extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_myyydril_yraka_nes_handleBranch9(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -315,7 +315,7 @@ public class ep3_myyydril_yraka_nes extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_myyydril_yraka_nes_handleBranch10(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -364,7 +364,7 @@ public class ep3_myyydril_yraka_nes extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_myyydril_yraka_nes_handleBranch11(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -389,7 +389,7 @@ public class ep3_myyydril_yraka_nes extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_myyydril_yraka_nes_handleBranch16(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -427,7 +427,7 @@ public class ep3_myyydril_yraka_nes extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_myyydril_yraka_nes_handleBranch17(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -466,7 +466,7 @@ public class ep3_myyydril_yraka_nes extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_myyydril_yraka_nes_handleBranch18(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -480,7 +480,7 @@ public class ep3_myyydril_yraka_nes extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_myyydril_yraka_nes_handleBranch20(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -519,7 +519,7 @@ public class ep3_myyydril_yraka_nes extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_myyydril_yraka_nes_handleBranch21(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -533,7 +533,7 @@ public class ep3_myyydril_yraka_nes extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_myyydril_yraka_nes_handleBranch24(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -581,7 +581,7 @@ public class ep3_myyydril_yraka_nes extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_myyydril_yraka_nes_handleBranch25(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -620,7 +620,7 @@ public class ep3_myyydril_yraka_nes extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_myyydril_yraka_nes_handleBranch26(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -634,7 +634,7 @@ public class ep3_myyydril_yraka_nes extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_myyydril_yraka_nes_handleBranch29(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -673,7 +673,7 @@ public class ep3_myyydril_yraka_nes extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_myyydril_yraka_nes_handleBranch30(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -687,7 +687,7 @@ public class ep3_myyydril_yraka_nes extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_myyydril_yraka_nes_handleBranch32(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -701,7 +701,7 @@ public class ep3_myyydril_yraka_nes extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_myyydril_yraka_nes_handleBranch34(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -760,7 +760,7 @@ public class ep3_myyydril_yraka_nes extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_myyydril_yraka_nes_handleBranch35(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -785,7 +785,7 @@ public class ep3_myyydril_yraka_nes extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_myyydril_yraka_nes_handleBranch39(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -800,7 +800,7 @@ public class ep3_myyydril_yraka_nes extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_myyydril_yraka_nes_handleBranch42(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -838,7 +838,7 @@ public class ep3_myyydril_yraka_nes extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_myyydril_yraka_nes_handleBranch43(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -887,7 +887,7 @@ public class ep3_myyydril_yraka_nes extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_myyydril_yraka_nes_handleBranch44(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -970,7 +970,7 @@ public class ep3_myyydril_yraka_nes extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_myyydril_yraka_nes_handleBranch45(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1008,7 +1008,7 @@ public class ep3_myyydril_yraka_nes extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_myyydril_yraka_nes_handleBranch46(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1046,7 +1046,7 @@ public class ep3_myyydril_yraka_nes extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_myyydril_yraka_nes_handleBranch47(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1095,7 +1095,7 @@ public class ep3_myyydril_yraka_nes extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_myyydril_yraka_nes_handleBranch48(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1178,7 +1178,7 @@ public class ep3_myyydril_yraka_nes extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_myyydril_yraka_nes_handleBranch49(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1203,7 +1203,7 @@ public class ep3_myyydril_yraka_nes extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_myyydril_yraka_nes_handleBranch52(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1252,7 +1252,7 @@ public class ep3_myyydril_yraka_nes extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_myyydril_yraka_nes_handleBranch53(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1277,7 +1277,7 @@ public class ep3_myyydril_yraka_nes extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_myyydril_yraka_nes_handleBranch56(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1360,7 +1360,7 @@ public class ep3_myyydril_yraka_nes extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_myyydril_yraka_nes_handleBranch57(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1385,7 +1385,7 @@ public class ep3_myyydril_yraka_nes extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_myyydril_yraka_nes_handleBranch60(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1434,7 +1434,7 @@ public class ep3_myyydril_yraka_nes extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_myyydril_yraka_nes_handleBranch61(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1459,7 +1459,7 @@ public class ep3_myyydril_yraka_nes extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int OnInitialize(obj_id self) throws InterruptedException
     {

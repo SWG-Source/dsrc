@@ -123,7 +123,7 @@ public class corellia_droid_factory_sergeant_mener extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int corellia_droid_factory_sergeant_mener_handleBranch7(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -437,7 +437,7 @@ public class corellia_droid_factory_sergeant_mener extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int corellia_droid_factory_sergeant_mener_handleBranch9(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -462,7 +462,7 @@ public class corellia_droid_factory_sergeant_mener extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int corellia_droid_factory_sergeant_mener_handleBranch12(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -776,7 +776,7 @@ public class corellia_droid_factory_sergeant_mener extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int corellia_droid_factory_sergeant_mener_handleBranch14(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -835,7 +835,7 @@ public class corellia_droid_factory_sergeant_mener extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int corellia_droid_factory_sergeant_mener_handleBranch15(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -860,7 +860,7 @@ public class corellia_droid_factory_sergeant_mener extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int corellia_droid_factory_sergeant_mener_handleBranch19(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1174,7 +1174,7 @@ public class corellia_droid_factory_sergeant_mener extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int corellia_droid_factory_sergeant_mener_handleBranch21(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1199,7 +1199,7 @@ public class corellia_droid_factory_sergeant_mener extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int OnInitialize(obj_id self) throws InterruptedException
     {

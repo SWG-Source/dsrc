@@ -120,7 +120,7 @@ public class c_tutorial_rm4 extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int c_tutorial_rm4_handleBranch2(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -171,7 +171,7 @@ public class c_tutorial_rm4 extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int c_tutorial_rm4_handleBranch3(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -247,7 +247,7 @@ public class c_tutorial_rm4 extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int c_tutorial_rm4_handleBranch4(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -264,7 +264,7 @@ public class c_tutorial_rm4 extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int c_tutorial_rm4_handleBranch6(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -281,7 +281,7 @@ public class c_tutorial_rm4 extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int c_tutorial_rm4_handleBranch8(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -321,7 +321,7 @@ public class c_tutorial_rm4 extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int c_tutorial_rm4_handleBranch9(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -338,7 +338,7 @@ public class c_tutorial_rm4 extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int OnInitialize(obj_id self) throws InterruptedException
     {

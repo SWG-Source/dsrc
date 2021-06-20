@@ -285,7 +285,7 @@ public class mtp_meatlump_wine extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int mtp_meatlump_wine_handleBranch3(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -343,7 +343,7 @@ public class mtp_meatlump_wine extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int mtp_meatlump_wine_handleBranch4(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -357,7 +357,7 @@ public class mtp_meatlump_wine extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int mtp_meatlump_wine_handleBranch8(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -406,7 +406,7 @@ public class mtp_meatlump_wine extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int mtp_meatlump_wine_handleBranch9(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -454,7 +454,7 @@ public class mtp_meatlump_wine extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int mtp_meatlump_wine_handleBranch11(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -503,7 +503,7 @@ public class mtp_meatlump_wine extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int mtp_meatlump_wine_handleBranch12(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -528,7 +528,7 @@ public class mtp_meatlump_wine extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int mtp_meatlump_wine_handleBranch15(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -553,7 +553,7 @@ public class mtp_meatlump_wine extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int mtp_meatlump_wine_handleBranch18(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -567,7 +567,7 @@ public class mtp_meatlump_wine extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int mtp_meatlump_wine_handleBranch20(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -581,7 +581,7 @@ public class mtp_meatlump_wine extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int OnInitialize(obj_id self) throws InterruptedException
     {

@@ -174,7 +174,7 @@ public class legacy_naboo_typho extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int legacy_naboo_typho_handleBranch10(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -213,7 +213,7 @@ public class legacy_naboo_typho extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int legacy_naboo_typho_handleBranch11(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -229,7 +229,7 @@ public class legacy_naboo_typho extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int legacy_naboo_typho_handleBranch14(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -245,7 +245,7 @@ public class legacy_naboo_typho extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int legacy_naboo_typho_handleBranch17(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -296,7 +296,7 @@ public class legacy_naboo_typho extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int legacy_naboo_typho_handleBranch19(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -312,7 +312,7 @@ public class legacy_naboo_typho extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int legacy_naboo_typho_handleBranch21(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -408,7 +408,7 @@ public class legacy_naboo_typho extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int legacy_naboo_typho_handleBranch22(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -504,7 +504,7 @@ public class legacy_naboo_typho extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int legacy_naboo_typho_handleBranch23(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -565,7 +565,7 @@ public class legacy_naboo_typho extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int legacy_naboo_typho_handleBranch24(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -627,7 +627,7 @@ public class legacy_naboo_typho extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int legacy_naboo_typho_handleBranch25(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -689,7 +689,7 @@ public class legacy_naboo_typho extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int legacy_naboo_typho_handleBranch26(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -751,7 +751,7 @@ public class legacy_naboo_typho extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int legacy_naboo_typho_handleBranch28(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -813,7 +813,7 @@ public class legacy_naboo_typho extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int legacy_naboo_typho_handleBranch29(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -840,7 +840,7 @@ public class legacy_naboo_typho extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int OnInitialize(obj_id self) throws InterruptedException
     {

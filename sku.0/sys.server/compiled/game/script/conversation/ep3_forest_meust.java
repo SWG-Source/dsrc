@@ -125,7 +125,7 @@ public class ep3_forest_meust extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_forest_meust_handleBranch4(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -164,7 +164,7 @@ public class ep3_forest_meust extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_forest_meust_handleBranch5(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -178,7 +178,7 @@ public class ep3_forest_meust extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_forest_meust_handleBranch7(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -192,7 +192,7 @@ public class ep3_forest_meust extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_forest_meust_handleBranch9(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -241,7 +241,7 @@ public class ep3_forest_meust extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_forest_meust_handleBranch10(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -266,7 +266,7 @@ public class ep3_forest_meust extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_forest_meust_handleBranch13(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -305,7 +305,7 @@ public class ep3_forest_meust extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_forest_meust_handleBranch14(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -319,7 +319,7 @@ public class ep3_forest_meust extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_forest_meust_handleBranch17(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -344,7 +344,7 @@ public class ep3_forest_meust extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_forest_meust_handleBranch20(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -359,7 +359,7 @@ public class ep3_forest_meust extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_forest_meust_handleBranch22(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -397,7 +397,7 @@ public class ep3_forest_meust extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_forest_meust_handleBranch23(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -411,7 +411,7 @@ public class ep3_forest_meust extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_forest_meust_handleBranch25(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -460,7 +460,7 @@ public class ep3_forest_meust extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_forest_meust_handleBranch26(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -508,7 +508,7 @@ public class ep3_forest_meust extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_forest_meust_handleBranch28(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -557,7 +557,7 @@ public class ep3_forest_meust extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_forest_meust_handleBranch29(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -606,7 +606,7 @@ public class ep3_forest_meust extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_forest_meust_handleBranch30(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -620,7 +620,7 @@ public class ep3_forest_meust extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int OnInitialize(obj_id self) throws InterruptedException
     {

@@ -53,7 +53,7 @@ public class u13_horace_korr extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int u13_horace_korr_handleBranch5(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -68,7 +68,7 @@ public class u13_horace_korr extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int OnInitialize(obj_id self) throws InterruptedException
     {

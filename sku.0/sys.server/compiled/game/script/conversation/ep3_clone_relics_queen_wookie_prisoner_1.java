@@ -74,7 +74,7 @@ public class ep3_clone_relics_queen_wookie_prisoner_1 extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_clone_relics_queen_wookie_prisoner_1_handleBranch3(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -92,7 +92,7 @@ public class ep3_clone_relics_queen_wookie_prisoner_1 extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_clone_relics_queen_wookie_prisoner_1_handleBranch5(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -108,7 +108,7 @@ public class ep3_clone_relics_queen_wookie_prisoner_1 extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int OnInitialize(obj_id self) throws InterruptedException
     {

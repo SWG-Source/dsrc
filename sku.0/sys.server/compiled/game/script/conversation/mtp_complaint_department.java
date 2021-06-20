@@ -268,7 +268,7 @@ public class mtp_complaint_department extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int mtp_complaint_department_handleBranch2(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -292,7 +292,7 @@ public class mtp_complaint_department extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int mtp_complaint_department_handleBranch5(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -395,7 +395,7 @@ public class mtp_complaint_department extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int mtp_complaint_department_handleBranch7(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -459,7 +459,7 @@ public class mtp_complaint_department extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int mtp_complaint_department_handleBranch14(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -473,7 +473,7 @@ public class mtp_complaint_department extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int mtp_complaint_department_handleBranch16(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -521,7 +521,7 @@ public class mtp_complaint_department extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int mtp_complaint_department_handleBranch17(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -614,7 +614,7 @@ public class mtp_complaint_department extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int mtp_complaint_department_handleBranch18(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -842,7 +842,7 @@ public class mtp_complaint_department extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int mtp_complaint_department_handleBranch20(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -980,7 +980,7 @@ public class mtp_complaint_department extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int mtp_complaint_department_handleBranch21(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1208,7 +1208,7 @@ public class mtp_complaint_department extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int mtp_complaint_department_handleBranch22(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1302,7 +1302,7 @@ public class mtp_complaint_department extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int mtp_complaint_department_handleBranch23(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1361,7 +1361,7 @@ public class mtp_complaint_department extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int mtp_complaint_department_handleBranch25(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1506,7 +1506,7 @@ public class mtp_complaint_department extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int mtp_complaint_department_handleBranch27(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1565,7 +1565,7 @@ public class mtp_complaint_department extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int mtp_complaint_department_handleBranch28(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1590,7 +1590,7 @@ public class mtp_complaint_department extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int mtp_complaint_department_handleBranch32(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1818,7 +1818,7 @@ public class mtp_complaint_department extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int mtp_complaint_department_handleBranch33(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1842,7 +1842,7 @@ public class mtp_complaint_department extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int OnInitialize(obj_id self) throws InterruptedException
     {

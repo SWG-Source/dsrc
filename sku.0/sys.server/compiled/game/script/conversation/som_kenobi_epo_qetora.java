@@ -213,7 +213,7 @@ public class som_kenobi_epo_qetora extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int som_kenobi_epo_qetora_handleBranch3(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -275,7 +275,7 @@ public class som_kenobi_epo_qetora extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int som_kenobi_epo_qetora_handleBranch4(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -381,7 +381,7 @@ public class som_kenobi_epo_qetora extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int som_kenobi_epo_qetora_handleBranch5(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -403,7 +403,7 @@ public class som_kenobi_epo_qetora extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int som_kenobi_epo_qetora_handleBranch7(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -425,7 +425,7 @@ public class som_kenobi_epo_qetora extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int som_kenobi_epo_qetora_handleBranch9(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -447,7 +447,7 @@ public class som_kenobi_epo_qetora extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int som_kenobi_epo_qetora_handleBranch11(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -509,7 +509,7 @@ public class som_kenobi_epo_qetora extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int som_kenobi_epo_qetora_handleBranch12(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -615,7 +615,7 @@ public class som_kenobi_epo_qetora extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int som_kenobi_epo_qetora_handleBranch13(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -637,7 +637,7 @@ public class som_kenobi_epo_qetora extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int som_kenobi_epo_qetora_handleBranch15(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -659,7 +659,7 @@ public class som_kenobi_epo_qetora extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int som_kenobi_epo_qetora_handleBranch17(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -681,7 +681,7 @@ public class som_kenobi_epo_qetora extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int som_kenobi_epo_qetora_handleBranch19(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -697,7 +697,7 @@ public class som_kenobi_epo_qetora extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int som_kenobi_epo_qetora_handleBranch21(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -803,7 +803,7 @@ public class som_kenobi_epo_qetora extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int som_kenobi_epo_qetora_handleBranch22(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -853,7 +853,7 @@ public class som_kenobi_epo_qetora extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int som_kenobi_epo_qetora_handleBranch23(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -904,7 +904,7 @@ public class som_kenobi_epo_qetora extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int som_kenobi_epo_qetora_handleBranch24(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -921,7 +921,7 @@ public class som_kenobi_epo_qetora extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int som_kenobi_epo_qetora_handleBranch27(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -971,7 +971,7 @@ public class som_kenobi_epo_qetora extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int som_kenobi_epo_qetora_handleBranch28(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1022,7 +1022,7 @@ public class som_kenobi_epo_qetora extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int som_kenobi_epo_qetora_handleBranch29(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1043,7 +1043,7 @@ public class som_kenobi_epo_qetora extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int som_kenobi_epo_qetora_handleBranch34(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1119,7 +1119,7 @@ public class som_kenobi_epo_qetora extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int som_kenobi_epo_qetora_handleBranch35(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1181,7 +1181,7 @@ public class som_kenobi_epo_qetora extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int som_kenobi_epo_qetora_handleBranch36(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1293,7 +1293,7 @@ public class som_kenobi_epo_qetora extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int som_kenobi_epo_qetora_handleBranch37(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1315,7 +1315,7 @@ public class som_kenobi_epo_qetora extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int som_kenobi_epo_qetora_handleBranch39(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1337,7 +1337,7 @@ public class som_kenobi_epo_qetora extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int som_kenobi_epo_qetora_handleBranch41(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1359,7 +1359,7 @@ public class som_kenobi_epo_qetora extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int som_kenobi_epo_qetora_handleBranch43(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1421,7 +1421,7 @@ public class som_kenobi_epo_qetora extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int som_kenobi_epo_qetora_handleBranch44(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1533,7 +1533,7 @@ public class som_kenobi_epo_qetora extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int som_kenobi_epo_qetora_handleBranch45(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1555,7 +1555,7 @@ public class som_kenobi_epo_qetora extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int som_kenobi_epo_qetora_handleBranch47(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1577,7 +1577,7 @@ public class som_kenobi_epo_qetora extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int som_kenobi_epo_qetora_handleBranch49(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1599,7 +1599,7 @@ public class som_kenobi_epo_qetora extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int som_kenobi_epo_qetora_handleBranch51(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1615,7 +1615,7 @@ public class som_kenobi_epo_qetora extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int som_kenobi_epo_qetora_handleBranch53(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1715,7 +1715,7 @@ public class som_kenobi_epo_qetora extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int som_kenobi_epo_qetora_handleBranch54(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1766,7 +1766,7 @@ public class som_kenobi_epo_qetora extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int som_kenobi_epo_qetora_handleBranch55(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1850,7 +1850,7 @@ public class som_kenobi_epo_qetora extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int som_kenobi_epo_qetora_handleBranch56(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1867,7 +1867,7 @@ public class som_kenobi_epo_qetora extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int som_kenobi_epo_qetora_handleBranch58(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1884,7 +1884,7 @@ public class som_kenobi_epo_qetora extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int som_kenobi_epo_qetora_handleBranch61(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1935,7 +1935,7 @@ public class som_kenobi_epo_qetora extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int som_kenobi_epo_qetora_handleBranch62(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -2019,7 +2019,7 @@ public class som_kenobi_epo_qetora extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int som_kenobi_epo_qetora_handleBranch63(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -2036,7 +2036,7 @@ public class som_kenobi_epo_qetora extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int som_kenobi_epo_qetora_handleBranch65(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -2053,7 +2053,7 @@ public class som_kenobi_epo_qetora extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int OnInitialize(obj_id self) throws InterruptedException
     {

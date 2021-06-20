@@ -155,7 +155,7 @@ public class c_prof_ent_espacontact extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int c_prof_ent_espacontact_handleBranch2(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -215,7 +215,7 @@ public class c_prof_ent_espacontact extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int c_prof_ent_espacontact_handleBranch4(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -265,7 +265,7 @@ public class c_prof_ent_espacontact extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int c_prof_ent_espacontact_handleBranch5(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -304,7 +304,7 @@ public class c_prof_ent_espacontact extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int c_prof_ent_espacontact_handleBranch6(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -344,7 +344,7 @@ public class c_prof_ent_espacontact extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int c_prof_ent_espacontact_handleBranch7(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -394,7 +394,7 @@ public class c_prof_ent_espacontact extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int c_prof_ent_espacontact_handleBranch8(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -420,7 +420,7 @@ public class c_prof_ent_espacontact extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int c_prof_ent_espacontact_handleBranch12(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -470,7 +470,7 @@ public class c_prof_ent_espacontact extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int c_prof_ent_espacontact_handleBranch13(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -497,7 +497,7 @@ public class c_prof_ent_espacontact extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int c_prof_ent_espacontact_handleBranch16(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -547,7 +547,7 @@ public class c_prof_ent_espacontact extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int c_prof_ent_espacontact_handleBranch17(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -596,7 +596,7 @@ public class c_prof_ent_espacontact extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int c_prof_ent_espacontact_handleBranch18(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -644,7 +644,7 @@ public class c_prof_ent_espacontact extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int c_prof_ent_espacontact_handleBranch20(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -683,7 +683,7 @@ public class c_prof_ent_espacontact extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int c_prof_ent_espacontact_handleBranch21(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -699,7 +699,7 @@ public class c_prof_ent_espacontact extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int OnInitialize(obj_id self) throws InterruptedException
     {

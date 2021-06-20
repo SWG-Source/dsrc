@@ -318,7 +318,7 @@ public class station_kashyyyk extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int station_kashyyyk_handleBranch3(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -333,7 +333,7 @@ public class station_kashyyyk extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int station_kashyyyk_handleBranch5(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -393,7 +393,7 @@ public class station_kashyyyk extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int station_kashyyyk_handleBranch6(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -453,7 +453,7 @@ public class station_kashyyyk extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int station_kashyyyk_handleBranch8(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -501,7 +501,7 @@ public class station_kashyyyk extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int station_kashyyyk_handleBranch9(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -516,7 +516,7 @@ public class station_kashyyyk extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int station_kashyyyk_handleBranch16(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -530,7 +530,7 @@ public class station_kashyyyk extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int station_kashyyyk_handleBranch19(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -545,7 +545,7 @@ public class station_kashyyyk extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int station_kashyyyk_handleBranch21(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -843,7 +843,7 @@ public class station_kashyyyk extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int station_kashyyyk_handleBranch22(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -922,7 +922,7 @@ public class station_kashyyyk extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int station_kashyyyk_handleBranch25(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -981,7 +981,7 @@ public class station_kashyyyk extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int station_kashyyyk_handleBranch27(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1086,7 +1086,7 @@ public class station_kashyyyk extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int station_kashyyyk_handleBranch28(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1156,7 +1156,7 @@ public class station_kashyyyk extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int station_kashyyyk_handleBranch30(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1235,7 +1235,7 @@ public class station_kashyyyk extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int station_kashyyyk_handleBranch31(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1314,7 +1314,7 @@ public class station_kashyyyk extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int station_kashyyyk_handleBranch32(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1328,7 +1328,7 @@ public class station_kashyyyk extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int station_kashyyyk_handleBranch34(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1413,7 +1413,7 @@ public class station_kashyyyk extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int station_kashyyyk_handleBranch35(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1661,7 +1661,7 @@ public class station_kashyyyk extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int station_kashyyyk_handleBranch36(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1675,7 +1675,7 @@ public class station_kashyyyk extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int station_kashyyyk_handleBranch38(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1923,7 +1923,7 @@ public class station_kashyyyk extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int station_kashyyyk_handleBranch39(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -2171,7 +2171,7 @@ public class station_kashyyyk extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int station_kashyyyk_handleBranch40(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -2419,7 +2419,7 @@ public class station_kashyyyk extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int station_kashyyyk_handleBranch42(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -2619,7 +2619,7 @@ public class station_kashyyyk extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int station_kashyyyk_handleBranch43(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -2638,7 +2638,7 @@ public class station_kashyyyk extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int station_kashyyyk_handleBranch45(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -2815,7 +2815,7 @@ public class station_kashyyyk extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int station_kashyyyk_handleBranch47(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -2992,7 +2992,7 @@ public class station_kashyyyk extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int station_kashyyyk_handleBranch49(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -3203,7 +3203,7 @@ public class station_kashyyyk extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int station_kashyyyk_handleBranch50(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -3229,7 +3229,7 @@ public class station_kashyyyk extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int station_kashyyyk_handleBranch53(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -3406,7 +3406,7 @@ public class station_kashyyyk extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int station_kashyyyk_handleBranch55(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -3606,7 +3606,7 @@ public class station_kashyyyk extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int station_kashyyyk_handleBranch56(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -3666,7 +3666,7 @@ public class station_kashyyyk extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int station_kashyyyk_handleBranch57(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -3843,7 +3843,7 @@ public class station_kashyyyk extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int station_kashyyyk_handleBranch59(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -4190,7 +4190,7 @@ public class station_kashyyyk extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int station_kashyyyk_handleBranch60(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -4209,7 +4209,7 @@ public class station_kashyyyk extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int station_kashyyyk_handleBranch62(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -4257,7 +4257,7 @@ public class station_kashyyyk extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int station_kashyyyk_handleBranch67(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -4495,7 +4495,7 @@ public class station_kashyyyk extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int station_kashyyyk_handleBranch68(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -4524,7 +4524,7 @@ public class station_kashyyyk extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int station_kashyyyk_handleBranch71(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -4557,7 +4557,7 @@ public class station_kashyyyk extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int station_kashyyyk_handleBranch74(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -4586,7 +4586,7 @@ public class station_kashyyyk extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int station_kashyyyk_handleBranch77(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -4615,7 +4615,7 @@ public class station_kashyyyk extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int station_kashyyyk_handleBranch81(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -4860,7 +4860,7 @@ public class station_kashyyyk extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int station_kashyyyk_handleBranch82(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -4908,7 +4908,7 @@ public class station_kashyyyk extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int station_kashyyyk_handleBranch83(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -4923,7 +4923,7 @@ public class station_kashyyyk extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int station_kashyyyk_handleBranch86(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -4938,7 +4938,7 @@ public class station_kashyyyk extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int station_kashyyyk_handleBranch88(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -4987,7 +4987,7 @@ public class station_kashyyyk extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int station_kashyyyk_handleBranch89(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -5002,7 +5002,7 @@ public class station_kashyyyk extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int station_kashyyyk_handleBranch92(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -5122,7 +5122,7 @@ public class station_kashyyyk extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int station_kashyyyk_handleBranch94(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -5197,7 +5197,7 @@ public class station_kashyyyk extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int station_kashyyyk_handleBranch96(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -5317,7 +5317,7 @@ public class station_kashyyyk extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int station_kashyyyk_handleBranch97(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -5437,7 +5437,7 @@ public class station_kashyyyk extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int OnInitialize(obj_id self) throws InterruptedException
     {

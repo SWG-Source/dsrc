@@ -229,7 +229,7 @@ public class yavin_fallenstar_pt_1_osae extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int yavin_fallenstar_pt_1_osae_handleBranch5(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -312,7 +312,7 @@ public class yavin_fallenstar_pt_1_osae extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int yavin_fallenstar_pt_1_osae_handleBranch6(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -349,7 +349,7 @@ public class yavin_fallenstar_pt_1_osae extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int yavin_fallenstar_pt_1_osae_handleBranch8(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -375,7 +375,7 @@ public class yavin_fallenstar_pt_1_osae extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int yavin_fallenstar_pt_1_osae_handleBranch10(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -399,7 +399,7 @@ public class yavin_fallenstar_pt_1_osae extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int yavin_fallenstar_pt_1_osae_handleBranch12(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -424,7 +424,7 @@ public class yavin_fallenstar_pt_1_osae extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int yavin_fallenstar_pt_1_osae_handleBranch15(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -448,7 +448,7 @@ public class yavin_fallenstar_pt_1_osae extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int yavin_fallenstar_pt_1_osae_handleBranch18(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -509,7 +509,7 @@ public class yavin_fallenstar_pt_1_osae extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int yavin_fallenstar_pt_1_osae_handleBranch20(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -535,7 +535,7 @@ public class yavin_fallenstar_pt_1_osae extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int yavin_fallenstar_pt_1_osae_handleBranch21(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -559,7 +559,7 @@ public class yavin_fallenstar_pt_1_osae extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int yavin_fallenstar_pt_1_osae_handleBranch24(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -575,7 +575,7 @@ public class yavin_fallenstar_pt_1_osae extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int yavin_fallenstar_pt_1_osae_handleBranch26(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -635,7 +635,7 @@ public class yavin_fallenstar_pt_1_osae extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int yavin_fallenstar_pt_1_osae_handleBranch28(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -731,7 +731,7 @@ public class yavin_fallenstar_pt_1_osae extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int yavin_fallenstar_pt_1_osae_handleBranch29(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -793,7 +793,7 @@ public class yavin_fallenstar_pt_1_osae extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int yavin_fallenstar_pt_1_osae_handleBranch30(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -819,7 +819,7 @@ public class yavin_fallenstar_pt_1_osae extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int yavin_fallenstar_pt_1_osae_handleBranch32(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -879,7 +879,7 @@ public class yavin_fallenstar_pt_1_osae extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int yavin_fallenstar_pt_1_osae_handleBranch33(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -983,7 +983,7 @@ public class yavin_fallenstar_pt_1_osae extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int yavin_fallenstar_pt_1_osae_handleBranch35(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1042,7 +1042,7 @@ public class yavin_fallenstar_pt_1_osae extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int yavin_fallenstar_pt_1_osae_handleBranch36(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1067,7 +1067,7 @@ public class yavin_fallenstar_pt_1_osae extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int OnInitialize(obj_id self) throws InterruptedException
     {

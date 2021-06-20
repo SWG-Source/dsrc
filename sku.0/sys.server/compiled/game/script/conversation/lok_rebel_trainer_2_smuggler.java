@@ -118,7 +118,7 @@ public class lok_rebel_trainer_2_smuggler extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int lok_rebel_trainer_2_smuggler_handleBranch2(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -158,7 +158,7 @@ public class lok_rebel_trainer_2_smuggler extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int lok_rebel_trainer_2_smuggler_handleBranch3(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -175,7 +175,7 @@ public class lok_rebel_trainer_2_smuggler extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int lok_rebel_trainer_2_smuggler_handleBranch5(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -215,7 +215,7 @@ public class lok_rebel_trainer_2_smuggler extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int lok_rebel_trainer_2_smuggler_handleBranch6(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -255,7 +255,7 @@ public class lok_rebel_trainer_2_smuggler extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int lok_rebel_trainer_2_smuggler_handleBranch7(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -295,7 +295,7 @@ public class lok_rebel_trainer_2_smuggler extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int lok_rebel_trainer_2_smuggler_handleBranch8(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -312,7 +312,7 @@ public class lok_rebel_trainer_2_smuggler extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int lok_rebel_trainer_2_smuggler_handleBranch10(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -410,7 +410,7 @@ public class lok_rebel_trainer_2_smuggler extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int lok_rebel_trainer_2_smuggler_handleBranch11(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -506,7 +506,7 @@ public class lok_rebel_trainer_2_smuggler extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int lok_rebel_trainer_2_smuggler_handleBranch12(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -582,7 +582,7 @@ public class lok_rebel_trainer_2_smuggler extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int lok_rebel_trainer_2_smuggler_handleBranch13(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -622,7 +622,7 @@ public class lok_rebel_trainer_2_smuggler extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int lok_rebel_trainer_2_smuggler_handleBranch14(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -672,7 +672,7 @@ public class lok_rebel_trainer_2_smuggler extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int lok_rebel_trainer_2_smuggler_handleBranch15(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -724,7 +724,7 @@ public class lok_rebel_trainer_2_smuggler extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int lok_rebel_trainer_2_smuggler_handleBranch17(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -739,7 +739,7 @@ public class lok_rebel_trainer_2_smuggler extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int lok_rebel_trainer_2_smuggler_handleBranch19(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -815,7 +815,7 @@ public class lok_rebel_trainer_2_smuggler extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int lok_rebel_trainer_2_smuggler_handleBranch20(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -855,7 +855,7 @@ public class lok_rebel_trainer_2_smuggler extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int lok_rebel_trainer_2_smuggler_handleBranch21(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -951,7 +951,7 @@ public class lok_rebel_trainer_2_smuggler extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int lok_rebel_trainer_2_smuggler_handleBranch22(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1027,7 +1027,7 @@ public class lok_rebel_trainer_2_smuggler extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int lok_rebel_trainer_2_smuggler_handleBranch23(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1067,7 +1067,7 @@ public class lok_rebel_trainer_2_smuggler extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int lok_rebel_trainer_2_smuggler_handleBranch24(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1143,7 +1143,7 @@ public class lok_rebel_trainer_2_smuggler extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int lok_rebel_trainer_2_smuggler_handleBranch25(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1183,7 +1183,7 @@ public class lok_rebel_trainer_2_smuggler extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int OnInitialize(obj_id self) throws InterruptedException
     {

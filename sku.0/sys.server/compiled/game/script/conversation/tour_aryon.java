@@ -498,7 +498,7 @@ public class tour_aryon extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int tour_aryon_handleBranch13(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -620,7 +620,7 @@ public class tour_aryon extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int tour_aryon_handleBranch14(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -728,7 +728,7 @@ public class tour_aryon extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int tour_aryon_handleBranch17(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -832,7 +832,7 @@ public class tour_aryon extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int tour_aryon_handleBranch18(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -870,7 +870,7 @@ public class tour_aryon extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int tour_aryon_handleBranch19(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -919,7 +919,7 @@ public class tour_aryon extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int tour_aryon_handleBranch20(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -989,7 +989,7 @@ public class tour_aryon extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int tour_aryon_handleBranch21(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1166,7 +1166,7 @@ public class tour_aryon extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int tour_aryon_handleBranch22(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1191,7 +1191,7 @@ public class tour_aryon extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int tour_aryon_handleBranch25(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1216,7 +1216,7 @@ public class tour_aryon extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int tour_aryon_handleBranch29(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1254,7 +1254,7 @@ public class tour_aryon extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int tour_aryon_handleBranch30(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1292,7 +1292,7 @@ public class tour_aryon extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int tour_aryon_handleBranch31(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1306,7 +1306,7 @@ public class tour_aryon extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int tour_aryon_handleBranch33(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1354,7 +1354,7 @@ public class tour_aryon extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int tour_aryon_handleBranch34(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1452,7 +1452,7 @@ public class tour_aryon extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int tour_aryon_handleBranch37(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1629,7 +1629,7 @@ public class tour_aryon extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int tour_aryon_handleBranch38(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1667,7 +1667,7 @@ public class tour_aryon extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int tour_aryon_handleBranch39(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1705,7 +1705,7 @@ public class tour_aryon extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int tour_aryon_handleBranch40(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1719,7 +1719,7 @@ public class tour_aryon extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int tour_aryon_handleBranch42(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1767,7 +1767,7 @@ public class tour_aryon extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int tour_aryon_handleBranch43(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1865,7 +1865,7 @@ public class tour_aryon extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int OnInitialize(obj_id self) throws InterruptedException
     {

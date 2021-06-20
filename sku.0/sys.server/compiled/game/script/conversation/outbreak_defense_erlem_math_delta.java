@@ -158,7 +158,7 @@ public class outbreak_defense_erlem_math_delta extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int outbreak_defense_erlem_math_delta_handleBranch5(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -206,7 +206,7 @@ public class outbreak_defense_erlem_math_delta extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int outbreak_defense_erlem_math_delta_handleBranch10(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -244,7 +244,7 @@ public class outbreak_defense_erlem_math_delta extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int outbreak_defense_erlem_math_delta_handleBranch11(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -259,7 +259,7 @@ public class outbreak_defense_erlem_math_delta extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int outbreak_defense_erlem_math_delta_handleBranch14(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -297,7 +297,7 @@ public class outbreak_defense_erlem_math_delta extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int outbreak_defense_erlem_math_delta_handleBranch15(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -335,7 +335,7 @@ public class outbreak_defense_erlem_math_delta extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int outbreak_defense_erlem_math_delta_handleBranch16(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -350,7 +350,7 @@ public class outbreak_defense_erlem_math_delta extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int OnInitialize(obj_id self) throws InterruptedException
     {

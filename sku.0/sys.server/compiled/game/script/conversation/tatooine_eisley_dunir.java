@@ -168,7 +168,7 @@ public class tatooine_eisley_dunir extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int tatooine_eisley_dunir_handleBranch4(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -193,7 +193,7 @@ public class tatooine_eisley_dunir extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int tatooine_eisley_dunir_handleBranch7(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -232,7 +232,7 @@ public class tatooine_eisley_dunir extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int tatooine_eisley_dunir_handleBranch8(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -270,7 +270,7 @@ public class tatooine_eisley_dunir extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int tatooine_eisley_dunir_handleBranch9(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -309,7 +309,7 @@ public class tatooine_eisley_dunir extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int tatooine_eisley_dunir_handleBranch10(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -323,7 +323,7 @@ public class tatooine_eisley_dunir extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int tatooine_eisley_dunir_handleBranch12(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -337,7 +337,7 @@ public class tatooine_eisley_dunir extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int tatooine_eisley_dunir_handleBranch14(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -351,7 +351,7 @@ public class tatooine_eisley_dunir extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int tatooine_eisley_dunir_handleBranch16(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -400,7 +400,7 @@ public class tatooine_eisley_dunir extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int tatooine_eisley_dunir_handleBranch17(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -473,7 +473,7 @@ public class tatooine_eisley_dunir extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int tatooine_eisley_dunir_handleBranch18(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -522,7 +522,7 @@ public class tatooine_eisley_dunir extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int tatooine_eisley_dunir_handleBranch19(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -595,7 +595,7 @@ public class tatooine_eisley_dunir extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int tatooine_eisley_dunir_handleBranch20(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -610,7 +610,7 @@ public class tatooine_eisley_dunir extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int tatooine_eisley_dunir_handleBranch21(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -625,7 +625,7 @@ public class tatooine_eisley_dunir extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int OnInitialize(obj_id self) throws InterruptedException
     {

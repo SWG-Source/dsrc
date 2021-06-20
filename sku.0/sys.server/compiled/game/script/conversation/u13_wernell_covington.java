@@ -77,7 +77,7 @@ public class u13_wernell_covington extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int u13_wernell_covington_handleBranch4(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -92,7 +92,7 @@ public class u13_wernell_covington extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int u13_wernell_covington_handleBranch7(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -130,7 +130,7 @@ public class u13_wernell_covington extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int u13_wernell_covington_handleBranch8(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -168,7 +168,7 @@ public class u13_wernell_covington extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int u13_wernell_covington_handleBranch9(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -218,7 +218,7 @@ public class u13_wernell_covington extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int u13_wernell_covington_handleBranch10(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -244,7 +244,7 @@ public class u13_wernell_covington extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int OnInitialize(obj_id self) throws InterruptedException
     {

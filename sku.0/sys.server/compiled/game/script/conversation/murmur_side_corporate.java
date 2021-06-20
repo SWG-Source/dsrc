@@ -48,7 +48,7 @@ public class murmur_side_corporate extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int murmur_side_corporate_handleBranch4(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -86,7 +86,7 @@ public class murmur_side_corporate extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int murmur_side_corporate_handleBranch5(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -101,7 +101,7 @@ public class murmur_side_corporate extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int murmur_side_corporate_handleBranch7(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -126,7 +126,7 @@ public class murmur_side_corporate extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int OnInitialize(obj_id self) throws InterruptedException
     {

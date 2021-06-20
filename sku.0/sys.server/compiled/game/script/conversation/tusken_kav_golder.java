@@ -72,7 +72,7 @@ public class tusken_kav_golder extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int tusken_kav_golder_handleBranch2(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -97,7 +97,7 @@ public class tusken_kav_golder extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int tusken_kav_golder_handleBranch4(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -122,7 +122,7 @@ public class tusken_kav_golder extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int tusken_kav_golder_handleBranch6(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -147,7 +147,7 @@ public class tusken_kav_golder extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int OnInitialize(obj_id self) throws InterruptedException
     {

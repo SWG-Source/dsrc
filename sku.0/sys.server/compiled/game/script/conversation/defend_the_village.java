@@ -188,7 +188,7 @@ public class defend_the_village extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int defend_the_village_handleBranch5(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -238,7 +238,7 @@ public class defend_the_village extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int defend_the_village_handleBranch6(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -300,7 +300,7 @@ public class defend_the_village extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int defend_the_village_handleBranch8(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -327,7 +327,7 @@ public class defend_the_village extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int defend_the_village_handleBranch11(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -377,7 +377,7 @@ public class defend_the_village extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int defend_the_village_handleBranch12(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -439,7 +439,7 @@ public class defend_the_village extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int defend_the_village_handleBranch14(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -466,7 +466,7 @@ public class defend_the_village extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public float getPercentComplete(obj_id self, String questName) throws InterruptedException
     {

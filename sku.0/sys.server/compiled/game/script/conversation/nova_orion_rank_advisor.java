@@ -290,7 +290,7 @@ public class nova_orion_rank_advisor extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int nova_orion_rank_advisor_handleBranch5(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -351,7 +351,7 @@ public class nova_orion_rank_advisor extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int nova_orion_rank_advisor_handleBranch7(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -369,7 +369,7 @@ public class nova_orion_rank_advisor extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int nova_orion_rank_advisor_handleBranch10(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -428,7 +428,7 @@ public class nova_orion_rank_advisor extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int nova_orion_rank_advisor_handleBranch11(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -489,7 +489,7 @@ public class nova_orion_rank_advisor extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int nova_orion_rank_advisor_handleBranch13(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -507,7 +507,7 @@ public class nova_orion_rank_advisor extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int nova_orion_rank_advisor_handleBranch17(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -555,7 +555,7 @@ public class nova_orion_rank_advisor extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int nova_orion_rank_advisor_handleBranch18(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -593,7 +593,7 @@ public class nova_orion_rank_advisor extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int nova_orion_rank_advisor_handleBranch19(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -652,7 +652,7 @@ public class nova_orion_rank_advisor extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int nova_orion_rank_advisor_handleBranch20(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -745,7 +745,7 @@ public class nova_orion_rank_advisor extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int nova_orion_rank_advisor_handleBranch22(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -763,7 +763,7 @@ public class nova_orion_rank_advisor extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int nova_orion_rank_advisor_handleBranch24(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -781,7 +781,7 @@ public class nova_orion_rank_advisor extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int nova_orion_rank_advisor_handleBranch28(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -842,7 +842,7 @@ public class nova_orion_rank_advisor extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int nova_orion_rank_advisor_handleBranch30(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -860,7 +860,7 @@ public class nova_orion_rank_advisor extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int nova_orion_rank_advisor_handleBranch33(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -898,7 +898,7 @@ public class nova_orion_rank_advisor extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int nova_orion_rank_advisor_handleBranch34(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -936,7 +936,7 @@ public class nova_orion_rank_advisor extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int nova_orion_rank_advisor_handleBranch35(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -974,7 +974,7 @@ public class nova_orion_rank_advisor extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int nova_orion_rank_advisor_handleBranch36(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1023,7 +1023,7 @@ public class nova_orion_rank_advisor extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int nova_orion_rank_advisor_handleBranch37(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1061,7 +1061,7 @@ public class nova_orion_rank_advisor extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int nova_orion_rank_advisor_handleBranch38(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1075,7 +1075,7 @@ public class nova_orion_rank_advisor extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int nova_orion_rank_advisor_handleBranch40(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1124,7 +1124,7 @@ public class nova_orion_rank_advisor extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int nova_orion_rank_advisor_handleBranch41(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1149,7 +1149,7 @@ public class nova_orion_rank_advisor extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int OnInitialize(obj_id self) throws InterruptedException
     {

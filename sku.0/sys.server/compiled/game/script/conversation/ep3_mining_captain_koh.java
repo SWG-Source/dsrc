@@ -295,7 +295,7 @@ public class ep3_mining_captain_koh extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_mining_captain_koh_handleBranch3(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -333,7 +333,7 @@ public class ep3_mining_captain_koh extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_mining_captain_koh_handleBranch4(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -372,7 +372,7 @@ public class ep3_mining_captain_koh extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_mining_captain_koh_handleBranch5(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -387,7 +387,7 @@ public class ep3_mining_captain_koh extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_mining_captain_koh_handleBranch8(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -425,7 +425,7 @@ public class ep3_mining_captain_koh extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_mining_captain_koh_handleBranch9(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -463,7 +463,7 @@ public class ep3_mining_captain_koh extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_mining_captain_koh_handleBranch10(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -512,7 +512,7 @@ public class ep3_mining_captain_koh extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_mining_captain_koh_handleBranch11(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -538,7 +538,7 @@ public class ep3_mining_captain_koh extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_mining_captain_koh_handleBranch14(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -553,7 +553,7 @@ public class ep3_mining_captain_koh extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_mining_captain_koh_handleBranch16(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -591,7 +591,7 @@ public class ep3_mining_captain_koh extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_mining_captain_koh_handleBranch17(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -606,7 +606,7 @@ public class ep3_mining_captain_koh extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_mining_captain_koh_handleBranch20(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -644,7 +644,7 @@ public class ep3_mining_captain_koh extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_mining_captain_koh_handleBranch21(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -682,7 +682,7 @@ public class ep3_mining_captain_koh extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_mining_captain_koh_handleBranch22(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -731,7 +731,7 @@ public class ep3_mining_captain_koh extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_mining_captain_koh_handleBranch23(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -756,7 +756,7 @@ public class ep3_mining_captain_koh extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_mining_captain_koh_handleBranch26(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -771,7 +771,7 @@ public class ep3_mining_captain_koh extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_mining_captain_koh_handleBranch28(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -786,7 +786,7 @@ public class ep3_mining_captain_koh extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_mining_captain_koh_handleBranch31(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -824,7 +824,7 @@ public class ep3_mining_captain_koh extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_mining_captain_koh_handleBranch32(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -839,7 +839,7 @@ public class ep3_mining_captain_koh extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_mining_captain_koh_handleBranch34(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -854,7 +854,7 @@ public class ep3_mining_captain_koh extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_mining_captain_koh_handleBranch36(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -893,7 +893,7 @@ public class ep3_mining_captain_koh extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_mining_captain_koh_handleBranch37(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -931,7 +931,7 @@ public class ep3_mining_captain_koh extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_mining_captain_koh_handleBranch38(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -945,7 +945,7 @@ public class ep3_mining_captain_koh extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_mining_captain_koh_handleBranch41(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -994,7 +994,7 @@ public class ep3_mining_captain_koh extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_mining_captain_koh_handleBranch42(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1019,7 +1019,7 @@ public class ep3_mining_captain_koh extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_mining_captain_koh_handleBranch45(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1034,7 +1034,7 @@ public class ep3_mining_captain_koh extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_mining_captain_koh_handleBranch47(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1073,7 +1073,7 @@ public class ep3_mining_captain_koh extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_mining_captain_koh_handleBranch48(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1087,7 +1087,7 @@ public class ep3_mining_captain_koh extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_mining_captain_koh_handleBranch51(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1125,7 +1125,7 @@ public class ep3_mining_captain_koh extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_mining_captain_koh_handleBranch52(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1174,7 +1174,7 @@ public class ep3_mining_captain_koh extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_mining_captain_koh_handleBranch53(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1199,7 +1199,7 @@ public class ep3_mining_captain_koh extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_mining_captain_koh_handleBranch56(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1214,7 +1214,7 @@ public class ep3_mining_captain_koh extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_mining_captain_koh_handleBranch58(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1253,7 +1253,7 @@ public class ep3_mining_captain_koh extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_mining_captain_koh_handleBranch59(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1291,7 +1291,7 @@ public class ep3_mining_captain_koh extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_mining_captain_koh_handleBranch60(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1306,7 +1306,7 @@ public class ep3_mining_captain_koh extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_mining_captain_koh_handleBranch63(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1344,7 +1344,7 @@ public class ep3_mining_captain_koh extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_mining_captain_koh_handleBranch64(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1382,7 +1382,7 @@ public class ep3_mining_captain_koh extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_mining_captain_koh_handleBranch65(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1397,7 +1397,7 @@ public class ep3_mining_captain_koh extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_mining_captain_koh_handleBranch67(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1412,7 +1412,7 @@ public class ep3_mining_captain_koh extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_mining_captain_koh_handleBranch69(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1451,7 +1451,7 @@ public class ep3_mining_captain_koh extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_mining_captain_koh_handleBranch70(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1465,7 +1465,7 @@ public class ep3_mining_captain_koh extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_mining_captain_koh_handleBranch73(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1490,7 +1490,7 @@ public class ep3_mining_captain_koh extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_mining_captain_koh_handleBranch76(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1529,7 +1529,7 @@ public class ep3_mining_captain_koh extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_mining_captain_koh_handleBranch77(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1578,7 +1578,7 @@ public class ep3_mining_captain_koh extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_mining_captain_koh_handleBranch78(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1627,7 +1627,7 @@ public class ep3_mining_captain_koh extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_mining_captain_koh_handleBranch79(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1641,7 +1641,7 @@ public class ep3_mining_captain_koh extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int OnInitialize(obj_id self) throws InterruptedException
     {

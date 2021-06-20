@@ -431,7 +431,7 @@ public class tatooine_espa_watto extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int tatooine_espa_watto_handleBranch2(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -469,7 +469,7 @@ public class tatooine_espa_watto extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int tatooine_espa_watto_handleBranch6(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -519,7 +519,7 @@ public class tatooine_espa_watto extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int tatooine_espa_watto_handleBranch7(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -580,7 +580,7 @@ public class tatooine_espa_watto extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int tatooine_espa_watto_handleBranch9(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -653,7 +653,7 @@ public class tatooine_espa_watto extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int tatooine_espa_watto_handleBranch10(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -692,7 +692,7 @@ public class tatooine_espa_watto extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int tatooine_espa_watto_handleBranch11(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -706,7 +706,7 @@ public class tatooine_espa_watto extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int tatooine_espa_watto_handleBranch13(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -755,7 +755,7 @@ public class tatooine_espa_watto extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int tatooine_espa_watto_handleBranch14(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -794,7 +794,7 @@ public class tatooine_espa_watto extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int tatooine_espa_watto_handleBranch15(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -832,7 +832,7 @@ public class tatooine_espa_watto extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int tatooine_espa_watto_handleBranch16(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -872,7 +872,7 @@ public class tatooine_espa_watto extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int tatooine_espa_watto_handleBranch17(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -888,7 +888,7 @@ public class tatooine_espa_watto extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int tatooine_espa_watto_handleBranch19(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -927,7 +927,7 @@ public class tatooine_espa_watto extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int tatooine_espa_watto_handleBranch20(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -967,7 +967,7 @@ public class tatooine_espa_watto extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int tatooine_espa_watto_handleBranch21(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1006,7 +1006,7 @@ public class tatooine_espa_watto extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int tatooine_espa_watto_handleBranch22(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1045,7 +1045,7 @@ public class tatooine_espa_watto extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int tatooine_espa_watto_handleBranch23(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1083,7 +1083,7 @@ public class tatooine_espa_watto extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int tatooine_espa_watto_handleBranch24(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1097,7 +1097,7 @@ public class tatooine_espa_watto extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int tatooine_espa_watto_handleBranch26(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1136,7 +1136,7 @@ public class tatooine_espa_watto extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int tatooine_espa_watto_handleBranch27(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1174,7 +1174,7 @@ public class tatooine_espa_watto extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int tatooine_espa_watto_handleBranch28(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1212,7 +1212,7 @@ public class tatooine_espa_watto extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int tatooine_espa_watto_handleBranch29(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1251,7 +1251,7 @@ public class tatooine_espa_watto extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int tatooine_espa_watto_handleBranch30(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1266,7 +1266,7 @@ public class tatooine_espa_watto extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int tatooine_espa_watto_handleBranch32(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1305,7 +1305,7 @@ public class tatooine_espa_watto extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int tatooine_espa_watto_handleBranch33(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1319,7 +1319,7 @@ public class tatooine_espa_watto extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int tatooine_espa_watto_handleBranch35(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1357,7 +1357,7 @@ public class tatooine_espa_watto extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int tatooine_espa_watto_handleBranch36(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1396,7 +1396,7 @@ public class tatooine_espa_watto extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int tatooine_espa_watto_handleBranch37(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1411,7 +1411,7 @@ public class tatooine_espa_watto extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int tatooine_espa_watto_handleBranch39(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1449,7 +1449,7 @@ public class tatooine_espa_watto extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int tatooine_espa_watto_handleBranch40(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1488,7 +1488,7 @@ public class tatooine_espa_watto extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int tatooine_espa_watto_handleBranch41(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1527,7 +1527,7 @@ public class tatooine_espa_watto extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int tatooine_espa_watto_handleBranch42(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1543,7 +1543,7 @@ public class tatooine_espa_watto extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int tatooine_espa_watto_handleBranch44(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1582,7 +1582,7 @@ public class tatooine_espa_watto extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int tatooine_espa_watto_handleBranch45(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1597,7 +1597,7 @@ public class tatooine_espa_watto extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int tatooine_espa_watto_handleBranch47(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1613,7 +1613,7 @@ public class tatooine_espa_watto extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int tatooine_espa_watto_handleBranch49(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1652,7 +1652,7 @@ public class tatooine_espa_watto extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int tatooine_espa_watto_handleBranch50(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1691,7 +1691,7 @@ public class tatooine_espa_watto extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int tatooine_espa_watto_handleBranch51(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1705,7 +1705,7 @@ public class tatooine_espa_watto extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int tatooine_espa_watto_handleBranch53(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1744,7 +1744,7 @@ public class tatooine_espa_watto extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int tatooine_espa_watto_handleBranch54(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1783,7 +1783,7 @@ public class tatooine_espa_watto extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int tatooine_espa_watto_handleBranch55(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1797,7 +1797,7 @@ public class tatooine_espa_watto extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int tatooine_espa_watto_handleBranch57(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1836,7 +1836,7 @@ public class tatooine_espa_watto extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int tatooine_espa_watto_handleBranch58(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1876,7 +1876,7 @@ public class tatooine_espa_watto extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int tatooine_espa_watto_handleBranch59(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1891,7 +1891,7 @@ public class tatooine_espa_watto extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int tatooine_espa_watto_handleBranch61(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1930,7 +1930,7 @@ public class tatooine_espa_watto extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int tatooine_espa_watto_handleBranch62(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1969,7 +1969,7 @@ public class tatooine_espa_watto extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int tatooine_espa_watto_handleBranch63(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -2007,7 +2007,7 @@ public class tatooine_espa_watto extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int tatooine_espa_watto_handleBranch64(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -2045,7 +2045,7 @@ public class tatooine_espa_watto extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int tatooine_espa_watto_handleBranch65(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -2083,7 +2083,7 @@ public class tatooine_espa_watto extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int tatooine_espa_watto_handleBranch66(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -2122,7 +2122,7 @@ public class tatooine_espa_watto extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int tatooine_espa_watto_handleBranch67(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -2160,7 +2160,7 @@ public class tatooine_espa_watto extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int tatooine_espa_watto_handleBranch68(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -2199,7 +2199,7 @@ public class tatooine_espa_watto extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int tatooine_espa_watto_handleBranch69(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -2214,7 +2214,7 @@ public class tatooine_espa_watto extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int tatooine_espa_watto_handleBranch71(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -2228,7 +2228,7 @@ public class tatooine_espa_watto extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int tatooine_espa_watto_handleBranch73(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -2267,7 +2267,7 @@ public class tatooine_espa_watto extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int tatooine_espa_watto_handleBranch74(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -2284,7 +2284,7 @@ public class tatooine_espa_watto extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int tatooine_espa_watto_handleBranch76(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -2323,7 +2323,7 @@ public class tatooine_espa_watto extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int tatooine_espa_watto_handleBranch77(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -2337,7 +2337,7 @@ public class tatooine_espa_watto extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int tatooine_espa_watto_handleBranch79(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -2376,7 +2376,7 @@ public class tatooine_espa_watto extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int tatooine_espa_watto_handleBranch80(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -2390,7 +2390,7 @@ public class tatooine_espa_watto extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int tatooine_espa_watto_handleBranch82(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -2406,7 +2406,7 @@ public class tatooine_espa_watto extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int tatooine_espa_watto_handleBranch84(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -2445,7 +2445,7 @@ public class tatooine_espa_watto extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int tatooine_espa_watto_handleBranch85(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -2484,7 +2484,7 @@ public class tatooine_espa_watto extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int tatooine_espa_watto_handleBranch86(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -2522,7 +2522,7 @@ public class tatooine_espa_watto extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int tatooine_espa_watto_handleBranch87(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -2562,7 +2562,7 @@ public class tatooine_espa_watto extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int tatooine_espa_watto_handleBranch88(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -2577,7 +2577,7 @@ public class tatooine_espa_watto extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int tatooine_espa_watto_handleBranch90(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -2615,7 +2615,7 @@ public class tatooine_espa_watto extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int tatooine_espa_watto_handleBranch91(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -2630,7 +2630,7 @@ public class tatooine_espa_watto extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int tatooine_espa_watto_handleBranch93(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -2668,7 +2668,7 @@ public class tatooine_espa_watto extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int tatooine_espa_watto_handleBranch94(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -2706,7 +2706,7 @@ public class tatooine_espa_watto extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int tatooine_espa_watto_handleBranch95(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -2721,7 +2721,7 @@ public class tatooine_espa_watto extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int tatooine_espa_watto_handleBranch97(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -2760,7 +2760,7 @@ public class tatooine_espa_watto extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int tatooine_espa_watto_handleBranch98(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -2799,7 +2799,7 @@ public class tatooine_espa_watto extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int tatooine_espa_watto_handleBranch99(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -2838,7 +2838,7 @@ public class tatooine_espa_watto extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int tatooine_espa_watto_handleBranch100(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -2877,7 +2877,7 @@ public class tatooine_espa_watto extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int tatooine_espa_watto_handleBranch101(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -2915,7 +2915,7 @@ public class tatooine_espa_watto extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int tatooine_espa_watto_handleBranch102(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -2954,7 +2954,7 @@ public class tatooine_espa_watto extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int tatooine_espa_watto_handleBranch103(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -2968,7 +2968,7 @@ public class tatooine_espa_watto extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int tatooine_espa_watto_handleBranch105(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -3007,7 +3007,7 @@ public class tatooine_espa_watto extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int tatooine_espa_watto_handleBranch106(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -3056,7 +3056,7 @@ public class tatooine_espa_watto extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int tatooine_espa_watto_handleBranch107(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -3159,7 +3159,7 @@ public class tatooine_espa_watto extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int tatooine_espa_watto_handleBranch108(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -3328,7 +3328,7 @@ public class tatooine_espa_watto extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int tatooine_espa_watto_handleBranch112(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -3497,7 +3497,7 @@ public class tatooine_espa_watto extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int tatooine_espa_watto_handleBranch113(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -3535,7 +3535,7 @@ public class tatooine_espa_watto extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int tatooine_espa_watto_handleBranch114(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -3628,7 +3628,7 @@ public class tatooine_espa_watto extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int tatooine_espa_watto_handleBranch115(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -3797,7 +3797,7 @@ public class tatooine_espa_watto extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int OnInitialize(obj_id self) throws InterruptedException
     {

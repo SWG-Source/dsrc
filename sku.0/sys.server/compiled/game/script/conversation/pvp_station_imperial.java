@@ -137,7 +137,7 @@ public class pvp_station_imperial extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int pvp_station_imperial_handleBranch9(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -176,7 +176,7 @@ public class pvp_station_imperial extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int pvp_station_imperial_handleBranch10(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -245,7 +245,7 @@ public class pvp_station_imperial extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int pvp_station_imperial_handleBranch11(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -311,7 +311,7 @@ public class pvp_station_imperial extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int OnInitialize(obj_id self) throws InterruptedException
     {

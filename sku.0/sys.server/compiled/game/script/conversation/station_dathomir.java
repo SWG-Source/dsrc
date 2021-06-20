@@ -911,7 +911,7 @@ public class station_dathomir extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int station_dathomir_handleBranch3(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -985,7 +985,7 @@ public class station_dathomir extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int station_dathomir_handleBranch5(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1079,7 +1079,7 @@ public class station_dathomir extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int station_dathomir_handleBranch6(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1138,7 +1138,7 @@ public class station_dathomir extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int station_dathomir_handleBranch8(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1266,7 +1266,7 @@ public class station_dathomir extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int station_dathomir_handleBranch9(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1360,7 +1360,7 @@ public class station_dathomir extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int station_dathomir_handleBranch10(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1895,7 +1895,7 @@ public class station_dathomir extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int station_dathomir_handleBranch11(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -2430,7 +2430,7 @@ public class station_dathomir extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int station_dathomir_handleBranch12(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -2879,7 +2879,7 @@ public class station_dathomir extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int station_dathomir_handleBranch14(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -2928,7 +2928,7 @@ public class station_dathomir extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int station_dathomir_handleBranch15(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -2953,7 +2953,7 @@ public class station_dathomir extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int station_dathomir_handleBranch18(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -2978,7 +2978,7 @@ public class station_dathomir extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int station_dathomir_handleBranch21(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -3003,7 +3003,7 @@ public class station_dathomir extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int station_dathomir_handleBranch24(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -3028,7 +3028,7 @@ public class station_dathomir extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int station_dathomir_handleBranch27(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -3053,7 +3053,7 @@ public class station_dathomir extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int station_dathomir_handleBranch31(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -3157,7 +3157,7 @@ public class station_dathomir extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int station_dathomir_handleBranch32(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -3575,7 +3575,7 @@ public class station_dathomir extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int station_dathomir_handleBranch34(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -3600,7 +3600,7 @@ public class station_dathomir extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int station_dathomir_handleBranch37(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -3625,7 +3625,7 @@ public class station_dathomir extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int station_dathomir_handleBranch40(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -3650,7 +3650,7 @@ public class station_dathomir extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int station_dathomir_handleBranch43(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -3675,7 +3675,7 @@ public class station_dathomir extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int station_dathomir_handleBranch47(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -3779,7 +3779,7 @@ public class station_dathomir extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int station_dathomir_handleBranch48(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -4314,7 +4314,7 @@ public class station_dathomir extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int station_dathomir_handleBranch49(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -4453,7 +4453,7 @@ public class station_dathomir extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int station_dathomir_handleBranch50(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -4478,7 +4478,7 @@ public class station_dathomir extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int station_dathomir_handleBranch53(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -4503,7 +4503,7 @@ public class station_dathomir extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int station_dathomir_handleBranch56(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -4528,7 +4528,7 @@ public class station_dathomir extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int station_dathomir_handleBranch59(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -4588,7 +4588,7 @@ public class station_dathomir extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int station_dathomir_handleBranch61(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -4651,7 +4651,7 @@ public class station_dathomir extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int station_dathomir_handleBranch63(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -4714,7 +4714,7 @@ public class station_dathomir extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int station_dathomir_handleBranch64(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -4777,7 +4777,7 @@ public class station_dathomir extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int station_dathomir_handleBranch65(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -4806,7 +4806,7 @@ public class station_dathomir extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int station_dathomir_handleBranch69(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -5083,7 +5083,7 @@ public class station_dathomir extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int station_dathomir_handleBranch70(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -5143,7 +5143,7 @@ public class station_dathomir extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int station_dathomir_handleBranch72(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -5213,7 +5213,7 @@ public class station_dathomir extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int station_dathomir_handleBranch74(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -5273,7 +5273,7 @@ public class station_dathomir extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int station_dathomir_handleBranch76(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -5389,7 +5389,7 @@ public class station_dathomir extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int station_dathomir_handleBranch78(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -5450,7 +5450,7 @@ public class station_dathomir extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int station_dathomir_handleBranch80(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -5511,7 +5511,7 @@ public class station_dathomir extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int station_dathomir_handleBranch82(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -5626,7 +5626,7 @@ public class station_dathomir extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int station_dathomir_handleBranch86(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -6161,7 +6161,7 @@ public class station_dathomir extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int station_dathomir_handleBranch87(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -6265,7 +6265,7 @@ public class station_dathomir extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int station_dathomir_handleBranch88(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -6800,7 +6800,7 @@ public class station_dathomir extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int station_dathomir_handleBranch89(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -6949,7 +6949,7 @@ public class station_dathomir extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int station_dathomir_handleBranch92(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -7042,7 +7042,7 @@ public class station_dathomir extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int station_dathomir_handleBranch94(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -7577,7 +7577,7 @@ public class station_dathomir extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int station_dathomir_handleBranch95(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -8112,7 +8112,7 @@ public class station_dathomir extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int station_dathomir_handleBranch96(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -8216,7 +8216,7 @@ public class station_dathomir extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int station_dathomir_handleBranch97(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -8751,7 +8751,7 @@ public class station_dathomir extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int station_dathomir_handleBranch98(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -8842,7 +8842,7 @@ public class station_dathomir extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int OnInitialize(obj_id self) throws InterruptedException
     {

@@ -145,7 +145,7 @@ public class prof_officer_11 extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int prof_officer_11_handleBranch6(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -171,7 +171,7 @@ public class prof_officer_11 extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int prof_officer_11_handleBranch9(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -209,7 +209,7 @@ public class prof_officer_11 extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int prof_officer_11_handleBranch10(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -258,7 +258,7 @@ public class prof_officer_11 extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int OnInitialize(obj_id self) throws InterruptedException
     {

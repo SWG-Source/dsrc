@@ -608,7 +608,7 @@ public class wookiee_sidequest extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int wookiee_sidequest_handleBranch3(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -623,7 +623,7 @@ public class wookiee_sidequest extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int wookiee_sidequest_handleBranch5(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -638,7 +638,7 @@ public class wookiee_sidequest extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int wookiee_sidequest_handleBranch7(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -677,7 +677,7 @@ public class wookiee_sidequest extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int wookiee_sidequest_handleBranch8(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -692,7 +692,7 @@ public class wookiee_sidequest extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int wookiee_sidequest_handleBranch10(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -740,7 +740,7 @@ public class wookiee_sidequest extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int wookiee_sidequest_handleBranch11(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -779,7 +779,7 @@ public class wookiee_sidequest extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int wookiee_sidequest_handleBranch12(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -794,7 +794,7 @@ public class wookiee_sidequest extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int wookiee_sidequest_handleBranch15(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -820,7 +820,7 @@ public class wookiee_sidequest extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int wookiee_sidequest_handleBranch18(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -846,7 +846,7 @@ public class wookiee_sidequest extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int wookiee_sidequest_handleBranch21(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1020,7 +1020,7 @@ public class wookiee_sidequest extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int wookiee_sidequest_handleBranch22(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1080,7 +1080,7 @@ public class wookiee_sidequest extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int wookiee_sidequest_handleBranch24(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1105,7 +1105,7 @@ public class wookiee_sidequest extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int wookiee_sidequest_handleBranch27(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1130,7 +1130,7 @@ public class wookiee_sidequest extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int wookiee_sidequest_handleBranch30(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1169,7 +1169,7 @@ public class wookiee_sidequest extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int wookiee_sidequest_handleBranch31(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1218,7 +1218,7 @@ public class wookiee_sidequest extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int wookiee_sidequest_handleBranch32(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1243,7 +1243,7 @@ public class wookiee_sidequest extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int wookiee_sidequest_handleBranch35(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1268,7 +1268,7 @@ public class wookiee_sidequest extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int wookiee_sidequest_handleBranch38(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1293,7 +1293,7 @@ public class wookiee_sidequest extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int wookiee_sidequest_handleBranch41(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1411,7 +1411,7 @@ public class wookiee_sidequest extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int wookiee_sidequest_handleBranch42(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1461,7 +1461,7 @@ public class wookiee_sidequest extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int wookiee_sidequest_handleBranch43(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1487,7 +1487,7 @@ public class wookiee_sidequest extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int wookiee_sidequest_handleBranch46(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1537,7 +1537,7 @@ public class wookiee_sidequest extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int wookiee_sidequest_handleBranch48(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1598,7 +1598,7 @@ public class wookiee_sidequest extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int wookiee_sidequest_handleBranch49(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1670,7 +1670,7 @@ public class wookiee_sidequest extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int wookiee_sidequest_handleBranch51(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1696,7 +1696,7 @@ public class wookiee_sidequest extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int wookiee_sidequest_handleBranch55(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1745,7 +1745,7 @@ public class wookiee_sidequest extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int wookiee_sidequest_handleBranch56(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1771,7 +1771,7 @@ public class wookiee_sidequest extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int OnInitialize(obj_id self) throws InterruptedException
     {

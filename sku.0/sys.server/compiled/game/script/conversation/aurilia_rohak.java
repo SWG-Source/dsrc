@@ -69,7 +69,7 @@ public class aurilia_rohak extends script.conversation.base.conversation_base
             npcEndConversationWithMessage(player, new string_id(c_stringFile, "s_27"));
             return SCRIPT_CONTINUE;
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     private int aurilia_rohak_handleBranch3(obj_id player, string_id response) throws InterruptedException
     {
@@ -77,7 +77,7 @@ public class aurilia_rohak extends script.conversation.base.conversation_base
         {
             return craft_response(new String[] {"s_34", "s_36"}, 4, player);
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     private int aurilia_rohak_handleBranch4(obj_id player, string_id response) throws InterruptedException
     {
@@ -85,7 +85,7 @@ public class aurilia_rohak extends script.conversation.base.conversation_base
         {
             return craft_response(new String[] {"s_38", "s_40"}, 5, player);
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     private int aurilia_rohak_handleBranch5(obj_id player, string_id response) throws InterruptedException
     {
@@ -96,7 +96,7 @@ public class aurilia_rohak extends script.conversation.base.conversation_base
             npcEndConversationWithMessage(player, new string_id(c_stringFile, "s_42"));
             return SCRIPT_CONTINUE;
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     private int aurilia_rohak_handleBranch7(obj_id player, string_id response) throws InterruptedException
     {
@@ -123,7 +123,7 @@ public class aurilia_rohak extends script.conversation.base.conversation_base
             npcEndConversationWithMessage(player, new string_id(c_stringFile, "s_30"));
             return SCRIPT_CONTINUE;
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     private int aurilia_rohak_handleBranch10(obj_id player, string_id response) throws InterruptedException
     {
@@ -137,7 +137,7 @@ public class aurilia_rohak extends script.conversation.base.conversation_base
             npcEndConversationWithMessage(player, new string_id(c_stringFile, "s_30"));
             return SCRIPT_CONTINUE;
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     private int aurilia_rohak_handleBranch11(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -149,7 +149,7 @@ public class aurilia_rohak extends script.conversation.base.conversation_base
             npcEndConversationWithMessage(player, new string_id(c_stringFile, "s_33"));
             return SCRIPT_CONTINUE;
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int OnStartNpcConversation(obj_id self, obj_id player) throws InterruptedException
     {

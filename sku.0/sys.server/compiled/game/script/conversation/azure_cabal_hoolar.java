@@ -128,7 +128,7 @@ public class azure_cabal_hoolar extends script.conversation.base.conversation_ba
         {
             return craft_response(new String[] {"s_181", "s_182", "s_183"}, 3, player);
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     private int azure_cabal_hoolar_handleBranch3(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -145,7 +145,7 @@ public class azure_cabal_hoolar extends script.conversation.base.conversation_ba
             npcEndConversationWithMessage(player, new string_id(c_stringFile, "s_185"));
             return SCRIPT_CONTINUE;
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     private int azure_cabal_hoolar_handleBranch5(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -160,7 +160,7 @@ public class azure_cabal_hoolar extends script.conversation.base.conversation_ba
         {
             return craft_response(new String[] {"s_177", "s_178", "s_179"}, 7, player);
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     private int azure_cabal_hoolar_handleBranch7(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -177,7 +177,7 @@ public class azure_cabal_hoolar extends script.conversation.base.conversation_ba
             npcEndConversationWithMessage(player, new string_id(c_stringFile, "s_186"));
             return SCRIPT_CONTINUE;
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     private int azure_cabal_hoolar_handleBranch9(obj_id player, string_id response) throws InterruptedException
     {
@@ -187,7 +187,7 @@ public class azure_cabal_hoolar extends script.conversation.base.conversation_ba
             npcEndConversationWithMessage(player, new string_id(c_stringFile, "s_198"));
             return SCRIPT_CONTINUE;
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     private int azure_cabal_hoolar_handleBranch11(obj_id player, string_id response) throws InterruptedException
     {
@@ -197,7 +197,7 @@ public class azure_cabal_hoolar extends script.conversation.base.conversation_ba
             npcEndConversationWithMessage(player, new string_id(c_stringFile, "s_198"));
             return SCRIPT_CONTINUE;
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     private int azure_cabal_hoolar_handleBranch12(obj_id player, string_id response) throws InterruptedException
     {
@@ -229,7 +229,7 @@ public class azure_cabal_hoolar extends script.conversation.base.conversation_ba
             npcEndConversationWithMessage(player, new string_id(c_stringFile, "s_195"));
             return SCRIPT_CONTINUE;
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     private int azure_cabal_hoolar_handleBranch13(obj_id player, string_id response) throws InterruptedException
     {
@@ -241,7 +241,7 @@ public class azure_cabal_hoolar extends script.conversation.base.conversation_ba
         {
             return craft_response(new String[] {"s_219", "s_228", "s_227"}, 17, player);
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     private int azure_cabal_hoolar_handleBranch14(obj_id player, string_id response) throws InterruptedException
     {
@@ -271,7 +271,7 @@ public class azure_cabal_hoolar extends script.conversation.base.conversation_ba
             npcEndConversationWithMessage(player, new string_id(c_stringFile, "s_167"));
             return SCRIPT_CONTINUE;
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     private int azure_cabal_hoolar_handleBranch15(obj_id player, string_id response) throws InterruptedException
     {
@@ -301,7 +301,7 @@ public class azure_cabal_hoolar extends script.conversation.base.conversation_ba
             npcEndConversationWithMessage(player, new string_id(c_stringFile, "s_167"));
             return SCRIPT_CONTINUE;
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     private int azure_cabal_hoolar_handleBranch16(obj_id player, string_id response) throws InterruptedException
     {
@@ -309,7 +309,7 @@ public class azure_cabal_hoolar extends script.conversation.base.conversation_ba
         {
             return craft_response(new String[] {"s_219", "s_228", "s_227"}, 17, player);
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     private int azure_cabal_hoolar_handleBranch17(obj_id player, string_id response) throws InterruptedException
     {
@@ -339,7 +339,7 @@ public class azure_cabal_hoolar extends script.conversation.base.conversation_ba
             npcEndConversationWithMessage(player, new string_id(c_stringFile, "s_167"));
             return SCRIPT_CONTINUE;
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     private int azure_cabal_hoolar_handleBranch18(obj_id player, string_id response) throws InterruptedException
     {
@@ -375,7 +375,7 @@ public class azure_cabal_hoolar extends script.conversation.base.conversation_ba
             npcEndConversationWithMessage(player, new string_id(c_stringFile, "s_195"));
             return SCRIPT_CONTINUE;
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     private int azure_cabal_hoolar_handleBranch19(obj_id player, string_id response) throws InterruptedException
     {
@@ -407,7 +407,7 @@ public class azure_cabal_hoolar extends script.conversation.base.conversation_ba
             npcEndConversationWithMessage(player, new string_id(c_stringFile, "s_167"));
             return SCRIPT_CONTINUE;
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     private int azure_cabal_hoolar_handleBranch20(obj_id player, string_id response) throws InterruptedException
     {
@@ -419,7 +419,7 @@ public class azure_cabal_hoolar extends script.conversation.base.conversation_ba
         {
             return craft_response(new String[] {"s_242", "s_245", "s_246"}, 23, player);
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     private int azure_cabal_hoolar_handleBranch21(obj_id player, string_id response) throws InterruptedException
     {
@@ -437,7 +437,7 @@ public class azure_cabal_hoolar extends script.conversation.base.conversation_ba
             npcEndConversationWithMessage(player, new string_id(c_stringFile, "s_195"));
             return SCRIPT_CONTINUE;
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     private int azure_cabal_hoolar_handleBranch22(obj_id player, string_id response) throws InterruptedException
     {
@@ -451,7 +451,7 @@ public class azure_cabal_hoolar extends script.conversation.base.conversation_ba
             npcEndConversationWithMessage(player, new string_id(c_stringFile, "s_195"));
             return SCRIPT_CONTINUE;
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     private int azure_cabal_hoolar_handleBranch23(obj_id player, string_id response) throws InterruptedException
     {
@@ -465,7 +465,7 @@ public class azure_cabal_hoolar extends script.conversation.base.conversation_ba
             npcEndConversationWithMessage(player, new string_id(c_stringFile, "s_195"));
             return SCRIPT_CONTINUE;
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     private int azure_cabal_hoolar_handleBranch24(obj_id player, string_id response) throws InterruptedException
     {
@@ -479,7 +479,7 @@ public class azure_cabal_hoolar extends script.conversation.base.conversation_ba
             npcEndConversationWithMessage(player, new string_id(c_stringFile, "s_195"));
             return SCRIPT_CONTINUE;
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     private int azure_cabal_hoolar_handleBranch25(obj_id player, string_id response) throws InterruptedException
     {
@@ -489,7 +489,7 @@ public class azure_cabal_hoolar extends script.conversation.base.conversation_ba
             npcEndConversationWithMessage(player, new string_id(c_stringFile, "s_195"));
             return SCRIPT_CONTINUE;
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     private int azure_cabal_hoolar_handleBranch26(obj_id player, string_id response) throws InterruptedException
     {
@@ -501,7 +501,7 @@ public class azure_cabal_hoolar extends script.conversation.base.conversation_ba
         {
             return craft_response(new String[] {"s_120", "s_121", "s_123"}, 30, player);
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     private int azure_cabal_hoolar_handleBranch27(obj_id player, string_id response) throws InterruptedException
     {
@@ -513,7 +513,7 @@ public class azure_cabal_hoolar extends script.conversation.base.conversation_ba
         {
             return craft_response(new String[] {"s_120", "s_121", "s_123"}, 31, player);
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     private int azure_cabal_hoolar_handleBranch28(obj_id player, string_id response) throws InterruptedException
     {
@@ -525,7 +525,7 @@ public class azure_cabal_hoolar extends script.conversation.base.conversation_ba
         {
             return craft_response(new String[] {"s_120", "s_121", "s_123"}, 31, player);
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     private int azure_cabal_hoolar_handleBranch29(obj_id player, string_id response) throws InterruptedException
     {
@@ -539,7 +539,7 @@ public class azure_cabal_hoolar extends script.conversation.base.conversation_ba
         {
             return craft_response(new String[] {"s_120", "s_121", "s_123"}, 31, player);
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     private int azure_cabal_hoolar_handleBranch31(obj_id player, string_id response) throws InterruptedException
     {
@@ -569,7 +569,7 @@ public class azure_cabal_hoolar extends script.conversation.base.conversation_ba
             npcEndConversationWithMessage(player, new string_id(c_stringFile, "s_167"));
             return SCRIPT_CONTINUE;
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     private int azure_cabal_hoolar_handleBranch32(obj_id player, string_id response) throws InterruptedException
     {
@@ -601,7 +601,7 @@ public class azure_cabal_hoolar extends script.conversation.base.conversation_ba
             npcEndConversationWithMessage(player, new string_id(c_stringFile, "s_167"));
             return SCRIPT_CONTINUE;
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     private int azure_cabal_hoolar_handleBranch34(obj_id player, string_id response) throws InterruptedException
     {
@@ -613,7 +613,7 @@ public class azure_cabal_hoolar extends script.conversation.base.conversation_ba
         {
             return craft_response(new String[] {"s_127", "s_132", "s_164"}, 39, player);
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     private int azure_cabal_hoolar_handleBranch35(obj_id player, string_id response) throws InterruptedException
     {
@@ -625,7 +625,7 @@ public class azure_cabal_hoolar extends script.conversation.base.conversation_ba
         {
             return craft_response(new String[] {"s_127", "s_132", "s_164"}, 39, player);
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     private int azure_cabal_hoolar_handleBranch36(obj_id player, string_id response) throws InterruptedException
     {
@@ -637,7 +637,7 @@ public class azure_cabal_hoolar extends script.conversation.base.conversation_ba
         {
             return craft_response(new String[] {"s_127", "s_132", "s_164"}, 39, player);
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     private int azure_cabal_hoolar_handleBranch37(obj_id player, string_id response) throws InterruptedException
     {
@@ -645,7 +645,7 @@ public class azure_cabal_hoolar extends script.conversation.base.conversation_ba
         {
             return craft_response(new String[] {"s_133", "s_139"}, 38, player);
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     private int azure_cabal_hoolar_handleBranch38(obj_id player, string_id response) throws InterruptedException
     {
@@ -653,7 +653,7 @@ public class azure_cabal_hoolar extends script.conversation.base.conversation_ba
         {
             return craft_response(new String[] {"s_127", "s_132", "s_164"}, 39, player);
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     private int azure_cabal_hoolar_handleBranch39(obj_id player, string_id response) throws InterruptedException
     {
@@ -683,7 +683,7 @@ public class azure_cabal_hoolar extends script.conversation.base.conversation_ba
             npcEndConversationWithMessage(player, new string_id(c_stringFile, "s_167"));
             return SCRIPT_CONTINUE;
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     private int azure_cabal_hoolar_handleBranch40(obj_id player, string_id response) throws InterruptedException
     {
@@ -715,7 +715,7 @@ public class azure_cabal_hoolar extends script.conversation.base.conversation_ba
             npcEndConversationWithMessage(player, new string_id(c_stringFile, "s_167"));
             return SCRIPT_CONTINUE;
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     private int azure_cabal_hoolar_handleBranch44(obj_id player, string_id response) throws InterruptedException
     {
@@ -744,7 +744,7 @@ public class azure_cabal_hoolar extends script.conversation.base.conversation_ba
             npcEndConversationWithMessage(player, new string_id(c_stringFile, "s_195"));
             return SCRIPT_CONTINUE;
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     private int azure_cabal_hoolar_handleBranch45(obj_id player, string_id response) throws InterruptedException
     {
@@ -762,7 +762,7 @@ public class azure_cabal_hoolar extends script.conversation.base.conversation_ba
             npcEndConversationWithMessage(player, new string_id(c_stringFile, "s_195"));
             return SCRIPT_CONTINUE;
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     private int azure_cabal_hoolar_handleBranch46(obj_id player, string_id response) throws InterruptedException
     {
@@ -780,7 +780,7 @@ public class azure_cabal_hoolar extends script.conversation.base.conversation_ba
         {
             return craft_response(new String[] {"s_386", "s_388", "s_390"}, 49, player);
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     private int azure_cabal_hoolar_handleBranch47(obj_id player, string_id response) throws InterruptedException
     {
@@ -798,7 +798,7 @@ public class azure_cabal_hoolar extends script.conversation.base.conversation_ba
         {
             return craft_response(new String[] {"s_386", "s_388", "s_390"}, 49, player);
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     private int azure_cabal_hoolar_handleBranch48(obj_id player, string_id response) throws InterruptedException
     {
@@ -812,7 +812,7 @@ public class azure_cabal_hoolar extends script.conversation.base.conversation_ba
         {
             return craft_response(new String[] {"s_386", "s_388", "s_390"}, 49, player);
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     private int azure_cabal_hoolar_handleBranch49(obj_id player, string_id response) throws InterruptedException
     {
@@ -826,7 +826,7 @@ public class azure_cabal_hoolar extends script.conversation.base.conversation_ba
         {
             return craft_response(new String[] {"s_392", "s_394"}, 50, player);
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     private int azure_cabal_hoolar_handleBranch50(obj_id player, string_id response) throws InterruptedException
     {
@@ -836,7 +836,7 @@ public class azure_cabal_hoolar extends script.conversation.base.conversation_ba
             npcEndConversationWithMessage(player, new string_id(c_stringFile, "s_195"));
             return SCRIPT_CONTINUE;
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     private int azure_cabal_hoolar_handleBranch51(obj_id player, string_id response) throws InterruptedException
     {
@@ -854,7 +854,7 @@ public class azure_cabal_hoolar extends script.conversation.base.conversation_ba
             npcEndConversationWithMessage(player, new string_id(c_stringFile, "s_195"));
             return SCRIPT_CONTINUE;
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     private int azure_cabal_hoolar_handleBranch52(obj_id player, string_id response) throws InterruptedException
     {
@@ -887,7 +887,7 @@ public class azure_cabal_hoolar extends script.conversation.base.conversation_ba
                 return craft_response(new String[] {"s_398", "s_417", "s_418", "s_419"}, 61, player);
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     private int azure_cabal_hoolar_handleBranch53(obj_id player, string_id response) throws InterruptedException
     {
@@ -920,7 +920,7 @@ public class azure_cabal_hoolar extends script.conversation.base.conversation_ba
                 return craft_response(new String[] {"s_398", "s_417", "s_418", "s_419"}, 61, player);
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     private int azure_cabal_hoolar_handleBranch54(obj_id player, string_id response) throws InterruptedException
     {
@@ -949,7 +949,7 @@ public class azure_cabal_hoolar extends script.conversation.base.conversation_ba
                 return craft_response(new String[] {"s_398", "s_417", "s_418", "s_419"}, 61, player);
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     private int azure_cabal_hoolar_handleBranch55(obj_id player, string_id response) throws InterruptedException
     {
@@ -963,7 +963,7 @@ public class azure_cabal_hoolar extends script.conversation.base.conversation_ba
         {
             return craft_response(new String[] {"s_290", "s_292", "s_294", "s_310"}, 52, player);
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     private int azure_cabal_hoolar_handleBranch56(obj_id player, string_id response) throws InterruptedException
     {
@@ -981,7 +981,7 @@ public class azure_cabal_hoolar extends script.conversation.base.conversation_ba
             npcEndConversationWithMessage(player, new string_id(c_stringFile, "s_195"));
             return SCRIPT_CONTINUE;
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     private int azure_cabal_hoolar_handleBranch57(obj_id player, string_id response) throws InterruptedException
     {
@@ -993,7 +993,7 @@ public class azure_cabal_hoolar extends script.conversation.base.conversation_ba
         {
             return craft_response(new String[] {"s_411", "s_413", "s_414"}, 59, player);
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     private int azure_cabal_hoolar_handleBranch58(obj_id player, string_id response) throws InterruptedException
     {
@@ -1007,7 +1007,7 @@ public class azure_cabal_hoolar extends script.conversation.base.conversation_ba
             npcEndConversationWithMessage(player, new string_id(c_stringFile, "s_195"));
             return SCRIPT_CONTINUE;
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     private int azure_cabal_hoolar_handleBranch59(obj_id player, string_id response) throws InterruptedException
     {
@@ -1021,7 +1021,7 @@ public class azure_cabal_hoolar extends script.conversation.base.conversation_ba
             npcEndConversationWithMessage(player, new string_id(c_stringFile, "s_195"));
             return SCRIPT_CONTINUE;
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     private int azure_cabal_hoolar_handleBranch60(obj_id player, string_id response) throws InterruptedException
     {
@@ -1031,7 +1031,7 @@ public class azure_cabal_hoolar extends script.conversation.base.conversation_ba
             npcEndConversationWithMessage(player, new string_id(c_stringFile, "s_195"));
             return SCRIPT_CONTINUE;
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     private int azure_cabal_hoolar_handleBranch61(obj_id player, string_id response) throws InterruptedException
     {
@@ -1049,7 +1049,7 @@ public class azure_cabal_hoolar extends script.conversation.base.conversation_ba
             npcEndConversationWithMessage(player, new string_id(c_stringFile, "s_195"));
             return SCRIPT_CONTINUE;
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     private int azure_cabal_hoolar_handleBranch62(obj_id player, string_id response) throws InterruptedException
     {
@@ -1063,7 +1063,7 @@ public class azure_cabal_hoolar extends script.conversation.base.conversation_ba
             npcEndConversationWithMessage(player, new string_id(c_stringFile, "s_195"));
             return SCRIPT_CONTINUE;
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     private int azure_cabal_hoolar_handleBranch63(obj_id player, string_id response) throws InterruptedException
     {
@@ -1077,7 +1077,7 @@ public class azure_cabal_hoolar extends script.conversation.base.conversation_ba
             npcEndConversationWithMessage(player, new string_id(c_stringFile, "s_195"));
             return SCRIPT_CONTINUE;
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     private int azure_cabal_hoolar_handleBranch64(obj_id player, string_id response) throws InterruptedException
     {
@@ -1091,7 +1091,7 @@ public class azure_cabal_hoolar extends script.conversation.base.conversation_ba
             npcEndConversationWithMessage(player, new string_id(c_stringFile, "s_195"));
             return SCRIPT_CONTINUE;
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     private int azure_cabal_hoolar_handleBranch65(obj_id player, string_id response) throws InterruptedException
     {
@@ -1105,7 +1105,7 @@ public class azure_cabal_hoolar extends script.conversation.base.conversation_ba
             npcEndConversationWithMessage(player, new string_id(c_stringFile, "s_195"));
             return SCRIPT_CONTINUE;
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     private int azure_cabal_hoolar_handleBranch66(obj_id player, string_id response) throws InterruptedException
     {
@@ -1115,7 +1115,7 @@ public class azure_cabal_hoolar extends script.conversation.base.conversation_ba
             npcEndConversationWithMessage(player, new string_id(c_stringFile, "s_195"));
             return SCRIPT_CONTINUE;
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int OnStartNpcConversation(obj_id self, obj_id player) throws InterruptedException
     {

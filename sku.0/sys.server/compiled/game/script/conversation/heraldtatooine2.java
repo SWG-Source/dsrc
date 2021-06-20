@@ -173,7 +173,7 @@ public class heraldtatooine2 extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int heraldtatooine2_handleBranch3(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -243,7 +243,7 @@ public class heraldtatooine2 extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int heraldtatooine2_handleBranch5(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -389,7 +389,7 @@ public class heraldtatooine2 extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int heraldtatooine2_handleBranch6(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -448,7 +448,7 @@ public class heraldtatooine2 extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int heraldtatooine2_handleBranch8(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -480,7 +480,7 @@ public class heraldtatooine2 extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int heraldtatooine2_handleBranch12(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -584,7 +584,7 @@ public class heraldtatooine2 extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int heraldtatooine2_handleBranch14(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -618,7 +618,7 @@ public class heraldtatooine2 extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int heraldtatooine2_handleBranch18(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -651,7 +651,7 @@ public class heraldtatooine2 extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int heraldtatooine2_handleBranch22(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -711,7 +711,7 @@ public class heraldtatooine2 extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int heraldtatooine2_handleBranch24(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -744,7 +744,7 @@ public class heraldtatooine2 extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int OnInitialize(obj_id self) throws InterruptedException
     {

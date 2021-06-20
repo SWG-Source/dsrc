@@ -241,7 +241,7 @@ public class community_tcg_photo_contest_painting_handout extends script.base_sc
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int community_tcg_photo_contest_painting_handout_handleBranch3(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -323,7 +323,7 @@ public class community_tcg_photo_contest_painting_handout extends script.base_sc
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int community_tcg_photo_contest_painting_handout_handleBranch4(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -371,7 +371,7 @@ public class community_tcg_photo_contest_painting_handout extends script.base_sc
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public static string_id SID_NOT_OLD_ENOUGH = new string_id("collection", "not_old_enough");
     public int OnInitialize(obj_id self) throws InterruptedException

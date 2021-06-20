@@ -188,7 +188,7 @@ public class tat_icon_missingdroid_farmer extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int tat_icon_missingdroid_farmer_handleBranch4(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -203,7 +203,7 @@ public class tat_icon_missingdroid_farmer extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int tat_icon_missingdroid_farmer_handleBranch6(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -218,7 +218,7 @@ public class tat_icon_missingdroid_farmer extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int tat_icon_missingdroid_farmer_handleBranch9(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -279,7 +279,7 @@ public class tat_icon_missingdroid_farmer extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int tat_icon_missingdroid_farmer_handleBranch10(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -318,7 +318,7 @@ public class tat_icon_missingdroid_farmer extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int tat_icon_missingdroid_farmer_handleBranch11(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -357,7 +357,7 @@ public class tat_icon_missingdroid_farmer extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int tat_icon_missingdroid_farmer_handleBranch12(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -396,7 +396,7 @@ public class tat_icon_missingdroid_farmer extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int tat_icon_missingdroid_farmer_handleBranch13(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -412,7 +412,7 @@ public class tat_icon_missingdroid_farmer extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int tat_icon_missingdroid_farmer_handleBranch17(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -497,7 +497,7 @@ public class tat_icon_missingdroid_farmer extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int tat_icon_missingdroid_farmer_handleBranch18(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -547,7 +547,7 @@ public class tat_icon_missingdroid_farmer extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int tat_icon_missingdroid_farmer_handleBranch19(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -621,7 +621,7 @@ public class tat_icon_missingdroid_farmer extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int tat_icon_missingdroid_farmer_handleBranch20(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -682,7 +682,7 @@ public class tat_icon_missingdroid_farmer extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int tat_icon_missingdroid_farmer_handleBranch21(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -743,7 +743,7 @@ public class tat_icon_missingdroid_farmer extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int tat_icon_missingdroid_farmer_handleBranch22(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -817,7 +817,7 @@ public class tat_icon_missingdroid_farmer extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int tat_icon_missingdroid_farmer_handleBranch23(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -856,7 +856,7 @@ public class tat_icon_missingdroid_farmer extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int tat_icon_missingdroid_farmer_handleBranch24(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -895,7 +895,7 @@ public class tat_icon_missingdroid_farmer extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int tat_icon_missingdroid_farmer_handleBranch25(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -934,7 +934,7 @@ public class tat_icon_missingdroid_farmer extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int tat_icon_missingdroid_farmer_handleBranch26(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -973,7 +973,7 @@ public class tat_icon_missingdroid_farmer extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int tat_icon_missingdroid_farmer_handleBranch27(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -989,7 +989,7 @@ public class tat_icon_missingdroid_farmer extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int OnInitialize(obj_id self) throws InterruptedException
     {

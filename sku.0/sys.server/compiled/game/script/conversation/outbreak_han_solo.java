@@ -310,7 +310,7 @@ public class outbreak_han_solo extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int outbreak_han_solo_handleBranch2(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -356,7 +356,7 @@ public class outbreak_han_solo extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int outbreak_han_solo_handleBranch3(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -417,7 +417,7 @@ public class outbreak_han_solo extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int outbreak_han_solo_handleBranch4(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -454,7 +454,7 @@ public class outbreak_han_solo extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int outbreak_han_solo_handleBranch8(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -494,7 +494,7 @@ public class outbreak_han_solo extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int outbreak_han_solo_handleBranch9(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -532,7 +532,7 @@ public class outbreak_han_solo extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int outbreak_han_solo_handleBranch10(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -579,7 +579,7 @@ public class outbreak_han_solo extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int outbreak_han_solo_handleBranch11(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -595,7 +595,7 @@ public class outbreak_han_solo extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int outbreak_han_solo_handleBranch16(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -667,7 +667,7 @@ public class outbreak_han_solo extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int outbreak_han_solo_handleBranch17(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -682,7 +682,7 @@ public class outbreak_han_solo extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int outbreak_han_solo_handleBranch19(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -728,7 +728,7 @@ public class outbreak_han_solo extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int outbreak_han_solo_handleBranch20(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -766,7 +766,7 @@ public class outbreak_han_solo extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int outbreak_han_solo_handleBranch21(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -838,7 +838,7 @@ public class outbreak_han_solo extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int outbreak_han_solo_handleBranch22(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -853,7 +853,7 @@ public class outbreak_han_solo extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int outbreak_han_solo_handleBranch24(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -899,7 +899,7 @@ public class outbreak_han_solo extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int outbreak_han_solo_handleBranch25(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -937,7 +937,7 @@ public class outbreak_han_solo extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int outbreak_han_solo_handleBranch26(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -975,7 +975,7 @@ public class outbreak_han_solo extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int outbreak_han_solo_handleBranch27(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1014,7 +1014,7 @@ public class outbreak_han_solo extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int outbreak_han_solo_handleBranch28(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1052,7 +1052,7 @@ public class outbreak_han_solo extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int outbreak_han_solo_handleBranch29(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1091,7 +1091,7 @@ public class outbreak_han_solo extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int outbreak_han_solo_handleBranch30(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1129,7 +1129,7 @@ public class outbreak_han_solo extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int outbreak_han_solo_handleBranch31(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1167,7 +1167,7 @@ public class outbreak_han_solo extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int outbreak_han_solo_handleBranch32(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1205,7 +1205,7 @@ public class outbreak_han_solo extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int outbreak_han_solo_handleBranch33(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1244,7 +1244,7 @@ public class outbreak_han_solo extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int outbreak_han_solo_handleBranch34(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1282,7 +1282,7 @@ public class outbreak_han_solo extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int outbreak_han_solo_handleBranch35(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1320,7 +1320,7 @@ public class outbreak_han_solo extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int outbreak_han_solo_handleBranch36(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1358,7 +1358,7 @@ public class outbreak_han_solo extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int outbreak_han_solo_handleBranch37(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1396,7 +1396,7 @@ public class outbreak_han_solo extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int outbreak_han_solo_handleBranch38(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1434,7 +1434,7 @@ public class outbreak_han_solo extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int outbreak_han_solo_handleBranch39(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1472,7 +1472,7 @@ public class outbreak_han_solo extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int outbreak_han_solo_handleBranch40(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1510,7 +1510,7 @@ public class outbreak_han_solo extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int outbreak_han_solo_handleBranch41(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1548,7 +1548,7 @@ public class outbreak_han_solo extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int outbreak_han_solo_handleBranch42(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1609,7 +1609,7 @@ public class outbreak_han_solo extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int outbreak_han_solo_handleBranch43(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1736,7 +1736,7 @@ public class outbreak_han_solo extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int outbreak_han_solo_handleBranch44(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1863,7 +1863,7 @@ public class outbreak_han_solo extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int outbreak_han_solo_handleBranch45(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1990,7 +1990,7 @@ public class outbreak_han_solo extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int outbreak_han_solo_handleBranch47(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -2005,7 +2005,7 @@ public class outbreak_han_solo extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public static final String STRINGFILE = "theme_park/outbreak/outbreak";
     public int OnInitialize(obj_id self) throws InterruptedException

@@ -213,7 +213,7 @@ public class mako_ghast extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int mako_ghast_handleBranch2(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -228,7 +228,7 @@ public class mako_ghast extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int mako_ghast_handleBranch5(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -242,7 +242,7 @@ public class mako_ghast extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int mako_ghast_handleBranch7(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -280,7 +280,7 @@ public class mako_ghast extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int mako_ghast_handleBranch8(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -318,7 +318,7 @@ public class mako_ghast extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int mako_ghast_handleBranch9(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -356,7 +356,7 @@ public class mako_ghast extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int mako_ghast_handleBranch10(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -371,7 +371,7 @@ public class mako_ghast extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int mako_ghast_handleBranch13(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -386,7 +386,7 @@ public class mako_ghast extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int mako_ghast_handleBranch16(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -400,7 +400,7 @@ public class mako_ghast extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int mako_ghast_handleBranch18(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -438,7 +438,7 @@ public class mako_ghast extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int mako_ghast_handleBranch19(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -476,7 +476,7 @@ public class mako_ghast extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int mako_ghast_handleBranch20(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -514,7 +514,7 @@ public class mako_ghast extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int mako_ghast_handleBranch21(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -552,7 +552,7 @@ public class mako_ghast extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int mako_ghast_handleBranch22(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -590,7 +590,7 @@ public class mako_ghast extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int mako_ghast_handleBranch23(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -605,7 +605,7 @@ public class mako_ghast extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int mako_ghast_handleBranch26(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -620,7 +620,7 @@ public class mako_ghast extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int mako_ghast_handleBranch29(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -634,7 +634,7 @@ public class mako_ghast extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int mako_ghast_handleBranch31(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -672,7 +672,7 @@ public class mako_ghast extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int mako_ghast_handleBranch32(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -710,7 +710,7 @@ public class mako_ghast extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int mako_ghast_handleBranch33(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -725,7 +725,7 @@ public class mako_ghast extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int OnInitialize(obj_id self) throws InterruptedException
     {

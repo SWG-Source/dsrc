@@ -235,7 +235,7 @@ public class emp_day_garrison_historian extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int emp_day_garrison_historian_handleBranch7(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -274,7 +274,7 @@ public class emp_day_garrison_historian extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int emp_day_garrison_historian_handleBranch8(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -335,7 +335,7 @@ public class emp_day_garrison_historian extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int emp_day_garrison_historian_handleBranch9(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -420,7 +420,7 @@ public class emp_day_garrison_historian extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int emp_day_garrison_historian_handleBranch10(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -437,7 +437,7 @@ public class emp_day_garrison_historian extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int emp_day_garrison_historian_handleBranch12(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -476,7 +476,7 @@ public class emp_day_garrison_historian extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int emp_day_garrison_historian_handleBranch13(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -524,7 +524,7 @@ public class emp_day_garrison_historian extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int emp_day_garrison_historian_handleBranch15(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -541,7 +541,7 @@ public class emp_day_garrison_historian extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int emp_day_garrison_historian_handleBranch17(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -591,7 +591,7 @@ public class emp_day_garrison_historian extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int emp_day_garrison_historian_handleBranch18(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -619,7 +619,7 @@ public class emp_day_garrison_historian extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int OnInitialize(obj_id self) throws InterruptedException
     {

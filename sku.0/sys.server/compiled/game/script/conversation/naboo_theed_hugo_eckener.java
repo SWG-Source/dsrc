@@ -131,7 +131,7 @@ public class naboo_theed_hugo_eckener extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int naboo_theed_hugo_eckener_handleBranch5(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -179,7 +179,7 @@ public class naboo_theed_hugo_eckener extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int naboo_theed_hugo_eckener_handleBranch6(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -228,7 +228,7 @@ public class naboo_theed_hugo_eckener extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int naboo_theed_hugo_eckener_handleBranch7(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -254,7 +254,7 @@ public class naboo_theed_hugo_eckener extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int naboo_theed_hugo_eckener_handleBranch11(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -326,7 +326,7 @@ public class naboo_theed_hugo_eckener extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int naboo_theed_hugo_eckener_handleBranch12(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -364,7 +364,7 @@ public class naboo_theed_hugo_eckener extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int naboo_theed_hugo_eckener_handleBranch13(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -424,7 +424,7 @@ public class naboo_theed_hugo_eckener extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int naboo_theed_hugo_eckener_handleBranch14(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -506,7 +506,7 @@ public class naboo_theed_hugo_eckener extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int naboo_theed_hugo_eckener_handleBranch15(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -521,7 +521,7 @@ public class naboo_theed_hugo_eckener extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int naboo_theed_hugo_eckener_handleBranch17(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -536,7 +536,7 @@ public class naboo_theed_hugo_eckener extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int naboo_theed_hugo_eckener_handleBranch21(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -574,7 +574,7 @@ public class naboo_theed_hugo_eckener extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int naboo_theed_hugo_eckener_handleBranch22(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -612,7 +612,7 @@ public class naboo_theed_hugo_eckener extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int naboo_theed_hugo_eckener_handleBranch23(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -661,7 +661,7 @@ public class naboo_theed_hugo_eckener extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int naboo_theed_hugo_eckener_handleBranch24(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -710,7 +710,7 @@ public class naboo_theed_hugo_eckener extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int naboo_theed_hugo_eckener_handleBranch26(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -725,7 +725,7 @@ public class naboo_theed_hugo_eckener extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int OnInitialize(obj_id self) throws InterruptedException
     {

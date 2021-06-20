@@ -200,7 +200,7 @@ public class npe_marksman_questgiver extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int npe_marksman_questgiver_handleBranch3(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -216,7 +216,7 @@ public class npe_marksman_questgiver extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int npe_marksman_questgiver_handleBranch5(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -263,7 +263,7 @@ public class npe_marksman_questgiver extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int npe_marksman_questgiver_handleBranch6(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -277,7 +277,7 @@ public class npe_marksman_questgiver extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int npe_marksman_questgiver_handleBranch8(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -326,7 +326,7 @@ public class npe_marksman_questgiver extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int npe_marksman_questgiver_handleBranch9(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -407,7 +407,7 @@ public class npe_marksman_questgiver extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int npe_marksman_questgiver_handleBranch10(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -456,7 +456,7 @@ public class npe_marksman_questgiver extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int npe_marksman_questgiver_handleBranch11(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -509,7 +509,7 @@ public class npe_marksman_questgiver extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int npe_marksman_questgiver_handleBranch12(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -523,7 +523,7 @@ public class npe_marksman_questgiver extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int npe_marksman_questgiver_handleBranch15(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -538,7 +538,7 @@ public class npe_marksman_questgiver extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int npe_marksman_questgiver_handleBranch17(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -577,7 +577,7 @@ public class npe_marksman_questgiver extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int npe_marksman_questgiver_handleBranch18(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -593,7 +593,7 @@ public class npe_marksman_questgiver extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int npe_marksman_questgiver_handleBranch20(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -609,7 +609,7 @@ public class npe_marksman_questgiver extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int npe_marksman_questgiver_handleBranch22(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -624,7 +624,7 @@ public class npe_marksman_questgiver extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int npe_marksman_questgiver_handleBranch24(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -639,7 +639,7 @@ public class npe_marksman_questgiver extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int npe_marksman_questgiver_handleBranch26(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -744,7 +744,7 @@ public class npe_marksman_questgiver extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int npe_marksman_questgiver_handleBranch27(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -804,7 +804,7 @@ public class npe_marksman_questgiver extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int npe_marksman_questgiver_handleBranch29(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -864,7 +864,7 @@ public class npe_marksman_questgiver extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int npe_marksman_questgiver_handleBranch30(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -970,7 +970,7 @@ public class npe_marksman_questgiver extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int npe_marksman_questgiver_handleBranch31(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -985,7 +985,7 @@ public class npe_marksman_questgiver extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int npe_marksman_questgiver_handleBranch33(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1000,7 +1000,7 @@ public class npe_marksman_questgiver extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int npe_marksman_questgiver_handleBranch35(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1015,7 +1015,7 @@ public class npe_marksman_questgiver extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int npe_marksman_questgiver_handleBranch37(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1029,7 +1029,7 @@ public class npe_marksman_questgiver extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int OnInitialize(obj_id self) throws InterruptedException
     {

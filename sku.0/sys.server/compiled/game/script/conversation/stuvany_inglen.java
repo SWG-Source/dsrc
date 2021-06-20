@@ -262,7 +262,7 @@ public class stuvany_inglen extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int stuvany_inglen_handleBranch3(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -300,7 +300,7 @@ public class stuvany_inglen extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int stuvany_inglen_handleBranch4(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -338,7 +338,7 @@ public class stuvany_inglen extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int stuvany_inglen_handleBranch5(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -376,7 +376,7 @@ public class stuvany_inglen extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int stuvany_inglen_handleBranch6(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -395,7 +395,7 @@ public class stuvany_inglen extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int stuvany_inglen_handleBranch9(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -409,7 +409,7 @@ public class stuvany_inglen extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int stuvany_inglen_handleBranch11(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -447,7 +447,7 @@ public class stuvany_inglen extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int stuvany_inglen_handleBranch12(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -485,7 +485,7 @@ public class stuvany_inglen extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int stuvany_inglen_handleBranch13(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -500,7 +500,7 @@ public class stuvany_inglen extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int stuvany_inglen_handleBranch16(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -539,7 +539,7 @@ public class stuvany_inglen extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int stuvany_inglen_handleBranch17(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -558,7 +558,7 @@ public class stuvany_inglen extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int stuvany_inglen_handleBranch20(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -572,7 +572,7 @@ public class stuvany_inglen extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int stuvany_inglen_handleBranch22(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -610,7 +610,7 @@ public class stuvany_inglen extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int stuvany_inglen_handleBranch23(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -648,7 +648,7 @@ public class stuvany_inglen extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int stuvany_inglen_handleBranch24(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -686,7 +686,7 @@ public class stuvany_inglen extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int stuvany_inglen_handleBranch25(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -724,7 +724,7 @@ public class stuvany_inglen extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int stuvany_inglen_handleBranch26(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -739,7 +739,7 @@ public class stuvany_inglen extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int stuvany_inglen_handleBranch29(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -777,7 +777,7 @@ public class stuvany_inglen extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int stuvany_inglen_handleBranch30(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -792,7 +792,7 @@ public class stuvany_inglen extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int stuvany_inglen_handleBranch33(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -806,7 +806,7 @@ public class stuvany_inglen extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int stuvany_inglen_handleBranch35(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -844,7 +844,7 @@ public class stuvany_inglen extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int stuvany_inglen_handleBranch36(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -882,7 +882,7 @@ public class stuvany_inglen extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int stuvany_inglen_handleBranch37(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -920,7 +920,7 @@ public class stuvany_inglen extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int stuvany_inglen_handleBranch38(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -958,7 +958,7 @@ public class stuvany_inglen extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int stuvany_inglen_handleBranch39(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -973,7 +973,7 @@ public class stuvany_inglen extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int OnInitialize(obj_id self) throws InterruptedException
     {

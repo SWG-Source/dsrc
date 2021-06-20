@@ -69,17 +69,34 @@ public class base_class
     // be reflected here
     //*********************************************************************
 
-    /**
-     * @defgroup scriptReturns Script Return Values
-     * @{
-     */
-
-    //  GameScriptObject.h
-    /** return value for triggers */
+	/**
+	 * Return Value for Script Triggers (Override or Continue)
+	 *
+	 * Must match to SRC GameScriptObject.h
+	 *
+	 * OVERRIDE is used to tell the Trigger to Discontinue/Halt the
+	 * triggered action due to a condition evaluated by the scripts
+	 * which indicates the current contemplated trigger should not
+	 * continue. For example, OnAboutToBeTransferred is called when
+	 * an object is about to be transferred from one container to
+	 * another, and returning a SCRIPT_OVERRIDE will block the
+	 * container transfer.
+	 */
     public static final int SCRIPT_OVERRIDE = 0;
-    /** return value for triggers */
-    public static final int SCRIPT_CONTINUE = 1;
-    public static final int SCRIPT_DEFAULT  = 2;
+	/**
+	 * Return Value for Script Triggers (Override or Continue)
+	 *
+	 * Must match to SRC GameScriptObject.h
+	 *
+	 * CONTINUE is used to tell the Trigger to proceed, and should
+	 * be used in contexts where actions are successful, or at the
+	 * conclusion of a trigger, provided an OVERRIDE is not necessary.
+	 * For example, OnAboutToBeTransferred is called when an object is
+	 * about to be transferred from one container to another, and
+	 * returning a SCRIPT_CONTINUE will tell the Engine to proceed
+	 * with the requested container transfer.
+	 */
+	public static final int SCRIPT_CONTINUE = 1;
 
     /**
      * @}

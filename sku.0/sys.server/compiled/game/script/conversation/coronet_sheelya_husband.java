@@ -137,7 +137,7 @@ public class coronet_sheelya_husband extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int coronet_sheelya_husband_handleBranch4(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -186,7 +186,7 @@ public class coronet_sheelya_husband extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int coronet_sheelya_husband_handleBranch5(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -211,7 +211,7 @@ public class coronet_sheelya_husband extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int coronet_sheelya_husband_handleBranch9(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -270,7 +270,7 @@ public class coronet_sheelya_husband extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int coronet_sheelya_husband_handleBranch11(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -295,7 +295,7 @@ public class coronet_sheelya_husband extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int OnInitialize(obj_id self) throws InterruptedException
     {

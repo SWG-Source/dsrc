@@ -151,7 +151,7 @@ public class ep3_civilian_pilot extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_civilian_pilot_handleBranch3(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -201,7 +201,7 @@ public class ep3_civilian_pilot extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_civilian_pilot_handleBranch4(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -286,7 +286,7 @@ public class ep3_civilian_pilot extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_civilian_pilot_handleBranch5(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -301,7 +301,7 @@ public class ep3_civilian_pilot extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_civilian_pilot_handleBranch7(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -327,7 +327,7 @@ public class ep3_civilian_pilot extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_civilian_pilot_handleBranch10(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -423,7 +423,7 @@ public class ep3_civilian_pilot extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_civilian_pilot_handleBranch11(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -484,7 +484,7 @@ public class ep3_civilian_pilot extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_civilian_pilot_handleBranch12(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -545,7 +545,7 @@ public class ep3_civilian_pilot extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_civilian_pilot_handleBranch14(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -571,7 +571,7 @@ public class ep3_civilian_pilot extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_civilian_pilot_handleBranch18(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -601,7 +601,7 @@ public class ep3_civilian_pilot extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_civilian_pilot_handleBranch21(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -697,7 +697,7 @@ public class ep3_civilian_pilot extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_civilian_pilot_handleBranch22(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -758,7 +758,7 @@ public class ep3_civilian_pilot extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_civilian_pilot_handleBranch24(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -832,7 +832,7 @@ public class ep3_civilian_pilot extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_civilian_pilot_handleBranch25(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -847,7 +847,7 @@ public class ep3_civilian_pilot extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_civilian_pilot_handleBranch27(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -862,7 +862,7 @@ public class ep3_civilian_pilot extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_civilian_pilot_handleBranch29(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -923,7 +923,7 @@ public class ep3_civilian_pilot extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_civilian_pilot_handleBranch31(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -984,7 +984,7 @@ public class ep3_civilian_pilot extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_civilian_pilot_handleBranch32(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1010,7 +1010,7 @@ public class ep3_civilian_pilot extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int OnInitialize(obj_id self) throws InterruptedException
     {

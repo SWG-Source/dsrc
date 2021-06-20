@@ -63,7 +63,7 @@ public class doctor_griffax_jin extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int doctor_griffax_jin_handleBranch2(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -101,7 +101,7 @@ public class doctor_griffax_jin extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int doctor_griffax_jin_handleBranch3(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -139,7 +139,7 @@ public class doctor_griffax_jin extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int doctor_griffax_jin_handleBranch4(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -177,7 +177,7 @@ public class doctor_griffax_jin extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int doctor_griffax_jin_handleBranch5(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -192,7 +192,7 @@ public class doctor_griffax_jin extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public static final String MENU_STRING_FILE = "theme_park/outbreak/outbreak";
     public static final string_id SID_NOT_ENOUGH_POWER = new string_id(MENU_STRING_FILE, "not_enough_power");

@@ -179,7 +179,7 @@ public class borvos_acklay_dakk extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int borvos_acklay_dakk_handleBranch2(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -194,7 +194,7 @@ public class borvos_acklay_dakk extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int borvos_acklay_dakk_handleBranch4(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -208,7 +208,7 @@ public class borvos_acklay_dakk extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int borvos_acklay_dakk_handleBranch6(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -223,7 +223,7 @@ public class borvos_acklay_dakk extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int borvos_acklay_dakk_handleBranch8(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -293,7 +293,7 @@ public class borvos_acklay_dakk extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int borvos_acklay_dakk_handleBranch9(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -396,7 +396,7 @@ public class borvos_acklay_dakk extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int borvos_acklay_dakk_handleBranch10(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -466,7 +466,7 @@ public class borvos_acklay_dakk extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int borvos_acklay_dakk_handleBranch14(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -504,7 +504,7 @@ public class borvos_acklay_dakk extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int borvos_acklay_dakk_handleBranch15(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -597,7 +597,7 @@ public class borvos_acklay_dakk extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int borvos_acklay_dakk_handleBranch16(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -667,7 +667,7 @@ public class borvos_acklay_dakk extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int OnInitialize(obj_id self) throws InterruptedException
     {

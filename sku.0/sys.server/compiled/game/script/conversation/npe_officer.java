@@ -137,7 +137,7 @@ public class npe_officer extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int npe_officer_handleBranch5(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -156,7 +156,7 @@ public class npe_officer extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int npe_officer_handleBranch8(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -194,7 +194,7 @@ public class npe_officer extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int npe_officer_handleBranch9(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -233,7 +233,7 @@ public class npe_officer extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int npe_officer_handleBranch10(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -254,7 +254,7 @@ public class npe_officer extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int npe_officer_handleBranch12(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -292,7 +292,7 @@ public class npe_officer extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int npe_officer_handleBranch13(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -313,7 +313,7 @@ public class npe_officer extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int npe_officer_handleBranch15(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -329,7 +329,7 @@ public class npe_officer extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int npe_officer_handleBranch17(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -368,7 +368,7 @@ public class npe_officer extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int npe_officer_handleBranch18(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -406,7 +406,7 @@ public class npe_officer extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int npe_officer_handleBranch19(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -444,7 +444,7 @@ public class npe_officer extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int npe_officer_handleBranch20(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -482,7 +482,7 @@ public class npe_officer extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int npe_officer_handleBranch21(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -504,7 +504,7 @@ public class npe_officer extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int npe_officer_handleBranch23(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -519,7 +519,7 @@ public class npe_officer extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int OnInitialize(obj_id self) throws InterruptedException
     {

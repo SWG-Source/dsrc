@@ -400,7 +400,7 @@ public class imperial_empire_day_kaythree extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int imperial_empire_day_kaythree_handleBranch6(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -608,7 +608,7 @@ public class imperial_empire_day_kaythree extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int imperial_empire_day_kaythree_handleBranch7(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1045,7 +1045,7 @@ public class imperial_empire_day_kaythree extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int imperial_empire_day_kaythree_handleBranch8(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1482,7 +1482,7 @@ public class imperial_empire_day_kaythree extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int imperial_empire_day_kaythree_handleBranch9(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1528,7 +1528,7 @@ public class imperial_empire_day_kaythree extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int imperial_empire_day_kaythree_handleBranch10(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1585,7 +1585,7 @@ public class imperial_empire_day_kaythree extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int imperial_empire_day_kaythree_handleBranch11(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1660,7 +1660,7 @@ public class imperial_empire_day_kaythree extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int imperial_empire_day_kaythree_handleBranch20(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1733,7 +1733,7 @@ public class imperial_empire_day_kaythree extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int imperial_empire_day_kaythree_handleBranch21(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1779,7 +1779,7 @@ public class imperial_empire_day_kaythree extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int imperial_empire_day_kaythree_handleBranch22(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1818,7 +1818,7 @@ public class imperial_empire_day_kaythree extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int imperial_empire_day_kaythree_handleBranch31(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1875,7 +1875,7 @@ public class imperial_empire_day_kaythree extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int imperial_empire_day_kaythree_handleBranch32(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1967,7 +1967,7 @@ public class imperial_empire_day_kaythree extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int imperial_empire_day_kaythree_handleBranch33(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -2040,7 +2040,7 @@ public class imperial_empire_day_kaythree extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int imperial_empire_day_kaythree_handleBranch34(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -2079,7 +2079,7 @@ public class imperial_empire_day_kaythree extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int imperial_empire_day_kaythree_handleBranch47(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -2160,7 +2160,7 @@ public class imperial_empire_day_kaythree extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int imperial_empire_day_kaythree_handleBranch48(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -2199,7 +2199,7 @@ public class imperial_empire_day_kaythree extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int imperial_empire_day_kaythree_handleBranch57(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -2314,7 +2314,7 @@ public class imperial_empire_day_kaythree extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int imperial_empire_day_kaythree_handleBranch58(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -2360,7 +2360,7 @@ public class imperial_empire_day_kaythree extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int imperial_empire_day_kaythree_handleBranch59(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -2415,7 +2415,7 @@ public class imperial_empire_day_kaythree extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int imperial_empire_day_kaythree_handleBranch64(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -2470,7 +2470,7 @@ public class imperial_empire_day_kaythree extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int imperial_empire_day_kaythree_handleBranch74(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -2489,7 +2489,7 @@ public class imperial_empire_day_kaythree extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int imperial_empire_day_kaythree_handleBranch76(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -2508,7 +2508,7 @@ public class imperial_empire_day_kaythree extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int imperial_empire_day_kaythree_handleBranch78(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -2527,7 +2527,7 @@ public class imperial_empire_day_kaythree extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int imperial_empire_day_kaythree_handleBranch80(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -2546,7 +2546,7 @@ public class imperial_empire_day_kaythree extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int imperial_empire_day_kaythree_handleBranch82(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -2565,7 +2565,7 @@ public class imperial_empire_day_kaythree extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int imperial_empire_day_kaythree_handleBranch86(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -2681,7 +2681,7 @@ public class imperial_empire_day_kaythree extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int imperial_empire_day_kaythree_handleBranch87(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -2800,7 +2800,7 @@ public class imperial_empire_day_kaythree extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int imperial_empire_day_kaythree_handleBranch88(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -2919,7 +2919,7 @@ public class imperial_empire_day_kaythree extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int imperial_empire_day_kaythree_handleBranch89(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -3035,7 +3035,7 @@ public class imperial_empire_day_kaythree extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int imperial_empire_day_kaythree_handleBranch90(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -3154,7 +3154,7 @@ public class imperial_empire_day_kaythree extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int imperial_empire_day_kaythree_handleBranch91(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -3273,7 +3273,7 @@ public class imperial_empire_day_kaythree extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int imperial_empire_day_kaythree_handleBranch92(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -3322,7 +3322,7 @@ public class imperial_empire_day_kaythree extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int imperial_empire_day_kaythree_handleBranch94(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -3337,7 +3337,7 @@ public class imperial_empire_day_kaythree extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int imperial_empire_day_kaythree_handleBranch96(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -3418,7 +3418,7 @@ public class imperial_empire_day_kaythree extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int imperial_empire_day_kaythree_handleBranch97(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -3464,7 +3464,7 @@ public class imperial_empire_day_kaythree extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int imperial_empire_day_kaythree_handleBranch98(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -3510,7 +3510,7 @@ public class imperial_empire_day_kaythree extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int imperial_empire_day_kaythree_handleBranch99(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -3549,7 +3549,7 @@ public class imperial_empire_day_kaythree extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int OnInitialize(obj_id self) throws InterruptedException
     {

@@ -115,7 +115,7 @@ public class som_kenobi_menth_paul extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int som_kenobi_menth_paul_handleBranch4(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -259,7 +259,7 @@ public class som_kenobi_menth_paul extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int som_kenobi_menth_paul_handleBranch6(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -403,7 +403,7 @@ public class som_kenobi_menth_paul extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int som_kenobi_menth_paul_handleBranch7(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -478,7 +478,7 @@ public class som_kenobi_menth_paul extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int som_kenobi_menth_paul_handleBranch8(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -516,7 +516,7 @@ public class som_kenobi_menth_paul extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int som_kenobi_menth_paul_handleBranch9(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -566,7 +566,7 @@ public class som_kenobi_menth_paul extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int som_kenobi_menth_paul_handleBranch10(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -604,7 +604,7 @@ public class som_kenobi_menth_paul extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int som_kenobi_menth_paul_handleBranch14(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -643,7 +643,7 @@ public class som_kenobi_menth_paul extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int som_kenobi_menth_paul_handleBranch15(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -681,7 +681,7 @@ public class som_kenobi_menth_paul extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int som_kenobi_menth_paul_handleBranch16(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -731,7 +731,7 @@ public class som_kenobi_menth_paul extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int som_kenobi_menth_paul_handleBranch17(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -769,7 +769,7 @@ public class som_kenobi_menth_paul extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int som_kenobi_menth_paul_handleBranch21(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -844,7 +844,7 @@ public class som_kenobi_menth_paul extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int som_kenobi_menth_paul_handleBranch22(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -882,7 +882,7 @@ public class som_kenobi_menth_paul extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int som_kenobi_menth_paul_handleBranch23(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -932,7 +932,7 @@ public class som_kenobi_menth_paul extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int som_kenobi_menth_paul_handleBranch24(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -970,7 +970,7 @@ public class som_kenobi_menth_paul extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int som_kenobi_menth_paul_handleBranch28(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1010,7 +1010,7 @@ public class som_kenobi_menth_paul extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int som_kenobi_menth_paul_handleBranch29(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1048,7 +1048,7 @@ public class som_kenobi_menth_paul extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int som_kenobi_menth_paul_handleBranch30(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1086,7 +1086,7 @@ public class som_kenobi_menth_paul extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int som_kenobi_menth_paul_handleBranch31(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1136,7 +1136,7 @@ public class som_kenobi_menth_paul extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int som_kenobi_menth_paul_handleBranch32(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1174,7 +1174,7 @@ public class som_kenobi_menth_paul extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int som_kenobi_menth_paul_handleBranch36(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1190,7 +1190,7 @@ public class som_kenobi_menth_paul extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int OnInitialize(obj_id self) throws InterruptedException
     {

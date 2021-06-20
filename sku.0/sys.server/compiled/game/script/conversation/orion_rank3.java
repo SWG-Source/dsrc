@@ -150,7 +150,7 @@ public class orion_rank3 extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int orion_rank3_handleBranch3(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -188,7 +188,7 @@ public class orion_rank3 extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int orion_rank3_handleBranch4(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -202,7 +202,7 @@ public class orion_rank3 extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int orion_rank3_handleBranch6(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -227,7 +227,7 @@ public class orion_rank3 extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int orion_rank3_handleBranch9(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -266,7 +266,7 @@ public class orion_rank3 extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int orion_rank3_handleBranch10(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -305,7 +305,7 @@ public class orion_rank3 extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int orion_rank3_handleBranch11(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -320,7 +320,7 @@ public class orion_rank3 extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int orion_rank3_handleBranch13(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -345,7 +345,7 @@ public class orion_rank3 extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int orion_rank3_handleBranch16(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -384,7 +384,7 @@ public class orion_rank3 extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int orion_rank3_handleBranch17(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -422,7 +422,7 @@ public class orion_rank3 extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int orion_rank3_handleBranch18(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -437,7 +437,7 @@ public class orion_rank3 extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int orion_rank3_handleBranch20(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -462,7 +462,7 @@ public class orion_rank3 extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int orion_rank3_handleBranch23(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -501,7 +501,7 @@ public class orion_rank3 extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int orion_rank3_handleBranch24(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -539,7 +539,7 @@ public class orion_rank3 extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int orion_rank3_handleBranch25(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -554,7 +554,7 @@ public class orion_rank3 extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int orion_rank3_handleBranch27(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -579,7 +579,7 @@ public class orion_rank3 extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int orion_rank3_handleBranch30(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -617,7 +617,7 @@ public class orion_rank3 extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int orion_rank3_handleBranch31(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -655,7 +655,7 @@ public class orion_rank3 extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int orion_rank3_handleBranch32(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -670,7 +670,7 @@ public class orion_rank3 extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int OnInitialize(obj_id self) throws InterruptedException
     {

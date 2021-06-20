@@ -59,7 +59,7 @@ public class nym_technician_1 extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int nym_technician_1_handleBranch4(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -98,7 +98,7 @@ public class nym_technician_1 extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int nym_technician_1_handleBranch5(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -137,7 +137,7 @@ public class nym_technician_1 extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int nym_technician_1_handleBranch6(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -152,7 +152,7 @@ public class nym_technician_1 extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int nym_technician_1_handleBranch9(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -248,7 +248,7 @@ public class nym_technician_1 extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int nym_technician_1_handleBranch11(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -287,7 +287,7 @@ public class nym_technician_1 extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int nym_technician_1_handleBranch12(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -326,7 +326,7 @@ public class nym_technician_1 extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int nym_technician_1_handleBranch13(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -365,7 +365,7 @@ public class nym_technician_1 extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int nym_technician_1_handleBranch14(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -404,7 +404,7 @@ public class nym_technician_1 extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int nym_technician_1_handleBranch15(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -443,7 +443,7 @@ public class nym_technician_1 extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int nym_technician_1_handleBranch16(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -483,7 +483,7 @@ public class nym_technician_1 extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int nym_technician_1_handleBranch17(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -522,7 +522,7 @@ public class nym_technician_1 extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int nym_technician_1_handleBranch18(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -537,7 +537,7 @@ public class nym_technician_1 extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int nym_technician_1_handleBranch21(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -552,7 +552,7 @@ public class nym_technician_1 extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int OnInitialize(obj_id self) throws InterruptedException
     {

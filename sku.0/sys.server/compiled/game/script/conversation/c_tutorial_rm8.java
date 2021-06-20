@@ -141,7 +141,7 @@ public class c_tutorial_rm8 extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int c_tutorial_rm8_handleBranch3(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -228,7 +228,7 @@ public class c_tutorial_rm8 extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int c_tutorial_rm8_handleBranch4(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -316,7 +316,7 @@ public class c_tutorial_rm8 extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int c_tutorial_rm8_handleBranch5(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -392,7 +392,7 @@ public class c_tutorial_rm8 extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int c_tutorial_rm8_handleBranch6(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -408,7 +408,7 @@ public class c_tutorial_rm8 extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int c_tutorial_rm8_handleBranch8(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -448,7 +448,7 @@ public class c_tutorial_rm8 extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int c_tutorial_rm8_handleBranch9(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -464,7 +464,7 @@ public class c_tutorial_rm8 extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int c_tutorial_rm8_handleBranch11(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -504,7 +504,7 @@ public class c_tutorial_rm8 extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int c_tutorial_rm8_handleBranch12(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -544,7 +544,7 @@ public class c_tutorial_rm8 extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int c_tutorial_rm8_handleBranch13(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -560,7 +560,7 @@ public class c_tutorial_rm8 extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int c_tutorial_rm8_handleBranch15(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -601,7 +601,7 @@ public class c_tutorial_rm8 extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int c_tutorial_rm8_handleBranch16(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -640,7 +640,7 @@ public class c_tutorial_rm8 extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int c_tutorial_rm8_handleBranch17(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -680,7 +680,7 @@ public class c_tutorial_rm8 extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int c_tutorial_rm8_handleBranch18(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -696,7 +696,7 @@ public class c_tutorial_rm8 extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int c_tutorial_rm8_handleBranch20(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -747,7 +747,7 @@ public class c_tutorial_rm8 extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int c_tutorial_rm8_handleBranch21(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -834,7 +834,7 @@ public class c_tutorial_rm8 extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int c_tutorial_rm8_handleBranch22(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -874,7 +874,7 @@ public class c_tutorial_rm8 extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int c_tutorial_rm8_handleBranch23(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -914,7 +914,7 @@ public class c_tutorial_rm8 extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int c_tutorial_rm8_handleBranch24(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -930,7 +930,7 @@ public class c_tutorial_rm8 extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int c_tutorial_rm8_handleBranch26(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1006,7 +1006,7 @@ public class c_tutorial_rm8 extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int c_tutorial_rm8_handleBranch27(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1022,7 +1022,7 @@ public class c_tutorial_rm8 extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int c_tutorial_rm8_handleBranch29(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1038,7 +1038,7 @@ public class c_tutorial_rm8 extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int OnInitialize(obj_id self) throws InterruptedException
     {

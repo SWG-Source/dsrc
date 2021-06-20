@@ -132,7 +132,7 @@ public class tatooine_entha_draknus extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int tatooine_entha_draknus_handleBranch2(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -146,7 +146,7 @@ public class tatooine_entha_draknus extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int tatooine_entha_draknus_handleBranch4(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -192,7 +192,7 @@ public class tatooine_entha_draknus extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int tatooine_entha_draknus_handleBranch5(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -206,7 +206,7 @@ public class tatooine_entha_draknus extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int tatooine_entha_draknus_handleBranch7(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -226,7 +226,7 @@ public class tatooine_entha_draknus extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int tatooine_entha_draknus_handleBranch9(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -264,7 +264,7 @@ public class tatooine_entha_draknus extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int tatooine_entha_draknus_handleBranch10(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -279,7 +279,7 @@ public class tatooine_entha_draknus extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int tatooine_entha_draknus_handleBranch12(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -299,7 +299,7 @@ public class tatooine_entha_draknus extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int tatooine_entha_draknus_handleBranch14(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -337,7 +337,7 @@ public class tatooine_entha_draknus extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int tatooine_entha_draknus_handleBranch15(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -352,7 +352,7 @@ public class tatooine_entha_draknus extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int tatooine_entha_draknus_handleBranch17(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -399,7 +399,7 @@ public class tatooine_entha_draknus extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int tatooine_entha_draknus_handleBranch18(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -418,7 +418,7 @@ public class tatooine_entha_draknus extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int tatooine_entha_draknus_handleBranch20(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -490,7 +490,7 @@ public class tatooine_entha_draknus extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int tatooine_entha_draknus_handleBranch21(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -509,7 +509,7 @@ public class tatooine_entha_draknus extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int tatooine_entha_draknus_handleBranch23(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -527,7 +527,7 @@ public class tatooine_entha_draknus extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int tatooine_entha_draknus_handleBranch25(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -541,7 +541,7 @@ public class tatooine_entha_draknus extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int tatooine_entha_draknus_handleBranch27(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -555,7 +555,7 @@ public class tatooine_entha_draknus extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int tatooine_entha_draknus_handleBranch29(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -601,7 +601,7 @@ public class tatooine_entha_draknus extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int tatooine_entha_draknus_handleBranch30(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -615,7 +615,7 @@ public class tatooine_entha_draknus extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int tatooine_entha_draknus_handleBranch32(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -653,7 +653,7 @@ public class tatooine_entha_draknus extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int tatooine_entha_draknus_handleBranch33(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -667,7 +667,7 @@ public class tatooine_entha_draknus extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int OnInitialize(obj_id self) throws InterruptedException
     {

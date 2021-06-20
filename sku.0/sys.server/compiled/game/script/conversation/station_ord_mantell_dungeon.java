@@ -141,7 +141,7 @@ public class station_ord_mantell_dungeon extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int station_ord_mantell_dungeon_handleBranch4(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -265,7 +265,7 @@ public class station_ord_mantell_dungeon extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int station_ord_mantell_dungeon_handleBranch5(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -290,7 +290,7 @@ public class station_ord_mantell_dungeon extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int station_ord_mantell_dungeon_handleBranch8(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -315,7 +315,7 @@ public class station_ord_mantell_dungeon extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int OnInitialize(obj_id self) throws InterruptedException
     {

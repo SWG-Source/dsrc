@@ -586,7 +586,7 @@ public class victor_visalis extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int victor_visalis_handleBranch5(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -637,7 +637,7 @@ public class victor_visalis extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int victor_visalis_handleBranch11(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -662,7 +662,7 @@ public class victor_visalis extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int victor_visalis_handleBranch14(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -721,7 +721,7 @@ public class victor_visalis extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int victor_visalis_handleBranch15(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -754,7 +754,7 @@ public class victor_visalis extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int victor_visalis_handleBranch20(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1030,7 +1030,7 @@ public class victor_visalis extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int victor_visalis_handleBranch22(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1054,7 +1054,7 @@ public class victor_visalis extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int victor_visalis_handleBranch25(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1113,7 +1113,7 @@ public class victor_visalis extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int victor_visalis_handleBranch26(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1138,7 +1138,7 @@ public class victor_visalis extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int victor_visalis_handleBranch41(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1279,7 +1279,7 @@ public class victor_visalis extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int victor_visalis_handleBranch46(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1395,7 +1395,7 @@ public class victor_visalis extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int victor_visalis_handleBranch47(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1455,7 +1455,7 @@ public class victor_visalis extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int victor_visalis_handleBranch48(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1537,7 +1537,7 @@ public class victor_visalis extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int victor_visalis_handleBranch49(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1575,7 +1575,7 @@ public class victor_visalis extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int victor_visalis_handleBranch50(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1635,7 +1635,7 @@ public class victor_visalis extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int victor_visalis_handleBranch51(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1678,7 +1678,7 @@ public class victor_visalis extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int victor_visalis_handleBranch56(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1727,7 +1727,7 @@ public class victor_visalis extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int victor_visalis_handleBranch57(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1775,7 +1775,7 @@ public class victor_visalis extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int victor_visalis_handleBranch58(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1813,7 +1813,7 @@ public class victor_visalis extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int victor_visalis_handleBranch59(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1873,7 +1873,7 @@ public class victor_visalis extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int victor_visalis_handleBranch60(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1916,7 +1916,7 @@ public class victor_visalis extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int victor_visalis_handleBranch67(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1954,7 +1954,7 @@ public class victor_visalis extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int victor_visalis_handleBranch68(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -2014,7 +2014,7 @@ public class victor_visalis extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int victor_visalis_handleBranch69(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -2057,7 +2057,7 @@ public class victor_visalis extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int victor_visalis_handleBranch74(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -2106,7 +2106,7 @@ public class victor_visalis extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int victor_visalis_handleBranch75(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -2154,7 +2154,7 @@ public class victor_visalis extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int victor_visalis_handleBranch76(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -2192,7 +2192,7 @@ public class victor_visalis extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int victor_visalis_handleBranch77(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -2252,7 +2252,7 @@ public class victor_visalis extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int victor_visalis_handleBranch78(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -2295,7 +2295,7 @@ public class victor_visalis extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int OnInitialize(obj_id self) throws InterruptedException
     {

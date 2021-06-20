@@ -85,7 +85,7 @@ public class c_ddroid_selan extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int c_ddroid_selan_handleBranch2(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -124,7 +124,7 @@ public class c_ddroid_selan extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int c_ddroid_selan_handleBranch3(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -140,7 +140,7 @@ public class c_ddroid_selan extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int OnInitialize(obj_id self) throws InterruptedException
     {

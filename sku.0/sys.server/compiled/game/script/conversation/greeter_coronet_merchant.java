@@ -130,7 +130,7 @@ public class greeter_coronet_merchant extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int greeter_coronet_merchant_handleBranch8(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -168,7 +168,7 @@ public class greeter_coronet_merchant extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int greeter_coronet_merchant_handleBranch9(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -217,7 +217,7 @@ public class greeter_coronet_merchant extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int greeter_coronet_merchant_handleBranch10(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -242,7 +242,7 @@ public class greeter_coronet_merchant extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int greeter_coronet_merchant_handleBranch13(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -267,7 +267,7 @@ public class greeter_coronet_merchant extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int greeter_coronet_merchant_handleBranch17(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -290,7 +290,7 @@ public class greeter_coronet_merchant extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int greeter_coronet_merchant_handleBranch20(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -354,7 +354,7 @@ public class greeter_coronet_merchant extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int greeter_coronet_merchant_handleBranch22(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -408,7 +408,7 @@ public class greeter_coronet_merchant extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int greeter_coronet_merchant_handleBranch28(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -447,7 +447,7 @@ public class greeter_coronet_merchant extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int greeter_coronet_merchant_handleBranch29(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -486,7 +486,7 @@ public class greeter_coronet_merchant extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int greeter_coronet_merchant_handleBranch30(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -524,7 +524,7 @@ public class greeter_coronet_merchant extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int greeter_coronet_merchant_handleBranch31(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -573,7 +573,7 @@ public class greeter_coronet_merchant extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int greeter_coronet_merchant_handleBranch32(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -598,7 +598,7 @@ public class greeter_coronet_merchant extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int OnInitialize(obj_id self) throws InterruptedException
     {

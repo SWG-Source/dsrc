@@ -104,7 +104,7 @@ public class ep3_etyyy_ehartt_brihnt extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_etyyy_ehartt_brihnt_handleBranch2(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -172,7 +172,7 @@ public class ep3_etyyy_ehartt_brihnt extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_etyyy_ehartt_brihnt_handleBranch5(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -219,7 +219,7 @@ public class ep3_etyyy_ehartt_brihnt extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_etyyy_ehartt_brihnt_handleBranch6(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -321,7 +321,7 @@ public class ep3_etyyy_ehartt_brihnt extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_etyyy_ehartt_brihnt_handleBranch7(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -346,7 +346,7 @@ public class ep3_etyyy_ehartt_brihnt extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_etyyy_ehartt_brihnt_handleBranch11(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -393,7 +393,7 @@ public class ep3_etyyy_ehartt_brihnt extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_etyyy_ehartt_brihnt_handleBranch12(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -407,7 +407,7 @@ public class ep3_etyyy_ehartt_brihnt extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int OnInitialize(obj_id self) throws InterruptedException
     {

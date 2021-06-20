@@ -116,7 +116,7 @@ public class ep3_omwaan extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_omwaan_handleBranch2(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -255,7 +255,7 @@ public class ep3_omwaan extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_omwaan_handleBranch3(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -396,7 +396,7 @@ public class ep3_omwaan extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_omwaan_handleBranch4(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -410,7 +410,7 @@ public class ep3_omwaan extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_omwaan_handleBranch6(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -471,7 +471,7 @@ public class ep3_omwaan extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_omwaan_handleBranch7(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -495,7 +495,7 @@ public class ep3_omwaan extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_omwaan_handleBranch11(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -529,7 +529,7 @@ public class ep3_omwaan extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_omwaan_handleBranch15(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -544,7 +544,7 @@ public class ep3_omwaan extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_omwaan_handleBranch17(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -650,7 +650,7 @@ public class ep3_omwaan extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_omwaan_handleBranch18(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -768,7 +768,7 @@ public class ep3_omwaan extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_omwaan_handleBranch19(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -807,7 +807,7 @@ public class ep3_omwaan extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_omwaan_handleBranch20(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -821,7 +821,7 @@ public class ep3_omwaan extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_omwaan_handleBranch22(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -870,7 +870,7 @@ public class ep3_omwaan extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_omwaan_handleBranch23(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -944,7 +944,7 @@ public class ep3_omwaan extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_omwaan_handleBranch24(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -958,7 +958,7 @@ public class ep3_omwaan extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_omwaan_handleBranch26(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -972,7 +972,7 @@ public class ep3_omwaan extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_omwaan_handleBranch28(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -996,7 +996,7 @@ public class ep3_omwaan extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_omwaan_handleBranch31(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1020,7 +1020,7 @@ public class ep3_omwaan extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_omwaan_handleBranch34(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1034,7 +1034,7 @@ public class ep3_omwaan extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_omwaan_handleBranch36(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1184,7 +1184,7 @@ public class ep3_omwaan extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_omwaan_handleBranch37(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1208,7 +1208,7 @@ public class ep3_omwaan extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_omwaan_handleBranch40(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1278,7 +1278,7 @@ public class ep3_omwaan extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_omwaan_handleBranch41(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1404,7 +1404,7 @@ public class ep3_omwaan extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_omwaan_handleBranch42(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1438,7 +1438,7 @@ public class ep3_omwaan extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_omwaan_handleBranch46(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1472,7 +1472,7 @@ public class ep3_omwaan extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_omwaan_handleBranch52(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1598,7 +1598,7 @@ public class ep3_omwaan extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int OnInitialize(obj_id self) throws InterruptedException
     {

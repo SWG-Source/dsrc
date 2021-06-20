@@ -330,7 +330,7 @@ public class ep3_clone_relics_clone_trooper_mort extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_clone_relics_clone_trooper_mort_handleBranch2(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -350,7 +350,7 @@ public class ep3_clone_relics_clone_trooper_mort extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_clone_relics_clone_trooper_mort_handleBranch4(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -489,7 +489,7 @@ public class ep3_clone_relics_clone_trooper_mort extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_clone_relics_clone_trooper_mort_handleBranch5(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -528,7 +528,7 @@ public class ep3_clone_relics_clone_trooper_mort extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_clone_relics_clone_trooper_mort_handleBranch6(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -566,7 +566,7 @@ public class ep3_clone_relics_clone_trooper_mort extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_clone_relics_clone_trooper_mort_handleBranch7(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -606,7 +606,7 @@ public class ep3_clone_relics_clone_trooper_mort extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_clone_relics_clone_trooper_mort_handleBranch8(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -645,7 +645,7 @@ public class ep3_clone_relics_clone_trooper_mort extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_clone_relics_clone_trooper_mort_handleBranch9(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -665,7 +665,7 @@ public class ep3_clone_relics_clone_trooper_mort extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_clone_relics_clone_trooper_mort_handleBranch11(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -804,7 +804,7 @@ public class ep3_clone_relics_clone_trooper_mort extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_clone_relics_clone_trooper_mort_handleBranch12(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -843,7 +843,7 @@ public class ep3_clone_relics_clone_trooper_mort extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_clone_relics_clone_trooper_mort_handleBranch13(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -881,7 +881,7 @@ public class ep3_clone_relics_clone_trooper_mort extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_clone_relics_clone_trooper_mort_handleBranch14(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -921,7 +921,7 @@ public class ep3_clone_relics_clone_trooper_mort extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_clone_relics_clone_trooper_mort_handleBranch15(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -960,7 +960,7 @@ public class ep3_clone_relics_clone_trooper_mort extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_clone_relics_clone_trooper_mort_handleBranch16(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -980,7 +980,7 @@ public class ep3_clone_relics_clone_trooper_mort extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_clone_relics_clone_trooper_mort_handleBranch18(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1119,7 +1119,7 @@ public class ep3_clone_relics_clone_trooper_mort extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_clone_relics_clone_trooper_mort_handleBranch19(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1158,7 +1158,7 @@ public class ep3_clone_relics_clone_trooper_mort extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_clone_relics_clone_trooper_mort_handleBranch20(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1196,7 +1196,7 @@ public class ep3_clone_relics_clone_trooper_mort extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_clone_relics_clone_trooper_mort_handleBranch21(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1236,7 +1236,7 @@ public class ep3_clone_relics_clone_trooper_mort extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_clone_relics_clone_trooper_mort_handleBranch22(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1275,7 +1275,7 @@ public class ep3_clone_relics_clone_trooper_mort extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_clone_relics_clone_trooper_mort_handleBranch23(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1295,7 +1295,7 @@ public class ep3_clone_relics_clone_trooper_mort extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_clone_relics_clone_trooper_mort_handleBranch25(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1413,7 +1413,7 @@ public class ep3_clone_relics_clone_trooper_mort extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_clone_relics_clone_trooper_mort_handleBranch27(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1637,7 +1637,7 @@ public class ep3_clone_relics_clone_trooper_mort extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_clone_relics_clone_trooper_mort_handleBranch28(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1676,7 +1676,7 @@ public class ep3_clone_relics_clone_trooper_mort extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_clone_relics_clone_trooper_mort_handleBranch29(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1693,7 +1693,7 @@ public class ep3_clone_relics_clone_trooper_mort extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_clone_relics_clone_trooper_mort_handleBranch31(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1731,7 +1731,7 @@ public class ep3_clone_relics_clone_trooper_mort extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_clone_relics_clone_trooper_mort_handleBranch32(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1748,7 +1748,7 @@ public class ep3_clone_relics_clone_trooper_mort extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_clone_relics_clone_trooper_mort_handleBranch34(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1786,7 +1786,7 @@ public class ep3_clone_relics_clone_trooper_mort extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_clone_relics_clone_trooper_mort_handleBranch35(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1803,7 +1803,7 @@ public class ep3_clone_relics_clone_trooper_mort extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_clone_relics_clone_trooper_mort_handleBranch37(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1933,7 +1933,7 @@ public class ep3_clone_relics_clone_trooper_mort extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_clone_relics_clone_trooper_mort_handleBranch40(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -2014,7 +2014,7 @@ public class ep3_clone_relics_clone_trooper_mort extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_clone_relics_clone_trooper_mort_handleBranch48(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -2165,7 +2165,7 @@ public class ep3_clone_relics_clone_trooper_mort extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_clone_relics_clone_trooper_mort_handleBranch50(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -2204,7 +2204,7 @@ public class ep3_clone_relics_clone_trooper_mort extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_clone_relics_clone_trooper_mort_handleBranch51(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -2243,7 +2243,7 @@ public class ep3_clone_relics_clone_trooper_mort extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_clone_relics_clone_trooper_mort_handleBranch52(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -2282,7 +2282,7 @@ public class ep3_clone_relics_clone_trooper_mort extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_clone_relics_clone_trooper_mort_handleBranch53(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -2322,7 +2322,7 @@ public class ep3_clone_relics_clone_trooper_mort extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_clone_relics_clone_trooper_mort_handleBranch54(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -2361,7 +2361,7 @@ public class ep3_clone_relics_clone_trooper_mort extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_clone_relics_clone_trooper_mort_handleBranch55(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -2399,7 +2399,7 @@ public class ep3_clone_relics_clone_trooper_mort extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_clone_relics_clone_trooper_mort_handleBranch56(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -2438,7 +2438,7 @@ public class ep3_clone_relics_clone_trooper_mort extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_clone_relics_clone_trooper_mort_handleBranch57(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -2476,7 +2476,7 @@ public class ep3_clone_relics_clone_trooper_mort extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_clone_relics_clone_trooper_mort_handleBranch58(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -2515,7 +2515,7 @@ public class ep3_clone_relics_clone_trooper_mort extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_clone_relics_clone_trooper_mort_handleBranch59(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -2554,7 +2554,7 @@ public class ep3_clone_relics_clone_trooper_mort extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_clone_relics_clone_trooper_mort_handleBranch60(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -2592,7 +2592,7 @@ public class ep3_clone_relics_clone_trooper_mort extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_clone_relics_clone_trooper_mort_handleBranch61(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -2630,7 +2630,7 @@ public class ep3_clone_relics_clone_trooper_mort extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_clone_relics_clone_trooper_mort_handleBranch62(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -2668,7 +2668,7 @@ public class ep3_clone_relics_clone_trooper_mort extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_clone_relics_clone_trooper_mort_handleBranch63(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -2706,7 +2706,7 @@ public class ep3_clone_relics_clone_trooper_mort extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_clone_relics_clone_trooper_mort_handleBranch64(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -2744,7 +2744,7 @@ public class ep3_clone_relics_clone_trooper_mort extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_clone_relics_clone_trooper_mort_handleBranch65(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -2793,7 +2793,7 @@ public class ep3_clone_relics_clone_trooper_mort extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_clone_relics_clone_trooper_mort_handleBranch66(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -2843,7 +2843,7 @@ public class ep3_clone_relics_clone_trooper_mort extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_clone_relics_clone_trooper_mort_handleBranch67(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -2883,7 +2883,7 @@ public class ep3_clone_relics_clone_trooper_mort extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_clone_relics_clone_trooper_mort_handleBranch68(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -2899,7 +2899,7 @@ public class ep3_clone_relics_clone_trooper_mort extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int OnInitialize(obj_id self) throws InterruptedException
     {

@@ -133,7 +133,7 @@ public class story_arc_chapter_one_milo extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int story_arc_chapter_one_milo_handleBranch6(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -174,7 +174,7 @@ public class story_arc_chapter_one_milo extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int story_arc_chapter_one_milo_handleBranch7(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -213,7 +213,7 @@ public class story_arc_chapter_one_milo extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int story_arc_chapter_one_milo_handleBranch8(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -229,7 +229,7 @@ public class story_arc_chapter_one_milo extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int story_arc_chapter_one_milo_handleBranch10(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -243,7 +243,7 @@ public class story_arc_chapter_one_milo extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int story_arc_chapter_one_milo_handleBranch12(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -284,7 +284,7 @@ public class story_arc_chapter_one_milo extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int story_arc_chapter_one_milo_handleBranch13(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -324,7 +324,7 @@ public class story_arc_chapter_one_milo extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int story_arc_chapter_one_milo_handleBranch14(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -375,7 +375,7 @@ public class story_arc_chapter_one_milo extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int story_arc_chapter_one_milo_handleBranch15(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -402,7 +402,7 @@ public class story_arc_chapter_one_milo extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int story_arc_chapter_one_milo_handleBranch18(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -417,7 +417,7 @@ public class story_arc_chapter_one_milo extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int story_arc_chapter_one_milo_handleBranch20(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -431,7 +431,7 @@ public class story_arc_chapter_one_milo extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int story_arc_chapter_one_milo_handleBranch22(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -446,7 +446,7 @@ public class story_arc_chapter_one_milo extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int story_arc_chapter_one_milo_handleBranch24(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -461,7 +461,7 @@ public class story_arc_chapter_one_milo extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int story_arc_chapter_one_milo_handleBranch27(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -475,7 +475,7 @@ public class story_arc_chapter_one_milo extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int story_arc_chapter_one_milo_handleBranch29(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -514,7 +514,7 @@ public class story_arc_chapter_one_milo extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int story_arc_chapter_one_milo_handleBranch30(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -553,7 +553,7 @@ public class story_arc_chapter_one_milo extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int story_arc_chapter_one_milo_handleBranch31(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -593,7 +593,7 @@ public class story_arc_chapter_one_milo extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int story_arc_chapter_one_milo_handleBranch32(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -643,7 +643,7 @@ public class story_arc_chapter_one_milo extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int story_arc_chapter_one_milo_handleBranch33(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -703,7 +703,7 @@ public class story_arc_chapter_one_milo extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int story_arc_chapter_one_milo_handleBranch34(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -752,7 +752,7 @@ public class story_arc_chapter_one_milo extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int story_arc_chapter_one_milo_handleBranch35(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -791,7 +791,7 @@ public class story_arc_chapter_one_milo extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int story_arc_chapter_one_milo_handleBranch36(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -830,7 +830,7 @@ public class story_arc_chapter_one_milo extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int story_arc_chapter_one_milo_handleBranch37(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -880,7 +880,7 @@ public class story_arc_chapter_one_milo extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int story_arc_chapter_one_milo_handleBranch38(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -906,7 +906,7 @@ public class story_arc_chapter_one_milo extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int OnInitialize(obj_id self) throws InterruptedException
     {

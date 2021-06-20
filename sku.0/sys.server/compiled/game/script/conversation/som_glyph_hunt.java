@@ -86,7 +86,7 @@ public class som_glyph_hunt extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int som_glyph_hunt_handleBranch3(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -125,7 +125,7 @@ public class som_glyph_hunt extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int som_glyph_hunt_handleBranch4(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -141,7 +141,7 @@ public class som_glyph_hunt extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int som_glyph_hunt_handleBranch6(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -155,7 +155,7 @@ public class som_glyph_hunt extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int som_glyph_hunt_handleBranch8(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -195,7 +195,7 @@ public class som_glyph_hunt extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int som_glyph_hunt_handleBranch9(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -245,7 +245,7 @@ public class som_glyph_hunt extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int som_glyph_hunt_handleBranch10(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -294,7 +294,7 @@ public class som_glyph_hunt extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int som_glyph_hunt_handleBranch11(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -310,7 +310,7 @@ public class som_glyph_hunt extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int som_glyph_hunt_handleBranch14(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -324,7 +324,7 @@ public class som_glyph_hunt extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int som_glyph_hunt_handleBranch16(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -363,7 +363,7 @@ public class som_glyph_hunt extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int som_glyph_hunt_handleBranch17(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -414,7 +414,7 @@ public class som_glyph_hunt extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int som_glyph_hunt_handleBranch18(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -488,7 +488,7 @@ public class som_glyph_hunt extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int som_glyph_hunt_handleBranch19(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -527,7 +527,7 @@ public class som_glyph_hunt extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int som_glyph_hunt_handleBranch20(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -577,7 +577,7 @@ public class som_glyph_hunt extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int som_glyph_hunt_handleBranch21(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -605,7 +605,7 @@ public class som_glyph_hunt extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int OnInitialize(obj_id self) throws InterruptedException
     {

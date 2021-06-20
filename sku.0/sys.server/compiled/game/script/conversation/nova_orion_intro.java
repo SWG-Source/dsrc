@@ -58,7 +58,7 @@ public class nova_orion_intro extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int nova_orion_intro_handleBranch2(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -72,7 +72,7 @@ public class nova_orion_intro extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int nova_orion_intro_handleBranch4(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -97,7 +97,7 @@ public class nova_orion_intro extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int nova_orion_intro_handleBranch7(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -135,7 +135,7 @@ public class nova_orion_intro extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int nova_orion_intro_handleBranch8(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -150,7 +150,7 @@ public class nova_orion_intro extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int OnInitialize(obj_id self) throws InterruptedException
     {

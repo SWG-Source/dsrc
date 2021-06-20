@@ -200,7 +200,7 @@ public class restuss_imperial_ground_destroy_3 extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int restuss_imperial_ground_destroy_3_handleBranch8(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -242,7 +242,7 @@ public class restuss_imperial_ground_destroy_3 extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int restuss_imperial_ground_destroy_3_handleBranch13(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -328,7 +328,7 @@ public class restuss_imperial_ground_destroy_3 extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int restuss_imperial_ground_destroy_3_handleBranch15(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -370,7 +370,7 @@ public class restuss_imperial_ground_destroy_3 extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int restuss_imperial_ground_destroy_3_handleBranch20(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -412,7 +412,7 @@ public class restuss_imperial_ground_destroy_3 extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int OnInitialize(obj_id self) throws InterruptedException
     {

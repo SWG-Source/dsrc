@@ -30,7 +30,7 @@ public class aurilia_sarguillo extends script.conversation.base.conversation_bas
             npcEndConversationWithMessage(player, new string_id(c_stringFile, "s_6"));
             return SCRIPT_CONTINUE;
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int OnStartNpcConversation(obj_id self, obj_id player) throws InterruptedException
     {

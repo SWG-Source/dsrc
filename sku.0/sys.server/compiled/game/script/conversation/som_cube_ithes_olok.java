@@ -140,7 +140,7 @@ public class som_cube_ithes_olok extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int som_cube_ithes_olok_handleBranch2(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -189,7 +189,7 @@ public class som_cube_ithes_olok extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int som_cube_ithes_olok_handleBranch3(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -248,7 +248,7 @@ public class som_cube_ithes_olok extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int som_cube_ithes_olok_handleBranch4(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -307,7 +307,7 @@ public class som_cube_ithes_olok extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int som_cube_ithes_olok_handleBranch6(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -366,7 +366,7 @@ public class som_cube_ithes_olok extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int som_cube_ithes_olok_handleBranch8(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -426,7 +426,7 @@ public class som_cube_ithes_olok extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int som_cube_ithes_olok_handleBranch9(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -485,7 +485,7 @@ public class som_cube_ithes_olok extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int som_cube_ithes_olok_handleBranch10(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -544,7 +544,7 @@ public class som_cube_ithes_olok extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int som_cube_ithes_olok_handleBranch11(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -592,7 +592,7 @@ public class som_cube_ithes_olok extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int som_cube_ithes_olok_handleBranch12(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -630,7 +630,7 @@ public class som_cube_ithes_olok extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int som_cube_ithes_olok_handleBranch13(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -644,7 +644,7 @@ public class som_cube_ithes_olok extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int som_cube_ithes_olok_handleBranch19(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -738,7 +738,7 @@ public class som_cube_ithes_olok extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int som_cube_ithes_olok_handleBranch20(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -808,7 +808,7 @@ public class som_cube_ithes_olok extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int som_cube_ithes_olok_handleBranch21(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -923,7 +923,7 @@ public class som_cube_ithes_olok extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int som_cube_ithes_olok_handleBranch22(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -993,7 +993,7 @@ public class som_cube_ithes_olok extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int som_cube_ithes_olok_handleBranch23(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1097,7 +1097,7 @@ public class som_cube_ithes_olok extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int som_cube_ithes_olok_handleBranch24(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1156,7 +1156,7 @@ public class som_cube_ithes_olok extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int som_cube_ithes_olok_handleBranch25(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1215,7 +1215,7 @@ public class som_cube_ithes_olok extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int som_cube_ithes_olok_handleBranch26(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1274,7 +1274,7 @@ public class som_cube_ithes_olok extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int som_cube_ithes_olok_handleBranch27(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1333,7 +1333,7 @@ public class som_cube_ithes_olok extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int som_cube_ithes_olok_handleBranch28(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1392,7 +1392,7 @@ public class som_cube_ithes_olok extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int som_cube_ithes_olok_handleBranch29(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1451,7 +1451,7 @@ public class som_cube_ithes_olok extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int som_cube_ithes_olok_handleBranch30(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1510,7 +1510,7 @@ public class som_cube_ithes_olok extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int som_cube_ithes_olok_handleBranch31(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1569,7 +1569,7 @@ public class som_cube_ithes_olok extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int som_cube_ithes_olok_handleBranch32(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1628,7 +1628,7 @@ public class som_cube_ithes_olok extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int som_cube_ithes_olok_handleBranch33(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1653,7 +1653,7 @@ public class som_cube_ithes_olok extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int som_cube_ithes_olok_handleBranch45(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1712,7 +1712,7 @@ public class som_cube_ithes_olok extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int som_cube_ithes_olok_handleBranch48(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1816,7 +1816,7 @@ public class som_cube_ithes_olok extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int som_cube_ithes_olok_handleBranch51(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1886,7 +1886,7 @@ public class som_cube_ithes_olok extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int som_cube_ithes_olok_handleBranch52(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -2001,7 +2001,7 @@ public class som_cube_ithes_olok extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int OnInitialize(obj_id self) throws InterruptedException
     {

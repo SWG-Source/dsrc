@@ -141,7 +141,7 @@ public class junk_dealer_jawa extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int junk_dealer_jawa_handleBranch2(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -155,7 +155,7 @@ public class junk_dealer_jawa extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int OnInitialize(obj_id self) throws InterruptedException
     {

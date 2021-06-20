@@ -81,7 +81,7 @@ public class ep3_myyydril_greeter_villager_2 extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_myyydril_greeter_villager_2_handleBranch2(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -96,7 +96,7 @@ public class ep3_myyydril_greeter_villager_2 extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_myyydril_greeter_villager_2_handleBranch4(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -111,7 +111,7 @@ public class ep3_myyydril_greeter_villager_2 extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_myyydril_greeter_villager_2_handleBranch6(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -150,7 +150,7 @@ public class ep3_myyydril_greeter_villager_2 extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_myyydril_greeter_villager_2_handleBranch7(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -165,7 +165,7 @@ public class ep3_myyydril_greeter_villager_2 extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_myyydril_greeter_villager_2_handleBranch9(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -204,7 +204,7 @@ public class ep3_myyydril_greeter_villager_2 extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_myyydril_greeter_villager_2_handleBranch10(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -219,7 +219,7 @@ public class ep3_myyydril_greeter_villager_2 extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_myyydril_greeter_villager_2_handleBranch12(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -258,7 +258,7 @@ public class ep3_myyydril_greeter_villager_2 extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_myyydril_greeter_villager_2_handleBranch13(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -297,7 +297,7 @@ public class ep3_myyydril_greeter_villager_2 extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_myyydril_greeter_villager_2_handleBranch14(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -312,7 +312,7 @@ public class ep3_myyydril_greeter_villager_2 extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_myyydril_greeter_villager_2_handleBranch16(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -351,7 +351,7 @@ public class ep3_myyydril_greeter_villager_2 extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_myyydril_greeter_villager_2_handleBranch17(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -366,7 +366,7 @@ public class ep3_myyydril_greeter_villager_2 extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_myyydril_greeter_villager_2_handleBranch19(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -381,7 +381,7 @@ public class ep3_myyydril_greeter_villager_2 extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int ep3_myyydril_greeter_villager_2_handleBranch21(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -396,7 +396,7 @@ public class ep3_myyydril_greeter_villager_2 extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int OnInitialize(obj_id self) throws InterruptedException
     {

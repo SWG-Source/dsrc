@@ -188,7 +188,7 @@ public class corellia_39_captain_baize extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int corellia_39_captain_baize_handleBranch3(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -204,7 +204,7 @@ public class corellia_39_captain_baize extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int corellia_39_captain_baize_handleBranch6(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -242,7 +242,7 @@ public class corellia_39_captain_baize extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int corellia_39_captain_baize_handleBranch7(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -257,7 +257,7 @@ public class corellia_39_captain_baize extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int corellia_39_captain_baize_handleBranch14(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -272,7 +272,7 @@ public class corellia_39_captain_baize extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int corellia_39_captain_baize_handleBranch16(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -320,7 +320,7 @@ public class corellia_39_captain_baize extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int corellia_39_captain_baize_handleBranch17(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -336,7 +336,7 @@ public class corellia_39_captain_baize extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int corellia_39_captain_baize_handleBranch22(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -351,7 +351,7 @@ public class corellia_39_captain_baize extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int corellia_39_captain_baize_handleBranch25(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -389,7 +389,7 @@ public class corellia_39_captain_baize extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int corellia_39_captain_baize_handleBranch26(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -404,7 +404,7 @@ public class corellia_39_captain_baize extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int corellia_39_captain_baize_handleBranch29(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -453,7 +453,7 @@ public class corellia_39_captain_baize extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int corellia_39_captain_baize_handleBranch30(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -478,7 +478,7 @@ public class corellia_39_captain_baize extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int OnInitialize(obj_id self) throws InterruptedException
     {

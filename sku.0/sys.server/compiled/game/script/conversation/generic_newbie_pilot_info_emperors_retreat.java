@@ -192,7 +192,7 @@ public class generic_newbie_pilot_info_emperors_retreat extends script.base_scri
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int generic_newbie_pilot_info_emperors_retreat_handleBranch3(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -268,7 +268,7 @@ public class generic_newbie_pilot_info_emperors_retreat extends script.base_scri
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int generic_newbie_pilot_info_emperors_retreat_handleBranch4(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -285,7 +285,7 @@ public class generic_newbie_pilot_info_emperors_retreat extends script.base_scri
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int generic_newbie_pilot_info_emperors_retreat_handleBranch6(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -302,7 +302,7 @@ public class generic_newbie_pilot_info_emperors_retreat extends script.base_scri
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int generic_newbie_pilot_info_emperors_retreat_handleBranch8(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -377,7 +377,7 @@ public class generic_newbie_pilot_info_emperors_retreat extends script.base_scri
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int generic_newbie_pilot_info_emperors_retreat_handleBranch9(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -417,7 +417,7 @@ public class generic_newbie_pilot_info_emperors_retreat extends script.base_scri
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int generic_newbie_pilot_info_emperors_retreat_handleBranch10(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -457,7 +457,7 @@ public class generic_newbie_pilot_info_emperors_retreat extends script.base_scri
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int generic_newbie_pilot_info_emperors_retreat_handleBranch11(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -496,7 +496,7 @@ public class generic_newbie_pilot_info_emperors_retreat extends script.base_scri
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int generic_newbie_pilot_info_emperors_retreat_handleBranch12(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -513,7 +513,7 @@ public class generic_newbie_pilot_info_emperors_retreat extends script.base_scri
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int generic_newbie_pilot_info_emperors_retreat_handleBranch14(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -552,7 +552,7 @@ public class generic_newbie_pilot_info_emperors_retreat extends script.base_scri
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int generic_newbie_pilot_info_emperors_retreat_handleBranch15(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -569,7 +569,7 @@ public class generic_newbie_pilot_info_emperors_retreat extends script.base_scri
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int generic_newbie_pilot_info_emperors_retreat_handleBranch17(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -586,7 +586,7 @@ public class generic_newbie_pilot_info_emperors_retreat extends script.base_scri
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int generic_newbie_pilot_info_emperors_retreat_handleBranch19(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -636,7 +636,7 @@ public class generic_newbie_pilot_info_emperors_retreat extends script.base_scri
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int generic_newbie_pilot_info_emperors_retreat_handleBranch20(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -651,7 +651,7 @@ public class generic_newbie_pilot_info_emperors_retreat extends script.base_scri
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int OnInitialize(obj_id self) throws InterruptedException
     {

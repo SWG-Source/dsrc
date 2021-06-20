@@ -98,7 +98,7 @@ public class camp_survivor extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public static final string_id SID_YOU_WENT_TOO_FAR = new string_id("theme_park/outbreak/outbreak", "delivery_you_went_too_far");
     public int OnInitialize(obj_id self) throws InterruptedException

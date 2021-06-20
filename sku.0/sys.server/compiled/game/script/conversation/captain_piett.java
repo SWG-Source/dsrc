@@ -163,7 +163,7 @@ public class captain_piett extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int captain_piett_handleBranch2(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -209,7 +209,7 @@ public class captain_piett extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int captain_piett_handleBranch3(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -270,7 +270,7 @@ public class captain_piett extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int captain_piett_handleBranch4(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -307,7 +307,7 @@ public class captain_piett extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int captain_piett_handleBranch8(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -347,7 +347,7 @@ public class captain_piett extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int captain_piett_handleBranch9(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -385,7 +385,7 @@ public class captain_piett extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int captain_piett_handleBranch10(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -406,7 +406,7 @@ public class captain_piett extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int captain_piett_handleBranch15(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -540,7 +540,7 @@ public class captain_piett extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int captain_piett_handleBranch16(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -612,7 +612,7 @@ public class captain_piett extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int captain_piett_handleBranch17(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -627,7 +627,7 @@ public class captain_piett extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int captain_piett_handleBranch19(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -684,7 +684,7 @@ public class captain_piett extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int captain_piett_handleBranch20(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -756,7 +756,7 @@ public class captain_piett extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int captain_piett_handleBranch21(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -828,7 +828,7 @@ public class captain_piett extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int captain_piett_handleBranch22(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -843,7 +843,7 @@ public class captain_piett extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int captain_piett_handleBranch24(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -900,7 +900,7 @@ public class captain_piett extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int captain_piett_handleBranch25(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -972,7 +972,7 @@ public class captain_piett extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int captain_piett_handleBranch26(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1044,7 +1044,7 @@ public class captain_piett extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int captain_piett_handleBranch27(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1082,7 +1082,7 @@ public class captain_piett extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int captain_piett_handleBranch28(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1120,7 +1120,7 @@ public class captain_piett extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int captain_piett_handleBranch29(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1159,7 +1159,7 @@ public class captain_piett extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int captain_piett_handleBranch30(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1197,7 +1197,7 @@ public class captain_piett extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int captain_piett_handleBranch31(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1243,7 +1243,7 @@ public class captain_piett extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int captain_piett_handleBranch32(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1292,7 +1292,7 @@ public class captain_piett extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int captain_piett_handleBranch33(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1375,7 +1375,7 @@ public class captain_piett extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int captain_piett_handleBranch34(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1447,7 +1447,7 @@ public class captain_piett extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int captain_piett_handleBranch35(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1485,7 +1485,7 @@ public class captain_piett extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int captain_piett_handleBranch36(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1523,7 +1523,7 @@ public class captain_piett extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int captain_piett_handleBranch37(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1605,7 +1605,7 @@ public class captain_piett extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int captain_piett_handleBranch38(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1767,7 +1767,7 @@ public class captain_piett extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int captain_piett_handleBranch39(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1816,7 +1816,7 @@ public class captain_piett extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int captain_piett_handleBranch41(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1898,7 +1898,7 @@ public class captain_piett extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int captain_piett_handleBranch42(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1936,7 +1936,7 @@ public class captain_piett extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int captain_piett_handleBranch43(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -2018,7 +2018,7 @@ public class captain_piett extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int captain_piett_handleBranch44(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -2056,7 +2056,7 @@ public class captain_piett extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int captain_piett_handleBranch45(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -2138,7 +2138,7 @@ public class captain_piett extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int captain_piett_handleBranch46(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -2220,7 +2220,7 @@ public class captain_piett extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int captain_piett_handleBranch48(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -2258,7 +2258,7 @@ public class captain_piett extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int captain_piett_handleBranch49(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -2307,7 +2307,7 @@ public class captain_piett extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int captain_piett_handleBranch50(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -2322,7 +2322,7 @@ public class captain_piett extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int OnInitialize(obj_id self) throws InterruptedException
     {

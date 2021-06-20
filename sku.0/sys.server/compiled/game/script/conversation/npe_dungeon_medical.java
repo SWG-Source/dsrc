@@ -154,7 +154,7 @@ public class npe_dungeon_medical extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int npe_dungeon_medical_handleBranch2(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -282,7 +282,7 @@ public class npe_dungeon_medical extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int npe_dungeon_medical_handleBranch3(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -296,7 +296,7 @@ public class npe_dungeon_medical extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int npe_dungeon_medical_handleBranch5(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -810,7 +810,7 @@ public class npe_dungeon_medical extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int npe_dungeon_medical_handleBranch6(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1358,7 +1358,7 @@ public class npe_dungeon_medical extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int npe_dungeon_medical_handleBranch7(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1906,7 +1906,7 @@ public class npe_dungeon_medical extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int npe_dungeon_medical_handleBranch8(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -2454,7 +2454,7 @@ public class npe_dungeon_medical extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int npe_dungeon_medical_handleBranch9(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -3002,7 +3002,7 @@ public class npe_dungeon_medical extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int npe_dungeon_medical_handleBranch10(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -3550,7 +3550,7 @@ public class npe_dungeon_medical extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int npe_dungeon_medical_handleBranch12(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -3654,7 +3654,7 @@ public class npe_dungeon_medical extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int npe_dungeon_medical_handleBranch13(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -4202,7 +4202,7 @@ public class npe_dungeon_medical extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int npe_dungeon_medical_handleBranch14(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -4251,7 +4251,7 @@ public class npe_dungeon_medical extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int npe_dungeon_medical_handleBranch15(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -4389,7 +4389,7 @@ public class npe_dungeon_medical extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int npe_dungeon_medical_handleBranch16(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -4427,7 +4427,7 @@ public class npe_dungeon_medical extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int npe_dungeon_medical_handleBranch17(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -4466,7 +4466,7 @@ public class npe_dungeon_medical extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int npe_dungeon_medical_handleBranch18(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -4481,7 +4481,7 @@ public class npe_dungeon_medical extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int npe_dungeon_medical_handleBranch20(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -5029,7 +5029,7 @@ public class npe_dungeon_medical extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int npe_dungeon_medical_handleBranch21(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -5577,7 +5577,7 @@ public class npe_dungeon_medical extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int npe_dungeon_medical_handleBranch22(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -6125,7 +6125,7 @@ public class npe_dungeon_medical extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int npe_dungeon_medical_handleBranch23(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -6673,7 +6673,7 @@ public class npe_dungeon_medical extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int npe_dungeon_medical_handleBranch24(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -7221,7 +7221,7 @@ public class npe_dungeon_medical extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int npe_dungeon_medical_handleBranch25(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -7769,7 +7769,7 @@ public class npe_dungeon_medical extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int npe_dungeon_medical_handleBranch27(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -7807,7 +7807,7 @@ public class npe_dungeon_medical extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int npe_dungeon_medical_handleBranch28(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -7856,7 +7856,7 @@ public class npe_dungeon_medical extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int npe_dungeon_medical_handleBranch29(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -7983,7 +7983,7 @@ public class npe_dungeon_medical extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int npe_dungeon_medical_handleBranch30(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -8497,7 +8497,7 @@ public class npe_dungeon_medical extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int npe_dungeon_medical_handleBranch31(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -9045,7 +9045,7 @@ public class npe_dungeon_medical extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int npe_dungeon_medical_handleBranch32(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -9593,7 +9593,7 @@ public class npe_dungeon_medical extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int npe_dungeon_medical_handleBranch33(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -10141,7 +10141,7 @@ public class npe_dungeon_medical extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int npe_dungeon_medical_handleBranch34(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -10689,7 +10689,7 @@ public class npe_dungeon_medical extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int npe_dungeon_medical_handleBranch35(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -11237,7 +11237,7 @@ public class npe_dungeon_medical extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int npe_dungeon_medical_handleBranch37(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -11275,7 +11275,7 @@ public class npe_dungeon_medical extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int npe_dungeon_medical_handleBranch38(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -11290,7 +11290,7 @@ public class npe_dungeon_medical extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int OnInitialize(obj_id self) throws InterruptedException
     {
