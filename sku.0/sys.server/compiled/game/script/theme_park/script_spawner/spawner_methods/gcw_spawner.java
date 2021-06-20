@@ -23,12 +23,14 @@ public class gcw_spawner extends script.base_script
     }
     public int OnHearSpeech(obj_id self, obj_id speaker, String strText) throws InterruptedException
     {
-        String[] strCommands = split(strText, ' ');
-        if (strCommands[0].equalsIgnoreCase("gcwflip"))
+        if(isGod(speaker))
         {
-            LOG("gcw_region", "OnHearSpeech gcw_spawner");
-            messageTo(self, "updateGCWInfo", null, 1.0f, false);
-            messageTo(self, "beginSetup", null, 2.0f, false);
+            if (strText.equalsIgnoreCase("gcwflip"))
+            {
+                LOG("gcw_region", "OnHearSpeech gcw_spawner");
+                messageTo(self, "updateGCWInfo", null, 1.0f, false);
+                messageTo(self, "beginSetup", null, 2.0f, false);
+            }
         }
         return SCRIPT_CONTINUE;
     }

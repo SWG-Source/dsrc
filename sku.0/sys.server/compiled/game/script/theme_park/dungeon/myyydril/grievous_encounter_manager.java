@@ -34,17 +34,20 @@ public class grievous_encounter_manager extends script.base_script
     }
     public int OnHearSpeech(obj_id self, obj_id speaker, String text) throws InterruptedException
     {
-        if (text.equals("startEncounter"))
+        if(isGod(speaker))
         {
-            dictionary params = new dictionary();
-            params.put("player", speaker);
-            messageTo(self, "handleBeginEncounter", params, 5.0f, false);
-        }
-        if (text.equals("stopEncounter"))
-        {
-            dictionary params = new dictionary();
-            params.put("player", speaker);
-            messageTo(self, "handleEndEncounter", params, 5.0f, false);
+            if (text.equals("startEncounter"))
+            {
+                dictionary params = new dictionary();
+                params.put("player", speaker);
+                messageTo(self, "handleBeginEncounter", params, 5.0f, false);
+            }
+            if (text.equals("stopEncounter"))
+            {
+                dictionary params = new dictionary();
+                params.put("player", speaker);
+                messageTo(self, "handleEndEncounter", params, 5.0f, false);
+            }
         }
         return SCRIPT_CONTINUE;
     }

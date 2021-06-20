@@ -29,10 +29,13 @@ public class ranch_house extends script.base_script
     }
     public int OnHearSpeech(obj_id self, obj_id speaker, String text) throws InterruptedException
     {
-        if (text.equals("reset"))
+        if(isGod(speaker))
         {
-            messageTo(self, "reset", null, 1.0f, false);
-            return SCRIPT_CONTINUE;
+            if (text.equals("reset"))
+            {
+                messageTo(self, "reset", null, 1.0f, false);
+                return SCRIPT_CONTINUE;
+            }
         }
         return SCRIPT_CONTINUE;
     }
