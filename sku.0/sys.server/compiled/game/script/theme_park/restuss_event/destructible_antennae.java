@@ -3,6 +3,7 @@ package script.theme_park.restuss_event;
 import script.*;
 import script.library.factions;
 import script.library.groundquests;
+import script.library.utils;
 
 public class destructible_antennae extends script.base_script
 {
@@ -14,6 +15,7 @@ public class destructible_antennae extends script.base_script
     public static final string_id SID_MNU_WRONG_FCT = new string_id("restuss_event/object", "incorrect_faction");
     public int OnAttach(obj_id self) throws InterruptedException
     {
+        utils.setScriptVar(self, "lair.searched",1);
         setMaxHitpoints(self, 90000);
         setHitpoints(self, 90000);
         setInvulnerable(self, false);
@@ -21,6 +23,7 @@ public class destructible_antennae extends script.base_script
     }
     public int OnInitialize(obj_id self) throws InterruptedException
     {
+        utils.setScriptVar(self, "lair.searched",1);
         setMaxHitpoints(self, 90000);
         setHitpoints(self, 90000);
         setInvulnerable(self, false);
