@@ -278,12 +278,12 @@ public class food extends script.base_script
                 default:
                 snd += "human_";
             }
-            switch (getGender(player))
+            if(getGender(player) == Gender.FEMALE)
             {
-                case GENDER_FEMALE:
                 snd += "female_eat.cef";
-                break;
-                default:
+            }
+            else
+            {
                 snd += "male_eat.cef";
             }
             playClientEffectLoc(player, snd, getLocation(player), getScale(player));
