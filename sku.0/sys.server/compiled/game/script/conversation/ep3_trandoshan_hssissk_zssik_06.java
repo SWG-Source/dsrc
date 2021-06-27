@@ -54,7 +54,7 @@ public class ep3_trandoshan_hssissk_zssik_06 extends script.base_script
     public void ep3_trandoshan_hssissk_zssik_06_action_doSignal02(obj_id player, obj_id npc) throws InterruptedException
     {
         groundquests.sendSignal(player, "rewardHssissk");
-        if (getGender(player) == GENDER_MALE)
+        if (getGender(player) == Gender.MALE)
         {
             if (getSpecies(player) == SPECIES_ITHORIAN)
             {

@@ -520,7 +520,7 @@ public class qa_pilot_roadmap_tatooine_rebel extends script.base_script
                 {
                     space_quest.giveReward(self, "destroy", "master_rebel_2", 50000, "object/tangible/wearables/helmet/helmet_fighter_rebel_ace.iff");
                     factions.addFactionStanding(self, factions.FACTION_REBEL, 400.0f);
-                    if (getGender(self) == GENDER_MALE)
+                    if (getGender(self) == Gender.MALE)
                     {
                         if (getSpecies(self) == SPECIES_ITHORIAN)
                         {

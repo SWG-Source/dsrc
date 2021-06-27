@@ -552,7 +552,7 @@ public class harass extends script.base_script
                     if (hasSkill(thisMember, "class_smuggler_phase1_novice") && thisMember != (target)) {
                         if (ai_lib.checkForSmuggler(thisMember)) {
                             chat.publicChat(self, target, new string_id(STF, "clean_target_" + getFactionName(self)));
-                            if (getGender(self) == GENDER_MALE) {
+                            if (getGender(self) == Gender.MALE) {
                                 playClientEffectLoc(target, "clienteffect/stormtrp_movealng.cef", getLocation(self), 0.0f);
                             }
                             removeTriggerVolume(VOL_DETAIN);
@@ -566,7 +566,7 @@ public class harass extends script.base_script
         if (ai_lib.checkForSmuggler(target))
         {
             chat.publicChat(self, target, new string_id(STF, "clean_target_" + getFactionName(self)));
-            if (getGender(self) == GENDER_MALE)
+            if (getGender(self) == Gender.MALE)
             {
                 playClientEffectLoc(target, "clienteffect/stormtrp_movealng.cef", getLocation(self), 0.0f);
             }
@@ -599,7 +599,7 @@ public class harass extends script.base_script
             else 
             {
                 chat.publicChat(self, target, new string_id(STF, "clean_target_" + getFactionName(self)));
-                if (getGender(self) == GENDER_MALE)
+                if (getGender(self) == Gender.MALE)
                 {
                     playClientEffectLoc(target, "clienteffect/stormtrp_movealng.cef", getLocation(self), 0.0f);
                 }
@@ -776,7 +776,7 @@ public class harass extends script.base_script
                 money.requestPayment(target, self, FINE, "fine", null);
                 CustomerServiceLog("CONTRABAND_SCANNING: ", "(" + target + ")" + getFirstName(target) + " was fined " + FINE + " credits");
                 utils.moneyOutMetric(self, money.ACCT_FINES, FINE);
-                if (getGender(self) == GENDER_MALE)
+                if (getGender(self) == Gender.MALE)
                 {
                     playClientEffectLoc(target, "clienteffect/stormtrp_movealng.cef", getLocation(self), 0.0f);
                 }
@@ -788,7 +788,7 @@ public class harass extends script.base_script
                 chat.publicChat(self, target, new string_id(STF, "failure_to_pay_" + getFactionName(self)));
                 penaltyAction(self, target, rating * 2);
                 CustomerServiceLog("CONTRABAND_SCANNING: ", "(" + target + ")" + getFirstName(target) + " was fined " + rating * 2 + " Imperial Faction Points");
-                if (getGender(self) == GENDER_MALE)
+                if (getGender(self) == Gender.MALE)
                 {
                     playClientEffectLoc(target, "clienteffect/stormtrp_movealng.cef", getLocation(self), 0.0f);
                 }
@@ -899,7 +899,7 @@ public class harass extends script.base_script
             money.requestPayment(target, self, FINE, "fine", null);
             CustomerServiceLog("CONTRABAND_SCANNING: ", "(" + target + ")" + getFirstName(target) + " was fined " + FINE + " credits");
             utils.moneyOutMetric(self, money.ACCT_FINES, FINE);
-            if (getGender(self) == GENDER_MALE)
+            if (getGender(self) == Gender.MALE)
             {
                 playClientEffectLoc(target, "clienteffect/stormtrp_movealng.cef", getLocation(self), 0.0f);
             }
@@ -914,7 +914,7 @@ public class harass extends script.base_script
             chat.publicChat(self, target, new string_id(STF, "punish_" + getFactionName(self)));
             penaltyAction(self, target, rating * 2);
             CustomerServiceLog("CONTRABAND_SCANNING: ", "(" + target + ")" + getFirstName(target) + " was fined " + rating * 2 + " Imperial Faction Points");
-            if (getGender(self) == GENDER_MALE)
+            if (getGender(self) == Gender.MALE)
             {
                 playClientEffectLoc(target, "clienteffect/stormtrp_movealng.cef", getLocation(self), 0.0f);
             }
@@ -929,7 +929,7 @@ public class harass extends script.base_script
             chat.publicChat(self, target, new string_id(STF, "punish_+" + getFactionName(self)));
             penaltyAction(self, target, rating * 2);
             CustomerServiceLog("CONTRABAND_SCANNING: ", "(" + target + ")" + getFirstName(target) + " was fined " + rating * 2 + " Imperial Faction Points");
-            if (getGender(self) == GENDER_MALE)
+            if (getGender(self) == Gender.MALE)
             {
                 playClientEffectLoc(target, "clienteffect/stormtrp_movealng.cef", getLocation(self), 0.0f);
             }
@@ -945,7 +945,7 @@ public class harass extends script.base_script
         obj_id target = params.getObjId("target");
         doAnimationAction(self, anims.PLAYER_WAVE_ON_DIRECTING);
         chat.publicChat(self, target, new string_id(STF, "dont_search"));
-        if (getGender(self) == GENDER_MALE)
+        if (getGender(self) == Gender.MALE)
         {
             playClientEffectLoc(target, "clienteffect/stormtrp_movealng.cef", getLocation(self), 2.0f);
         }
@@ -958,7 +958,7 @@ public class harass extends script.base_script
         obj_id target = params.getObjId("target");
         doAnimationAction(self, anims.PLAYER_STANDING_PLACATE);
         chat.publicChat(self, target, new string_id(STF, "dont_search_dark"));
-        if (getGender(self) == GENDER_MALE)
+        if (getGender(self) == Gender.MALE)
         {
             playClientEffectLoc(target, "clienteffect/stormtrp_movealng.cef", getLocation(self), 2.0f);
         }
@@ -970,7 +970,7 @@ public class harass extends script.base_script
     {
         obj_id target = params.getObjId("target");
         chat.publicChat(self, target, new string_id(STF, "dont_search_novice"));
-        if (getGender(self) == GENDER_MALE)
+        if (getGender(self) == Gender.MALE)
         {
             playClientEffectLoc(target, "clienteffect/stormtrp_movealng.cef", getLocation(self), 2.0f);
         }

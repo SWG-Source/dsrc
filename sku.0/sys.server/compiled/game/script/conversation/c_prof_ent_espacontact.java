@@ -20,29 +20,29 @@ public class c_prof_ent_espacontact extends script.base_script
     {
         int questId1 = questGetQuestId("quest/c_prof_entertainer");
         int espaContact = groundquests.getTaskId(questId1, "espaContact");
-        int gender = getGender(player);
-        return (questIsTaskActive(questId1, espaContact, player) && (gender == GENDER_MALE));
+        Gender gender = getGender(player);
+        return (questIsTaskActive(questId1, espaContact, player) && (gender == Gender.MALE));
     }
     public boolean c_prof_ent_espacontact_condition_onQuestTaskFemale(obj_id player, obj_id npc) throws InterruptedException
     {
         int questId1 = questGetQuestId("quest/c_prof_entertainer");
         int espaContact = groundquests.getTaskId(questId1, "espaContact");
-        int gender = getGender(player);
-        return (questIsTaskActive(questId1, espaContact, player) && (gender == GENDER_FEMALE));
+        Gender gender = getGender(player);
+        return (questIsTaskActive(questId1, espaContact, player) && (gender == Gender.FEMALE));
     }
     public boolean c_prof_ent_espacontact_condition_taskDoneFemale(obj_id player, obj_id npc) throws InterruptedException
     {
         int questId1 = questGetQuestId("quest/c_prof_entertainer");
         int espaContact = groundquests.getTaskId(questId1, "espaContact");
-        int gender = getGender(player);
-        return (questIsTaskComplete(questId1, espaContact, player) && (gender == GENDER_FEMALE));
+        Gender gender = getGender(player);
+        return (questIsTaskComplete(questId1, espaContact, player) && (gender == Gender.FEMALE));
     }
     public boolean c_prof_ent_espacontact_condition_taskDoneMale(obj_id player, obj_id npc) throws InterruptedException
     {
         int questId1 = questGetQuestId("quest/c_prof_entertainer");
         int espaContact = groundquests.getTaskId(questId1, "espaContact");
-        int gender = getGender(player);
-        return (questIsTaskComplete(questId1, espaContact, player) && (gender == GENDER_MALE));
+        Gender gender = getGender(player);
+        return (questIsTaskComplete(questId1, espaContact, player) && (gender == Gender.MALE));
     }
     public void c_prof_ent_espacontact_action_forwardquest(obj_id player, obj_id npc) throws InterruptedException
     {

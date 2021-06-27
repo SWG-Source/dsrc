@@ -575,7 +575,7 @@ public class npe extends script.base_script
     {
         obj_id pInv = utils.getInventoryContainer(player);
         int pSpecies = getSpecies(player);
-        int pGender = getGender(player);
+        Gender pGender = getGender(player);
         HashSet theSet = new HashSet();
         if (utils.isProfession(player, utils.FORCE_SENSITIVE))
         {
@@ -684,7 +684,7 @@ public class npe extends script.base_script
         }
         else if (utils.isProfession(player, utils.ENTERTAINER))
         {
-            if (pGender == GENDER_MALE)
+            if (pGender == Gender.MALE)
             {
                 theSet.add(static_item.createNewItemFunction("item_entertainer_shirt_02_01", pInv));
                 theSet.add(static_item.createNewItemFunction("item_entertainer_pants_02_01", pInv));

@@ -27,11 +27,11 @@ public class imperial_broker extends script.base_script
     }
     public boolean imperial_broker_condition_isMaleImperialFaction(obj_id player, obj_id npc) throws InterruptedException
     {
-        return (imperial_broker_condition_isImperialFaction(player, npc) && (getGender(player) == GENDER_MALE));
+        return (imperial_broker_condition_isImperialFaction(player, npc) && (getGender(player) == Gender.MALE));
     }
     public boolean imperial_broker_condition_isMalePlayer(obj_id player, obj_id npc) throws InterruptedException
     {
-        return (getGender(player) == GENDER_MALE);
+        return (getGender(player) == Gender.MALE);
     }
     public boolean imperial_broker_condition_justSpokeToPlayer(obj_id player, obj_id npc) throws InterruptedException
     {

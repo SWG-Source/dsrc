@@ -189,7 +189,7 @@ public class naboo_privateer_trainer_3 extends script.base_script
     }
     public boolean naboo_privateer_trainer_3_condition_isGenderMale(obj_id player, obj_id npc) throws InterruptedException
     {
-        return (getGender(player) == GENDER_MALE);
+        return (getGender(player) == Gender.MALE);
     }
     public boolean naboo_privateer_trainer_3_condition_has_goBackToKyatt(obj_id player, obj_id npc) throws InterruptedException
     {

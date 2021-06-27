@@ -36,7 +36,7 @@ public class ep3_etyyy_pilot_etyyy_to_bocctyyy extends script.base_script
     }
     public boolean ep3_etyyy_pilot_etyyy_to_bocctyyy_condition_isFemaleCharacter(obj_id player, obj_id npc) throws InterruptedException
     {
-        return getGender(player) == GENDER_FEMALE;
+        return getGender(player) == Gender.FEMALE;
     }
     public boolean ep3_etyyy_pilot_etyyy_to_bocctyyy_condition_tooManyInGroup(obj_id player, obj_id npc) throws InterruptedException
     {

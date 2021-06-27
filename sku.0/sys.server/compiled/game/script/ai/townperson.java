@@ -180,8 +180,8 @@ public class townperson extends script.base_script
             faceTo(self, listener);
             faceTo(listener, self);
             ai_lib.greet(self, listener);
-            ai_lib.doAction(self, "conversation_" + getGender(self));
-            ai_lib.doAction(listener, "conversation_" + getGender(listener));
+            ai_lib.doAction(self, "conversation_" + getGender(self).ordinal());
+            ai_lib.doAction(listener, "conversation_" + getGender(listener).ordinal());
         }
         messageTo(self, "handleEndSocializing", null, CONVO_LENGTH, isObjectPersisted(self));
         return SCRIPT_CONTINUE;

@@ -465,21 +465,15 @@ public class consumable extends script.base_script
                         snd += "wookiee_";
                         break;
                     }
-                    int gender = getGender(player);
-                    switch (gender)
+                    if(getGender(player) == Gender.FEMALE)
                     {
-                        case GENDER_FEMALE:
                         snd += "female_eat.cef";
-                        break;
-                        case GENDER_MALE:
-                        default:
-                        snd += "male_eat.cef";
-                        break;
                     }
-                    if (!snd.equals(""))
+                    else
                     {
-                        playClientEffectLoc(player, snd, getLocation(player), getScale(player));
+                        snd += "male_eat.cef";
                     }
+                    playClientEffectLoc(player, snd, getLocation(player), getScale(player));
                     prose_package pp = prose.getPackage(PROSE_CONSUME_ITEM, player, item);
                     sendSystemMessageProse(target, pp);
                 }

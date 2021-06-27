@@ -17,7 +17,7 @@ public class rodian_master_hunter extends script.base_script
     }
     public boolean rodian_master_hunter_condition_isGenderMale(obj_id player, obj_id npc) throws InterruptedException
     {
-        return (getGender(player) == GENDER_MALE);
+        return (getGender(player) == Gender.MALE);
     }
     public boolean rodian_master_hunter_condition_isSpeciesRodian(obj_id player, obj_id npc) throws InterruptedException
     {

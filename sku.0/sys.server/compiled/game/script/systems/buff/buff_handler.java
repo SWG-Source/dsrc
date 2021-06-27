@@ -3670,7 +3670,7 @@ public class buff_handler extends script.base_script
             return SCRIPT_CONTINUE;
         }
         String costume = dataTableGetString(DATATABLE_COSTUME, row, "APPEARANCE");
-        if (getGender(self) == GENDER_FEMALE)
+        if (getGender(self) == Gender.FEMALE)
         {
             String female_costume = dataTableGetString(DATATABLE_COSTUME, row, "FEMALE_APPEARANCE");
             if (female_costume != null && female_costume.length() > 0 && !female_costume.equals("none"))

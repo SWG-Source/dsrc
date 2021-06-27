@@ -36,7 +36,6 @@ public class senator_crate extends script.base_script
         obj_id pInv = utils.getInventoryContainer(player);
         int pSpecies = getSpecies(player);
         String playerTemplate = getSkillTemplate(player);
-        int pGender = getGender(player);
         HashSet theSet = new HashSet();
         if (pSpecies == SPECIES_WOOKIEE)
         {

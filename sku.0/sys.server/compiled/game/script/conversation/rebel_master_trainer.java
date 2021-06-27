@@ -255,7 +255,7 @@ public class rebel_master_trainer extends script.base_script
             faceTo(npc, player);
             space_quest.giveReward(player, "destroy", "master_rebel_2", 50000, "object/tangible/wearables/helmet/helmet_fighter_rebel_ace.iff");
             factions.addFactionStanding(player, factions.FACTION_REBEL, 400.0f);
-            if (getGender(player) == GENDER_MALE)
+            if (getGender(player) == Gender.MALE)
             {
                 if (getSpecies(player) == SPECIES_ITHORIAN)
                 {
@@ -318,7 +318,7 @@ public class rebel_master_trainer extends script.base_script
             faceTo(npc, player);
             space_quest.giveReward(player, "destroy", "master_rebel_2", 50000, "object/tangible/wearables/helmet/helmet_fighter_privateer_ace.iff");
             factions.addFactionStanding(player, factions.FACTION_REBEL, 400.0f);
-            if (getGender(player) == GENDER_MALE)
+            if (getGender(player) == Gender.MALE)
             {
                 if (getSpecies(player) == SPECIES_ITHORIAN)
                 {

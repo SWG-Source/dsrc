@@ -27,7 +27,7 @@ public class corellia_privateer_trainer_2 extends script.base_script
     }
     public boolean corellia_privateer_trainer_2_condition_isMale(obj_id player, obj_id npc) throws InterruptedException
     {
-        return (getGender(player) == GENDER_MALE);
+        return (getGender(player) == Gender.MALE);
     }
     public boolean corellia_privateer_trainer_2_condition_isOnQuest(obj_id player, obj_id npc) throws InterruptedException
     {

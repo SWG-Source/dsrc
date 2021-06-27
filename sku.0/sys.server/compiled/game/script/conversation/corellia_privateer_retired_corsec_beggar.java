@@ -43,7 +43,7 @@ public class corellia_privateer_retired_corsec_beggar extends script.base_script
     }
     public boolean corellia_privateer_retired_corsec_beggar_condition_isGenderMale(obj_id player, obj_id npc) throws InterruptedException
     {
-        return (getGender(player) == GENDER_MALE);
+        return (getGender(player) == Gender.MALE);
     }
     public boolean corellia_privateer_retired_corsec_beggar_condition_hasCompletedQuestOne(obj_id player, obj_id npc) throws InterruptedException
     {

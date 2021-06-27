@@ -75,7 +75,7 @@ public class ep3_kymayrr extends script.base_script
         {
             badge.grantBadge(player, "bdg_kash_wookiee_rage");
         }
-        if (getGender(player) == GENDER_MALE)
+        if (getGender(player) == Gender.MALE)
         {
             if (getSpecies(player) == SPECIES_ITHORIAN)
             {

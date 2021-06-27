@@ -344,6 +344,7 @@ public class script_class_loader extends ClassLoader
 		defaultLoad.add("script.base_class$attacker_results");
 		defaultLoad.add("script.base_class$defender_results");
 		defaultLoad.add("script.base_class$range_info");
+		defaultLoad.add("script.base_class$Gender");
 		defaultLoad.add("script.collections");
 		defaultLoad.add("script.color");
 		defaultLoad.add("script.combat_engine");

@@ -73,7 +73,7 @@ public class barn_ranchhand extends script.conversation.base.conversation_base
     private String barn_ranchhand_tokenTO_barnOwnerName(obj_id player, obj_id npc) throws InterruptedException
     {
         String name = "Sir";
-        if (getGender(player) == GENDER_FEMALE)
+        if (getGender(player) == Gender.FEMALE)
         {
             name = "Ma'am";
         }

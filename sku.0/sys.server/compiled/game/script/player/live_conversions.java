@@ -208,7 +208,7 @@ public class live_conversions extends script.base_script
         {
             return;
         }
-        if (getGender(player) != GENDER_MALE && getSpecies(player) != SPECIES_ITHORIAN)
+        if (getGender(player) != Gender.MALE && getSpecies(player) != SPECIES_ITHORIAN)
         {
             if (badge.hasBadge(player, "pilot_rebel_navy_naboo"))
             {

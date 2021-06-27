@@ -27,11 +27,11 @@ public class ep3_forest_dahlia extends script.base_script
     }
     public boolean ep3_forest_dahlia_condition_isFemale(obj_id player, obj_id npc) throws InterruptedException
     {
-        return (getGender(player) == GENDER_FEMALE);
+        return (getGender(player) == Gender.FEMALE);
     }
     public boolean ep3_forest_dahlia_condition_isMale(obj_id player, obj_id npc) throws InterruptedException
     {
-        return (getGender(player) == GENDER_MALE);
+        return (getGender(player) == Gender.MALE);
     }
     public boolean ep3_forest_dahlia_condition_isTaskActiveOne(obj_id player, obj_id npc) throws InterruptedException
     {

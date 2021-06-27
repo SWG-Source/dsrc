@@ -30,17 +30,7 @@ public class talus_nashal_droid_head extends script.base_script
     }
     public String talus_nashal_droid_head_tokenTO_tokenGenderTitle(obj_id player, obj_id npc) throws InterruptedException
     {
-        int gender = getGender(player);
-        String title;
-        if (gender == GENDER_MALE)
-        {
-            title = "sir";
-        }
-        else 
-        {
-            title = "madam";
-        }
-        return title;
+        return getGender(player) == Gender.MALE ? "sir" : "madam";
     }
     public int talus_nashal_droid_head_handleBranch2(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {

@@ -1390,12 +1390,11 @@ public class base_player extends script.base_script
         chatEnterRoom("SWG." + getGalaxyName() + ".system");
         chatEnterRoom("SWG." + getGalaxyName() + "." + getCurrentSceneName() + ".system");
         float curScale = getScale(self);
-        int gender = getGender(self);
         int intSpecies = getSpecies(self);
         String species = utils.getPlayerSpeciesName(intSpecies);
         float min = 1.0f;
         float max = 1.0f;
-        if (gender == GENDER_MALE)
+        if (getGender(self) == Gender.MALE)
         {
             min = dataTableGetFloat("datatables/player/racial_scale.iff", species, "MALE_MIN");
             max = dataTableGetFloat("datatables/player/racial_scale.iff", species, "MALE_MAX");
@@ -2063,7 +2062,7 @@ public class base_player extends script.base_script
             }
             String racial_tbl = "datatables/creation/racial_mods.iff";
             int templateRow = 0;
-            if (getGender(self) == GENDER_MALE)
+            if (getGender(self) == Gender.MALE)
             {
                 templateRow = dataTableSearchColumnForString(template, 0, racial_tbl);
             }
@@ -8722,10 +8721,9 @@ public class base_player extends script.base_script
     public void createStartingEquipment(obj_id objPlayer) throws InterruptedException
     {
         obj_id playerInv = utils.getInventoryContainer(objPlayer);
-        int gender = getGender(objPlayer);
         int species = getSpecies(objPlayer);
         int idx = -1;
-        if (gender == GENDER_MALE)
+        if (getGender(objPlayer) == Gender.MALE)
         {
             if (species == SPECIES_HUMAN || species == SPECIES_ZABRAK || species == SPECIES_BOTHAN || species == SPECIES_MON_CALAMARI || species == SPECIES_RODIAN || species == SPECIES_TWILEK)
             {

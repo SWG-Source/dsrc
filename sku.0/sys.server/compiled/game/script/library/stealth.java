@@ -3356,7 +3356,7 @@ public class stealth extends script.base_script
     {
         location myLoc = getLocation(spy);
         int species = getSpecies(spy);
-        int gender = getGender(spy);
+        Gender gender = getGender(spy);
         String template = "object/mobile/hologram/";
         String speciesString = "human";
         String genderString = "male";
@@ -3390,7 +3390,7 @@ public class stealth extends script.base_script
                 speciesString = "sullustan";
                 break;
         }
-        if (gender == GENDER_FEMALE)
+        if (gender == Gender.FEMALE)
         {
             genderString = "female";
         }

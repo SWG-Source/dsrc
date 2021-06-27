@@ -324,7 +324,7 @@ public class npc_lair_ai extends script.theme_park.poi.base
                 case 2:
                 case 3:
                 case 4:
-                if (getGender(self) == GENDER_FEMALE)
+                if (getGender(self) == Gender.FEMALE)
                 {
                     ai_lib.setDefaultCalmMood(self, "themepark_oola");
                 }

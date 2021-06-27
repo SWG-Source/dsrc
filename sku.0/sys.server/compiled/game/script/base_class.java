@@ -480,20 +480,38 @@ public class base_class
     /** attrib_mod decay value indicating that we want to clear any attrib mods for an attribute
      *  @see #addAttribModifier(obj_id, int, int, float, float, float) */
     public static final float MOD_ANTIDOTE = -3.0f;
-    /**
-     * @}
-     * @defgroup genderConstants Gender constants from CreatureObjectTemplate.h
-     * @{
-     */
-    /** id for male gender
-     * @see #getGender(obj_id) */
-    public static final int GENDER_MALE   = 0;
-    /** id for female gender
-     * @see #getGender(obj_id) */
-    public static final int GENDER_FEMALE = 1;
-    /** id for other gender
-     * @see #getGender(obj_id) */
-    public static final int GENDER_OTHER  = 2;
+
+	/**
+	 * ************************************************************
+	 * Methods relating to the Gender of a CreatureObject
+	 * Must match to SRC SharedCreatureObjectTemplate.h
+	 * ************************************************************
+	 */
+	public enum Gender
+	{
+    	MALE,
+		FEMALE,
+		OTHER
+	}
+	/**
+	 * @return Gender of given Object
+	 * Note: For CreatureObjects/PlayerObjects only, otherwise this will throw an error
+	 */
+	public static Gender getGender(obj_id target)
+	{
+		return Gender.values()[_getGender(getLongWithNull(target))];
+	}
+	/**
+	 * @return if target1 and target2 are the same gender
+	 * Note: For CreatureObjects/PlayerObjects only, otherwise this will throw an error
+	 */
+	public static boolean isSameGender(obj_id target1, obj_id target2)
+	{
+		return getGender(target1) == getGender(target2);
+	}
+	private static native int _getGender(long target);
+	private static native boolean _isSameGender(long target1, long target2); //todo to be deprecated
+
     /**
      * @}
      * @defgroup nicheConstants Niche constants from CreatureObjectTemplate.h
@@ -9578,35 +9596,7 @@ public class base_class
      * @return true if the name is reserved, false if it is OK
      */
     public static native boolean isNameReserved(String name, String[] ignoreRules);
-/*@}*/
 
-    /**
-    * @defgroup objectInfoMethods Generic Object information methods
-    */
-    /*@{*/
-
-        // object generic info methods
-        /**
-         * Returns the gender of an object.
-         * @param target        the object
-         * @return the gender, or -1 on fail
-         */
-        private static native int _getGender(long target);
-        public static int getGender(obj_id target)
-        {
-            return _getGender(getLongWithNull(target));
-        }
-        /**
-         * Tests to see if two objects have the same gender.
-         * @param target1       the first object
-         * @param target2       the second object
-         * @return true if the objects are the same gender, false if not
-         */
-        private static native boolean _isSameGender(long target1, long target2);
-        public static boolean isSameGender(obj_id target1, obj_id target2)
-        {
-            return _isSameGender(getLongWithNull(target1), getLongWithNull(target2));
-        }
         /**
          * Tests to see if an object is a given niche.
          * @param target        the object
@@ -19221,8 +19211,13 @@ public class base_class
     private static native boolean _queueCommand(long actor, int commandHash, long target, String params, int priority);
     public static boolean queueCommand(obj_id actor, int commandHash, obj_id target, String params, int priority)
     {
+    	//todo to be deprecated in place of queueCommand that takes string command name param so we can stop hard coding crcs that are hard to read
         return _queueCommand(getLongWithNull(actor), commandHash, getLongWithNull(target), params, priority);
     }
+    public static boolean queueCommand(obj_id actor, String commandName, obj_id target, String params, int priority)
+	{
+		return queueCommand(actor, getStringCrc(commandName), target, params, priority);
+	}
 
     /**
      * Clear a creature's command queue (only the clearable commands).

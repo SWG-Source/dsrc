@@ -95,7 +95,7 @@ public class meatlump_king extends script.base_script
             break;
             case CHAT:
             prose_package pp = prose.getPackage(new string_id("theme_park/corellia/quest", reaction), player, player);
-            String pronounTT = getGender(player) == GENDER_MALE ? "boy" : "girl";
+            String pronounTT = getGender(player) == Gender.MALE ? "boy" : "girl";
             prose.setTT(pp, pronounTT);
             chat.chat(self, player, chat.CHAT_SAY, null, pp);
             break;

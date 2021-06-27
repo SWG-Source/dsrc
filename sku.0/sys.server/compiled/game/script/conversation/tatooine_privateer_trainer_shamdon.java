@@ -34,7 +34,7 @@ public class tatooine_privateer_trainer_shamdon extends script.base_script
     }
     public boolean tatooine_privateer_trainer_shamdon_condition_isMale(obj_id player, obj_id npc) throws InterruptedException
     {
-        return (getGender(player) == GENDER_MALE);
+        return (getGender(player) == Gender.MALE);
     }
     public boolean tatooine_privateer_trainer_shamdon_condition_isOnQuest(obj_id player, obj_id npc) throws InterruptedException
     {

@@ -212,7 +212,7 @@ public class corellia_imperial_trainer_2 extends script.base_script
     }
     public boolean corellia_imperial_trainer_2_condition_hasNegativeFactionMale(obj_id player, obj_id npc) throws InterruptedException
     {
-        return ((factions.getFactionStanding(player, factions.FACTION_IMPERIAL) < 0.0f) && getGender(player) == GENDER_MALE);
+        return ((factions.getFactionStanding(player, factions.FACTION_IMPERIAL) < 0.0f) && getGender(player) == Gender.MALE);
     }
     public boolean corellia_imperial_trainer_2_condition_hasFailedOpening(obj_id player, obj_id npc) throws InterruptedException
     {
