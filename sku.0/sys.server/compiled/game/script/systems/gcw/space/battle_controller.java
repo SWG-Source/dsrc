@@ -35,17 +35,17 @@ public class battle_controller extends script.base_script {
     public boolean lokActive = true;
     public boolean nabooActive = true;
 
-    public int tatooineDelay = 3;
-    public int corelliaDelay = 3;
-    public int dantooineDelay = 3;
-    public int lokDelay = 3;
-    public int nabooDelay = 3;
+    public int tatooineDelay = DEFAULT_TATOOINE_DELAY;
+    public int corelliaDelay = DEFAULT_CORELLIA_DELAY;
+    public int dantooineDelay = DEFAULT_DANTOOINE_DELAY;
+    public int lokDelay = DEFAULT_LOK_DELAY;
+    public int nabooDelay = DEFAULT_NABOO_DELAY;
 
-    public int tatooineStagger = 0;
-    public int corelliaStagger = 2;
-    public int dantooineStagger = 0;
-    public int lokStagger = 2;
-    public int nabooStagger = 4;
+    public int tatooineStagger = DEFAULT_TATOOINE_STAGGER;
+    public int corelliaStagger = DEFAULT_CORELLIA_STAGGER;
+    public int dantooineStagger = DEFAULT_DANTOOINE_STAGGER;
+    public int lokStagger = DEFAULT_LOK_STAGGER;
+    public int nabooStagger = DEFAULT_NABOO_STAGGER;
 
     public int OnAttach(obj_id self) throws InterruptedException
     {

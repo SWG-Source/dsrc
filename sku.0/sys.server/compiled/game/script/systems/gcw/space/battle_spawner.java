@@ -13,10 +13,10 @@ public class battle_spawner extends script.base_class {
     public static final String IMPERIAL_SHIP_TEMPLATE = "imperial_lancer";
     public static final String REBEL_SHIP_TEMPLATE = "nebulon_frigate";
     private static final String HERO_PILOT_DATA = "datatables/npc/space/space_gcw_hero.iff";
-    public static float DEFAULT_BATTLE_TIME_PREPATORY = 900.0f;  // 900 == 15 minutes
-    public static float DEFAULT_BATTLE_TIME_LENGTH = 3600.0f;  // 3600 == 60 minutes
-    public static int DEFAULT_MAX_SUPPORT_CRAFT = 30;
-    public static int DEFAULT_MAX_SUPPORT_SPAWN = 60;
+    public static final float DEFAULT_BATTLE_TIME_PREPARATORY = 900.0f;  // 900 == 15 minutes
+    public static final float DEFAULT_BATTLE_TIME_LENGTH = 3600.0f;  // 3600 == 60 minutes
+    public static final int DEFAULT_MAX_SUPPORT_CRAFT = 30;
+    public static final int DEFAULT_MAX_SUPPORT_SPAWN = 60;
     public static final double HERO_SPAWN_CHANCE = 0.20d;  // 0.20d == 20% chance a hero will spawn
     public static final float DEFAULT_PVP_POINT_MULTIPLIER = 2.0f;
     public static final float DEFAULT_PVE_POINT_MULTIPLIER = 1.0f;
@@ -78,22 +78,22 @@ public class battle_spawner extends script.base_class {
             BATTLE_TYPE_PVP
     };
 
-    public float customPveBattleModifier;
-    public float customPvpBattleModifier;
-    public float customPvePointModifier;
-    public float customPvpPointModifier;
-    public float customWinTokenModifier;
-    public float customLossTokenModifier;
-    public float customWinPointModifier;
-    public float customLossPointModifier;
-    public int pobPlayerCeiling;
-    public int gunshipPlayerCeiling;
-    public int customTokenAward;
-    public int customPointAward;
-    public float battleTimeLength;
-    public float prepatoryTimeLength;
-    public static int maxSupportShips;
-    public static int maxSupportSpawn;
+    public float customPveBattleModifier = DEFAULT_PVE_TOKEN_MULTIPLIER;
+    public float customPvpBattleModifier = DEFAULT_PVP_TOKEN_MULTIPLIER;
+    public float customPvePointModifier = DEFAULT_PVE_POINT_MULTIPLIER;
+    public float customPvpPointModifier = DEFAULT_PVE_POINT_MULTIPLIER;
+    public float customWinTokenModifier = DEFAULT_WIN_TOKEN_MULTIPLIER;
+    public float customLossTokenModifier = DEFAULT_WIN_TOKEN_MULTIPLIER;
+    public float customWinPointModifier = DEFAULT_WIN_POINT_MULTIPLIER;
+    public float customLossPointModifier = DEFAULT_LOSS_POINT_MULTIPLIER;
+    public int pobPlayerCeiling = DEFAULT_POB_PLAYER_CEILING;
+    public int gunshipPlayerCeiling = DEFAULT_GUNSHIP_PLAYER_CEILING;
+    public int customTokenAward = DEFAULT_TOKEN_AWARD;
+    public int customPointAward = DEFAULT_POINT_AWARD;
+    public float battleTimeLength = DEFAULT_BATTLE_TIME_LENGTH;
+    public float preparatoryTimeLength = DEFAULT_BATTLE_TIME_LENGTH;
+    public static int maxSupportShips = DEFAULT_MAX_SUPPORT_CRAFT;
+    public static int maxSupportSpawn = DEFAULT_MAX_SUPPORT_SPAWN;
 
     // This script is the spawner for the Space GCW (GCW 2) battles.
     // It uses Tatooine to track battles (the controller) and places the following object vars
@@ -103,6 +103,10 @@ public class battle_spawner extends script.base_class {
     // space_gcw.participant.<battle_id>.<participant>  -- <battle_id> is the battle identifier, <participant> is the obj id of the player.
 
     public int OnAttach(obj_id self) throws InterruptedException
+    {
+        return SCRIPT_CONTINUE;
+    }
+    public int OnInitialize(obj_id self) throws InterruptedException
     {
         messageTo(self, "registerWithController", null, 30.0f, false);
         return SCRIPT_CONTINUE;
@@ -178,8 +182,8 @@ public class battle_spawner extends script.base_class {
         params.put("defendingShip", defendingShip);
 
         // spawn attacking capital ship
-        spaceLog( "In startSpaceGCWBattle... starting battle in " + prepatoryTimeLength / 60.0f + " minutes.");
-        messageTo(self, "spawnAttack", params, prepatoryTimeLength, false);
+        spaceLog( "In startSpaceGCWBattle... starting battle in " + preparatoryTimeLength / 60.0f + " minutes.");
+        messageTo(self, "spawnAttack", params, preparatoryTimeLength, false);
 
         return SCRIPT_CONTINUE;
     }
@@ -811,8 +815,8 @@ public class battle_spawner extends script.base_class {
         battleTimeLength = utils.stringToFloat(getConfigSetting("GameServer", "spaceGcwLengthOfBattle"));
         if (battleTimeLength <= 0) battleTimeLength = DEFAULT_BATTLE_TIME_LENGTH;
 
-        prepatoryTimeLength = utils.stringToFloat(getConfigSetting("GameServer", "spaceGcwPrepatoryTime"));
-        if (prepatoryTimeLength <= 0) prepatoryTimeLength = DEFAULT_BATTLE_TIME_PREPATORY;
+        preparatoryTimeLength = utils.stringToFloat(getConfigSetting("GameServer", "spaceGcwPreparatoryTime"));
+        if (preparatoryTimeLength <= 0) preparatoryTimeLength = DEFAULT_BATTLE_TIME_PREPARATORY;
 
         maxSupportShips = utils.stringToInt(getConfigSetting("GameServer", "spaceGcwMaxSupportShips"));
         if (maxSupportShips <= 0) maxSupportShips = DEFAULT_MAX_SUPPORT_CRAFT;
