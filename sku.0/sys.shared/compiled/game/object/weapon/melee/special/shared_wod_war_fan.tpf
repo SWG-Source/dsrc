@@ -9,11 +9,11 @@
 @class object_template 5
 
 
-objectName = "static_item_n"  "item_wod_war_fan"
+objectName = "static_item_n"  "weapon_war_fan_wod_04_01"
 
-detailedDescription = "static_item_d"  "item_wod_war_fan"
+detailedDescription = "static_item_d"  "weapon_war_fan_wod_04_01"
 
-lookAtText = "static_item_d"  "item_wod_war_fan"
+lookAtText = "static_item_d"  "weapon_war_fan_wod_04_01"
 
 appearanceFilename = "appearance/wp_mle_fan_metal_lb.apt"
 

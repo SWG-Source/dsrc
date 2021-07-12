@@ -1,0 +1,11 @@
+@base object/tangible/base/shared_tangible_base.iff
+@class tangible_object_template 6
+@class object_template 5
+
+objectName = "static_item_n" "item_wod_pro_herb_reward_jar_ns_n"
+detailedDescription = "static_item_d" "item_wod_pro_herb_reward_jar_ns_d"
+
+appearanceFilename = "appearance/edb_con_tato_jar_spice_s02.apt"
+clientDataFile = "clientdata/item/client_shared_item_gem_red_s01.cdf"
+
+gameObjectType = GOT_misc_item_usable

@@ -3,3 +3,15 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 1177363	0	object/building/endor/endor_tiki_torch.iff	0	863.694	132.235	1096.14	1	0	0	0		$|
 9725613	0	object/tangible/camp/campfire_logs_ash.iff	0	868.106	132.004	1096.13	0.99959	-0.0198944	0.00539792	-0.0198944		$|
 1177362	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	865.6707764	132.016098	1094.974731	1	0	0	0		$|
+4115630	0	object/building/general/rancor_cave_2.iff	0	1778.21	62.4932	2018.32	0.4924232	0	0.87035596	0	theme_park.dungeon.generic_spawner	spawn_table|4|datatables/spawning/theme_park/wod_rancor_cave.iff|$|
+4115631	4115630	object/cell/cell.iff	1	0	0	0	1	1.401298E-45	0	0		$|
+4115632	4115630	object/cell/cell.iff	2	0	0	0	1	2.802597E-45	0	0		$|
+4115633	4115630	object/cell/cell.iff	3	0	0	0	1	4.203895E-45	0	0		$|
+4115634	4115630	object/cell/cell.iff	4	0	0	0	1	5.605194E-45	0	0		$|
+4115635	4115630	object/cell/cell.iff	5	0	0	0	1	7.006492E-45	0	0		$|
+4115636	4115630	object/cell/cell.iff	6	0	0	0	1	8.407791E-45	0	0		$|
+4115637	4115630	object/cell/cell.iff	7	0	0	0	1	9.809089E-45	0	0		$|
+4115638	4115630	object/cell/cell.iff	8	0	0	0	1	1.121039E-44	0	0		$|
+4115639	4115630	object/cell/cell.iff	9	0	0	0	1	1.261169E-44	0	0		$|
+4115640	4115630	object/cell/cell.iff	10	0	0	0	1	1.401298E-44	0	0		$|
+4115641	4115630	object/cell/cell.iff	11	0	0	0	1	1.541428E-44	0	0		$|

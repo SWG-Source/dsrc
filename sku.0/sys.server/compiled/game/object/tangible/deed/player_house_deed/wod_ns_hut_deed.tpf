@@ -1,18 +1,16 @@
-
 @base object/tangible/deed/base/base_deed.iff
 
 @class tangible_object_template 0
 
+
 @class object_template 7
 
-
 sharedTemplate = "object/tangible/deed/player_house_deed/shared_wod_ns_hut_deed.iff"
-
 
 objvars = +[
 	"player_structure.deed.template" = "object/building/player/player_house_wod_ns_hut.iff",
 	"player_structure.deed.buildtime" = 90,
-	"player_structure.deed.scene" = "corellia,talus,lok,naboo,dantooine,tatooine,rori"]
+	"player_structure.deed.scene" = "tatooine,lok,naboo,rori,corellia,talus,dantooine"]
 
 scripts = +[
 	"item.structure_deed.player_structure_deed"]

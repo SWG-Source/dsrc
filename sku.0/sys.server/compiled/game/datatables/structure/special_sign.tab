@@ -16,3 +16,5 @@ special_sign_tcg_series5	object/tangible/tcg/series5/house_sign_tcg_standing.iff
 special_sign_tcg_series5	object/tangible/tcg/series5/house_sign_tcg_hanging.iff	tcg:special_sign_tcg_series5_hanging_sign		1	
 special_sign_chronicle_master_standing_sign	object/tangible/sign/player/pgc_sign_standing.iff	player_structure:pgc_sign_standing	standing	1	
 special_sign_chronicle_master_hanging_sign	object/tangible/sign/player/pgc_sign_hanging.iff	player_structure:pgc_sign_hanging		1	
+special_sign_wod_standing_sign	object/tangible/sign/player/wod_sm_standing_sign_01.iff	player_structure:wod_sign_standing	standing	1	
+special_sign_wod_hanging_sign	object/tangible/sign/player/wod_sm_hanging_sign_01.iff	player_structure:wod_sign_hanging		1	

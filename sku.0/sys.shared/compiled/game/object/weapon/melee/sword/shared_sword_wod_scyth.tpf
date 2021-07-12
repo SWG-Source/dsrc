@@ -11,6 +11,6 @@
 appearanceFilename = "appearance/wp_mle_sword_1h_wookiee_sword_lb.apt"
 portalLayoutFilename = ""
 
-objectName = "weapon_name" "sword_wod_scyth_n"
-detailedDescription = "weapon_detail" "sword_wod_scyth_d"
-lookAtText = "weapon_lookat" "sword_wod_scyth"
+objectName = "static_item_n" "weapon_sword_1h_wod_04_01"
+detailedDescription = "static_item_d" "weapon_sword_1h_wod_04_01"
+lookAtText = "weapon_lookat" "weapon_sword_1h_wod_04_01"

@@ -8566,3 +8566,96 @@ armor_infiltrator_leggings_02	object/tangible/wearables/armor/infiltrator/armor_
 armor_infiltrator_gloves_02	object/tangible/wearables/armor/infiltrator/armor_infiltrator_s02_gloves.iff	armor		90				4							
 armor_infiltrator_boots_02	object/tangible/wearables/armor/infiltrator/armor_infiltrator_s02_boots.iff	armor		90				4							
 armor_infiltrator_belt_02	object/tangible/wearables/armor/infiltrator/armor_infiltrator_s02_belt.iff	armor		90				4							
+weapon_sword_2h_wod_04_01	object/weapon/melee/2h_sword/2h_sword_wod.iff	weapon		85				6	1000				Two Handed Athame		
+weapon_sword_1h_wod_04_01	object/weapon/melee/sword/sword_wod_scyth.iff	weapon		85				6	1000				One Handed Boline		
+weapon_polearm_wod_04_01	object/weapon/melee/polearm/lance_wod_twin_blade.iff	weapon		85				6	1000			1	Twin Bladed Glaive		
+weapon_war_fan_wod_04_01	object/weapon/melee/special/wod_war_fan.iff	weapon		85				6	1000				Witches War Fan		
+item_wod_pro_tree_01_schematic	object/tangible/loot/loot_schematic/generic_limited_use.iff							1		item.loot_schematic.loot_schematic		1	WoD Prologue Small Tree 1	Tree 1 schematic
+item_wod_pro_tree_02_schematic	object/tangible/loot/loot_schematic/generic_limited_use.iff							1		item.loot_schematic.loot_schematic		1	WoD Prologue Small Tree 2	Tree 2 schematic
+item_wod_pro_tree_03_schematic	object/tangible/loot/loot_schematic/generic_limited_use.iff							1		item.loot_schematic.loot_schematic		1	WoD Prologue Small Tree 3	Tree 3 schematic
+item_wod_pro_tree_04_schematic	object/tangible/loot/loot_schematic/generic_limited_use.iff							1		item.loot_schematic.loot_schematic		1	WoD Prologue Small Tree 4	Tree 4 schematic
+item_wod_pro_tree_05_schematic	object/tangible/loot/loot_schematic/generic_limited_use.iff							1		item.loot_schematic.loot_schematic		1	WoD Prologue Medium Tree 1	Tree 5 schematic
+item_wod_pro_tree_06_schematic	object/tangible/loot/loot_schematic/generic_limited_use.iff							1		item.loot_schematic.loot_schematic		1	WoD Prologue Medium Tree 2	Tree 6 schematic
+item_wod_pro_tree_07_schematic	object/tangible/loot/loot_schematic/generic_limited_use.iff							1		item.loot_schematic.loot_schematic		1	WoD Prologue Medium Tree 3	Tree 7 schematic
+item_wod_pro_tree_08_schematic	object/tangible/loot/loot_schematic/generic_limited_use.iff							1		item.loot_schematic.loot_schematic		1	WoD Prologue Medium Tree 4	Tree 8 schematic
+item_wod_pro_tree_09_schematic	object/tangible/loot/loot_schematic/generic_limited_use.iff							1		item.loot_schematic.loot_schematic		1	WoD Prologue Large Tree 1	Tree 9 schematic
+item_wod_pro_tree_10_schematic	object/tangible/loot/loot_schematic/generic_limited_use.iff							1		item.loot_schematic.loot_schematic		1	WoD Prologue Large Tree 2	Tree 10 schematic
+item_wod_pro_tree_11_schematic	object/tangible/loot/loot_schematic/generic_limited_use.iff							1		item.loot_schematic.loot_schematic		1	WoD Prologue Large Tree 3	Tree 11 schematic
+item_wod_pro_tree_12_schematic	object/tangible/loot/loot_schematic/generic_limited_use.iff							1		item.loot_schematic.loot_schematic		1	WoD Prologue Large Tree 4	Tree 12 schematic
+item_wod_pro_herb_reward_jar	object/tangible/furniture/wod_themepark/wod_pro_seed_jar.iff							1				1	WoD Prologue Seed Jar	Seed jar that grants random small/medium tree schematic
+item_wod_pro_herb_reward_jar_sm	object/tangible/furniture/wod_themepark/wod_pro_seed_jar_sm.iff							1				1	WoD Prologue Seed Jar NS	Seed jar that grants random large tree schematic
+item_wod_pro_herb_reward_jar_ns	object/tangible/furniture/wod_themepark/wod_pro_seed_jar_ns.iff							1				1	WoD Prologue Seed Jar SM	Seed jar that grants random large tree schematic
+item_painting_wod_scene_01	object/tangible/furniture/wod_themepark/wod_pro_painting_scene_01.iff							1				1	Dathomir Scenery 1	Reward for quest outcasts
+item_painting_wod_scene_02	object/tangible/furniture/wod_themepark/wod_pro_painting_scene_02.iff							1				1	Dathomir Scenery 2	^
+item_painting_wod_scene_03	object/tangible/furniture/wod_themepark/wod_pro_painting_scene_03.iff							1				1	Dathomir Scenery 3	^
+item_painting_wod_scene_04	object/tangible/furniture/wod_themepark/wod_pro_painting_scene_04.iff							1				1	Dathomir Scenery 4	^
+item_painting_wod_sm_01	object/tangible/furniture/wod_themepark/wod_pro_painting_sm_01.iff							1				1	Dathomir Tapestry SM 1	This is the collection reward
+item_painting_wod_sm_02	object/tangible/furniture/wod_themepark/wod_pro_painting_sm_02.iff							1				1	Dathomir Tapestry SM 2	This is sold by the vendor
+item_painting_wod_ns_01	object/tangible/furniture/wod_themepark/wod_pro_painting_ns_01.iff							1				1	Dathomir Tapestry NS 1	This is the collection reward
+item_painting_wod_ns_02	object/tangible/furniture/wod_themepark/wod_pro_painting_ns_02.iff							1				1	Dathomir Tapestry NS 2	This is sold by the vendor
+item_painting_wod_outcast	object/tangible/furniture/wod_themepark/wod_pro_painting_outcast.iff							1				1	Dathomir Tapestry Outcast	more info?
+item_wod_mutated_rancor_toy	object/tangible/furniture/wod_themepark/wod_pro_toy_rancor.iff							1				1	Rancor Toy	
+item_wod_malkloc_toy	object/tangible/furniture/wod_themepark/wod_pro_toy_malkloc.iff							1				1	Malkloc Toy	
+item_wod_gaping_spider_toy	object/tangible/furniture/wod_themepark/wod_pro_toy_gaping_spider.iff							1				1	Gaping Spider Toy	
+item_wod_reptilian_flyer_toy	object/tangible/furniture/wod_themepark/wod_pro_toy_reptilian_flyer.iff							1				1	Reptilian Flyer Toy	
+item_wod_shear_mite_toy	object/tangible/furniture/wod_themepark/wod_pro_toy_shear_mite.iff							1				1	Shear Mite Toy	
+item_wod_token_1	object/tangible/content/wod_token_1.iff							1		item.special.nomove,object.autostack,item.heroic_token		1	Dathomir Amber	
+item_wod_token_2	object/tangible/content/wod_token_2.iff							1		item.special.nomove,object.autostack,item.heroic_token		1	Spider Silk	
+item_wod_token_3	object/tangible/content/wod_token_3.iff							1		item.special.nomove,object.autostack,item.heroic_token		1	Rancor Teeth	
+item_wod_token_4	object/tangible/content/wod_token_4.iff							1		item.special.nomove,object.autostack,item.heroic_token		1	Whuffa Leather	
+item_wod_token_5	object/tangible/content/wod_token_5.iff							1		item.special.nomove,object.autostack,item.heroic_token		1	Rare Dried Herbs	
+item_wod_token_temp	object/tangible/content/wod_token_1.iff							1		item.special.nomove,object.autostack,theme_park.wod.random_wod_token		1	A Random Valuable	
+item_schematic_wod_sm_mask_01	object/tangible/loot/loot_schematic/generic_limited_use.iff							1		item.loot_schematic.loot_schematic		1	Singing Mountain Clan Mask	
+item_wod_herb_reward_jar	object/tangible/furniture/wod_themepark/wod_pro_seed_jar_ns.iff							1		theme_park.wod.wod_release_seed_jar		1	WoD Seed Jar	Seed jar that grants random ? tree schematic
+item_wod_crafting_holocron_01	object/tangible/theme_park/wod/wod_crafting_template.iff							1				1	Allya's Holocron	Item that unlocks the crafting bracelet
+item_wod_ns_boots	object/tangible/loot/loot_schematic/generic_limited_use.iff							1		item.loot_schematic.loot_schematic				
+item_wod_ns_shroud	object/tangible/loot/loot_schematic/generic_limited_use.iff							1		item.loot_schematic.loot_schematic				
+item_wod_ns_pest_leggings	object/tangible/loot/loot_schematic/generic_limited_use.iff							1		item.loot_schematic.loot_schematic				
+item_wod_ns_scou_leggings	object/tangible/loot/loot_schematic/generic_limited_use.iff							1		item.loot_schematic.loot_schematic				
+item_wod_ns_wrap	object/tangible/loot/loot_schematic/generic_limited_use.iff							1		item.loot_schematic.loot_schematic				
+item_wod_ns_mantle	object/tangible/loot/loot_schematic/generic_limited_use.iff							1		item.loot_schematic.loot_schematic				
+item_wod_ns_havoc	object/tangible/loot/loot_schematic/generic_limited_use.iff							1		item.loot_schematic.loot_schematic				
+item_wod_ns_hood	object/tangible/loot/loot_schematic/generic_limited_use.iff							1		item.loot_schematic.loot_schematic				
+item_wod_ns_tarn_shroud	object/tangible/loot/loot_schematic/generic_limited_use.iff							1		item.loot_schematic.loot_schematic				
+item_wod_ns_salve	object/tangible/content/wod_stim_01.iff						1	1		object.autostack,item.medicine.stimpack				
+item_wod_ns_fruit	object/tangible/content/wod_stim_02.iff						1	1		object.autostack,item.buff_click_item				
+item_wod_ns_root	object/tangible/content/wod_stim_03.iff						1	1		object.autostack,item.buff_click_item				
+item_wod_ns_gourd	object/tangible/content/wod_stim_04.iff						1	1		object.autostack,item.buff_click_item				
+item_wod_ns_schematic_crafting	object/tangible/loot/loot_schematic/generic_limited_use.iff							1		item.loot_schematic.loot_schematic
+item_wod_ns_schematic_maiden	object/tangible/loot/loot_schematic/generic_limited_use.iff							1		item.loot_schematic.loot_schematic				
+item_wod_ns_schematic_mother	object/tangible/loot/loot_schematic/generic_limited_use.iff							1		item.loot_schematic.loot_schematic				
+item_wod_ns_schematic_crone	object/tangible/loot/loot_schematic/generic_limited_use.iff							1		item.loot_schematic.loot_schematic				
+item_wod_ns_schematic_tower	object/tangible/loot/loot_schematic/generic_limited_use.iff							1		item.loot_schematic.loot_schematic				
+item_wod_ns_schematic_gate	object/tangible/loot/loot_schematic/generic_limited_use.iff							1		item.loot_schematic.loot_schematic				
+item_wod_ns_schematic_hut	object/tangible/deed/player_house_deed/wod_ns_hut_deed.iff							1		item.loot_schematic.loot_schematic				
+item_wod_ns_schematic_fence	object/tangible/loot/loot_schematic/generic_limited_use.iff							1		item.loot_schematic.loot_schematic				
+item_wod_ns_sign_hanging	object/tangible/item/skillmod/skillmod_wod_sm_hanging_sign.iff									systems.sign.special_sign	2			
+item_wod_ns_sign_standing	object/tangible/item/skillmod/skillmod_wod_sm_standing_sign.iff									systems.sign.special_sign	2			
+item_wod_ns_herb_reward_jar	object/tangible/furniture/wod_themepark/wod_pro_seed_jar_ns.iff							1		theme_park.wod.wod_release_seed_jar		1	WoD Seed Jar	Seed jar that grants random ? tree schematic
+item_wod_smc_boots	object/tangible/loot/loot_schematic/generic_limited_use.iff							1		item.loot_schematic.loot_schematic				
+item_wod_smc_wrap	object/tangible/loot/loot_schematic/generic_limited_use.iff							1		item.loot_schematic.loot_schematic				
+item_wod_smc_shroud	object/tangible/loot/loot_schematic/generic_limited_use.iff							1		item.loot_schematic.loot_schematic				
+item_wod_smc_mantle	object/tangible/loot/loot_schematic/generic_limited_use.iff							1		item.loot_schematic.loot_schematic				
+item_wod_smc_skirt_1	object/tangible/loot/loot_schematic/generic_limited_use.iff							1		item.loot_schematic.loot_schematic				
+item_wod_smc_skirt_2	object/tangible/loot/loot_schematic/generic_limited_use.iff							1		item.loot_schematic.loot_schematic				
+item_wod_smc_skirt_3	object/tangible/loot/loot_schematic/generic_limited_use.iff							1		item.loot_schematic.loot_schematic				
+item_wod_smc_guard	object/tangible/loot/loot_schematic/generic_limited_use.iff							1		item.loot_schematic.loot_schematic				
+item_wod_smc_hood	object/tangible/loot/loot_schematic/generic_limited_use.iff							1		item.loot_schematic.loot_schematic				
+item_wod_smc_schematic_stones	object/tangible/loot/loot_schematic/generic_limited_use.iff							1		item.loot_schematic.loot_schematic				
+item_wod_smc_schematic_tril	object/tangible/loot/loot_schematic/generic_limited_use.iff							1		item.loot_schematic.loot_schematic				
+item_wod_smc_schematic_hut	object/tangible/deed/player_house_deed/wod_sm_hut_deed.iff							1		item.loot_schematic.loot_schematic				
+item_wod_smc_schematic_wall	object/tangible/loot/loot_schematic/generic_limited_use.iff							1		item.loot_schematic.loot_schematic				
+item_wod_smc_herb_reward_jar	object/tangible/furniture/wod_themepark/wod_pro_seed_jar_sm.iff							1		theme_park.wod.wod_release_seed_jar		1	WoD Seed Jar	Seed jar that grants random ? tree schematic
+wod_potted_plant_schem_01	object/tangible/loot/loot_schematic/generic_limited_use.iff							1		item.loot_schematic.loot_schematic				
+wod_potted_plant_schem_02	object/tangible/loot/loot_schematic/generic_limited_use.iff							1		item.loot_schematic.loot_schematic				
+wod_potted_plant_schem_03	object/tangible/loot/loot_schematic/generic_limited_use.iff							1		item.loot_schematic.loot_schematic				
+wod_potted_plant_schem_04	object/tangible/loot/loot_schematic/generic_limited_use.iff							1		item.loot_schematic.loot_schematic				
+wod_potted_plant_schem_05	object/tangible/loot/loot_schematic/generic_limited_use.iff							1		item.loot_schematic.loot_schematic				
+wod_potted_plant_schem_06	object/tangible/loot/loot_schematic/generic_limited_use.iff							1		item.loot_schematic.loot_schematic				
+wod_potted_plant_schem_07	object/tangible/loot/loot_schematic/generic_limited_use.iff							1		item.loot_schematic.loot_schematic				
+wod_potted_plant_schem_08	object/tangible/loot/loot_schematic/generic_limited_use.iff							1		item.loot_schematic.loot_schematic				
+wod_potted_plant_schem_09	object/tangible/loot/loot_schematic/generic_limited_use.iff							1		item.loot_schematic.loot_schematic				
+weapon_sword_2h_wod_04_01	object/weapon/melee/2h_sword/2h_sword_wod.iff	weapon		85				6	1000				Two Handed Athame		
+weapon_sword_1h_wod_04_01	object/weapon/melee/sword/sword_wod_scyth.iff	weapon		85				6	1000				One Handed Boline		
+weapon_polearm_wod_04_01	object/weapon/melee/polearm/lance_wod_twin_blade.iff	weapon		85				6	1000			1	Twin Bladed Glaive		
+weapon_war_fan_wod_04_01	object/weapon/melee/special/wod_war_fan.iff	weapon		85				6	1000				Witches War Fan		
