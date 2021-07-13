@@ -1,3 +1,5 @@
-server_template_crc	cell_index	px	py	pz	qw	qx	qy	qz	scripts	objvars
-h	i	f	f	f	f	f	f	f	s	p
-object/building/kashyyyk/thm_kash_rodian_bannerpole_s01.iff	0	0	195	0	0	0	0	0		
+objid	container	server_template_crc	cell_index	px	py	pz	qw	qx	qy	qz	scripts	objvars
+i	i	h	i	f	f	f	f	f	f	f	s	p
+-1599525695	0	object/tangible/ground_spawning/random_spawner.iff	0	920.8489	21.759626	1135.813	0.99836236	0	-0.057169475	0	systems.spawning.spawn_tangible	spawn.object|4|object/tangible/theme_park/wod/basket_rubina_sm.iff|$|
+-1599525696	0	object/tangible/ground_spawning/random_spawner.iff	0	917.1272	21.954918	1135.8625	0.9993231	0	-0.036728695	0	systems.spawning.spawn_tangible	spawn.object|4|object/tangible/theme_park/wod/basket_rubina_ns.iff|$|
+-1599525697	0	object/tangible/ground_spawning/random_spawner.iff	0	912.1272	21.954918	1130.8625	0.9993231	0	-0.036728695	0	systems.spawning.spawner_random_proxy	fltMaxSpawnTime|0|10|fltMinSpawnTime|0|5|intSpawnCount|0|120|registerWithController|0|1|strName|4|randomHerbSpawner|strSpawnTable|4|datatables/spawning/theme_park/wod_herbs.iff|strSpawnType|4|random|strSpawns|4|object/tangible/spawning/event/wod_themepark_herb_spawner.iff|$|

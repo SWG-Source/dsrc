@@ -90,3 +90,4 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 9725921	0	object/static/structure/dantooine/dant_fire_pit.iff	0	1962.37	24.9641	1195.55	0.731689	0	-0.681638	0		$|
 1105977	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	1977.970703	24.22852707	1201.140381	1	0	0	0		$|
 1105978	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	1955.561523	25.08749771	1187.370117	1	0	0	0		$|
+5655363	0	object/tangible/poi/base/poi_base_nosnap.iff	0	1990.1904	121.0	1951.777	0.9358382	0	0.35242987	0	theme_park.wod.entertainer_rancor_area_trigger	wod.areaName|4|nsRancorFinished|$|

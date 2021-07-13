@@ -1,13 +1,11 @@
-
 @base object/mobile/mobile.iff
 
-@class creature_object_template 2
+@class creature_object_template 5
 
 
+@class tangible_object_template 4
 
-@class tangible_object_template 0
 
-@class object_template 0
+@class object_template 11
 
 sharedTemplate = "object/mobile/shared_dressed_wod_ghost_clan_mother.iff"
-

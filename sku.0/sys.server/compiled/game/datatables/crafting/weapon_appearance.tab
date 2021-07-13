@@ -2157,3 +2157,28 @@ slot																																		resource	0	vibro_unit_and_power_cell_brack
 slot																																		resource	0	grip_unit	petrochem_inert_polymer	35																												
 slot																																		template	0	vibration_generator	object/tangible/component/weapon/vibro_unit_base.iff	1																												
 slot																																		template	0	weapon_core	object/tangible/component/weapon/core/weapon_core_melee_base.iff	1																											
+weapon	melee	weapon_appearance_wod_2h_sword		systems.crafting.weapon.core.crafting_new_weapon_final	0	weapon	6	weapon_crafting		object/weapon/melee/2h_sword/2h_sword_wod.iff	object/weapon/melee/2h_sword/2h_sword_wod.iff	40	450	800	1100	0	0	0	0	0	0	kinetic	none	-1	-1	melee	melee	1	1	100	100		5							sys.server/compiled/game/object/draft_schematic/weapon/appearance/																							0	62	0	50
+slot																																		resource	0	grip_unit	steel	20																												
+slot																																		resource	0	strike_face	copper	35																												
+slot																																		resource	0	vibro_unit_and_power_cell_brackets	petrochem_inert_polymer	45																												
+slot																																		resource	0	power_cell_socket	metal	15																												
+slot																																		template	0	vibration_generator	object/tangible/component/weapon/vibro_unit_base.iff	1																												
+slot																																		template	0	weapon_core	object/tangible/component/weapon/core/weapon_core_melee_base.iff	1																												
+weapon	melee	weapon_appearance_wod_1h_scyth		systems.crafting.weapon.core.crafting_new_weapon_final	0	weapon	4	weapon_crafting		object/weapon/melee/sword/sword_wod_scyth.iff	object/weapon/melee/sword/sword_wod_scyth.iff	40	450	800	1100	0	0	0	0	0	0	kinetic	none	-1	-1	melee	melee	1	1	100	100		5							sys.server/compiled/game/object/draft_schematic/weapon/appearance/																							0	62	0	50
+slot																																		resource	0	sword_core_jacket	steel	20																												
+slot																																		resource	0	grip	copper	35																												
+slot																																		template	0	weapon_core	object/tangible/component/weapon/core/weapon_core_melee_base.iff	1																												
+slot																																		template	0	vibration_generator	object/tangible/component/weapon/vibro_unit_base.iff	1																												
+weapon	melee	weapon_appearance_wod_polearm		systems.crafting.weapon.core.crafting_new_weapon_final	0	weapon	5	weapon_crafting		object/weapon/melee/polearm/lance_wod_twin_blade.iff	object/weapon/melee/polearm/lance_wod_twin_blade.iff	40	450	800	1100	0	0	0	0	0	0	kinetic	none	-1	-1	melee	melee	1	1	100	100		5							sys.server/compiled/game/object/draft_schematic/weapon/appearance/																							0	62	0	50
+slot																																		resource	0	lance_shaft	steel	20																												
+slot																																		resource	0	vibro_unit_and_power_cell_brackets	petrochem_inert_polymer	45																												
+slot																																		resource	0	grip_unit	copper	35																												
+slot																																		template	0	vibration_generator	object/tangible/component/weapon/vibro_unit_base.iff	1																												
+slot																																		template	0	weapon_core	object/tangible/component/weapon/core/weapon_core_melee_base.iff	1																												
+weapon	melee	weapon_appearance_wod_war_fan		systems.crafting.weapon.core.crafting_new_weapon_final	0	weapon	6	weapon_crafting		object/weapon/melee/special/wod_war_fan.iff	object/weapon/melee/special/wod_war_fan.iff	40	450	800	1100	0	0	0	0	0	0	kinetic	none	-1	-1	melee	melee	1	1	100	100		5							sys.server/compiled/game/object/draft_schematic/weapon/appearance/																							0	62	0	50
+slot																																		resource	0	grip_unit	metal	20																												
+slot																																		resource	0	strike_face	steel_carbonite	8																												
+slot																																		resource	0	vibro_unit_and_power_cell_brackets	iron	12																												
+slot																																		resource	0	power_cell_socket	copper	10																												
+slot																																		template	0	vibration_generator	object/tangible/component/weapon/vibro_unit_base.iff	1																												
+slot																																		template	0	weapon_core	object/tangible/component/weapon/core/weapon_core_melee_base.iff	1																												

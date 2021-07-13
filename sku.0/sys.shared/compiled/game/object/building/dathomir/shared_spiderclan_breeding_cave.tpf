@@ -1,18 +1,15 @@
-// Template Editor -SWG Source
-
 @base object/building/base/shared_base_cave.iff
 
 @class building_object_template 1
 
-
 interiorLayoutFileName = "interiorlayout/spiderclan_breeding_cave.ilf"
-@class tangible_object_template 6
 
-@class object_template 6
+@class tangible_object_template 10
 
-clearFloraRadius = 50
 
-objectName = ""  "spiderclan_breeding_cave_n"
-detailedDescription = ""  "spiderclan_breeding_cave_d"
+@class object_template 10
 
+objectName = "" "spiderclan_breeding_cave_n"
+detailedDescription = "" "spiderclan_breeding_cave_d"
+lookAtText = "building_lookat" "Cave"
 portalLayoutFilename = "appearance/thm_all_cave_s03_damprock.pob"

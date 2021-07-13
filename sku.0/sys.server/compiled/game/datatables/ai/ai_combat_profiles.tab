@@ -364,3 +364,4 @@ nyms_themepark_lapaz_boss		sp_dm_8	16	100		sp_dot_1	4	100		sp_cc_dot	13	100		sp_
 nyms_themepark_barnet_boss		ig88_droideka_shield	6	100		bh_dread_strike_5	12	100		bh_dm_cc_2	12	100		of_del_ae_dm_3	12	100		bh_ae_dm_1	12	100																
 nyms_themepark_foreman_boss		sm_dm_dot_1	8	100		me_dm_dot_1	10	100		me_dm_8	12	100		bm_kick_5	12	100																				
 nyms_themepark_controller_boss		bm_bolster_armor_5	8	100		bm_flank_3	10	100		bm_siphon_3	12	100		bm_slash_1	12	100																				
+wod_mutant_rancor_boss	WoD - Mutant Rancor Boss	bm_dampen_pain_5	2	100	once	bm_stomp_5	4	100		bm_shaken_3	6	100	once	bm_shaken_3	9	100		death_troopers_death_wing_afflict	12	100																																						

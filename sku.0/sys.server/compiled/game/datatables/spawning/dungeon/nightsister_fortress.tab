@@ -1,18 +1,35 @@
 spawns	name	room	loc_x	loc_y	loc_z	script	yaw	mood	respawn_time	spawn_objvar	special_room	special_room_script	room_objvar	room_objvar_name	room_objvar_value
 s	s	s	f	f	f	s	f	s	i	s	s	s	s	s	s
-gethzerion	Gethzerion	r11	-0.99	7.22	-0.62	"npc.static_quest.quest_convo,theme_park.dungeon.generic_death"	107			string:quest_table=gethzerion					
-diax	Diax	r12	-19.61	7.22	-28.45	"npc.static_quest.quest_convo,theme_park.dungeon.generic_death"	167			string:quest_table=diax					
-fath_hray	Fath H'ray	r12	-12.37	7.22	-36.26	"npc.static_quest.quest_convo,theme_park.dungeon.generic_death"	-1			string:quest_table=fath_hray					
-kais	Kais	r10	13.46	7.22	-15.88	"npc.static_quest.quest_convo,theme_park.dungeon.generic_death"	-174			string:quest_table=kais					
-nightsister_elder		r7	0.88	0.76	-54.46	theme_park.dungeon.generic_death	-16	npc_meditate	900						
-nightsister_initiate		r12	-20.99	7.22	-20.79	theme_park.dungeon.generic_death	-78		900						
-nightsister_protector		r5	12.61	0.76	-30.47	theme_park.dungeon.generic_death	-20	npc_meditate	900						
-nightsister_rancor_tamer		r11	-7.46	7.22	-3.47	theme_park.dungeon.generic_death	-118		900						
-nightsister_ranger		r12	-12.85	7.22	-12.47	theme_park.dungeon.generic_death	173		900						
-nightsister_sentinal		r10	7.57	7.22	-34.77	theme_park.dungeon.generic_death	23		900						
-nightsister_spell_weaver		r9	-6.5	7.22	-16.8	theme_park.dungeon.generic_death	148		900						
-nightsister_stalker		r11	10.56	7.22	-8.42	theme_park.dungeon.generic_death	124		900						
-nightsister_protector		world	-3999	119	-65	npc.static_quest.quest_convo	-110			string:quest_table=herald_dathomir_singing_vs_nightsister
-herald_dathomir_leandra	Spell Weaver Leandra	world	-4085	133.7	-210	npc.static_quest.quest_convo	-150			string:quest_table=herald_dathomir_nsister_cave_leandra
-nightsister_rancor_tamer		world	-4156	121	-83	npc.static_quest.quest_convo	160			string:quest_table=herald_dathomir_mutant_rancor_cave					
-baritha	Baritha	world	-3976	131.5	-172	npc.static_quest.quest_convo	-160			string:quest_table=baritha					
+gethzerion	Gethzerion	r11	-0.99	7.22	-0.62	conversation.wod_gethzerion,theme_park.dungeon.generic_death	107								
+nightsister_initiate		world	-4081.126465	132.9358521	-207.0426788	theme_park.dungeon.generic_death	30		7200	int:ai.defaultCalmBehavior=1					
+nightsister_protector		world	-3999	119	-65	npc.static_quest.quest_convo	-110			string:quest_table=herald_dathomir_singing_vs_nightsister					
+wod_outcast_1	An Outcast Witch	world	866.277	132.0246	1095.0505	conversation.wod_outcast1	-174.56596			int:ai.defaultCalmBehavior=1					
+wod_outcast_2	An Outcast Witch	world	-1000	116.17361	862	conversation.wod_outcast2	32.16686			int:ai.defaultCalmBehavior=1					
+wod_outcast_3	An Outcast Witch	world	-2597	131.29752	4952	conversation.wod_outcast3	28.321373			int:ai.defaultCalmBehavior=1					
+wod_outcast_4	An Outcast Witch	world	1482	131.74382	3515	conversation.wod_outcast4	19.035597			int:ai.defaultCalmBehavior=1					
+wod_outcast_5	An Outcast Witch	world	1125	135.00845	-1022	conversation.wod_outcast5	25.226618			int:ai.defaultCalmBehavior=1					
+wod_outcast_6	An Outcast Witch	world	-856	146.71008	2788	conversation.wod_outcast6	-111.063484			int:ai.defaultCalmBehavior=1					
+wod_outcast_7	An Outcast Witch	world	-7121	363.662	2933	conversation.wod_outcast7	-124.85187			int:ai.defaultCalmBehavior=1					
+wod_gatekeeper_saik	Gate Keeper Saik	r3	1.3931111	0.75988567	-0.7967164	theme_park.dungeon.generic_death	-11.953381			int:ai.defaultCalmBehavior=1					
+wod_sage_num	Sage N'um	r5	13.300475	0.75988203	-34.42941	theme_park.dungeon.generic_death	-15.611806			int:ai.defaultCalmBehavior=1					
+wod_satra_herbalist	Herbalist Satra	r6	-11.426882	0.75988185	-12.260396	theme_park.dungeon.generic_death	-157.06076			int:ai.defaultCalmBehavior=1					
+wod_rancor_fath	Fath H'ray	r12	-14.2598915	7.219	-36.101273	theme_park.dungeon.generic_death	-5.1062503			int:ai.defaultCalmBehavior=1					
+wod_tamer_diax	Rancor Tamer Diax	r12	-14.684471	7.218993	-11.780023	theme_park.dungeon.generic_death	179.55952			int:ai.defaultCalmBehavior=1					
+wod_spellweaver_leandra	Spell Weaver Leandra	r10	6.648637	7.2188106	-33.49846	theme_park.dungeon.generic_death	32.69432			int:ai.defaultCalmBehavior=1					
+wod_culinarian_kais	Culinarian Kais	r10	13.2389	7.2188096	-15.182886	theme_park.dungeon.generic_death	-173.10051			int:ai.defaultCalmBehavior=1					
+wod_ghost_witch	Ghost Witch	world	-6896.125	462.14615	-4853.2983	theme_park.dungeon.generic_death	112.27094			int:ai.defaultCalmBehavior=1					
+object/static/structure/dathomir/nsister_tent_house_style_01.iff		world	-3572.0	88.32273	-6017.0		-78.82929
+object/tangible/content/wod_first_sister_altar.iff		world	-4841.0	135.60965	-2938.0	theme_park.wod.first_sister_altar	68.02103			string:quest_to_have=wod_sister1,string:task_to_have=useAltar,string:signal_to_send=usedAltar,int:locX=-4782,int:locY=128,int:locZ=-2951,string:toSpawn=wod_first_sister_aggro
+object/tangible/content/wod_second_sister_fire_1.iff		world	-3545.0	94.51325	-6080.0	theme_park.wod.second_sister_altar	-85.00924			string:quest_to_have=wod_sister2,string:task_to_have=fire1,string:signal_to_send=setFire1,string:string_to_use=poi/family_feud/template,string:string_to_use_1=m_incombat_4,int:locX=-3517,int:locY=92,int:locZ=-6049,string:toSpawn=wod_second_sister_aggro,string:task_to_have_done_1=fire2,string:task_to_have_done_2=fire3,string:task_to_have_done_3=fire4
+object/tangible/content/wod_second_sister_fire_2.iff		world	-3543.0	93.6719	-6047.0	theme_park.wod.second_sister_altar	-85.00924			string:quest_to_have=wod_sister2,string:task_to_have=fire2,string:signal_to_send=setFire2,string:string_to_use=poi/family_feud/template,string:string_to_use_1=m_incombat_4,int:locX=-3517,int:locY=92,int:locZ=-6049,string:toSpawn=wod_second_sister_aggro,string:task_to_have_done_1=fire1,string:task_to_have_done_2=fire3,string:task_to_have_done_3=fire4
+object/tangible/content/wod_second_sister_fire_3.iff		world	-3494.0	88.81469	-6027.0	theme_park.wod.second_sister_altar	-85.00924			string:quest_to_have=wod_sister2,string:task_to_have=fire3,string:signal_to_send=setFire3,string:string_to_use=poi/family_feud/template,string:string_to_use_1=m_incombat_4,int:locX=-3517,int:locY=92,int:locZ=-6049,string:toSpawn=wod_second_sister_aggro,string:task_to_have_done_1=fire1,string:task_to_have_done_2=fire2,string:task_to_have_done_3=fire4
+object/tangible/content/wod_second_sister_fire_4.iff		world	-3496.0	85.29405	-5993.0	theme_park.wod.second_sister_altar	-25.713049			string:quest_to_have=wod_sister2,string:task_to_have=fire4,string:signal_to_send=setFire4,string:string_to_use=poi/family_feud/template,string:string_to_use_1=m_incombat_4,int:locX=-3517,int:locY=92,int:locZ=-6049,string:toSpawn=wod_second_sister_aggro,string:task_to_have_done_1=fire1,string:task_to_have_done_2=fire2,string:task_to_have_done_3=fire3
+object/tangible/content/wod_crafting_alter_1.iff		world	-1150.0	128.0	1281.0		87.58559
+object/tangible/content/wod_crafting_alter_2.iff		world	1455.0	135.64557	1387.0		0.6163736
+object/tangible/content/wod_crafting_alter_3.iff		world	-6703.0	125.277466	3087.0		-0.79125154
+object/tangible/content/wod_crafting_alter_4.iff		world	2774.0	15.230049	6466.0		-0.2633923
+object/tangible/furniture/wod_themepark/wod_trampled_plant.iff		world	-1316.0	17.326876	6163.0	quest.task.ground.retrieve_item_on_item	131.34946
+object/tangible/furniture/wod_themepark/wod_trampled_plant.iff		world	-1282.8782	28.92575	6185.163		63.783596
+object/tangible/furniture/wod_themepark/wod_trampled_plant.iff		world	-1250.7816	104.96915	6196.4775		71.3494
+object/tangible/furniture/wod_themepark/wod_trampled_plant.iff		world	-1211.0125	109.04584	6227.0566		37.566387
+object/tangible/theme_park/wod/themepark_basket_ns.iff		r6	-12.385447	0.75988185	-29.433144	quest.util.on_use_send_signal	-136.69283			string:quest_to_have=wod_themepark_ns_herb_gathering,string:task_to_have=storeNsHerbs,string:signal_to_send=hasStoredNsHerbs

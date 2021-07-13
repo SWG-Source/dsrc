@@ -93,3 +93,7 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 4335588	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	1606.905273	122	1938.255127	1	0	0	0		$|
 4335589	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	1631.299805	125	1924.647461	1	0	0	0		$|
 -1	0	object/tangible/poi/tatooine/explore_dat_crashed_ship.iff	0	1601	122	1933	1	0	0	0		$|
+9815359	0	object/building/general/wod_kwi_temple.iff	0	1124.1499	125.0	226.997	0.38267356	0	0.9238836	0		$|
+9815360	9815359	object/cell/cell.iff	1	0	0	0	1	1.401298E-45	0	0		$|
+9815361	9815359	object/cell/cell.iff	2	0	0	0	1	2.802597E-45	0	0		$|
+9815362	9815361	object/tangible/furniture/wod_themepark/data_cache.iff	2	-0.3936987	-37.297607	8.471548	1	0	0	0	quest.task.ground.wave_event_controller	$|

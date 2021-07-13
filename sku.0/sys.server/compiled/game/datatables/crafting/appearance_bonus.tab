@@ -302,3 +302,7 @@ weapon_core_ranged_basic	object/tangible/component/weapon/core/weapon_core_range
 weapon_core_ranged_standard	object/tangible/component/weapon/core/weapon_core_ranged_standard.iff	profession_wheel
 weapon_power_bit	object/tangible/component/weapon/new_weapon/power_bit.iff	profession_wheel
 weapon_appearance_rifle_deathtroopers	object/weapon/ranged/rifle/rifle_deathtroopers.iff	
+weapon_appearance_wod_2h_sword	object/weapon/melee/2h_sword/2h_sword_wod.iff		1
+weapon_appearance_wod_1h_scyth	object/weapon/melee/sword/sword_wod_scyth.iff		1
+weapon_appearance_wod_polearm	object/weapon/melee/polearm/lance_wod_twin_blade.iff		1
+weapon_appearance_wod_war_fan	object/weapon/melee/special/wod_war_fan.iff		1

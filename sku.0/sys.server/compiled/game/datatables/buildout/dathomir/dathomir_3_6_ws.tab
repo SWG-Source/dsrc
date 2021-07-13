@@ -14,6 +14,5 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 9725713	0	object/static/item/item_bowl_shallow.iff	0	910.703	16.2644	1108.08	1	0	0	0		$|
 9725721	0	object/static/structure/general/campfire_burnt.iff	0	910.675	16.5883	1108.05	1	0	0	0		$|
 9725726	0	object/static/structure/general/streetlamp_small_red_style_01.iff	0	910.752	16.3813	1108.15	1	0	0	0		$|
-1105989	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	918.57373	21.82620049	1136.126221	1	0	0	0		$|
-1105990	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	910.498779	22.92370224	1137.802734	1	0	0	0		$|
 -1	0	object/tangible/poi/tatooine/explore_dathomir_sarlaac.iff	0	2008	19	1103	1	0	0	0		$|
+-9725726	0	object/tangible/ground_spawning/area_spawner.iff	0	919.5	21	1136	1	0	1	0	systems.spawning.spawner_area	fltMaxSpawnTime|2|1.000000|fltMinSpawnTime|2|0.000000|fltRadius|2|0.000000|intDefaultBehavior|0|1|intGoodLocationSpawner|0|0|intSpawnCount|0|1|intSpawnSystem|0|1|registerWithController|0|1|strName|4|wod_rubina|strSpawnerType|4|area|strSpawns|4|wod_rubina|$|

@@ -40,6 +40,7 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 4335660	3695708	object/tangible/poi/spawnegg/interior_spawnegg.iff	7	-5.388915062	-64.11216736	-233.666275	1	0	0	0		intRandomYaw|0|1|$|
 4335661	3695708	object/tangible/poi/spawnegg/interior_spawnegg.iff	7	-22.167099	-65.1757431	-247.6678162	1	0	0	0		intRandomYaw|0|1|$|
 4335662	3695708	object/tangible/poi/spawnegg/interior_spawnegg.iff	7	-15.55769634	-63.22511673	-260.6945496	1	0	0	0		intRandomYaw|0|1|$|
+-1478528366	3695708	object/tangible/ground_spawning/area_spawner.iff	7	-19.8	-63.6	-258.3	0.83867	0	-0.54464	0	systems.spawning.spawner_area	fltMaxSpawnTime|2|120.000000|fltMinSpawnTime|2|60.000000|fltRadius|2|0.000000|intDefaultBehavior|0|1|intGoodLocationSpawner|0|0|intSpawnCount|0|1|intSpawnSystem|0|1|registerWithController|0|1|strName|4|wodquestobjective|strSpawnerType|4|area|strSpawns|4|spider_nightsister_obfuscatrix|$|
 3695709	3695701	object/cell/cell.iff	8	0	0	0	1	0	0	0		$|
 5755450	3695709	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	822.315308	115.1014099	131.012695	1	0	0	0		$|
 7655394	3695709	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	823.428833	106.6372147	74.351074	1	0	0	0		$|
@@ -66,11 +67,11 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 3695712	3695701	object/cell/cell.iff	11	0	0	0	1	0	0	0		$|
 5165592	3695712	object/tangible/container/loot/placable_loot_crate_skeleton_human.iff	11	-93.0786	-100.81	-95.9347	0.162602	-0.0254984	0.985919	-0.0295518		$|
 5165593	3695712	object/tangible/container/loot/placable_loot_crate_skeleton_human.iff	11	-83.847	-99.7924	-94.2346	-0.0507745	0	0	0.99871		$|
-4335676	3695712	object/tangible/poi/spawnegg/interior_spawnegg.iff	11	-94	-101.6	-112.9	1	0	0	0		intRandomYaw|0|1|$|
-4335677	3695712	object/tangible/poi/spawnegg/interior_spawnegg.iff	11	-83.1	-100	-102	1	0	0	0		intRandomYaw|0|1|$|
-4335678	3695712	object/tangible/poi/spawnegg/interior_spawnegg.iff	11	-91.3	-101.6	-112.9	1	0	0	0		intRandomYaw|0|1|$|
-4335679	3695712	object/tangible/poi/spawnegg/interior_spawnegg.iff	11	-91.3	-99.7	-89.8	1	0	0	0		intRandomYaw|0|1|$|
-4335680	3695712	object/tangible/poi/spawnegg/interior_spawnegg.iff	11	-88	-101.6	-112.9	1	0	0	0		intRandomYaw|0|1|$|
+-1478528367	3695712	object/tangible/ground_spawning/area_spawner.iff	11	-82.3	-99.7	-93.0	0.12187	0	-0.99255	0	systems.spawning.spawner_area	fltMaxSpawnTime|2|120.000000|fltMinSpawnTime|2|60.000000|fltRadius|2|0.000000|intDefaultBehavior|0|1|intGoodLocationSpawner|0|0|intSpawnCount|0|1|intSpawnSystem|0|1|registerWithController|0|1|strName|4|wodquestrescueinitiate|strSpawnerType|4|area|strSpawns|4|wod_rescue_initiate|$|
+-1478528368	3695712	object/tangible/ground_spawning/area_spawner.iff	11	-79.7	-99.4	-93.6	0.35837	0	-0.93358	0	systems.spawning.spawner_area	fltMaxSpawnTime|2|120.000000|fltMinSpawnTime|2|60.000000|fltRadius|2|0.000000|intDefaultBehavior|0|1|intGoodLocationSpawner|0|0|intSpawnCount|0|1|intSpawnSystem|0|1|registerWithController|0|1|strName|4|spider_nightsister_protector|strSpawnerType|4|area|strSpawns|4|spider_nightsister_protector|$|
+-1478528369	3695712	object/tangible/ground_spawning/area_spawner.iff	11	-84.4	-99.9	-93.0	0.32557	0	0.94552	0	systems.spawning.spawner_area	fltMaxSpawnTime|2|120.000000|fltMinSpawnTime|2|60.000000|fltRadius|2|0.000000|intDefaultBehavior|0|1|intGoodLocationSpawner|0|0|intSpawnCount|0|1|intSpawnSystem|0|1|registerWithController|0|1|strName|4|spider_nightsister_protector|strSpawnerType|4|area|strSpawns|4|spider_nightsister_protector|$|
+-1478528370	3695712	object/tangible/ground_spawning/area_spawner.iff	11	-81.5	-99.5	-89.8	0.0349	0	-0.99939	0	systems.spawning.spawner_area	fltMaxSpawnTime|2|120.000000|fltMinSpawnTime|2|60.000000|fltRadius|2|0.000000|intDefaultBehavior|0|1|intGoodLocationSpawner|0|0|intSpawnCount|0|1|intSpawnSystem|0|1|registerWithController|0|1|strName|4|spider_nightsister_sentinel|strSpawnerType|4|area|strSpawns|4|spider_nightsister_sentinel|$|
+-1478528371	3695712	object/tangible/ground_spawning/area_spawner.iff	11	-83.2	-99.8	-95.9	0.12187	0	-0.99255	0	systems.spawning.spawner_area	fltMaxSpawnTime|2|120.000000|fltMinSpawnTime|2|60.000000|fltRadius|2|0.000000|intDefaultBehavior|0|1|intGoodLocationSpawner|0|0|intSpawnCount|0|1|intSpawnSystem|0|1|registerWithController|0|1|strName|4|spider_nightsister_sentinel|strSpawnerType|4|area|strSpawns|4|spider_nightsister_sentinel|$|
 5755450	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	822.315308	115.1014099	131.012695	1	0	0	0		$|
 7655394	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	823.428833	106.6372147	74.351074	1	0	0	0		$|
 7655395	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	865.092773	122.098175	136.138672	1	0	0	0		$|
