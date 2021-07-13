@@ -102,7 +102,7 @@ public class wod_omogg_rep extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int wod_omogg_rep_handleBranch2(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -151,7 +151,7 @@ public class wod_omogg_rep extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int wod_omogg_rep_handleBranch3(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -176,7 +176,7 @@ public class wod_omogg_rep extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int wod_omogg_rep_handleBranch6(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -215,7 +215,7 @@ public class wod_omogg_rep extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int wod_omogg_rep_handleBranch7(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -264,7 +264,7 @@ public class wod_omogg_rep extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int wod_omogg_rep_handleBranch8(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -289,7 +289,7 @@ public class wod_omogg_rep extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int wod_omogg_rep_handleBranch11(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -304,7 +304,7 @@ public class wod_omogg_rep extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int wod_omogg_rep_handleBranch15(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -329,7 +329,7 @@ public class wod_omogg_rep extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int OnInitialize(obj_id self) throws InterruptedException
     {

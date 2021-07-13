@@ -103,7 +103,7 @@ public class wod_outcast6 extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int wod_outcast6_handleBranch3(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -152,7 +152,7 @@ public class wod_outcast6 extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int wod_outcast6_handleBranch4(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -226,7 +226,7 @@ public class wod_outcast6 extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int wod_outcast6_handleBranch5(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -275,7 +275,7 @@ public class wod_outcast6 extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int wod_outcast6_handleBranch6(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -349,7 +349,7 @@ public class wod_outcast6 extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int wod_outcast6_handleBranch7(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -398,7 +398,7 @@ public class wod_outcast6 extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int wod_outcast6_handleBranch8(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -472,7 +472,7 @@ public class wod_outcast6 extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int wod_outcast6_handleBranch9(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -546,7 +546,7 @@ public class wod_outcast6 extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int wod_outcast6_handleBranch10(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -595,7 +595,7 @@ public class wod_outcast6 extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int wod_outcast6_handleBranch11(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -669,7 +669,7 @@ public class wod_outcast6 extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int wod_outcast6_handleBranch12(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -718,7 +718,7 @@ public class wod_outcast6 extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int wod_outcast6_handleBranch13(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -792,7 +792,7 @@ public class wod_outcast6 extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int wod_outcast6_handleBranch14(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -866,7 +866,7 @@ public class wod_outcast6 extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int wod_outcast6_handleBranch15(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -935,7 +935,7 @@ public class wod_outcast6 extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int wod_outcast6_handleBranch16(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1004,7 +1004,7 @@ public class wod_outcast6 extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int wod_outcast6_handleBranch17(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1073,7 +1073,7 @@ public class wod_outcast6 extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int wod_outcast6_handleBranch18(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1088,7 +1088,7 @@ public class wod_outcast6 extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int wod_outcast6_handleBranch20(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -1103,7 +1103,7 @@ public class wod_outcast6 extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public static int lean = 0;
     public int OnInitialize(obj_id self) throws InterruptedException

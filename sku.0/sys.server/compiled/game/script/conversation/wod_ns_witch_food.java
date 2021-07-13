@@ -119,7 +119,7 @@ public class wod_ns_witch_food extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int wod_ns_witch_food_handleBranch5(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -134,7 +134,7 @@ public class wod_ns_witch_food extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int wod_ns_witch_food_handleBranch7(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -188,7 +188,7 @@ public class wod_ns_witch_food extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        return SCRIPT_DEFAULT;
+        return SCRIPT_CONTINUE;
     }
     public int OnInitialize(obj_id self) throws InterruptedException
     {
