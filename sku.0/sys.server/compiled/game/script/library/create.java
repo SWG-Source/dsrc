@@ -746,6 +746,13 @@ public class create extends script.base_script
             setObjVar(creature, "loot.lootTable", strLootTable);
             setObjVar(creature, "loot.numItems", intItems);
         }
+        final float dnaLootPercentageChance = creatureDict.getFloat("dnaChancePct");
+        final String dnaLootItemName = creatureDict.getString("dnaItemName");
+        if(dnaLootPercentageChance > 0 && dnaLootItemName != null && static_item.isStaticItem(dnaLootItemName))
+        {
+            setObjVar(creature, loot.OBJVAR_DNA_LOOT_CHANCE, dnaLootPercentageChance);
+            setObjVar(creature, loot.OBJVAR_DNA_LOOT_ITEM_NAME, dnaLootItemName);
+        }
         if (!initializeArmor(creature, creatureDict, dataTableGetInt(STAT_BALANCE_TABLE, armorLevel - 1, diffClassName + "Armor")))
         {
             LOG("create", "Unable to initialize armor on " + creatureName + "(" + creature + ")");

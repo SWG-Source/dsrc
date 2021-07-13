@@ -120,6 +120,8 @@ public class loot extends script.base_script
     public static final String OBJVAR_RLS_LAST_LOOT_TIME = "loot.rls.lastChestAwardTime";
     public static final String OBJVAR_RLS_LAST_LOOT_LOCATION = "loot.rls.lastLootedLocation";
     public static final String OBJVAR_RLS_LAST_LOOT_CHEST = "loot.rls.lastLootedChest";
+    public static final String OBJVAR_DNA_LOOT_CHANCE = "loot.dnaLootChance";
+    public static final String OBJVAR_DNA_LOOT_ITEM_NAME = "loot.dnaLootItemName";
 
     public static boolean addLoot(obj_id target) throws InterruptedException
     {
@@ -1127,6 +1129,7 @@ public class loot extends script.base_script
         String strTable = getStringObjVar(objCreature, "loot.lootTable");
         int intLevel = getIntObjVar(objCreature, "intCombatDifficulty");
         int intItems = getIntObjVar(objCreature, "loot.numItems");
+        rollForSpecialDnaLoot(objCreature, objContainer);
         return makeLootInContainer(objContainer, strTable, intItems, intLevel);
     }
     public static boolean setupLootItems(obj_id objCreature, int intItems) throws InterruptedException
@@ -1139,6 +1142,7 @@ public class loot extends script.base_script
         }
         String strTable = getStringObjVar(objCreature, "loot.lootTable");
         int intLevel = getIntObjVar(objCreature, "intCombatDifficulty");
+        rollForSpecialDnaLoot(objCreature, objContainer);
         return makeLootInContainer(objContainer, strTable, intItems, intLevel);
     }
     public static boolean makeLootInContainer(obj_id objContainer, String strTable, int intItems, int intLevel) throws InterruptedException
@@ -1161,7 +1165,7 @@ public class loot extends script.base_script
         }
         if ((strLootTypes == null) || (strLootTypes.length == 0))
         {
-            return boolMadeLoot;
+            return false;
         }
         for (int intI = 0; intI < intItems; intI++)
         {
@@ -2602,6 +2606,31 @@ public class loot extends script.base_script
         obj_id chest = static_item.createNewItemFunction(CHEST_BASE + lootType, utils.getInventoryContainer(creature));
         LOG("rare_loot", "Just created item #" + chest + " in the inventory of creature " + creature);
         return chest;
+    }
+
+    /**
+     * Rolls for granting special DNA loot during loot grant process.
+     *
+     * This replaces a series of scripts that were at item.dna.* for a more
+     * generic process. Specify the DNA roll chance and DNA roll item name
+     * in the creatures.iff data table, which are added as ObjVars if they
+     * are valid during the create.createCreature() process.
+     *
+     * @param creature the creature who will hold the loot items
+     * @param container the container of that creature
+     */
+    public static void rollForSpecialDnaLoot(obj_id creature, obj_id container) throws InterruptedException
+    {
+        if(isIdValid(creature) && isIdValid(container))
+        {
+            if(hasObjVar(creature, OBJVAR_DNA_LOOT_CHANCE) && hasObjVar(creature, OBJVAR_DNA_LOOT_ITEM_NAME))
+            {
+                if(rand(1, 100) > getFloatObjVar(creature, OBJVAR_DNA_LOOT_CHANCE))
+                {
+                    static_item.createNewItemFunction(getStringObjVar(creature, OBJVAR_DNA_LOOT_ITEM_NAME), container);
+                }
+            }
+        }
     }
 
 }
