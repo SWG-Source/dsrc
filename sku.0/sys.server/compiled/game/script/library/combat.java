@@ -3909,4 +3909,23 @@ public class combat extends script.base_script
         }
         return false;
     }
+    public static attacker_results makeDummyAttackerResults(obj_id objAttacker, obj_id weapon) throws InterruptedException
+    {
+        attacker_results cbtAttackerResults = new attacker_results();
+        cbtAttackerResults.id = objAttacker;
+        cbtAttackerResults.weapon = weapon;
+        cbtAttackerResults.endPosture = getPosture(objAttacker);
+        return cbtAttackerResults;
+    }
+    public static defender_results[] makeDummyDefenderResults(obj_id objDefender) throws InterruptedException
+    {
+        defender_results[] cbtDefenderResults = new defender_results[1];
+        cbtDefenderResults[0] = new defender_results();
+        cbtDefenderResults[0].id = objDefender;
+        cbtDefenderResults[0].endPosture = 0;
+        cbtDefenderResults[0].result = COMBAT_RESULT_HIT;
+        cbtDefenderResults[0].damageAmount = 0;
+        cbtDefenderResults[0].hitLocation = 0;
+        return cbtDefenderResults;
+    }
 }

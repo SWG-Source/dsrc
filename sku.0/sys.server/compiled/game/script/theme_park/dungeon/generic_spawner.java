@@ -421,4 +421,29 @@ public class generic_spawner extends script.base_script
         }
         return level;
     }
+
+    public int OnHearSpeech(obj_id self, obj_id objSpeaker, String strText) throws InterruptedException
+    {
+        if(isGod(objSpeaker))
+        {
+            if(strText.equalsIgnoreCase("clean"))
+            {
+                messageTo(self, "dungeonCleanup", null, 0f, false);
+                sendSystemMessageTestingOnly(objSpeaker, "God Mode: Starting cleanup of dungeon "+self+"...");
+            }
+            if(strText.equalsIgnoreCase("spawn"))
+            {
+                if (!hasObjVar(self, "space_dungeon.name") && !hasScript(self, "systems.instance.instance_manager"))
+                {
+                    messageTo(self, "beginSpawn", null, 0f, false);
+                    sendSystemMessageTestingOnly(objSpeaker, "God Mode: Starting spawn of dungeon "+self+"...");
+                }
+                else
+                {
+                    sendSystemMessageTestingOnly(objSpeaker, "Error: You can't use that here.");
+                }
+            }
+        }
+        return SCRIPT_CONTINUE;
+    }
 }
