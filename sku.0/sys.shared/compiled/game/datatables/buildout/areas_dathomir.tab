@@ -94,7 +94,6 @@ dathomir_4_3_ws	-2048	-4096	0	-2048
 dathomir_4_4_ws	-2048	-2048	0	0																					
 dathomir_4_5_ws	-2048	0	0	2048																					
 dathomir_4_6_ws	-2048	2048	0	4096																					
-dathomir_4_7_ws	-2048	4096	0	6144																					
 dathomir_4_8_ws	-2048	6144	0	8192																					
 dathomir_5_1_ws	0	-8192	2048	-6144																					
 dathomir_5_2_ws	0	-6144	2048	-4096																					
