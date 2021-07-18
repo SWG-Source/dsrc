@@ -106,7 +106,7 @@ public class corrupted_rancor_mutation_npc extends script.base_script
         final obj_id[] groupMembers = utils.getObjIdArrayScriptVar(self, "groupMembers");
         if(!Arrays.asList(groupMembers).contains(attacker))
         {
-            sendSystemMessageTestingOnly(self, "You are not a group participant in this attack so your combat damage does not harm the creature.");
+            sendSystemMessageTestingOnly(attacker, "You are not a group participant in this attack so your combat damage does not harm the creature.");
             addToHealth(self, IntStream.of(damage).sum());
         }
         return SCRIPT_CONTINUE;
