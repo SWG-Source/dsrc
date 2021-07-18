@@ -36,7 +36,7 @@ public class wod_kyrisa extends script.base_script
     }
     public boolean wod_kyrisa_condition_playerHasNoGroup(obj_id player, obj_id npc) throws InterruptedException
     {
-        if(isGod(player) || isIdValid(player))
+        if(isGod(player))
         {
             sendSystemMessageTestingOnly(player, "God Mode: You are bypassing the group requirement because you are in God Mode.");
             return false;
@@ -93,7 +93,7 @@ public class wod_kyrisa extends script.base_script
     public void wod_kyrisa_action_sendReturnedSignalKyrisaChallenged(obj_id player, obj_id npc) throws InterruptedException
     {
         dictionary d = new dictionary();
-        if(isIdValid(player) || (isGod(player) && !isIdValid(getGroupObject(player))))
+        if(isGod(player) && !isIdValid(getGroupObject(player)))
         {
             d.put("groupId", obj_id.NULL_ID);
             d.put("groupMembers", new obj_id[]{player});
