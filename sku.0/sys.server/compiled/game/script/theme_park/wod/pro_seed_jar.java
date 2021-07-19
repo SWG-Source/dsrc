@@ -20,14 +20,14 @@ public class pro_seed_jar extends script.base_script
     public static final string_id SID_SYS_NOT_IN_INV = new string_id("encoded_disk/message_fragment", "sys_not_in_inv");
     public static final String[] TREES = 
     {
-        "item_wod_pro_tree_01_schematic",
-        "item_wod_pro_tree_02_schematic",
-        "item_wod_pro_tree_03_schematic",
-        "item_wod_pro_tree_04_schematic",
-        "item_wod_pro_tree_05_schematic",
-        "item_wod_pro_tree_06_schematic",
-        "item_wod_pro_tree_07_schematic",
-        "item_wod_pro_tree_08_schematic"
+        "item_schematic_wod_pro_tree_01",
+        "item_schematic_wod_pro_tree_02",
+        "item_schematic_wod_pro_tree_03",
+        "item_schematic_wod_pro_tree_04",
+        "item_schematic_wod_pro_tree_05",
+        "item_schematic_wod_pro_tree_06",
+        "item_schematic_wod_pro_tree_07",
+        "item_schematic_wod_pro_tree_08"
     };
     public int OnObjectMenuRequest(obj_id self, obj_id player, menu_info mi) throws InterruptedException
     {

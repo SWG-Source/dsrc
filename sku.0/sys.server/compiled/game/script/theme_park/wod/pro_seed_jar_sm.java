@@ -10,30 +10,24 @@ import script.base_script;
 
 import script.library.static_item;
 
-public class wod_release_seed_jar extends script.base_script
+public class pro_seed_jar_sm extends script.base_script
 {
-    public wod_release_seed_jar()
+    public pro_seed_jar_sm()
     {
     }
     public static final string_id SID_MNU_USE = new string_id("spam", "open");
     public static final string_id SID_SYS_NOT_IN_INV = new string_id("spam", "cannot_use_not_in_inv");
     public static final String[] TREES = 
     {
-        "item_schematic_wod_potted_plant_01",
-        "item_schematic_wod_potted_plant_02",
-        "item_schematic_wod_potted_plant_03",
-        "item_schematic_wod_potted_plant_04",
-        "item_schematic_wod_potted_plant_05",
-        "item_schematic_wod_potted_plant_06",
-        "item_schematic_wod_potted_plant_07",
-        "item_schematic_wod_potted_plant_08",
-        "item_schematic_wod_potted_plant_09"
+        "item_schematic_wod_pro_sm_tree_01",
+        "item_schematic_wod_pro_sm_tree_02",
+        "item_schematic_wod_pro_sm_tree_03",
+        "item_schematic_wod_pro_sm_tree_04",
+        "item_schematic_wod_pro_sm_tree_05",
+        "item_schematic_wod_pro_sm_tree_06",
+        "item_schematic_wod_pro_sm_tree_07",
+        "item_schematic_wod_pro_sm_tree_08"
     };
-    public int OnAttach(obj_id self) throws InterruptedException
-    {
-        detachScript(self, "theme_park.wod.pro_seed_jar");
-        return SCRIPT_CONTINUE;
-    }
     public int OnObjectMenuRequest(obj_id self, obj_id player, menu_info mi) throws InterruptedException
     {
         if (!isValidId(self) || !exists(self))
@@ -67,7 +61,7 @@ public class wod_release_seed_jar extends script.base_script
             sendSystemMessage(player, SID_SYS_NOT_IN_INV);
             return SCRIPT_CONTINUE;
         }
-        int treeSelect = rand(0, 8);
+        int treeSelect = rand(0, 7);
         obj_id createdSchematic = static_item.createNewItemFunction(TREES[treeSelect], player);
         if (isIdValid(createdSchematic))
         {
