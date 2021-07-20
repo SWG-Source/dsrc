@@ -10,28 +10,28 @@ import script.base_script;
 
 import script.library.static_item;
 
-public class wod_release_seed_jar extends script.base_script
+public class wod_release_seed_jar_sm extends script.base_script
 {
-    public wod_release_seed_jar()
+    public wod_release_seed_jar_sm()
     {
     }
     public static final string_id SID_MNU_USE = new string_id("spam", "open");
     public static final string_id SID_SYS_NOT_IN_INV = new string_id("spam", "cannot_use_not_in_inv");
     public static final String[] TREES = 
     {
-        "item_schematic_wod_potted_plant_01",
-        "item_schematic_wod_potted_plant_02",
-        "item_schematic_wod_potted_plant_03",
-        "item_schematic_wod_potted_plant_04",
-        "item_schematic_wod_potted_plant_05",
-        "item_schematic_wod_potted_plant_06",
-        "item_schematic_wod_potted_plant_07",
-        "item_schematic_wod_potted_plant_08",
-        "item_schematic_wod_potted_plant_09"
+        "item_schematic_wod_sm_potted_plant_01",
+        "item_schematic_wod_sm_potted_plant_02",
+        "item_schematic_wod_sm_potted_plant_03",
+        "item_schematic_wod_sm_potted_plant_04",
+        "item_schematic_wod_sm_potted_plant_05",
+        "item_schematic_wod_sm_potted_plant_06",
+        "item_schematic_wod_sm_potted_plant_07",
+        "item_schematic_wod_sm_potted_plant_08",
+        "item_schematic_wod_sm_potted_plant_09"
     };
     public int OnAttach(obj_id self) throws InterruptedException
     {
-        detachScript(self, "theme_park.wod.pro_seed_jar");
+        detachScript(self, "theme_park.wod.pro_seed_jar_sm");
         return SCRIPT_CONTINUE;
     }
     public int OnObjectMenuRequest(obj_id self, obj_id player, menu_info mi) throws InterruptedException

@@ -502,8 +502,8 @@ col_rare_loot_five					rare_loot_chest_quality_1
 col_exceptional_loot_five					rare_loot_chest_quality_2												
 col_legendary_loot_five					rare_loot_chest_quality_3												
 col_esb_anniversary_30					item_esb_holocron_of_destiny												
-wod_prologue_herb_col					item_wod_pro_herb_reward_jar_sm												A seed jar SMC
-wod_prologue_ns_herb_col					item_wod_pro_herb_reward_jar_ns												A seed jar NS
+wod_prologue_herb_col					item_wod_pro_sm_herb_reward_jar												A seed jar SMC
+wod_prologue_ns_herb_col					item_wod_pro_ns_herb_reward_jar												A seed jar NS
 wod_prologue_kill_rancors_col					item_wod_mutated_rancor_toy												
 wod_prologue_kill_spiders_col					item_wod_gaping_spider_toy												
 wod_prologue_singing_outcasts_col					item_painting_wod_sm_01												

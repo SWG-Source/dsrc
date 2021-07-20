@@ -4794,21 +4794,60 @@ item_band_set_trader_01_01	luck_modified=30,precision_modified=30,strength_modif
 item_ring_set_ent_01_01	strength_modified=30,agility_modified=30		int:item.set.set_id=130001								
 item_ring_set_trader_01_01	luck_modified=30,precision_modified=30,strength_modified=30		int:item.set.set_id=140001								
 rebel_trooper_hat_schematic			string:loot_schematic.schematic=object/draft_schematic/clothing/clothing_hat_rebel_trooper.iff,int:loot_schematic.uses=1,string:loot_schematic.skill_req=class_domestics_phase4_master								
-item_wod_pro_tree_01_schematic			string:loot_schematic.schematic=object/draft_schematic/furniture/wod_pro_tree_01.iff,int:loot_schematic.uses=1,string:loot_schematic.skill_req=class_structures_phase1_novice								
-item_wod_pro_tree_02_schematic			string:loot_schematic.schematic=object/draft_schematic/furniture/wod_pro_tree_02.iff,int:loot_schematic.uses=1,string:loot_schematic.skill_req=class_structures_phase1_novice								
-item_wod_pro_tree_03_schematic			string:loot_schematic.schematic=object/draft_schematic/furniture/wod_pro_tree_03.iff,int:loot_schematic.uses=1,string:loot_schematic.skill_req=class_structures_phase1_novice								
-item_wod_pro_tree_04_schematic			string:loot_schematic.schematic=object/draft_schematic/furniture/wod_pro_tree_04.iff,int:loot_schematic.uses=1,string:loot_schematic.skill_req=class_structures_phase1_novice								
-item_wod_pro_tree_05_schematic			string:loot_schematic.schematic=object/draft_schematic/furniture/wod_pro_tree_05.iff,int:loot_schematic.uses=1,string:loot_schematic.skill_req=class_structures_phase1_novice								
-item_wod_pro_tree_06_schematic			string:loot_schematic.schematic=object/draft_schematic/furniture/wod_pro_tree_06.iff,int:loot_schematic.uses=1,string:loot_schematic.skill_req=class_structures_phase1_novice								
-item_wod_pro_tree_07_schematic			string:loot_schematic.schematic=object/draft_schematic/furniture/wod_pro_tree_07.iff,int:loot_schematic.uses=1,string:loot_schematic.skill_req=class_structures_phase1_novice								
-item_wod_pro_tree_08_schematic			string:loot_schematic.schematic=object/draft_schematic/furniture/wod_pro_tree_08.iff,int:loot_schematic.uses=1,string:loot_schematic.skill_req=class_structures_phase1_novice								
-item_wod_pro_tree_09_schematic			string:loot_schematic.schematic=object/draft_schematic/furniture/wod_pro_tree_09.iff,int:loot_schematic.uses=1,string:loot_schematic.skill_req=class_structures_phase1_novice								
-item_wod_pro_tree_10_schematic			string:loot_schematic.schematic=object/draft_schematic/furniture/wod_pro_tree_10.iff,int:loot_schematic.uses=1,string:loot_schematic.skill_req=class_structures_phase1_novice								
-item_wod_pro_tree_11_schematic			string:loot_schematic.schematic=object/draft_schematic/furniture/wod_pro_tree_11.iff,int:loot_schematic.uses=1,string:loot_schematic.skill_req=class_structures_phase1_novice								
-item_wod_pro_tree_12_schematic			string:loot_schematic.schematic=object/draft_schematic/furniture/wod_pro_tree_12.iff,int:loot_schematic.uses=1,string:loot_schematic.skill_req=class_structures_phase1_novice								
+item_schematic_wod_pro_tree_01			string:loot_schematic.schematic=object/draft_schematic/furniture/wod_pro_tree_01.iff,int:loot_schematic.uses=1,string:loot_schematic.skill_req=class_structures_phase1_novice								
+item_schematic_wod_pro_tree_02			string:loot_schematic.schematic=object/draft_schematic/furniture/wod_pro_tree_02.iff,int:loot_schematic.uses=1,string:loot_schematic.skill_req=class_structures_phase1_novice								
+item_schematic_wod_pro_tree_03			string:loot_schematic.schematic=object/draft_schematic/furniture/wod_pro_tree_03.iff,int:loot_schematic.uses=1,string:loot_schematic.skill_req=class_structures_phase1_novice								
+item_schematic_wod_pro_tree_04			string:loot_schematic.schematic=object/draft_schematic/furniture/wod_pro_tree_04.iff,int:loot_schematic.uses=1,string:loot_schematic.skill_req=class_structures_phase1_novice								
+item_schematic_wod_pro_tree_05			string:loot_schematic.schematic=object/draft_schematic/furniture/wod_pro_tree_05.iff,int:loot_schematic.uses=1,string:loot_schematic.skill_req=class_structures_phase1_novice								
+item_schematic_wod_pro_tree_06			string:loot_schematic.schematic=object/draft_schematic/furniture/wod_pro_tree_06.iff,int:loot_schematic.uses=1,string:loot_schematic.skill_req=class_structures_phase1_novice								
+item_schematic_wod_pro_tree_07			string:loot_schematic.schematic=object/draft_schematic/furniture/wod_pro_tree_07.iff,int:loot_schematic.uses=1,string:loot_schematic.skill_req=class_structures_phase1_novice								
+item_schematic_wod_pro_tree_08			string:loot_schematic.schematic=object/draft_schematic/furniture/wod_pro_tree_08.iff,int:loot_schematic.uses=1,string:loot_schematic.skill_req=class_structures_phase1_novice								
+item_schematic_wod_pro_ns_tree_01			string:loot_schematic.schematic=object/draft_schematic/furniture/wod_pro_ns_tree_01.iff,int:loot_schematic.uses=1,string:loot_schematic.skill_req=class_structures_phase1_novice								
+item_schematic_wod_pro_ns_tree_02			string:loot_schematic.schematic=object/draft_schematic/furniture/wod_pro_ns_tree_02.iff,int:loot_schematic.uses=1,string:loot_schematic.skill_req=class_structures_phase1_novice								
+item_schematic_wod_pro_ns_tree_03			string:loot_schematic.schematic=object/draft_schematic/furniture/wod_pro_ns_tree_03.iff,int:loot_schematic.uses=1,string:loot_schematic.skill_req=class_structures_phase1_novice								
+item_schematic_wod_pro_ns_tree_04			string:loot_schematic.schematic=object/draft_schematic/furniture/wod_pro_ns_tree_04.iff,int:loot_schematic.uses=1,string:loot_schematic.skill_req=class_structures_phase1_novice								
+item_schematic_wod_pro_ns_tree_05			string:loot_schematic.schematic=object/draft_schematic/furniture/wod_pro_ns_tree_05.iff,int:loot_schematic.uses=1,string:loot_schematic.skill_req=class_structures_phase1_novice								
+item_schematic_wod_pro_ns_tree_06			string:loot_schematic.schematic=object/draft_schematic/furniture/wod_pro_ns_tree_06.iff,int:loot_schematic.uses=1,string:loot_schematic.skill_req=class_structures_phase1_novice								
+item_schematic_wod_pro_ns_tree_07			string:loot_schematic.schematic=object/draft_schematic/furniture/wod_pro_ns_tree_07.iff,int:loot_schematic.uses=1,string:loot_schematic.skill_req=class_structures_phase1_novice								
+item_schematic_wod_pro_ns_tree_08			string:loot_schematic.schematic=object/draft_schematic/furniture/wod_pro_ns_tree_08.iff,int:loot_schematic.uses=1,string:loot_schematic.skill_req=class_structures_phase1_novice								
+item_schematic_wod_pro_sm_tree_01			string:loot_schematic.schematic=object/draft_schematic/furniture/wod_pro_sm_tree_01.iff,int:loot_schematic.uses=1,string:loot_schematic.skill_req=class_structures_phase1_novice								
+item_schematic_wod_pro_sm_tree_02			string:loot_schematic.schematic=object/draft_schematic/furniture/wod_pro_sm_tree_02.iff,int:loot_schematic.uses=1,string:loot_schematic.skill_req=class_structures_phase1_novice								
+item_schematic_wod_pro_sm_tree_03			string:loot_schematic.schematic=object/draft_schematic/furniture/wod_pro_sm_tree_03.iff,int:loot_schematic.uses=1,string:loot_schematic.skill_req=class_structures_phase1_novice								
+item_schematic_wod_pro_sm_tree_04			string:loot_schematic.schematic=object/draft_schematic/furniture/wod_pro_sm_tree_04.iff,int:loot_schematic.uses=1,string:loot_schematic.skill_req=class_structures_phase1_novice								
+item_schematic_wod_pro_sm_tree_05			string:loot_schematic.schematic=object/draft_schematic/furniture/wod_pro_sm_tree_05.iff,int:loot_schematic.uses=1,string:loot_schematic.skill_req=class_structures_phase1_novice								
+item_schematic_wod_pro_sm_tree_06			string:loot_schematic.schematic=object/draft_schematic/furniture/wod_pro_sm_tree_06.iff,int:loot_schematic.uses=1,string:loot_schematic.skill_req=class_structures_phase1_novice								
+item_schematic_wod_pro_sm_tree_07			string:loot_schematic.schematic=object/draft_schematic/furniture/wod_pro_sm_tree_07.iff,int:loot_schematic.uses=1,string:loot_schematic.skill_req=class_structures_phase1_novice								
+item_schematic_wod_pro_sm_tree_08			string:loot_schematic.schematic=object/draft_schematic/furniture/wod_pro_sm_tree_08.iff,int:loot_schematic.uses=1,string:loot_schematic.skill_req=class_structures_phase1_novice								
+item_schematic_wod_potted_plant_01			string:loot_schematic.schematic=object/draft_schematic/furniture/wod_potted_plant_01.iff,int:loot_schematic.uses=1,string:loot_schematic.skill_req=class_structures_phase1_novice								
+item_schematic_wod_potted_plant_02			string:loot_schematic.schematic=object/draft_schematic/furniture/wod_potted_plant_02.iff,int:loot_schematic.uses=1,string:loot_schematic.skill_req=class_structures_phase1_novice								
+item_schematic_wod_potted_plant_03			string:loot_schematic.schematic=object/draft_schematic/furniture/wod_potted_plant_03.iff,int:loot_schematic.uses=1,string:loot_schematic.skill_req=class_structures_phase1_novice								
+item_schematic_wod_potted_plant_04			string:loot_schematic.schematic=object/draft_schematic/furniture/wod_potted_plant_04.iff,int:loot_schematic.uses=1,string:loot_schematic.skill_req=class_structures_phase1_novice								
+item_schematic_wod_potted_plant_05			string:loot_schematic.schematic=object/draft_schematic/furniture/wod_potted_plant_05.iff,int:loot_schematic.uses=1,string:loot_schematic.skill_req=class_structures_phase1_novice								
+item_schematic_wod_potted_plant_06			string:loot_schematic.schematic=object/draft_schematic/furniture/wod_potted_plant_06.iff,int:loot_schematic.uses=1,string:loot_schematic.skill_req=class_structures_phase1_novice								
+item_schematic_wod_potted_plant_07			string:loot_schematic.schematic=object/draft_schematic/furniture/wod_potted_plant_07.iff,int:loot_schematic.uses=1,string:loot_schematic.skill_req=class_structures_phase1_novice								
+item_schematic_wod_potted_plant_08			string:loot_schematic.schematic=object/draft_schematic/furniture/wod_potted_plant_08.iff,int:loot_schematic.uses=1,string:loot_schematic.skill_req=class_structures_phase1_novice								
+item_schematic_wod_potted_plant_09			string:loot_schematic.schematic=object/draft_schematic/furniture/wod_potted_plant_09.iff,int:loot_schematic.uses=1,string:loot_schematic.skill_req=class_structures_phase1_novice								
+item_schematic_wod_ns_potted_plant_01			string:loot_schematic.schematic=object/draft_schematic/furniture/wod_ns_potted_plant_01.iff,int:loot_schematic.uses=1,string:loot_schematic.skill_req=class_structures_phase1_novice								
+item_schematic_wod_ns_potted_plant_02			string:loot_schematic.schematic=object/draft_schematic/furniture/wod_ns_potted_plant_02.iff,int:loot_schematic.uses=1,string:loot_schematic.skill_req=class_structures_phase1_novice								
+item_schematic_wod_ns_potted_plant_03			string:loot_schematic.schematic=object/draft_schematic/furniture/wod_ns_potted_plant_03.iff,int:loot_schematic.uses=1,string:loot_schematic.skill_req=class_structures_phase1_novice								
+item_schematic_wod_ns_potted_plant_04			string:loot_schematic.schematic=object/draft_schematic/furniture/wod_ns_potted_plant_04.iff,int:loot_schematic.uses=1,string:loot_schematic.skill_req=class_structures_phase1_novice								
+item_schematic_wod_ns_potted_plant_05			string:loot_schematic.schematic=object/draft_schematic/furniture/wod_ns_potted_plant_05.iff,int:loot_schematic.uses=1,string:loot_schematic.skill_req=class_structures_phase1_novice								
+item_schematic_wod_ns_potted_plant_06			string:loot_schematic.schematic=object/draft_schematic/furniture/wod_ns_potted_plant_06.iff,int:loot_schematic.uses=1,string:loot_schematic.skill_req=class_structures_phase1_novice								
+item_schematic_wod_ns_potted_plant_07			string:loot_schematic.schematic=object/draft_schematic/furniture/wod_ns_potted_plant_07.iff,int:loot_schematic.uses=1,string:loot_schematic.skill_req=class_structures_phase1_novice								
+item_schematic_wod_ns_potted_plant_08			string:loot_schematic.schematic=object/draft_schematic/furniture/wod_ns_potted_plant_08.iff,int:loot_schematic.uses=1,string:loot_schematic.skill_req=class_structures_phase1_novice								
+item_schematic_wod_ns_potted_plant_09			string:loot_schematic.schematic=object/draft_schematic/furniture/wod_ns_potted_plant_09.iff,int:loot_schematic.uses=1,string:loot_schematic.skill_req=class_structures_phase1_novice								
+item_schematic_wod_sm_potted_plant_01			string:loot_schematic.schematic=object/draft_schematic/furniture/wod_sm_potted_plant_01.iff,int:loot_schematic.uses=1,string:loot_schematic.skill_req=class_structures_phase1_novice								
+item_schematic_wod_sm_potted_plant_02			string:loot_schematic.schematic=object/draft_schematic/furniture/wod_sm_potted_plant_02.iff,int:loot_schematic.uses=1,string:loot_schematic.skill_req=class_structures_phase1_novice								
+item_schematic_wod_sm_potted_plant_03			string:loot_schematic.schematic=object/draft_schematic/furniture/wod_sm_potted_plant_03.iff,int:loot_schematic.uses=1,string:loot_schematic.skill_req=class_structures_phase1_novice								
+item_schematic_wod_sm_potted_plant_04			string:loot_schematic.schematic=object/draft_schematic/furniture/wod_sm_potted_plant_04.iff,int:loot_schematic.uses=1,string:loot_schematic.skill_req=class_structures_phase1_novice								
+item_schematic_wod_sm_potted_plant_05			string:loot_schematic.schematic=object/draft_schematic/furniture/wod_sm_potted_plant_05.iff,int:loot_schematic.uses=1,string:loot_schematic.skill_req=class_structures_phase1_novice								
+item_schematic_wod_sm_potted_plant_06			string:loot_schematic.schematic=object/draft_schematic/furniture/wod_sm_potted_plant_06.iff,int:loot_schematic.uses=1,string:loot_schematic.skill_req=class_structures_phase1_novice								
+item_schematic_wod_sm_potted_plant_07			string:loot_schematic.schematic=object/draft_schematic/furniture/wod_sm_potted_plant_07.iff,int:loot_schematic.uses=1,string:loot_schematic.skill_req=class_structures_phase1_novice								
+item_schematic_wod_sm_potted_plant_08			string:loot_schematic.schematic=object/draft_schematic/furniture/wod_sm_potted_plant_08.iff,int:loot_schematic.uses=1,string:loot_schematic.skill_req=class_structures_phase1_novice								
+item_schematic_wod_sm_potted_plant_09			string:loot_schematic.schematic=object/draft_schematic/furniture/wod_sm_potted_plant_09.iff,int:loot_schematic.uses=1,string:loot_schematic.skill_req=class_structures_phase1_novice								
 item_wod_pro_herb_reward_jar											
-item_wod_pro_herb_reward_jar_ns											
-item_wod_pro_herb_reward_jar_sm											
+item_wod_pro_ns_herb_reward_jar											
+item_wod_pro_sm_herb_reward_jar											
 item_painting_wod_scene_01											
 item_painting_wod_scene_02											
 item_painting_wod_scene_03											
@@ -4870,12 +4909,3 @@ item_wod_smc_schematic_tril			string:loot_schematic.schematic=object/draft_schem
 item_wod_smc_schematic_hut			string:loot_schematic.schematic=object/draft_schematic/structure/wod_sm_hut.iff,int:loot_schematic.uses=1,string:loot_schematic.skill_req=class_structures_phase1_novice								
 item_wod_smc_schematic_wall			string:loot_schematic.schematic=object/draft_schematic/furniture/city/wod_sm_wall.iff,int:loot_schematic.uses=1,string:loot_schematic.skill_req=class_structures_phase1_novice								
 item_wod_smc_herb_reward_jar											
-wod_potted_plant_schem_01			string:loot_schematic.schematic=object/draft_schematic/furniture/wod_potted_plant_schem_01.iff,int:loot_schematic.uses=1,string:loot_schematic.skill_req=class_structures_phase1_novice								
-wod_potted_plant_schem_02			string:loot_schematic.schematic=object/draft_schematic/furniture/wod_potted_plant_schem_02.iff,int:loot_schematic.uses=1,string:loot_schematic.skill_req=class_structures_phase1_novice								
-wod_potted_plant_schem_03			string:loot_schematic.schematic=object/draft_schematic/furniture/wod_potted_plant_schem_03.iff,int:loot_schematic.uses=1,string:loot_schematic.skill_req=class_structures_phase1_novice								
-wod_potted_plant_schem_04			string:loot_schematic.schematic=object/draft_schematic/furniture/wod_potted_plant_schem_04.iff,int:loot_schematic.uses=1,string:loot_schematic.skill_req=class_structures_phase1_novice								
-wod_potted_plant_schem_05			string:loot_schematic.schematic=object/draft_schematic/furniture/wod_potted_plant_schem_05.iff,int:loot_schematic.uses=1,string:loot_schematic.skill_req=class_structures_phase1_novice								
-wod_potted_plant_schem_06			string:loot_schematic.schematic=object/draft_schematic/furniture/wod_potted_plant_schem_06.iff,int:loot_schematic.uses=1,string:loot_schematic.skill_req=class_structures_phase1_novice								
-wod_potted_plant_schem_07			string:loot_schematic.schematic=object/draft_schematic/furniture/wod_potted_plant_schem_07.iff,int:loot_schematic.uses=1,string:loot_schematic.skill_req=class_structures_phase1_novice								
-wod_potted_plant_schem_08			string:loot_schematic.schematic=object/draft_schematic/furniture/wod_potted_plant_schem_08.iff,int:loot_schematic.uses=1,string:loot_schematic.skill_req=class_structures_phase1_novice								
-wod_potted_plant_schem_09			string:loot_schematic.schematic=object/draft_schematic/furniture/wod_potted_plant_schem_09.iff,int:loot_schematic.uses=1,string:loot_schematic.skill_req=class_structures_phase1_novice								

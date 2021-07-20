@@ -3,5 +3,5 @@
 @class object_template 2
 
 sharedTemplate = "object/tangible/furniture/wod_themepark/shared_wod_pro_seed_jar_sm.iff"
-scripts = +["theme_park.wod.pro_seed_jar_nsm"]
+scripts = +["theme_park.wod.pro_seed_jar_sm"]
 moveFlags = [ MF_player ]
