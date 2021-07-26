@@ -6,7 +6,7 @@
 
 sharedTemplate = "object/tangible/ship/crafted/chassis/shared_advanced_xwing_deed.iff"
 
-objvars =+ [ "ship_chassis.badgeRestricted" = "146"]
+objvars =+ [ "ship_chassis.badgeRestricted" = "bdg_kash_rebel_heavy_xwing"]
 
 moveFlags = [ MF_player ]
 

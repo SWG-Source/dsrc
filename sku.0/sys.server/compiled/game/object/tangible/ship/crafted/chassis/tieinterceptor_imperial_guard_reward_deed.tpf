@@ -6,7 +6,7 @@
 
 sharedTemplate = "object/tangible/ship/crafted/chassis/shared_tieinterceptor_imperial_guard_reward_deed.iff"
 
-objvars =+ [ "ship_chassis.badgeRestricted" = "145", "ship_chassis.type" = "tieinterceptor_imperial_guard", "ship_chassis.hp" = 2000.0, "ship_chassis.mass" = 80000.0 ]
+objvars =+ [ "ship_chassis.badgeRestricted" = "bdg_kash_imperial_red_tie", "ship_chassis.type" = "tieinterceptor_imperial_guard", "ship_chassis.hp" = 2000.0, "ship_chassis.mass" = 80000.0 ]
 
 moveFlags = [ MF_player ]
 

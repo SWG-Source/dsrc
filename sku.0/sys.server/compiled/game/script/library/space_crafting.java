@@ -2165,9 +2165,7 @@ public class space_crafting extends script.base_script
                 }
                 if (hasObjVar(deed, "ship_chassis.badgeRestricted") && !isGod(player))
                 {
-                    int badgeReq = getIntObjVar(deed, "ship_chassis.badgeRestricted");
-                    String badgeName = getCollectionSlotName(badgeReq);
-                    if ((badgeName == null) || (badgeName.length() == 0) || (!badge.hasBadge(player, badgeName)))
+                    if (!badge.hasBadge(player, getStringObjVar(deed, "ship_chassis.badgeRestricted")))
                     {
                         destroyObject(ship);
                         destroyObject(pcd);

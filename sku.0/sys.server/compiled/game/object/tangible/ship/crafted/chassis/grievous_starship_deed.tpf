@@ -6,7 +6,7 @@
 
 sharedTemplate = "object/tangible/ship/crafted/chassis/shared_grievous_starship_deed.iff"
 
-objvars =+ [ "ship_chassis.badgeRestricted" = "143"]
+objvars =+ [ "ship_chassis.badgeRestricted" = "bdg_kash_grievous"]
 
 moveFlags = [ MF_player ]
 
