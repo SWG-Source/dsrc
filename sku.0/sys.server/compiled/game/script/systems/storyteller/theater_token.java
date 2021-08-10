@@ -19,6 +19,11 @@ public class theater_token extends script.base_script
     }
     public int OnObjectMenuSelect(obj_id self, obj_id player, int item) throws InterruptedException
     {
+        if (storyteller.hasReachedAreaSpawnLimit(player))
+        {
+            sendSystemMessage(player, new string_id("storyteller", "reached_area_spawn_limit"));
+            return SCRIPT_CONTINUE;
+        }
         if (item == menu_info_types.ITEM_USE)
         {
             if (storyteller.createTheaterObject(self, false) == null)

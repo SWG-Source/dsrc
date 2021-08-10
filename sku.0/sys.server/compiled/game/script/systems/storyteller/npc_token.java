@@ -96,6 +96,11 @@ public class npc_token extends script.base_script
             sendSystemMessage(player, new string_id("storyteller", "placement_no_trial_accounts"));
             return SCRIPT_CONTINUE;
         }
+        if (storyteller.hasReachedAreaSpawnLimit(player))
+        {
+            sendSystemMessage(player, new string_id("storyteller", "reached_area_spawn_limit"));
+            return SCRIPT_CONTINUE;
+        }
         float yaw = getYaw(player);
         location playerLoc = getLocation(player);
         location newLoc = new location(x, y, z, playerLoc.area, playerLoc.cell);

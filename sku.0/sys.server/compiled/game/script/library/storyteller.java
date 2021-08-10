@@ -44,6 +44,8 @@ public class storyteller extends script.base_script
     public static final int DEFAULT_PROP_CLEANUP_TIME = 16 * 60 * 60;
     public static final int DEFAULT_NPC_CLEANUP_TIME = 16 * 60 * 60;
     public static final String VAR_AUTODECLINE_STORY_INVITES = "decline_story_invites";
+    private static final int ALL_SPAWNS_AREA_LIMIT = utils.getIntConfigSetting("GameServer", "storytellerTotalAreaSpawnsLimit", 500);
+
     public static int getTokenType(obj_id token) throws InterruptedException
     {
         return dataTableGetInt(STORYTELLER_DATATABLE, getStaticItemName(token), "type");
@@ -1714,5 +1716,14 @@ public class storyteller extends script.base_script
             messageTo(cityHall, "st_citySpecBonusCheck", outparams, 0.0f, false);
         }
         setObjVar(object, "storytellerCleanUpTime", cleanUpTime);
+    }
+    public static boolean hasReachedAreaSpawnLimit(obj_id player) throws InterruptedException
+    {
+        final obj_id[] size = getAllObjectsWithObjVar(getLocation(player), 1000f, "storytellerid");
+        if(size != null)
+        {
+            return size.length >= ALL_SPAWNS_AREA_LIMIT;
+        }
+        return false;
     }
 }
