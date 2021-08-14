@@ -49,6 +49,7 @@ public class no_trade_removable extends script.base_script {
             if (hasObjVar(self, "noTrade")) {
                 removeObjVar(self, "noTrade");
                 sendSystemMessage(player, SID_ITEM_MADE_TRADABLE);
+                sendDirtyObjectMenuNotification(self);
                 CustomerServiceLog("noTrade", getPlayerName(player) + " (" + player + ") removed the noTrade ObjVar from object " + getTemplateName(self) + " (" + self + ")");
                 detachScript(self, SCRIPT_NAME);
             }
