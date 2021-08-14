@@ -290,6 +290,12 @@ public class base_player extends script.base_script
 
     public int OnCustomizeFinished(obj_id self, obj_id object, String params) throws InterruptedException
     {
+        if (utils.hasScriptVar(self, "recolor_process.tool_oid"))
+        {
+            final obj_id objToColor = utils.getObjIdScriptVar(self, "recolor_process.tool_oid");
+            colorizeObject(self, objToColor, objToColor, params);
+            return SCRIPT_CONTINUE;
+        }
         if (utils.hasScriptVar(self, "armor_colorize.tool_oid") || utils.hasScriptVar(self, "structure_colorize.tool_oid"))
         {
             obj_id tool = obj_id.NULL_ID;
@@ -12003,13 +12009,11 @@ public class base_player extends script.base_script
         {
             return false;
         }
+        dictionary d = new dictionary();
+        d.put("player", self);
         if (params == null || params.equals(""))
         {
-            return false;
-        }
-        if (params == null || params.equals(""))
-        {
-            messageTo(tool, "cancelTool", null, 0, false);
+            messageTo(tool, "cancelTool", d, 0, false);
             return false;
         }
         String[] colorArray = split(params, ' ');
@@ -12025,7 +12029,7 @@ public class base_player extends script.base_script
             }
             hue.setColor(object, colorArray[i], utils.stringToInt(colorArray[i + 1]));
         }
-        messageTo(tool, "decrementTool", null, 0, false);
+        messageTo(tool, "decrementTool", d, 0, false);
         return true;
     }
     public boolean isPvpRelatedDeath(obj_id player) throws InterruptedException
