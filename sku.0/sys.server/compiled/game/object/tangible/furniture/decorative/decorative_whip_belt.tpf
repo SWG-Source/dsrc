@@ -5,3 +5,6 @@
 @class object_template 3
 
 sharedTemplate = "object/tangible/furniture/decorative/shared_decorative_whip_belt.iff"
+scripts = ["item.event.ij_fedora_and_whip"]
+objvars = ["noTrade"=1]
+
