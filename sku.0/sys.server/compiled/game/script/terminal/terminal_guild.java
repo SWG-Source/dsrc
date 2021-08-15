@@ -349,6 +349,12 @@ public class terminal_guild extends script.terminal.base.base_terminal
         sendDirtyObjectMenuNotification(self);
         if (item == menu_info_types.SERVER_MENU3)
         {
+            final int[] guildIds = getAllGuildIds();
+            if(guildIds == null || guildIds.length < 1)
+            {
+                sendSystemMessageTestingOnly(player, "There are currently no active guilds in the "+getClusterName()+" Galaxy.");
+                return SCRIPT_CONTINUE;
+            }
             dictionary guildsListParams = new dictionary();
             guildsListParams.put("player", player);
             messageTo(self, "showGuildsList", guildsListParams, 3.0f, false);
