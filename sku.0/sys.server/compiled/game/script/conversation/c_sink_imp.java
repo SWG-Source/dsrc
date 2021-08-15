@@ -83,7 +83,7 @@ public class c_sink_imp extends script.base_script
     }
     public boolean c_sink_imp_condition_hasJTL(obj_id player, obj_id npc) throws InterruptedException
     {
-        return (features.isSpaceEdition(player));
+        return true;
     }
     public boolean c_sink_imp_condition_spaceWon(obj_id player, obj_id npc) throws InterruptedException
     {

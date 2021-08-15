@@ -18,7 +18,7 @@ public class greeter_bestine_bookie extends script.base_script
     }
     public boolean greeter_bestine_bookie_condition_hasSpaceExpansion(obj_id player, obj_id npc) throws InterruptedException
     {
-        return (features.isSpaceEdition(player));
+        return true;
     }
     public int greeter_bestine_bookie_handleBranch1(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {

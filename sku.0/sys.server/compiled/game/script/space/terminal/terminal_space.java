@@ -63,17 +63,6 @@ public class terminal_space extends script.terminal.base.base_terminal
         {
             return SCRIPT_CONTINUE;
         }
-        if (!features.isSpaceEdition(player))
-        {
-            LOG("space", "NO EXPANSION");
-            string_id strSpam = new string_id("space/space_interaction", "no_space_expansion");
-            sendSystemMessage(player, strSpam);
-            if (!isGod(player))
-            {
-                LOG("space", "NO EXPANSION - RETURNING");
-                return SCRIPT_CONTINUE;
-            }
-        }
         if (ai_lib.isInCombat(player))
         {
             sendSystemMessage(player, SID_NOT_IN_COMBAT);
@@ -207,14 +196,6 @@ public class terminal_space extends script.terminal.base.base_terminal
             sendSystemMessage(player, SID_MUSTAFAR);
             return;
         }*/
-        if (planet.equals("kashyyyk_main"))
-        {
-            if (!features.hasEpisode3Expansion(player))
-            {
-                sendSystemMessage(player, travel.SID_KASHYYYK_UNAUTHORIZED);
-                return;
-            }
-        }
         if (space_utils.isBasicShip(ship))
         {
             location locTest = getLocation(player);
@@ -285,15 +266,10 @@ public class terminal_space extends script.terminal.base.base_terminal
             {
                 for (obj_id obj_id : membersApprovedByShipOwner) {
                     if (obj_id != player && exists(obj_id) && getLocation(obj_id).cell == playerLoc.cell) {
-                        if (features.isSpaceEdition(obj_id)) {
-                            startIndex = space_transition.getNextStartIndex(shipStartLocations, startIndex);
-                            if (startIndex <= shipStartLocations.size()) {
-                                groupMembersToWarp = utils.addElement(groupMembersToWarp, obj_id);
-                                groupMemberStartIndex = utils.addElement(groupMemberStartIndex, startIndex);
-                            }
-                        } else {
-                            string_id strSpam = new string_id("space/space_interaction", "no_space_expansion");
-                            sendSystemMessage(obj_id, strSpam);
+                        startIndex = space_transition.getNextStartIndex(shipStartLocations, startIndex);
+                        if (startIndex <= shipStartLocations.size()) {
+                            groupMembersToWarp = utils.addElement(groupMembersToWarp, obj_id);
+                            groupMemberStartIndex = utils.addElement(groupMemberStartIndex, startIndex);
                         }
                     }
                 }

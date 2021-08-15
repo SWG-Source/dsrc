@@ -81,10 +81,7 @@ public class helper_droid extends script.base_script
         {
             return SCRIPT_CONTINUE;
         }
-        if (features.isSpaceEdition(master))
-        {
-            int menuSpace = mi.addRootMenu(menu_info_types.SERVER_MENU10, SID_SPACE_MENU);
-        }
+        int menuSpace = mi.addRootMenu(menu_info_types.SERVER_MENU10, SID_SPACE_MENU);
         if (hasObjVar(master, BRAWLER_QUEST_OBJVAR) || hasObjVar(master, MARKSMAN_QUEST_OBJVAR) || hasObjVar(master, SCOUT_QUEST_OBJVAR) || hasObjVar(master, ARTISAN_QUEST_OBJVAR) || hasObjVar(master, ENTERTAINER_QUEST_OBJVAR) || hasObjVar(master, MEDIC_QUEST_OBJVAR))
         {
             int menuOption = mi.addRootMenu(menu_info_types.SERVER_ITEM_OPTIONS, SID_QUEST_MENU);
@@ -145,19 +142,10 @@ public class helper_droid extends script.base_script
         }
         if (item == menu_info_types.SERVER_MENU10)
         {
-            if (features.isSpaceEdition(player))
-            {
-                String custLogMsg = "New Player Quests: %TU used the helper droid radial menu for space info.";
-                CustomerServiceLog(NEW_PLAYER_LOG, custLogMsg, player);
-                messageTo(master, "handleSpaceIntroBegin", null, 1, false);
-                return SCRIPT_CONTINUE;
-            }
-            else 
-            {
-                String custLogMsg = "New Player Quests: %TU tried to use the helper droid radial menu for space info, but does not have the space edition of the game.";
-                CustomerServiceLog(NEW_PLAYER_LOG, custLogMsg, player);
-                return SCRIPT_CONTINUE;
-            }
+            String custLogMsg = "New Player Quests: %TU used the helper droid radial menu for space info.";
+            CustomerServiceLog(NEW_PLAYER_LOG, custLogMsg, player);
+            messageTo(master, "handleSpaceIntroBegin", null, 1, false);
+            return SCRIPT_CONTINUE;
         }
         if (item == menu_info_types.SERVER_MENU7)
         {
@@ -350,21 +338,9 @@ public class helper_droid extends script.base_script
         {
             if (utils.hasScriptVar(master, "new_player.firstEverDroid"))
             {
-                if (features.isSpaceEdition(master))
-                {
-                    String custLogMsg = "New Player Quests: %TU is receiving a new helper droid and being prompted about space.";
-                    CustomerServiceLog(NEW_PLAYER_LOG, custLogMsg, master);
-                    messageTo(master, "handleSpaceIntroBegin", null, 1, false);
-                }
-                else 
-                {
-                    int msgNum = utils.getIntScriptVar(self, "msgNum");
-                    string_id greetingBegin = new string_id("new_player", "droid_greeting_begin_0" + msgNum);
-                    string_id greetingEnd = new string_id("new_player", "droid_greeting_end");
-                    String textMsgStr = utils.packStringId(greetingBegin) + " \\#pcontrast1 " + masterName + " \\#., " + utils.packStringId(greetingEnd);
-                    utils.removeScriptVar(master, "new_player.firstEverDroid");
-                    twoButtonSui(master, master, "handleNewProfessionGreetingResponse", droidName, textMsgStr, okButton, cancelButton);
-                }
+                String custLogMsg = "New Player Quests: %TU is receiving a new helper droid and being prompted about space.";
+                CustomerServiceLog(NEW_PLAYER_LOG, custLogMsg, master);
+                messageTo(master, "handleSpaceIntroBegin", null, 1, false);
             }
             else 
             {

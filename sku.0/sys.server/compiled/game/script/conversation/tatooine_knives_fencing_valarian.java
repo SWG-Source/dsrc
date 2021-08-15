@@ -28,7 +28,7 @@ public class tatooine_knives_fencing_valarian extends script.base_script
     {
         int questId1 = questGetQuestId("quest/tatooine_knives_fencing");
         int questId2 = questGetQuestId("quest/tatooine_knives_fencing_pt_2");
-        boolean OnTask = (questIsQuestComplete(questId1, player)) && !((features.isSpaceEdition(player))) || ((questIsQuestComplete(questId1, player)) && (questIsQuestComplete(questId2, player)));
+        boolean OnTask = questIsQuestComplete(questId1, player) || ((questIsQuestComplete(questId1, player)) && (questIsQuestComplete(questId2, player)));
         return OnTask;
     }
     public boolean tatooine_knives_fencing_valarian_condition_completeTandP(obj_id player, obj_id npc) throws InterruptedException
@@ -42,7 +42,7 @@ public class tatooine_knives_fencing_valarian extends script.base_script
     public boolean tatooine_knives_fencing_valarian_condition_physcoHasJTL(obj_id player, obj_id npc) throws InterruptedException
     {
         int questId1 = questGetQuestId("quest/tatooine_knives_fencing");
-        boolean onTask = questIsQuestComplete(questId1, player) && features.isSpaceEdition(player);
+        boolean onTask = questIsQuestComplete(questId1, player);
         return onTask;
     }
     public boolean tatooine_knives_fencing_valarian_condition_onPhysco(obj_id player, obj_id npc) throws InterruptedException

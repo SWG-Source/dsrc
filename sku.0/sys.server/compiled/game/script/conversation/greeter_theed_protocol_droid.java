@@ -51,7 +51,7 @@ public class greeter_theed_protocol_droid extends script.base_script
     }
     public boolean greeter_theed_protocol_droid_condition_hasSpaceExpansion(obj_id player, obj_id npc) throws InterruptedException
     {
-        return (features.isSpaceEdition(player));
+        return true;
     }
     public boolean greeter_theed_protocol_droid_condition_hasSpaceShip(obj_id player, obj_id npc) throws InterruptedException
     {

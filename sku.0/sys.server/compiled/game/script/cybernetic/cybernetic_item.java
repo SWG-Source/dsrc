@@ -53,21 +53,6 @@ public class cybernetic_item extends script.base_script
         {
             return SCRIPT_CONTINUE;
         }
-        else 
-        {
-            String templateName = getTemplateName(self);
-            if (!templateName.contains("s01"))
-            {
-                if (!features.hasEpisode3Expansion(destContainer))
-                {
-                    if (!templateName.equals("object/tangible/wearables/cybernetic/s04/cybernetic_s04_arm_r.iff"))
-                    {
-                        sendSystemMessage(destContainer, SID_REQUIRE_EP3);
-                        return SCRIPT_OVERRIDE;
-                    }
-                }
-            }
-        }
         if (!isPlayer(transferer))
         {
             cybernetic.applyCyberneticMods(destContainer, self);

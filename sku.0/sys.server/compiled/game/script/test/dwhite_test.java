@@ -189,63 +189,6 @@ public class dwhite_test extends script.base_script
             obj_id resId = getResourceTypeByName(resource);
             sendSystemMessageTestingOnly(self, "[test] " + resource + " = " + resId);
         }
-        if (text.startsWith("testGoggles"))
-        {
-            java.util.StringTokenizer st = new java.util.StringTokenizer(text);
-            String arg = st.nextToken();
-            String oidString = st.nextToken();
-            Long temp = Long.parseLong(oidString);
-            obj_id goggle = obj_id.getObjId(temp.longValue());
-            boolean validGoggles = true;
-            obj_id owner = getOwner(goggle);
-            LOG("seGoggles", "Owner = " + owner);
-            if (!isIdValid(owner))
-            {
-                validGoggles = false;
-            }
-            else 
-            {
-                obj_id inv = utils.getInventoryContainer(owner);
-                obj_id bank = utils.getPlayerBank(owner);
-                obj_id eyes = getObjectInSlot(owner, "eyes");
-                LOG("seGoggles", "Inv = " + inv);
-                LOG("seGoggles", "Bank = " + bank);
-                LOG("seGoggles", "Eyes = " + eyes);
-                if (!isIdValid(inv) || !isIdValid(bank))
-                {
-                    validGoggles = false;
-                }
-                if (!features.isCollectorEdition(owner))
-                {
-                    validGoggles = false;
-                }
-                else 
-                {
-                    obj_id container = getContainedBy(goggle);
-                    LOG("seGoggles", "Container = " + container);
-                    if (container == owner)
-                    {
-                        if (goggle != eyes)
-                        {
-                            validGoggles = false;
-                        }
-                    }
-                    else if (!(container == inv || container == bank))
-                    {
-                        validGoggles = false;
-                    }
-                }
-            }
-            if (!validGoggles)
-            {
-                if (isIdValid(owner))
-                {
-                    sendSystemMessage(owner, new string_id("error_message", "destroy_goggle"));
-                }
-                destroyObject(goggle);
-                return SCRIPT_CONTINUE;
-            }
-        }
         if (text.startsWith("saberStats"))
         {
             java.util.StringTokenizer st = new java.util.StringTokenizer(text);

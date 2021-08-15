@@ -758,39 +758,6 @@ public class tutorial_base extends script.base_script
             body = new string_id("newbie_tutorial/newbie_mail", "welcome_body");
         }
         utils.sendMail(subject, body, player, "system");
-        obj_id playerInv = utils.getInventoryContainer(player);
-        if (features.isCollectorEdition(player))
-        {
-            subject = new string_id("newbie_tutorial/newbie_mail", "collector_subject");
-            body = new string_id("newbie_tutorial/newbie_mail", "collector_body");
-            utils.sendMail(subject, body, player, "system");
-            for (String collectorEditionItem : COLLECTOR_EDITION_ITEMS) {
-                obj_id newItem = createObject(collectorEditionItem, playerInv, "");
-                if (!isIdValid(newItem)) {
-                    LOG("newbie", "WARNING: PLAYER " + player + " did not receive his collector's edition item: " + collectorEditionItem);
-                } else {
-                    setObjVar(newItem, "notrade", true);
-                }
-            }
-        }
-        else if (features.isJPCollectorEdition(player))
-        {
-            subject = new string_id("newbie_tutorial/newbie_mail", "collector_subject");
-            body = new string_id("newbie_tutorial/newbie_mail", "collector_body");
-            utils.sendMail(subject, body, player, "system");
-            for (int i = 0; i < JP_COLLECTOR_EDITION_ITEMS.length; i++)
-            {
-                obj_id newItem = createObject(JP_COLLECTOR_EDITION_ITEMS[i], playerInv, "");
-                if (!isIdValid(newItem))
-                {
-                    LOG("newbie", "WARNING: PLAYER " + player + " did not receive his collector's edition item: " + COLLECTOR_EDITION_ITEMS[i]);
-                }
-                else 
-                {
-                    setObjVar(newItem, "notrade", true);
-                }
-            }
-        }
     }
     public void deleteInventory(obj_id player) throws InterruptedException
     {

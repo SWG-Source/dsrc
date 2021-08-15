@@ -368,21 +368,12 @@ public class space_transition extends script.base_script
     }
     public static boolean isPlayerBelowShipLimit(obj_id player) throws InterruptedException
     {
-        int count = countShipControlDevicesForPlayer(player);
-        int limit = SHIP_LIMIT_MAX;
-        if (features.hasEpisode3Expansion(player))
-        {
-            limit = SHIP_LIMIT_EXPANSION;
-        }
+        final int count = countShipControlDevicesForPlayer(player);
         if (count < 0)
         {
             return false;
         }
-        if (count >= limit)
-        {
-            return false;
-        }
-        return true;
+        return count < SHIP_LIMIT_EXPANSION;
     }
     public static obj_id findPilotSlotObjectForShip(obj_id pilot, obj_id ship) throws InterruptedException
     {
@@ -1156,15 +1147,10 @@ public class space_transition extends script.base_script
                 location playerLoc = getLocation(player);
                 for (obj_id passenger : passengers) {
                     if (passenger != player) {
-                        if (features.isSpaceEdition(passenger)) {
-                            startIndex = space_transition.getNextStartIndex(shipStartLocations, startIndex);
-                            if (startIndex <= shipStartLocations.size()) {
-                                passengersToWarp = utils.addElement(passengersToWarp, passenger);
-                                passengerStartIndexes = utils.addElement(passengerStartIndexes, startIndex);
-                            }
-                        } else {
-                            string_id strSpam = new string_id("space/space_interaction", "no_space_expansion");
-                            sendSystemMessage(passenger, strSpam);
+                        startIndex = space_transition.getNextStartIndex(shipStartLocations, startIndex);
+                        if (startIndex <= shipStartLocations.size()) {
+                            passengersToWarp = utils.addElement(passengersToWarp, passenger);
+                            passengerStartIndexes = utils.addElement(passengerStartIndexes, startIndex);
                         }
                     }
                 }

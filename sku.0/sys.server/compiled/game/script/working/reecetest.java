@@ -223,25 +223,6 @@ public class reecetest extends script.base_script
                 sendSystemMessageTestingOnly(self, "found location #" + i + " and it was at: " + spawnLoc);
             }
         }
-        if (strText.equals("expansion"))
-        {
-            if (features.hasTrialsOfObiwanExpansion(self))
-            {
-                sendSystemMessageTestingOnly(self, " YEE HAW! GOT MUSTAFAR");
-            }
-            else 
-            {
-                sendSystemMessageTestingOnly(self, "No mustafar expansion detected");
-            }
-            if (features.hasEpisode3PreOrderDigitalDownload(self))
-            {
-                sendSystemMessageTestingOnly(self, " YEE HAW! EP3 Preorder");
-            }
-            else 
-            {
-                sendSystemMessageTestingOnly(self, "No EP3 pre-order expansion detected");
-            }
-        }
         if (strText.equals("petcount"))
         {
             obj_id target = getLookAtTarget(self);
@@ -325,21 +306,6 @@ public class reecetest extends script.base_script
                 d.put("player", self);
                 d.put("cnt", minutes);
                 messageTo(target, "handleCountdown", d, 10.0f, false);
-            }
-        }
-        if (strText.equals("accountCheck"))
-        {
-            obj_id target = getLookAtTarget(self);
-            if (target != null)
-            {
-                int pBits = getSubscriptionFeatureBits(target);
-                sendSystemMessageTestingOnly(self, "CHECKING ACCOUNT TYPE Got account bits. They came back as: " + pBits);
-                obj_id playerObject = getPlayerObject(target);
-                if (playerObject != null)
-                {
-                    pBits = getSubscriptionFeatureBits(playerObject);
-                    sendSystemMessageTestingOnly(self, "Running same checks on PLAYER ACCOUNT OBJECT. Got account bits came back as: " + pBits);
-                }
             }
         }
         if (strText.equals("reloadtest"))

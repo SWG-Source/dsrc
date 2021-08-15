@@ -326,7 +326,7 @@ public class naboo_imperial_trainer_1 extends script.base_script
     }
     public boolean naboo_imperial_trainer_1_condition_hasSpaceExp(obj_id player, obj_id npc) throws InterruptedException
     {
-        return features.isSpaceEdition(player);
+        return true;
     }
     public void naboo_imperial_trainer_1_action_grantMission1(obj_id player, obj_id npc) throws InterruptedException
     {

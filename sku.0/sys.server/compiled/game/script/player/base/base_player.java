@@ -587,14 +587,7 @@ public class base_player extends script.base_script
                 buff.removeGroupBuffEffect(self, buffList);
             }
         }
-        if (features.isSpaceEdition(self))
-        {
-            grantCommand(self, SPACE_CERTIFICATION);
-        }
-        else 
-        {
-            revokeCommand(self, SPACE_CERTIFICATION);
-        }
+        grantCommand(self, SPACE_CERTIFICATION);
         removeObjVar(self, pclib.VAR_SAFE_LOGOUT);
         recalculateLevel(self);
         removeObjVar(self, "clickRespec");
@@ -760,7 +753,7 @@ public class base_player extends script.base_script
         {
             setObjVar(self, "bounty.decayTime", currentTime);
         }
-        else 
+        else
         {
             int bounty = getIntObjVar(self, "bounty.amount");
             if (currentTime - lastDecayTime > 604800)
@@ -9748,45 +9741,35 @@ public class base_player extends script.base_script
     }
     public int cmdFlashSpeeder(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException
     {
-        if (!VETERAN_REWARDS_ENABLED) {
+        if (!VETERAN_REWARDS_ENABLED)
+        {
             return SCRIPT_CONTINUE;
         }
-        int sub_bits = getGameFeatureBits(self);
-        if (hasObjVar(self, "flash_speeder.eligible"))
+        if (!hasObjVar(self, "flash_speeder.granted"))
         {
-            sub_bits = getIntObjVar(self, "flash_speeder.eligible");
-        }
-        if (features.isSpaceEdition(self) && utils.checkBit(sub_bits, 3) || features.isJPCollectorEdition(self))
-        {
-            if (!hasObjVar(self, "flash_speeder.granted"))
+            obj_id inv = getObjectInSlot(self, "inventory");
+            int free_space = getVolumeFree(inv);
+            if (free_space < 1)
             {
-                obj_id inv = getObjectInSlot(self, "inventory");
-                int free_space = getVolumeFree(inv);
-                if (free_space < 1)
-                {
-                    sendSystemMessage(self, new string_id(veteran_deprecated.VETERAN_STRING_TABLE, "flash_speeder_no_inv_space"));
-                    return SCRIPT_CONTINUE;
-                }
-                if (veteran_deprecated.checkFlashSpeederReward(self))
-                {
-                    sendSystemMessage(self, new string_id(veteran_deprecated.VETERAN_STRING_TABLE, "flash_speeder_granted"));
-                }
-                else 
-                {
-                    sendSystemMessage(self, new string_id(veteran_deprecated.VETERAN_STRING_TABLE, "flash_speeder_grant_failed"));
-                }
+                sendSystemMessage(self, new string_id(veteran_deprecated.VETERAN_STRING_TABLE, "flash_speeder_no_inv_space"));
+                return SCRIPT_CONTINUE;
             }
-            else 
+            if (veteran_deprecated.checkFlashSpeederReward(self))
             {
-                sui.msgbox(self, self, "@" + veteran_deprecated.VETERAN_STRING_TABLE + ":flash_speeder_replace_prompt", sui.YES_NO, "msgFlashSpeederConfirmed");
+                sendSystemMessage(self, new string_id(veteran_deprecated.VETERAN_STRING_TABLE, "flash_speeder_granted"));
+            }
+            else
+            {
+                sendSystemMessage(self, new string_id(veteran_deprecated.VETERAN_STRING_TABLE, "flash_speeder_grant_failed"));
             }
         }
-        else 
+        else
         {
-            sendSystemMessage(self, new string_id(veteran_deprecated.VETERAN_STRING_TABLE, "flash_speeder_not_eligible"));
+            sui.msgbox(self, self, "@" + veteran_deprecated.VETERAN_STRING_TABLE + ":flash_speeder_replace_prompt", sui.YES_NO, "msgFlashSpeederConfirmed");
         }
         return SCRIPT_CONTINUE;
     }
+
     public int msgFlashSpeederConfirmed(obj_id self, dictionary params) throws InterruptedException
     {
         String button = params.getString("buttonPressed");
@@ -10190,14 +10173,6 @@ public class base_player extends script.base_script
     }
     public boolean allowedBySpaceExpansion(obj_id self, String skillName) throws InterruptedException
     {
-        if (skillName.startsWith("pilot_") || skillName.startsWith("crafting_shipwright_"))
-        {
-            if (!features.isSpaceEdition(self))
-            {
-                sendSystemMessage(self, new string_id("skl_use", "need_space_expansion"));
-                return false;
-            }
-        }
         return true;
     }
     public int gmForceCommand(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException

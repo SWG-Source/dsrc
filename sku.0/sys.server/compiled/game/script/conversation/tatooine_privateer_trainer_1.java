@@ -146,7 +146,7 @@ public class tatooine_privateer_trainer_1 extends script.base_script
     }
     public boolean tatooine_privateer_trainer_1_condition_hasSpaceExpansion(obj_id player, obj_id npc) throws InterruptedException
     {
-        return (features.isSpaceEdition(player));
+        return true;
     }
     public boolean tatooine_privateer_trainer_1_condition_hasSpaceShip(obj_id player, obj_id npc) throws InterruptedException
     {

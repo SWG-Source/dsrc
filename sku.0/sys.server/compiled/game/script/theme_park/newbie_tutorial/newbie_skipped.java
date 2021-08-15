@@ -14,10 +14,7 @@ public class newbie_skipped extends script.theme_park.newbie_tutorial.tutorial_b
     }
     public int OnAttach(obj_id self) throws InterruptedException
     {
-        if (features.isSpaceEdition(self))
-        {
-            setObjVar(self, "jtlNewbie", 4);
-        }
+        setObjVar(self, "jtlNewbie", 4);
         deleteInventory(self);
         fillbank(self);
         grantNewbieStartingMoney(self);

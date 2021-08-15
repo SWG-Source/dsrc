@@ -35,7 +35,7 @@ public class greeter_dantooine_brother_rebel extends script.base_script
     }
     public boolean greeter_dantooine_brother_rebel_condition_hasSpaceExpansion(obj_id player, obj_id npc) throws InterruptedException
     {
-        return (features.isSpaceEdition(player));
+        return true;
     }
     public boolean greeter_dantooine_brother_rebel_condition_hasSpaceShip(obj_id player, obj_id npc) throws InterruptedException
     {

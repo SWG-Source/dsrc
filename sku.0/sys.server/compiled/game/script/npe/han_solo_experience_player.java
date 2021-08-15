@@ -51,9 +51,6 @@ public class han_solo_experience_player extends script.base_script
     }
     public void checkJtLStatus(obj_id self) throws InterruptedException
     {
-        if (features.isSpaceEdition(self))
-        {
-            setObjVar(self, "jtlNewbie", 4);
-        }
+        setObjVar(self, "jtlNewbie", 4);
     }
 }

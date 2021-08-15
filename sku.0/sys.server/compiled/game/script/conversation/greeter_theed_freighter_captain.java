@@ -51,7 +51,7 @@ public class greeter_theed_freighter_captain extends script.base_script
     }
     public boolean greeter_theed_freighter_captain_condition_hasSpaceExpansion(obj_id player, obj_id npc) throws InterruptedException
     {
-        return (features.isSpaceEdition(player));
+        return true;
     }
     public boolean greeter_theed_freighter_captain_condition_hasSpaceShip(obj_id player, obj_id npc) throws InterruptedException
     {

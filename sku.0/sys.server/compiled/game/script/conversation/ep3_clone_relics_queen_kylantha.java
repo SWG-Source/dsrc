@@ -64,11 +64,11 @@ public class ep3_clone_relics_queen_kylantha extends script.base_script
     }
     public boolean ep3_clone_relics_queen_kylantha_condition_isGm(obj_id player, obj_id npc) throws InterruptedException
     {
-        return (hasObjVar(player, "gm"));
+        return isGod(player);
     }
     public boolean ep3_clone_relics_queen_kylantha_condition_hasEp3(obj_id player, obj_id npc) throws InterruptedException
     {
-        return features.hasEpisode3Expansion(player);
+        return true;
     }
     public boolean ep3_clone_relics_queen_kylantha_condition_failedQuestTwo(obj_id player, obj_id npc) throws InterruptedException
     {

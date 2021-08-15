@@ -144,13 +144,6 @@ public class skillteacher extends script.base_script
         {
             trainerType = getStringObjVar(self, "trainer");
         }
-        if (trainerType.equals("trainer_shipwright") && !features.isSpaceEdition(speaker))
-        {
-            doAnimationAction(self, "thumbs_down");
-            sendSystemMessage(speaker, new string_id("skill_teacher", "requires_jtl"));
-            chat.publicChat(self, speaker, new string_id("skill_teacher", "too_complicated"));
-            return SCRIPT_CONTINUE;
-        }
         faceTo(self, speaker);
         if (!checkSkillStatus(self, speaker))
         {
@@ -191,16 +184,6 @@ public class skillteacher extends script.base_script
     public int OnNpcConversationResponse(obj_id self, String convoName, obj_id speaker, string_id sid_response) throws InterruptedException
     {
         String trainerType = getStringObjVar(self, "trainer");
-        if (trainerType != null)
-        {
-            if (trainerType.equals("trainer_shipwright") && !features.isSpaceEdition(speaker))
-            {
-                doAnimationAction(self, "thumbs_down");
-                sendSystemMessage(speaker, new string_id("skill_teacher", "requires_jtl"));
-                chat.publicChat(self, speaker, new string_id("skill_teacher", "too_complicated"));
-                return SCRIPT_CONTINUE;
-            }
-        }
         if (!convoName.equals(CONVONAME) && !convoName.equals(JEDI_TRAINER))
         {
             return SCRIPT_CONTINUE;

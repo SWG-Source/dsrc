@@ -869,22 +869,6 @@ public class travel extends script.base_script
             sui.msgbox(player, new string_id("travel", "purchase_pending"));
             return false;
         }
-        if (planet2.equals("mustafar"))
-        {
-            if (!features.hasMustafarExpansionRetail(player))
-            {
-                sendSystemMessage(player, SID_MUSTAFAR_UNAUTHORIZED);
-                return false;
-            }
-        }
-        else if (planet2.equals("kashyyyk_main"))
-        {
-            if (!features.hasEpisode3Expansion(player))
-            {
-                sendSystemMessage(player, SID_KASHYYYK_UNAUTHORIZED);
-                return false;
-            }
-        }
         else if (planet1.equals(planet2))
         {
             if (point1.equals(point2))
@@ -1164,22 +1148,6 @@ public class travel extends script.base_script
             if (isTravelBlocked(player, false))
             {
                 return false;
-            }
-            if (planet.equals("mustafar"))
-            {
-                if (!features.hasMustafarExpansionRetail(player))
-                {
-                    sendSystemMessage(player, SID_MUSTAFAR_UNAUTHORIZED);
-                    return false;
-                }
-            }
-            else if (planet.equals("kashyyyk_main"))
-            {
-                if (!features.hasEpisode3Expansion(player))
-                {
-                    sendSystemMessage(player, SID_KASHYYYK_UNAUTHORIZED);
-                    return false;
-                }
             }
         }
         location loc = getPlanetTravelPointLocation(planet, point);

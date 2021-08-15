@@ -123,7 +123,7 @@ public class story_loot_talus extends script.base_script
     }
     public boolean story_loot_talus_condition_hasSpaceExp(obj_id player, obj_id npc) throws InterruptedException
     {
-        return features.isSpaceEdition(player);
+        return true;
     }
     public boolean story_loot_talus_condition_checkRem(obj_id player, obj_id npc) throws InterruptedException
     {

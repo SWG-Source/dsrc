@@ -18,10 +18,6 @@ public class loot_ep3_clone_relics_jedi_starfighter extends script.base_script
     }
     public int OnAboutToOpenContainer(obj_id self, obj_id who) throws InterruptedException
     {
-        if (!features.hasEpisode3Expansion(who))
-        {
-            return SCRIPT_OVERRIDE;
-        }
         return SCRIPT_CONTINUE;
     }
     public int OnObjectMenuSelect(obj_id self, obj_id player, int item) throws InterruptedException

@@ -79,7 +79,7 @@ public class tutorial_imperial_broker extends script.base_script
     }
     public boolean tutorial_imperial_broker_condition_hasSpace(obj_id player, obj_id npc) throws InterruptedException
     {
-        return (features.isSpaceEdition(player));
+        return true;
     }
     public void tutorial_imperial_broker_action_addCorelliaImpWaypoint(obj_id player, obj_id npc) throws InterruptedException
     {

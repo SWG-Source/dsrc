@@ -78,7 +78,7 @@ public class ep3_clone_relics_clone_trooper_mort extends script.base_script
     }
     public boolean ep3_clone_relics_clone_trooper_mort_condition_hasEp3(obj_id player, obj_id npc) throws InterruptedException
     {
-        return features.hasEpisode3Expansion(player);
+        return true;
     }
     public void ep3_clone_relics_clone_trooper_mort_action_giveQuest1(obj_id player, obj_id npc) throws InterruptedException
     {

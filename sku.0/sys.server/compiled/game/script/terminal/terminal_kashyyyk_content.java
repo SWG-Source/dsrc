@@ -684,15 +684,7 @@ public class terminal_kashyyyk_content extends script.base_script
     {
         if (item == menu_info_types.ITEM_USE)
         {
-            boolean enabled = features.hasEpisode3Expansion(player);
-            if (enabled == true)
-            {
-                startCharacterBuilder(player);
-            }
-            else 
-            {
-                sendSystemMessageTestingOnly(player, "You must be enabled for Rage Of The Wookiees to use this");
-            }
+            startCharacterBuilder(player);
         }
         return SCRIPT_CONTINUE;
     }

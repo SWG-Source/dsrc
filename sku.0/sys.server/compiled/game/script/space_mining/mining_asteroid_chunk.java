@@ -69,10 +69,6 @@ public class mining_asteroid_chunk extends script.base_script
     public int OnShipWasHit(obj_id self, obj_id attacker, int weaponIndex, boolean isMissile, int missileType, int chassisSlot, boolean isPlayerAutoTurret, float hitLocationX_o, float hitLocationY_o, float hitLocationZ_o) throws InterruptedException
     {
         obj_id attackingPilot = space_utils.getPilotForRealsies(attacker);
-        if (!features.hasEpisode3Expansion(attackingPilot))
-        {
-            return SCRIPT_CONTINUE;
-        }
         LOG("space_mining", "OnShipWasHit " + self + ", " + attacker + ", " + weaponIndex);
         int intWeaponSlot = weaponIndex + ship_chassis_slot_type.SCST_weapon_0;
         location attackingLocation = getLocation(attacker);

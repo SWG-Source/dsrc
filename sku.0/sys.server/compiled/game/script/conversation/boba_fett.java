@@ -89,11 +89,11 @@ public class boba_fett extends script.base_script
     }
     public boolean boba_fett_condition_isGm(obj_id player, obj_id npc) throws InterruptedException
     {
-        return (hasObjVar(player, "gm"));
+        return isGod(player);
     }
     public boolean boba_fett_condition_hasEp3(obj_id player, obj_id npc) throws InterruptedException
     {
-        return features.hasEpisode3Expansion(player);
+        return true;
     }
     public boolean boba_fett_condition_hasCompletetedQuestFive(obj_id player, obj_id npc) throws InterruptedException
     {

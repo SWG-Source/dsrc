@@ -31,7 +31,7 @@ public class greeter_mos_espa_young_pilot extends script.base_script
     }
     public boolean greeter_mos_espa_young_pilot_condition_hasSpaceExpansion(obj_id player, obj_id npc) throws InterruptedException
     {
-        return (features.isSpaceEdition(player));
+        return true;
     }
     public boolean greeter_mos_espa_young_pilot_condition_hasSpaceShip(obj_id player, obj_id npc) throws InterruptedException
     {

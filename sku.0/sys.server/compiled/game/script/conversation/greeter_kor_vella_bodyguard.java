@@ -31,7 +31,7 @@ public class greeter_kor_vella_bodyguard extends script.base_script
     }
     public boolean greeter_kor_vella_bodyguard_condition_hasSpaceExpansion(obj_id player, obj_id npc) throws InterruptedException
     {
-        return (features.isSpaceEdition(player));
+        return true;
     }
     public boolean greeter_kor_vella_bodyguard_condition_hasSpaceShip(obj_id player, obj_id npc) throws InterruptedException
     {

@@ -31,7 +31,7 @@ public class rebel_master_trooper extends script.base_script
     }
     public boolean rebel_master_trooper_condition_hasSpaceExpansion(obj_id player, obj_id npc) throws InterruptedException
     {
-        return (features.isSpaceEdition(player));
+        return true;
     }
     public boolean rebel_master_trooper_condition_hasSpaceShip(obj_id player, obj_id npc) throws InterruptedException
     {

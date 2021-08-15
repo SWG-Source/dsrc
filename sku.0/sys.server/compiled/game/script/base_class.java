@@ -21696,10 +21696,10 @@ public class base_class
     {
         return _getAccountNumLots(getLongWithNull(player));
     }
+
     /**
-     * Find out what game features this player has purchased
-     * @param player The player (creature object)
-     * @return       A 32bit bit-vector indicating the game features this player has purchased.
+     * @deprecated
+     * todo to be removed
      */
     private static native int _getGameFeatureBits(long player);
     public static int getGameFeatureBits(obj_id player)
@@ -21707,9 +21707,8 @@ public class base_class
         return _getGameFeatureBits(getLongWithNull(player));
     }
     /**
-         * Find out what subscription features this player has purchased
-         * @param player The player (creature object)
-         * @return       A 32bit bit-vector indicating the subscription features this player has purchased.
+     * @deprecated
+     * todo to be removed
      */
     private static native int _getSubscriptionFeatureBits(long player);
     public static int getSubscriptionFeatureBits(obj_id player)

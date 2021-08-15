@@ -25,40 +25,33 @@ public class reset extends script.base_script
     public int createNewGoggles(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException
     {
         boolean createFailed = false;
-        if (features.isCollectorEdition(self) || features.isJPCollectorEdition(self))
+        if (rand(0, 1) == 0)
         {
-            if (features.isCollectorEdition(self))
-            {
-                obj_id[] allItems = utils.getAllItemsInBankAndInventory(self);
-                obj_id inventory = getObjectInSlot(self, "inventory");
-                for (String collectorEditionItem : COLLECTOR_EDITION_ITEMS) {
-                    if (checkItems(allItems, collectorEditionItem)) {
-                        continue;
-                    }
-                    obj_id newItem = createObject(collectorEditionItem, inventory, "");
-                    if (!isIdValid(newItem)) {
-                        createFailed = true;
-                    }
+            obj_id[] allItems = utils.getAllItemsInBankAndInventory(self);
+            obj_id inventory = getObjectInSlot(self, "inventory");
+            for (String collectorEditionItem : COLLECTOR_EDITION_ITEMS) {
+                if (checkItems(allItems, collectorEditionItem)) {
+                    continue;
                 }
-            }
-            if (features.isJPCollectorEdition(self))
-            {
-                obj_id[] allItems = utils.getAllItemsInBankAndInventory(self);
-                obj_id inventory = getObjectInSlot(self, "inventory");
-                for (String jpCollectorEditionItem : JP_COLLECTOR_EDITION_ITEMS) {
-                    if (checkItems(allItems, jpCollectorEditionItem)) {
-                        continue;
-                    }
-                    obj_id newItem = createObject(jpCollectorEditionItem, inventory, "");
-                    if (!isIdValid(newItem)) {
-                        createFailed = true;
-                    }
+                obj_id newItem = createObject(collectorEditionItem, inventory, "");
+                if (!isIdValid(newItem)) {
+                    createFailed = true;
                 }
             }
         }
-        else 
+        else
         {
-            sendSystemMessage(self, new string_id("error_message", "create_goggle_non_se"));
+            obj_id[] allItems = utils.getAllItemsInBankAndInventory(self);
+            obj_id inventory = getObjectInSlot(self, "inventory");
+            for (String jpCollectorEditionItem : JP_COLLECTOR_EDITION_ITEMS) {
+                if (checkItems(allItems, jpCollectorEditionItem)) {
+                    continue;
+                }
+                obj_id newItem = createObject(jpCollectorEditionItem, inventory, "");
+                if (!isIdValid(newItem)){
+                    createFailed = true;
+                }
+            }
         }
         if (createFailed)
         {

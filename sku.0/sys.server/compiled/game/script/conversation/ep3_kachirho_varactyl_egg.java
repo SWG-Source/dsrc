@@ -27,11 +27,7 @@ public class ep3_kachirho_varactyl_egg extends script.base_script
     }
     public boolean ep3_kachirho_varactyl_egg_condition_isPreOrder(obj_id player, obj_id npc) throws InterruptedException
     {
-        if (features.hasEpisode3PreOrderDigitalDownload(player) && hasSkill(player, "outdoors_creaturehandler_master"))
-        {
-            return true;
-        }
-        return false;
+        return true;
     }
     public void ep3_kachirho_varactyl_egg_action_grantMission(obj_id player, obj_id npc) throws InterruptedException
     {

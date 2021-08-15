@@ -61,7 +61,7 @@ public class combat_ship_player extends script.base_script
     }
     public void newPlayerCheck(obj_id self) throws InterruptedException
     {
-        if (!hasObjVar(self, "jtlNewbie") && features.isSpaceEdition(self))
+        if (!hasObjVar(self, "jtlNewbie"))
         {
             if (!hasScript(self, "theme_park.newbie_tutorial.jtl_newbie"))
             {
@@ -591,32 +591,6 @@ public class combat_ship_player extends script.base_script
         String sceneName = getSceneForHyperspacePoint(hyperspacePoint);
         if(sceneName == null || sceneName.equals("")){
             LOG("space","WARNING: Unable to get hyperspace scene name from hyperspacePoint (" + hyperspacePoint + ").  Self (" + self + ":" + getName(self) + "), Target(" + target + ":" + getName(target) + ").");
-        }
-        if (!isGod(self))
-        {
-            if (sceneName != null && sceneName.equals("space_kashyyyk"))
-            {
-                if (!features.hasEpisode3Expansion(self))
-                {
-                    string_id strSpam = new string_id("space/space_interaction", "no_ep3");
-                    sendSystemMessage(self, strSpam);
-                    return SCRIPT_CONTINUE;
-                }
-                Vector passengers = space_transition.getContainedPlayers(objShip);
-                for (Object passenger1 : passengers) {
-                    obj_id passenger = (obj_id) passenger1;
-                    if (!features.hasEpisode3Expansion(passenger)) {
-                        string_id strSpam = new string_id("space/space_interaction", "no_ep3_passengers");
-                        sendSystemMessage(self, strSpam);
-                        return SCRIPT_CONTINUE;
-                    }
-                }
-            }
-        }
-        else 
-        {
-            string_id strSpam = new string_id("space/space_interaction", "godmode_bypassing_ep3_check");
-            sendSystemMessage(self, strSpam);
         }
         if (utils.hasScriptVar(objShip, "intHyperspacing"))
         {

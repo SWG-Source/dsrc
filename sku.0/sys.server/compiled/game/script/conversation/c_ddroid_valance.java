@@ -15,7 +15,7 @@ public class c_ddroid_valance extends script.base_script
     }
     public boolean c_ddroid_valance_condition_hasSpaceExpansion(obj_id player, obj_id npc) throws InterruptedException
     {
-        return (features.isSpaceEdition(player));
+        return true;
     }
     public boolean c_ddroid_valance_condition_playeronquest1(obj_id player, obj_id npc) throws InterruptedException
     {

@@ -161,7 +161,7 @@ public class corellia_rebel_trainer_1 extends script.base_script
     }
     public boolean corellia_rebel_trainer_1_condition_hasSpaceExpansion(obj_id player, obj_id npc) throws InterruptedException
     {
-        return (features.isSpaceEdition(player));
+        return true;
     }
     public boolean corellia_rebel_trainer_1_condition_has_GRADUATED_goto_LOK(obj_id player, obj_id npc) throws InterruptedException
     {

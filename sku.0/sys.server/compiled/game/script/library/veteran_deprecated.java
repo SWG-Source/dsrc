@@ -479,42 +479,6 @@ public class veteran_deprecated extends script.base_script
                 }
             }
         }
-        int requiredBit = dataTableGetInt(REWARDS_DATATABLE, index, REWARDS_COLUMN_REQUIREDGAMEFEATUREBITANY);
-        if (requiredBit > 0)
-        {
-            int game_bits = getGameFeatureBits(player);
-            if ((game_bits & requiredBit) == 0)
-            {
-                return CAN_GET_REWARD_FAIL_INADEQUATE_SUBSCRIPTION;
-            }
-        }
-        requiredBit = dataTableGetInt(REWARDS_DATATABLE, index, REWARDS_COLUMN_REQUIREDGAMEFEATUREBITALL);
-        if (requiredBit > 0)
-        {
-            int game_bits = getGameFeatureBits(player);
-            if ((game_bits & requiredBit) != requiredBit)
-            {
-                return CAN_GET_REWARD_FAIL_INADEQUATE_SUBSCRIPTION;
-            }
-        }
-        requiredBit = dataTableGetInt(REWARDS_DATATABLE, index, REWARDS_COLUMN_REQUIREDSUBSCRIPTIONFEATUREBITANY);
-        if (requiredBit > 0)
-        {
-            int sub_bits = getSubscriptionFeatureBits(player);
-            if ((sub_bits & requiredBit) == 0)
-            {
-                return CAN_GET_REWARD_FAIL_INADEQUATE_SUBSCRIPTION;
-            }
-        }
-        requiredBit = dataTableGetInt(REWARDS_DATATABLE, index, REWARDS_COLUMN_REQUIREDSUBSCRIPTIONFEATUREBITALL);
-        if (requiredBit > 0)
-        {
-            int sub_bits = getSubscriptionFeatureBits(player);
-            if ((sub_bits & requiredBit) != requiredBit)
-            {
-                return CAN_GET_REWARD_FAIL_INADEQUATE_SUBSCRIPTION;
-            }
-        }
         int rewardMilestone = dataTableGetInt(REWARDS_DATATABLE, index, REWARDS_COLUMN_MILESTONE);
         if (rewardMilestone > milestone)
         {

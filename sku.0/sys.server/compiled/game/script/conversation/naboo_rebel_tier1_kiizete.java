@@ -35,7 +35,7 @@ public class naboo_rebel_tier1_kiizete extends script.base_script
     }
     public boolean naboo_rebel_tier1_kiizete_condition_hasSpaceExpansion(obj_id player, obj_id npc) throws InterruptedException
     {
-        return (features.isSpaceEdition(player));
+        return true;
     }
     public boolean naboo_rebel_tier1_kiizete_condition_hasVeryFirstQuest(obj_id player, obj_id npc) throws InterruptedException
     {

@@ -171,11 +171,6 @@ public class space_quest extends script.base_script
         {
             return false;
         }
-        if (!features.isSpaceEdition(player))
-        {
-            sendSystemMessage(player, SID_REQUIRES_JTL);
-            return false;
-        }
         if (hasQuest(player, questType, questName))
         {
             return false;

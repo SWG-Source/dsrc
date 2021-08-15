@@ -39,7 +39,7 @@ public class rebel_broker extends script.base_script
     }
     public boolean rebel_broker_condition_hasSpaceExp(obj_id player, obj_id npc) throws InterruptedException
     {
-        return features.isSpaceEdition(player);
+        return true;
     }
     public void rebel_broker_action_brushedOffImp(obj_id player, obj_id npc) throws InterruptedException
     {

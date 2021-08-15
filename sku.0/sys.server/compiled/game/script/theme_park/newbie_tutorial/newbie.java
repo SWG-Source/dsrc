@@ -14,10 +14,7 @@ public class newbie extends script.theme_park.newbie_tutorial.tutorial_base
     public static final String questNewbieHall01 = "c_newbie_hall_01";
     public int OnAttach(obj_id self) throws InterruptedException
     {
-        if (features.isSpaceEdition(self))
-        {
-            setObjVar(self, "jtlNewbie", 4);
-        }
+        setObjVar(self, "jtlNewbie", 4);
         obj_id bldg = getTopMostContainer(self);
         setObjVar(bldg, NEWBIE_PLAYER, self);
         newbieTutorialRequest(self, "clientReady");
@@ -29,10 +26,7 @@ public class newbie extends script.theme_park.newbie_tutorial.tutorial_base
     }
     public int OnInitialize(obj_id self) throws InterruptedException
     {
-        if (features.isSpaceEdition(self))
-        {
-            setObjVar(self, "jtlNewbie", 4);
-        }
+        setObjVar(self, "jtlNewbie", 4);
         location loc = getLocation(self);
         String area = loc.area;
         if (area.equals("tutorial"))

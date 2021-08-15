@@ -1007,67 +1007,6 @@ public class dump extends script.base_script
             {
                 strTest += "none\n\r";
             }
-            strTest += "\r\nGAME SUBSCRIPTION FEATURES:\r\n";
-            boolean boolHasCollectorEdition = features.hasCollectorEdition(objTarget);
-            boolean boolhasSpaceExpansion = features.hasSpaceExpansion(objTarget);
-            boolean boolhasSpaceExpansionPromotion = features.hasSpaceExpansionPromotion(objTarget);
-            boolean boolhasJapaneseCollectorEdition = features.hasJapaneseCollectorEdition(objTarget);
-            boolean boolhasEpisode3Expansion = features.hasEpisode3Expansion(objTarget);
-            boolean boolhasEpisode3PreOrderDigitalDownload = features.hasEpisode3PreOrderDigitalDownload(objTarget);
-            boolean boolhasEpisode3ExpansionRetail = features.hasEpisode3ExpansionRetail(objTarget);
-            boolean boolhasTrialsOfObiwanExpansionRetail = features.hasTrialsOfObiwanExpansionRetail(objTarget);
-            boolean boolhasTrialsOfObiwanExpansionPreorder = features.hasTrialsOfObiwanExpansionPreorder(objTarget);
-            boolean boolhasTrialsOfObiwanExpansion = features.hasTrialsOfObiwanExpansion(objTarget);
-            boolean boolhasMustafarExpansionRetail = features.hasMustafarExpansionRetail(objTarget);
-            boolean boolhasFreeTrial = features.hasFreeTrial(objTarget);
-            if (boolHasCollectorEdition)
-            {
-                strTest += "\t\t\tCollector's Edition\r\n";
-            }
-            if (boolhasSpaceExpansion)
-            {
-                strTest += "\t\t\tJTL SpaceExpansion\r\n";
-            }
-            if (boolhasSpaceExpansionPromotion)
-            {
-                strTest += "\t\t\tJTL Space Expansion Promotion\r\n";
-            }
-            if (boolhasJapaneseCollectorEdition)
-            {
-                strTest += "\t\t\tJapanese Collector's Edition:\r\n";
-            }
-            if (boolhasEpisode3Expansion)
-            {
-                strTest += "\t\t\tEpisode 3 Expansion\r\n";
-            }
-            if (boolhasEpisode3PreOrderDigitalDownload)
-            {
-                strTest += "\t\t\tEpisode 3 Expansion Preorder\r\n";
-            }
-            if (boolhasEpisode3ExpansionRetail)
-            {
-                strTest += "\t\t\tEpisode 3 Expansion Retail\r\n";
-            }
-            if (boolhasTrialsOfObiwanExpansionRetail)
-            {
-                strTest += "\t\t\tTrials of Obiwan Expansion Retail\r\n";
-            }
-            if (boolhasTrialsOfObiwanExpansionPreorder)
-            {
-                strTest += "\t\t\tTrials of Obiwan Expansion Preorder\r\n";
-            }
-            if (boolhasTrialsOfObiwanExpansion)
-            {
-                strTest += "\t\t\tTrials of Obiwan Expansion\r\n";
-            }
-            if (boolhasMustafarExpansionRetail)
-            {
-                strTest += "\t\t\tMustafar Expansion Retail\r\n";
-            }
-            if (boolhasFreeTrial)
-            {
-                strTest += "\t\t\tFree Trial\r\n";
-            }
         }
         if (space_utils.isShip(objTarget))
         {

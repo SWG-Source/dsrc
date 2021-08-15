@@ -83,7 +83,7 @@ public class yavin_fallenstar_pt_1_osae extends script.base_script
     {
         int questId1 = questGetQuestId("quest/yavin_fallenstar_pt1");
         int questId2 = questGetQuestId("quest/yavin_fallenstar_pt2");
-        boolean OnTask = (questIsQuestComplete(questId1, player)) && (questIsQuestComplete(questId2, player)) && (features.isSpaceEdition(player));
+        boolean OnTask = (questIsQuestComplete(questId1, player)) && (questIsQuestComplete(questId2, player));
         return OnTask;
     }
     public boolean yavin_fallenstar_pt_1_osae_condition_onQuest(obj_id player, obj_id npc) throws InterruptedException

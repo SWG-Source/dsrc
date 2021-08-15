@@ -28,7 +28,7 @@ public class mining_asteroid_static extends script.base_script
         int intDangerLevel = getIntObjVar(self, "intDangerLevel");
         int intDangerPct = getIntObjVar(self, "intDangerPct");
         obj_id attackingPilot = space_utils.getPilotForRealsies(attacker);
-        if (!isIdValid(attackingPilot) || !features.hasEpisode3Expansion(attackingPilot))
+        if (!isIdValid(attackingPilot))
         {
             return SCRIPT_CONTINUE;
         }

@@ -23,7 +23,7 @@ public class privateer_broker extends script.base_script
     }
     public boolean privateer_broker_condition_hasSpaceExp(obj_id player, obj_id npc) throws InterruptedException
     {
-        return features.isSpaceEdition(player);
+        return true;
     }
     public void privateer_broker_action_addImperialBrokerWaypoint(obj_id player, obj_id npc) throws InterruptedException
     {

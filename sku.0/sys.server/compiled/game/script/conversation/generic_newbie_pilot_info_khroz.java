@@ -31,7 +31,7 @@ public class generic_newbie_pilot_info_khroz extends script.base_script
     }
     public boolean generic_newbie_pilot_info_khroz_condition_hasSpaceExpansion(obj_id player, obj_id npc) throws InterruptedException
     {
-        return (features.isSpaceEdition(player));
+        return true;
     }
     public boolean generic_newbie_pilot_info_khroz_condition_hasSpaceShip(obj_id player, obj_id npc) throws InterruptedException
     {

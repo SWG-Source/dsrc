@@ -369,7 +369,7 @@ public class corellia_imperial_trainer_1 extends script.base_script
     }
     public boolean corellia_imperial_trainer_1_condition_hasSpaceExp(obj_id player, obj_id npc) throws InterruptedException
     {
-        return features.isSpaceEdition(player);
+        return true;
     }
     public boolean corellia_imperial_trainer_1_condition_hasNoviceSkillBox(obj_id player, obj_id npc) throws InterruptedException
     {
