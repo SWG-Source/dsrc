@@ -236,6 +236,7 @@ public class guild extends script.base_script
     public static final int INTERFACE_GUILD_WAR_PREFERENCES = 6;
     public static final String VAR_TIME_JOINED_CURRENT_GUILD = "guild.timeJoinedCurrentGuild";
     public static final String VAR_LEADERBOARD_PERIOD_ON_JOIN = "guild.leaderboardPeriodOnJoin";
+    public static final String VAR_GUILD_MOTD = "guild.motd.%d"; // append guildId
 
     public static String resolveGuildName(int guildId) throws InterruptedException
     {

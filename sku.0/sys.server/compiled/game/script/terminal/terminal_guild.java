@@ -3,6 +3,7 @@ package script.terminal;
 import script.*;
 import script.library.*;
 
+import java.util.StringTokenizer;
 import java.util.Vector;
 
 public class terminal_guild extends script.terminal.base.base_terminal
@@ -84,6 +85,9 @@ public class terminal_guild extends script.terminal.base.base_terminal
     public static final string_id SID_ALIGN_NEUTRAL = new string_id("guild", "align_neutral");
     public static final string_id SID_BEGIN_GCW_REGION_DEFENDER = new string_id("guild", "begin_gcw_region_defender");
     public static final string_id SID_END_GCW_REGION_DEFENDER = new string_id("guild", "end_gcw_region_defender");
+    public static final string_id SID_MENU_MEMBER_MOTD = new string_id("guild", "menu_member_motd");
+    public static final String SID_MEMBER_MOTD_PROMPT = localize(new string_id("guild", "prompt_member_motd_message"));
+
     public int getStructureGuildId(obj_id self) throws InterruptedException
     {
         int guildId = 0;
@@ -273,6 +277,7 @@ public class terminal_guild extends script.terminal.base.base_terminal
                 {
                     mi.addSubMenu(guildManagementMenu, menu_info_types.SERVER_MENU23, SID_BEGIN_GCW_REGION_DEFENDER);
                 }
+                mi.addSubMenu(guildManagementMenu, menu_info_types.SERVER_MENU24, SID_MENU_MEMBER_MOTD);
             }
             int memberManagementMenu = mi.addRootMenu(menu_info_types.SERVER_GUILD_MEMBER_MANAGEMENT, SID_GUILD_MEMBER_MANAGEMENT);
             mi.addSubMenu(memberManagementMenu, menu_info_types.SERVER_GUILD_MEMBERS, SID_GUILD_MEMBERS);
@@ -357,7 +362,7 @@ public class terminal_guild extends script.terminal.base.base_terminal
             }
             dictionary guildsListParams = new dictionary();
             guildsListParams.put("player", player);
-            messageTo(self, "showGuildsList", guildsListParams, 3.0f, false);
+            messageTo(self, "showGuildsList", guildsListParams, 0f, false);
             return SCRIPT_CONTINUE;
         }
         if (item == menu_info_types.SERVER_MENU12)
@@ -720,6 +725,13 @@ public class terminal_guild extends script.terminal.base.base_terminal
                 }
             }
         }
+        else if (item == menu_info_types.SERVER_MENU24) // Create a Guild Message
+        {
+            if (player == guildLeader || isGod(player))
+            {
+                sui.inputbox(self, player, SID_MEMBER_MOTD_PROMPT, "Guild Message", "handleSetGuildMessage", 256, false, "");
+            }
+        }
         return SCRIPT_CONTINUE;
     }
     public obj_id getMenuContextObjId(obj_id self, obj_id player, String varName) throws InterruptedException
@@ -732,6 +744,56 @@ public class terminal_guild extends script.terminal.base.base_terminal
         deltadictionary dd = self.getScriptVars();
         dd.put("guildMenu." + player + "." + varName, value);
     }
+
+    /**
+     * Handler for setting Guild MOTD Message from SUI Prompt
+     */
+    public int handleSetGuildMessage(obj_id self, dictionary params) throws InterruptedException
+    {
+        if (params == null || params.isEmpty())
+        {
+            return SCRIPT_CONTINUE;
+        }
+        final int btn = sui.getIntButtonPressed(params);
+        if (btn == sui.BP_CANCEL)
+        {
+            return SCRIPT_CONTINUE;
+        }
+        final obj_id player = sui.getPlayerId(params);
+        if (!isIdValid(player))
+        {
+            return SCRIPT_CONTINUE;
+        }
+        final String text = sui.getInputBoxText(params);
+        if(text.length() < 1)
+        {
+            return SCRIPT_CONTINUE;
+        }
+        // split at spaces to check each string for bad words (do not check reserved/fictional/syntax/number rules).
+        // in theory, we shouldn't have to do it like this, however, there are a lot of words that don't have the correct
+        // regex set for matching in a multi-word string context so we are checking each token individually.
+        StringTokenizer st = new StringTokenizer(text);
+        String[] ignoreRules = {"name_declined_reserved","name_declined_fictionally_reserved","name_declined_syntax","name_declined_number"};
+        boolean isAppropriate = true;
+        while(st.hasMoreTokens())
+        {
+            if(isNameReserved(st.nextToken(), ignoreRules))
+            {
+                isAppropriate = false;
+            }
+        }
+        if(!isAppropriate || text.contains(";") || text.contains("`")) // sanitize for ; and ` since we aren't declining for syntax rules
+        {
+            sendSystemMessageTestingOnly(player, "The Guild Message submitted contains words or phrases that are not allowed in Guild Messages. Please try again.");
+            sui.inputbox(self, player, SID_MEMBER_MOTD_PROMPT, "Guild Message", "handleSetGuildMessage", 256, false, "");
+            return SCRIPT_CONTINUE;
+        }
+        setObjVar(getMasterGuildObject(), String.format(guild.VAR_GUILD_MOTD, getGuildId(player)), text);
+        sendConsoleMessage(player, "***[Guild Message Preview]: "+text);
+        sendSystemMessageTestingOnly(player, "You have successfully set the Guild Message. A preview has been sent to your Chat Box.");
+        return SCRIPT_CONTINUE;
+    }
+
     public int handleMakeLeader(obj_id self, dictionary params) throws InterruptedException
     {
         obj_id player = sui.getPlayerId(params);
@@ -954,28 +1016,17 @@ public class terminal_guild extends script.terminal.base.base_terminal
             "text",
             "integer"
         };
-        int[] guildIds = getAllGuildIds();
+        final int[] guildIds = getAllGuildIds();
         if (guildIds == null || guildIds.length < 1)
         {
             return SCRIPT_CONTINUE;
         }
-        Vector validatedIds = new Vector();
-        validatedIds.setSize(0);
-        for (int guildId : guildIds) {
-            if (guildGetCountMembersOnly(guildId) > 4) {
-                utils.addElement(validatedIds, guildId);
-            }
-        }
-        if (validatedIds == null || validatedIds.size() < 1)
+        String[][] guildsData = new String[guildIds.length][3];
+        for (int i = 0, j = guildIds.length; i < j; i++)
         {
-            return SCRIPT_CONTINUE;
-        }
-        String[][] guildsData = new String[validatedIds.size()][3];
-        for (int i = 0, j = validatedIds.size(); i < j; i++)
-        {
-            guildsData[i][0] = guildGetName((Integer) validatedIds.get(i));
-            guildsData[i][1] = guildGetAbbrev((Integer) validatedIds.get(i));
-            guildsData[i][2] = "" + guildGetCountMembersOnly((Integer) validatedIds.get(i));
+            guildsData[i][0] = guildGetName(guildIds[i]);
+            guildsData[i][1] = guildGetAbbrev(guildIds[i]);
+            guildsData[i][2] = String.valueOf(guildGetCountMembersOnly(guildIds[i]));
         }
         int pid = sui.tableRowMajor(self, player, sui.OK_CANCEL, "List of Guilds", "onGuildsListResponse", null, table_titles, table_types, guildsData);
         guild.setWindowPid(self, pid);
