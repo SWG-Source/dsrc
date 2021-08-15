@@ -30,6 +30,11 @@ public class ord_mantell_dungeon_terminal extends script.base_script
                 sendSystemMessage(player, noCanFly);
                 return SCRIPT_CONTINUE;
             }
+            if(!isPlanetEnabledForCluster("space_ord_mantell"))
+            {
+                sendSystemMessageTestingOnly(player, "Space travel is not available right now. Please use the Gamma Shuttle Droid to return to Tansarii Point Station.");
+                return SCRIPT_CONTINUE;
+            }
             if (checkGod(player))
             {
                 return SCRIPT_CONTINUE;

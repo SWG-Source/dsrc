@@ -27,6 +27,11 @@ public class ord_mantell_terminal extends script.base_script
                 sendSystemMessage(player, noCanFly);
                 return SCRIPT_CONTINUE;
             }
+            if(!isPlanetEnabledForCluster("space_ord_mantell"))
+            {
+                sendSystemMessageTestingOnly(player, "Space travel is not available right now. Please use the Gamma Shuttle Droid to visit Ord Mantell.");
+                return SCRIPT_CONTINUE;
+            }
             obj_id vcdShipId = space_utils.hasUsableShip(player);
             obj_id[] shipId = getContents(vcdShipId);
             if (shipId != null && shipId.length != 0)
