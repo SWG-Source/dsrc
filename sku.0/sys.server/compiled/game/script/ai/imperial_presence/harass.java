@@ -153,6 +153,10 @@ public class harass extends script.base_script
         {
             return SCRIPT_CONTINUE;
         }
+        if (hasObjVar(who, "gm")) // respect /aiIgnore admin command
+        {
+            return SCRIPT_CONTINUE;
+        }
         if (who == self || !isPlayer(who))
         {
             return SCRIPT_CONTINUE;
@@ -216,6 +220,10 @@ public class harass extends script.base_script
             return SCRIPT_CONTINUE;
         }
         if (who == self || !isPlayer(who))
+        {
+            return SCRIPT_CONTINUE;
+        }
+        if (hasObjVar(who, "gm"))
         {
             return SCRIPT_CONTINUE;
         }
