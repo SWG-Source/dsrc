@@ -18750,6 +18750,12 @@ public class base_class
      */
     public static native boolean isAreaTooFullForTravel (String planetName, int x, int z);
 
+	/**
+	 * @param planetName the scene to check
+	 * @return true if the planet is turned on for this server
+	 */
+	public static native boolean isPlanetEnabledForCluster(String planetName);
+
     /**
      * Send a request to the planet server for both object1 and object2 to be moved to the same game server.
      *   The planet server will try to move one of the objects to the server the other object is on.
