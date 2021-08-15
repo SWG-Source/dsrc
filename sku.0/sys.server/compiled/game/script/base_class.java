@@ -21698,33 +21698,6 @@ public class base_class
     }
 
     /**
-     * @deprecated
-     * todo to be removed
-     */
-    private static native int _getGameFeatureBits(long player);
-    public static int getGameFeatureBits(obj_id player)
-    {
-        return _getGameFeatureBits(getLongWithNull(player));
-    }
-    /**
-     * @deprecated
-     * todo to be removed
-     */
-    private static native int _getSubscriptionFeatureBits(long player);
-    public static int getSubscriptionFeatureBits(obj_id player)
-    {
-        return _getSubscriptionFeatureBits(getLongWithNull(player));
-    }
-    /**
-     * @deprecated
-     * todo to be removed
-     */
-    private static native boolean _isFreeTrialAccount(long player);
-    public static boolean isFreeTrialAccount(obj_id player)
-    {
-        return _isFreeTrialAccount(getLongWithNull(player));
-    }
-    /**
          * Set this player's station id with the desired completed tutorial boolean
          * @param player The player (creature object)
          * @param value the desired value to set the bit to

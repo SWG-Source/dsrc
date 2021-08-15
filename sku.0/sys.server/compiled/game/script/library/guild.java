@@ -340,11 +340,6 @@ public class guild extends script.base_script
     }
     public static int create(obj_id actor, String guildName, String guildAbbrev) throws InterruptedException
     {
-        if (isFreeTrialAccount(actor))
-        {
-            sendSystemMessage(actor, SID_NO_FREE_TRIAL);
-            return 0;
-        }
         if (getGuildId(actor) != 0)
         {
             sendSystemMessage(actor, SID_GUILD_CREATE_FAIL_IN_GUILD);
