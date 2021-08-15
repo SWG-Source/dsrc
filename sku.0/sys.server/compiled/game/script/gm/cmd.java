@@ -3876,121 +3876,6 @@ public class cmd extends script.base_script
         }
         return SCRIPT_CONTINUE;
     }
-    public int cmdGmShowQuest(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException
-    {
-        StringTokenizer st = new java.util.StringTokenizer(params);
-        String playerOid = "";
-        String logFile = "";
-        if (st.hasMoreTokens())
-        {
-            playerOid = st.nextToken();
-        }
-        if (st.hasMoreTokens())
-        {
-            logFile = st.nextToken();
-        }
-        if (!playerOid.equals(""))
-        {
-            obj_id targetOid = utils.stringToObjId(playerOid);
-            if (!isIdNull(targetOid))
-            {
-                String[] listQuests = gm.getAllQuests(targetOid);
-                String combinedQuestList = "";
-                if (listQuests != null)
-                {
-                    for (String listQuest : listQuests) {
-                        combinedQuestList += listQuest + "\n";
-                    }
-                    if (!combinedQuestList.equals(""))
-                    {
-                        if (logFile.equals("log"))
-                        {
-                            String dumpString = dump.getTargetInfoString(targetOid);
-                            dumpString += "\n---------------------GM QUEST TOOL DATA------------------";
-                            dumpString += "\n" + combinedQuestList;
-                            String title = "questStringAndPlayerDump" + targetOid + "_" + getGameTime();
-                            saveTextOnClient(self, title + ".txt", dumpString);
-                        }
-                        gm.createCustomUI(self, "Quest List", combinedQuestList);
-                        CustomerServiceLog("gmQuest", "CSR: (" + self + ") " + getName(self) + " has accessed quests (" + combinedQuestList + ") from (" + targetOid + ") " + utils.getStringName(targetOid));
-                    }
-                }
-            }
-            else
-            {
-                sendSystemMessageTestingOnly(self, "Please check the OID and try again");
-            }
-        }
-        else
-        {
-            sendSystemMessageTestingOnly(self, "[Syntax] /gmshowquest <player OID>");
-        }
-        return SCRIPT_CONTINUE;
-    }
-    public int cmdGmClearQuest(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException
-    {
-        StringTokenizer st = new java.util.StringTokenizer(params);
-        String playerOid = "";
-        String questVar = "";
-        if (st.hasMoreTokens())
-        {
-            playerOid = st.nextToken();
-        }
-        if (st.hasMoreTokens())
-        {
-            questVar = st.nextToken();
-        }
-        if (!playerOid.equals("") && !questVar.equals(""))
-        {
-            obj_id targetOid = utils.stringToObjId(playerOid);
-            if (!isIdNull(targetOid))
-            {
-                gm.forceClearQuest(targetOid, questVar);
-                CustomerServiceLog("gmQuest", "CSR: (" + self + ") " + getName(self) + " has cleared (or attempted to clear) quest (" + questVar + ") from (" + targetOid + ") " + utils.getStringName(targetOid));
-            }
-            else
-            {
-                sendSystemMessageTestingOnly(self, "Please check the OID and try again");
-            }
-        }
-        else
-        {
-            sendSystemMessageTestingOnly(self, "[Syntax] /gmclearquest <player OID> <quest/code_string>");
-        }
-        return SCRIPT_CONTINUE;
-    }
-    public int cmdGmRegrantQuest(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException
-    {
-        StringTokenizer st = new java.util.StringTokenizer(params);
-        String playerOid = "";
-        String questVar = "";
-        if (st.hasMoreTokens())
-        {
-            playerOid = st.nextToken();
-        }
-        if (st.hasMoreTokens())
-        {
-            questVar = st.nextToken();
-        }
-        if (!playerOid.equals("") && !questVar.equals(""))
-        {
-            obj_id targetOid = utils.stringToObjId(playerOid);
-            if (!isIdNull(targetOid))
-            {
-                gm.forceRegrantQuest(targetOid, questVar);
-                CustomerServiceLog("gmQuest", "CSR: (" + self + ") " + getName(self) + " has cleared and granted (or attempted to clear and grant) quest (" + questVar + ") from (" + targetOid + ") " + utils.getStringName(targetOid));
-            }
-            else
-            {
-                sendSystemMessageTestingOnly(self, "Please check the OID and try again");
-            }
-        }
-        else
-        {
-            sendSystemMessageTestingOnly(self, "[Syntax] /gmregrantquest <player OID> <quest/code_string>");
-        }
-        return SCRIPT_CONTINUE;
-    }
     public int cmdSetInstanceAuthorized(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException
     {
         if (!isGod(self))
@@ -4704,8 +4589,7 @@ public class cmd extends script.base_script
             params = gm.removeKeyword(params, gm.KEYWORD_TARGET);
             target = getTarget(self);
         } else {
-            sendSystemMessageTestingOnly(self, "[Syntax] /gmRevive -target");
-            return SCRIPT_CONTINUE;
+            target = self;
         }
 
         // fix a disabled vehicle
@@ -4774,6 +4658,302 @@ public class cmd extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
+    }
+
+    /**
+     * Scripting which replicates a console command as /quest for quest-related sub-commands
+     *
+     * /quest clear oid questName
+     * /quest clearAllActive oid
+     * /quest clearAllComplete oid
+     * /quest complete oid questName
+     * /quest completeAll oid
+     * /quest list oid
+     * /quest grant oid questName
+     * /quest reGrant oid questName
+     * /quest reGrantArea range questName
+     */
+    public int cmdQuest(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+
+        if(!isGod(self))
+        {
+            return SCRIPT_CONTINUE;
+        }
+        StringTokenizer st = new StringTokenizer(params);
+        String command;
+        if(st.hasMoreTokens()) {
+            command = st.nextToken();
+        } else {
+            showQuestCmdSyntax(self);
+            return SCRIPT_CONTINUE;
+        }
+
+        // *******************************************************************
+        // /quest list <oid>
+        // *******************************************************************
+        if(command.equalsIgnoreCase("list"))
+        {
+            final String toParse = st.nextToken();
+            target = obj_id.getObjId(Long.parseLong(toParse));
+            if(!isIdValid(target)) {
+                sendSystemMessageTestingOnly(self, "quest list: Error: The OID you provided is not valid or you are missing an argument.");
+                sendSystemMessageTestingOnly(self, "Syntax: /quest list <oid>");
+                return SCRIPT_CONTINUE;
+            }
+            final int[] active = questGetAllActiveQuestIds(target);
+            final int[] completed = questGetAllCompletedQuestIds(target);
+            if(active.length < 1 && completed.length < 1)
+            {
+                sendSystemMessageTestingOnly(self, "quest list: Error: The player specified has no quest history.");
+                return SCRIPT_CONTINUE;
+            }
+            StringBuilder activeQuests = new StringBuilder("\\#ffa500***** Active Quests *****\\#.\n\n");
+            for (int quest : active)
+            {
+                activeQuests.append(quest).append(" - ").append(questGetQuestName(quest)).append("\n");
+            }
+            StringBuilder completeQuests = new StringBuilder("\\#ffa500***** Completed Quests *****\\#.\n\n");
+            for (int quest : completed)
+            {
+                completeQuests.append(quest).append(" - ").append(questGetQuestName(quest)).append("\n");
+            }
+            final String data = "Quest Data for "+getPlayerName(target)+" ("+target+")\n\n" + activeQuests + "\n\n" + completeQuests;
+            sui.msgbox(self, self, data, sui.OK_ONLY, "Quest List", "noHandler");
+            return SCRIPT_CONTINUE;
+        }
+
+        // *******************************************************************
+        // /quest grant <oid> <quest name>
+        // *******************************************************************
+        if(command.equalsIgnoreCase("grant"))
+        {
+            final String toParse = st.nextToken();
+            target = obj_id.getObjId(Long.parseLong(toParse));
+            if(!isIdValid(target) || !st.hasMoreTokens()) {
+                sendSystemMessageTestingOnly(self, "quest grant: Error: The OID you provided is not valid or you are missing an argument.");
+                sendSystemMessageTestingOnly(self, "Syntax: /quest grant <oid> <quest name>");
+                return SCRIPT_CONTINUE;
+            }
+            final String questName = st.nextToken();
+            final int id = questGetQuestId(questName);
+            if(id == 0)
+            {
+                sendSystemMessageTestingOnly(self, "quest grant: Error: The quest name specified was not valid.");
+                return SCRIPT_CONTINUE;
+            }
+            if(Arrays.stream(questGetAllCompletedQuestIds(target)).anyMatch(i -> i == id) ||
+                    Arrays.stream(questGetAllActiveQuestIds(target)).anyMatch(i -> i == id))
+            {
+                sendSystemMessageTestingOnly(self, "quest grant: Error: Player "+target+" already has quest "+questName+" as active or completed. Use /quest reGrant instead if you want to force clear and grant this quest.");
+                return SCRIPT_CONTINUE;
+            }
+            requestActivateQuest(id, target, target);
+            sendSystemMessageTestingOnly(self, "quest grant: Success. Player "+target+" was granted quest "+questName);
+            return SCRIPT_CONTINUE;
+        }
+
+        // *******************************************************************
+        // /quest reGrant <oid> <quest name>
+        // *******************************************************************
+        if(command.equalsIgnoreCase("reGrant"))
+        {
+            final String toParse = st.nextToken();
+            target = obj_id.getObjId(Long.parseLong(toParse));
+            if(!isIdValid(target) || !st.hasMoreTokens()) {
+                sendSystemMessageTestingOnly(self, "quest reGrant: Error: The OID you provided is not valid or you are missing an argument.");
+                sendSystemMessageTestingOnly(self, "Syntax: /quest reGrant <oid> <quest name>");
+                return SCRIPT_CONTINUE;
+            }
+            final String questName = st.nextToken();
+            final int id = questGetQuestId(questName);
+            if(id == 0)
+            {
+                sendSystemMessageTestingOnly(self, "quest reGrant: Error: The quest name specified was not valid.");
+                return SCRIPT_CONTINUE;
+            }
+            questClearQuest(id, target);
+            questActivateQuest(id, target, target);
+            sendSystemMessageTestingOnly(self, "quest reGrant: Success. Player "+target+" was re-granted quest "+questName);
+            return SCRIPT_CONTINUE;
+        }
+
+        // *******************************************************************
+        // /quest reGrantArea <range> <quest name>
+        // *******************************************************************
+        if(command.equalsIgnoreCase("reGrantArea"))
+        {
+            final float range = Float.parseFloat(st.nextToken());
+            if(range < 1 || range > 800)
+            {
+                sendSystemMessageTestingOnly(self, "quest reGrantArea: Error: Range must be between 1 and 800.");
+                sendSystemMessageTestingOnly(self, "Syntax: /quest reGrantArea <range> <quest name>");
+                return SCRIPT_CONTINUE;
+            }
+            if(!st.hasMoreTokens()) {
+                sendSystemMessageTestingOnly(self, "Syntax: /quest reGrantArea <range> <quest name>");
+                return SCRIPT_CONTINUE;
+            }
+            final String questName = st.nextToken();
+            final int id = questGetQuestId(questName);
+            if(id == 0)
+            {
+                sendSystemMessageTestingOnly(self, "quest reGrantArea: Error: The quest name specified was not valid.");
+                return SCRIPT_CONTINUE;
+            }
+            final obj_id[] players = getAllPlayers(getLocation(self), range);
+            if(players.length < 1)
+            {
+                sendSystemMessageTestingOnly(self, "quest reGrantArea: Error: No players found in this area.");
+                return SCRIPT_CONTINUE;
+            }
+            for (obj_id player : players)
+            {
+                questClearQuest(id, player);
+                questActivateQuest(id, player, player);
+            }
+            sendSystemMessageTestingOnly(self, "quest reGrantArea: Success. A total of "+players.length+" were re-granted quest "+questName);
+            return SCRIPT_CONTINUE;
+        }
+
+        // *******************************************************************
+        // /quest clear <oid> <quest name>
+        // *******************************************************************
+        if(command.equalsIgnoreCase("clear"))
+        {
+            final String toParse = st.nextToken();
+            target = obj_id.getObjId(Long.parseLong(toParse));
+            if(!isIdValid(target) || !st.hasMoreTokens()) {
+                sendSystemMessageTestingOnly(self, "quest clear: Error: The OID you provided is not valid or you are missing an argument.");
+                sendSystemMessageTestingOnly(self, "Syntax: /quest clear <oid> <quest name>");
+                return SCRIPT_CONTINUE;
+            }
+            final String questName = st.nextToken();
+            final int id = questGetQuestId(questName);
+            if(id == 0)
+            {
+                sendSystemMessageTestingOnly(self, "quest clear: Error: The quest name specified was not valid.");
+                return SCRIPT_CONTINUE;
+            }
+            questClearQuest(id, target);
+            sendSystemMessageTestingOnly(self, "quest clear: Success. Player "+target+" was cleared of history from quest "+questName);
+            return SCRIPT_CONTINUE;
+        }
+
+        // *******************************************************************
+        // /quest clearAllActive <oid>
+        // *******************************************************************
+        if(command.equalsIgnoreCase("clearAllActive"))
+        {
+            final String toParse = st.nextToken();
+            target = obj_id.getObjId(Long.parseLong(toParse));
+            if(!isIdValid(target) || !st.hasMoreTokens()) {
+                sendSystemMessageTestingOnly(self, "quest clearAllActive: Error: The OID you provided is not valid or you are missing an argument.");
+                sendSystemMessageTestingOnly(self, "Syntax: /quest clearAllActive <oid>");
+                return SCRIPT_CONTINUE;
+            }
+            for (int quest : questGetAllActiveQuestIds(target))
+            {
+                questClearQuest(quest, target);
+            }
+            sendSystemMessageTestingOnly(self, "quest clearAllActive: Success. Player "+target+" was cleared of all active quests.");
+            return SCRIPT_CONTINUE;
+        }
+
+        // *******************************************************************
+        // /quest clearAllComplete <oid>
+        // *******************************************************************
+        if(command.equalsIgnoreCase("clearAllComplete"))
+        {
+            final String toParse = st.nextToken();
+            target = obj_id.getObjId(Long.parseLong(toParse));
+            if(!isIdValid(target) || !st.hasMoreTokens()) {
+                sendSystemMessageTestingOnly(self, "quest clearAllComplete: Error: The OID you provided is not valid or you are missing an argument.");
+                sendSystemMessageTestingOnly(self, "Syntax: /quest clearAllComplete <oid>");
+                return SCRIPT_CONTINUE;
+            }
+            for (int quest : questGetAllCompletedQuestIds(target))
+            {
+                questClearQuest(quest, target);
+            }
+            sendSystemMessageTestingOnly(self, "quest clearAllComplete: Success. Player "+target+" was cleared of all completed quests.");
+            return SCRIPT_CONTINUE;
+        }
+
+        // *******************************************************************
+        // /quest complete <oid> <quest name>
+        // *******************************************************************
+        if(command.equalsIgnoreCase("complete"))
+        {
+            final String toParse = st.nextToken();
+            target = obj_id.getObjId(Long.parseLong(toParse));
+            if(!isIdValid(target) || !st.hasMoreTokens()) {
+                sendSystemMessageTestingOnly(self, "quest complete: Error: The OID you provided is not valid or you are missing an argument.");
+                sendSystemMessageTestingOnly(self, "Syntax: /quest complete <oid> <quest name>");
+                return SCRIPT_CONTINUE;
+            }
+            final String questName = st.nextToken();
+            final int id = questGetQuestId(questName);
+            if(id == 0)
+            {
+                sendSystemMessageTestingOnly(self, "quest complete: Error: The quest name specified was not valid.");
+                return SCRIPT_CONTINUE;
+            }
+            if(!Arrays.stream(questGetAllActiveQuestIds(target)).anyMatch(i -> i == id))
+            {
+                sendSystemMessageTestingOnly(self, "quest complete: Error: Player "+target+" does not have "+questName+" as active. You will need to grant/re-grant it first to complete it.");
+                return SCRIPT_CONTINUE;
+            }
+            requestCompleteQuest(id, target);
+            sendSystemMessageTestingOnly(self, "quest complete: Success. Player "+target+" was flagged as having completed quest "+questName);
+            return SCRIPT_CONTINUE;
+        }
+
+        // *******************************************************************
+        // /quest completeAll <oid>
+        // *******************************************************************
+        if(command.equalsIgnoreCase("completeAll"))
+        {
+            final String toParse = st.nextToken();
+            target = obj_id.getObjId(Long.parseLong(toParse));
+            if(!isIdValid(target) || !st.hasMoreTokens()) {
+                sendSystemMessageTestingOnly(self, "quest completeAll: Error: The OID you provided is not valid or you are missing an argument.");
+                sendSystemMessageTestingOnly(self, "Syntax: /quest completeAll <oid>");
+                return SCRIPT_CONTINUE;
+            }
+            for (int quest : questGetAllActiveQuestIds(target))
+            {
+                requestCompleteQuest(quest, target);
+            }
+            sendSystemMessageTestingOnly(self, "quest completeAll: Success. Player "+target+" was granted completion of all active quests.");
+            return SCRIPT_CONTINUE;
+        }
+
+        return SCRIPT_CONTINUE;
+    }
+
+    public void showQuestCmdSyntax(obj_id self)
+    {
+        sendSystemMessageTestingOnly(self, "Outputting nested commands and syntax of /quest to console");
+        sendConsoleMessage(self, "\\#ffff00 ============ Syntax: /quest commands ============ \\#.");
+        sendConsoleMessage(self, "\\#00ffff clear \\#bfff00 <oid> <quest name> \\#.");
+        sendConsoleMessage(self, "clears the record of the given player having activated or completed the given quest.");
+        sendConsoleMessage(self, "\\#00ffff clearAllActive \\#bfff00 <oid> \\#.");
+        sendConsoleMessage(self, "clears the record of the given player having activated or completed all of their currently active quests.");
+        sendConsoleMessage(self, "\\#00ffff clearAllComplete \\#bfff00 <oid> \\#.");
+        sendConsoleMessage(self, "clears the record of the given player having activated or completed all of their currently completed quests.");
+        sendConsoleMessage(self, "\\#00ffff complete \\#bfff00 <oid> <quest name> \\#.");
+        sendConsoleMessage(self, "triggers the completion of the given quest for the given player (with rewards popup).");
+        sendConsoleMessage(self, "\\#00ffff completeAll \\#bfff00 <oid> <quest name> \\#.");
+        sendConsoleMessage(self, "triggers the completion of all active quests for the given player (with rewards popup).");
+        sendConsoleMessage(self, "\\#00ffff list \\#bfff00 <oid> \\#.");
+        sendConsoleMessage(self, "returns a window with a list of all active and completed quests for the provided player.");
+        sendConsoleMessage(self, "\\#00ffff grant \\#bfff00 <oid> <quest name> \\#.");
+        sendConsoleMessage(self, "grants the specified player the specified quest (not a forced grant, player must accept quest).");
+        sendConsoleMessage(self, "\\#00ffff reGrant \\#bfff00 <oid> <quest name> \\#.");
+        sendConsoleMessage(self, "re-grants the specified player the specified quest by clearing its history first then granting it (forced grant).");
+        sendConsoleMessage(self, "\\#00ffff reGrantArea \\#bfff00 <range> <quest name> \\#.");
+        sendConsoleMessage(self, "performs a reGrant on the given quest for all players within the given range (for events).");
+        sendConsoleMessage(self, "\\#ffff00 ============ ============ ============ ============ \\#.");
     }
 
 }

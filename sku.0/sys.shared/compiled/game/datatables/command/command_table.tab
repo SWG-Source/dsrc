@@ -725,7 +725,6 @@ getVeteranRewardTimeCs		immediate	cmdGetVeteranRewardTime					admin	1	1	1	1	1	1	
 giveItem		immediate			giveItem																						0				0	1												1																														required		1			0				0										
 giveMaintenanceToVendor		immediate	giveMaintenanceToVendor				0																					1	1		0	1												1																														none					0				0										
 givevendormaint		immediate	giveVendorMaint																									1	1		0	1												1																														optional					0	4			0										
-gmClearQuest		immediate	cmdGmClearQuest					admin																							0													1																												gm.cmd		none					0		40	csr	0										
 gmCreateClassResource		immediate	gmCreateClassResource					admin																							0	1												1																																					40	csr	0										
 gmCreateSpecificResource		immediate	gmCreateSpecificResource					admin																							0	1												1																																					40	csr	0										
 gmForceCommand		immediate	gmForceCommand					admin																							0	1												1																																					40	csr	0										
@@ -733,9 +732,7 @@ gmForceRank		immediate	cmdGMForceRank					admin																				1	1		0	1					
 gmFsVillage		immediate	cmdGMFsVillage					admin																				1	1		0	1												1																	0	0	0	0										optional					0		40	csr	0										
 gmJediState		immediate	gmJediState					admin																							0	1												1																												gm.cmd		optional					0		40	csr	0										
 gmr		immediate	cmdGmRevive					admin																				1	1		0	1												1																												gm.cmd		none					0		40	csr	0										
-gmregrantQuest		immediate	cmdGmRegrantQuest					admin																							0													1																												gm.cmd		none					0		40	csr	0										
 gmRevive		immediate	cmdGmRevive					admin																				1	1		0	1												1																												gm.cmd		none					0		40	csr	0										
-gmShowQuest		immediate	cmdGmShowQuest					admin																							0													1																												gm.cmd		none					0		40	csr	0										
 gmWeapon		immediate	cmdGmWeapon					admin																				1	1		0	1												1																	0	0	0	0										optional					0		40	csr	0										
 goto		immediate	cmdGoto	failAdmin				admin																				1	1		0	1												1																												gm.cmd		optional	0				0		40	csr	0										
 grantBadge		immediate	cmdGrantBadge	failAdmin				admin																				1	1		0	1												1																												gm.cmd		optional	0				0		40	csr	0										
@@ -1927,3 +1924,4 @@ april_fools_boss_emote	commandClicky	normal	april_fools_boss_emote	failSpecialAt
 me_hot_ae_1	commandClicky	normal	me_hot_ae_1	failSpecialAttack			1	me_hot_ae_1	1	0	1	1	1	0	1	1	1	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1	1	1	1	0	0	1	1	1	1	0	1	0	1	1	1	1	0	0	1	1	1	1	1	1	1	1	0	1	0	0	0	0	0	1	1	1	1	1	1		other	all		2		combat_ranged	0	0		combat	1	ALL	HEAVY	me_hot	0	0.25	10			1	
 me_hot_ae_2	commandClicky	normal	me_hot_ae_2	failSpecialAttack			1	me_hot_ae_2	1	0	1	1	1	0	1	1	1	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1	1	1	1	0	0	1	1	1	1	0	1	0	1	1	1	1	0	0	1	1	1	1	1	1	1	1	0	1	0	0	0	0	0	1	1	1	1	1	1		other	all		2		combat_ranged	0	0		combat	1	ALL	HEAVY	me_hot	0	0.25	10			1	
 me_hot_ae_3	commandClicky	normal	me_hot_ae_3	failSpecialAttack			1	me_hot_ae_3	1	0	1	1	1	0	1	1	1	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1	1	1	1	0	0	1	1	1	1	0	1	0	1	1	1	1	0	0	1	1	1	1	1	1	1	1	0	1	0	0	0	0	0	1	1	1	1	1	1		other	all		2		combat_ranged	0	0		combat	1	ALL	HEAVY	me_hot	0	0.25	10			1	
+quest		immediate	cmdQuest	failAdmin				admin																				1	1		0	1												1																												gm.cmd		none	0				0			csr	0										
