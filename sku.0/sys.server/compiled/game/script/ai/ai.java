@@ -1051,7 +1051,7 @@ public class ai extends script.base_script
             }
             int delayCount = 0;
             for (obj_id pk1 : pks) {
-                if (isIdValid(pk1) && (corpseLevel + 5 < getLevel(pk1) || utils.isFreeTrial(pk1))) {
+                if (isIdValid(pk1) && (corpseLevel + 5 < getLevel(pk1))) {
                     doNotDropCard = true;
                 }
                 if (isIdValid(pk1) && scheduled_drop.hasCardDelay(pk1, sourceSystem)) {
@@ -1071,7 +1071,7 @@ public class ai extends script.base_script
                         }
                     }
                     if (isGod(pk) && hasObjVar(pk, "qa_tcg")) {
-                        sendSystemMessageTestingOnly(pk, "QA TCG COMBAT.  Do not drop card? " + doNotDropCard + " hasCardDelay? " + scheduled_drop.hasCardDelay(pk, sourceSystem) + " isTrial? " + utils.isFreeTrial(pk) + " bad level? " + (corpseLevel + 5 < getLevel(pk)));
+                        sendSystemMessageTestingOnly(pk, "QA TCG COMBAT.  Do not drop card? " + doNotDropCard + " hasCardDelay? " + scheduled_drop.hasCardDelay(pk, sourceSystem) + " bad level? " + (corpseLevel + 5 < getLevel(pk)));
                     }
                 }
             }

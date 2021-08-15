@@ -597,10 +597,6 @@ public class ttyson_test extends script.base.remote_object_requester
                         {
                             debugConsoleMsg(self, "isAbandoned = false");
                         }
-                        if (utils.isFreeTrial(self))
-                        {
-                            debugConsoleMsg(self, "isFreeTrial = true");
-                        }
                         if (!isCommoditiesServerAvailable())
                         {
                             debugConsoleMsg(self, "isCommoditiesServerAvailable = false");

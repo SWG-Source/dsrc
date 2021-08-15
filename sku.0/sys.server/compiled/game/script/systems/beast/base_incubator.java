@@ -32,7 +32,6 @@ public class base_incubator extends script.base_script
     public static final string_id SID_REMOVE_EGG = new string_id("incubator", "remove_egg");
     public static final string_id SID_ONLY_DNA_CAN_ADD = new string_id("incubator", "only_dna_can_add");
     public static final string_id SID_STATION_HAS_DNA_ALREADY = new string_id("incubator", "station_has_dna_already");
-    public static final string_id SID_NO_TRIAL_ACCOUNTS = new string_id("incubator", "no_trial_accounts");
     public int OnInitialize(obj_id self) throws InterruptedException
     {
         if (utils.isInHouseCellSpace(self))
@@ -56,11 +55,6 @@ public class base_incubator extends script.base_script
         if (isDead(player) || isIncapacitated(player))
         {
             sendSystemMessage(player, SID_WHILE_DEAD);
-            return SCRIPT_CONTINUE;
-        }
-        if (isFreeTrialAccount(player))
-        {
-            sendSystemMessage(player, SID_NO_TRIAL_ACCOUNTS);
             return SCRIPT_CONTINUE;
         }
         if (incubator.hasActiveUser(station) && incubator.hasActiveIncubator(player))
@@ -116,11 +110,6 @@ public class base_incubator extends script.base_script
         if (isDead(player) || isIncapacitated(player))
         {
             sendSystemMessage(player, SID_WHILE_DEAD);
-            return SCRIPT_CONTINUE;
-        }
-        if (isFreeTrialAccount(player))
-        {
-            sendSystemMessage(player, SID_NO_TRIAL_ACCOUNTS);
             return SCRIPT_CONTINUE;
         }
         obj_id station = self;

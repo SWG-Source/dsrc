@@ -827,10 +827,6 @@ public class terminal_guild extends script.terminal.base.base_terminal
                     sendSystemMessage(player, SID_ML_NOT_LOADED);
                     return SCRIPT_CONTINUE;
                 }
-                if (utils.isFreeTrial(player, member)) {
-                    sendSystemMessage(player, SID_ML_TRIAL);
-                    return SCRIPT_CONTINUE;
-                }
                 utils.setScriptVar(self, "temp_new_leader", member);
                 int pid = sui.msgbox(self, member, "@guild:make_leader_p", sui.YES_NO, "@guild:make_leader_t", sui.MSG_NORMAL, "handleAcceptLeadership");
                 guild.setWindowPid(self, pid);
@@ -917,10 +913,6 @@ public class terminal_guild extends script.terminal.base.base_terminal
         int guildId = getGuildId(player);
         obj_id leader = guildGetLeader(guildId);
         if (!guild.hasGuildPermission(guildId, player, guild.GUILD_PERMISSION_MEMBER))
-        {
-            return;
-        }
-        if (utils.isFreeTrial(player))
         {
             return;
         }

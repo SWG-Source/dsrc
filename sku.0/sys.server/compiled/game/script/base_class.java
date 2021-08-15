@@ -21717,9 +21717,8 @@ public class base_class
         return _getSubscriptionFeatureBits(getLongWithNull(player));
     }
     /**
-         * Find out if this player is from a free trial account
-         * @param player The player (creature object)
-         * @return       boolean, yes if it is a free trial, false otherwise
+     * @deprecated
+     * todo to be removed
      */
     private static native boolean _isFreeTrialAccount(long player);
     public static boolean isFreeTrialAccount(obj_id player)

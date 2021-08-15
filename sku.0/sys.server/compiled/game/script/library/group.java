@@ -571,15 +571,6 @@ public class group extends script.base_script
     }
     public static boolean isDepositSafe(Vector members, int money) throws InterruptedException
     {
-        for (Object member : members) {
-            if (utils.isFreeTrial(((obj_id) member))) {
-                int math = getTotalMoney(((obj_id) member));
-                int quickCheck = math + money;
-                if (quickCheck > 50000) {
-                    return false;
-                }
-            }
-        }
         return true;
     }
     public static obj_id[] getSafeMoney(Vector members, int money) throws InterruptedException
@@ -587,9 +578,7 @@ public class group extends script.base_script
         Vector returnArray = new Vector();
         returnArray.setSize(0);
         for (Object member : members) {
-            if (!utils.isFreeTrial(((obj_id) member))) {
-                utils.addElement(returnArray, ((obj_id) member));
-            }
+            utils.addElement(returnArray, ((obj_id) member));
         }
         obj_id[] _returnArray = new obj_id[0];
         if (returnArray != null)
@@ -604,9 +593,7 @@ public class group extends script.base_script
         Vector returnArray = new Vector();
         returnArray.setSize(0);
         for (Object member : members) {
-            if (utils.isFreeTrial(((obj_id) member))) {
-                utils.addElement(returnArray, ((obj_id) member));
-            }
+            utils.addElement(returnArray, ((obj_id) member));
         }
         obj_id[] _returnArray = new obj_id[0];
         if (returnArray != null)
@@ -618,24 +605,7 @@ public class group extends script.base_script
     }
     public static int getSafeDifference(obj_id members, int money) throws InterruptedException
     {
-        if (utils.isFreeTrial(members))
-        {
-            int math = getTotalMoney(members);
-            int quickCheck = math + money;
-            int safe = 50000 - math;
-            if (quickCheck > 50000)
-            {
-                return safe;
-            }
-            else 
-            {
-                return money;
-            }
-        }
-        else 
-        {
-            return money;
-        }
+        return money;
     }
     public static boolean systemPayoutToGroup(String acct, obj_id player, int amt, String reason, String returnHandler, dictionary params) throws InterruptedException
     {

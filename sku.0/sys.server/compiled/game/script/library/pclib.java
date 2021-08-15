@@ -289,10 +289,6 @@ public class pclib extends script.base_script
                 return false;
             }
             CustomerServiceLog("Trade", "  Tip -- Player: " + player + " " + getName(player) + " Target: " + target + " -- Transferring Cash! Amt: " + amt);
-            if (utils.isFreeTrial(player, target))
-            {
-                doTipLogging(player, target, amt);
-            }
             boolean success = transferCashTo(player, target, amt, "handleTipSuccess", "handleTipFail", d);
             if (!success)
             {

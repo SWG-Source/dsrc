@@ -1390,19 +1390,6 @@ public class xp extends script.base_script
     }
     public static void displayXpFlyText(obj_id player, obj_id target, int amount) throws InterruptedException
     {
-        if (isFreeTrialAccount(player))
-        {
-            int playerLevel = getLevel(player);
-            if (playerLevel >= TRIAL_LEVEL_CAP)
-            {
-                debugSpeakMsg(player, "I am a greater than or equal to level " + xp.TRIAL_LEVEL_CAP);
-                prose_package pp = new prose_package();
-                prose.setDI(pp, xp.TRIAL_LEVEL_CAP);
-                prose.setStringId(pp, SID_FREE_TRIAL_LEVEL_CAP);
-                sendSystemMessageProse(player, pp);
-                return;
-            }
-        }
         if (amount == 0)
         {
             return;

@@ -34,10 +34,6 @@ public class community_tcg_photo_contest_painting_handout extends script.base_sc
     }
     public boolean community_tcg_photo_contest_painting_handout_condition_canReceivePaintings(obj_id player, obj_id npc) throws InterruptedException
     {
-        if (isFreeTrialAccount(player))
-        {
-            return false;
-        }
         int myAge = getCurrentBirthDate() - getPlayerBirthDate(player);
         if (hasCompletedCollection(player, "player_received_tcg_gcw_photo_painting_2010_tracker") || myAge < 10)
         {
@@ -80,10 +76,6 @@ public class community_tcg_photo_contest_painting_handout extends script.base_sc
     }
     public boolean community_tcg_photo_contest_painting_handout_condition_isTrialAccountPlayer(obj_id player, obj_id npc) throws InterruptedException
     {
-        if (isFreeTrialAccount(player))
-        {
-            return true;
-        }
         return false;
     }
     public void community_tcg_photo_contest_painting_handout_action_grantPainting03(obj_id player, obj_id npc) throws InterruptedException

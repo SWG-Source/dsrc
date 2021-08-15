@@ -46,11 +46,6 @@ public class effect_token extends script.base_script
             sendSystemMessage(player, new string_id("storyteller", "placement_from_inventory_only"));
             return SCRIPT_CONTINUE;
         }
-        if (isFreeTrialAccount(player))
-        {
-            sendSystemMessage(player, new string_id("storyteller", "placement_no_trial_accounts"));
-            return SCRIPT_CONTINUE;
-        }
         obj_id effectTarget = getStorytellerEffectTarget(player);
         if (item == menu_info_types.ITEM_USE)
         {
@@ -73,11 +68,6 @@ public class effect_token extends script.base_script
         if (!utils.isNestedWithin(self, player))
         {
             sendSystemMessage(player, new string_id("storyteller", "placement_from_inventory_only"));
-            return SCRIPT_CONTINUE;
-        }
-        if (isFreeTrialAccount(player))
-        {
-            sendSystemMessage(player, new string_id("storyteller", "placement_no_trial_accounts"));
             return SCRIPT_CONTINUE;
         }
         if (storyteller.hasReachedAreaSpawnLimit(player))

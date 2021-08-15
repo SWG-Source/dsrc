@@ -18,10 +18,6 @@ public class storyteller_vendor extends script.base_script
     }
     public boolean storyteller_vendor_condition_checkFromToken(obj_id player, obj_id npc) throws InterruptedException
     {
-        if (isFreeTrialAccount(player))
-        {
-            return false;
-        }
         if (hasObjVar(npc, "storytellerid"))
         {
             obj_id storytelledId = getObjIdObjVar(npc, "storytellerid");

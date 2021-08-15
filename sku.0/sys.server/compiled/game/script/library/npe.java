@@ -560,11 +560,6 @@ public class npe extends script.base_script
         {
             sendPlayerToTutorial(player);
         }
-        else if (isFreeTrialAccount(player))
-        {
-            LIVE_LOG("npe", "Player(" + player + ") is a free trial player in an invalid space zone(" + scene + "), sending to tutorial start");
-            sendPlayerToTutorial(player);
-        }
         else 
         {
             return false;

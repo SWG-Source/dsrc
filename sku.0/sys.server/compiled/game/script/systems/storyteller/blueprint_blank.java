@@ -28,11 +28,6 @@ public class blueprint_blank extends script.base_script
             sendSystemMessage(player, new string_id("storyteller", "blueprint_not_while_swimming"));
             return SCRIPT_CONTINUE;
         }
-        if (isFreeTrialAccount(player))
-        {
-            sendSystemMessage(player, new string_id("storyteller", "blueprint_no_trial_accounts"));
-            return SCRIPT_CONTINUE;
-        }
         location yourLoc = getLocation(player);
         if (isIdValid(yourLoc.cell))
         {

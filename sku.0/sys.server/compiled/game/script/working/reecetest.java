@@ -334,27 +334,11 @@ public class reecetest extends script.base_script
             {
                 int pBits = getSubscriptionFeatureBits(target);
                 sendSystemMessageTestingOnly(self, "CHECKING ACCOUNT TYPE Got account bits. They came back as: " + pBits);
-                if ((utils.isFreeTrial(target)))
-                {
-                    sendSystemMessageTestingOnly(self, "It would appear that this IS a free trial account, per results from utils.isFreeTrial");
-                }
-                else 
-                {
-                    sendSystemMessageTestingOnly(self, "It would appear that this IS NOT a free trial account, per results from utils.isFreeTrial");
-                }
                 obj_id playerObject = getPlayerObject(target);
                 if (playerObject != null)
                 {
                     pBits = getSubscriptionFeatureBits(playerObject);
                     sendSystemMessageTestingOnly(self, "Running same checks on PLAYER ACCOUNT OBJECT. Got account bits came back as: " + pBits);
-                    if ((utils.isFreeTrial(playerObject)))
-                    {
-                        sendSystemMessageTestingOnly(self, "testing PLAYER ACCOUNT OBJ, this IS a free trial account, per results from utils.isFreeTrial");
-                    }
-                    else 
-                    {
-                        sendSystemMessageTestingOnly(self, "testing PLAYER ACCOUNT OBJ, this IS NOT a free trial account, per results from utils.isFreeTrial");
-                    }
                 }
             }
         }

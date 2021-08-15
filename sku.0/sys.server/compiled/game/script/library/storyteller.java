@@ -559,11 +559,6 @@ public class storyteller extends script.base_script
             }
             return true;
         }
-        if (isFreeTrialAccount(player))
-        {
-            sendSystemMessage(player, new string_id("storyteller", "placement_no_trial_accounts"));
-            return false;
-        }
         obj_id myCell = here.cell;
         obj_id myContainer = getTopMostContainer(myCell);
         obj_id storytellerBeingAssisted = getStorytellerBeingAssisted(player);

@@ -29,11 +29,6 @@ public class destructible_prop_token extends script.base_script
             sendSystemMessage(player, new string_id("storyteller", "placement_from_inventory_only"));
             return SCRIPT_CONTINUE;
         }
-        if (isFreeTrialAccount(player))
-        {
-            sendSystemMessage(player, new string_id("storyteller", "placement_no_trial_accounts"));
-            return SCRIPT_CONTINUE;
-        }
         obj_id target = getStorytellerTokenTarget(player);
         if (item == menu_info_types.ITEM_USE)
         {

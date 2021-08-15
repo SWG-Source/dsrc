@@ -18,8 +18,7 @@ public class merchant_barker extends script.base_script
     public static final String VAR_BARK_MESSAGE = "module_data.bark_message";
     public static final String VAR_BARK_WAYPOINT_LOC = "module_data.bark_waypoint_loc";
     public static final String VAR_BARK_WAYPOINT_NAME = "module_data.bark_waypoint_name";
-    public static final string_id SID_NO_FREE_TRIAL = new string_id("base_player", "no_free_trial_barker");
-    
+
     public int OnAttach(obj_id self) throws InterruptedException
     {
         createTriggerVolume(pet.BARK_TRIGGER_VOLUME, pet.BARK_RANGE, true);
@@ -117,11 +116,6 @@ public class merchant_barker extends script.base_script
             {
                 if (item == menu_info_types.SERVER_MENU2)
                 {
-                    if (isFreeTrialAccount(player))
-                    {
-                        sendSystemMessage(player, SID_NO_FREE_TRIAL);
-                        return SCRIPT_CONTINUE;
-                    }
                     if (utils.hasScriptVar(self, SCRIPT_VAR_RECORDING_ON))
                     {
                         sendSystemMessage(player, new string_id(STF_FILE, "recording_message_off"));
@@ -135,11 +129,6 @@ public class merchant_barker extends script.base_script
                 }
                 if (item == menu_info_types.SERVER_MENU3)
                 {
-                    if (isFreeTrialAccount(player))
-                    {
-                        sendSystemMessage(player, SID_NO_FREE_TRIAL);
-                        return SCRIPT_CONTINUE;
-                    }
                     obj_id waypoints[] = getWaypointsInDatapad(player);
                     if (waypoints != null && waypoints.length > 0)
                     {
@@ -164,11 +153,6 @@ public class merchant_barker extends script.base_script
                 }
                 if (item == menu_info_types.SERVER_MENU4)
                 {
-                    if (isFreeTrialAccount(player))
-                    {
-                        sendSystemMessage(player, SID_NO_FREE_TRIAL);
-                        return SCRIPT_CONTINUE;
-                    }
                     if (!utils.hasScriptVar(self, SCRIPT_VAR_BARKING_ON))
                     {
                         if (!hasObjVar(self, VAR_BARK_MESSAGE))

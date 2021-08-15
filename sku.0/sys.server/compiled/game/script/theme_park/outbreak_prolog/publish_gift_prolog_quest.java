@@ -29,10 +29,6 @@ public class publish_gift_prolog_quest extends script.base_script
         {
             return SCRIPT_CONTINUE;
         }
-        if (isFreeTrialAccount(player))
-        {
-            return SCRIPT_CONTINUE;
-        }
         if (isInTutorialArea(player))
         {
             return SCRIPT_CONTINUE;
@@ -43,10 +39,6 @@ public class publish_gift_prolog_quest extends script.base_script
     public int OnObjectMenuSelect(obj_id self, obj_id player, int item) throws InterruptedException
     {
         if (!isIdValid(player) || !exists(player))
-        {
-            return SCRIPT_CONTINUE;
-        }
-        if (isFreeTrialAccount(player))
         {
             return SCRIPT_CONTINUE;
         }

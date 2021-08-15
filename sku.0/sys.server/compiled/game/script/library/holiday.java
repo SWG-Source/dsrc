@@ -638,7 +638,7 @@ public class holiday extends script.base_script
         {
             return false;
         }
-        if (isPlayerConnected(player) && !isAwayFromKeyBoard(player) && !hasCompletedCollectionSlot(player, holiday.EMPIRE_DAY_CHAMPION_BADGE) && !hasCompletedCollectionSlot(player, holiday.REMEMBRANCE_DAY_CHAMPION_BADGE) && !isGod(player) && !isDead(player) && !ai_lib.isInCombat(player) && !isIncapacitated(player) && !utils.isFreeTrial(player) && isInWorldCell(player))
+        if (isPlayerConnected(player) && !isAwayFromKeyBoard(player) && !hasCompletedCollectionSlot(player, holiday.EMPIRE_DAY_CHAMPION_BADGE) && !hasCompletedCollectionSlot(player, holiday.REMEMBRANCE_DAY_CHAMPION_BADGE) && !isGod(player) && !isDead(player) && !ai_lib.isInCombat(player) && !isIncapacitated(player) && isInWorldCell(player))
         {
             return true;
         }

@@ -67,11 +67,6 @@ public class npc_token extends script.base_script
             sendSystemMessage(player, new string_id("storyteller", "placement_not_while_swimming"));
             return SCRIPT_CONTINUE;
         }
-        if (isFreeTrialAccount(player))
-        {
-            sendSystemMessage(player, new string_id("storyteller", "placement_no_trial_accounts"));
-            return SCRIPT_CONTINUE;
-        }
         if (item == menu_info_types.ITEM_USE_OTHER)
         {
             String prompt = utils.packStringId(new string_id("storyteller", "npc_combat_level_prompt"));
@@ -89,11 +84,6 @@ public class npc_token extends script.base_script
         if (getState(player, STATE_SWIMMING) == 1)
         {
             sendSystemMessage(player, new string_id("storyteller", "placement_not_while_swimming"));
-            return SCRIPT_CONTINUE;
-        }
-        if (isFreeTrialAccount(player))
-        {
-            sendSystemMessage(player, new string_id("storyteller", "placement_no_trial_accounts"));
             return SCRIPT_CONTINUE;
         }
         if (storyteller.hasReachedAreaSpawnLimit(player))

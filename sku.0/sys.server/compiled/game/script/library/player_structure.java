@@ -990,11 +990,6 @@ public class player_structure extends script.base_script
     }
     public static boolean canPlaceStructure(obj_id player, String template, location loc, obj_id deed) throws InterruptedException
     {
-        if (isFreeTrialAccount(player))
-        {
-            sendSystemMessage(player, new string_id(STF_FILE, "no_trial_accounts"));
-            return false;
-        }
         int template_idx = getStructureTableIndex(template);
         LOG("LOG_CHANNEL", "player_structure::canPlaceStructure -- template_idx ->" + template_idx);
         if (template_idx == -1)
@@ -1927,7 +1922,7 @@ public class player_structure extends script.base_script
     }
     public static boolean canPackBuilding(obj_id player, obj_id structure) throws InterruptedException
     {
-        return !utils.isFreeTrial(player) && !isCivic(structure) && !isHarvester(structure) && !isGenerator(structure) && isOwner(structure, player);
+        return !isCivic(structure) && !isHarvester(structure) && !isGenerator(structure) && isOwner(structure, player);
     }
     public static void packBuilding(obj_id player, obj_id structure) throws InterruptedException
     {
@@ -5618,10 +5613,6 @@ public class player_structure extends script.base_script
             return false;
         }
         if (!player_structure.isAbandoned(structure))
-        {
-            return false;
-        }
-        if (utils.isFreeTrial(player))
         {
             return false;
         }

@@ -53,11 +53,6 @@ public class prop_token extends script.base_script
             sendSystemMessage(player, new string_id("storyteller", "placement_not_while_swimming"));
             return SCRIPT_CONTINUE;
         }
-        if (isFreeTrialAccount(player))
-        {
-            sendSystemMessage(player, new string_id("storyteller", "placement_no_trial_accounts"));
-            return SCRIPT_CONTINUE;
-        }
         if (storyteller.hasReachedAreaSpawnLimit(player))
         {
             sendSystemMessage(player, new string_id("storyteller", "reached_area_spawn_limit"));

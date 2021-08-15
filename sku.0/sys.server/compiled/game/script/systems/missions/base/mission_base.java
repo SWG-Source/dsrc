@@ -274,13 +274,8 @@ public class mission_base extends script.base_script
             return player;
         }
         for (Object target : targets) {
-            if (!utils.isFreeTrial(((obj_id) target)) && !hasScript(((obj_id) target), "ai.pet")) {
+            if (!hasScript(((obj_id) target), "ai.pet")) {
                 return ((obj_id) target);
-            }
-            if (utils.isFreeTrial(((obj_id) target))) {
-                if (group.getSafeDifference(((obj_id) target), money) == money) {
-                    return ((obj_id) target);
-                }
             }
             if (!hasScript(((obj_id) target), "ai.pet")) {
                 if (group.getSafeDifference(((obj_id) target), money) > group.getSafeDifference(mostMoney, money)) {

@@ -73,11 +73,6 @@ public class blueprint extends script.base_script
             sendSystemMessage(player, new string_id("storyteller", "blueprint_not_while_swimming"));
             return SCRIPT_CONTINUE;
         }
-        if (isFreeTrialAccount(player))
-        {
-            sendSystemMessage(player, new string_id("storyteller", "blueprint_no_trial_accounts"));
-            return SCRIPT_CONTINUE;
-        }
         location yourLoc = getLocation(player);
         if (isIdValid(yourLoc.cell))
         {
@@ -252,11 +247,6 @@ public class blueprint extends script.base_script
         if (getState(player, STATE_SWIMMING) == 1)
         {
             sendSystemMessage(player, new string_id("storyteller", "blueprint_not_while_swimming"));
-            return SCRIPT_CONTINUE;
-        }
-        if (isFreeTrialAccount(player))
-        {
-            sendSystemMessage(player, new string_id("storyteller", "blueprint_no_trial_accounts"));
             return SCRIPT_CONTINUE;
         }
         location yourLoc = getLocation(player);
