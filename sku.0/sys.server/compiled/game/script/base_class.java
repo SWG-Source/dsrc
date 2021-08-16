@@ -20538,6 +20538,9 @@ public class base_class
 	 *
 	 * @param target     the player character
 	 * @return the maximum GCW imperial rank for the specified player character
+	 *
+	 * Note: if the player has never been a member of the imperial faction,
+	 * the value will return as 0
 	 */
 	private static native int _pvpGetMaxGcwImperialRank(long target);
 	public static int pvpGetMaxGcwImperialRank(obj_id target)
@@ -20550,6 +20553,9 @@ public class base_class
 	 *
 	 * @param target     the player character
 	 * @return the maximum GCW rebel rank for the specified player character
+	 *
+	 * Note: if the player has never been a member of the rebel faction,
+	 * the value will return as 0
 	 */
 	private static native int _pvpGetMaxGcwRebelRank(long target);
 	public static int pvpGetMaxGcwRebelRank(obj_id target)
@@ -21708,7 +21714,10 @@ public class base_class
         return _setCompletedTutorial(getLongWithNull(player), value);
     }
     /**
-     * Test whether a player is actually a CSR using the Admin Login feature to access the account
+	 * @return true if the given player is using an account listed in the admin table
+	 * regardless of character or god mode/god level. Useful for tracking activity of
+	 * an account with admin permissions, regardless of which character they are on or
+	 * whether they have god mode on/off
      */
     private static native boolean _isUsingAdminLogin(long player);
     public static boolean isUsingAdminLogin(obj_id player)
@@ -26398,23 +26407,6 @@ public class base_class
         return getStringObjVar(player, "system.accountUsername");
     }
     public static native String _getPlayerUsernameDoNotUse(long player);
-
-    /**
-     * isInAdminTable
-     * Alternative to isGod check which validates if the player is connected from an account listed in the admin data table
-     * This validates the username regardless of whether /setGod is on or off so it is better for security and auditing of admin accounts
-     * or for announcements/messages to GM characters (in the case of SWG Source, for patch note/admin updates)
-     * @param player the player to validate
-     * @return if the player's account is in the admin table
-     */
-    public static boolean isInAdminTable(obj_id player) throws InterruptedException {
-        if(utils.checkConfigFlag("GameServer", "adminGodToAll")) {
-            return true;
-        } else {
-            List<String> adminUsernames = Arrays.asList(dataTableGetStringColumn(getConfigSetting("ConnectionServer", "adminAccountDataTable"), "AdminAccounts"));
-            return adminUsernames.contains(getPlayerAccountUsername(player));
-        }
-    }
 
 	/**
 	 * Registers an Object to the Universe by adding it to the

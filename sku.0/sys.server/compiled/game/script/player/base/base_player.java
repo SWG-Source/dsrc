@@ -12287,4 +12287,25 @@ public class base_player extends script.base_script
         return SCRIPT_CONTINUE;
     }
 
+    /**
+     * Triggered when a player uses /setGod successfully
+     */
+    public int OnSetGodModeOn(obj_id self) throws InterruptedException
+    {
+
+        //attachScript(self, "player.player_god_mode");
+        //recurringMessageTo(self, "godModeHeartbeat", null, 15f);
+
+        return SCRIPT_CONTINUE;
+    }
+
+    /**
+     * Triggered when a player uses /setGod off successfully
+     */
+    public int OnSetGodModeOff(obj_id self) throws InterruptedException
+    {
+        return SCRIPT_CONTINUE;
+    }
+
+
 }
