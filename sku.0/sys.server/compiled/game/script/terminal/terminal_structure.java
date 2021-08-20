@@ -158,6 +158,11 @@ public class terminal_structure extends script.base_script
                 mi.addSubMenu(permissions_root, menu_info_types.SERVER_TERMINAL_PERMISSIONS_ENTER, SID_TERMINAL_PERMISSIONS_ENTER);
                 mi.addSubMenu(management_root, menu_info_types.SERVER_TERMINAL_MANAGEMENT_RESIDENCE, SID_TERMINAL_MANAGEMENT_RESIDENCE);
                 mi.addSubMenu(permissions_root, menu_info_types.SERVER_TERMINAL_PERMISSIONS_BANNED, SID_TERMINAL_PERMISSIONS_BANNED);
+                if(isStructureOwner)
+                {
+                    String text = player_structure.isAdminToAccountEnabled(structure) ? "Remove Account as Admin" : "Add Account as Admin";
+                    mi.addSubMenu(permissions_root, menu_info_types.SERVER_MENU25, new string_id(text));
+                }
                 if (areAllContentsLoaded(structure))
                 {
                     string_id privacyMenu_sid = SID_TERMINAL_MANAGEMENT_PRIVACY;
@@ -605,6 +610,18 @@ public class terminal_structure extends script.base_script
                 player_structure.createStructureSign(top);
             } else {
                 sendSystemMessageTestingOnly(player, "Fix attempt failed - Could not determine structure object.");
+            }
+        }
+        // player owner can add their entire account to the admin list with this toggle (does not show up on admin list, separate button)
+        else if (item == menu_info_types.SERVER_MENU25 && player_structure.isOwner(structure, player))
+        {
+            if(player_structure.isAdminToAccountEnabled(structure))
+            {
+                player_structure.removeAccountFromAdminList(structure, player);
+            }
+            else
+            {
+                player_structure.addAccountToAdminList(structure, player);
             }
         }
         return SCRIPT_CONTINUE;

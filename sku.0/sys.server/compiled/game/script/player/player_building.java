@@ -232,11 +232,6 @@ public class player_building extends script.base_script
         {
             return SCRIPT_CONTINUE;
         }
-        if (name.length() > 40)
-        {
-            sendSystemMessage(player, new string_id(STF, "permission_40_char"));
-            return SCRIPT_CONTINUE;
-        }
         if (!player_structure.isInAdminRange(structure, self))
         {
             return SCRIPT_CONTINUE;
@@ -1755,10 +1750,10 @@ public class player_building extends script.base_script
         if (st.hasMoreTokens())
         {
             target_str = st.nextToken();
-            if (target_str.length() > 40)
+            // fixup for tokenizer and city names
+            if(target_str.startsWith("city:"))
             {
-                sendSystemMessage(self, new string_id(STF, "permission_40_char"));
-                return SCRIPT_CONTINUE;
+                target_str = params.substring(params.indexOf("city:", 1));
             }
         }
         if ((target == null) || (target == obj_id.NULL_ID))
