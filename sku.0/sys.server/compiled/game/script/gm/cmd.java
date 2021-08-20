@@ -26,7 +26,8 @@ public class cmd extends script.base_script
         obj_id playerId = getPlayerIdFromFirstName(toLower(name));
         if (isIdValid(playerId))
         {
-            sendSystemMessageTestingOnly(self, "getPlayerId: player '" + name + "' has object id: " + playerId);
+            sendSystemMessageTestingOnly(self, "getPlayerId: Player "+getPlayerFullName(playerId)+" has Object ID: "+playerId+
+                    " and Station ID: "+getPlayerStationId(playerId) + " and Account Username: "+getPlayerAccountUsername(playerId));
         }
         else
         {
