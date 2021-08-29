@@ -1,7 +1,6 @@
 package script.quest.ep3;
 
 import script.dictionary;
-import script.library.features;
 import script.library.utils;
 import script.menu_info_types;
 import script.obj_id;

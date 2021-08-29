@@ -1,7 +1,6 @@
 package script.npe;
 
 import script.dictionary;
-import script.library.features;
 import script.library.utils;
 import script.obj_id;
 

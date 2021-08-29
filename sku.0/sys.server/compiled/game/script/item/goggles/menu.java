@@ -1,7 +1,6 @@
 package script.item.goggles;
 
 import script.*;
-import script.library.features;
 import script.library.hue;
 import script.library.sui;
 import script.library.utils;

@@ -1,7 +1,6 @@
 package script.theme_park.newbie_tutorial;
 
 import script.dictionary;
-import script.library.features;
 import script.library.money;
 import script.library.utils;
 import script.location;

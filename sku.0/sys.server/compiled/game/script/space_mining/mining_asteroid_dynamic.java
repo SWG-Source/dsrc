@@ -1,6 +1,5 @@
 package script.space_mining;
 
-import script.library.features;
 import script.library.space_combat;
 import script.library.space_utils;
 import script.library.utils;
