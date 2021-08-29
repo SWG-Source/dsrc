@@ -7208,4 +7208,16 @@ public class utils extends script.base_script
     public static void throwWarning(String message) {
         WARNING(message);
     }
+
+    /**
+     * A flag for whether or not this server is running in Production (Live Server Mode).
+     *
+     * When running in production, various scripted development-mode features are disabled
+     * to provide infrastructure protection to a live server.
+     */
+    public static final boolean PRODUCTION = isProduction();
+    private static boolean isProduction()
+    {
+        return checkConfigFlag("GameServer", "production");
+    }
 }

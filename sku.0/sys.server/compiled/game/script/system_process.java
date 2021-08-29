@@ -1,15 +1,19 @@
 package script;
 
-import java.io.BufferedReader;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.io.OutputStream;
+import java.io.*;
 
 public class system_process
 {
 	public static String runAndGetOutput(String commandLine) 
 	{
 		system_process p = new system_process(commandLine);
+		p.waitFor();
+		return p.getOutput();
+	}
+
+	public static String runAndGetOutput(String commandLine, File dir)
+	{
+		system_process p = new system_process(commandLine, dir);
 		p.waitFor();
 		return p.getOutput();
 	}
@@ -29,6 +33,21 @@ public class system_process
 			try
 			{
 				process = run.exec(commandLine);
+			}
+			catch(Exception e)
+			{
+			}
+		}
+	}
+
+	public system_process(String commandLine, File f)
+	{
+		run = Runtime.getRuntime();
+		if(run != null)
+		{
+			try
+			{
+				process = run.exec(commandLine, null, f);
 			}
 			catch(Exception e)
 			{

@@ -3,6 +3,7 @@ package script.gm;
 import script.*;
 import script.library.*;
 
+import java.io.File;
 import java.util.Arrays;
 import java.util.StringTokenizer;
 import java.util.Vector;
@@ -4232,6 +4233,48 @@ public class cmd extends script.base_script
         } else {
             showAdminCmdSyntax(self);
             return SCRIPT_CONTINUE;
+        }
+
+        if(!utils.PRODUCTION)
+        {
+            if(command.equalsIgnoreCase("compileScripts") || command.equalsIgnoreCase("cs"))
+            {
+                final String result = system_process.runAndGetOutput("ant compile_java", new File("../../"));
+                if(result.contains("BUILD SUCCESSFUL"))
+                {
+                    sendSystemMessageTestingOnly(self, "compileScripts: ant compile_java BUILD SUCCESSFUL.");
+                }
+                else
+                {
+                    sendSystemMessageTestingOnly(self, "compileScripts: ERROR or BUILD FAILED. Sending output to console.");
+                    sendConsoleMessage(self, result);
+                }
+                return SCRIPT_CONTINUE;
+            }
+
+            if(command.equalsIgnoreCase("compileAndReloadScript") || command.equalsIgnoreCase("crs"))
+            {
+                if(!st.hasMoreTokens())
+                {
+                    sendSystemMessageTestingOnly(self, "Syntax: /admin crs <script>");
+                }
+                else
+                {
+                    final String script = st.nextToken();
+                    final String result = system_process.runAndGetOutput("ant compile_java", new File("../../"));
+                    if(result.contains("BUILD SUCCESSFUL"))
+                    {
+                        sendSystemMessageTestingOnly(self, "compileAndReloadScript: ant compile_java BUILD SUCCESSFUL. Reloading "+script+"...");
+                        sendConsoleCommand("/script reload "+script, self);
+                    }
+                    else
+                    {
+                        sendSystemMessageTestingOnly(self, "compileAndReloadScript: ERROR or BUILD FAILED. Sending output to console.");
+                        sendConsoleMessage(self, result);
+                    }
+                }
+                return SCRIPT_CONTINUE;
+            }
         }
 
         if(command.equalsIgnoreCase("dumpLeaderboardInfo")) {
