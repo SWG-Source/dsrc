@@ -63,6 +63,7 @@ public class collection_use_object_on_object extends script.base_script
 
     public int OnObjectMenuSelect(obj_id self, obj_id player, int item) throws InterruptedException
     {
+        sendDirtyObjectMenuNotification(self);
         if (item != menu_info_types.ITEM_USE)
         {
             return SCRIPT_CONTINUE;
