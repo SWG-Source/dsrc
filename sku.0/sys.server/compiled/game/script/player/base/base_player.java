@@ -1640,10 +1640,6 @@ public class base_player extends script.base_script
             outparams.put("player", self);
             messageTo(cityHall, "msgCheckMyCityMotd", outparams, 0, false);
         }
-        if(groundquests.hasCompletedQuest(self, "u16_nym_themepark_miner_dna_collection") && utils.playerHasStaticItemInBankOrInventory(self, "item_nym_themepark_dna_extractor")) {
-            obj_id dna_extractor = utils.getStaticItemInBankOrInventory(self, "item_nym_themepark_dna_extractor");
-            if(isValidId(dna_extractor)) utils.destroyObject(dna_extractor);
-        }
         return SCRIPT_CONTINUE;
     }
     public int disconnectPlayerCtsCompletedOrInProgress(obj_id self, dictionary params) throws InterruptedException

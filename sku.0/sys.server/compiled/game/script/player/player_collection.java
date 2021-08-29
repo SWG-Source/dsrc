@@ -24,6 +24,7 @@ public class player_collection extends script.base_script
     public static final string_id SID_INTERRUPTED_DAMAGED = new string_id("quest/groundquests", "countdown_interrupted_damaged");
     public static final string_id SID_INVIS_COLLECTION_FAIL = new string_id("collection", "invis_collection_failed");
     public static final int GCW_INSURGENT_LOCKOUT = 3600;
+
     public int OnCollectionSlotModified(obj_id self, String bookName, String pageName, String collectionName, String slotName, boolean isCounterTypeSlot, int previousValue, int currentValue, int maxSlotValue, boolean slotCompleted) throws InterruptedException
     {
         if (bookName.equals(badge.BADGE_BOOK))
@@ -133,8 +134,30 @@ public class player_collection extends script.base_script
                 }
             }
         }
+
+        // remove collection-based items from inventory as applicable
+        final obj_id[] items = getContents(utils.getInventoryContainer(self));
+        for(obj_id item : items)
+        {
+            if(hasScript(item, "systems.collections.collection_use_object_on_object"))
+            {
+                final String objectKey = getStringObjVar(item, "quest.object_key");
+                if(objectKey != null && objectKey.length() > 0)
+                {
+                    final dictionary d = dataTableGetRow("datatables/collection/use_object_on_object.iff", objectKey);
+                    if(d != null && d.size() > 0 && d.containsKey("collectionName"))
+                    {
+                        if(hasCompletedCollection(self, d.getString("collectionName")))
+                        {
+                            messageTo(item, "onRequestDestroy", null, 1f, false);
+                        }
+                    }
+                }
+            }
+        }
         return SCRIPT_CONTINUE;
     }
+
     public int OnCollectionServerFirst(obj_id self, String bookName, String pageName, String collectionName) throws InterruptedException
     {
         prose_package pp = new prose_package();
