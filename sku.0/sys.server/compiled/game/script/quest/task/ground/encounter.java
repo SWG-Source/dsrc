@@ -1,10 +1,7 @@
 package script.quest.task.ground;
 
 import script.dictionary;
-import script.library.ai_lib;
-import script.library.create;
-import script.library.groundquests;
-import script.library.utils;
+import script.library.*;
 import script.location;
 import script.obj_id;
 
@@ -60,9 +57,11 @@ public class encounter extends script.quest.task.ground.base_task
         {
             location l = null;
             location locTest = getLocation(self);
+            boolean inCell = false;
             if (!isIdValid(locTest.cell))
             {
                 l = groundquests.getRandom2DLocationAroundLocation(self, relativeOffsetX, relativeOffsetZ, minRadius, maxRadius);
+                inCell = true;
             }
             else 
             {
@@ -72,6 +71,19 @@ public class encounter extends script.quest.task.ground.base_task
             }
             obj_id creature = create.createCreature(creatureType, l, true);
             if(isValidId(creature)) {
+                if(!inCell)
+                {
+                    location creatureLoc = getLocation(creature);
+                    int respawnCount = 0;
+                    while(respawnCount < 5 && creatureLoc.y != getHeightAtLocation(creatureLoc.x, creatureLoc.z)) {
+                        // creature is standing on something it shouldn't be
+                        destroyObject(creature);
+                        l = groundquests.getRandom2DLocationAroundLocation(self, relativeOffsetX, relativeOffsetZ, minRadius, maxRadius);
+                        creature = create.createCreature(creatureType, l, true);
+                        creatureLoc = getLocation(creature);
+                        respawnCount++;
+                    }
+                }
                 setObjVar(creature, objvarOnCreatureOwner, self);
                 setObjVar(creature, objvarOnCreatureQuestCrc, questCrc);
                 setObjVar(creature, objvarOnCreatureTaskId, taskId);

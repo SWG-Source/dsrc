@@ -1,10 +1,7 @@
 package script.systems.npc_lair;
 
-import script.dictionary;
+import script.*;
 import script.library.*;
-import script.location;
-import script.obj_id;
-import script.string_id;
 
 public class npc_lair extends script.theme_park.poi.base
 {
@@ -50,6 +47,22 @@ public class npc_lair extends script.theme_park.poi.base
         if (hasObjVar(self, "npc_lair.target"))
         {
             removeObjVar(self, "npc_lair.target");
+        }
+        // fix for lairs that accidentally spawn inside quarantine zone walls because
+        // the walls don't match the shape of the region and this is easier to fix than
+        // relocating a ton of walls
+        if(locTest.area.equalsIgnoreCase("dathomir")) {
+            region[] regions = getRegionsAtPoint(locTest);
+            for(region r : regions) {
+                if(r.getName().equalsIgnoreCase("@dathomir_region_names:mountain_2")) {
+                    obj_id[] objects = getObjectsInRange(self, 15f);
+                    for (obj_id o : objects) {
+                        if(getTemplateName(o).contains("military_wall")) {
+                            destroyObject(self);
+                        }
+                    }
+                }
+            }
         }
         initializePoi(self);
         return SCRIPT_CONTINUE;
