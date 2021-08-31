@@ -7,6 +7,6 @@
 
 objectName = "event_perk" "stap_speeder"
 
-detailedDescription = "event_perk_details" "stap_speeder"
+detailedDescription = "event_perk_detail" "stap_speeder"
 
 appearanceFilename = "appearance/eqp_tool_datapad.apt"
