@@ -5,8 +5,8 @@
 @class object_template 5
 
 
-objectName = "" "stap_speeder"
+objectName = "item_n" "stap_speeder"
 
-detailedDescription = "" "stap_speeder"
+detailedDescription = "item_d" "stap_speeder"
 
 appearanceFilename = "appearance/eqp_tool_datapad.apt"
