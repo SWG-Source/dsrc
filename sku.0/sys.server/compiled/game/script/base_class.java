@@ -22290,11 +22290,11 @@ public class base_class
 	/**
      * Check station id to see if two characters belong to the same account
      * 
-     * @param player1 
+     * @param player1
      * @param player2
 	 * @return true or false
      */
-    private static boolean charactersAreSamePlayer(obj_id player1, obj_id player2) {
+    public static boolean charactersAreSamePlayer(obj_id player1, obj_id player2) {
         return getPlayerStationId(player1) == getPlayerStationId(player2);
     }
 
