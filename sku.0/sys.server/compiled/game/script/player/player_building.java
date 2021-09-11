@@ -1365,7 +1365,7 @@ public class player_building extends script.base_script
             sendSystemMessage(self, new string_id(STF, "no_building"));
             return SCRIPT_CONTINUE;
         }
-        if (!player_structure.isAdmin(structure, self))
+        if (!player_structure.isAdmin(structure, self) && !charactersAreSamePlayer(self, getOwner(structure))) 
         {
             LOG("LOG_CHANNEL", "You must be a building admin to do that.");
             sendSystemMessage(self, new string_id(STF, "must_be_admin"));
@@ -1757,7 +1757,7 @@ public class player_building extends script.base_script
         {
             return SCRIPT_CONTINUE;
         }
-        if (!player_structure.isAdmin(structure, self))
+        if (!player_structure.isAdmin(structure, self) && !charactersAreSamePlayer(self, getOwner(structure)))
         {
             LOG("LOG_CHANNEL", "You must be a building admin to do that.");
             string_id strSpam = new string_id("player_structure", "not_admin");
