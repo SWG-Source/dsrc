@@ -4909,3 +4909,4 @@ item_wod_smc_schematic_tril			string:loot_schematic.schematic=object/draft_schem
 item_wod_smc_schematic_hut			string:loot_schematic.schematic=object/draft_schematic/structure/wod_sm_hut.iff,int:loot_schematic.uses=1,string:loot_schematic.skill_req=class_structures_phase1_novice								
 item_wod_smc_schematic_wall			string:loot_schematic.schematic=object/draft_schematic/furniture/city/wod_sm_wall.iff,int:loot_schematic.uses=1,string:loot_schematic.skill_req=class_structures_phase1_novice								
 item_wod_smc_herb_reward_jar											
+item_schematic_vehicle_lava_res_kit			string:loot_schematic.schematic=object/draft_schematic/item/item_lava_res_kit_schem.iff,int:loot_schematic.uses=1,string:loot_schematic.skill_req=class_engineering_phase4_novice								
