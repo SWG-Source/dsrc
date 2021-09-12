@@ -8567,3 +8567,4 @@ armor_infiltrator_gloves_02	object/tangible/wearables/armor/infiltrator/armor_in
 armor_infiltrator_boots_02	object/tangible/wearables/armor/infiltrator/armor_infiltrator_s02_boots.iff	armor		90				4							
 armor_infiltrator_belt_02	object/tangible/wearables/armor/infiltrator/armor_infiltrator_s02_belt.iff	armor		90				4							
 item_tauntaun_dna	object/tangible/loot/beast/dna_container.iff							4		systems.beast.cs_dna			DNA Storage Device (Tauntaun)	Device that stores harvested DNA cores.	
+item_schematic_vehicle_lava_res_kit	object/tangible/loot/loot_schematic/vehicle_lava_res_kit_schematic.iff							1		item.loot_schematic.loot_schematic		1	Draft Schematic: Vehicle Lava Resistance Kit	A schematic to allow a Trader of at least Engineering Mastery I to craft a Vehicle Lava Resistance Kit	
