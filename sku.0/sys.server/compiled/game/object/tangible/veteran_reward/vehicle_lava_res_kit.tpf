@@ -4,3 +4,4 @@
 @class object_template 8
 
 sharedTemplate = "object/tangible/veteran_reward/shared_vehicle_lava_res_kit.iff"
+scripts = ["item.publish_gift.lava_resistance_kit"]

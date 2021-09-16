@@ -378,6 +378,16 @@ public class vehicle_control_device extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
+        if(hasObjVar(self, vehicle.VAR_LAVA_RESISTANT))
+        {
+            names[idx] = "lava_resistance";
+            attribs[idx] = "100%";
+            idx++;
+            if (idx >= names.length)
+            {
+                return SCRIPT_CONTINUE;
+            }
+        }
         return SCRIPT_CONTINUE;
     }
     public boolean isSameFaction(obj_id petControlDevice) throws InterruptedException
@@ -728,6 +738,10 @@ public class vehicle_control_device extends script.base_script
         if (vehicle.isJetPackVehicle(pet))
         {
             vehicle.setHoverHeight(pet, 4);
+        }
+        if(vehicle.isLavaResistant(petControlDevice))
+        {
+            setObjVar(pet, vehicle.VAR_LAVA_RESISTANT, true);
         }
         callable.setCallableLinks(player, petControlDevice, pet);
         return pet;

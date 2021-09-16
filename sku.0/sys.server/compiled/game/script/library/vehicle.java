@@ -49,9 +49,18 @@ public class vehicle extends script.base_script
     public static final string_id SID_CONVERT_VCD_MOVED = new string_id("spam", "vehicle_to_schem_vcd_moved");
     public static final String STF = "pet/pet_menu";
     public static final String VEHICLE_STAT_TABLE = "datatables/vehicle/vehicle_stats.iff";
+    public static final String TABLE_LAVA_RESISTANCE = "datatables/terrain/creature_water_values.iff";
     public static final int MOD_TYPE_MAX_SPEED = 1;
     public static final String OBJVAR_MOD_MAX_SPEED_DURATION = "vehicle.mod.maxSpeed.duration";
     public static final String OBJVAR_MOD_MAX_SPEED_OLD = "vehicle.mod.maxSpeed.old";
+    /**
+     * ObjVar attached to Vehicle Control Device and Vehicle Objects if it is resistant
+     * to lava (as applied by Resistance Kit, not through template exemption).
+     *
+     * @since SWG Source 3.1 - September 2021
+     * @apiNote must match to value in src CreatureController.cpp
+     */
+    public static final String VAR_LAVA_RESISTANT = "vehicle.lava_resistance";
     public static final String[] s_varInfoNames = new String[]
     {
         "/private/index_speed_min",
@@ -255,7 +264,7 @@ public class vehicle extends script.base_script
     {
         return isVehicle(obj) && hasScript(obj, "systems.vehicle_system.battlefield_vehicle");
     }
-    public static String getVehicleTemplate(obj_id controlDevice) throws InterruptedException
+    public static String getVehicleTemplate(obj_id controlDevice)
     {
         if (!isIdValid(controlDevice))
         {
@@ -286,7 +295,7 @@ public class vehicle extends script.base_script
         messageTo(vehicle, "revertVehicleMod", params, duration, false);
         setMaximumSpeed(vehicle, currentMaxSpeed * factor);
     }
-    public static String getVehicleReference(obj_id controlDevice) throws InterruptedException
+    public static String getVehicleReference(obj_id controlDevice)
     {
         if (!isIdValid(controlDevice))
         {
@@ -1107,4 +1116,40 @@ public class vehicle extends script.base_script
         }
         return null;
     }
+
+    /**
+     * @param vehicleControlDevice the OID of the intangible vehicle control device
+     *                             (NOT the tangible vehicle object)
+     *
+     * @return true if this vehicle is lava resistant based either on its template
+     * being included in the exemption table or if a kit has been used on it to apply
+     * the exemption ObjVar.
+     *
+     * @since SWG Source 3.1 - September 2021
+     * @author Aconite
+     */
+    public static boolean isLavaResistant(obj_id vehicleControlDevice)
+    {
+        return hasObjVar(vehicleControlDevice, VAR_LAVA_RESISTANT) ||
+                isLavaResistant(getVehicleTemplate(vehicleControlDevice));
+    }
+
+    /**
+     * @param vehicleTemplate template of the actual vehicle (not control device)
+     *
+     * @return true if this vehicle's template is lava resistant
+     *
+     * @since SWG Source 3.1 - September 2021
+     * @author Aconite
+     */
+    public static boolean isLavaResistant(String vehicleTemplate)
+    {
+        dictionary d = dataTableGetRow(TABLE_LAVA_RESISTANCE, vehicleTemplate);
+        if(d != null && d.size() > 0)
+        {
+            return d.getFloat("lava_resistance") >= 100f;
+        }
+        return false;
+    }
+
 }
