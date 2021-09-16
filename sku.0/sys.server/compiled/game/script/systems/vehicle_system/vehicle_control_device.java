@@ -378,7 +378,7 @@ public class vehicle_control_device extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        if(hasObjVar(self, vehicle.VAR_LAVA_RESISTANT))
+        if(vehicle.isLavaResistant(self))
         {
             names[idx] = "lava_resistance";
             attribs[idx] = "100%";
