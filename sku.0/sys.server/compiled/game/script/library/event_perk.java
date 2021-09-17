@@ -13,7 +13,9 @@ public class event_perk extends script.base_script
     public static final String HALLOWEEN = new String("event/halloween");
     public static final string_id STEALTHED = new string_id(HALLOWEEN, "stealthed");
     public static final string_id TEN_COINS = new string_id(HALLOWEEN, "ten_coins");
+    public static final string_id TWELVE_COINS = new string_id(HALLOWEEN, "twelve_coins");
     public static final string_id FIVE_COINS = new string_id(HALLOWEEN, "five_coins");
+    public static final string_id SIX_COINS = new string_id(HALLOWEEN, "six_coins");
     public static final string_id STATIC_NPC = new string_id(HALLOWEEN, "static_npc");
     public static final string_id REACHED_LIMIT = new string_id(HALLOWEEN, "reached_limit");
     public static final string_id ZOZ = new string_id(HALLOWEEN, "zozpheratu");
@@ -23,6 +25,8 @@ public class event_perk extends script.base_script
     public static final int COIN_LIMIT = 599;
     public static final int COIN_AMOUNT_LOW = 5;
     public static final int COIN_AMOUNT_HIGH = 10;
+    public static final int COIN_BONUS_LOW = 1;
+    public static final int COIN_BONUS_HIGH = 2;
     public static final int LOCKOUT_LENGTH = 240;
     public static final String LIST_VAR = new String("galacticMoonNpcList");
     public static final string_id TOO_SOON = new string_id(HALLOWEEN, "too_soon");
@@ -206,8 +210,18 @@ public class event_perk extends script.base_script
                 obj_id coins = static_item.createNewItemFunction("item_event_halloween_coin", pInv, COIN_AMOUNT_HIGH);
                 increaseDailyCoinCounter(player);
             }
-            playerLaugh(player);
-            sendSystemMessage(player, TEN_COINS);
+            if (buff.hasBuff(player, "scary_halloween_hand"))
+            {
+                obj_id coins = static_item.createNewItemFunction("item_event_halloween_coin", pInv, COIN_BONUS_HIGH);
+                increaseDailyCoinCounter(player);
+                playerLaugh(player);
+                sendSystemMessage(player, TWELVE_COINS);
+            }
+            if (!buff.hasBuff(player, "scary_halloween_hand"))
+            {
+                playerLaugh(player);
+                sendSystemMessage(player, TEN_COINS);
+            }
         }
         if (quality == 1)
         {
@@ -222,8 +236,18 @@ public class event_perk extends script.base_script
                 obj_id coins = static_item.createNewItemFunction("item_event_halloween_coin", pInv, COIN_AMOUNT_LOW);
                 increaseDailyCoinCounter(player);
             }
-            playerLaugh(player);
-            sendSystemMessage(player, FIVE_COINS);
+            if (buff.hasBuff(player, "scary_halloween_hand"))
+            {
+                obj_id coins = static_item.createNewItemFunction("item_event_halloween_coin", pInv, COIN_BONUS_LOW);
+                increaseDailyCoinCounter(player);
+                playerLaugh(player);
+                sendSystemMessage(player, SIX_COINS);
+            }
+            if (!buff.hasBuff(player, "scary_halloween_hand"))
+            {
+                playerLaugh(player);
+                sendSystemMessage(player, FIVE_COINS);
+            }
         }
         if (!hasObjVar(player, event_perk.COUNTER_RESTARTTIME))
         {
