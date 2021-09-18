@@ -219,6 +219,7 @@ public class event_perk extends script.base_script
             else
             {
                 sendSystemMessage(player, TEN_COINS);
+                increaseDailyCoinCounter(player);
             }
             playerLaugh(player);
         }
@@ -237,16 +238,16 @@ public class event_perk extends script.base_script
             }
             if (buff.hasBuff(player, "scary_halloween_hand"))
             {
-                obj_id coins = static_item.createNewItemFunction("item_event_halloween_coin", pInv, COIN_BONUS_LOW);
+                static_item.createNewItemFunction("item_event_halloween_coin", pInv, COIN_BONUS_LOW);
                 increaseDailyCoinCounter(player);
-                playerLaugh(player);
                 sendSystemMessage(player, SIX_COINS);
             }
-            if (!buff.hasBuff(player, "scary_halloween_hand"))
+            else
             {
-                playerLaugh(player);
                 sendSystemMessage(player, FIVE_COINS);
+                increaseDailyCoinCounter(player);
             }
+            playerLaugh(player);
         }
         if (!hasObjVar(player, event_perk.COUNTER_RESTARTTIME))
         {
