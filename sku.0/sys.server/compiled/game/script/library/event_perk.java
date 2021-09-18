@@ -212,16 +212,15 @@ public class event_perk extends script.base_script
             }
             if (buff.hasBuff(player, "scary_halloween_hand"))
             {
-                obj_id coins = static_item.createNewItemFunction("item_event_halloween_coin", pInv, COIN_BONUS_HIGH);
+                static_item.createNewItemFunction("item_event_halloween_coin", pInv, COIN_BONUS_HIGH);
                 increaseDailyCoinCounter(player);
-                playerLaugh(player);
                 sendSystemMessage(player, TWELVE_COINS);
             }
-            if (!buff.hasBuff(player, "scary_halloween_hand"))
+            else
             {
-                playerLaugh(player);
                 sendSystemMessage(player, TEN_COINS);
             }
+            playerLaugh(player);
         }
         if (quality == 1)
         {
