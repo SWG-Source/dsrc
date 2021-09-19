@@ -985,7 +985,37 @@ public class terminal_character_builder extends script.base_script
         "Corellia City Pack",
         "Naboo City Pack",
         "Tatooine City Pack",
-        "TCG Houses"
+        "TCG Houses",
+		"Small Tatooine House (style 2)",
+		"Small Windowed Tatooine House",
+		"Medium Tatooine House",
+		"Large Tatooine House",
+		"Small Naboo House (style 2)",
+		"Small Windowed Naboo House",
+		"Medium Naboo House",
+		"Large Naboo House",
+		"Small Corellia House (floorplan 2)",
+		"Small Corellia House (style 2)",
+		"Small Corellia House (style 2 floorplan 2)",
+		"Medium Corellia House",
+		"Large Corellia House",
+		"Large Corellia House (style 2)",
+		"Small Generic Planet House",
+		"Small Generic Planet House (floorplan 2)",
+		"Small Generic Planet House (style 2)",
+		"Small Generic Planet House (style 2 floorplan 2)",
+		"Small Windowed Generic Planet House",
+		"Small Windowed Generic Planet House (style 2)",
+		"Medium Generic Planet House",
+		"Medium Generic Planet House (style 2)",
+		"Medium Windowed Generic Planet House",
+		"Medium Windowed Generic Planet House (style 2)",
+		"Large Generic Planet House",
+		"Large Generic Planet House (style 2)",
+		"Large Windowed Generic Planet House",
+		"Large Windowed Generic Planet House (style 2)",
+		"Mustafarian Underground Bunker",
+		"YT-1300 House"
     };
     public static final String[] CRAFTING_OPTIONS = {
         "Weapon Crafting Station",
@@ -4828,6 +4858,126 @@ public class terminal_character_builder extends script.base_script
             static_item.createNewItemFunction("item_tcg_loot_reward_series8_yoda_house_deed", pInv);
             static_item.createNewItemFunction("item_player_house_deed_jabbas_sail_barge", pInv);
             sendSystemMessageTestingOnly(player, "TCG House Pack Created");
+			case 24:
+			createObject("object/tangible/deed/player_house_deed/tatooine_house_small_style_02_deed.iff", pInv, "");
+			sendSystemMessageTestingOnly(player, "Small Tatooine House style 2 Deed Issued.");
+            break;
+			case 25:
+			createObject("object/tangible/deed/player_house_deed/tatooine_house_windowed_small_deed.iff", pInv, "");
+			sendSystemMessageTestingOnly(player, "Small Windowed Tatooine House Deed Issued.");
+            break;
+			case 26:
+			createObject("object/tangible/deed/player_house_deed/tatooine_house_medium_deed.iff", pInv, "");
+			sendSystemMessageTestingOnly(player, "Medium Tatooine House Deed Issued.");
+            break;
+			case 27:
+			createObject("object/tangible/deed/player_house_deed/tatooine_house_large_deed.iff", pInv, "");
+			sendSystemMessageTestingOnly(player, "Large Tatooine House Deed Issued.");
+            break;
+			case 28:
+			createObject("object/tangible/deed/player_house_deed/naboo_house_small_style_02_deed.iff", pInv, "");
+			sendSystemMessageTestingOnly(player, "Small Naboo House style 2 Deed Issued.");
+            break;
+			case 29:
+			createObject("object/tangible/deed/player_house_deed/naboo_house_small_window_deed.iff", pInv, "");
+			sendSystemMessageTestingOnly(player, "Small Windowed Naboo House Deed Issued.");
+            break;
+			case 30:
+			createObject("object/tangible/deed/player_house_deed/naboo_house_medium_deed.iff", pInv, "");
+			sendSystemMessageTestingOnly(player, "Medium Naboo House Deed Issued.");
+            break;
+			case 31:
+			createObject("object/tangible/deed/player_house_deed/naboo_house_large_deed.iff", pInv, "");
+			sendSystemMessageTestingOnly(player, "Large Naboo House Deed Issued.");
+            break;
+			case 32:
+			createObject("object/tangible/deed/player_house_deed/corellia_house_small_floor_02_deed.iff", pInv, "");
+			sendSystemMessageTestingOnly(player, "Small Corellia House floorplan 2 Deed Issued.");
+            break;
+			case 33:
+			createObject("object/tangible/deed/player_house_deed/corellia_house_small_style_02_deed.iff", pInv, "");
+			sendSystemMessageTestingOnly(player, "Small Corellia House style 2 Deed Issued.");
+            break;
+			case 34:
+			createObject("object/tangible/deed/player_house_deed/corellia_house_small_style_02_floor_02_deed.iff", pInv, "");
+			sendSystemMessageTestingOnly(player, "Small Corellia House style 2 floorplan 2 Deed Issued.");
+            break;
+			case 35:
+			createObject("object/tangible/deed/player_house_deed/corellia_house_medium_deed.iff", pInv, "");
+			sendSystemMessageTestingOnly(player, "Medium Corellia House Deed Issued.");
+            break;
+			case 36:
+			createObject("object/tangible/deed/player_house_deed/corellia_house_large_deed.iff", pInv, "");
+			sendSystemMessageTestingOnly(player, "Large Corellia House Deed Issued.");
+            break;
+			case 37:
+			createObject("object/tangible/deed/player_house_deed/corellia_house_large_style_02_deed.iff", pInv, "");
+			sendSystemMessageTestingOnly(player, "Large Corellia House style 2 Deed Issued.");
+            break;
+			case 38:
+			createObject("object/tangible/deed/player_house_deed/generic_house_small_deed.iff", pInv, "");
+			sendSystemMessageTestingOnly(player, "Small Generic Planet House Deed Issued.");
+            break;
+			case 39:
+			createObject("object/tangible/deed/player_house_deed/generic_house_small_floor_02_deed.iff", pInv, "");
+			sendSystemMessageTestingOnly(player, "Small Generic Planet House floorplan 2 Deed Issued.");
+            break;
+			case 40:
+			createObject("object/tangible/deed/player_house_deed/generic_house_small_style_02_deed.iff", pInv, "");
+			sendSystemMessageTestingOnly(player, "Small Generic Planet House style 2 Deed Issued.");
+            break;
+			case 41:
+			createObject("object/tangible/deed/player_house_deed/generic_house_small_style_02_floor_02_deed.iff", pInv, "");
+			sendSystemMessageTestingOnly(player, "Small Generic Planet House style 2 floorplan 2 Deed Issued.");
+            break;
+			case 42:
+			createObject("object/tangible/deed/player_house_deed/generic_house_small_window_deed.iff", pInv, "");
+			sendSystemMessageTestingOnly(player, "Small Windowed Generic Planet House Deed Issued.");
+            break;
+			case 43:
+			createObject("object/tangible/deed/player_house_deed/generic_house_small_window_style_03_deed.iff", pInv, "");
+			sendSystemMessageTestingOnly(player, "Small Windowed Generic Planet House style 2 Deed Issued.");
+            break;
+			case 44:
+			createObject("object/tangible/deed/player_house_deed/generic_house_medium_deed.iff", pInv, "");
+			sendSystemMessageTestingOnly(player, "Medium Generic Planet House Deed Issued.");
+            break;
+			case 45:
+			createObject("object/tangible/deed/player_house_deed/generic_house_medium_style_02_deed.iff", pInv, "");
+			sendSystemMessageTestingOnly(player, "Medium Generic Planet House style 2 Deed Issued.");
+            break;
+			case 46:
+			createObject("object/tangible/deed/player_house_deed/generic_house_medium_windowed_deed.iff", pInv, "");
+			sendSystemMessageTestingOnly(player, "Medium Windowed Generic Planet House Deed Issued.");
+            break;
+			case 47:
+			createObject("object/tangible/deed/player_house_deed/generic_house_medium_windowed_s02_deed.iff", pInv, "");
+			sendSystemMessageTestingOnly(player, "Medium Windowed Generic Planet House style 2 Deed Issued.");
+            break;
+			case 48:
+			createObject("object/tangible/deed/player_house_deed/generic_house_large_deed.iff", pInv, "");
+			sendSystemMessageTestingOnly(player, "Large Generic Planet House Deed Issued.");
+            break;
+			case 49:
+			createObject("object/tangible/deed/player_house_deed/generic_house_large_style_02_deed.iff", pInv, "");
+			sendSystemMessageTestingOnly(player, "Large Generic Planet House style 2 Deed Issued.");
+            break;
+			case 50:
+			createObject("object/tangible/deed/player_house_deed/generic_house_large_window_s01_deed.iff", pInv, "");
+			sendSystemMessageTestingOnly(player, "Large Windowed Generic Planet House Deed Issued.");
+            break;
+			case 51:
+			createObject("object/tangible/deed/player_house_deed/generic_house_large_window_s02_deed.iff", pInv, "");
+			sendSystemMessageTestingOnly(player, "Large Windowed Generic Planet House style 2 Deed Issued.");
+            break;
+			case 52:
+			createObject("object/tangible/deed/player_house_deed/mustafar_house_lg.iff", pInv, "");
+			sendSystemMessageTestingOnly(player, "Mustafarian Underground Bunker Deed Issued.");
+            break;
+			case 53:
+			createObject("object/tangible/deed/player_house_deed/yt1300_house_deed.iff", pInv, "");
+			sendSystemMessageTestingOnly(player, "YT-1300 House Deed Issued.");
+            break;
             default:
             cleanScriptVars(player);
             return SCRIPT_CONTINUE;
