@@ -84,7 +84,7 @@ public class gcw_master_object extends script.base_script {
             return SCRIPT_CONTINUE;
         } else {
             // Set reset time clock (Thursdays at 19:00 GMT)
-            createWeeklyAlarmClock(self, "handleLeaderboardPeriodReset", null, DAY_OF_WEEK_THU, 19, 0, 0);
+            timedMessageToWeeklyOnCycle(self, "handleLeaderboardPeriodReset", null);
             // Start current period update heartbeat
             recurringMessageTo(self, "handleCurrentPeriodUpdateHeartbeat", null, CURRENT_PERIOD_HEARTBEAT);
             leaderboard.debugMsg("Starting alarm clock and period update heartbeat.");

@@ -45,12 +45,12 @@ public class master_object extends script.base_script {
             messageTo(self, "handleSetupMasterFishingObject", null, 20f, true);
         }
         // Reset the leaderboard period weekly and force update if 7-days have passed since last update (in case of offline fails to trigger update)
-        createWeeklyAlarmClock(self, "handleUpdateLeaderboards", null, DAY_OF_WEEK_THU, 19, 0,0);
+        timedMessageToWeeklyOnCycle(self, "handleUpdateLeaderboards", null);
         if (!hasObjVar(self, OBJVAR_LEADERBOARD_UPDATE_TIME)) {
             messageTo(self, "handleWeeklyUpdateLeaderboards", null, 20f, true);
         }
         // Update the current period board every 60 minutes
-        createHourlyAlarmClock(self, "handleUpdateCurrentPeriod", null, 0, 0);
+        recurringMessageTo(self, "handleUpdateCurrentPeriod", null, 3600f);
         if(getCalendarTime() > getIntObjVar(self, OBJVAR_LEADERBOARD_UPDATE_TIME) + 604800) {
             messageTo(self, "handleWeeklyUpdateLeaderboards", null, 20f, true);
         }

@@ -2,6 +2,7 @@ package script.library;
 
 import script.*;
 
+import java.time.LocalTime;
 import java.util.Arrays;
 import java.util.Vector;
 
@@ -530,7 +531,7 @@ public class storyteller extends script.base_script
     }
     public static void setTokenDailyCountResetTime(obj_id token) throws InterruptedException
     {
-        int timeUntilAlarm = createDailyAlarmClock(token, "storytellerEffectTokenDailyAlarm", null, 4, 0, 0);
+        int timeUntilAlarm = timedMessageToDaily(token, "storytellerEffectTokenDailyAlarm", null, LocalTime.of(4, 0, 0));
         int alarmStamp = getCalendarTime() + timeUntilAlarm;
         setObjVar(token, storyteller.STORYTELLER_DAILY_COUNT_RESET, alarmStamp);
     }

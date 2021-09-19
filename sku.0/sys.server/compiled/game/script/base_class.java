@@ -5,9 +5,8 @@
 
 package script;
 
-import script.library.utils;
-
 import java.io.File;
+import java.time.*;
 import java.util.*;
 
 
@@ -2707,100 +2706,143 @@ public class base_class
         _messageToPlayersOnPlanet(messageName, ((params != null) ? params.pack() : null), time, loc, radius, includeDisconnectedPlayers);
     }
 
-    /**
-     * "messageTo" that goes off at a certain GMT calendar date/time
-     *
-     * month must be between 1-12
-     * dayOfMonth must be between 1-31
-     * day of week is 0=Sunday, 1=Monday, 2=Tuesday, 3=Wednesday, 4=Thursday, 5=Friday, 6=Saturday
-     * hour must be between 0-23
-     * minute must be between 0-59
-     * second must be between 0-59
-     *
-     * returns -1 if there is an error
-     * returns the number of seconds until the specified GMT calendar date/time
-     */
+	/**
+	 * Creates a messageTo which is triggered only once per day at the given time.
+	 *
+	 * @implNote LocalTime will be read by SRC as GMT so specify the time you want in GMT.
+	 * @see #recurringMessageTo use instead for a frequency greater than daily (e.g. hourly).
+	 *
+	 * @param receiver the Object to receive the message.
+	 * @param messageName the handler triggered when the message is received.
+	 * @param params an optional dictionary of params.
+	 * @param time the Java LocalTime object containing the Hour, Minute, and Second
+	 *
+	 * @since SWG Source 3.1 - September 2021
+	 * @author Aconite
+	 *
+	 * Replaces "createDailyAlarmClock" to enable cleaner scripting and to adhere to ISO-8601
+	 */
+	public static int timedMessageToDaily(obj_id receiver, String messageName, dictionary params, LocalTime time)
+	{
+		if(!isIdValid(receiver) || messageName == null || messageName.length() > 50 || time == null)
+		{
+			WARNING("timedMessageToDaily() failed to create daily message because validation failed from "+
+					Thread.currentThread().getStackTrace()[2].getClassName());
+			return -1;
+		}
+		return _remoteMessageTo(getLongWithNull(receiver), messageName, params == null ? null : params.pack(),
+				-1, time.getHour(), time.getMinute(), time.getSecond());
+	}
 
-    // "messageTo" will go off at the next minute:second on the hour
-    public static int createHourlyAlarmClock(obj_id receiver, String messageName, dictionary params, int minute, int second)
-    {
-        if (!isIdValid(receiver) || messageName == null || messageName.length() >= 50)
-            return -1;
+	/**
+	 * Creates a messageTo which is triggered only once per week on the given day, at the given time.
+	 *
+	 * @implNote LocalTime will be read by SRC as GMT so specify the time you want in GMT.
+	 *
+	 * @param receiver the Object to receive the message.
+	 * @param messageName the handler triggered when the message is received.
+	 * @param params an optional dictionary of params.
+	 * @param day the Java DayOfWeek object which specifies the targeted day of the week
+	 * @param time the Java LocalTime object containing the Hour, Minute, and Second
+	 *
+	 * @since SWG Source 3.1 - September 2021
+	 * @author Aconite
+	 *
+	 * Replaces "createWeeklyAlarmClock" to enable cleaner scripting and to adhere to ISO-8601
+	 */
+	public static int timedMessageToWeekly(obj_id receiver, String messageName, dictionary params, DayOfWeek day, LocalTime time)
+	{
+		if (!isIdValid(receiver) || messageName == null || messageName.length() >= 50 || day == null  ||time == null)
+		{
+			WARNING("timedMessageToWeekly() failed to create weekly message because validation failed from "+
+					Thread.currentThread().getStackTrace()[2].getClassName());
+			return -1;
+		}
+		return _remoteMessageTo(getLongWithNull(receiver), messageName, params == null ? null : params.pack(),
+				convertDay(day), time.getHour(), time.getMinute(), time.getSecond());
+	}
 
-        if (params != null)
-            return _remoteMessageTo(getLongWithNull(receiver), messageName, params.pack(), -1, -1, minute, second);
-        else
-            return _remoteMessageTo(getLongWithNull(receiver), messageName, null, -1, -1, minute, second);
-    }
+	/**
+	 * Runs a timedMessageToWeekly but defaulted to the normal weekly reset
+	 * cycle for all other game systems (Thursdays at 19:00 GMT).
+	 *
+	 * @see #timedMessageToWeekly
+	 *
+	 * @since SWG Source 3.1 - September 2021
+	 * @author Aconite
+	 */
+	public static int timedMessageToWeeklyOnCycle(obj_id receiver, String messageName, dictionary params)
+	{
+		return timedMessageToWeekly(receiver, messageName, params, DayOfWeek.THURSDAY, LocalTime.of(19, 0, 0));
+	}
 
-    // "messageTo" will go off at the next hour:minute:second on the day
-    public static int createDailyAlarmClock(obj_id receiver, String messageName, dictionary params, int hour, int minute, int second)
-    {
-        if (!isIdValid(receiver) || messageName == null || messageName.length() >= 50)
-            return -1;
+	/**
+	 * Creates a messageTo which is triggered on the first day of each month at the given time.
+	 *
+	 * @implNote LocalTime will be read by SRC as GMT so specify the time you want in GMT.
+	 * @implNote last day of the month triggers are best achieved by just using this method at 0:0:0.
+	 *
+	 * @param receiver the Object to receive the message.
+	 * @param messageName the handler triggered when the message is received.
+	 * @param params an optional dictionary of params.
+	 * @param time the Java LocalTime object containing the Hour, Minute, and Second
+	 *
+	 * @since SWG Source 3.1 - September 2021
+	 * @author Aconite
+	 *
+	 * Replaces "createMonthlyAlarmClock" to enable cleaner scripting and to adhere to ISO-8601
+	 */
+	public static int timedMessageToMonthlyFirstDay(obj_id receiver, String messageName, dictionary params, LocalTime time)
+	{
+		if(!isIdValid(receiver) || messageName == null || messageName.length() > 50 || time == null)
+		{
+			WARNING("timedMessageToMonthlyFirstDay() failed to create daily message because validation failed from "+
+					Thread.currentThread().getStackTrace()[2].getClassName());
+			return -1;
+		}
+		return _remoteMessageTo(getLongWithNull(receiver), messageName, params == null ? null : params.pack(),
+				-1, 1, time.getHour(), time.getMinute(), time.getSecond());
+	}
 
-        if (params != null)
-            return _remoteMessageTo(getLongWithNull(receiver), messageName, params.pack(), -1, hour, minute, second);
-        else
-            return _remoteMessageTo(getLongWithNull(receiver), messageName, null, -1, hour, minute, second);
-    }
+	/**
+	 * Creates a messageTo which is triggered at the exactly specified time by month, day of month, and hour/min/sec.
+	 *
+	 * @implNote LocalTime will be read by SRC as GMT so specify the time you want in GMT.
+	 *
+	 * @param receiver the Object to receive the message.
+	 * @param messageName the handler triggered when the message is received.
+	 * @param params an optional dictionary of params.
+	 * @param dateTime the Java LocalDateTime object containing the Month, Day of Month, Hour, Minute, and Second
+	 *
+	 * @since SWG Source 3.1 - September 2021
+	 * @author Aconite
+	 *
+	 * Replaces "createYearlyAlarmClock" to enable cleaner scripting and to adhere to ISO-8601
+	 */
+	public static int timedMessageToSpecificDateTime(obj_id receiver, String messageName, dictionary params, LocalDateTime dateTime)
+	{
+		if(!isIdValid(receiver) || messageName == null || messageName.length() > 50 || dateTime == null)
+		{
+			WARNING("timedMessageToSpecificDateTime() failed to create daily message because validation failed from "+
+					Thread.currentThread().getStackTrace()[2].getClassName());
+			return -1;
+		}
+		return _remoteMessageTo(getLongWithNull(receiver), messageName, params == null ? null : params.pack(),
+				dateTime.getMonthValue(), dateTime.getDayOfMonth(), dateTime.getHour(), dateTime.getMinute(), dateTime.getSecond());
+	}
 
-    // "messageTo" will go off at the next day of week:hour:minute:second on the week
-    public static final int DAY_OF_WEEK_SUN = 0;
-    public static final int DAY_OF_WEEK_MON = 1;
-    public static final int DAY_OF_WEEK_TUE = 2;
-    public static final int DAY_OF_WEEK_WED = 3;
-    public static final int DAY_OF_WEEK_THU = 4;
-    public static final int DAY_OF_WEEK_FRI = 5;
-    public static final int DAY_OF_WEEK_SAT = 6;
-
-    public static int createWeeklyAlarmClock(obj_id receiver, String messageName, dictionary params, int dayOfWeek, int hour, int minute, int second)
-    {
-        if (!isIdValid(receiver) || messageName == null || messageName.length() >= 50)
-            return -1;
-
-        if (params != null)
-            return _remoteMessageTo(getLongWithNull(receiver), messageName, params.pack(), dayOfWeek, hour, minute, second);
-        else
-            return _remoteMessageTo(getLongWithNull(receiver), messageName, null, dayOfWeek, hour, minute, second);
-    }
-
-    // "messageTo" will go off at the next day of month:hour:minute:second on the month
-    public static int createMonthlyAlarmClock(obj_id receiver, String messageName, dictionary params, int dayOfMonth, int hour, int minute, int second)
-    {
-        if (!isIdValid(receiver) || messageName == null || messageName.length() >= 50)
-            return -1;
-
-        if (params != null)
-            return _remoteMessageTo(getLongWithNull(receiver), messageName, params.pack(), -1, dayOfMonth, hour, minute, second);
-        else
-            return _remoteMessageTo(getLongWithNull(receiver), messageName, null, -1, dayOfMonth, hour, minute, second);
-    }
-
-    // "messageTo" will go off at the next month:day of month:hour:minute:second on the year
-    public static int createYearlyAlarmClock(obj_id receiver, String messageName, dictionary params, int month, int dayOfMonth, int hour, int minute, int second)
-    {
-        if (!isIdValid(receiver) || messageName == null || messageName.length() >= 50)
-            return -1;
-
-        if (params != null)
-            return _remoteMessageTo(getLongWithNull(receiver), messageName, params.pack(), month, dayOfMonth, hour, minute, second);
-        else
-            return _remoteMessageTo(getLongWithNull(receiver), messageName, null, month, dayOfMonth, hour, minute, second);
-    }
-
-    /**
-     * returns the number of seconds until the next specified GMT calendar date/time
-     *
-     * month must be between 1-12
-     * dayOfMonth must be between 1-31
-     * day of week is 0=Sunday, 1=Monday, 2=Tuesday, 3=Wednesday, 4=Thursday, 5=Friday, 6=Saturday
-     * hour must be between 0-23
-     * minute must be between 0-59
-     * second must be between 0-59
-     *
-     * returns -1 if there is an error
-     */
+	/**
+	 * @param day Java.time.DayOfWeek object
+	 * @return DayOfWeek transposed for SRC handling
+	 *
+	 * DayOfWeek uses ISO-8601 but SRC doesn't, so to balance
+	 * portability and scripting standards, we'll just convert
+	 * the value internally here.
+	 */
+	private static int convertDay(DayOfWeek day)
+	{
+		return day.getValue() == 7 ? 0 : day.getValue();
+	}
 
     private static native int secondsUntilCalendarTimeDayOfWeek(int dayOfWeek, int hour, int minute, int second);
     private static native int secondsUntilCalendarTimeDayOfMonth(int month, int dayOfMonth, int hour, int minute, int second);
