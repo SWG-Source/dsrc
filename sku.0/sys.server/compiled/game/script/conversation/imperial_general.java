@@ -1131,6 +1131,24 @@ public class imperial_general extends script.base_script
         {
             return SCRIPT_OVERRIDE;
         }
+        if(groundquests.isQuestActive(player, "gcw_eliminate_rebels"))
+        {
+            if(groundquests.isTaskActive(player, "gcw_eliminate_rebels", "returnToGeneral"))
+            {
+                chat.chat(npc, player, new string_id("conversation/imperial_general", "s_117"));
+                groundquests.completeQuest(player, "gcw_eliminate_rebels");
+                return SCRIPT_CONTINUE;
+            }
+        }
+        if(groundquests.isQuestActive(player, "gcw_entertain_fatigue"))
+        {
+            if(groundquests.isTaskActive(player, "gcw_entertain_fatigue", "returnToGeneral"))
+            {
+                chat.chat(npc, player, new string_id("conversation/imperial_general", "s_137"));
+                groundquests.completeQuest(player, "gcw_entertain_fatigue");
+                return SCRIPT_CONTINUE;
+            }
+        }
         if (imperial_general_condition_isPlayerNeutral(player, npc))
         {
             string_id message = new string_id(c_stringFile, "s_25");
