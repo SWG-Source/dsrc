@@ -4983,6 +4983,7 @@ public class terminal_character_builder extends script.base_script
 			case 53:
 			createObject("object/tangible/deed/player_house_deed/yt1300_house_deed.iff", pInv, "");
 			sendSystemMessageTestingOnly(player, "YT-1300 House Deed Issued.");
+			break;
 			case 54:
 			static_item.createNewItemFunction("item_player_house_deed_jabbas_sail_barge", pInv);
 			sendSystemMessageTestingOnly(player, "Jabba's Sail Barge Deed Issued.");
