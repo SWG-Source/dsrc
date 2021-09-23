@@ -22,9 +22,9 @@ public class event_perk extends script.base_script
     public static final String COUNTER = new String("galacticCoinCounter.numberOfCoins");
     public static final String COUNTER_TIMESTAMP = new String("galacticCoinCounter.timeStamp");
     public static final String COUNTER_RESTARTTIME = new String("galacticCoinCounter.startTime");
-    public static final int COIN_LIMIT = 599;
-    public static final int COIN_AMOUNT_LOW = 5;
-    public static final int COIN_AMOUNT_HIGH = 10;
+    public static final int COIN_LIMIT = utils.getIntConfigSetting("EventTeam", "halloweenCoinLimit", 599);
+    public static final int COIN_AMOUNT_LOW = utils.getIntConfigSetting("EventTeam", "halloweenCoinLow", 5);
+    public static final int COIN_AMOUNT_HIGH = utils.getIntConfigSetting("EventTeam", "halloweenCoinHigh", 10);
     public static final int COIN_BONUS_LOW = 1;
     public static final int COIN_BONUS_HIGH = 2;
     public static final int LOCKOUT_LENGTH = 240;
