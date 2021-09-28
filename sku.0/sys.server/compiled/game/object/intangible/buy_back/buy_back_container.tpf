@@ -27,7 +27,7 @@ updateRanges [UR_near] = 0
 updateRanges [UR_normal] = 0
 updateRanges [UR_far] = 0
 
-scripts = [ ]
+scripts = ["object.buyback"]
 objvars = [ ]
 contents = [  ]
 xpPoints = [  ]
