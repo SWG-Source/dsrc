@@ -1,9 +1,11 @@
 package script.developer;
 
+import script.dictionary;
 import script.library.sui;
 import script.library.utils;
 import script.location;
 import script.obj_id;
+import script.transform;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -32,22 +34,6 @@ public class buildout_utility extends script.base_script {
     public buildout_utility()
     {
     }
-
-    // Only list planets in the SCENES array that are full size (16000x16000)
-    // Only worlds at full size using -8192 to 8192 coordinates should be used otherwise the positioning will be off because the buildout names won't match to the correct positioning boxes.
-    public static final String[] SCENES = {
-            "tatooine",
-            "yavin4",
-            "mustafar",
-            "endor",
-            "talus",
-            "corellia",
-            "rori",
-            "dathomir",
-            "dantooine",
-            "naboo",
-            "lok"
-    };
 
     public int OnAttach(obj_id self) throws InterruptedException {
         sendSystemMessageTestingOnly(self, "Buildout Utility Attached... say INFO for help.");
@@ -110,45 +96,89 @@ public class buildout_utility extends script.base_script {
 
             obj_id oid = utils.stringToObjId(command2);
 
-            if (command2.isEmpty()) {
+            if (command2.isEmpty())
+            {
                 oid = getTarget(self);
             }
 
-            if (!isIdValid(oid)) {
+            if (!isIdValid(oid))
+            {
                 sendSystemMessageTestingOnly(self, "OID specified for getBuildoutInfo was not valid.");
                 return SCRIPT_CONTINUE;
             }
 
-            List<String> list = Arrays.asList(SCENES);
-            if(!list.contains(getCurrentSceneName())) {
-                sendSystemMessageTestingOnly(self, "You cannot use this feature in your current scene (likely due to world size mismatch).");
-                return SCRIPT_CONTINUE;
+            StringBuilder sb = new StringBuilder();
+
+            sb.append("Buildout Information for Object: ").append(oid).append("\n\n");
+
+            if(hasObjVar(oid, "buildoutObjectId"))
+            {
+                sb.append(getHeaderFormat("Object ID in Buildout File"));
+                sb.append("\t").append(getIntObjVar(oid, "buildoutObjectId"));
+                sb.append("\n\n");
             }
 
-            location wp = getLocation(oid);
-            String buildout = getBuildoutAreaName(wp.x, wp.z);
-            float coord_x = wp.x - getBuildoutRootCoords(buildout).x;
-            float coord_z = wp.z - getBuildoutRootCoords(buildout).z;
-            obj_id cell = wp.cell;
-            float[] q = getQuaternion(oid);
-            boolean isInBuilding = isIdValid(cell);
-            obj_id container = null;
-            if (isInBuilding) {
-                container = getContainedBy(cell);
-            }
-            String message = "Buildout Information for Object: " + oid + "\n\n" +
-                    "Reminder, this currently supports EXTERIOR objects only. Interiors should probably be using a dungeon_spawner or interior spawn egg anyways." + "\n\n" +
-                    "template: " + getTemplateName(oid) + "\n\n" +
-                    "buildout: " + buildout + "\n\n" +
-                    "cell ID: " + cell + "\n\n" +
-                    "container: " + container + "\n\n" +
-                    "world coordinates (X, Y, Z): "+wp.x+", "+wp.y+", "+wp.z + "\n\n" +
-                    "buildout coordinates (X, Y, Z): " + coord_x+", "+wp.y+", "+coord_z+"\n\n" +
-                    "quaternion (qW, qX, qY, qZ): " + q[0] + ", " + q[1] + ", " + q[2] + ", " + q[3] + " \n\n" +
-                    "scripts: " + Arrays.toString(getScriptList(oid)) + "\n\n" +
-                    "objvars: " + getPackedObjvars(oid);
+            sb.append(getHeaderFormat("Server Template")).append("\t").append(getTemplateName(oid)).append("\n\n");
+            sb.append(getHeaderFormat("Shared Template")).append("\t").append(getSharedObjectTemplateName(oid)).append("\n\n");
 
-            sui.msgbox(self, self, message, sui.OK_ONLY, "getBuildoutCoords", "noHanlder");
+            final location objectLoc = getLocation(oid);
+            sb.append(getHeaderFormat("Buildout Area"));
+            final String buildoutAreaName = getBuildoutAreaName(objectLoc.x, objectLoc.z, objectLoc.area);
+            sb.append("\t").append(buildoutAreaName).append("\n\n");
+
+            sb.append(getHeaderFormat("Container"));
+            if(isIdValid(objectLoc.cell))
+            {
+               sb.append("\t").append(objectLoc.cell);
+            }
+            else
+            {
+                sb.append("\t").append(0);
+            }
+            sb.append("\n\n");
+
+            // Cell Index
+            sb.append(getHeaderFormat("Cell Index"));
+            sb.append("\t").append(getCellIndex(objectLoc.cell));
+            sb.append("\n\n");
+
+            // X Y Z coordinates
+            final float[] buildout = getBuildoutAreaSizeAndCenter(objectLoc.x, objectLoc.z, objectLoc.area, false, false);
+            sb.append(getHeaderFormat("Object to Parent Coordinates (for Buildout) [pX, pY, pZ]"));
+            if(isIdValid(objectLoc.cell))
+            {
+                sb.append("\t").append(objectLoc.x).append(",\n");
+                sb.append("\t").append(objectLoc.y).append(",\n");
+                sb.append("\t").append(objectLoc.z).append(",\n");
+            }
+            else
+            {
+                sb.append("\t").append((objectLoc.x - (buildout[2] - (buildout[0] / 2)))).append(",\n");
+                sb.append("\t").append(objectLoc.y).append(",\n");
+                sb.append("\t").append((objectLoc.z - (buildout[3] - (buildout[1] / 2))));
+            }
+            sb.append("\n\n");
+
+            final float[] quaternion = getQuaternion(oid);
+            sb.append(getHeaderFormat("Quaternion [qX, qY, qZ, qW]"));
+            sb.append("\t").append(quaternion[0]).append(",\n");
+            sb.append("\t").append(quaternion[1]).append(",\n");
+            sb.append("\t").append(quaternion[2]).append(",\n");
+            sb.append("\t").append(quaternion[3]);
+            sb.append("\n\n");
+
+            sb.append(getHeaderFormat("Scripts"));
+            sb.append(Arrays.toString(getScriptList(oid)));
+            sb.append("\n\n");
+
+            sb.append(getHeaderFormat("ObjVars"));
+            sb.append(getPackedObjvars(oid));
+            sb.append("\n\n");
+
+            final int pid = sui.msgbox(self, self, sb.toString(), sui.OK_ONLY, "getBuildoutInfo", sui.MSG_INFORMATION, "noHandler");
+            setSUIProperty(pid, "Prompt.lblPrompt", "Editable", "true");
+            setSUIProperty(pid, "Prompt.lblPrompt", "GetsInput", "true");
+            flushSUIPage(pid);
 
             // ===========================================================================
             // ===== writeBuildout
@@ -256,144 +286,26 @@ public class buildout_utility extends script.base_script {
         return SCRIPT_CONTINUE;
     }
 
-    // ===========================================================================
-    // ===== getBuildoutRootCoords
-    // ===========================================================================
-    public static location getBuildoutRootCoords(String buildoutAreaName) throws InterruptedException {
-        String buildoutAreaNumber = buildoutAreaName.substring(buildoutAreaName.length() - 3);
-
-        switch (buildoutAreaNumber) {
-            case "1_1":
-                return new location(-8196f, 0f, -8196f);
-            case "1_2":
-                return new location(-8196f, 0f, -6144f);
-            case "1_3":
-                return new location(-8196f, 0f, -4096f);
-            case "1_4":
-                return new location(-8196f, 0f, -2048f);
-            case "1_5":
-                return new location(-8196f, 0f, 0f);
-            case "1_6":
-                return new location(-8196f, 0f, 2048f);
-            case "1_7":
-                return new location(-8196f, 0f, 4096f);
-            case "1_8":
-                return new location(-8196f, 0f, 6144f);
-            case "2_1":
-                return new location(-6144f, 0f, -8196f);
-            case "2_2":
-                return new location(-6144f, 0f, -6144f);
-            case "2_3":
-                return new location(-6144f, 0f, -4096f);
-            case "2_4":
-                return new location(-6144f, 0f, -2048f);
-            case "2_5":
-                return new location(-6144f, 0f, 0f);
-            case "2_6":
-                return new location(-6144f, 0f, 2048f);
-            case "2_7":
-                return new location(-6144f, 0f, 4096f);
-            case "2_8":
-                return new location(-6144f, 0f, 6144f);
-            case "3_1":
-                return new location(-4096f, 0f, -8196f);
-            case "3_2":
-                return new location(-4096f, 0f, -6144f);
-            case "3_3":
-                return new location(-4096f, 0f, -4096f);
-            case "3_4":
-                return new location(-4096f, 0f, -2048f);
-            case "3_5":
-                return new location(-4096f, 0f, 0f);
-            case "3_6":
-                return new location(-4096f, 0f, 2048f);
-            case "3_7":
-                return new location(-4096f, 0f, 4096f);
-            case "3_8":
-                return new location(-4096f, 0f, 6144f);
-            case "4_1":
-                return new location(-2048f, 0f, -8196f);
-            case "4_2":
-                return new location(-2048f, 0f, -6144f);
-            case "4_3":
-                return new location(-2048f, 0f, -4096f);
-            case "4_4":
-                return new location(-2048f, 0f, -2048f);
-            case "4_5":
-                return new location(-2048f, 0f, 0f);
-            case "4_6":
-                return new location(-2048f, 0f, 2048f);
-            case "4_7":
-                return new location(-2048f, 0f, 4096f);
-            case "4_8":
-                return new location(-2048f, 0f, 6144f);
-            case "5_1":
-                return new location(0f, 0f, -8196f);
-            case "5_2":
-                return new location(0f, 0f, -6144f);
-            case "5_3":
-                return new location(0f, 0f, -4096f);
-            case "5_4":
-                return new location(0f, 0f, -2048f);
-            case "5_5":
-                return new location(0f, 0f, 0f);
-            case "5_6":
-                return new location(0f, 0f, 2048f);
-            case "5_7":
-                return new location(0f, 0f, 4096f);
-            case "5_8":
-                return new location(0f, 0f, 6144f);
-            case "6_1":
-                return new location(2048f, 0f, -8196f);
-            case "6_2":
-                return new location(2048f, 0f, -6144f);
-            case "6_3":
-                return new location(2048f, 0f, -4096f);
-            case "6_4":
-                return new location(2048f, 0f, -2048f);
-            case "6_5":
-                return new location(2048f, 0f, 0f);
-            case "6_6":
-                return new location(2048f, 0f, 2048f);
-            case "6_7":
-                return new location(2048f, 0f, 4096f);
-            case "6_8":
-                return new location(2048f, 0f, 6144f);
-            case "7_1":
-                return new location(4096f, 0f, -8196f);
-            case "7_2":
-                return new location(4096f, 0f, -6144f);
-            case "7_3":
-                return new location(4096f, 0f, -4096f);
-            case "7_4":
-                return new location(4096f, 0f, -2048f);
-            case "7_5":
-                return new location(4096f, 0f, 0f);
-            case "7_6":
-                return new location(4096f, 0f, 2048f);
-            case "7_7":
-                return new location(4096f, 0f, 4096f);
-            case "7_8":
-                return new location(4096f, 0f, 6144f);
-            case "8_1":
-                return new location(6144f, 0f, -8196f);
-            case "8_2":
-                return new location(6144f, 0f, -6144f);
-            case "8_3":
-                return new location(6144f, 0f, -4096f);
-            case "8_4":
-                return new location(6144f, 0f, -2048f);
-            case "8_5":
-                return new location(6144f, 0f, 0f);
-            case "8_6":
-                return new location(6144f, 0f, 2048f);
-            case "8_7":
-                return new location(6144f, 0f, 4096f);
-            case "8_8":
-                return new location(6144f, 0f, 6144f);
-            default:
-                return new location(0f, 0f, 0f);
+    public static int getCellIndex(obj_id cell)
+    {
+        if(isIdValid(cell))
+        {
+            return Arrays.asList(getCellIds(getTopMostContainer(cell))).indexOf(cell);
         }
+        return 0;
     }
+
+    public static boolean isWorldCoordinateOffset(String scene)
+    {
+        dictionary d = dataTableGetRow("datatables/buildout/buildout_scenes.iff", scene);
+        return d != null && d.getInt("adjust_map_coordinates") > 0;
+    }
+
+    public static String getHeaderFormat(String header)
+    {
+        return "\\#00FFFF"+header+":\\#.\n";
+    }
+
+
 
 }
