@@ -11,14 +11,37 @@ import script.base_script;
 import script.library.groundquests;
 import script.library.create;
 import script.library.ai_lib;
+import script.library.utils;
 
 public class first_sister_altar extends script.base_script
 {
     public first_sister_altar()
     {
     }
-    public static string_id SID_MNU_USE = new string_id("pet/pet_menu", "menu_store");
-    public static final string_id TOO_SOON_REUSE = new string_id("spam", "snowball_not_ready");
+
+    /**
+     * "Place the Offering"
+     */
+    public static final string_id STF_PLACE_OFFERING = new string_id("quest/ground/wod_sister1", "task02_journal_entry_title");
+    /**
+     * "This object does not interest you."
+     */
+    public static final string_id STF_NO_INTEREST = new string_id("quest/groundquests", "retrieve_item_no_interest");
+    /**
+     * "%TU is not %TT. Please try again later."
+     */
+    public static final string_id STF_NOT_NOW = new string_id("spam", "not_available_fill_2");
+    /**
+     * "Naija Kymeri (Voidsister Huntress)"
+     */
+    public static final string_id STF_MOB = new string_id("mob/creature_names", "wod_first_sister");
+
+    public int OnAttach(obj_id self) throws InterruptedException
+    {
+        messageTo(self, "handleFirstSisterSpawn", null, 30f, false);
+        return SCRIPT_CONTINUE;
+    }
+
     public int OnObjectMenuRequest(obj_id self, obj_id player, menu_info mi) throws InterruptedException
     {
         if (!isValidId(self) || !exists(self))
@@ -29,11 +52,10 @@ public class first_sister_altar extends script.base_script
         {
             return SCRIPT_CONTINUE;
         }
-        if (hasObjVar(self, "string_to_use") && hasObjVar(self, "string_to_use_1"))
+        if(groundquests.isTaskActive(player, "wod_sister1", "useAltar"))
         {
-            SID_MNU_USE = new string_id(getStringObjVar(self, "string_to_use"), getStringObjVar(self, "string_to_use_1"));
+            mi.addRootMenu(menu_info_types.ITEM_USE, STF_PLACE_OFFERING);
         }
-        mi.addRootMenu(menu_info_types.ITEM_USE, SID_MNU_USE);
         return SCRIPT_CONTINUE;
     }
     public int OnObjectMenuSelect(obj_id self, obj_id player, int item) throws InterruptedException
@@ -50,47 +72,47 @@ public class first_sister_altar extends script.base_script
         {
             return SCRIPT_CONTINUE;
         }
-        if (hasObjVar(self, "quest_to_have") && hasObjVar(self, "signal_to_send") && hasObjVar(self, "task_to_have") && hasObjVar(self, "locX") && hasObjVar(self, "locY") && hasObjVar(self, "locZ") && hasObjVar(self, "toSpawn"))
+        if(!groundquests.isTaskActive(player, "wod_sister1", "useAltar"))
         {
-            if (groundquests.isTaskActive(player, getStringObjVar(self, "quest_to_have"), getStringObjVar(self, "task_to_have")) || !groundquests.hasCompletedTask(player, getStringObjVar(self, "quest_to_have"), "killSister1"))
+            sendSystemMessage(player, STF_NO_INTEREST);
+            return SCRIPT_CONTINUE;
+        }
+        final obj_id boss = utils.getObjIdScriptVar(self, "wod_mob");
+        if(!isIdValid(boss) || !exists(boss) || isDead(boss) || isIncapacitated(boss))
+        {
+            prose_package pp = new prose_package();
+            pp.stringId = STF_NOT_NOW;
+            pp.actor.set(STF_MOB);
+            pp.target.set("nearby right now");
+            sendSystemMessageProse(player, pp);
+            return SCRIPT_CONTINUE;
+        }
+        else
+        {
+            if(getDistance(player, boss) > 20f)
             {
-                if (hasObjVar(player, "wod.altarTimeout"))
-                {
-                    sendSystemMessage(player, TOO_SOON_REUSE);
-                    return SCRIPT_CONTINUE;
-                }
-                obj_id[] targets = getNPCsInRange(getLocation(self), 100);
-                if (targets != null && targets.length > 0)
-                {
-                    for (int i = 0; i < targets.length; i++)
-                    {
-                        if (hasObjVar(targets[i], "rescuer") && getObjIdObjVar(targets[i], "rescuer") == player)
-                        {
-                            return SCRIPT_CONTINUE;
-                        }
-                    }
-                }
-                location loc = new location(getIntObjVar(self, "locX"), getIntObjVar(self, "locY"), getIntObjVar(self, "locZ"));
-                obj_id mob = create.object(getStringObjVar(self, "toSpawn"), loc, 92);
-                if (!isValidId(mob) || !exists(mob))
-                {
-                    return SCRIPT_CONTINUE;
-                }
-                setObjVar(mob, "rescuer", player);
-                ai_lib.aiFollow(mob, player);
-                groundquests.sendSignal(player, getStringObjVar(self, "signal_to_send"));
-                setObjVar(player, "wod.altarTimeout", 1);
-                messageTo(player, "resetWoDAltarTimeOut", null, 3.0f, false);
+                pathTo(boss, utils.getRandomLocationInRing(getLocation(player), 3, 10));
             }
+            groundquests.completeTask(player, "wod_sister1", "useAltar");
+
         }
         return SCRIPT_CONTINUE;
     }
-    public int resetWoDAltarTimeOut(obj_id self, obj_id player, dictionary params) throws InterruptedException
+
+    public int firstSisterDeath(obj_id self, dictionary params) throws InterruptedException
     {
-        if (hasObjVar(player, "wod.altarTimeout"))
-        {
-            removeObjVar(player, "wod.altarTimeout");
-        }
+        utils.removeScriptVar(self, "wod_mob");
+        messageTo(self, "handleFirstSisterSpawn", null, 600f, false);
         return SCRIPT_CONTINUE;
     }
+
+    public int handleFirstSisterSpawn(obj_id self, dictionary params) throws InterruptedException
+    {
+        final obj_id boss = create.createCreature("wod_first_sister_aggro",
+                new location(-4836f, 135f, -2939f, "dathomir", obj_id.NULL_ID), true);
+        utils.setScriptVar(self, "wod_mob", boss);
+        utils.setScriptVar(boss, "wod_altar", self);
+        return SCRIPT_CONTINUE;
+    }
+
 }
