@@ -2991,7 +2991,7 @@ public class combat_ship_player extends script.base_script
         if (objChipsToRemove != null)
         {
             for (obj_id anObjChipsToRemove : objChipsToRemove) {
-                if(hasObjVar(anObjChipsToRemove, "strDroidCommand"))
+                if(utils.isNestedWithin(anObjChipsToRemove, self) && hasObjVar(anObjChipsToRemove, "strDroidCommand"))
                 {
                     space_combat.destroyObject(anObjChipsToRemove);
                 }
