@@ -15,7 +15,7 @@ public final class transform implements Comparable, Serializable
 
 	private final static long serialVersionUID = 2864167306712372792L;
 	/** a 3x4 matrix representing a 4x4 with row 4 == (0, 0, 0, 1) */
-	private final float[][] matrix;
+	public final float[][] matrix;
 	/** The identity transform (identity orientation, position at origin) */
 	public final static transform identity = new transform(vector.unitX, vector.unitY, vector.unitZ, vector.zero);
 
