@@ -26,12 +26,6 @@ public class corrupted_rancor_mutation_npc extends script.base_script
             "wavering",
             "corrosion"
     };
-    public static final String NS_BICEP_SCHEMATIC = "item_wod_bossloot_ns_bracer";
-    public static final String SMC_BICEP_SCHEMATIC = "item_wod_bossloot_smc_bicep_";
-    public static final String SMC_BRACER_SCHEMATIC = "item_wod_bossloot_smc_bracer_";
-    public static final int REPEAT_TIME = 45;
-    public static final int OFFSET_TIME = 15;
-    public static int buffStartTime = 0;
 
     public int OnAttach(obj_id self) throws InterruptedException
     {
