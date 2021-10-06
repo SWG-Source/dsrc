@@ -2,3 +2,10 @@ spawns	name	room	loc_x	loc_y	loc_z	yaw	script	mood	animation_mood	respawn_time	s
 s	s	s	f	f	f	f	s	s	s	i	s	s	s	s	s	s
 object/tangible/quest/clone_relics_skeleton_human.iff		r8	-87.7	-70	-115.4	-128										
 object/tangible/quest/imperial/itp_vader_force_crystal.iff		r7	-25.3	-63.7	-254.7	20										
+spider_nightsister_initiate		r4	41	-46.1	-55	-130				600						
+spider_nightsister_initiate		r3	-13.1	-41.1	-66.8	116				600						
+spider_nightsister_initiate		r3	-15.2	-40.9	-70.1	72				600						
+spider_nightsister_initiate		r2	-9.9	-30.7	-25.5	118				600						
+spider_nightsister_initiate		r5	55.1	-46.7	-119.1	-98				600						
+spider_nightsister_initiate		r6	-12.0	-64.4	-177.7	126				600						
+spider_nightsister_initiate		r6	-8	-63.9	-184.7	-52				600						
