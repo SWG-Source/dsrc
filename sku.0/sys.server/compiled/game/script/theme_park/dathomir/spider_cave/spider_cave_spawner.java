@@ -121,7 +121,7 @@ public class spider_cave_spawner extends script.base_script
     }
     public int OnHearSpeech(obj_id self, obj_id speaker, String text) throws InterruptedException
     {
-        if (!hasObjVar(speaker, "gm_testing"))
+        if (!isGod(speaker))
         {
             return SCRIPT_CONTINUE;
         }
