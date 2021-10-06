@@ -12,7 +12,10 @@ public class singing_mt_clan_guardian extends script.base_script
     {
         setName(self, "Singing Mountain Clan Guardian");
         ai_lib.setDefaultCalmBehavior(self, ai_lib.BEHAVIOR_SENTINEL);
-        setInvulnerable(self, false);
+        if(!isIdValid(getTopMostContainer(self))) // outside = attackable, inside = in SMC content area and flavor only
+        {
+            setInvulnerable(self, false);
+        }
         return SCRIPT_CONTINUE;
     }
 }
