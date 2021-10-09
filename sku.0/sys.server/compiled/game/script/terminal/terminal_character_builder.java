@@ -966,11 +966,6 @@ public class terminal_character_builder extends script.base_script
         "Food Factory",
         "Equipment Factory",
         "Structure Factory",
-        "Generic House",
-        "Small Tatooine House",
-        "Small Naboo House",
-        "Small Corellia House",
-        "Merchant Tent",
         "Heavy Mineral Harvester",
         "Heavy Flora Harvester",
         "Heavy Gas Harvester",
@@ -985,7 +980,61 @@ public class terminal_character_builder extends script.base_script
         "Corellia City Pack",
         "Naboo City Pack",
         "Tatooine City Pack",
-        "TCG Houses"
+		"Tatooine Small House",
+		"Tatooine Small House (style 2)",
+		"Tatooine Small Windowed House",
+		"Tatooine Medium House",
+		"Tatooine Large House",
+		"Naboo Small House",
+		"Naboo Small House (style 2)",
+		"Naboo Small Windowed House",
+		"Naboo Medium House",
+		"Naboo Large House",
+		"Corellia Small House",
+		"Corellia Small House (floorplan 2)",
+		"Corellia Small House (style 2)",
+		"Corellia Small House (style 2 floorplan 2)",
+		"Corellia Medium House",
+		"Corellia Large House",
+		"Corellia Large House (style 2)",
+		"Generic Small Planet House",
+		"Generic Small Planet House (floorplan 2)",
+		"Generic Small Planet House (style 2)",
+		"Generic Small Planet House (style 2 floorplan 2)",
+		"Generic Small Windowed Planet House",
+		"Generic Small Windowed Planet House (style 2)",
+		"Generic Medium Planet House",
+		"Generic Medium Planet House (style 2)",
+		"Generic Medium Windowed Planet House",
+		"Generic Medium Windowed Planet House (style 2)",
+		"Generic Large Planet House",
+		"Generic Large Planet House (style 2)",
+		"Generic Large Windowed Planet House",
+		"Generic Large Windowed Planet House (style 2)",
+		"Merchant Tent (style 1)",
+		"Merchant Tent (style 2)",
+		"Merchant Tent (style 3)",
+		"Mustafarian Underground Bunker",
+		"YT-1300 House",
+		"Jabba's Sail Barge House",
+		"Kashyyyk Tree House",
+		"Kashyyyk Tree House (Tall)",
+		"Sandcrawler House",
+		"Chronicles Tent",
+		"TCG AT-AT House",
+		"TCG Barn",
+		"TCG Commando Bunker",
+		"TCG Cloud City House",
+		"TCG Diner",
+		"TCG Garage",
+		"TCG Starship Hanger",
+		"TCG Jedi Meditation Room",
+		"TCG Sith Meditation Room",
+		"TCG Muunilinst Relaxation Pool",
+		"TCG Emperor's Spire",
+		"TCG Rebel Spire",
+		"TCG VIP Bunker",
+		"TCG Yoda's House"
     };
     public static final String[] CRAFTING_OPTIONS = {
         "Weapon Crafting Station",
@@ -4669,26 +4718,6 @@ public class terminal_character_builder extends script.base_script
             sendSystemMessageTestingOnly(player, "Structure Factory Deed Issued.");
             break;
             case 4:
-            createObject("object/tangible/deed/player_house_deed/generic_house_small_deed.iff", pInv, "");
-            sendSystemMessageTestingOnly(player, "Generic House Deed Issued.");
-            break;
-            case 5:
-            createObject("object/tangible/deed/player_house_deed/tatooine_house_small_deed.iff", pInv, "");
-            sendSystemMessageTestingOnly(player, "Small Tatooine House Deed Issued.");
-            break;
-            case 6:
-            createObject("object/tangible/deed/player_house_deed/naboo_house_small_deed.iff", pInv, "");
-            sendSystemMessageTestingOnly(player, "Small Naboo House Deed Issued.");
-            break;
-            case 7:
-            createObject("object/tangible/deed/player_house_deed/corellia_house_small_deed.iff", pInv, "");
-            sendSystemMessageTestingOnly(player, "Small Corellia House Deed Issued.");
-            break;
-            case 8:
-            createObject("object/tangible/deed/player_house_deed/merchant_tent_style_03_deed.iff", pInv, "");
-            sendSystemMessageTestingOnly(player, "Merchant Tent Deed Issued.");
-            break;
-            case 9:
             obj_id mineral = createObject("object/tangible/deed/harvester_deed/ore_harvester_heavy_deed.iff", pInv, "");
             sendSystemMessageTestingOnly(player, "Heavy Mineral Harvester Issued.");
             if (isIdValid(mineral))
@@ -4697,7 +4726,7 @@ public class terminal_character_builder extends script.base_script
                 setObjVar(mineral, "player_structure.deed.currentExtractionRate", 13);
             }
             break;
-            case 10:
+            case 5:
             obj_id flora = createObject("object/tangible/deed/harvester_deed/flora_harvester_deed_heavy.iff", pInv, "");
             sendSystemMessageTestingOnly(player, "Heavy Flora Harvester Issued.");
             if (isIdValid(flora))
@@ -4706,7 +4735,7 @@ public class terminal_character_builder extends script.base_script
                 setObjVar(flora, "player_structure.deed.currentExtractionRate", 13);
             }
             break;
-            case 11:
+            case 6:
             obj_id gas = createObject("object/tangible/deed/harvester_deed/gas_harvester_deed_heavy.iff", pInv, "");
             sendSystemMessageTestingOnly(player, "Heavy Gas Harvester Issued.");
             if (isIdValid(gas))
@@ -4715,7 +4744,7 @@ public class terminal_character_builder extends script.base_script
                 setObjVar(gas, "player_structure.deed.currentExtractionRate", 13);
             }
             break;
-            case 12:
+            case 7:
             obj_id chemical = createObject("object/tangible/deed/harvester_deed/liquid_harvester_deed_heavy.iff", pInv, "");
             sendSystemMessageTestingOnly(player, "Heavy Chemical Harvester Issued.");
             if (isIdValid(chemical))
@@ -4724,7 +4753,7 @@ public class terminal_character_builder extends script.base_script
                 setObjVar(chemical, "player_structure.deed.currentExtractionRate", 13);
             }
             break;
-            case 13:
+            case 8:
             obj_id moisture = createObject("object/tangible/deed/harvester_deed/moisture_harvester_deed_heavy.iff", pInv, "");
             sendSystemMessageTestingOnly(player, "Heavy Moisture Vaporator Issued.");
             if (isIdValid(moisture))
@@ -4733,7 +4762,7 @@ public class terminal_character_builder extends script.base_script
                 setObjVar(moisture, "player_structure.deed.currentExtractionRate", 13);
             }
             break;
-			case 14:
+			case 9:
                 mineral = createObject("object/tangible/deed/harvester_deed/ore_harvester_deed_elite.iff", pInv, "");
                 sendSystemMessageTestingOnly(player, "Elite Mineral Harvester Issued.");
                 if (isIdValid(mineral)) {
@@ -4741,7 +4770,7 @@ public class terminal_character_builder extends script.base_script
                     setObjVar(mineral, "player_structure.deed.currentExtractionRate", 13);
             }
             break;
-            case 15:
+            case 10:
                 flora = createObject("object/tangible/deed/harvester_deed/flora_harvester_deed_elite.iff", pInv, "");
                 sendSystemMessageTestingOnly(player, "Elite Flora Harvester Issued.");
                 if (isIdValid(flora)) {
@@ -4749,7 +4778,7 @@ public class terminal_character_builder extends script.base_script
                     setObjVar(flora, "player_structure.deed.currentExtractionRate", 13);
             }
             break;
-            case 16:
+            case 11:
                 gas = createObject("object/tangible/deed/harvester_deed/gas_harvester_deed_elite.iff", pInv, "");
                 sendSystemMessageTestingOnly(player, "Elite Gas Harvester Issued.");
                 if (isIdValid(gas)) {
@@ -4757,7 +4786,7 @@ public class terminal_character_builder extends script.base_script
                     setObjVar(gas, "player_structure.deed.currentExtractionRate", 13);
             }
             break;
-            case 17:
+            case 12:
                 chemical = createObject("object/tangible/deed/harvester_deed/liquid_harvester_deed_elite.iff", pInv, "");
                 sendSystemMessageTestingOnly(player, "Elite Chemical Harvester Issued.");
                 if (isIdValid(chemical)) {
@@ -4765,7 +4794,7 @@ public class terminal_character_builder extends script.base_script
                     setObjVar(chemical, "player_structure.deed.currentExtractionRate", 13);
             }
             break;
-            case 18:
+            case 13:
                 moisture = createObject("object/tangible/deed/harvester_deed/moisture_harvester_deed_elite.iff", pInv, "");
                 sendSystemMessageTestingOnly(player, "Heavy Moisture Vaporator Issued.");
                 if (isIdValid(moisture)) {
@@ -4773,7 +4802,7 @@ public class terminal_character_builder extends script.base_script
                     setObjVar(moisture, "player_structure.deed.currentExtractionRate", 13);
             }
             break;
-            case 19:
+            case 14:
             obj_id fusion = createObject("object/tangible/deed/generator_deed/power_generator_fusion_deed.iff", pInv, "");
             sendSystemMessageTestingOnly(player, "Fusion Reactor Issued.");
             if (isIdValid(fusion))
@@ -4782,7 +4811,7 @@ public class terminal_character_builder extends script.base_script
                 setObjVar(fusion, "player_structure.deed.currentExtractionRate", 16);
             }
             break;
-            case 20:
+            case 15:
             createObject("object/tangible/deed/city_deed/cityhall_corellia_deed.iff", pInv, "");
             createObject("object/tangible/deed/city_deed/cloning_corellia_deed.iff", pInv, "");
             createObject("object/tangible/deed/city_deed/bank_corellia_deed.iff", pInv, "");
@@ -4792,7 +4821,7 @@ public class terminal_character_builder extends script.base_script
             createObject("object/tangible/deed/city_deed/garden_corellia_sml_01_deed.iff", pInv, "");
             sendSystemMessageTestingOnly(player, "Corellia City Pack Created");
             break;
-            case 21:
+            case 16:
             createObject("object/tangible/deed/city_deed/cityhall_naboo_deed.iff", pInv, "");
             createObject("object/tangible/deed/city_deed/cloning_naboo_deed.iff", pInv, "");
             createObject("object/tangible/deed/city_deed/bank_naboo_deed.iff", pInv, "");
@@ -4802,7 +4831,7 @@ public class terminal_character_builder extends script.base_script
             createObject("object/tangible/deed/city_deed/garden_naboo_sml_01_deed.iff", pInv, "");
             sendSystemMessageTestingOnly(player, "Naboo City Pack Created");
             break;
-            case 22:
+            case 17:
             createObject("object/tangible/deed/city_deed/cityhall_tatooine_deed.iff", pInv, "");
             createObject("object/tangible/deed/city_deed/cloning_tatooine_deed.iff", pInv, "");
             createObject("object/tangible/deed/city_deed/bank_tatooine_deed.iff", pInv, "");
@@ -4811,23 +4840,226 @@ public class terminal_character_builder extends script.base_script
             createObject("object/tangible/deed/city_deed/garden_tatooine_med_01_deed.iff", pInv, "");
             createObject("object/tangible/deed/city_deed/garden_tatooine_sml_01_deed.iff", pInv, "");
             sendSystemMessageTestingOnly(player, "Tatooine City Pack Created");
+			case 18:
+            createObject("object/tangible/deed/player_house_deed/tatooine_house_small_deed.iff", pInv, "");
+            sendSystemMessageTestingOnly(player, "Small Tatooine House Deed Issued.");
             break;
-            case 23:
-            static_item.createNewItemFunction("item_tcg_loot_reward_series2_diner", pInv);
-            static_item.createNewItemFunction("item_tcg_loot_reward_series2_barn", pInv);
-            static_item.createNewItemFunction("item_tcg_loot_reward_series3_sith_meditation_room_deed", pInv);
-            static_item.createNewItemFunction("item_tcg_loot_reward_series3_jedi_meditation_room_deed", pInv);
-            static_item.createNewItemFunction("item_tcg_loot_reward_series4_relaxation_pool_deed_02_01", pInv);
-            static_item.createNewItemFunction("item_tcg_loot_reward_series5_player_house_hangar", pInv);
-            static_item.createNewItemFunction("item_tcg_loot_reward_series5_player_house_atat", pInv);
-            static_item.createNewItemFunction("item_tcg_loot_reward_series6_deed_emperor_spire", pInv);
-            static_item.createNewItemFunction("item_tcg_loot_reward_series6_deed_rebel_spire", pInv);
-            static_item.createNewItemFunction("item_tcg_loot_reward_series7_deed_commando_bunker", pInv);
-            static_item.createNewItemFunction("item_tcg_loot_reward_series7_deed_vip_bunker", pInv);
-            static_item.createNewItemFunction("item_tcg_loot_reward_series8_bespin_house_deed", pInv);
-            static_item.createNewItemFunction("item_tcg_loot_reward_series8_yoda_house_deed", pInv);
-            static_item.createNewItemFunction("item_player_house_deed_jabbas_sail_barge", pInv);
-            sendSystemMessageTestingOnly(player, "TCG House Pack Created");
+			case 19:
+			createObject("object/tangible/deed/player_house_deed/tatooine_house_small_style_02_deed.iff", pInv, "");
+			sendSystemMessageTestingOnly(player, "Small Tatooine House style 2 Deed Issued.");
+            break;
+			case 20:
+			createObject("object/tangible/deed/player_house_deed/tatooine_house_windowed_small_deed.iff", pInv, "");
+			sendSystemMessageTestingOnly(player, "Small Windowed Tatooine House Deed Issued.");
+            break;
+			case 21:
+			createObject("object/tangible/deed/player_house_deed/tatooine_house_medium_deed.iff", pInv, "");
+			sendSystemMessageTestingOnly(player, "Medium Tatooine House Deed Issued.");
+            break;
+			case 22:
+			createObject("object/tangible/deed/player_house_deed/tatooine_house_large_deed.iff", pInv, "");
+			sendSystemMessageTestingOnly(player, "Large Tatooine House Deed Issued.");
+            break;
+			case 23:
+            createObject("object/tangible/deed/player_house_deed/naboo_house_small_deed.iff", pInv, "");
+            sendSystemMessageTestingOnly(player, "Small Naboo House Deed Issued.");
+            break;
+			case 24:
+			createObject("object/tangible/deed/player_house_deed/naboo_house_small_style_02_deed.iff", pInv, "");
+			sendSystemMessageTestingOnly(player, "Small Naboo House style 2 Deed Issued.");
+            break;
+			case 25:
+			createObject("object/tangible/deed/player_house_deed/naboo_house_small_window_deed.iff", pInv, "");
+			sendSystemMessageTestingOnly(player, "Small Windowed Naboo House Deed Issued.");
+            break;
+			case 26:
+			createObject("object/tangible/deed/player_house_deed/naboo_house_medium_deed.iff", pInv, "");
+			sendSystemMessageTestingOnly(player, "Medium Naboo House Deed Issued.");
+            break;
+			case 27:
+			createObject("object/tangible/deed/player_house_deed/naboo_house_large_deed.iff", pInv, "");
+			sendSystemMessageTestingOnly(player, "Large Naboo House Deed Issued.");
+            break;
+			case 28:
+            createObject("object/tangible/deed/player_house_deed/corellia_house_small_deed.iff", pInv, "");
+            sendSystemMessageTestingOnly(player, "Small Corellia House Deed Issued.");
+            break;
+			case 29:
+			createObject("object/tangible/deed/player_house_deed/corellia_house_small_floor_02_deed.iff", pInv, "");
+			sendSystemMessageTestingOnly(player, "Small Corellia House floorplan 2 Deed Issued.");
+            break;
+			case 30:
+			createObject("object/tangible/deed/player_house_deed/corellia_house_small_style_02_deed.iff", pInv, "");
+			sendSystemMessageTestingOnly(player, "Small Corellia House style 2 Deed Issued.");
+            break;
+			case 31:
+			createObject("object/tangible/deed/player_house_deed/corellia_house_small_style_02_floor_02_deed.iff", pInv, "");
+			sendSystemMessageTestingOnly(player, "Small Corellia House style 2 floorplan 2 Deed Issued.");
+            break;
+			case 32:
+			createObject("object/tangible/deed/player_house_deed/corellia_house_medium_deed.iff", pInv, "");
+			sendSystemMessageTestingOnly(player, "Medium Corellia House Deed Issued.");
+            break;
+			case 33:
+			createObject("object/tangible/deed/player_house_deed/corellia_house_large_deed.iff", pInv, "");
+			sendSystemMessageTestingOnly(player, "Large Corellia House Deed Issued.");
+            break;
+			case 34:
+			createObject("object/tangible/deed/player_house_deed/corellia_house_large_style_02_deed.iff", pInv, "");
+			sendSystemMessageTestingOnly(player, "Large Corellia House style 2 Deed Issued.");
+            break;
+			case 35:
+			createObject("object/tangible/deed/player_house_deed/generic_house_small_deed.iff", pInv, "");
+			sendSystemMessageTestingOnly(player, "Small Generic Planet House Deed Issued.");
+            break;
+			case 36:
+			createObject("object/tangible/deed/player_house_deed/generic_house_small_floor_02_deed.iff", pInv, "");
+			sendSystemMessageTestingOnly(player, "Small Generic Planet House floorplan 2 Deed Issued.");
+            break;
+			case 37:
+			createObject("object/tangible/deed/player_house_deed/generic_house_small_style_02_deed.iff", pInv, "");
+			sendSystemMessageTestingOnly(player, "Small Generic Planet House style 2 Deed Issued.");
+            break;
+			case 38:
+			createObject("object/tangible/deed/player_house_deed/generic_house_small_style_02_floor_02_deed.iff", pInv, "");
+			sendSystemMessageTestingOnly(player, "Small Generic Planet House style 2 floorplan 2 Deed Issued.");
+            break;
+			case 39:
+			createObject("object/tangible/deed/player_house_deed/generic_house_small_window_deed.iff", pInv, "");
+			sendSystemMessageTestingOnly(player, "Small Windowed Generic Planet House Deed Issued.");
+            break;
+			case 40:
+			createObject("object/tangible/deed/player_house_deed/generic_house_small_window_style_03_deed.iff", pInv, "");
+			sendSystemMessageTestingOnly(player, "Small Windowed Generic Planet House style 2 Deed Issued.");
+            break;
+			case 41:
+			createObject("object/tangible/deed/player_house_deed/generic_house_medium_deed.iff", pInv, "");
+			sendSystemMessageTestingOnly(player, "Medium Generic Planet House Deed Issued.");
+            break;
+			case 42:
+			createObject("object/tangible/deed/player_house_deed/generic_house_medium_style_02_deed.iff", pInv, "");
+			sendSystemMessageTestingOnly(player, "Medium Generic Planet House style 2 Deed Issued.");
+            break;
+			case 43:
+			createObject("object/tangible/deed/player_house_deed/generic_house_medium_windowed_deed.iff", pInv, "");
+			sendSystemMessageTestingOnly(player, "Medium Windowed Generic Planet House Deed Issued.");
+            break;
+			case 44:
+			createObject("object/tangible/deed/player_house_deed/generic_house_medium_windowed_s02_deed.iff", pInv, "");
+			sendSystemMessageTestingOnly(player, "Medium Windowed Generic Planet House style 2 Deed Issued.");
+            break;
+			case 45:
+			createObject("object/tangible/deed/player_house_deed/generic_house_large_deed.iff", pInv, "");
+			sendSystemMessageTestingOnly(player, "Large Generic Planet House Deed Issued.");
+            break;
+			case 46:
+			createObject("object/tangible/deed/player_house_deed/generic_house_large_style_02_deed.iff", pInv, "");
+			sendSystemMessageTestingOnly(player, "Large Generic Planet House style 2 Deed Issued.");
+            break;
+			case 47:
+			createObject("object/tangible/deed/player_house_deed/generic_house_large_window_s01_deed.iff", pInv, "");
+			sendSystemMessageTestingOnly(player, "Large Windowed Generic Planet House Deed Issued.");
+            break;
+			case 48:
+			createObject("object/tangible/deed/player_house_deed/generic_house_large_window_s02_deed.iff", pInv, "");
+			sendSystemMessageTestingOnly(player, "Large Windowed Generic Planet House style 2 Deed Issued.");
+            break;
+			case 49:
+            createObject("object/tangible/deed/player_house_deed/merchant_tent_style_01_deed.iff", pInv, "");
+            sendSystemMessageTestingOnly(player, "Merchant Tent Deed style 1 Issued.");
+            break;
+			case 50:
+            createObject("object/tangible/deed/player_house_deed/merchant_tent_style_02_deed.iff", pInv, "");
+            sendSystemMessageTestingOnly(player, "Merchant Tent Deed style 2 Issued.");
+            break;
+			case 51:
+            createObject("object/tangible/deed/player_house_deed/merchant_tent_style_03_deed.iff", pInv, "");
+            sendSystemMessageTestingOnly(player, "Merchant Tent Deed style 3 Issued.");
+            break;
+			case 52:
+			createObject("object/tangible/deed/player_house_deed/mustafar_house_lg.iff", pInv, "");
+			sendSystemMessageTestingOnly(player, "Mustafarian Underground Bunker Deed Issued.");
+            break;
+			case 53:
+			createObject("object/tangible/deed/player_house_deed/yt1300_house_deed.iff", pInv, "");
+			sendSystemMessageTestingOnly(player, "YT-1300 House Deed Issued.");
+			break;
+			case 54:
+			static_item.createNewItemFunction("item_player_house_deed_jabbas_sail_barge", pInv);
+			sendSystemMessageTestingOnly(player, "Jabba's Sail Barge Deed Issued.");
+            break;
+			case 55:
+			static_item.createNewItemFunction("item_player_house_deed_tree_house_01", pInv);
+			sendSystemMessageTestingOnly(player, "Kashyyyk Tree House Deed Issued.");
+            break;
+			case 56:
+			static_item.createNewItemFunction("item_player_house_deed_tree_house_02", pInv);
+			sendSystemMessageTestingOnly(player, "Kashyyk Tree House Tall Deed Issued.");
+            break;
+			case 57:
+			static_item.createNewItemFunction("item_pgc_sandcrawler_house_deed", pInv);
+			sendSystemMessageTestingOnly(player, "Sandcrawler House Deed Issued.");
+            break;
+			case 58:
+			static_item.createNewItemFunction("item_pgc_chronicler_tent_deed", pInv);
+			sendSystemMessageTestingOnly(player, "Chronicles Tent Deed Issued.");
+			break;
+			case 59:
+			static_item.createNewItemFunction("item_tcg_loot_reward_series5_player_house_atat", pInv);
+			sendSystemMessageTestingOnly(player, "TCG AT-AT House Deed Issued.");
+			break;
+			case 60:
+			static_item.createNewItemFunction("item_tcg_loot_reward_series2_barn", pInv);
+			sendSystemMessageTestingOnly(player, "TCG Barn Deed Issued.");
+			break;
+			case 61:
+			static_item.createNewItemFunction("item_tcg_loot_reward_series7_deed_commando_bunker", pInv);
+			sendSystemMessageTestingOnly(player, "TCG Commando Bunker Deed Issued.");
+			break;
+			case 62:
+			static_item.createNewItemFunction("item_tcg_loot_reward_series8_bespin_house_deed", pInv);
+			sendSystemMessageTestingOnly(player, "TCG Cloud City House Deed Issued.");
+			break;
+			case 63:
+			static_item.createNewItemFunction("item_tcg_loot_reward_series2_diner", pInv);
+			sendSystemMessageTestingOnly(player, "TCG Diner Deed Issued.");
+			break;
+			case 64:
+			static_item.createNewItemFunction("item_tcg_loot_reward_series7_deed_vehicle_garage", pInv);
+			sendSystemMessageTestingOnly(player, "TCG Garage Deed Issued.");
+			break;
+			case 65:
+			static_item.createNewItemFunction("item_tcg_loot_reward_series5_player_house_hangar", pInv);
+			sendSystemMessageTestingOnly(player, "TCG Hanger Deed Issued.");
+			break;
+			case 66:
+			static_item.createNewItemFunction("item_tcg_loot_reward_series3_jedi_meditation_room_deed", pInv);
+			sendSystemMessageTestingOnly(player, "TCG Jedi Meditation Room Deed Issued.");
+			break;
+			case 67:
+			static_item.createNewItemFunction("item_tcg_loot_reward_series3_sith_meditation_room_deed", pInv);
+			sendSystemMessageTestingOnly(player, "TCG Sith Meditation Room Deed Issued.");
+			break;
+			case 68:
+			static_item.createNewItemFunction("item_tcg_loot_reward_series4_relaxation_pool_deed_02_01", pInv);
+			sendSystemMessageTestingOnly(player, "TCG Muunilinst Relaxation Pool Deed Issued.");
+			break;
+			case 69:
+			static_item.createNewItemFunction("item_tcg_loot_reward_series6_deed_emperor_spire", pInv);
+			sendSystemMessageTestingOnly(player, "TCG Emperor's Spire Deed Issued.");
+			break;
+			case 70:
+			static_item.createNewItemFunction("item_tcg_loot_reward_series6_deed_rebel_spire", pInv);
+			sendSystemMessageTestingOnly(player, "TCG Rebel Spire Deed Issued.");
+			break;
+			case 71:
+			static_item.createNewItemFunction("item_tcg_loot_reward_series7_deed_vip_bunker", pInv);
+			sendSystemMessageTestingOnly(player, "TCG V.I.P. Bunker Deed Issued.");
+			break;
+			case 72:
+			static_item.createNewItemFunction("item_tcg_loot_reward_series8_yoda_house_deed", pInv);
+			sendSystemMessageTestingOnly(player, "TCG Yoda House Deed Issued.");
+			break;
             default:
             cleanScriptVars(player);
             return SCRIPT_CONTINUE;

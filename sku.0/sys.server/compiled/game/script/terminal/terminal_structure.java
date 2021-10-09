@@ -91,7 +91,7 @@ public class terminal_structure extends script.base_script
                 int owner_root = mi.addRootMenu(menu_info_types.SERVER_MENU16, SID_SHOW_MAYOR_OWNER);
             }
         }
-        if (player_structure.isAdmin(structure, player))
+        if (player_structure.isAdmin(structure, player) || charactersAreSamePlayer(player, getOwner(structure)))
         {
             blog("terminal_structure::OnObjectMenuRequest - you are admin");
             if (player_structure.isHarvester(structure) || player_structure.isGenerator(structure))
@@ -299,7 +299,7 @@ public class terminal_structure extends script.base_script
                 player_structure.validateHarvestedResources(structure);
             }
         }
-        if (!player_structure.isAdmin(structure, player) && !player_structure.isAbandoned(structure))
+        if (!player_structure.isAdmin(structure, player) && !charactersAreSamePlayer(player, getOwner(structure)) && !player_structure.isAbandoned(structure))
         {
             return SCRIPT_CONTINUE;
         }
