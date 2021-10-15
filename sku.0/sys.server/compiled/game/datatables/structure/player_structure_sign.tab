@@ -74,7 +74,7 @@ object/building/player/player_house_tcg_8_bespin_house.iff		0.75	3	-2.2	0	9.75	0
 object/building/player/player_house_tcg_8_yoda_house.iff		4	2.8	7.8	180	10.5	2	8.75	210	X = right/left
 object/building/player/player_house_yt1300.iff		-6.5	1.8	0	90	-7.2	-1.1	-1.1	90	Y = UP/DOWN
 object/building/player/player_house_tree_house_01.iff		-6.5	5	12.5	180	9.75	0.7	7.3	0	Z = FORWARD/BACK
-object/building/player/player_house_wod_ns_hut.iff		1.5	3	5.25	180	9	0.5	6.2	180	
-object/building/player/player_house_wod_sm_hut.iff		1.49	3	6	180	9	0.5	6.2	180	
+object/building/player/player_house_wod_ns_hut.iff		1.49	3	6	180	9	0.5	6.2	180	
+object/building/player/player_house_wod_sm_hut.iff		1.5	3	5.25	180	9	0.5	6.2	180	
 object/building/player/player_house_jabbas_sail_barge.iff		1	3.3	-3.4	0	1.65	0.1	-4.8	0	
 object/building/player/player_house_tree_house_02.iff		-6.5	5	12.5	180	9.75	0.7	7.3	0	

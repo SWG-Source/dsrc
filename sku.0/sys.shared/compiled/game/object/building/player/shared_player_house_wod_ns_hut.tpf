@@ -15,5 +15,5 @@ objectName = "building_name" "ns_hut"
 detailedDescription = "building_detail" "ns_hut"
 lookAtText = "building_lookat" "ns_hut"
 
-portalLayoutFilename = "appearance/ply_all_dath_mtn_clan_hut.pob"
+portalLayoutFilename = "appearance/ply_all_dant_small_mud_hut.pob"
 clientDataFile = "clientdata/building/shared_player_house_tatooine_medium_style_01.cdf"
