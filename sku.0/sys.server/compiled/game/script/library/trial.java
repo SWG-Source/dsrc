@@ -286,7 +286,7 @@ public class trial extends script.base_script
         "item_wod_token_4",
         "item_wod_token_5"
     };
-    public static final int NUM_HEROIC_TOKEN_TYPES = 27;
+    public static final int NUM_HEROIC_TOKEN_TYPES = HEROIC_TOKENS.length;
     public static final String KIMARU_HATE_LIST = "kimaru_hate_list";
     public static final String WP_DATA = "nearPoint";
     public static final String PROT_CHILD = "protected_data";
