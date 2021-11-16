@@ -36,8 +36,6 @@ public class static_item extends script.base_script
     public static final int IT_ITEM = 3;
     public static final java.text.NumberFormat noDecimalFormat = new java.text.DecimalFormat("###");
     public static final String SET_BONUS_TABLE = "datatables/item/item_sets.iff";
-    public static final String[] NO_TRADE_SHARED_ITEMS = dataTableGetStringColumn(ITEM_NO_TRADE_SHARED_TABLE, 0);
-    public static final String[] NO_TRADE_REMOVABLE_ITEMS = dataTableGetStringColumn(ITEM_NO_TRADE_REMOVABLE_TABLE, 0);
     public static obj_id createNewItemFunction(String itemName, obj_id container) throws InterruptedException
     {
         return createNewItemFunction(itemName, container, null, 0);
@@ -125,7 +123,11 @@ public class static_item extends script.base_script
         {
             setCount(newItem, chargeList);
         }
-        if(Arrays.asList(NO_TRADE_SHARED_ITEMS).contains(itemName) || Arrays.asList(NO_TRADE_REMOVABLE_ITEMS).contains(itemName)) {
+        // Fixing because of null pointer.  Non-static arrays were referenced in a static method.
+        String[] no_trade_shared_items = dataTableGetStringColumn(ITEM_NO_TRADE_SHARED_TABLE, 0);
+        String[] no_trade_removable_items = dataTableGetStringColumn(ITEM_NO_TRADE_REMOVABLE_TABLE, 0);
+
+        if(no_trade_shared_items != null && no_trade_removable_items != null && (Arrays.asList(no_trade_shared_items).contains(itemName) || Arrays.asList(no_trade_removable_items).contains(itemName))) {
             setObjVar(newItem, "noTrade", 1);
         }
         initializeObject(newItem, itemData);
