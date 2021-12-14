@@ -376,6 +376,13 @@ public class player_saga_quest extends script.base_script
                 if (isIdValid(oldRecipe) && exists(oldRecipe))
                 {
                     questHolocron = oldRecipe;
+                    
+                    // exploit fix
+                    if(!getTemplateName(oldRecipe).equals(pgc_quests.PGC_QUEST_RECIPE_TEMPLATE))
+                    {
+                        return false;
+                    }
+                    
                     resetAllPlayerQuestData(questHolocron);
                     if (hasObjVar(questHolocron, "chronicles"))
                     {
