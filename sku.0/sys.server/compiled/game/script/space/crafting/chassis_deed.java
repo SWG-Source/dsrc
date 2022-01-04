@@ -56,13 +56,13 @@ public class chassis_deed extends script.base_script
             if (type.equals("vwing"))
             {
                 names[idx] = "reb_pilot_cert_required";
-                attribs[idx] = utils.packStringId(new string_id("skl_n", "pilot_rebel_navy_starships_02"));
+                attribs[idx] = utils.packStringId(new string_id("skl_n", "pilot_rebel_navy_starships_04"));
                 idx++;
                 names[idx] = "imp_pilot_cert_required";
-                attribs[idx] = utils.packStringId(new string_id("skl_n", "pilot_imperial_navy_starships_02"));
+                attribs[idx] = utils.packStringId(new string_id("skl_n", "pilot_imperial_navy_starships_04"));
                 idx++;
                 names[idx] = "neu_pilot_cert_required";
-                attribs[idx] = utils.packStringId(new string_id("skl_n", "pilot_neutral_starships_02"));
+                attribs[idx] = utils.packStringId(new string_id("skl_n", "pilot_neutral_starships_04"));
                 idx++;
             }
         }
