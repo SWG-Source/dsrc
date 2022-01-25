@@ -24,14 +24,14 @@ public class e3_corvette extends script.base_script
     public int spawnAttackers(obj_id self, dictionary params) throws InterruptedException
     {
         String strSquad = "squad_tie_bomberwithguard_ace";
-        Vector objMembers = space_create.createSquadHyperspace(self, strSquad, getTransform_o2p(self), rand(200, 300), null);
-        for (Object objMember1 : objMembers) {
-            ship_ai.unitAddDamageTaken(((obj_id) objMember1), self, 100.0f);
+        Vector<obj_id> objMembers = space_create.createSquadHyperspace(self, strSquad, getTransform_o2p(self), rand(200, 300), null);
+        for (obj_id objMember : objMembers) {
+            ship_ai.unitAddDamageTaken(objMember, self, 100.0f);
         }
         strSquad = "squad_tie_bomberwithguard_ace";
         objMembers = space_create.createSquadHyperspace(self, strSquad, getTransform_o2p(self), rand(200, 300), null);
-        for (Object objMember : objMembers) {
-            ship_ai.unitAddDamageTaken(((obj_id) objMember), self, 100.0f);
+        for (obj_id objMember : objMembers) {
+            ship_ai.unitAddDamageTaken(objMember, self, 100.0f);
         }
         return SCRIPT_CONTINUE;
     }
@@ -40,11 +40,9 @@ public class e3_corvette extends script.base_script
         int intCount = rand(1, 3);
         for (int intI = 0; intI < intCount; intI++)
         {
-            int intDamageType = rand(1, 4);
-            int intDamageIntensity = rand(1, 2);
             dictionary dctParams = new dictionary();
-            dctParams.put("intDamageType", intDamageType);
-            dctParams.put("intDamageIntensity", intDamageIntensity);
+            dctParams.put("intDamageType", rand(1,4));
+            dctParams.put("intDamageIntensity", rand(1,2));
             space_utils.notifyObject(self, "interiorDamageNotification", dctParams);
         }
         messageTo(self, "damageLoop", null, rand(5, 10), false);
@@ -57,12 +55,8 @@ public class e3_corvette extends script.base_script
         int intIndex = utils.getIntLocalVar(self, "intIndex");
         location locSpawnLocation = space_utils.getLocationFromTransform(trSpawnLocations[intIndex]);
         locSpawnLocation.cell = objCells[intIndex];
-        String[] strMobs = 
-        {
-            "rebel_crewman"
-        };
-        int intRoll = rand(0, strMobs.length - 1);
-        obj_id objMob = create.object(strMobs[intRoll], locSpawnLocation);
+
+        obj_id objMob = create.object("rebel_crewman", locSpawnLocation);
         LOG("create", "Made mob " + objMob + " at location " + locSpawnLocation);
         setState(objMob, STATE_SHIP_INTERIOR, false);
         setObjVar(objMob, "intDeleteOnReset", 1);

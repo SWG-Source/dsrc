@@ -649,16 +649,16 @@ public class space_combat extends script.base_script
                             doFactionPointGrant(((obj_id) objPlayer), intImperialFactionPoints, intRebelFactionPoints);
                             if (hasSkill(((obj_id) objPlayer), "pilot_rebel_navy_master")) {
                                 xp.grant(((obj_id) objPlayer), xp.SPACE_PRESTIGE_REBEL, intAmount, true);
-                                CustomerServiceLog("space_xp", "SPACE_PRESTIGE_REBEL|V1|" + tier + "|TIME:" + getGameTime() + "|PLAYER:" + ((obj_id) objPlayer) + "|PLAYER_SHIP:" + getPilotedShip(((obj_id) objPlayer)) + "|DEFENDER:" + objDefender + "|DEFENDER_TYPE:" + defenderType + "|AMT:" + intAmount);
+                                CustomerServiceLog("space_xp", "SPACE_PRESTIGE_REBEL|V1|" + tier + "|TIME:" + getGameTime() + "|PLAYER:" + objPlayer + "|PLAYER_SHIP:" + getPilotedShip(((obj_id) objPlayer)) + "|DEFENDER:" + objDefender + "|DEFENDER_TYPE:" + defenderType + "|AMT:" + intAmount);
                             } else if (hasSkill(((obj_id) objPlayer), "pilot_imperial_navy_master")) {
                                 xp.grant(((obj_id) objPlayer), xp.SPACE_PRESTIGE_IMPERIAL, intAmount, true);
-                                CustomerServiceLog("space_xp", "SPACE_PRESTIGE_IMPERIAL|V1|" + tier + "|TIME:" + getGameTime() + "|PLAYER:" + ((obj_id) objPlayer) + "|PLAYER_SHIP:" + getPilotedShip(((obj_id) objPlayer)) + "|DEFENDER:" + objDefender + "|DEFENDER_TYPE:" + defenderType + "|AMT:" + intAmount);
+                                CustomerServiceLog("space_xp", "SPACE_PRESTIGE_IMPERIAL|V1|" + tier + "|TIME:" + getGameTime() + "|PLAYER:" + objPlayer + "|PLAYER_SHIP:" + getPilotedShip(((obj_id) objPlayer)) + "|DEFENDER:" + objDefender + "|DEFENDER_TYPE:" + defenderType + "|AMT:" + intAmount);
                             } else if (hasSkill(((obj_id) objPlayer), "pilot_neutral_master")) {
                                 xp.grant(((obj_id) objPlayer), xp.SPACE_PRESTIGE_PILOT, intAmount, true);
-                                CustomerServiceLog("space_xp", "SPACE_PRESTIGE_PILOT|V1|" + tier + "|TIME:" + getGameTime() + "|PLAYER:" + ((obj_id) objPlayer) + "|PLAYER_SHIP:" + getPilotedShip(((obj_id) objPlayer)) + "|DEFENDER:" + objDefender + "|DEFENDER_TYPE:" + defenderType + "|AMT:" + intAmount);
+                                CustomerServiceLog("space_xp", "SPACE_PRESTIGE_PILOT|V1|" + tier + "|TIME:" + getGameTime() + "|PLAYER:" + objPlayer + "|PLAYER_SHIP:" + getPilotedShip(((obj_id) objPlayer)) + "|DEFENDER:" + objDefender + "|DEFENDER_TYPE:" + defenderType + "|AMT:" + intAmount);
                             } else {
                                 xp.grant(((obj_id) objPlayer), xp.SPACE_COMBAT_GENERAL, intAmount, true);
-                                CustomerServiceLog("space_xp", "SPACE_COMBAT_GENERAL|V1|" + tier + "|TIME:" + getGameTime() + "|PLAYER:" + ((obj_id) objPlayer) + "|PLAYER_SHIP:" + getPilotedShip(((obj_id) objPlayer)) + "|DEFENDER:" + objDefender + "|DEFENDER_TYPE:" + defenderType + "|AMT:" + intAmount);
+                                CustomerServiceLog("space_xp", "SPACE_COMBAT_GENERAL|V1|" + tier + "|TIME:" + getGameTime() + "|PLAYER:" + objPlayer + "|PLAYER_SHIP:" + getPilotedShip(((obj_id) objPlayer)) + "|DEFENDER:" + objDefender + "|DEFENDER_TYPE:" + defenderType + "|AMT:" + intAmount);
                                 int badgeCount = 0;
                                 if (badge.hasBadge(((obj_id) objPlayer), "pilot_rebel_navy_naboo")) {
                                     badgeCount++;
@@ -685,7 +685,7 @@ public class space_combat extends script.base_script
                                     int bonus = intAmount * badgeCount;
                                     string_id sid_xp = new string_id(xp.STF_XP_N, xp.SPACE_COMBAT_GENERAL);
                                     xp.grant(((obj_id) objPlayer), xp.SPACE_COMBAT_GENERAL, bonus, false);
-                                    CustomerServiceLog("space_xp", "SPACE_COMBAT_GENERAL_BONUS|TIME:" + getGameTime() + "|PLAYER:" + ((obj_id) objPlayer) + "|PLAYER_SHIP:" + getPilotedShip(((obj_id) objPlayer)) + "|DEFENDER:" + objDefender + "|DEFENDER_TYPE:" + defenderType + "|AMT:" + bonus);
+                                    CustomerServiceLog("space_xp", "SPACE_COMBAT_GENERAL_BONUS|TIME:" + getGameTime() + "|PLAYER:" + objPlayer + "|PLAYER_SHIP:" + getPilotedShip(((obj_id) objPlayer)) + "|DEFENDER:" + objDefender + "|DEFENDER_TYPE:" + defenderType + "|AMT:" + bonus);
                                     prose_package pp = prose.getPackage(xp.PROSE_GRANT_XP_BONUS, sid_xp);
                                     if (exists(((obj_id) objPlayer)) && (((obj_id) objPlayer).isLoaded())) {
                                         sendSystemMessageProse(((obj_id) objPlayer), pp);
@@ -1572,7 +1572,7 @@ public class space_combat extends script.base_script
                 groundquests.sendSignal(((obj_id) objPlayer), "smugglerEnemyIncap");
                 string_id strSpam = new string_id("space/space_interaction", "your_ship_esploded");
                 sendSystemMessage(((obj_id) objPlayer), strSpam);
-                CustomerServiceLog("space_death", "Wounding " + ((obj_id) objPlayer) + " because " + objShip + " exploded", ((obj_id) objPlayer));
+                CustomerServiceLog("space_death", "Wounding " + objPlayer + " because " + objShip + " exploded", ((obj_id) objPlayer));
                 healing.healClone(((obj_id) objPlayer), false);
             }
         }
@@ -2779,12 +2779,12 @@ public class space_combat extends script.base_script
         {
             strikePackageType = "squad_plyr_cmd_bmbr_extreme" + targetDifficultyTier;
         }
-        Vector objStrikePack = space_create.createSquadHyperspace(null, strikePackageType, loc, 20.0f, null);
-        if (!isIdValid(((obj_id)objStrikePack.get(0))))
+        Vector<obj_id> objStrikePack = space_create.createSquadHyperspace(null, strikePackageType, loc, 20.0f, null);
+        if (!isIdValid(objStrikePack.get(0)))
         {
             return false;
         }
-        int bomberSquadId = ship_ai.unitGetSquadId(((obj_id)objStrikePack.get(0)));
+        int bomberSquadId = ship_ai.unitGetSquadId(objStrikePack.get(0));
         obj_id[] squaddyList;
         if (ship_ai.isSquadIdValid(bomberSquadId))
         {
@@ -2872,8 +2872,8 @@ public class space_combat extends script.base_script
         }
         transform loc = playerCommandSpawnerLocGetter(bomberSquaddyList[0], false);
         int totalEscorts = 0;
-        for (obj_id aBomberSquaddyList : bomberSquaddyList) {
-            Vector objStrikeEscortPack = space_create.createSquadHyperspace(null, escortPackageType, loc, 20.0f, null);
+        for (obj_id bomberSquaddyMember : bomberSquaddyList) {
+            Vector<obj_id> objStrikeEscortPack = space_create.createSquadHyperspace(null, escortPackageType, loc, 20.0f, null);
             int escortSquadId = ship_ai.unitGetSquadId(((obj_id) objStrikeEscortPack.get(0)));
             obj_id[] escortSquaddyList;
             if (ship_ai.isSquadIdValid(escortSquadId)) {
@@ -2882,8 +2882,8 @@ public class space_combat extends script.base_script
                 return false;
             }
             totalEscorts += objStrikeEscortPack.size();
-            utils.setLocalVar(aBomberSquaddyList, "escortSquadId", escortSquadId);
-            utils.setLocalVar(aBomberSquaddyList, "crrntEscrtSqdSz", escortSquaddyList.length);
+            utils.setLocalVar(bomberSquaddyMember, "escortSquadId", escortSquadId);
+            utils.setLocalVar(bomberSquaddyMember, "crrntEscrtSqdSz", escortSquaddyList.length);
             for (obj_id anEscortSquaddyList : escortSquaddyList) {
                 setObjVar(anEscortSquaddyList, "commanderPlayer", commander);
             }
@@ -2891,7 +2891,7 @@ public class space_combat extends script.base_script
                 utils.removeLocalVar(commander, "cmd.bmb.initEscrtPckSize");
             }
             utils.setLocalVar(commander, "cmd.bmb.initEscrtPckSize", totalEscorts);
-            ship_ai.squadFollow(escortSquadId, aBomberSquaddyList, new vector(0.0f, 0.0f, -1.0f), 2.0f);
+            ship_ai.squadFollow(escortSquadId, bomberSquaddyMember, new vector(0.0f, 0.0f, -1.0f), 2.0f);
             ship_ai.squadSetGuardTarget(escortSquadId, bomberSquadId);
         }
         return true;
@@ -3195,7 +3195,7 @@ public class space_combat extends script.base_script
             }
         }
         String[] possibleShips = dataTableGetStringColumnNoDefaults(PIRATE_EQUIPMENT_DATATABLE, pirateForceGear);
-        String leadPirate = possibleShips[(int)(rand(0, possibleShips.length - 1))];
+        String leadPirate = possibleShips[rand(0, possibleShips.length - 1)];
         debugServerConsoleMsg(null, "SPACE_COMBAT.spawnPirateRaiders    ------------     leadPirate chosen was: " + leadPirate);
         obj_id pirateLeader = space_create.createShipHyperspace(leadPirate, loc, null);
         if (!isIdValid(pirateLeader))
@@ -3203,10 +3203,10 @@ public class space_combat extends script.base_script
             return false;
         }
         int pirateSquadId = ship_ai.unitGetSquadId(pirateLeader);
-        int pirateForceSize = (int)(rand(1, pirateForceMaxSize - 1));
+        int pirateForceSize = rand(1, pirateForceMaxSize - 1);
         for (int i = 0; i < pirateForceSize; i++)
         {
-            String spawnShip = possibleShips[(int)(rand(0, possibleShips.length - 1))];
+            String spawnShip = possibleShips[rand(0, possibleShips.length - 1)];
             debugServerConsoleMsg(null, "SPACE_COMBAT.spawnPirateRaiders    ------------     secondary pirate chosen was: " + spawnShip);
             loc = playerCommandSpawnerLocGetter(ship, true);
             obj_id currentPirate = space_create.createShipHyperspace(spawnShip, loc, null);

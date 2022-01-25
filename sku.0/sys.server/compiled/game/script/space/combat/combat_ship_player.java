@@ -427,7 +427,7 @@ public class combat_ship_player extends script.base_script
             obj_id ship = space_transition.getContainingShip(self);
             transform loc = space_combat.playerCommandSpawnerLocGetter(ship, true);
             String strikePackageType = "squad_test";
-            Vector baddysquad = space_create.createSquad(null, strikePackageType, loc, 20.0f, null);
+            space_create.createSquad(null, strikePackageType, loc, 20.0f, null);
         }
         if (command.equalsIgnoreCase("bomberEvac"))
         {

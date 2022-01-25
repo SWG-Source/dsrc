@@ -250,35 +250,33 @@ public class space_create extends script.base_script
         }
         return null;
     }
-    public static Vector createSquad(obj_id objParent, String strSquad, transform trSpawnLocation, float fltDistance, obj_id objCell) throws InterruptedException
+    public static Vector<obj_id> createSquad(obj_id objParent, String strSquad, transform trSpawnLocation, float fltDistance, obj_id objCell) throws InterruptedException
     {
         return _createSquad(objParent, strSquad, trSpawnLocation, fltDistance, objCell, false);
     }
-    public static Vector createSquadHyperspace(obj_id objParent, String strSquad, transform trSpawnLocation, float fltDistance, obj_id objCell) throws InterruptedException
+    public static Vector<obj_id> createSquadHyperspace(obj_id objParent, String strSquad, transform trSpawnLocation, float fltDistance, obj_id objCell) throws InterruptedException
     {
         return _createSquad(objParent, strSquad, trSpawnLocation, fltDistance, objCell, true);
     }
-    public static Vector _createSquad(obj_id objParent, String strSquad, transform trSpawnLocation, float fltDistance, obj_id objCell, boolean hyperspace) throws InterruptedException
+    public static Vector<obj_id> _createSquad(obj_id objParent, String strSquad, transform trSpawnLocation, float fltDistance, obj_id objCell, boolean hyperspace) throws InterruptedException
     {
         dictionary dctSquadInfo = dataTableGetRow("datatables/space_content/spawners/squads.iff", strSquad);
-        if (strSquad == null)
+        if (strSquad == null || dctSquadInfo == null)
         {
             return null;
         }
-        Vector objMembers = new Vector();
-        objMembers.setSize(0);
+        Vector<obj_id> objMembers = new Vector<>(0);
         for (int intI = 1; intI < MAX_SQUAD_SIZE; intI++)
         {
             String strShipType = dctSquadInfo.getString("strShip" + intI);
             if (!strShipType.equals(""))
             {
-                obj_id objShip = null;
+                obj_id objShip;
                 if (hasObjVar(objParent, "intLaunchFromDockingPoint"))
                 {
                     objShip = space_create.createShip(strShipType, getTransform_o2p(objParent), null);
                     transform trTest = ship_ai.unitGetDockTransform(objParent, objShip);
                     transform trFoo = (getTransform_o2p(objShip)).rotateTranslate_l2p(trTest);
-                    location locTest = space_utils.getLocationFromTransform(trFoo);
                     setTransform_o2p(objShip, trFoo);
                 }
                 else 
@@ -286,12 +284,9 @@ public class space_create extends script.base_script
                     transform trTest = space_utils.getRandomPositionInSphere(trSpawnLocation, 0.0f, fltDistance, true);
                     objShip = space_create._createShip(strShipType, trTest, objCell, hyperspace);
                 }
-                if (!isIdValid(objShip))
+                if (isIdValid(objShip))
                 {
-                }
-                else 
-                {
-                    objMembers = utils.addElement(objMembers, objShip);
+                    objMembers.add(objShip);
                     String strMemberScript = dctSquadInfo.getString("strMemberScript");
                     if (!strMemberScript.equals(""))
                     {
@@ -307,30 +302,31 @@ public class space_create extends script.base_script
         }
         if (objMembers.size() > 0)
         {
+            obj_id objMember = objMembers.get(0);
             float fltDestroyPercentage = dctSquadInfo.getFloat("fltDestroyPercentage");
-            int intSquadId = ship_ai.unitGetSquadId(((obj_id)objMembers.get(0)));
-            utils.setScriptVar(((obj_id)objMembers.get(0)), "fltDestroyPercentage", fltDestroyPercentage);
-            utils.setScriptVar(((obj_id)objMembers.get(0)), "intStartPopulation", objMembers.size());
-            for (int intI = 1; intI < objMembers.size(); intI++)
+            int intSquadId = ship_ai.unitGetSquadId(objMember);
+            utils.setScriptVar(objMember, "fltDestroyPercentage", fltDestroyPercentage);
+            utils.setScriptVar(objMember, "intStartPopulation", objMembers.size());
+            int omSize = objMembers.size();
+            obj_id oMember;
+            for (int intI = 1; intI < omSize; intI++)
             {
-                utils.setScriptVar(((obj_id)objMembers.get(intI)), "fltDestroyPercentage", fltDestroyPercentage);
-                utils.setScriptVar(((obj_id)objMembers.get(intI)), "intStartPopulation", objMembers.size());
-                setObjVar(((obj_id)objMembers.get(intI)), "intNoDump", 1);
-                ship_ai.unitSetSquadId(((obj_id)objMembers.get(intI)), intSquadId);
-                if (!isIdValid(objParent))
+                oMember = objMembers.get(intI);
+                utils.setScriptVar(oMember, "fltDestroyPercentage", fltDestroyPercentage);
+                utils.setScriptVar(oMember, "intStartPopulation", omSize);
+                setObjVar(oMember, "intNoDump", 1);
+                ship_ai.unitSetSquadId(oMember, intSquadId);
+                if (isIdValid(objParent))
                 {
-                    setObjVar(((obj_id)objMembers.get(intI)), "objParent", objParent);
+                    setObjVar(oMember, "objParent", objParent);
                 }
             }
             ship_ai.squadSetFormation(intSquadId, dctSquadInfo.getInt("intFormationShape"));
-            ship_ai.squadSetLeader(intSquadId, ((obj_id)objMembers.get(0)));
+            ship_ai.squadSetLeader(intSquadId, objMember);
         }
         else 
         {
             return null;
-        }
-        for (int intI = 0; intI < objMembers.size(); intI++)
-        {
         }
         return objMembers;
     }
