@@ -108,7 +108,8 @@ public class terminal_character_builder extends script.base_script
         "Heroic Box of Achievements",
         "Tusken, Axkva Min, Echo Base, IG-88 Tokens",
         "Exar Kun, Black Sun, Marauder, Space Duty Tokens",
-        "Holoshrouds for costume testing"
+        "Holoshrouds for costume testing",
+	"Chronicles Tokens"
     };
     public static final String[] RESOURCE_TYPES = {
         "Creature Resources",
@@ -5276,7 +5277,7 @@ public class terminal_character_builder extends script.base_script
             closeOldWindow(player);
             return SCRIPT_CONTINUE;
         }
-        if (idx == -1 || idx > WEAPON_OPTIONS.length)
+        if (idx == -1 || idx > DEV_TESTING_OPTIONS.length)
         {
             cleanScriptVars(player);
             return SCRIPT_CONTINUE;
@@ -5327,6 +5328,11 @@ public class terminal_character_builder extends script.base_script
                 static_item.createNewItemFunction("item_costume_kit_holiday", pInv, 25);
                 static_item.createNewItemFunction("item_costume_kit", pInv, 25);
                 break;
+            case 10:
+                static_item.createNewItemFunction("item_pgc_token_01", pInv, 250);
+                static_item.createNewItemFunction("item_pgc_token_02", pInv, 250);
+                static_item.createNewItemFunction("item_pgc_token_03", pInv, 250);
+                break;		
                 default:
                 cleanScriptVars(player);
                 break;
