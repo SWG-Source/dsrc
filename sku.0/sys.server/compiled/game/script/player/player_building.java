@@ -1845,7 +1845,7 @@ public class player_building extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        if ((perm_switch == 3) && (getAccountNumLots(getPlayerObject(self)) > player_structure.MAX_LOTS))
+        if ((perm_switch == 3) && (getAccountNumLots(getPlayerObject(self)) > getMaxHousingLots()))
         {
             obj_id lotOverlimitStructure = getObjIdObjVar(self, "lotOverlimit.structure_id");
             if (isIdValid(lotOverlimitStructure) && (lotOverlimitStructure == structure))
@@ -4831,7 +4831,7 @@ public class player_building extends script.base_script
     public int OnConstructionComplete(obj_id self, dictionary params) throws InterruptedException
     {
         string_id structure_name = params.getStringId("structure_name");
-        int lots_remaining = player_structure.MAX_LOTS - getAccountNumLots(getPlayerObject(self));
+        int lots_remaining = getMaxHousingLots() - getAccountNumLots(getPlayerObject(self));
         prose_package pp_msg = new prose_package();
         pp_msg.stringId = ((lots_remaining >= 0) ? SID_CONSTRUCTION_COMPLETE : SID_CONSTRUCTION_COMPLETE_LOT_LIMIT_EXCEEDED);
         pp_msg.actor.set(self);

@@ -150,7 +150,7 @@ public class vendor_control_device extends script.base_script
                     sendSystemMessage(player, SID_ONLY_IN_HOUSES);
                     return SCRIPT_CONTINUE;
                 }
-                if (getAccountNumLots(getPlayerObject(player)) > player_structure.MAX_LOTS)
+                if (getAccountNumLots(getPlayerObject(player)) > getMaxHousingLots())
                 {
                     obj_id lotOverlimitStructure = getObjIdObjVar(player, "lotOverlimit.structure_id");
                     if (isIdValid(lotOverlimitStructure) && (lotOverlimitStructure != structure))
