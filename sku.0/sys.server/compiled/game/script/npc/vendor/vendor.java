@@ -101,6 +101,13 @@ public class vendor extends script.base_script
                         {
                             objectForSale = createObjectOverloaded(item, containerList[idx]);
                         }
+                        
+			            if(hasObjVar(objectForSale, "noTrade"))
+			            {
+				            removeObjVar(objectForSale, "noTrade");
+				            attachScript(objectForSale, "item.special.nomove");
+			            }                        
+                        
                         setObjVar(objectForSale, OBJECT_FOR_SALE_CASH_COST, creditCost);
                         setObjVar(objectForSale, OBJECT_FOR_SALE_TOKEN_COST, tokenCost);
                         if (hasObjVar(self, VENDOR_TOKEN_TYPE))
