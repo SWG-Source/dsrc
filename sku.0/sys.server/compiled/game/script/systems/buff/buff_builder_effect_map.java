@@ -26,11 +26,13 @@ public class buff_builder_effect_map extends script.base_script
         if (rowIndex >= 0)
         {
             int rowCount = dataTableGetNumRows(DATATABLE_BUFF_BUILDER_EFFECT_MAP);
+            dictionary row;
+            String affect;
 
             for (int index = 0; index < rowCount; index++)
             {
-                dictionary row = dataTableGetRow(DATATABLE_BUFF_BUILDER_EFFECT_MAP, index);
-                String affect = row.getString("BUFF_BUILDER_AFFECTS");
+                row = dataTableGetRow(DATATABLE_BUFF_BUILDER_EFFECT_MAP, index);
+                affect = row.getString("BUFF_BUILDER_AFFECTS");
 
                 if (affect.equals(affectName))
                 {
