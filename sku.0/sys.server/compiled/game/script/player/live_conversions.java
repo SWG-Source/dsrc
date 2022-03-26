@@ -703,7 +703,7 @@ public class live_conversions extends script.base_script
     }
     public void updateLotOverLimitStructureLocation(obj_id player) throws InterruptedException
     {
-        if (getAccountNumLots(getPlayerObject(player)) <= player_structure.MAX_LOTS)
+        if (getAccountNumLots(getPlayerObject(player)) <= getMaxHousingLots())
         {
             removeObjVar(player, "lotOverlimit");
         }

@@ -116,7 +116,6 @@ public class player_structure extends script.base_script
     public static final float RATE_POWER_MIN = 1.0f;
     public static final float MERCHANT_SALES_MODIFIER = -0.2f;
     public static final int MIN_RESIDENCE_DURATION = 86400;
-    public static final int MAX_LOTS = 10;
     public static final int MAX_LIST_SIZE = 50;
     public static final int MAIL_WARNING_INTERVAL = 86400;
     public static final int TIME_TO_NEXT_PACKUP = 86400;
@@ -815,7 +814,7 @@ public class player_structure extends script.base_script
                     struct_lots = 1;
                 }
                 flagConverted(template, structure);
-                if ((getAccountNumLots(getPlayerObject(player)) + struct_lots) > MAX_LOTS)
+                if ((getAccountNumLots(getPlayerObject(player)) + struct_lots) > getMaxHousingLots())
                 {
                     String realStructureTemplate = template;
                     if (exists(structure))
@@ -1167,12 +1166,13 @@ public class player_structure extends script.base_script
             {
                 lots_needed = 1;
             }
-            if (lots > MAX_LOTS)
+            int max_lots = getMaxHousingLots();
+            if (lots > max_lots)
             {
                 sendSystemMessageProse(player, prose.getPackage(new string_id(STF_FILE, "not_enough_lots"), lots_needed));
                 return false;
             }
-            if ((lots + lots_needed) > MAX_LOTS)
+            if ((lots + lots_needed) > max_lots)
             {
                 if (!allowOverLotLimitIfPlayerHouse || (template.indexOf("object/building/player/player_house_") != 0)) {
                     sendSystemMessageProse(player, prose.getPackage(new string_id(STF_FILE, "not_enough_lots"), lots_needed));
