@@ -9,7 +9,7 @@ luck	attributes	luck_modified	10	1	10
 kinetic	resistances	expertise_innate_protection_kinetic	5	1	250	
 energy	resistances	expertise_innate_protection_energy	5	1	250	
 elemental	resistances	elemental_resistance	5	1	250	
-crafting	trade	food_assembly	5	2	1	
+crafting	trade	crafting_assembly	5	2	1	
 crafting_success	trade	crafting_critical_success_bonus	2	5	1	
 hand_sampling	trade	expertise_resource_sampling_increase	5	2	2	harvest_faire  
 critical_hit	combat	expertise_critical_niche_all	1	5	3	
