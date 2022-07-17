@@ -1461,7 +1461,8 @@ public class terminal_character_builder extends script.base_script
         "Color Crystals",
         "Special Color Crystals",
         "Perfect Power Crystals",
-        "Ancient Krayt Pearls"
+        "Ancient Krayt Pearls",
+        "QA Power Crystals"
     };
     public static final String[] SABER_OPTIONS =
     {
@@ -10585,6 +10586,16 @@ public class terminal_character_builder extends script.base_script
                 static_item.createNewItemFunction("item_krayt_pearl_04_20", pInv);
             }
             sendSystemMessageTestingOnly(player, "Ancient Krayt Pearls Issued!");
+            break;
+            case 4:
+            if (isGod(player))
+            {
+                for (int i = 0; i < 5; i++)
+                {
+                    static_item.createNewItemFunction("item_power_crystal_04_99", pInv);
+                }
+                sendSystemMessageTestingOnly(player, "QA Power Crystals Issued!");
+            }
             break;
             default:
             cleanScriptVars(player);
