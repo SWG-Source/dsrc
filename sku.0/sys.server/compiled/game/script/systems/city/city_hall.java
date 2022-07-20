@@ -231,6 +231,10 @@ public class city_hall extends script.base_script
     }
     public int validateCity(obj_id self, dictionary params) throws InterruptedException
     {
+        if(hasObjVar(self, city.OBJVAR_DERANK_EXEMPT))
+        {
+            return SCRIPT_CONTINUE; // don't destroy a city a GM flagged as de-rank exempt
+        }
         int city_id = findCityByCityHall(self);
         obj_id mayor = cityGetLeader(city_id);
         int total_citizens = 0;
