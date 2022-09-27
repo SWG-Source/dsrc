@@ -44,20 +44,16 @@ public class stage_two_controller extends script.base_script
                 LOG("events", "Restuss Event - Config set to put Restuss into phase " + phaseVal);
                 String progressionOn = getConfigSetting("EventTeam", "restussProgressionOn");
                 // Check if the user wants to progress through stage one or not.  If so, start the cycle.
-                if(progressionOn != null && (!progressionOn.equals("false") || !progressionOn.equals("0"))) {
+                if(progressionOn != null && (progressionOn.equals("true") || progressionOn.equals("1"))) {
                     dictionary dict = trial.getSessionDict(self);
-                    switch(phase){
-                        case 0:
-                            dict.put("stage", 1);
-                            break;
-                        case 1:
-                            dict.put("stage", 3608);
-                            break;
-                        case 2:
+                    switch (phase) {
+                        case 0 -> dict.put("stage", 1);
+                        case 1 -> dict.put("stage", 3608);
+                        case 2 -> {
                             doMessageTo("messageTo:broadcastMessage:10:incrimentPhase:0");
                             doMessageTo("messageTo:broadcastMessage:10:incrimentPhase:10");
                             doMessageTo("messageTo:broadcastMessage:10:makePvPArea:15");
-                            break;
+                        }
                     }
                     messageTo(self, "spawnNextStage", dict, 0, false);
                 }
@@ -282,16 +278,10 @@ public class stage_two_controller extends script.base_script
     {
         if (type > -1)
         {
-            switch (type)
-            {
-                case TYPE_AI:
-                attachScript(subject, "theme_park.restuss_event.ai_controller");
-                break;
-                case TYPE_TRIGGER:
-                attachScript(subject, "theme_park.restuss_event.trigger_controller");
-                break;
-                case TYPE_EFFECT_MANAGER:
-                attachScript(subject, "theme_park.restuss_event.restuss_clientfx_controller");
+            switch (type) {
+                case TYPE_AI -> attachScript(subject, "theme_park.restuss_event.ai_controller");
+                case TYPE_TRIGGER -> attachScript(subject, "theme_park.restuss_event.trigger_controller");
+                case TYPE_EFFECT_MANAGER -> attachScript(subject, "theme_park.restuss_event.restuss_clientfx_controller");
             }
         }
         if (spawnScripts == null || spawnScripts.equals("none"))
