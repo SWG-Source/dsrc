@@ -32,8 +32,8 @@ public class stage_two_controller extends script.base_script
     public int beginSpawning(obj_id self, dictionary params) throws InterruptedException
     {
         setObjVar(self, "eventStarted", 1);
-        String restussEvent = getConfigSetting("EventTeam", "restussEvent");
-        if(restussEvent != null && (restussEvent.equals("1") || restussEvent.equals("true"))){
+        boolean restussEventActive = utils.checkConfigFlag("EventTeam", "restussEvent");
+        if(restussEventActive){
             LOG("events", "Restuss Event - Event is on.");
             String phaseVal = getConfigSetting("EventTeam", "restussPhase");
             doMessageTo("messageTo:broadcastMessage:10:beginEventNotification:0");
@@ -42,18 +42,22 @@ public class stage_two_controller extends script.base_script
                 if(phase > 2) phase = 2;
                 if(phase < 0) phase = 0;
                 LOG("events", "Restuss Event - Config set to put Restuss into phase " + phaseVal);
-                String progressionOn = getConfigSetting("EventTeam", "restussProgressionOn");
+                boolean progressionOn = utils.checkConfigFlag("EventTeam", "restussProgressionOn");
                 // Check if the user wants to progress through stage one or not.  If so, start the cycle.
-                if(progressionOn != null && (progressionOn.equals("true") || progressionOn.equals("1"))) {
+                if(progressionOn) {
                     dictionary dict = trial.getSessionDict(self);
-                    switch (phase) {
-                        case 0 -> dict.put("stage", 1);
-                        case 1 -> dict.put("stage", 3608);
-                        case 2 -> {
+                    switch(phase){
+                        case 0:
+                            dict.put("stage", 1);
+                            break;
+                        case 1:
+                            dict.put("stage", 3608);
+                            break;
+                        case 2:
                             doMessageTo("messageTo:broadcastMessage:10:incrimentPhase:0");
                             doMessageTo("messageTo:broadcastMessage:10:incrimentPhase:10");
                             doMessageTo("messageTo:broadcastMessage:10:makePvPArea:15");
-                        }
+                            break;
                     }
                     messageTo(self, "spawnNextStage", dict, 0, false);
                 }
@@ -74,7 +78,7 @@ public class stage_two_controller extends script.base_script
         if (!isGod(speaker)) {
             return SCRIPT_CONTINUE;
         }
-        if (text.toLowerCase().equals("start restuss event") && getIntObjVar(self, "eventStarted") != 1) {
+        if (text.equalsIgnoreCase("start restuss event") && getIntObjVar(self, "eventStarted") != 1) {
             LOG("events", "Restuss Event - Manually starting the Restuss Event.");
             startRestussBaseSpawners(self);
             startRestussCitySpawner(self);
@@ -278,10 +282,16 @@ public class stage_two_controller extends script.base_script
     {
         if (type > -1)
         {
-            switch (type) {
-                case TYPE_AI -> attachScript(subject, "theme_park.restuss_event.ai_controller");
-                case TYPE_TRIGGER -> attachScript(subject, "theme_park.restuss_event.trigger_controller");
-                case TYPE_EFFECT_MANAGER -> attachScript(subject, "theme_park.restuss_event.restuss_clientfx_controller");
+            switch (type)
+            {
+                case TYPE_AI:
+                attachScript(subject, "theme_park.restuss_event.ai_controller");
+                break;
+                case TYPE_TRIGGER:
+                attachScript(subject, "theme_park.restuss_event.trigger_controller");
+                break;
+                case TYPE_EFFECT_MANAGER:
+                attachScript(subject, "theme_park.restuss_event.restuss_clientfx_controller");
             }
         }
         if (spawnScripts == null || spawnScripts.equals("none"))
@@ -447,9 +457,9 @@ public class stage_two_controller extends script.base_script
         dungeon_info.put("position_z", loc.z);
         replaceClusterWideData(manage_name, name, dungeon_info, true, lock_key);
 
-        String restussEvent = getConfigSetting("EventTeam", "restussEvent");
+        boolean restussEventActive = utils.checkConfigFlag("EventTeam", "restussEvent");
 
-        if(restussEvent == null || (!restussEvent.equals("1") && !restussEvent.equals("true"))) {
+        if(!restussEventActive) {
             LOG("events", "Restuss Event - Event is turned off.");
         } else {
             startRestussCitySpawner(self);
