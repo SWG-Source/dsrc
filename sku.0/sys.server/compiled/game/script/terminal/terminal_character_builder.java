@@ -3,16 +3,135 @@ package script.terminal;
 import script.*;
 import script.library.*;
 
-import java.util.Arrays;
-import java.util.Enumeration;
-import java.util.Vector;
+import java.util.*;
 import java.lang.String;
-import script.base_script;
-
-import script.library.*;
 
 public class terminal_character_builder extends script.base_script
 {
+    public static class warp_location extends locations {
+        private int worldX, worldY, worldZ;
+        private int cellX, cellY, cellZ = 0;
+        private obj_id cell;
+        private String locationLabel, scene;
+
+        public warp_location(String locationLabel, String scene, int worldX, int worldY, int worldZ) {
+            this.locationLabel = locationLabel;
+            setScene(scene);
+            setWorldX(worldX);
+            setWorldY(worldY);
+            setWorldZ(worldZ);
+        }
+
+        public void warp(obj_id player) {
+            warpPlayer(
+                    player,
+                    getScene(),
+                    getWorldX(),
+                    getWorldY(),
+                    getWorldZ(),
+                    getCell(),
+                    getCellX(),
+                    getCellY(),
+                    getCellZ(),
+                    "",
+                    false
+            );
+        }
+
+        public String getSceneLabel() {
+            switch(this.scene) {
+                case "tatooine":
+                case "dantooine":
+                case "naboo":
+                case "corellia":
+                case "lok":
+                case "endor":
+                case "dathomir":
+                case "talus":
+                case "rori":
+                case "mustafar":
+                    return scene.substring(0, 1).toUpperCase() + scene.substring(1);
+                case "yavin4":
+                    return "Yavin IV";
+                case "kashyyyk_main":
+                    return "Kashyyyk";
+                default:
+                    return scene;
+            }
+        }
+
+        public int getWorldX() {
+            return worldX;
+        }
+
+        public void setWorldX(int worldX) {
+            this.worldX = worldX;
+        }
+
+        public int getWorldY() {
+            return worldY;
+        }
+
+        public void setWorldY(int worldY) {
+            this.worldY = worldY;
+        }
+
+        public int getWorldZ() {
+            return worldZ;
+        }
+
+        public void setWorldZ(int worldZ) {
+            this.worldZ = worldZ;
+        }
+
+        public int getCellX() {
+            return cellX;
+        }
+
+        public void setCellX(int cellX) {
+            this.cellX = cellX;
+        }
+
+        public int getCellY() {
+            return cellY;
+        }
+
+        public void setCellY(int cellY) {
+            this.cellY = cellY;
+        }
+
+        public int getCellZ() {
+            return cellZ;
+        }
+
+        public void setCellZ(int cellZ) {
+            this.cellZ = cellZ;
+        }
+
+        public obj_id getCell() {
+            return cell;
+        }
+
+        public void setCell(obj_id cell) {
+            this.cell = cell;
+        }
+
+        public String getLocationLabel() {
+            return locationLabel;
+        }
+
+        public void setLocationLabel(String locationLabel) {
+            this.locationLabel = locationLabel;
+        }
+
+        public String getScene() {
+            return scene;
+        }
+
+        public void setScene(String scene) {
+            this.scene = scene;
+        }
+    }
     public static final int CASH_AMOUNT = 10000000;
     public static final int AMT = 1000000;
     public static final int FACTION_AMT = 250000;
@@ -597,334 +716,7 @@ public class terminal_character_builder extends script.base_script
         "blacksun_vaksai",
         "hutt_turret_ship"
     };
-    public static final String[] WARP_OPTIONS = {
-        "0. Stone Head Formation, Dantooine",
-        "1. TCG Black Market (Wayfar,Tatooine)",
-        "2. TCG Black Market (Lake Retreat, Naboo)",
-        "3. TCG Black Market (Bela Vistal, Corellia)",
-        "4. empty",
-        "5. empty",
-        "6. Mos Eisley, Tatooine",
-        "7. Fort Tuskan, Tatooine",
-        "8. Jabba's Palace, Tatooine",
-        "9. Jawa Fortress, Tatooine",
-        "10. Ben Kenobi's Hut, Tatooine",
-        "11. Lars Homestead, Tatooine",
-        "12. Krayt Hunting Grounds, Tatooine",
-        "13. Sarlacc Pit, Tatooine",
-        "14. Beggar's Canyon, Tatooine",
-        "15. Pod Race Track Start, Tatooine",
-        "16. Darklighter Residence, Tatooine",
-        "17. Kenobi's Homestead, Tatooine",
-        "18. Oasis, Tatooine",
-        "19. The Shrub, Tatooine",
-        "20. R2/3PO Escape Pod, Tatooine",
-        "21. Arnthout, Tatooine",
-        "22. Krayt Skeleton, Tatooine",
-        "23. Krayt Skeleton, Tatooine",
-        "24. Hedge maze, Tatooine",
-        "25. Oasis II, Tatooine",
-        "26. Oasis III, Tatooine",
-        "27. Oasis IV, Tatooine",
-        "28. White Thranta Shipping Bunker, Tatooine",
-        "29. Anchorhead, Tatooine",
-        "30. Mos Entha, Tatooine",
-        "31. Mos Espa, Tatooine",
-        "32. Mos Taike, Tatooine",
-        "33. Wayfar, Tatooine",
-        "34. Bestine, Tatooine",
-        "35. Crashed Escape Pod and gravestones, Tatooine",
-        "36. Wattoo's Shop, Tatooine",
-        "37. Lucky Despot Cantina, Tatooine",
-        "38. Mushroom Mesa, Tatooine",
-        "39. The Grand Arena Flats, Tatooine",
-        "40. Aartan Race Track, Tatooine",
-        "41. Hutt Hideout, Tatooine",
-        "42. Jedi Shrine, Tatooine",
-        "43. Squill Cave, Tatooine",
-        "44. Krayt Cult Cave, Tatooine",
-        "45. Sennex Slave Bunker, Tatooine",
-        "46. Valarian Pod Racers Bunker, Tatooine",
-        "47. Sennex Beetle Cave, Tatooine",
-        "48. Alkhara Bandit Camp, Tatooine",
-        "49. Golden Orb Hall, Tatooine",
-        "50. Disabled Sand Crawler, Tatooine",
-        "51. Mos Espa Hotel Arboretum, Tatooine",
-        "52. Anakin's House?, Tatooine",
-        "53. empty",
-        "54. empty",
-        "55. empty",
-        "56. empty",
-        "57. Theed City, Naboo",
-        "58. Keren, Naboo",
-        "59. Kaadaara, Naboo",
-        "60. Moenia, Naboo",
-        "61. Moenia Starport, Naboo",
-        "62. Theed Hanger, Naboo",
-        "63. Dee'ja Peak, Naboo",
-        "64. Lake Retreat, Naboo",
-        "65. Emperor's Retreat, Naboo",
-        "66. GCW Static Base, Naboo",
-        "67. Amidala's Private Beach, Naboo",
-        "68. The Bottom of Theed Falls, Naboo",
-        "69. Gungan Sacred Place, Naboo",
-        "70. Borvo's Vault, Naboo",
-        "71. Gungan Warrior Stronghold, Naboo",
-        "72. Imperial vs. Gungan Battle, Naboo",
-        "73. Keren Street Race, Naboo",
-        "74. Mauler Stronghold, Naboo",
-        "75. Mordran, Naboo",
-        "76. Naboo Kidnapped Royalty, Naboo",
-        "77. Naboo Crystal Cave, Naboo",
-        "78. Weapon Development Facility, Naboo",
-        "79. Cool Cliff, Naboo",
-        "80. Theed Waterfall, Naboo",
-        "81. Small island fishing spot, Naboo",
-        "82. Water Ruins, Naboo",
-        "83. Lianorm Swamps, Naboo",
-        "84. Bootjack Cave, Naboo",
-        "85. Kaadara Beach, Naboo",
-        "86. Gallo Mountains, Naboo",
-        "87. Narglatch Cave, Naboo",
-        "88. Lake Paonga, Naboo",
-        "89. The Coastline, Naboo",
-        "90. Rainforest, Naboo",
-        "91. Small Island, Naboo",
-        "92. Origin, Naboo",
-        "93. empty",
-        "94. empty",
-        "95. empty",
-        "96. empty",
-        "97. Coronet Starport, Corellia",
-        "98. Doaba Guerfel, Corellia",
-        "99. Kor Vella, Corellia",
-        "100. Tyrena, Corellia",
-        "101. Bela Vistal, Corellia",
-        "102. Grand Theater of Vreni Island, Corellia",
-        "103. Rebel Hideout, Corellia",
-        "104. Rogue Corsec Base, Corellia",
-        "105. Agrilat Swamps, Corellia",
-        "106. Agrilat Inner, Corellia",
-        "107. Beach cliff, Corellia",
-        "108. Golden beaches, Corellia",
-        "109. Corellia Imperial Stronghold, Corellia",
-        "110. Afarathu Cave, Corellia",
-        "111. Crystal Fountain of Bela Vistal, Corellia",
-        "112. Drall Patriot's Cave, Corellia",
-        "113. Lord Nyax's Cult, Corellia",
-        "114. Tactical Training Facility, Corellia",
-        "115. Mountain Top, Corellia",
-        "116. Small farm?, Corellia",
-        "117. Agrilat Swamps edge, Corellia",
-        "118. Broken White Bridge, Corellia",
-        "119. Unknown Statue, Corellia",
-        "120. Droid Graveyard, Corellia",
-        "121. Ignar Ominaz? NPC, Corellia",
-        "122. Serji-X Arrogantus? NPC, Corellia",
-        "123. Wind Generator Farm, Corellia",
-        "124. Rebel Theme Park, Hidden Base, Corellia",
-        "125. empty",
-        "126. empty",
-        "127. empty",
-        "128. Imperial Outpost, Dantooine",
-        "129. Mining Outpost, Dantooine",
-        "130. Pirate Outpost, Dantooine",
-        "131. Abandoned Rebel Base, Dantooine",
-        "132. Dantari Rock Village, Dantooine",
-        "133. Dantari Village, Dantooine",
-        "134. Jedi Temple Ruins, Dantooine",
-        "135. Janta Stronghold, Dantooine",
-        "136. Kunga Stronghold, Dantooine",
-        "137. Mokk Stronghold, Dantooine",
-        "138. The Warren, Dantooine",
-        "139. Force Crystal Hunter's Cave, Dantooine",
-        "140. Island with Jedi Ruins, Dantooine",
-        "141. Island with Glowing Stone, Dantooine",
-        "142. Path Bridge, Dantooine",
-        "143. RIS Armor Mol ni'mai, Dantooine",
-        "144. Secondstepes, Dantooine",
-        "145. Small Lakes, Dantooine",
-        "146. Native Hut, Dantooine",
-        "147. Large sharp stones arranged fence, Dantooine",
-        "148. Stone Arches zig-zag, Dantooine",
-        "149. Jedi era building on top hill, Planet",
-        "150. Jedi Shrine, Dantooine",
-        "151. Jedi Shrine II, Dantooine",
-        "152. Jedi ruins, Dantooine",
-        "153. empty",
-        "154. empty",
-        "155. empty",
-        "156. empty",
-        "157. Nyms Stronghold, Lok",
-        "158. An Imperial Outpost, Lok",
-        "159. IG-88, Lok",
-        "160. Canyon Corsair Stronghold, Lok",
-        "161. Droid Engineer's Cave, Lok",
-        "162. Great Kimogila Skeleton, Lok",
-        "163. Great Maze of Lok, Lok",
-        "164. Gurk King's Lair, Lok",
-        "165. Mount Chaolt, Lok",
-        "166. Kimogila Town, Lok",
-        "167. Blood Razor Base, Lok",
-        "168. Pirate Cave, Lok",
-        "169. Gas Mine, Lok",
-        "170. Research Facility, Lok",
-        "171. Nyms Themepark, Lok",
-        "172. Lok Marathon, Lok",
-        "173. Rebel Themepark, Lok",
-        "174. Rocky Wasteland, Lok",
-        "175. Volcano, Lok",
-        "176. Twin Craters, Planet",
-        "177. Large Mesa, Planet",
-        "178. empty",
-        "179. empty",
-        "180. empty",
-        "181. empty",
-        "182. Imperial Fortress, Yavin4",
-        "183. Labor Outpost, Yavin4",
-        "184. Mining Outpost, Yavin4",
-        "185. Geonosian Bio Lab, Yavin4",
-        "186. Great Massassi Temple, Yavin4",
-        "187. Blueleaf Temple, Yavin4",
-        "188. Exar Kun Temple, Yavin4",
-        "189. Woolamander Palace, Yavin4",
-        "190. Dark Jedi Enclave, Yavin4",
-        "191. Light Jedi Enclave, Yavin4",
-        "192. Massassi Sacrificial Stone, Yavin4",
-        "193. Massassi Pyramid, Yavin4",
-        "194. Death Star Turret, Yavin4",
-        "195. Burning Tree, Yavin4",
-        "196. Large Crater, Yavin4",
-        "197. Gazebo, Yavin4",
-        "198. Long Beach Front, Yavin4",
-        "199. empty",
-        "200. empty",
-        "201. empty",
-        "202. empty",
-        "203. Research Outpost, Endor",
-        "204. Smugglers Outpost, Endor",
-        "205. Death Watch Bunker, Endor",
-        "206. Dulok Village, Endor",
-        "207. Ewok Lake Village, Endor",
-        "208. Ewok Tree Village, Endor",
-        "209. Marauder Base, Endor",
-        "210. Mercenary Camp, Endor",
-        "211. Jinda Ritualis's Cave, Endor",
-        "212. Korga Cave, Endor",
-        "213. Pubarn Tribe Camp, Endor",
-        "214. Orphaned Marauder Cave, Endor",
-        "215. Ewok Lake Village II, Endor",
-        "216. Ewok Tree Village II, Endor",
-        "217. empty",
-        "218. empty",
-        "219. empty",
-        "220. empty",
-        "221. Science Outpost, Dathomir",
-        "222. Trade Outpost, Dathomir",
-        "223. Quarantine Zone, Dathomir",
-        "224. Aurilia, Dathomir",
-        "225. Nightsister Stronghold, Dathomir",
-        "226. Imperial Prison, Dathomir",
-        "227. Abandoned Escape Pod, Dathomir",
-        "228. Crash Site, Dathomir",
-        "229. Greater Misty Falls, Dathomir",
-        "230. Lesser Misty Falls, Dathomir",
-        "231. Lessar Sarlacc, Dathomir",
-        "232. Nightsister Forced Labor Camp, Dathomir",
-        "233. Singing Mountain Clan, Dathomir",
-        "234. Rancor Cave, Dathomir",
-        "235. Spider Clan Cave, Dathomir",
-        "236. Nightsister Guard Camp, Dathomir",
-        "237. Nightsister Outcast Camp, Dathomir",
-        "238. Purbole Lair, Dathomir",
-        "239. Tar Pits, Dathomir",
-        "240. Nightsister v. Singing Mountain Clan, Dathomir",
-        "241. Beach Canyon Inlet, Dathomir",
-        "242. Misty Path, Dathomir",
-        "243. Dark Pond, Dathomir",
-        "244. Redhills, Dathomir",
-        "245. Beach shoreline, Dathomir",
-        "246. empty",
-        "247. empty",
-        "248. empty",
-        "249. empty",
-        "250. Dearic, Talus",
-        "251. Nashal, Talus",
-        "252. Imperial Outpost, Talus",
-        "253. Weapons Depot, Talus",
-        "254. Aa'Kuan Champion's Cave, Talus",
-        "255. Binyare Pirate Bunker, Talus",
-        "256. Detainment Center, Talus",
-        "257. Erran Sif, Talus",
-        "258. Corsec vs Flail Battle, Talus",
-        "259. Giant Decay Mite Cave, Talus",
-        "260. Giant Fynock Cave, Talus",
-        "261. Imperial vs Rebel Battle, Talus",
-        "262. Kahmurra Biogenetic Research Station, Talus",
-        "263. Lost Aqaualish War Party's Cave, Talus",
-        "264. Lost village of Durbin, Talus",
-        "265. Beach Ruins, Talus",
-        "266. Mesa, Talus",
-        "267. Mud Flats, Planet",
-        "268. empty",
-        "269. empty",
-        "270. empty",
-        "271. empty",
-        "272. Restuss Starport, Rori",
-        "273. Restuss, Rori",
-        "274. Narmle Starport, Rori",
-        "275. Rebel Outpost, Rori",
-        "276. Borgle Bat Cave, Rori",
-        "277. Cobral Hideout, Rori",
-        "278. Garyn Raider's Bunker, Rori",
-        "279. Giant Bark Mite Cave, Rori",
-        "280. Rori Gungan's Swamp Town, Rori",
-        "281. Hyperdrive Research Facility, Rori",
-        "282. Kobola Spice Mine, Rori",
-        "283. Poacher vs. Creature Battle, Rori",
-        "284. Pygmy Torton Cave, Rori",
-        "285. Large lake, Rori",
-        "286. A monolith, Rori",
-        "287. empty",
-        "288. empty",
-        "289. empty",
-        "290. empty",
-        "291. Mensix Mining Facility, Mustafar",
-        "292. Old Mining Facility, Mustafar",
-        "293. Bandit Camp, Mustafar",
-        "294. Southwest Plateau, Mustafar",
-        "295. Lava Crystal Field, Mustafar",
-        "296. Jedi Enclave_1, Mustafar",
-        "297. Jedi Enclave_2, Mustafar",
-        "298. Jedi Enclave_3, Mustafar",
-        "299. Striking Mining Camp, Mustafar",
-        "300. Ruins, Mustafar",
-        "301. Burning Plains, Mustafar",
-        "302. Old Republic Research Facility, Mustafar",
-        "303. Tulras Nesting Grounds, Mustafar",
-        "304. Entrance to Dragon Lair, Mustafar",
-        "305. Volcano Crash Excavation, Mustafar",
-        "306. Droid Factory, Mustafar",
-        "307. Entrance to Droid Army Zone, Mustafar",
-        "308. Droid Army Buildout Area, Mustafar",
-        "309. Volcano Buildout Area, Mustafar",
-        "310. Crystal Lair Buildout, Mustafar",
-        "311. ORF Buildout Area, Mustafar",
-        "312. Sher Kar Buildout Area, Mustafar",
-        "313. empty",
-        "314. empty",
-        "315. empty",
-        "316. empty",
-        "317. Kachirho Starport, Kashyyyk",
-        "318. Kachirho, Kashyyyk",
-        "319. Rryatt Trial, Kashyyyk",
-        "320. Blackscale Slave Compound, Kashyyyk",
-        "321. Kkowir Forest, Kashyyyk",
-        "322. Etyyy Hunting Grounds, Kashyyyk",
-        "323. Rodian Hunters Camp, Kashyyyk",
-        "324. Isolationist Wookiee Village, Kashyyyk",
-        "325. empty"
-    };
+    public static List<warp_location> WARP_OPTIONS;
     public static final String[] OTHER_SHIP_OPTIONS = {
         "Sorosuub",
         "Eta-2 Actis (Jedi Starfighter)",
@@ -8776,7 +8568,333 @@ public class terminal_character_builder extends script.base_script
     }
     public void handleWarpOption(obj_id player) throws InterruptedException
     {
-        refreshMenu(player, "Select the desired item option", "Test Center Terminal", WARP_OPTIONS, "handleWarpOptions", false);
+        WARP_OPTIONS = null;
+        Collections.addAll(WARP_OPTIONS = new ArrayList<>(),
+                new warp_location("Stone Head Formation, Dantooine", "dantooine", -5661, 0, 7068),
+                new warp_location("TCG Black Market (Wayfar,Tatooine)", "tatooine", -5060, 75, -6610),
+                new warp_location("TCG Black Market (Lake Retreat, Naboo)", "naboo", -5550, -150, -75),
+                new warp_location("TCG Black Market (Bela Vistal, Corellia)", "corellia", 6806, 315, -5725),
+                new warp_location("Mos Eisley, Tatooine", "tatooine", 3528, 0, -4804),
+                new warp_location("Fort Tuskan, Tatooine", "tatooine", -4000, 0, 6250),
+                new warp_location("Jabba's Palace, Tatooine", "tatooine", -5868, 0, -6189),
+                new warp_location("Jawa Fortress, Tatooine", "tatooine", -6100, 0, 1892),
+                new warp_location("Ben Kenobi's Hut, Tatooine", "tatooine", -4773, 0, -3009),
+                new warp_location("Lars Homestead, Tatooine", "tatooine", -2600, 0, -5500),
+                new warp_location("Krayt Hunting Grounds, Tatooine", "tatooine", 7092, 0, 4533),
+                new warp_location("Sarlacc Pit, Tatooine", "tatooine", -6183, 0, -3371),
+                new warp_location("Beggar's Canyon, Tatooine", "tatooine", -3880, 0, -800),
+                new warp_location("Pod Race Track Start, Tatooine", "tatooine", 133, 0, 4127),
+                new warp_location("Darklighter Residence, Tatooine", "tatooine", -696, 0, -6728),
+                new warp_location("Kenobi's Homestead, Tatooine", "tatooine", -4512, 0, -2270),
+                new warp_location("Oasis, Tatooine", "tatooine", -5270, 0, 2810),
+                new warp_location("The Shrub, Tatooine", "tatooine", -5249, 0, 2551),
+                new warp_location("R2/3PO Escape Pod, Tatooine", "tatooine", -3933, 0, -4417),
+                new warp_location("Arnthout, Tatooine", "tatooine", -1470, 0, 3730),
+                new warp_location("Krayt Skeleton, Tatooine", "tatooine", -4670, 0, -4350),
+                new warp_location("Krayt Skeleton, Tatooine", "tatooine", -4642, 0, -1912),
+                new warp_location("Hedge maze, Tatooine", "tatooine", -3039, 0, -5104),
+                new warp_location("Oasis II, Tatooine", "tatooine", 1807, 0, -6061),
+                new warp_location("Oasis III, Tatooine", "tatooine", 6283, 0, -422),
+                new warp_location("Oasis IV, Tatooine", "tatooine", 6645, 0, 5453),
+                new warp_location("White Thranta Shipping Bunker, Tatooine", "tatooine", 3727, 0, -4182),
+                new warp_location("Anchorhead, Tatooine", "tatooine", 100, 0, -5300),
+                new warp_location("Mos Entha, Tatooine", "tatooine", 1900, 0, 3300),
+                new warp_location("Mos Espa, Tatooine", "tatooine", -2915, 0, 2361),
+                new warp_location("Mos Taike, Tatooine", "tatooine", 3764, 0, 2381),
+                new warp_location("Wayfar, Tatooine", "tatooine", -5126, 75, -6599),
+                new warp_location("Bestine, Tatooine", "tatooine", -1290, 0, -3590),
+                new warp_location("Crashed Escape Pod and gravestones, Tatooine", "tatooine", -6174, 0, 5888),
+                new warp_location("Wattoo's Shop, Tatooine", "tatooine", -2910, 0, 2435),
+                new warp_location("Lucky Despot Cantina, Tatooine", "tatooine", 3333, 0, -4605),
+                new warp_location("Mushroom Mesa, Tatooine", "tatooine", 900, 0, 5568),
+                new warp_location("The Grand Arena Flats, Tatooine", "tatooine", 2520, 0, 4700),
+                new warp_location("Aartan Race Track, Tatooine", "tatooine", 2380, 0, 5000),
+                new warp_location("Hutt Hideout, Tatooine", "tatooine", 5121, 0, 647),
+                new warp_location("Jedi Shrine, Tatooine", "tatooine", -6505, 0, -3667),
+                new warp_location("Squill Cave, Tatooine", "tatooine", 58, 0, -79),
+                new warp_location("Krayt Cult Cave, Tatooine", "tatooine", 3444, 0, -4186),
+                new warp_location("Sennex Slave Bunker, Tatooine", "tatooine", 70, 0, -5256),
+                new warp_location("Valarian Pod Racers Bunker, Tatooine", "tatooine", -700, 0, -6300),
+                new warp_location("Sennex Beetle Cave, Tatooine", "tatooine", 6553, 0, -1312),
+                new warp_location("Alkhara Bandit Camp, Tatooine", "tatooine", -5455, 0, -6122),
+                new warp_location("Golden Orb Hall, Tatooine", "tatooine", -2886, 0, 1977),
+                new warp_location("Disabled Sand Crawler, Tatooine", "tatooine", -3651, 0, -4755),
+                new warp_location("Mos Espa Hotel Arboretum, Tatooine", "tatooine", -3069, 0, 2159),
+                new warp_location("Anakin's House?, Tatooine", "tatooine", -2878, 0, 2542),
+                new warp_location("Theed City, Naboo", "naboo", -5901, 0, 4098),
+                new warp_location("Keren, Naboo", "naboo", 1984, 0, 2154),
+                new warp_location("Kaadaara, Naboo", "naboo", 5011, -192, 6805),
+                new warp_location("Moenia, Naboo", "naboo", 4697, 0, -4897),
+                new warp_location("Moenia Starport, Naboo", "naboo", 4800, 0, -4700),
+                new warp_location("Theed Hanger, Naboo", "naboo", -4855, 0, 4167),
+                new warp_location("Dee'ja Peak, Naboo", "naboo", 5141, 0, -1470),
+                new warp_location("Lake Retreat, Naboo", "naboo", -5565, 0, -34),
+                new warp_location("Emperor's Retreat, Naboo", "naboo", 2447, 0, -3918),
+                new warp_location("GCW Static Base, Naboo", "naboo", 1019, 0, -1508),
+                new warp_location("Amidala's Private Beach, Naboo", "naboo", -5825, -158, -99),
+                new warp_location("The Bottom of Theed Falls, Naboo", "naboo", -4630, 0, 4213),
+                new warp_location("Gungan Sacred Place, Naboo", "naboo", -2064, 5, -5423),
+                new warp_location("Borvo's Vault, Naboo", "naboo", 4321, 0, -4774),
+                new warp_location("Gungan Warrior Stronghold, Naboo", "naboo", -264, 0, 2823),
+                new warp_location("Imperial vs. Gungan Battle, Naboo", "naboo", 4771, 0, -3868),
+                new warp_location("Keren Street Race, Naboo", "naboo", 1396, 0, 2686),
+                new warp_location("Mauler Stronghold, Naboo", "naboo", 2850, 0, 1084),
+                new warp_location("Mordran, Naboo", "naboo", -1969, 0, 5295),
+                new warp_location("Naboo Kidnapped Royalty, Naboo", "naboo", -1500, 0, -1730),
+                new warp_location("Naboo Crystal Cave, Naboo", "naboo", 1932, 0, -1574),
+                new warp_location("Weapon Development Facility, Naboo", "naboo", 936, 0, -1582),
+                new warp_location("Cool Cliff, Naboo", "naboo", -5902, -196, 4823),
+                new warp_location("Theed Waterfall, Naboo", "naboo", -4439, 6, 4173),
+                new warp_location("Small island fishing spot, Naboo", "naboo", -3512, 3, 2081),
+                new warp_location("Water Ruins, Naboo", "naboo", -3151, 10, 2586),
+                new warp_location("Lianorm Swamps, Naboo", "naboo", 4223, 3, -6096),
+                new warp_location("Bootjack Cave, Naboo", "naboo", 4546, 79, -898),
+                new warp_location("Kaadara Beach, Naboo", "naboo", 5146, -192, 6850),
+                new warp_location("Gallo Mountains, Naboo", "naboo", 5702, 329, -1596),
+                new warp_location("Narglatch Cave, Naboo", "naboo", 5829, 36, -4664),
+                new warp_location("Lake Paonga, Naboo", "naboo", 5, 3, -6172),
+                new warp_location("The Coastline, Naboo", "naboo", -10, -202, 5839),
+                new warp_location("Rainforest, Naboo", "naboo", 0, 10, 1996),
+                new warp_location("Small Island, Naboo", "naboo", 198, 30, 1311),
+                new warp_location("Origin, Naboo", "naboo", 0, 0, 0),
+                new warp_location("Coronet Starport, Corellia", "corellia", -137, 28, -4723),
+                new warp_location("Doaba Guerfel, Corellia", "corellia", 3083, 0, 4989),
+                new warp_location("Kor Vella, Corellia", "corellia", -3366, 0, 3154),
+                new warp_location("Tyrena, Corellia", "corellia", -5479, 0, -2668),
+                new warp_location("Bela Vistal, Corellia", "corellia", 6752, 0, -5696),
+                new warp_location("Grand Theater of Vreni Island, Corellia", "corellia", -5420, 0, -6247),
+                new warp_location("Rebel Hideout, Corellia", "corellia", -6530, 0, 5967),
+                new warp_location("Rogue Corsec Base, Corellia", "corellia", 5224, 0, 1589),
+                new warp_location("Agrilat Swamps, Corellia", "corellia", 1388, 0, 3756),
+                new warp_location("Agrilat Inner, Corellia", "corellia", 905, 19, 4633),
+                new warp_location("Beach cliff, Corellia", "corellia", -667, 29, -4635),
+                new warp_location("Golden beaches, Corellia", "corellia", -1843, 5, -4434),
+                new warp_location("Corellia Imperial Stronghold, Corellia", "corellia", 4630, 0, -5740),
+                new warp_location("Afarathu Cave, Corellia", "corellia", -2483, 19, 2905),
+                new warp_location("Crystal Fountain of Bela Vistal, Corellia", "corellia", 6760, 0, -5617),
+                new warp_location("Drall Patriot's Cave, Corellia", "corellia", 1029, 0, 4199),
+                new warp_location("Lord Nyax's Cult, Corellia", "corellia", 1414, 0, -316),
+                new warp_location("Tactical Training Facility, Corellia", "corellia", 4722, 0, -5233),
+                new warp_location("Mountain Top, Corellia", "corellia", -669, 473, 3189),
+                new warp_location("Small farm?, Corellia", "corellia", 4500, 21, 3600),
+                new warp_location("Agrilat Swamps edge, Corellia", "corellia", 123, 31, 4246),
+                new warp_location("Broken White Bridge, Corellia", "corellia", -4250, 1, 3630),
+                new warp_location("Unknown Statue, Corellia", "corellia", -1905, 223, 3988),
+                new warp_location("Droid Graveyard, Corellia", "corellia", -1646, 21, -31),
+                new warp_location("Ignar Ominaz? NPC, Corellia", "corellia", 1803, 30, 4991),
+                new warp_location("Serji-X Arrogantus? NPC, Corellia", "corellia", -204, 44, 4577),
+                new warp_location("Wind Generator Farm, Corellia", "corellia", 6309, 28, 4380),
+                new warp_location("Rebel Theme Park, Hidden Base, Corellia", "corellia", -6528, 398, 5967),
+                new warp_location("Imperial Outpost, Dantooine", "dantooine", -4228, 0, -2380),
+                new warp_location("Mining Outpost, Dantooine", "dantooine", -617, 0, 2478),
+                new warp_location("Pirate Outpost, Dantooine", "dantooine", 1595, 0, -6391),
+                new warp_location("Abandoned Rebel Base, Dantooine", "dantooine", -6826, 0, 5502),
+                new warp_location("Dantari Rock Village, Dantooine", "dantooine", -7155, 0, -882),
+                new warp_location("Dantari Village, Dantooine", "dantooine", -3861, 0, -5706),
+                new warp_location("Jedi Temple Ruins, Dantooine", "dantooine", 4194, 0, 5200),
+                new warp_location("Janta Stronghold, Dantooine", "dantooine", 7028, 47, -4103),
+                new warp_location("Kunga Stronghold, Dantooine", "dantooine", -138, 0, -368),
+                new warp_location("Mokk Stronghold, Dantooine", "dantooine", -7028, 0, -3270),
+                new warp_location("The Warren, Dantooine", "dantooine", -555, 0, -3825),
+                new warp_location("Force Crystal Hunter's Cave, Dantooine", "dantooine", -6221, 0, 7396),
+                new warp_location("Island with Jedi Ruins, Dantooine", "dantooine", -758, 1, 2093),
+                new warp_location("Island with Glowing Stone, Dantooine", "dantooine", 3070, 5, 1212),
+                new warp_location("Path Bridge, Dantooine", "dantooine", -5196, 8, 387),
+                new warp_location("RIS Armor Mol ni'mai, Dantooine", "dantooine", -6805, 125, 6012),
+                new warp_location("Secondstepes, Dantooine", "dantooine", 5952, 0, -5312),
+                new warp_location("Small Lakes, Dantooine", "dantooine", -393, 46, -228),
+                new warp_location("Native Hut, Dantooine", "dantooine", -7085, 0, -6149),
+                new warp_location("Large sharp stones arranged fence, Dantooine", "dantooine", -7256, 5, 4321),
+                new warp_location("Stone Arches zig-zag, Dantooine", "dantooine", -6143, 37, 4675),
+                new warp_location("Jedi era building on top hill, Planet", "dantooine", -4492, 70, 1615),
+                new warp_location("Jedi Shrine, Dantooine", "dantooine", -6999, 11, -5269),
+                new warp_location("Jedi Shrine II, Dantooine", "dantooine", 2163, 161, 7548),
+                new warp_location("Jedi ruins, Dantooine", "dantooine", 442, 5, 4590),
+                new warp_location("Nyms Stronghold, Lok", "lok", 423, 2, 5438),
+                new warp_location("An Imperial Outpost, Lok", "lok", -1816, 12, -3087),
+                new warp_location("IG-88, Lok", "lok", -7590, 0, 3491),
+                new warp_location("Canyon Corsair Stronghold, Lok", "lok", -3840, 0, -3858),
+                new warp_location("Droid Engineer's Cave, Lok", "lok", 3320, 0, -4906),
+                new warp_location("Great Kimogila Skeleton, Lok", "lok", 4578, 0, -1151),
+                new warp_location("Great Maze of Lok, Lok", "lok", 3820, 0, -505),
+                new warp_location("Gurk King's Lair, Lok", "lok", -3742, 62, -3500),
+                new warp_location("Mount Chaolt, Lok", "lok", 3091, 0, -4638),
+                new warp_location("Kimogila Town, Lok", "lok", -70, 0, 2650),
+                new warp_location("Blood Razor Base, Lok", "lok", 3610, 0, 2229),
+                new warp_location("Pirate Cave, Lok", "lok", -3030, 0, -678),
+                new warp_location("Gas Mine, Lok", "lok", 6453, 66, 3867),
+                new warp_location("Research Facility, Lok", "lok", 901, 0, -4192),
+                new warp_location("Nyms Themepark, Lok", "lok", 475, 34, 4769),
+                new warp_location("Lok Marathon, Lok", "lok", 627, 12, 5053),
+                new warp_location("Rebel Themepark, Lok", "lok", 471, 11, 5057),
+                new warp_location("Rocky Wasteland, Lok", "lok", 2159, 25, 2324),
+                new warp_location("Volcano, Lok", "lok", 2865, 314, -4753),
+                new warp_location("Twin Craters, Planet", "lok", -1928, 0, 1697),
+                new warp_location("Large Mesa, Planet", "lok", -2128, 103, 1164),
+                new warp_location("Imperial Fortress, Yavin4", "yavin4", 4049, 0, -6217),
+                new warp_location("Labor Outpost, Yavin4", "yavin4", -6922, 0, -5723),
+                new warp_location("Mining Outpost, Yavin4", "yavin4", -270, 0, 4895),
+                new warp_location("Geonosian Bio Lab, Yavin4", "yavin4", -6488, 0, -417),
+                new warp_location("Great Massassi Temple, Yavin4", "yavin4", -3187, 0, -3123),
+                new warp_location("Blueleaf Temple, Yavin4", "yavin4", -875, 0, -2048),
+                new warp_location("Exar Kun Temple, Yavin4", "yavin4", 5076, 0, 5537),
+                new warp_location("Woolamander Palace, Yavin4", "yavin4", 517, 0, -650),
+                new warp_location("Dark Jedi Enclave, Yavin4", "yavin4", 5080, 0, 306),
+                new warp_location("Light Jedi Enclave, Yavin4", "yavin4", -5574, 0, 4901),
+                new warp_location("Massassi Sacrificial Stone, Yavin4", "yavin4", -7555, 155, -433),
+                new warp_location("Massassi Pyramid, Yavin4", "yavin4", -6350, 65, -670),
+                new warp_location("Death Star Turret, Yavin4", "yavin4", -4156, 65, 5328),
+                new warp_location("Burning Tree, Yavin4", "yavin4", 317, 190, -5302),
+                new warp_location("Large Crater, Yavin4", "yavin4", 5900, 695, -4320),
+                new warp_location("Gazebo, Yavin4", "yavin4", 943, 86, -1438),
+                new warp_location("Long Beach Front, Yavin4", "yavin4", 6495, 10, 4490),
+                new warp_location("Research Outpost, Endor", "endor", 3222, 0, -3467),
+                new warp_location("Smugglers Outpost, Endor", "endor", -970, 0, 1557),
+                new warp_location("Death Watch Bunker, Endor", "endor", -4676, 0, 4331),
+                new warp_location("Dulok Village, Endor", "endor", 6053, 0, -2477),
+                new warp_location("Ewok Lake Village, Endor", "endor", -658, 0, -5076),
+                new warp_location("Ewok Tree Village, Endor", "endor", 4660, 0, -2424),
+                new warp_location("Marauder Base, Endor", "endor", -4687, 0, -2274),
+                new warp_location("Mercenary Camp, Endor", "endor", 656, 204, 5051),
+                new warp_location("Jinda Ritualis's Cave, Endor", "endor", -1710, 32, -2),
+                new warp_location("Korga Cave, Endor", "endor", 2250, 0, 3500),
+                new warp_location("Pubarn Tribe Camp, Endor", "endor", 6000, 0, -2250),
+                new warp_location("Orphaned Marauder Cave, Endor", "endor", -6900, 0, 600),
+                new warp_location("Ewok Lake Village II, Endor", "endor", -4525, 0, -2317),
+                new warp_location("Ewok Tree Village II, Endor", "endor", 1578, 0, -3271),
+                new warp_location("Science Outpost, Dathomir", "dathomir", -85, 0, -1600),
+                new warp_location("Trade Outpost, Dathomir", "dathomir", 600, 0, 3072),
+                new warp_location("Quarantine Zone, Dathomir", "dathomir", -5775, 511, -6542),
+                new warp_location("Aurilia, Dathomir", "dathomir", 5306, 0, -4145),
+                new warp_location("Nightsister Stronghold, Dathomir", "dathomir", -3987, 0, -78),
+                new warp_location("Imperial Prison, Dathomir", "dathomir", -6304, 0, 753),
+                new warp_location("Abandoned Escape Pod, Dathomir", "dathomir", -4434, 0, 574),
+                new warp_location("Crash Site, Dathomir", "dathomir", 5663, 0, 1950),
+                new warp_location("Greater Misty Falls, Dathomir", "dathomir", 3017, 0, 1287),
+                new warp_location("Lesser Misty Falls, Dathomir", "dathomir", 3557, 0, 1548),
+                new warp_location("Lessar Sarlacc, Dathomir", "dathomir", -2102, 0, 3165),
+                new warp_location("Nightsister Forced Labor Camp, Dathomir", "dathomir", 2545, 0, -1662),
+                new warp_location("Singing Mountain Clan, Dathomir", "dathomir", 158, 0, 4524),
+                new warp_location("Rancor Cave, Dathomir", "dathomir", -4204, 25, -2076),
+                new warp_location("Spider Clan Cave, Dathomir", "dathomir", -1200, 0, 6250),
+                new warp_location("Nightsister Guard Camp, Dathomir", "dathomir", -4100, 0, -950),
+                new warp_location("Nightsister Outcast Camp, Dathomir", "dathomir", -2250, 0, 5000),
+                new warp_location("Purbole Lair, Dathomir", "dathomir", 5500, 0, 1950),
+                new warp_location("Tar Pits, Dathomir", "dathomir", 722, 0, -4773),
+                new warp_location("Nightsister v. Singing Mountain Clan, Dathomir", "dathomir", -2494, 128, 1474),
+                new warp_location("Beach Canyon Inlet, Dathomir", "dathomir", 240, 27, 6720),
+                new warp_location("Misty Path, Dathomir", "dathomir", 3488, 25, 1580),
+                new warp_location("Dark Pond, Dathomir", "dathomir", -3735, 54, 4082),
+                new warp_location("Redhills, Dathomir", "dathomir", -1100, 140, 2570),
+                new warp_location("Beach shoreline, Dathomir", "dathomir", 6322, 9, 6347),
+                new warp_location("Dearic, Talus", "talus", 559, 0, -3028),
+                new warp_location("Nashal, Talus", "talus", 4371, 0, 5165),
+                new warp_location("Imperial Outpost, Talus", "talus", -2226, 20, 2321),
+                new warp_location("Weapons Depot, Talus", "talus", -4938, 66, -3107),
+                new warp_location("Aa'Kuan Champion's Cave, Talus", "talus", 5936, 44, 4635),
+                new warp_location("Binyare Pirate Bunker, Talus", "talus", 5556, 0, -4079),
+                new warp_location("Detainment Center, Talus", "talus", 4984, 0, -6026),
+                new warp_location("Erran Sif, Talus", "talus", 2148, 120, -5588),
+                new warp_location("Corsec vs Flail Battle, Talus", "talus", 3067, 41, 6065),
+                new warp_location("Giant Decay Mite Cave, Talus", "talus", -5525, 32, -4673),
+                new warp_location("Giant Fynock Cave, Talus", "talus", 1563, 0, -867),
+                new warp_location("Imperial vs Rebel Battle, Talus", "talus", -2595, 0, 3724),
+                new warp_location("Kahmurra Biogenetic Research Station, Talus", "talus", -4016, 0, -4752),
+                new warp_location("Lost Aqaualish War Party's Cave, Talus", "talus", -4425, 0, -1414),
+                new warp_location("Lost village of Durbin, Talus", "talus", 4285, 0, 1032),
+                new warp_location("Beach Ruins, Talus", "talus", -3800, 0, -6500),
+                new warp_location("Mesa, Talus", "talus", -2419, 138, 3001),
+                new warp_location("Mud Flats, Planet", "talus", 3100, 67, -3800),
+                new warp_location("Restuss Starport, Rori", "rori", 5295, 80, 6171),
+                new warp_location("Restuss, Rori", "rori", 5071, 0, 5747),
+                new warp_location("Narmle Starport, Rori", "rori", -5310, 0, -2221),
+                new warp_location("Rebel Outpost, Rori", "rori", 3700, 96, -6404),
+                new warp_location("Borgle Bat Cave, Rori", "rori", 900, 0, -4935),
+                new warp_location("Cobral Hideout, Rori", "rori", 5451, 0, 5044),
+                new warp_location("Garyn Raider's Bunker, Rori", "rori", -6003, 0, -1851),
+                new warp_location("Giant Bark Mite Cave, Rori", "rori", 3570, 0, 5430),
+                new warp_location("Rori Gungan's Swamp Town, Rori", "rori", -2073, 0, 3339),
+                new warp_location("Hyperdrive Research Facility, Rori", "rori", -1107, 76, 4550),
+                new warp_location("Kobola Spice Mine, Rori", "rori", 7348, 78, 105),
+                new warp_location("Poacher vs. Creature Battle, Rori", "rori", 772, 87, -2109),
+                new warp_location("Pygmy Torton Cave, Rori", "rori", -1813, 0, -4532),
+                new warp_location("Large lake, Rori", "rori", -4624, 75, 3986),
+                new warp_location("A monolith, Rori", "rori", -3384, 108, -2098),
+                new warp_location("Mensix Mining Facility, Mustafar", "mustafar", -2530, 0, 1650),
+                new warp_location("Old Mining Facility, Mustafar", "mustafar", -1850, 0, 820),
+                new warp_location("Bandit Camp, Mustafar", "mustafar", -6011, 0, 42),
+                new warp_location("Southwest Plateau, Mustafar", "mustafar", -5631, 0, 1031),
+                new warp_location("Lava Crystal Field, Mustafar", "mustafar", -4395, 0, 1684),
+                new warp_location("Jedi Enclave_1, Mustafar", "mustafar", -4331, 0, 3196),
+                new warp_location("Jedi Enclave_2, Mustafar", "mustafar", -5320, 0, 6150),
+                new warp_location("Jedi Enclave_3, Mustafar", "mustafar", 152, 0, 4448),
+                new warp_location("Striking Mining Camp, Mustafar", "mustafar", -5380, 0, 4440),
+                new warp_location("Ruins, Mustafar", "mustafar", -2660, 0, 6050),
+                new warp_location("Burning Plains, Mustafar", "mustafar", -3466, 0, 5204),
+                new warp_location("Old Republic Research Facility, Mustafar", "mustafar", -700, 0, 6000),
+                new warp_location("Tulras Nesting Grounds, Mustafar", "mustafar", -1708, 0, 2600),
+                new warp_location("Entrance to Dragon Lair, Mustafar", "mustafar", -2000, 0, 4200),
+                new warp_location("Volcano Crash Excavation, Mustafar", "mustafar", -2710, 0, 3409),
+                new warp_location("Droid Factory, Mustafar", "mustafar", 466, 0, 2000),
+                new warp_location("Entrance to Droid Army Zone, Mustafar", "mustafar", 175, 0, -200),
+                new warp_location("Droid Army Buildout Area, Mustafar", "mustafar", 4848, 0, 6090),
+                new warp_location("Volcano Buildout Area, Mustafar", "mustafar", 2100, 0, 5550),
+                new warp_location("Crystal Lair Buildout, Mustafar", "mustafar", 6750, 0, 6950),
+                new warp_location("ORF Buildout Area, Mustafar", "mustafar", -6750, 0, -4750),
+                new warp_location("Sher Kar Buildout Area, Mustafar", "mustafar", -6750, 0, -5750),
+                new warp_location("Kachirho Starport, Kashyyyk", "kashyyyk_main", -679, 0, -150),
+                new warp_location("Kachirho, Kashyyyk", "kashyyyk_main", -557, 0, -115),
+                new warp_location("Rryatt Trial, Kashyyyk", "kashyyyk_main", -63, 18, 826),
+                new warp_location("Blackscale Slave Compound, Kashyyyk", "kashyyyk_main", 412, 18, 933),
+                new warp_location("Kkowir Forest, Kashyyyk", "kashyyyk_main", -762, 17, 239),
+                new warp_location("Etyyy Hunting Grounds, Kashyyyk", "kashyyyk_main", 224, 18, -401),
+                new warp_location("Rodian Hunters Camp, Kashyyyk", "kashyyyk_main", 721, 23, -611),
+                new warp_location("Isolationist Wookiee Village, Kashyyyk", "kashyyyk_main", 340, 32, -173)
+        );
+        String[] sceneLabels = WARP_OPTIONS.stream().map(warp_location::getSceneLabel).distinct().sorted().toArray(String[]::new);
+        refreshMenu(
+                player,
+                "Select the desired Scene",
+                "Test Center Terminal",
+                sceneLabels,
+                "handleWarpSceneOptions",
+                false
+        );
+    }
+    public int handleWarpSceneOptions(obj_id self, dictionary params) throws InterruptedException
+    {
+        obj_id player = sui.getPlayerId(params);
+        int btn = sui.getIntButtonPressed(params);
+        if (btn == sui.BP_REVERT)
+        {
+            handleMiscOption(player);
+            return SCRIPT_CONTINUE;
+        }
+        else if (btn == sui.BP_CANCEL)
+        {
+            cleanScriptVars(player);
+            closeOldWindow(player);
+            return SCRIPT_CONTINUE;
+        }
+        int idx = sui.getListboxSelectedRow(params);
+        if (idx == -1 || idx > 999)
+        {
+            cleanScriptVars(player);
+            closeOldWindow(player);
+            return SCRIPT_CONTINUE;
+        }
+        String[] sceneLabels = WARP_OPTIONS.stream().map(warp_location::getSceneLabel).distinct().sorted().toArray(String[]::new);
+        String[] warpLocations = WARP_OPTIONS.stream().filter(loc -> loc.getSceneLabel().equals(sceneLabels[idx])).map(warp_location::getLocationLabel).toArray(String[]::new);
+        utils.setLocalVar(self, "warp.options", warpLocations);
+        refreshMenu(
+                player,
+                sceneLabels[idx] + " - Warp Locations",
+                "Test Center Terminal",
+                warpLocations,
+                "handleWarpOptions",
+                false
+        );
+        return SCRIPT_CONTINUE;
     }
     public int handleWarpOptions(obj_id self, dictionary params) throws InterruptedException
     {
@@ -8786,18 +8904,18 @@ public class terminal_character_builder extends script.base_script
         }
         obj_id player = sui.getPlayerId(params);
         int btn = sui.getIntButtonPressed(params);
-        int idx = sui.getListboxSelectedRow(params);
         if (btn == sui.BP_REVERT)
         {
-            refreshMenu(player, "Select the desired character option", "Test Center Terminal", CHARACTER_BUILDER_OPTIONS, "handleOptionSelect", true);
+            handleWarpOption(player);
             return SCRIPT_CONTINUE;
         }
-        if (btn == sui.BP_CANCEL)
+        else if (btn == sui.BP_CANCEL)
         {
             cleanScriptVars(player);
             closeOldWindow(player);
             return SCRIPT_CONTINUE;
         }
+        int idx = sui.getListboxSelectedRow(params);
         if (idx == -1 || idx > 999)
         {
             cleanScriptVars(player);
@@ -8810,990 +8928,23 @@ public class terminal_character_builder extends script.base_script
             cleanScriptVars(player);
             return SCRIPT_OVERRIDE;
         }
-        switch (idx)
-        {
-            case 0:
-            warpPlayer(player, "dantooine", -5661, 0, 7068, null, 0, 0, 0, "", false);
-            break;
-            case 1:
-            warpPlayer(player, "tatooine", -5060, 75, -6610, null, 0, 0, 0, "", false);
-            break;
-            case 2:
-            warpPlayer(player, "naboo", -5550, -150, -75, null, 0, 0, 0, "", false);
-            break;
-            case 3:
-            warpPlayer(player, "corellia", 6806, 315, -5725, null, 0, 0, 0, "", false);
-            break;
-            case 4:
-            warpPlayer(player, "planet", 0, 0, 0, null, 0, 0, 0, "", false);
-            break;
-            case 5:
-            warpPlayer(player, "planet", 0, 0, 0, null, 0, 0, 0, "", false);
-            break;
-            case 6:
-            warpPlayer(player, "tatooine", 3528, 0, -4804, null, 0, 0, 0, "", false);
-            break;
-            case 7:
-            warpPlayer(player, "tatooine", -4000, 0, 6250, null, 0, 0, 0, "", false);
-            break;
-            case 8:
-            warpPlayer(player, "tatooine", -5868, 0, -6189, null, 0, 0, 0, "", false);
-            break;
-            case 9:
-            warpPlayer(player, "tatooine", -6100, 0, 1892, null, 0, 0, 0, "", false);
-            break;
-            case 10:
-            warpPlayer(player, "tatooine", -4773, 0, -3009, null, 0, 0, 0, "", false);
-            break;
-            case 11:
-            warpPlayer(player, "tatooine", -2600, 0, -5500, null, 0, 0, 0, "", false);
-            break;
-            case 12:
-            warpPlayer(player, "tatooine", 7092, 0, 4533, null, 0, 0, 0, "", false);
-            break;
-            case 13:
-            warpPlayer(player, "tatooine", -6183, 0, -3371, null, 0, 0, 0, "", false);
-            break;
-            case 14:
-            warpPlayer(player, "tatooine", -3880, 0, -800, null, 0, 0, 0, "", false);
-            break;
-            case 15:
-            warpPlayer(player, "tatooine", 133, 0, 4127, null, 0, 0, 0, "", false);
-            break;
-            case 16:
-            warpPlayer(player, "tatooine", -696, 0, -6728, null, 0, 0, 0, "", false);
-            break;
-            case 17:
-            warpPlayer(player, "tatooine", -4512, 0, -2270, null, 0, 0, 0, "", false);
-            break;
-            case 18:
-            warpPlayer(player, "tatooine", -5270, 0, 2810, null, 0, 0, 0, "", false);
-            break;
-            case 19:
-            warpPlayer(player, "tatooine", -5249, 0, 2551, null, 0, 0, 0, "", false);
-            break;
-            case 20:
-            warpPlayer(player, "tatooine", -3933, 0, -4417, null, 0, 0, 0, "", false);
-            break;
-            case 21:
-            warpPlayer(player, "tatooine", -1470, 0, 3730, null, 0, 0, 0, "", false);
-            break;
-            case 22:
-            warpPlayer(player, "tatooine", -4670, 0, -4350, null, 0, 0, 0, "", false);
-            break;
-            case 23:
-            warpPlayer(player, "tatooine", -4642, 0, -1912, null, 0, 0, 0, "", false);
-            break;
-            case 24:
-            warpPlayer(player, "tatooine", -3039, 0, -5104, null, 0, 0, 0, "", false);
-            break;
-            case 25:
-            warpPlayer(player, "tatooine", 1807, 0, -6061, null, 0, 0, 0, "", false);
-            break;
-            case 26:
-            warpPlayer(player, "tatooine", 6283, 0, -422, null, 0, 0, 0, "", false);
-            break;
-            case 27:
-            warpPlayer(player, "tatooine", 6645, 0, 5453, null, 0, 0, 0, "", false);
-            break;
-            case 28:
-            warpPlayer(player, "tatooine", 3727, 0, -4182, null, 0, 0, 0, "", false);
-            break;
-            case 29:
-            warpPlayer(player, "tatooine", 100, 0, -5300, null, 0, 0, 0, "", false);
-            break;
-            case 30:
-            warpPlayer(player, "tatooine", 1900, 0, 3300, null, 0, 0, 0, "", false);
-            break;
-            case 31:
-            warpPlayer(player, "tatooine", -2915, 0, 2361, null, 0, 0, 0, "", false);
-            break;
-            case 32:
-            warpPlayer(player, "tatooine", 3764, 0, 2381, null, 0, 0, 0, "", false);
-            break;
-            case 33:
-            warpPlayer(player, "tatooine", -5126, 75, -6599, null, 0, 0, 0, "", false);
-            break;
-            case 34:
-            warpPlayer(player, "tatooine", -1290, 0, -3590, null, 0, 0, 0, "", false);
-            break;
-            case 35:
-            warpPlayer(player, "tatooine", -6174, 0, 5888, null, 0, 0, 0, "", false);
-            break;
-            case 36:
-            warpPlayer(player, "tatooine", -2910, 0, 2435, null, 0, 0, 0, "", false);
-            break;
-            case 37:
-            warpPlayer(player, "tatooine", 3333, 0, -4605, null, 0, 0, 0, "", false);
-            break;
-            case 38:
-            warpPlayer(player, "tatooine", 900, 0, 5568, null, 0, 0, 0, "", false);
-            break;
-            case 39:
-            warpPlayer(player, "tatooine", 2520, 0, 4700, null, 0, 0, 0, "", false);
-            break;
-            case 40:
-            warpPlayer(player, "tatooine", 2380, 0, 5000, null, 0, 0, 0, "", false);
-            break;
-            case 41:
-            warpPlayer(player, "tatooine", 5121, 0, 647, null, 0, 0, 0, "", false);
-            break;
-            case 42:
-            warpPlayer(player, "tatooine", -6505, 0, -3667, null, 0, 0, 0, "", false);
-            break;
-            case 43:
-            warpPlayer(player, "tatooine", 58, 0, -79, null, 0, 0, 0, "", false);
-            break;
-            case 44:
-            warpPlayer(player, "tatooine", 3444, 0, -4186, null, 0, 0, 0, "", false);
-            break;
-            case 45:
-            warpPlayer(player, "tatooine", 70, 0, -5256, null, 0, 0, 0, "", false);
-            break;
-            case 46:
-            warpPlayer(player, "tatooine", -700, 0, -6300, null, 0, 0, 0, "", false);
-            break;
-            case 47:
-            warpPlayer(player, "tatooine", 6553, 0, -1312, null, 0, 0, 0, "", false);
-            break;
-            case 48:
-            warpPlayer(player, "tatooine", -5455, 0, -6122, null, 0, 0, 0, "", false);
-            break;
-            case 49:
-            warpPlayer(player, "tatooine", -2886, 0, 1977, null, 0, 0, 0, "", false);
-            break;
-            case 50:
-            warpPlayer(player, "tatooine", -3651, 0, -4755, null, 0, 0, 0, "", false);
-            break;
-            case 51:
-            warpPlayer(player, "tatooine", -3069, 0, 2159, null, 0, 0, 0, "", false);
-            break;
-            case 52:
-            warpPlayer(player, "tatooine", -2878, 0, 2542, null, 0, 0, 0, "", false);
-            break;
-            case 53:
-            warpPlayer(player, "planet", 0, 0, 0, null, 0, 0, 0, "", false);
-            break;
-            case 54:
-            warpPlayer(player, "planet", 0, 0, 0, null, 0, 0, 0, "", false);
-            break;
-            case 55:
-            warpPlayer(player, "planet", 0, 0, 0, null, 0, 0, 0, "", false);
-            break;
-            case 56:
-            warpPlayer(player, "planet", 0, 0, 0, null, 0, 0, 0, "", false);
-            break;
-            case 57:
-            warpPlayer(player, "naboo", -5901, 0, 4098, null, 0, 0, 0, "", false);
-            break;
-            case 58:
-            warpPlayer(player, "naboo", 1984, 0, 2154, null, 0, 0, 0, "", false);
-            break;
-            case 59:
-            warpPlayer(player, "naboo", 5011, -192, 6805, null, 0, 0, 0, "", false);
-            break;
-            case 60:
-            warpPlayer(player, "naboo", 4697, 0, -4897, null, 0, 0, 0, "", false);
-            break;
-            case 61:
-            warpPlayer(player, "naboo", 4800, 0, -4700, null, 0, 0, 0, "", false);
-            break;
-            case 62:
-            warpPlayer(player, "naboo", -4855, 0, 4167, null, 0, 0, 0, "", false);
-            break;
-            case 63:
-            warpPlayer(player, "naboo", 5141, 0, -1470, null, 0, 0, 0, "", false);
-            break;
-            case 64:
-            warpPlayer(player, "naboo", -5565, 0, -34, null, 0, 0, 0, "", false);
-            break;
-            case 65:
-            warpPlayer(player, "naboo", 2447, 0, -3918, null, 0, 0, 0, "", false);
-            break;
-            case 66:
-            warpPlayer(player, "naboo", 1019, 0, -1508, null, 0, 0, 0, "", false);
-            break;
-            case 67:
-            warpPlayer(player, "naboo", -5825, -158, -99, null, 0, 0, 0, "", false);
-            break;
-            case 68:
-            warpPlayer(player, "naboo", -4630, 0, 4213, null, 0, 0, 0, "", false);
-            break;
-            case 69:
-            warpPlayer(player, "naboo", -2064, 5, -5423, null, 0, 0, 0, "", false);
-            break;
-            case 70:
-            warpPlayer(player, "naboo", 4321, 0, -4774, null, 0, 0, 0, "", false);
-            break;
-            case 71:
-            warpPlayer(player, "naboo", -264, 0, 2823, null, 0, 0, 0, "", false);
-            break;
-            case 72:
-            warpPlayer(player, "naboo", 4771, 0, -3868, null, 0, 0, 0, "", false);
-            break;
-            case 73:
-            warpPlayer(player, "naboo", 1396, 0, 2686, null, 0, 0, 0, "", false);
-            break;
-            case 74:
-            warpPlayer(player, "naboo", 2850, 0, 1084, null, 0, 0, 0, "", false);
-            break;
-            case 75:
-            warpPlayer(player, "naboo", -1969, 0, 5295, null, 0, 0, 0, "", false);
-            break;
-            case 76:
-            warpPlayer(player, "naboo", -1500, 0, -1730, null, 0, 0, 0, "", false);
-            break;
-            case 77:
-            warpPlayer(player, "naboo", 1932, 0, -1574, null, 0, 0, 0, "", false);
-            break;
-            case 78:
-            warpPlayer(player, "naboo", 936, 0, -1582, null, 0, 0, 0, "", false);
-            break;
-            case 79:
-            warpPlayer(player, "naboo", -5902, -196, 4823, null, 0, 0, 0, "", false);
-            break;
-            case 80:
-            warpPlayer(player, "naboo", -4439, 6, 4173, null, 0, 0, 0, "", false);
-            break;
-            case 81:
-            warpPlayer(player, "naboo", -3512, 3, 2081, null, 0, 0, 0, "", false);
-            break;
-            case 82:
-            warpPlayer(player, "naboo", -3151, 10, 2586, null, 0, 0, 0, "", false);
-            break;
-            case 83:
-            warpPlayer(player, "naboo", 4223, 3, -6096, null, 0, 0, 0, "", false);
-            break;
-            case 84:
-            warpPlayer(player, "naboo", 4546, 79, -898, null, 0, 0, 0, "", false);
-            break;
-            case 85:
-            warpPlayer(player, "naboo", 5146, -192, 6850, null, 0, 0, 0, "", false);
-            break;
-            case 86:
-            warpPlayer(player, "naboo", 5702, 329, -1596, null, 0, 0, 0, "", false);
-            break;
-            case 87:
-            warpPlayer(player, "naboo", 5829, 36, -4664, null, 0, 0, 0, "", false);
-            break;
-            case 88:
-            warpPlayer(player, "naboo", 5, 3, -6172, null, 0, 0, 0, "", false);
-            break;
-            case 89:
-            warpPlayer(player, "naboo", -10, -202, 5839, null, 0, 0, 0, "", false);
-            break;
-            case 90:
-            warpPlayer(player, "naboo", 0, 10, 1996, null, 0, 0, 0, "", false);
-            break;
-            case 91:
-            warpPlayer(player, "naboo", 198, 30, 1311, null, 0, 0, 0, "", false);
-            break;
-            case 92:
-            warpPlayer(player, "naboo", 0, 0, 0, null, 0, 0, 0, "", false);
-            break;
-            case 93:
-            warpPlayer(player, "planet", 0, 0, 0, null, 0, 0, 0, "", false);
-            break;
-            case 94:
-            warpPlayer(player, "planet", 0, 0, 0, null, 0, 0, 0, "", false);
-            break;
-            case 95:
-            warpPlayer(player, "planet", 0, 0, 0, null, 0, 0, 0, "", false);
-            break;
-            case 96:
-            warpPlayer(player, "planet", 0, 0, 0, null, 0, 0, 0, "", false);
-            break;
-            case 97:
-            warpPlayer(player, "corellia", -137, 28, -4723, null, 0, 0, 0, "", false);
-            break;
-            case 98:
-            warpPlayer(player, "corellia", 3083, 0, 4989, null, 0, 0, 0, "", false);
-            break;
-            case 99:
-            warpPlayer(player, "corellia", -3366, 0, 3154, null, 0, 0, 0, "", false);
-            break;
-            case 100:
-            warpPlayer(player, "corellia", -5479, 0, -2668, null, 0, 0, 0, "", false);
-            break;
-            case 101:
-            warpPlayer(player, "corellia", 6752, 0, -5696, null, 0, 0, 0, "", false);
-            break;
-            case 102:
-            warpPlayer(player, "corellia", -5420, 0, -6247, null, 0, 0, 0, "", false);
-            break;
-            case 103:
-            warpPlayer(player, "corellia", -6530, 0, 5967, null, 0, 0, 0, "", false);
-            break;
-            case 104:
-            warpPlayer(player, "corellia", 5224, 0, 1589, null, 0, 0, 0, "", false);
-            break;
-            case 105:
-            warpPlayer(player, "corellia", 1388, 0, 3756, null, 0, 0, 0, "", false);
-            break;
-            case 106:
-            warpPlayer(player, "corellia", 905, 19, 4633, null, 0, 0, 0, "", false);
-            break;
-            case 107:
-            warpPlayer(player, "corellia", -667, 29, -4635, null, 0, 0, 0, "", false);
-            break;
-            case 108:
-            warpPlayer(player, "corellia", -1843, 5, -4434, null, 0, 0, 0, "", false);
-            break;
-            case 109:
-            warpPlayer(player, "corellia", 4630, 0, -5740, null, 0, 0, 0, "", false);
-            break;
-            case 110:
-            warpPlayer(player, "corellia", -2483, 19, 2905, null, 0, 0, 0, "", false);
-            break;
-            case 111:
-            warpPlayer(player, "corellia", 6760, 0, -5617, null, 0, 0, 0, "", false);
-            break;
-            case 112:
-            warpPlayer(player, "corellia", 1029, 0, 4199, null, 0, 0, 0, "", false);
-            break;
-            case 113:
-            warpPlayer(player, "corellia", 1414, 0, -316, null, 0, 0, 0, "", false);
-            break;
-            case 114:
-            warpPlayer(player, "corellia", 4722, 0, -5233, null, 0, 0, 0, "", false);
-            break;
-            case 115:
-            warpPlayer(player, "corellia", -669, 473, 3189, null, 0, 0, 0, "", false);
-            break;
-            case 116:
-            warpPlayer(player, "corellia", 4500, 21, 3600, null, 0, 0, 0, "", false);
-            break;
-            case 117:
-            warpPlayer(player, "corellia", 123, 31, 4246, null, 0, 0, 0, "", false);
-            break;
-            case 118:
-            warpPlayer(player, "corellia", -4250, 1, 3630, null, 0, 0, 0, "", false);
-            break;
-            case 119:
-            warpPlayer(player, "corellia", -1905, 223, 3988, null, 0, 0, 0, "", false);
-            break;
-            case 120:
-            warpPlayer(player, "corellia", -1646, 21, -31, null, 0, 0, 0, "", false);
-            break;
-            case 121:
-            warpPlayer(player, "corellia", 1803, 30, 4991, null, 0, 0, 0, "", false);
-            break;
-            case 122:
-            warpPlayer(player, "corellia", -204, 44, 4577, null, 0, 0, 0, "", false);
-            break;
-            case 123:
-            warpPlayer(player, "corellia", 6309, 28, 4380, null, 0, 0, 0, "", false);
-            break;
-            case 124:
-            warpPlayer(player, "corellia", -6528, 398, 5967, null, 0, 0, 0, "", false);
-            break;
-            case 125:
-            warpPlayer(player, "planet", 0, 0, 0, null, 0, 0, 0, "", false);
-            break;
-            case 126:
-            warpPlayer(player, "planet", 0, 0, 0, null, 0, 0, 0, "", false);
-            break;
-            case 127:
-            warpPlayer(player, "planet", 0, 0, 0, null, 0, 0, 0, "", false);
-            break;
-            case 128:
-            warpPlayer(player, "dantooine", -4228, 0, -2380, null, 0, 0, 0, "", false);
-            break;
-            case 129:
-            warpPlayer(player, "dantooine", -617, 0, 2478, null, 0, 0, 0, "", false);
-            break;
-            case 130:
-            warpPlayer(player, "dantooine", 1595, 0, -6391, null, 0, 0, 0, "", false);
-            break;
-            case 131:
-            warpPlayer(player, "dantooine", -6826, 0, 5502, null, 0, 0, 0, "", false);
-            break;
-            case 132:
-            warpPlayer(player, "dantooine", -7155, 0, -882, null, 0, 0, 0, "", false);
-            break;
-            case 133:
-            warpPlayer(player, "dantooine", -3861, 0, -5706, null, 0, 0, 0, "", false);
-            break;
-            case 134:
-            warpPlayer(player, "dantooine", 4194, 0, 5200, null, 0, 0, 0, "", false);
-            break;
-            case 135:
-            warpPlayer(player, "dantooine", 7028, 47, -4103, null, 0, 0, 0, "", false);
-            break;
-            case 136:
-            warpPlayer(player, "dantooine", -138, 0, -368, null, 0, 0, 0, "", false);
-            break;
-            case 137:
-            warpPlayer(player, "dantooine", -7028, 0, -3270, null, 0, 0, 0, "", false);
-            break;
-            case 138:
-            warpPlayer(player, "dantooine", -555, 0, -3825, null, 0, 0, 0, "", false);
-            break;
-            case 139:
-            warpPlayer(player, "dantooine", -6221, 0, 7396, null, 0, 0, 0, "", false);
-            break;
-            case 140:
-            warpPlayer(player, "dantooine", -758, 1, 2093, null, 0, 0, 0, "", false);
-            break;
-            case 141:
-            warpPlayer(player, "dantooine", 3070, 5, 1212, null, 0, 0, 0, "", false);
-            break;
-            case 142:
-            warpPlayer(player, "dantooine", -5196, 8, 387, null, 0, 0, 0, "", false);
-            break;
-            case 143:
-            warpPlayer(player, "dantooine", -6805, 125, 6012, null, 0, 0, 0, "", false);
-            break;
-            case 144:
-            warpPlayer(player, "dantooine", 5952, 0, -5312, null, 0, 0, 0, "", false);
-            break;
-            case 145:
-            warpPlayer(player, "dantooine", -393, 46, -228, null, 0, 0, 0, "", false);
-            break;
-            case 146:
-            warpPlayer(player, "dantooine", -7085, 0, -6149, null, 0, 0, 0, "", false);
-            break;
-            case 147:
-            warpPlayer(player, "dantooine", -7256, 5, 4321, null, 0, 0, 0, "", false);
-            break;
-            case 148:
-            warpPlayer(player, "dantooine", -6143, 37, 4675, null, 0, 0, 0, "", false);
-            break;
-            case 149:
-            warpPlayer(player, "dantooine", -4492, 70, 1615, null, 0, 0, 0, "", false);
-            break;
-            case 150:
-            warpPlayer(player, "dantooine", -6999, 11, -5269, null, 0, 0, 0, "", false);
-            break;
-            case 151:
-            warpPlayer(player, "dantooine", 2163, 161, 7548, null, 0, 0, 0, "", false);
-            break;
-            case 152:
-            warpPlayer(player, "dantooine", 442, 5, 4590, null, 0, 0, 0, "", false);
-            break;
-            case 153:
-            warpPlayer(player, "planet", 0, 0, 0, null, 0, 0, 0, "", false);
-            break;
-            case 154:
-            warpPlayer(player, "planet", 0, 0, 0, null, 0, 0, 0, "", false);
-            break;
-            case 155:
-            warpPlayer(player, "planet", 0, 0, 0, null, 0, 0, 0, "", false);
-            break;
-            case 156:
-            warpPlayer(player, "planet", 0, 0, 0, null, 0, 0, 0, "", false);
-            break;
-            case 157:
-            warpPlayer(player, "lok", 423, 2, 5438, null, 0, 0, 0, "", false);
-            break;
-            case 158:
-            warpPlayer(player, "lok", -1816, 12, -3087, null, 0, 0, 0, "", false);
-            break;
-            case 159:
-            warpPlayer(player, "lok", -7590, 0, 3491, null, 0, 0, 0, "", false);
-            break;
-            case 160:
-            warpPlayer(player, "lok", -3840, 0, -3858, null, 0, 0, 0, "", false);
-            break;
-            case 161:
-            warpPlayer(player, "lok", 3320, 0, -4906, null, 0, 0, 0, "", false);
-            break;
-            case 162:
-            warpPlayer(player, "lok", 4578, 0, -1151, null, 0, 0, 0, "", false);
-            break;
-            case 163:
-            warpPlayer(player, "lok", 3820, 0, -505, null, 0, 0, 0, "", false);
-            break;
-            case 164:
-            warpPlayer(player, "lok", -3742, 62, -3500, null, 0, 0, 0, "", false);
-            break;
-            case 165:
-            warpPlayer(player, "lok", 3091, 0, -4638, null, 0, 0, 0, "", false);
-            break;
-            case 166:
-            warpPlayer(player, "lok", -70, 0, 2650, null, 0, 0, 0, "", false);
-            break;
-            case 167:
-            warpPlayer(player, "lok", 3610, 0, 2229, null, 0, 0, 0, "", false);
-            break;
-            case 168:
-            warpPlayer(player, "lok", -3030, 0, -678, null, 0, 0, 0, "", false);
-            break;
-            case 169:
-            warpPlayer(player, "lok", 6453, 66, 3867, null, 0, 0, 0, "", false);
-            break;
-            case 170:
-            warpPlayer(player, "lok", 901, 0, -4192, null, 0, 0, 0, "", false);
-            break;
-            case 171:
-            warpPlayer(player, "lok", 475, 34, 4769, null, 0, 0, 0, "", false);
-            break;
-            case 172:
-            warpPlayer(player, "lok", 627, 12, 5053, null, 0, 0, 0, "", false);
-            break;
-            case 173:
-            warpPlayer(player, "lok", 471, 11, 5057, null, 0, 0, 0, "", false);
-            break;
-            case 174:
-            warpPlayer(player, "lok", 2159, 25, 2324, null, 0, 0, 0, "", false);
-            break;
-            case 175:
-            warpPlayer(player, "lok", 2865, 314, -4753, null, 0, 0, 0, "", false);
-            break;
-            case 176:
-            warpPlayer(player, "lok", -1928, 0, 1697, null, 0, 0, 0, "", false);
-            break;
-            case 177:
-            warpPlayer(player, "lok", -2128, 103, 1164, null, 0, 0, 0, "", false);
-            break;
-            case 178:
-            warpPlayer(player, "planet", 0, 0, 0, null, 0, 0, 0, "", false);
-            break;
-            case 179:
-            warpPlayer(player, "planet", 0, 0, 0, null, 0, 0, 0, "", false);
-            break;
-            case 180:
-            warpPlayer(player, "planet", 0, 0, 0, null, 0, 0, 0, "", false);
-            break;
-            case 181:
-            warpPlayer(player, "planet", 0, 0, 0, null, 0, 0, 0, "", false);
-            break;
-            case 182:
-            warpPlayer(player, "yavin4", 4049, 0, -6217, null, 0, 0, 0, "", false);
-            break;
-            case 183:
-            warpPlayer(player, "yavin4", -6922, 0, -5723, null, 0, 0, 0, "", false);
-            break;
-            case 184:
-            warpPlayer(player, "yavin4", -270, 0, 4895, null, 0, 0, 0, "", false);
-            break;
-            case 185:
-            warpPlayer(player, "yavin4", -6488, 0, -417, null, 0, 0, 0, "", false);
-            break;
-            case 186:
-            warpPlayer(player, "yavin4", -3187, 0, -3123, null, 0, 0, 0, "", false);
-            break;
-            case 187:
-            warpPlayer(player, "yavin4", -875, 0, -2048, null, 0, 0, 0, "", false);
-            break;
-            case 188:
-            warpPlayer(player, "yavin4", 5076, 0, 5537, null, 0, 0, 0, "", false);
-            break;
-            case 189:
-            warpPlayer(player, "yavin4", 517, 0, -650, null, 0, 0, 0, "", false);
-            break;
-            case 190:
-            warpPlayer(player, "yavin4", 5080, 0, 306, null, 0, 0, 0, "", false);
-            break;
-            case 191:
-            warpPlayer(player, "yavin4", -5574, 0, 4901, null, 0, 0, 0, "", false);
-            break;
-            case 192:
-            warpPlayer(player, "yavin4", -7555, 155, -433, null, 0, 0, 0, "", false);
-            break;
-            case 193:
-            warpPlayer(player, "yavin4", -6350, 65, -670, null, 0, 0, 0, "", false);
-            break;
-            case 194:
-            warpPlayer(player, "yavin4", -4156, 65, 5328, null, 0, 0, 0, "", false);
-            break;
-            case 195:
-            warpPlayer(player, "yavin4", 317, 190, -5302, null, 0, 0, 0, "", false);
-            break;
-            case 196:
-            warpPlayer(player, "yavin4", 5900, 695, -4320, null, 0, 0, 0, "", false);
-            break;
-            case 197:
-            warpPlayer(player, "yavin4", 943, 86, -1438, null, 0, 0, 0, "", false);
-            break;
-            case 198:
-            warpPlayer(player, "yavin4", 6495, 10, 4490, null, 0, 0, 0, "", false);
-            break;
-            case 199:
-            warpPlayer(player, "planet", 0, 0, 0, null, 0, 0, 0, "", false);
-            break;
-            case 200:
-            warpPlayer(player, "planet", 0, 0, 0, null, 0, 0, 0, "", false);
-            break;
-            case 201:
-            warpPlayer(player, "planet", 0, 0, 0, null, 0, 0, 0, "", false);
-            break;
-            case 202:
-            warpPlayer(player, "planet", 0, 0, 0, null, 0, 0, 0, "", false);
-            break;
-            case 203:
-            warpPlayer(player, "endor", 3222, 0, -3467, null, 0, 0, 0, "", false);
-            break;
-            case 204:
-            warpPlayer(player, "endor", -970, 0, 1557, null, 0, 0, 0, "", false);
-            break;
-            case 205:
-            warpPlayer(player, "endor", -4676, 0, 4331, null, 0, 0, 0, "", false);
-            break;
-            case 206:
-            warpPlayer(player, "endor", 6053, 0, -2477, null, 0, 0, 0, "", false);
-            break;
-            case 207:
-            warpPlayer(player, "endor", -658, 0, -5076, null, 0, 0, 0, "", false);
-            break;
-            case 208:
-            warpPlayer(player, "endor", 4660, 0, -2424, null, 0, 0, 0, "", false);
-            break;
-            case 209:
-            warpPlayer(player, "endor", -4687, 0, -2274, null, 0, 0, 0, "", false);
-            break;
-            case 210:
-            warpPlayer(player, "endor", 656, 204, 5051, null, 0, 0, 0, "", false);
-            break;
-            case 211:
-            warpPlayer(player, "endor", -1710, 32, -2, null, 0, 0, 0, "", false);
-            break;
-            case 212:
-            warpPlayer(player, "endor", 2250, 0, 3500, null, 0, 0, 0, "", false);
-            break;
-            case 213:
-            warpPlayer(player, "endor", 6000, 0, -2250, null, 0, 0, 0, "", false);
-            break;
-            case 214:
-            warpPlayer(player, "endor", -6900, 0, 600, null, 0, 0, 0, "", false);
-            break;
-            case 215:
-            warpPlayer(player, "endor", -4525, 0, -2317, null, 0, 0, 0, "", false);
-            break;
-            case 216:
-            warpPlayer(player, "endor", 1578, 0, -3271, null, 0, 0, 0, "", false);
-            break;
-            case 217:
-            warpPlayer(player, "endor", 4500, 0, -2300, null, 0, 0, 0, "", false);
-            break;
-            case 218:
-            warpPlayer(player, "planet", 0, 0, 0, null, 0, 0, 0, "", false);
-            break;
-            case 219:
-            warpPlayer(player, "planet", 0, 0, 0, null, 0, 0, 0, "", false);
-            break;
-            case 220:
-            warpPlayer(player, "planet", 0, 0, 0, null, 0, 0, 0, "", false);
-            break;
-            case 221:
-            warpPlayer(player, "dathomir", -85, 0, -1600, null, 0, 0, 0, "", false);
-            break;
-            case 222:
-            warpPlayer(player, "dathomir", 600, 0, 3072, null, 0, 0, 0, "", false);
-            break;
-            case 223:
-            warpPlayer(player, "dathomir", -5775, 511, -6542, null, 0, 0, 0, "", false);
-            break;
-            case 224:
-            warpPlayer(player, "dathomir", 5306, 0, -4145, null, 0, 0, 0, "", false);
-            break;
-            case 225:
-            warpPlayer(player, "dathomir", -3987, 0, -78, null, 0, 0, 0, "", false);
-            break;
-            case 226:
-            warpPlayer(player, "dathomir", -6304, 0, 753, null, 0, 0, 0, "", false);
-            break;
-            case 227:
-            warpPlayer(player, "dathomir", -4434, 0, 574, null, 0, 0, 0, "", false);
-            break;
-            case 228:
-            warpPlayer(player, "dathomir", 5663, 0, 1950, null, 0, 0, 0, "", false);
-            break;
-            case 229:
-            warpPlayer(player, "dathomir", 3017, 0, 1287, null, 0, 0, 0, "", false);
-            break;
-            case 230:
-            warpPlayer(player, "dathomir", 3557, 0, 1548, null, 0, 0, 0, "", false);
-            break;
-            case 231:
-            warpPlayer(player, "dathomir", -2102, 0, 3165, null, 0, 0, 0, "", false);
-            break;
-            case 232:
-            warpPlayer(player, "dathomir", 2545, 0, -1662, null, 0, 0, 0, "", false);
-            break;
-            case 233:
-            warpPlayer(player, "dathomir", 158, 0, 4524, null, 0, 0, 0, "", false);
-            break;
-            case 234:
-            warpPlayer(player, "dathomir", -4204, 25, -2076, null, 0, 0, 0, "", false);
-            break;
-            case 235:
-            warpPlayer(player, "dathomir", -1200, 0, 6250, null, 0, 0, 0, "", false);
-            break;
-            case 236:
-            warpPlayer(player, "dathomir", -4100, 0, -950, null, 0, 0, 0, "", false);
-            break;
-            case 237:
-            warpPlayer(player, "dathomir", -2250, 0, 5000, null, 0, 0, 0, "", false);
-            break;
-            case 238:
-            warpPlayer(player, "dathomir", 5500, 0, 1950, null, 0, 0, 0, "", false);
-            break;
-            case 239:
-            warpPlayer(player, "dathomir", 722, 0, -4773, null, 0, 0, 0, "", false);
-            break;
-            case 240:
-            warpPlayer(player, "dathomir", -2494, 128, 1474, null, 0, 0, 0, "", false);
-            break;
-            case 241:
-            warpPlayer(player, "dathomir", 240, 27, 6720, null, 0, 0, 0, "", false);
-            break;
-            case 242:
-            warpPlayer(player, "dathomir", 3488, 25, 1580, null, 0, 0, 0, "", false);
-            break;
-            case 243:
-            warpPlayer(player, "dathomir", -3735, 54, 4082, null, 0, 0, 0, "", false);
-            break;
-            case 244:
-            warpPlayer(player, "dathomir", -1100, 140, 2570, null, 0, 0, 0, "", false);
-            break;
-            case 245:
-            warpPlayer(player, "dathomir", 6322, 9, 6347, null, 0, 0, 0, "", false);
-            break;
-            case 246:
-            warpPlayer(player, "planet", 0, 0, 0, null, 0, 0, 0, "", false);
-            break;
-            case 247:
-            warpPlayer(player, "planet", 0, 0, 0, null, 0, 0, 0, "", false);
-            break;
-            case 248:
-            warpPlayer(player, "planet", 0, 0, 0, null, 0, 0, 0, "", false);
-            break;
-            case 249:
-            warpPlayer(player, "planet", 0, 0, 0, null, 0, 0, 0, "", false);
-            break;
-            case 250:
-            warpPlayer(player, "talus", 559, 0, -3028, null, 0, 0, 0, "", false);
-            break;
-            case 251:
-            warpPlayer(player, "talus", 4371, 0, 5165, null, 0, 0, 0, "", false);
-            break;
-            case 252:
-            warpPlayer(player, "talus", -2226, 20, 2321, null, 0, 0, 0, "", false);
-            break;
-            case 253:
-            warpPlayer(player, "talus", -4938, 66, -3107, null, 0, 0, 0, "", false);
-            break;
-            case 254:
-            warpPlayer(player, "talus", 5936, 44, 4635, null, 0, 0, 0, "", false);
-            break;
-            case 255:
-            warpPlayer(player, "talus", 5556, 0, -4079, null, 0, 0, 0, "", false);
-            break;
-            case 256:
-            warpPlayer(player, "talus", 4984, 0, -6026, null, 0, 0, 0, "", false);
-            break;
-            case 257:
-            warpPlayer(player, "talus", 2148, 120, -5588, null, 0, 0, 0, "", false);
-            break;
-            case 258:
-            warpPlayer(player, "talus", 3067, 41, 6065, null, 0, 0, 0, "", false);
-            break;
-            case 259:
-            warpPlayer(player, "talus", -5525, 32, -4673, null, 0, 0, 0, "", false);
-            break;
-            case 260:
-            warpPlayer(player, "talus", 1563, 0, -867, null, 0, 0, 0, "", false);
-            break;
-            case 261:
-            warpPlayer(player, "talus", -2595, 0, 3724, null, 0, 0, 0, "", false);
-            break;
-            case 262:
-            warpPlayer(player, "talus", -4016, 0, -4752, null, 0, 0, 0, "", false);
-            break;
-            case 263:
-            warpPlayer(player, "talus", -4425, 0, -1414, null, 0, 0, 0, "", false);
-            break;
-            case 264:
-            warpPlayer(player, "talus", 4285, 0, 1032, null, 0, 0, 0, "", false);
-            break;
-            case 265:
-            warpPlayer(player, "talus", -3800, 0, -6500, null, 0, 0, 0, "", false);
-            break;
-            case 266:
-            warpPlayer(player, "talus", -2419, 138, 3001, null, 0, 0, 0, "", false);
-            break;
-            case 267:
-            warpPlayer(player, "talus", 3100, 67, -3800, null, 0, 0, 0, "", false);
-            break;
-            case 268:
-            warpPlayer(player, "planet", 0, 0, 0, null, 0, 0, 0, "", false);
-            break;
-            case 269:
-            warpPlayer(player, "planet", 0, 0, 0, null, 0, 0, 0, "", false);
-            break;
-            case 270:
-            warpPlayer(player, "planet", 0, 0, 0, null, 0, 0, 0, "", false);
-            break;
-            case 271:
-            warpPlayer(player, "planet", 0, 0, 0, null, 0, 0, 0, "", false);
-            break;
-            case 272:
-            warpPlayer(player, "rori", 5295, 80, 6171, null, 0, 0, 0, "", false);
-            break;
-            case 273:
-            warpPlayer(player, "rori", 5071, 0, 5747, null, 0, 0, 0, "", false);
-            break;
-            case 274:
-            warpPlayer(player, "rori", -5310, 0, -2221, null, 0, 0, 0, "", false);
-            break;
-            case 275:
-            warpPlayer(player, "rori", 3700, 96, -6404, null, 0, 0, 0, "", false);
-            break;
-            case 276:
-            warpPlayer(player, "rori", 900, 0, -4935, null, 0, 0, 0, "", false);
-            break;
-            case 277:
-            warpPlayer(player, "rori", 5451, 0, 5044, null, 0, 0, 0, "", false);
-            break;
-            case 278:
-            warpPlayer(player, "rori", -6003, 0, -1851, null, 0, 0, 0, "", false);
-            break;
-            case 279:
-            warpPlayer(player, "rori", 3570, 0, 5430, null, 0, 0, 0, "", false);
-            break;
-            case 280:
-            warpPlayer(player, "rori", -2073, 0, 3339, null, 0, 0, 0, "", false);
-            break;
-            case 281:
-            warpPlayer(player, "rori", -1107, 76, 4550, null, 0, 0, 0, "", false);
-            break;
-            case 282:
-            warpPlayer(player, "rori", 7348, 78, 105, null, 0, 0, 0, "", false);
-            break;
-            case 283:
-            warpPlayer(player, "rori", 772, 87, -2109, null, 0, 0, 0, "", false);
-            break;
-            case 284:
-            warpPlayer(player, "rori", -1813, 0, -4532, null, 0, 0, 0, "", false);
-            break;
-            case 285:
-            warpPlayer(player, "rori", -4624, 75, 3986, null, 0, 0, 0, "", false);
-            break;
-            case 286:
-            warpPlayer(player, "rori", -3384, 108, -2098, null, 0, 0, 0, "", false);
-            break;
-            case 287:
-            warpPlayer(player, "planet", 0, 0, 0, null, 0, 0, 0, "", false);
-            break;
-            case 288:
-            warpPlayer(player, "planet", 0, 0, 0, null, 0, 0, 0, "", false);
-            break;
-            case 289:
-            warpPlayer(player, "planet", 0, 0, 0, null, 0, 0, 0, "", false);
-            break;
-            case 290:
-            warpPlayer(player, "planet", 0, 0, 0, null, 0, 0, 0, "", false);
-            break;
-            case 291:
-            warpPlayer(player, "mustafar", -2530, 0, 1650, null, 0, 0, 0, "", false);
-            break;
-            case 292:
-            warpPlayer(player, "mustafar", -1850, 0, 820, null, 0, 0, 0, "", false);
-            break;
-            case 293:
-            warpPlayer(player, "mustafar", -6011, 0, 42, null, 0, 0, 0, "", false);
-            break;
-            case 294:
-            warpPlayer(player, "mustafar", -5631, 0, 1031, null, 0, 0, 0, "", false);
-            break;
-            case 295:
-            warpPlayer(player, "mustafar", -4395, 0, 1684, null, 0, 0, 0, "", false);
-            break;
-            case 296:
-            warpPlayer(player, "mustafar", -4331, 0, 3196, null, 0, 0, 0, "", false);
-            break;
-            case 297:
-            warpPlayer(player, "mustafar", -5320, 0, 6150, null, 0, 0, 0, "", false);
-            break;
-            case 298:
-            warpPlayer(player, "mustafar", 152, 0, 4448, null, 0, 0, 0, "", false);
-            break;
-            case 299:
-            warpPlayer(player, "mustafar", -5380, 0, 4440, null, 0, 0, 0, "", false);
-            break;
-            case 300:
-            warpPlayer(player, "mustafar", -2660, 0, 6050, null, 0, 0, 0, "", false);
-            break;
-            case 301:
-            warpPlayer(player, "mustafar", -3466, 0, 5204, null, 0, 0, 0, "", false);
-            break;
-            case 302:
-            warpPlayer(player, "mustafar", -700, 0, 6000, null, 0, 0, 0, "", false);
-            break;
-            case 303:
-            warpPlayer(player, "mustafar", -1708, 0, 2600, null, 0, 0, 0, "", false);
-            break;
-            case 304:
-            warpPlayer(player, "mustafar", -2000, 0, 4200, null, 0, 0, 0, "", false);
-            break;
-            case 305:
-            warpPlayer(player, "mustafar", -2710, 0, 3409, null, 0, 0, 0, "", false);
-            break;
-            case 306:
-            warpPlayer(player, "mustafar", 466, 0, 2000, null, 0, 0, 0, "", false);
-            break;
-            case 307:
-            warpPlayer(player, "mustafar", 175, 0, -200, null, 0, 0, 0, "", false);
-            break;
-            case 308:
-            warpPlayer(player, "mustafar", 4848, 0, 6090, null, 0, 0, 0, "", false);
-            break;
-            case 309:
-            warpPlayer(player, "mustafar", 2100, 0, 5550, null, 0, 0, 0, "", false);
-            break;
-            case 310:
-            warpPlayer(player, "mustafar", 6750, 0, 6950, null, 0, 0, 0, "", false);
-            break;
-            case 311:
-            warpPlayer(player, "mustafar", -6750, 0, -4750, null, 0, 0, 0, "", false);
-            break;
-            case 312:
-            warpPlayer(player, "mustafar", -6750, 0, -5750, null, 0, 0, 0, "", false);
-            break;
-            case 313:
-            warpPlayer(player, "planet", 0, 0, 0, null, 0, 0, 0, "", false);
-            break;
-            case 314:
-            warpPlayer(player, "planet", 0, 0, 0, null, 0, 0, 0, "", false);
-            break;
-            case 315:
-            warpPlayer(player, "planet", 0, 0, 0, null, 0, 0, 0, "", false);
-            break;
-            case 316:
-            warpPlayer(player, "planet", 0, 0, 0, null, 0, 0, 0, "", false);
-            break;
-            case 317:
-            warpPlayer(player, "kashyyyk_main", -679, 0, -150, null, 0, 0, 0, "", false);
-            break;
-            case 318:
-            warpPlayer(player, "kashyyyk_main", -557, 0, -115, null, 0, 0, 0, "", false);
-            break;
-            case 319:
-            warpPlayer(player, "kashyyyk_main", -63, 18, 826, null, 0, 0, 0, "", false);
-            break;
-            case 320:
-            warpPlayer(player, "kashyyyk_main", 412, 18, 933, null, 0, 0, 0, "", false);
-            break;
-            case 321:
-            warpPlayer(player, "kashyyyk_main", -762, 17, 239, null, 0, 0, 0, "", false);
-            break;
-            case 322:
-            warpPlayer(player, "kashyyyk_main", 224, 18, -401, null, 0, 0, 0, "", false);
-            break;
-            case 323:
-            warpPlayer(player, "kashyyyk_main", 721, 23, -611, null, 0, 0, 0, "", false);
-            break;
-            case 324:
-            warpPlayer(player, "kashyyyk_main", 340, 32, -173, null, 0, 0, 0, "", false);
-            break;
-            case 325:
-            warpPlayer(player, "planet", 0, 0, 0, null, 0, 0, 0, "", false);
-            break;
-            default:
-            return SCRIPT_CONTINUE;
+        String[] warpOptions = utils.getStringArrayLocalVar(self, "warp.options");
+        Optional<warp_location> wl = WARP_OPTIONS.stream().filter(o -> o.getLocationLabel().equals(warpOptions[idx])).findFirst();
+        if(wl.isPresent()) {
+            warp_location w = wl.get();
+            w.warp(player);
+            WARP_OPTIONS = null;
+        } else {
+            sendSystemMessageTestingOnly(player, "The system is unable to complete the transaction.");
+            refreshMenu(
+                    player,
+                    "Select the desired warp location",
+                    "Test Center Terminal",
+                    WARP_OPTIONS.stream().map(warp_location::getLocationLabel).toArray(String[]::new),
+                    "handleWarpOptions",
+                    false
+            );
         }
-        refreshMenu(player, "Select the desired option", "Test Center Terminal", WARP_OPTIONS, "handleWarpOptions", false);
         return SCRIPT_CONTINUE;
     }
     public void handleOtherOption(obj_id player) throws InterruptedException
@@ -11079,19 +10230,18 @@ public class terminal_character_builder extends script.base_script
             cleanScriptVars(player);
             return;
         }
-        if (draw == false)
+        int pid;
+        if (!draw)
         {
-            int pid = sui.listbox(self, player, prompt, sui.OK_CANCEL_REFRESH, title, options, myHandler, false, false);
+            pid = sui.listbox(self, player, prompt, sui.OK_CANCEL_REFRESH, title, options, myHandler, false, false);
             sui.listboxUseOtherButton(pid, "Back");
-            sui.showSUIPage(pid);
-            setWindowPid(player, pid);
         }
         else
         {
-            int pid = sui.listbox(self, player, prompt, sui.OK_CANCEL, title, options, myHandler, true, false);
-            sui.showSUIPage(pid);
-            setWindowPid(player, pid);
+            pid = sui.listbox(self, player, prompt, sui.OK_CANCEL, title, options, myHandler, true, false);
         }
+        sui.showSUIPage(pid);
+        setWindowPid(player, pid);
     }
     public boolean outOfRange(obj_id self, obj_id player, boolean message) throws InterruptedException
     {
