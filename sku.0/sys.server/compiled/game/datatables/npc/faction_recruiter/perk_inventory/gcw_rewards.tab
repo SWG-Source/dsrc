@@ -85,6 +85,8 @@ object/tangible/wearables/hat/hat_imp_s01.iff	Imperial Hat	4	Imperial		25000	1
 object/weapon/ranged/pistol/pistol_power5.iff	Power5 Pistol	4	Imperial		75000	1			72
 object/weapon/ranged/carbine/carbine_e11.iff	E-11 Carbine	4	Imperial		55000	1			48
 object/weapon/melee/sword/sword_01.iff	Sword	4	Imperial		20000	1			16
+object/tangible/component/food/secrets/secret_imperial_biochem.iff	Imperial Army Biochemicals Report	4	Imperial		25000	1			
+object/tangible/component/food/secrets/secret_rebel_biochem.iff	Rebel Alliance Biochemicals Report	4	Rebel		25000	1			
 object/weapon/ranged/heavy/heavy_rocket_launcher.iff	Rocket Launcher	4	Either		100000	1	1		56
 object/tangible/deed/faction_perk/minefield/mine_drx55.iff	DRX-55 Mine	5	Either		8000	1			
 object/tangible/deed/faction_perk/minefield/mine_sr88.iff	SR-88 Cryo-mine	5	Either		8000	1			
