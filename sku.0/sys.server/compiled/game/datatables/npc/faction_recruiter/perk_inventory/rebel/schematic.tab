@@ -33,3 +33,4 @@ object/draft_schematic/armor/armor_appearance_rebel_marine_chest.iff		4000	1000	
 object/draft_schematic/armor/armor_appearance_rebel_marine_gloves.iff		500	500	0	10	crafting_armorsmith_master
 object/draft_schematic/armor/armor_appearance_rebel_marine_helmet.iff		2000	1000	0	10	crafting_armorsmith_master
 object/draft_schematic/armor/armor_appearance_rebel_marine_leggings.iff		2000	1000	0	10	crafting_armorsmith_master
+object/tangible/component/food/secrets/secret_rebel_biochem.iff		1000		1	10	class_domestics_master
