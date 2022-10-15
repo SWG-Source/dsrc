@@ -1,12 +1,18 @@
 package script.systems.veteran_reward;
 
 import script.*;
+import script.base_class.*;
+import script.combat_engine.*;
+import java.util.Arrays;
+import java.util.Hashtable;
+import java.util.Vector;
+import script.base_script;
+
+import script.library.player_structure;
 import script.library.sui;
 import script.library.target_dummy;
 import script.library.utils;
 import script.library.veteran_deprecated;
-
-import java.util.Vector;
 
 public class resource extends script.base_script
 {
@@ -15,6 +21,9 @@ public class resource extends script.base_script
     }
     public static final int RESOURCE_AMOUNT = 30000;
     public static final String ROOT_RESOURCE_CLASS = "resource";
+	//Namoni add missing Energy
+    public static final String ROOT_ENERGY_CLASS = "energy";
+	//end Namoni
     public static final String ROOT_ORGANIC_CLASS = "organic";
     public static final String ROOT_INORGANIC_CLASS = "inorganic";
     public static final String OBJVAR_RESOURCE_REWARDED = "rewarded";
@@ -114,13 +123,23 @@ public class resource extends script.base_script
             
             {
                 String resourceClass = (self.getScriptVars()).getString(SCRIPTVAR_BASE_CLASS);
-                if (!resourceClass.equals(ROOT_ORGANIC_CLASS) && !resourceClass.equals(ROOT_INORGANIC_CLASS))
+				// Note by Namoni: Attemp to add missing Energy and Space Resource Classes.
+                if (!resourceClass.equals(ROOT_ENERGY_CLASS) && !resourceClass.equals(ROOT_ORGANIC_CLASS) && !resourceClass.equals(ROOT_INORGANIC_CLASS))
                 {
                     chooseResourceClass(sui.getPlayerId(params), getResourceParentClass(resourceClass));
                 }
-                else 
+                else
                 {
                     chooseResourceClass(sui.getPlayerId(params), getResourceParentClass(resourceClass), true);
+                
+				//end Namoni Script
+               // if (!resourceClass.equals(ROOT_ORGANIC_CLASS) && !resourceClass.equals(ROOT_INORGANIC_CLASS))
+               // {
+               //     chooseResourceClass(sui.getPlayerId(params), getResourceParentClass(resourceClass));
+              //  }
+              //  else
+              //  {
+              //      chooseResourceClass(sui.getPlayerId(params), getResourceParentClass(resourceClass), true);
                 }
             }
             break;
@@ -205,9 +224,10 @@ public class resource extends script.base_script
                     testMsg += target_dummy.addLineBreaks(2);
                     testMsg += target_dummy.ORANGE + "@" + SID_RESOURCE_NAME + " = " + target_dummy.YELLOW + getResourceName(resourceChosen);
                     testMsg += target_dummy.addLineBreaks(1);
-                    for (resource_attribute resourceAttrib : resourceAttribs) {
-                        string_id temp = new string_id("obj_attr_n", resourceAttrib.getName());
-                        testMsg += target_dummy.GREEN + "@" + temp + " = " + target_dummy.WHITE + resourceAttrib.getValue();
+                    for (int i = 0; i < resourceAttribs.length; ++i)
+                    {
+                        string_id temp = new string_id("obj_attr_n", resourceAttribs[i].getName());
+                        testMsg += target_dummy.GREEN + "@" + temp + " = " + target_dummy.WHITE + resourceAttribs[i].getValue();
                         testMsg += target_dummy.addLineBreaks(1);
                     }
                     int pid = sui.createSUIPage(sui.SUI_MSGBOX, self, sui.getPlayerId(params), "handleCreateChosenResourceConfirm");
@@ -319,9 +339,10 @@ public class resource extends script.base_script
             return;
         }
         attribStrings = utils.addElement(attribStrings, "@" + SID_RESOURCE_NAME + " = " + getResourceName(resource));
-        for (resource_attribute resourceAttrib : resourceAttribs) {
-            string_id temp = new string_id("obj_attr_n", resourceAttrib.getName());
-            attribStrings = utils.addElement(attribStrings, "@" + temp + " = " + resourceAttrib.getValue());
+        for (int i = 0; i < resourceAttribs.length; ++i)
+        {
+            string_id temp = new string_id("obj_attr_n", resourceAttribs[i].getName());
+            attribStrings = utils.addElement(attribStrings, "@" + temp + " = " + resourceAttribs[i].getValue());
         }
         int pid = sui.listbox(self, player, "@" + SID_CONFIRM_RESOURCE_SELECTION, sui.OK_CANCEL, "@" + SID_RESOURCE_TITLE, attribStrings, "handleChooseResourceTypeStats", false, false);
         if (pid >= 0)
@@ -379,9 +400,11 @@ public class resource extends script.base_script
         }
         String[] temp = new String[goodResources];
         goodResources = 0;
-        for (String resourceClass : resourceClasses) {
-            if (resourceClass != null) {
-                temp[goodResources++] = resourceClass;
+        for (int i = 0; i < resourceClasses.length; ++i)
+        {
+            if (resourceClasses[i] != null)
+            {
+                temp[goodResources++] = resourceClasses[i];
             }
         }
         resourceClasses = temp;
@@ -462,9 +485,12 @@ public class resource extends script.base_script
         String[] resourceClasses = null;
         String[] tempResourceClass = getImmediateResourceChildClasses(parentClass);
         Vector tempResourceClassTwo = null;
-        for (String tempResourceClass1 : tempResourceClass) {
-            if (!tempResourceClass1.equals("energy") && !tempResourceClass1.equals("space_resource")) {
-                tempResourceClassTwo = utils.addElement(tempResourceClassTwo, tempResourceClass1);
+        for (int x = 0; x < tempResourceClass.length; ++x)
+        {
+           //  if (!tempResourceClass[x].equals("energy") && !tempResourceClass[x].equals("space_resource"))
+             if (!tempResourceClass[x].equals("space_resource"))
+            {
+                tempResourceClassTwo = utils.addElement(tempResourceClassTwo, tempResourceClass[x]);
             }
         }
         resourceClasses = new String[tempResourceClassTwo.size()];

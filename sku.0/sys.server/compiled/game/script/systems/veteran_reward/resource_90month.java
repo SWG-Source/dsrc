@@ -15,6 +15,9 @@ public class resource_90month extends script.base_script
     }
     public static final int RESOURCE_AMOUNT = 50000;
     public static final String ROOT_RESOURCE_CLASS = "resource";
+//Namoni patch
+    public static final String ROOT_ENERGY_CLASS = "energy";
+// End Namoni Patch
     public static final String ROOT_ORGANIC_CLASS = "organic";
     public static final String ROOT_INORGANIC_CLASS = "inorganic";
     public static final String OBJVAR_RESOURCE_REWARDED = "rewarded";
@@ -114,13 +117,23 @@ public class resource_90month extends script.base_script
 
             {
                 String resourceClass = (self.getScriptVars()).getString(SCRIPTVAR_BASE_CLASS);
-                if (!resourceClass.equals(ROOT_ORGANIC_CLASS) && !resourceClass.equals(ROOT_INORGANIC_CLASS))
+				// Note by Namoni: Attemp to add missing Energy and Space Resource Classes.
+                if (!resourceClass.equals(ROOT_ENERGY_CLASS) && !resourceClass.equals(ROOT_ORGANIC_CLASS) && !resourceClass.equals(ROOT_INORGANIC_CLASS))
                 {
                     chooseResourceClass(sui.getPlayerId(params), getResourceParentClass(resourceClass));
                 }
                 else
                 {
                     chooseResourceClass(sui.getPlayerId(params), getResourceParentClass(resourceClass), true);
+                
+				//end Namoni Script
+               // if (!resourceClass.equals(ROOT_ORGANIC_CLASS) && !resourceClass.equals(ROOT_INORGANIC_CLASS))
+               // {
+               //     chooseResourceClass(sui.getPlayerId(params), getResourceParentClass(resourceClass));
+              //  }
+              //  else
+              //  {
+              //      chooseResourceClass(sui.getPlayerId(params), getResourceParentClass(resourceClass), true);
                 }
             }
             break;
@@ -462,9 +475,12 @@ public class resource_90month extends script.base_script
         String[] resourceClasses = null;
         String[] tempResourceClass = getImmediateResourceChildClasses(parentClass);
         Vector tempResourceClassTwo = null;
-        for (String tempResourceClass1 : tempResourceClass) {
-            if (!tempResourceClass1.equals("energy") && !tempResourceClass1.equals("space_resource")) {
-                tempResourceClassTwo = utils.addElement(tempResourceClassTwo, tempResourceClass1);
+        for (int x = 0; x < tempResourceClass.length; ++x)
+        {
+           //  if (!tempResourceClass[x].equals("energy") && !tempResourceClass[x].equals("space_resource"))
+             if (!tempResourceClass[x].equals("space_resource"))
+            {
+                tempResourceClassTwo = utils.addElement(tempResourceClassTwo, tempResourceClass[x]);
             }
         }
         resourceClasses = new String[tempResourceClassTwo.size()];
