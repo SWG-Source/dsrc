@@ -36,3 +36,4 @@ object/draft_schematic/armor/armor_appearance_stormtrooper_helmet.iff		2000	1000
 object/draft_schematic/armor/armor_appearance_stormtrooper_leggings.iff		2000	1000	0	10	crafting_armorsmith_master
 object/draft_schematic/armor/armor_appearance_stormtrooper_utility_belt.iff		2000	500	0	10	crafting_armorsmith_master
 object/draft_schematic/clothing/clothing_hat_imperial_command.iff		1000		1	10	class_domestics_phase1_novice
+object/tangible/component/food/secrets/secret_imperial_biochem.iff		1000		1	10	class_domestics_master
