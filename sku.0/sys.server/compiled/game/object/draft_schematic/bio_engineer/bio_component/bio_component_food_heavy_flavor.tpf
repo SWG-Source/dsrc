@@ -34,7 +34,7 @@ slots = [
 	optional=true,
 	name = "craft_tissue_ingredients_n" "secrets",
 	options = [
-		[ingredientType=IT_template, ingredients = [[name="craft_tissue_ingredients_n" "secrets", ingredient="object/tangible/component/food/secrets/secret_base.iff", count=1]], complexity = 0, skillCommand = "unskilled"]],
+		[ingredientType=IT_templateGeneric, ingredients = [[name="craft_tissue_ingredients_n" "secrets", ingredient="object/tangible/component/food/secrets/secret_base.iff", count=1]], complexity = 0, skillCommand = "unskilled"]],
 	optionalSkillCommand = "",
 	complexity = 0,
 	appearance = "" ]]
