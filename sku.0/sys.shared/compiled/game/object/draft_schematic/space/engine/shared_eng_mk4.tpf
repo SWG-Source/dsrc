@@ -18,10 +18,10 @@ attributes = [
 	[name = "crafting" "armorHpMax", experiment = "crafting" "exp_armorhpmax", value = 397..537],
 	[name = "crafting" "energy_efficiency", experiment = "" "", value = 1..1],
 	[name = "crafting" "energy_maintenance", experiment = "crafting" "exp_energy_maintenance", value = 1466..1984],
-	[name = "crafting" "engine_pitch", experiment = "crafting" "exp_pitch", value = 55..73],
-	[name = "crafting" "engine_yaw", experiment = "crafting" "exp_yaw", value = 55..73],
-	[name = "crafting" "engine_roll", experiment = "crafting" "exp_roll", value = 55..73],
-	[name = "crafting" "engine_speed", experiment = "crafting" "exp_speed", value = 73..96]]
+	[name = "crafting" "engine_pitch", experiment = "crafting" "exp_pitch", value = 53..71],
+	[name = "crafting" "engine_yaw", experiment = "crafting" "exp_yaw", value = 53..71],
+	[name = "crafting" "engine_roll", experiment = "crafting" "exp_roll", value = 53..71],
+	[name = "crafting" "engine_speed", experiment = "crafting" "exp_speed", value = 67..90]]
 
 slots = [
 	[name = "craft_item_ingredients_n" "engine_housing", hardpoint = ""],
