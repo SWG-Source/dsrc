@@ -5070,7 +5070,7 @@ public class terminal_character_builder extends script.base_script
             closeOldWindow(player);
             return SCRIPT_CONTINUE;
         }
-        if (idx == -1 || idx > DEV_TESTING_OPTIONS.length)
+        if (idx == -1 || idx >= DEV_TESTING_OPTIONS.length)
         {
             cleanScriptVars(player);
             return SCRIPT_CONTINUE;
