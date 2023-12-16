@@ -415,7 +415,7 @@ object/building/player/player_house_tcg_commando_bunker.iff	entry	8.5	0.4
 object/building/player/player_house_tcg_8_bespin_house.iff	elevator	28.9	0.96
 object/building/player/player_house_tcg_8_bespin_house.iff	tower	45	0.96
 object/building/player/player_house_tcg_8_bespin_house.iff	entry	100	0.1
-object/buidling/player/player_house_tcg_8_yoda_house.iff	entry	100	0.1
+object/building/player/player_house_tcg_8_yoda_house.iff	entry	100	0.1
 object/building/player/player_house_yt1300.iff	elevator	28.9	0.96
 object/building/player/player_house_yt1300.iff	tower	45	0.96
 object/building/player/player_house_yt1300.iff	hall1	100	0.1
@@ -425,9 +425,9 @@ object/building/player/player_house_yt1300.iff	hall4	100	0.1
 object/building/player/player_house_yt1300.iff	storage5	100	0.1
 object/building/player/player_house_yt1300.iff	storage6	100	0.1
 object/building/player/player_house_yt1300.iff	turretaccess	100	0.1
-object/buidling/player/player_house_tree_house_01.iff	entry	100	0.1
-object/buidling/player/player_house_wod_ns_hut	entry	100	0.1
-object/buidling/player/player_house_wod_sm_hut	entry	100	0.1
+object/building/player/player_house_tree_house_01.iff	entry	100	0.1
+object/building/player/player_house_wod_ns_hut	entry	100	0.1
+object/building/player/player_house_wod_sm_hut	entry	100	0.1
 object/building/player/player_house_jabbas_sail_barge.iff	interior	20	0.96
 object/building/player/player_guildhall_tatooine_style_01.iff	entry	7.78088	2.65798
 object/building/player/player_guildhall_tatooine_style_01.iff	foyer	8.34724	2.75
