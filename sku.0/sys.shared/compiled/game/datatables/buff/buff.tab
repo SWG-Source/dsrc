@@ -771,8 +771,8 @@ sm_underworld_damage_2	underworld_damage			1	command.sm_path_fake_id	-1	expertis
 sm_underworld_damage_3	underworld_damage			1	command.sm_path_fake_id	-1	expertise_sm_rank_damage_bonus	3		0		0		0		0	STATE_NONE	none			0	0		0	1	0	0	1	1	0	1	1	1
 sm_melee_stun	stun			18	command.sm_general_head_crack	4	movement	0	glancing_blow_vulnerable	100	expertise_block_chance	-100	expertise_parry	-100		0	STATE_NONE	sm_melee_stun_recourse	appearance/pt_smuggler_dizzy_loop.prt		1	1		1	1	1	0	1	1	0	1	1	1
 sm_melee_stun_recourse	stun			19	command.sm_melee_stun_recourse	20		0		0		0		0		0	STATE_NONE	none			1	1		1	1	1	0	1	1	0	1	1	1
-sm_0_hope	stun			34	command.sm_0_hope	4	movement	0	glancing_blow_vulnerable	100	expertise_block_chance	-100	expertise_parry	-100		0	STATE_NONE	sm_0_hope_recourse	clienteffect/sm_0_hope.cef		1	1		1	1	1	0	1	1	0	1	1	1
-sm_0_hope_recourse	stun			35	command.sm_0_hope_recourse	20		0		0		0		0		0	STATE_NONE	none			1	1		1	1	1	0	1	1	0	1	1	1
+sm_false_hope	stun			34	command.sm_0_hope	4	movement	0	glancing_blow_vulnerable	100	expertise_block_chance	-100	expertise_parry	-100		0	STATE_NONE	sm_0_hope_recourse	clienteffect/sm_0_hope.cef		1	1		1	1	1	0	1	1	0	1	1	1
+sm_false_hope_recourse	stun			35	command.sm_0_hope_recourse	20		0		0		0		0		0	STATE_NONE	none			1	1		1	1	1	0	1	1	0	1	1	1
 sm_feeling_lucky	feeling_lucky			10	command.sm_path_feeling_lucky	60	luck_modified	100		0		0		0		0	STATE_NONE	sm_feeling_lucky_recourse	appearance/pt_smuggler_feeling_lucky.prt		1	0		1	1	1	0	1	1	0	1	1	1
 sm_feeling_lucky_recourse	feeling_lucky			11	command.sm_feeling_lucky_recourse	20		0		0		0		0		0	STATE_NONE	none			1	1		1	1	1	0	1	1	0	1	1	1
 sm_lucky_break	lucky_break			18	command.sm_path_lucky_break	10	expertise_critical_niche_all	100	hit_always	1	crit_always	1		0		0	STATE_NONE	sm_lucky_break_recourse	appearance/pt_smuggler_lucky_break.prt		1	0		1	1	1	0	1	1	0	1	1	1
