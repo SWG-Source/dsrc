@@ -9,4 +9,4 @@
 objectName = "item_n" "apperance_invisible_bracer_l_n"
 detailedDescription = "item_d" "apperance_invisible_bracer_l_d"
 appearanceFilename = "appearance/armor_padded_s01_bracer_l_f.sat"
-
+gameObjectType = GOT_misc_appearance_only_invisible
