@@ -4467,7 +4467,7 @@ public class cmd extends script.base_script
                 return SCRIPT_CONTINUE;
             }
             messageTo(target, message, null, messageDelay, true);
-            sendConsoleMessage(self, "Message " + message + " sent to " + target + " (" + getName(target) + ") with a delay of " + st.nextToken() + " seconds.");
+            sendConsoleMessage(self, "Message " + message + " sent to " + target + " (" + getName(target) + ") with a delay of " + messageDelay + " seconds.");
             return SCRIPT_CONTINUE;
         }
 
