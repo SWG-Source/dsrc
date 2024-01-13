@@ -4439,6 +4439,38 @@ public class cmd extends script.base_script
             return SCRIPT_CONTINUE;
         }
 
+        else if (command.equalsIgnoreCase("setCount")) {
+            
+            int count;
+            if(st.hasMoreTokens()) {
+                count = utils.stringToInt(st.nextToken());
+            } else {
+                sendSystemMessageTestingOnly(self, "Syntax: /admin setCount <integer> ");
+                return SCRIPT_CONTINUE;
+            }
+            if (count > 500) {
+                count = 500;
+            }
+            setCount(target, count);
+            sendConsoleMessage(self, "You have added " + count + " to " + target + " (" + getName(target) + ")");
+            return SCRIPT_CONTINUE;
+        }
+
+        else if (command.equalsIgnoreCase("messageTo")){
+            String message;
+            float messageDelay;
+            if(st.hasMoreTokens()) {
+                message = st.nextToken();
+                messageDelay = utils.stringToFloat(st.nextToken());
+            } else {
+                sendSystemMessageTestingOnly(self, "Syntax: /admin messageTo <messageHandler> <timeToDelay (float)> ");
+                return SCRIPT_CONTINUE;
+            }
+            messageTo(target, message, null, messageDelay, true);
+            sendConsoleMessage(self, "Message " + message + " sent to " + target + " (" + getName(target) + ") with a delay of " + st.nextToken() + " seconds.");
+            return SCRIPT_CONTINUE;
+        }
+
         else {
             showAdminCmdSyntax(self);
         }
@@ -4457,6 +4489,10 @@ public class cmd extends script.base_script
         sendConsoleMessage(self, "returns the account username of the specified player");
         sendConsoleMessage(self, "\\#00ffff setWeather \\#bfff00 <clear | mild | heavy | severe> \\#.");
         sendConsoleMessage(self, "sets the weather for the current scene");
+        sendConsoleMessage(self, "\\#00ffff setCount \\#bfff00 <integer> \\#.");
+        sendConsoleMessage(self, "sets the amount of a stackable item.");
+        sendConsoleMessage(self, "\\#00ffff sendMessageTo \\#bfff00 <messageHandler> <time as float> \\#.");
+        sendConsoleMessage(self, "sends a messageTo the specified handler with no params and a specified delay.");
         sendConsoleMessage(self, "\\#ffff00 ============ ============ ============ ============ \\#.");
     }
 
