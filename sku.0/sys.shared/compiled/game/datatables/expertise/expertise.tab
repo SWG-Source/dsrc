@@ -145,6 +145,7 @@ expertise_fs_general_improved_force_shockwave_2	4	5	3	2			force_sensitive
 expertise_fs_general_improved_force_shockwave_3	4	5	3	3			force_sensitive
 expertise_fs_general_fidelity_1	4	4	5	1			force_sensitive
 expertise_fs_general_fidelity_2	4	4	5	2			force_sensitive
+expertise_fs_general_improved_force_cloak_1	4	4	4	1	expertise_fs_general_force_cloak_1		force_sensitive
 expertise_fs_general_improved_force_cloak_1	4	5	5	1			force_sensitive
 expertise_fs_general_premonition_1	4	3	3	1			force_sensitive
 expertise_fs_general_premonition_2	4	3	3	2			force_sensitive
