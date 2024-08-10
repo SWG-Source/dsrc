@@ -5914,6 +5914,9 @@ public class utils extends script.base_script
                     if (novendor && hasScript(item, "terminal.vendor")) {
                         continue;
                     }
+                    if (hasScript(item, "terminal.terminal_structure")){
+                        continue;
+                    }
                     if (!canTrade(item)) {
                         return item;
                     } else if (utils.isContainer(item)) {
