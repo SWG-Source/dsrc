@@ -496,7 +496,7 @@ nyms_themepark_content_icon_col			bdge_nyms_theme_park_badge		weapon_jinkins_j1_
 kill_nyms_themepark_droideka_01	0.2		kill_nyms_icon_sulfur_lake_droideka														XP, Collection Icon
 kill_nyms_themepark_ldroideka_02	0.2		kill_nyms_icon_lab_droideka														XP, Collection Icon
 nyms_kusak_feeding	0.2				item_nym_themepark_backpack_01_01												Lok Revenants Backpack, XP
-mail_opt_in_4																	An Unrevealed Reward
+mail_opt_in_4					item_mail_opt_in_4_reward												An Unrevealed Reward
 col_rare_loot_one			bdg_rare_loot														
 col_rare_loot_five					rare_loot_chest_quality_1												
 col_exceptional_loot_five					rare_loot_chest_quality_2												
