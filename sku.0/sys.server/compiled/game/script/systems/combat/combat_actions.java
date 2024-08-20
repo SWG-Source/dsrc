@@ -8475,7 +8475,7 @@ public class combat_actions extends script.systems.combat.combat_base {
     }
 
     public int en_void_dance(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
-        int voidEffectMod = (int) getEnhancedSkillStatisticModifierUncapped(self, "eexpertise_buff_en_void_dance_buff");
+        int voidEffectMod = (int) getEnhancedSkillStatisticModifierUncapped(self, "expertise_buff_en_void_dance_buff");
         if ((voidEffectMod == 5) && (!combatStandardAction("en_void_dance_1", self, target, params, "", ""))) {
             return SCRIPT_OVERRIDE;
         } else if ((voidEffectMod == 10) && (!combatStandardAction("en_void_dance_2", self, target, params, "", ""))) {
