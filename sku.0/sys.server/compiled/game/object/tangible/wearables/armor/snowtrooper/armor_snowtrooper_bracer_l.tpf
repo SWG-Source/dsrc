@@ -10,4 +10,4 @@ armor = ""
 sharedTemplate = "object/tangible/wearables/armor/snowtrooper/shared_armor_snowtrooper_bracer_l.iff"
 
 scripts = +["npc.faction_recruiter.faction_item", "item.buff_worn_item", "item.set_bonus_item"]
-objvars = +["faction_recruiter.faction"="Imperial", "item.set_id" = 110001]
+objvars = +["faction_recruiter.faction"="Imperial", "item.set.set_id" = 110001]

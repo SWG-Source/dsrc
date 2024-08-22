@@ -3,7 +3,7 @@
 
 @class tangible_object_template 3
 
-armor = "abstract/armor_statistics/armor/bounty_hunter/base/statistics_armor_bounty_gloves.iff"
+armor = "abstract/armor_statistics/armor/bounty_hunter/base/statistics_armor_bounty_hunter_gloves.iff"
 
 @class object_template 2
 

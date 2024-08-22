@@ -10,4 +10,4 @@ armor = ""
 sharedTemplate = "object/tangible/wearables/armor/rebel_snow/shared_armor_rebel_snow_bicep_r.iff"
 
 scripts = +["npc.faction_recruiter.faction_item", "item.buff_worn_item", "item.set_bonus_item"]
-objvars = +["faction_recruiter.faction"="Rebel", "item.set_id" = 100001]
+objvars = +["faction_recruiter.faction"="Rebel", "item.set.set_id" = 100001]
