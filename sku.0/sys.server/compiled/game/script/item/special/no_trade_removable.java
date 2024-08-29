@@ -25,6 +25,7 @@ public class no_trade_removable extends script.base_script {
     public static final string_id SID_ITEM_MADE_TRADABLE = new string_id("system_msg", "item_made_tradable");
     
     public static final String SCRIPT_NAME = "item.special.no_trade_removable";
+    public static final String NO_TRADE_SCRIPT_NAME = "item.special.nomove";
 
     public int OnObjectMenuRequest(obj_id self, obj_id player, menu_info mi) throws InterruptedException {
         if ((getOwner(self) == player || isGod(player)) && hasObjVar(self, "noTrade")
@@ -48,6 +49,9 @@ public class no_trade_removable extends script.base_script {
 
             if (hasObjVar(self, "noTrade")) {
                 removeObjVar(self, "noTrade");
+                if (hasScript(self, NO_TRADE_SCRIPT_NAME)) {
+                    detachScript(self, NO_TRADE_SCRIPT_NAME);
+                }
                 sendSystemMessage(player, SID_ITEM_MADE_TRADABLE);
                 CustomerServiceLog("noTrade", getPlayerName(player) + " (" + player + ") removed the noTrade ObjVar from object " + getTemplateName(self) + " (" + self + ")");
                 detachScript(self, SCRIPT_NAME);
