@@ -13,7 +13,7 @@ attributes = [
 	[name = "crafting" "complexity", experiment = "" "", value = 31..31],
 	[name = "crafting" "xp", experiment = "" "", value = 20000..20000],
 	[name = "crafting" "hp", experiment = "crafting" "exp_hp", value = 1350..2350],
-	[name = "crafting" "massMax", experiment = "crafting" "exp_massMax", value = 55375..58625]]
+	[name = "crafting" "massMax", experiment = "crafting" "exp_massMax", value = 160000..184000]]
 
 slots = [
 	[name = "craft_item_ingredients_n" "frame", hardpoint = ""],
