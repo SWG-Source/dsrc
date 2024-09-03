@@ -152,6 +152,12 @@ public class static_item extends script.base_script
             }
         }
         attachScript(object, "item.static_item_base");
+        // attaching the no_trade_removable script. 
+        // Doing this here instead of the above because this runs on Init for all existing static_items instead of only at creation time
+        String[] no_trade_removable_items = dataTableGetStringColumn(ITEM_NO_TRADE_REMOVABLE_TABLE, 0);
+        if(no_trade_removable_items != null && Arrays.asList(no_trade_removable_items).contains(itemName)) {
+            attachScript(object, "item.special.no_trade_removable");
+        }
         if (!jedi.isCrystalTuned(object))
         {
             setName(object, "");
