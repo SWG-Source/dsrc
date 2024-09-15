@@ -802,6 +802,23 @@ public class terminal_character_builder extends script.base_script
         "Mark IV Proton Missile Launcher"
     };
 
+    public static final String[] SPACE_LAUNCHER_MUNITIONS = {
+        "Mark I Concussion Missile Pack",
+        "Mark I Image Recognition Missile Pack",
+        "Mark I Proton Missile Pack",
+        "Mark I Seismic Missile Pack",
+        "Mark I Space Bomb Pack",
+        "Mark II Concussion Missile Pack",
+        "Mark II Image Recognition Missile Pack",
+        "Mark II Proton Missile Launcher",
+        "Mark II Seismic Missile Pack",
+        "Mark II Space Bomb Pack",
+        "Mark III Concussion Missile Pack",
+        "Mark III Proton Missile Pack",        
+        "Mark III Seismic Missile Pack",
+        "Mark IV Proton Missile Pack"
+    };
+
 
     public static final String[] SPACE_COUNTERMEASURE_LAUNCHERS = {
         "Chaff Launcher",
@@ -3769,6 +3786,9 @@ public class terminal_character_builder extends script.base_script
             case 9:
             refreshMenu(player, GENERIC_PROMPT, GENERIC_TITLE, SPACE_COUNTERMEASURE_LAUNCHERS, "handleSpaceCountermeasureLaunchersSelect", false);
             break;
+            case 10:
+            refreshMenu(player, GENERIC_PROMPT, GENERIC_TITLE, SPACE_LAUNCHER_MUNITIONS, "handleSpaceMunitionsSelect", false);
+            break;
             default:
             cleanScriptVars(player);
             return SCRIPT_CONTINUE;
@@ -4084,7 +4104,7 @@ public class terminal_character_builder extends script.base_script
                 break;
 
             case 1:
-                makeCraftedItem("object/draft_schematic/space/weapon/missile/wpn_launcher_Imagerec_mk1.iff", 999.0f, pInv);
+                makeCraftedItem("object/draft_schematic/space/weapon/missile/wpn_launcher_imagerec_mk1.iff", 999.0f, pInv);
                 break;
 
             case 2:
@@ -4104,7 +4124,7 @@ public class terminal_character_builder extends script.base_script
                 break;
 
             case 6:
-                makeCraftedItem("object/draft_schematic/space/weapon/missile/wpn_launcher_Imagerec_mk2.iff", 999.0f, pInv);
+                makeCraftedItem("object/draft_schematic/space/weapon/missile/wpn_launcher_imagerec_mk2.iff", 999.0f, pInv);
                 break;
 
             case 7:
@@ -4124,7 +4144,7 @@ public class terminal_character_builder extends script.base_script
                 break;
 
             case 11:
-                makeCraftedItem("object/draft_schematic/space/weapon/missile/wpn_launcher_Imagerec_mk3.iff", 999.0f, pInv);
+                makeCraftedItem("object/draft_schematic/space/weapon/missile/wpn_launcher_proton_mk3.iff", 999.0f, pInv);
                 break;
 
             case 12:
@@ -4200,6 +4220,108 @@ public class terminal_character_builder extends script.base_script
             case 4:
                 makeCraftedItem("object/draft_schematic/space/weapon/missile/countermeasure_microchaff_launcher.iff", 999.0f, pInv);
                 break;
+        }
+
+        return SCRIPT_CONTINUE;
+    }
+
+
+    public void handleSpaceMunitionsSelect(obj_id player) throws InterruptedException
+    {
+        refreshMenu(player, "Select the desired deed option", "Test Center Terminal", MAIN_SHIP_OPTIONS, "handleShipMenuSelect", false);
+    }
+
+    public int handleSpaceMunitionsSelect(obj_id self, dictionary params) throws InterruptedException
+    {
+
+        if ((params == null) || (params.isEmpty()))
+        {
+            return SCRIPT_CONTINUE;
+        }
+        obj_id player = sui.getPlayerId(params);
+
+        int btn = sui.getIntButtonPressed(params);
+        int idx = sui.getListboxSelectedRow(params);
+        if (btn == sui.BP_REVERT)
+        {
+            handleShipMenuSelect(player);
+            return SCRIPT_CONTINUE;
+        }
+        if (btn == sui.BP_CANCEL)
+        {
+            cleanScriptVars(player);
+            closeOldWindow(player);
+            return SCRIPT_CONTINUE;
+        }
+
+
+        if (idx == -1 || idx > SPACE_LAUNCHER_MUNITIONS.length)
+        {
+            cleanScriptVars(player);
+            return SCRIPT_CONTINUE;
+        }
+
+        obj_id pInv = utils.getInventoryContainer(player);
+
+
+        switch(idx)
+        {
+            case 0:
+                makeCraftedItem("object/draft_schematic/space/weapon/missile/wpn_concussion_missile_mk1.iff", 999.0f, pInv);
+                break;
+
+            case 1:
+                makeCraftedItem("object/draft_schematic/space/weapon/missile/wpn_imagerec_missile_mk1.iff", 999.0f, pInv);
+                break;
+
+            case 2:
+                makeCraftedItem("object/draft_schematic/space/weapon/missile/wpn_proton_missile_mk1.iff", 999.0f, pInv);
+                break;
+
+            case 3:
+                makeCraftedItem("object/draft_schematic/space/weapon/missile/wpn_seismic_missile_mk1.iff", 999.0f, pInv);
+                break;
+
+            case 4:
+                makeCraftedItem("object/draft_schematic/space/weapon/missile/wpn_spacebomb_missile_mk1.iff", 999.0f, pInv);
+                break;
+
+            case 5:
+                makeCraftedItem("object/draft_schematic/space/weapon/missile/wpn_concussion_missile_mk2.iff", 999.0f, pInv);
+                break;
+
+            case 6:
+                makeCraftedItem("object/draft_schematic/space/weapon/missile/wpn_imagerec_missile_mk2.iff", 999.0f, pInv);
+                break;
+
+            case 7:
+                makeCraftedItem("object/draft_schematic/space/weapon/missile/wpn_proton_missile_mk2.iff", 999.0f, pInv);
+                break;
+
+            case 8:
+                makeCraftedItem("object/draft_schematic/space/weapon/missile/wpn_seismic_missile_mk2.iff", 999.0f, pInv);
+                break;
+
+            case 9:
+                makeCraftedItem("object/draft_schematic/space/weapon/missile/wpn_spacebomb_missile_mk2.iff", 999.0f, pInv);
+                break;
+
+            case 10:
+                makeCraftedItem("object/draft_schematic/space/weapon/missile/wpn_concussion_missile_mk3.iff", 999.0f, pInv);
+                break;
+
+            case 11:
+                makeCraftedItem("object/draft_schematic/space/weapon/missile/wpn_proton_missile_mk3.iff", 999.0f, pInv);
+                break;
+
+            case 12:
+                makeCraftedItem("object/draft_schematic/space/weapon/missile/wpn_seismic_missile_mk3.iff", 999.0f, pInv);
+                break;
+
+            case 13:
+                makeCraftedItem("object/draft_schematic/space/weapon/missile/wpn_proton_missile_mk4.iff", 999.0f, pInv);
+                break;
+
         }
 
         return SCRIPT_CONTINUE;
