@@ -766,6 +766,16 @@ public class terminal_character_builder extends script.base_script
         "Level Six Astromech"
     };
 
+    public static final String[] FLIGHT_COMPUTERS = {
+        "Level One Flight Computer",
+        "Level Two Flight Computer",
+        "Level Three Flight Computer",
+        "Level Four Flight Computer",
+        "Level Five Flight Computer",
+        "Level Six Flight Computer"
+    };
+
+
     public static final String[] DEED_CRAFTING_OPTIONS = {
         "Deeds",
         "Crafting"
@@ -3712,6 +3722,9 @@ public class terminal_character_builder extends script.base_script
             case 5:
             refreshMenu(player, GENERIC_PROMPT, GENERIC_TITLE, ASTROMECH_DROIDS, "handleAstromechDroidSelect", false);
             break;
+            case 6:
+            refreshMenu(player, GENERIC_PROMPT, GENERIC_TITLE, FLIGHT_COMPUTERS, "handleFlightComputerSelect", false);
+            break;
             default:
             cleanScriptVars(player);
             return SCRIPT_CONTINUE;
@@ -3719,7 +3732,6 @@ public class terminal_character_builder extends script.base_script
         return SCRIPT_CONTINUE;
     }
 
-    //TODO Working
 
     public void handleAstromechDroidSelect(obj_id player) throws InterruptedException
     {
@@ -3795,6 +3807,76 @@ public class terminal_character_builder extends script.base_script
 
         return SCRIPT_CONTINUE;
     }
+
+
+    public void handleFlightComputerSelect(obj_id player) throws InterruptedException
+    {
+        refreshMenu(player, "Select the desired deed option", "Test Center Terminal", MAIN_SHIP_OPTIONS, "handleShipMenuSelect", false);
+    }
+
+    public int handleFlightComputerSelect(obj_id self, dictionary params) throws InterruptedException
+    {
+
+        if ((params == null) || (params.isEmpty()))
+        {
+            return SCRIPT_CONTINUE;
+        }
+        obj_id player = sui.getPlayerId(params);
+
+        int btn = sui.getIntButtonPressed(params);
+        int idx = sui.getListboxSelectedRow(params);
+        if (btn == sui.BP_REVERT)
+        {
+            handleShipMenuSelect(player);
+            return SCRIPT_CONTINUE;
+        }
+        if (btn == sui.BP_CANCEL)
+        {
+            cleanScriptVars(player);
+            closeOldWindow(player);
+            return SCRIPT_CONTINUE;
+        }
+
+
+        if (idx == -1 || idx > FLIGHT_COMPUTERS.length)
+        {
+            cleanScriptVars(player);
+            return SCRIPT_CONTINUE;
+        }
+
+        obj_id pInv = utils.getInventoryContainer(player);
+        obj_id droid = null;
+
+        switch(idx)
+        {
+            case 0:
+                makeCraftedItem("object/draft_schematic/droid/navicomputer_1.iff", 999.0f, pInv);
+                break;
+
+            case 1:
+                makeCraftedItem("object/draft_schematic/droid/navicomputer_2.iff", 999.0f, pInv);
+                break;
+
+            case 2:
+                makeCraftedItem("object/draft_schematic/droid/navicomputer_3.iff", 999.0f, pInv);
+                break;
+
+            case 3:
+                makeCraftedItem("object/draft_schematic/droid/navicomputer_4.iff", 999.0f, pInv);
+                break;
+
+            case 4:
+                makeCraftedItem("object/draft_schematic/droid/navicomputer_5.iff", 999.0f, pInv);
+                break;
+
+            case 5:
+                makeCraftedItem("object/draft_schematic/droid/navicomputer_5.iff", 999.0f, pInv);
+                break;
+        }
+
+        return SCRIPT_CONTINUE;
+    }
+
 
     public void handleCollectionComponentSelect(obj_id player) throws InterruptedException
     {
