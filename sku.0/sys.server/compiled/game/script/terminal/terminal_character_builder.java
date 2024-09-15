@@ -746,8 +746,10 @@ public class terminal_character_builder extends script.base_script
         "Astromech Droids",
         "Flight Computers",
         "Chip Sets",
-        "QA Components",
-        "Munitions"        
+        "Missile and Bomb Launchers",
+        "Countermeasure Launchers",
+        "Munitions",
+        "QA God Components",
     };
 
     public static final String[] PILOT_SKILLS = {
@@ -784,6 +786,22 @@ public class terminal_character_builder extends script.base_script
         "Special Program Set"
     };
 
+    public static final String[] SPACE_LAUNCHERS = {
+        "Mark I Concussion Missile Launcher",
+        "Mark I Image Recognition Missile Launcher",
+        "Mark I Proton Missile Launcher",
+        "Mark I Space Bomb Launcher",
+        "Mark II Concussion Missile Launcher",
+        "Mark II Image Recognition Missile Launcher",
+        "Mark II Proton Missile Launcher",
+        "Mark II Space Bomb Launcher",
+        "Mark III Concussion Missile Launcher",
+        "Mark III Image Recognition Missile Launcher",
+        "Mark III Proton Missile Launcher",
+        "Mark IV Concussion Missile Launcher",
+        "Mark IV Image Recognition Missile Launcher",
+        "Mark IV Proton Missile Launcher"
+    };
 
     public static final String[] DEED_CRAFTING_OPTIONS = {
         "Deeds",
@@ -3737,6 +3755,9 @@ public class terminal_character_builder extends script.base_script
             case 7:
             refreshMenu(player, GENERIC_PROMPT, GENERIC_TITLE, DROID_COMMAND_CHIP_SETS, "handleDroidCommandChipSelect", false);
             break;
+            case 8:
+            refreshMenu(player, GENERIC_PROMPT, GENERIC_TITLE, SPACE_LAUNCHERS, "handleSpaceLaunchersSelect", false);
+            break;
             default:
             cleanScriptVars(player);
             return SCRIPT_CONTINUE;
@@ -3925,7 +3946,6 @@ public class terminal_character_builder extends script.base_script
         }
 
         obj_id pInv = utils.getInventoryContainer(player);
-        obj_id droid = null;
 
         switch(idx)
         {
@@ -4008,6 +4028,106 @@ public class terminal_character_builder extends script.base_script
         return SCRIPT_CONTINUE;
     }
 
+    public void handleSpaceLaunchersSelect(obj_id player) throws InterruptedException
+    {
+        refreshMenu(player, "Select the desired deed option", "Test Center Terminal", MAIN_SHIP_OPTIONS, "handleShipMenuSelect", false);
+    }
+
+    public int handleSpaceLaunchersSelect(obj_id self, dictionary params) throws InterruptedException
+    {
+
+        if ((params == null) || (params.isEmpty()))
+        {
+            return SCRIPT_CONTINUE;
+        }
+        obj_id player = sui.getPlayerId(params);
+
+        int btn = sui.getIntButtonPressed(params);
+        int idx = sui.getListboxSelectedRow(params);
+        if (btn == sui.BP_REVERT)
+        {
+            handleShipMenuSelect(player);
+            return SCRIPT_CONTINUE;
+        }
+        if (btn == sui.BP_CANCEL)
+        {
+            cleanScriptVars(player);
+            closeOldWindow(player);
+            return SCRIPT_CONTINUE;
+        }
+
+
+        if (idx == -1 || idx > SPACE_LAUNCHERS.length)
+        {
+            cleanScriptVars(player);
+            return SCRIPT_CONTINUE;
+        }
+
+        obj_id pInv = utils.getInventoryContainer(player);
+
+
+        switch(idx)
+        {
+            case 0:
+                makeCraftedItem("object/draft_schematic/space/weapon/missile/wpn_launcher_concussion_mk1.iff", 999.0f, pInv);
+                break;
+
+            case 1:
+                makeCraftedItem("object/draft_schematic/space/weapon/missile/wpn_launcher_Imagerec_mk1.iff", 999.0f, pInv);
+                break;
+
+            case 2:
+                makeCraftedItem("object/draft_schematic/space/weapon/missile/wpn_launcher_proton_mk1.iff", 999.0f, pInv);
+                break;
+
+            case 3:
+                makeCraftedItem("object/draft_schematic/space/weapon/missile/wpn_launcher_spacebomb_mk1.iff", 999.0f, pInv);
+                break;
+
+            case 4:
+                makeCraftedItem("object/draft_schematic/space/weapon/missile/wpn_launcher_concussion_mk2.iff", 999.0f, pInv);
+                break;
+
+            case 5:
+                makeCraftedItem("object/draft_schematic/space/weapon/missile/wpn_launcher_Imagerec_mk2.iff", 999.0f, pInv);
+                break;
+
+            case 6:
+                makeCraftedItem("object/draft_schematic/space/weapon/missile/wpn_launcher_proton_mk2.iff", 999.0f, pInv);
+                break;
+
+            case 7:
+                makeCraftedItem("object/draft_schematic/space/weapon/missile/wpn_launcher_spacebomb_mk2.iff", 999.0f, pInv);
+                break;
+
+            case 8:
+                makeCraftedItem("object/draft_schematic/space/weapon/missile/wpn_launcher_concussion_mk3.iff", 999.0f, pInv);
+                break;
+
+            case 9:
+                makeCraftedItem("object/draft_schematic/space/weapon/missile/wpn_launcher_Imagerec_mk3.iff", 999.0f, pInv);
+                break;
+
+            case 10:
+                makeCraftedItem("object/draft_schematic/space/weapon/missile/wpn_launcher_proton_mk3.iff", 999.0f, pInv);
+                break;
+
+            case 11:
+                makeCraftedItem("object/draft_schematic/space/weapon/missile/wpn_launcher_concussion_mk4.iff", 999.0f, pInv);
+                break;
+
+            case 12:
+                makeCraftedItem("object/draft_schematic/space/weapon/missile/wpn_launcher_Imagerec_mk4.iff", 999.0f, pInv);
+                break;
+
+            case 13:
+                makeCraftedItem("object/draft_schematic/space/weapon/missile/wpn_launcher_proton_mk4.iff", 999.0f, pInv);
+                break;
+
+        }
+
+        return SCRIPT_CONTINUE;
+    }
 
 
     public void handleCollectionComponentSelect(obj_id player) throws InterruptedException
