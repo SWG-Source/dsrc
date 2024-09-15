@@ -40,7 +40,6 @@ public class terminal_character_builder extends script.base_script
 
         public String getSceneLabel() {
             switch(this.scene) {
-                case "tatooine":
                 case "dantooine":
                 case "naboo":
                 case "corellia":
@@ -786,21 +785,30 @@ public class terminal_character_builder extends script.base_script
         "Special Program Set"
     };
 
-    public static final String[] SPACE_LAUNCHERS = {
+    public static final String[] SPACE_MISSILE_LAUNCHERS = {
         "Mark I Concussion Missile Launcher",
         "Mark I Image Recognition Missile Launcher",
         "Mark I Proton Missile Launcher",
+        "Mark I Seismic Missile Launcher",
         "Mark I Space Bomb Launcher",
         "Mark II Concussion Missile Launcher",
         "Mark II Image Recognition Missile Launcher",
         "Mark II Proton Missile Launcher",
+        "Mark II Seismic Missile Launcher",
         "Mark II Space Bomb Launcher",
         "Mark III Concussion Missile Launcher",
-        "Mark III Image Recognition Missile Launcher",
-        "Mark III Proton Missile Launcher",
-        "Mark IV Concussion Missile Launcher",
-        "Mark IV Image Recognition Missile Launcher",
+        "Mark III Proton Missile Launcher",        
+        "Mark III Seismic Missile Launcher",
         "Mark IV Proton Missile Launcher"
+    };
+
+
+    public static final String[] SPACE_COUNTERMEASURE_LAUNCHERS = {
+        "Chaff Launcher",
+        "Decoy Launcher",
+        "EM Emitter Launcher",
+        "IFF Confuser Launcher",
+        "Microchaff Launcher"
     };
 
     public static final String[] DEED_CRAFTING_OPTIONS = {
@@ -3756,7 +3764,7 @@ public class terminal_character_builder extends script.base_script
             refreshMenu(player, GENERIC_PROMPT, GENERIC_TITLE, DROID_COMMAND_CHIP_SETS, "handleDroidCommandChipSelect", false);
             break;
             case 8:
-            refreshMenu(player, GENERIC_PROMPT, GENERIC_TITLE, SPACE_LAUNCHERS, "handleSpaceLaunchersSelect", false);
+            refreshMenu(player, GENERIC_PROMPT, GENERIC_TITLE, SPACE_MISSILE_LAUNCHERS, "handleSpaceMissileLaunchersSelect", false);
             break;
             default:
             cleanScriptVars(player);
@@ -4028,12 +4036,12 @@ public class terminal_character_builder extends script.base_script
         return SCRIPT_CONTINUE;
     }
 
-    public void handleSpaceLaunchersSelect(obj_id player) throws InterruptedException
+    public void handleSpaceMissileLaunchersSelect(obj_id player) throws InterruptedException
     {
         refreshMenu(player, "Select the desired deed option", "Test Center Terminal", MAIN_SHIP_OPTIONS, "handleShipMenuSelect", false);
     }
 
-    public int handleSpaceLaunchersSelect(obj_id self, dictionary params) throws InterruptedException
+    public int handleSpaceMissileLaunchersSelect(obj_id self, dictionary params) throws InterruptedException
     {
 
         if ((params == null) || (params.isEmpty()))
@@ -4057,7 +4065,7 @@ public class terminal_character_builder extends script.base_script
         }
 
 
-        if (idx == -1 || idx > SPACE_LAUNCHERS.length)
+        if (idx == -1 || idx > SPACE_MISSILE_LAUNCHERS.length)
         {
             cleanScriptVars(player);
             return SCRIPT_CONTINUE;
@@ -4081,43 +4089,43 @@ public class terminal_character_builder extends script.base_script
                 break;
 
             case 3:
-                makeCraftedItem("object/draft_schematic/space/weapon/missile/wpn_launcher_spacebomb_mk1.iff", 999.0f, pInv);
+                makeCraftedItem("object/draft_schematic/space/weapon/missile/wpn_launcher_seismic_mk1.iff", 999.0f, pInv);
                 break;
 
             case 4:
-                makeCraftedItem("object/draft_schematic/space/weapon/missile/wpn_launcher_concussion_mk2.iff", 999.0f, pInv);
+                makeCraftedItem("object/draft_schematic/space/weapon/missile/wpn_launcher_spacebomb_mk1.iff", 999.0f, pInv);
                 break;
 
             case 5:
-                makeCraftedItem("object/draft_schematic/space/weapon/missile/wpn_launcher_Imagerec_mk2.iff", 999.0f, pInv);
+                makeCraftedItem("object/draft_schematic/space/weapon/missile/wpn_launcher_concussion_mk2.iff", 999.0f, pInv);
                 break;
 
             case 6:
-                makeCraftedItem("object/draft_schematic/space/weapon/missile/wpn_launcher_proton_mk2.iff", 999.0f, pInv);
+                makeCraftedItem("object/draft_schematic/space/weapon/missile/wpn_launcher_Imagerec_mk2.iff", 999.0f, pInv);
                 break;
 
             case 7:
-                makeCraftedItem("object/draft_schematic/space/weapon/missile/wpn_launcher_spacebomb_mk2.iff", 999.0f, pInv);
+                makeCraftedItem("object/draft_schematic/space/weapon/missile/wpn_launcher_proton_mk2.iff", 999.0f, pInv);
                 break;
 
             case 8:
-                makeCraftedItem("object/draft_schematic/space/weapon/missile/wpn_launcher_concussion_mk3.iff", 999.0f, pInv);
+                makeCraftedItem("object/draft_schematic/space/weapon/missile/wpn_launcher_seismic_mk2.iff", 999.0f, pInv);
                 break;
 
             case 9:
-                makeCraftedItem("object/draft_schematic/space/weapon/missile/wpn_launcher_Imagerec_mk3.iff", 999.0f, pInv);
+                makeCraftedItem("object/draft_schematic/space/weapon/missile/wpn_launcher_spacebomb_mk2.iff", 999.0f, pInv);
                 break;
 
             case 10:
-                makeCraftedItem("object/draft_schematic/space/weapon/missile/wpn_launcher_proton_mk3.iff", 999.0f, pInv);
+                makeCraftedItem("object/draft_schematic/space/weapon/missile/wpn_launcher_concussion_mk3.iff", 999.0f, pInv);
                 break;
 
             case 11:
-                makeCraftedItem("object/draft_schematic/space/weapon/missile/wpn_launcher_concussion_mk4.iff", 999.0f, pInv);
+                makeCraftedItem("object/draft_schematic/space/weapon/missile/wpn_launcher_Imagerec_mk3.iff", 999.0f, pInv);
                 break;
 
             case 12:
-                makeCraftedItem("object/draft_schematic/space/weapon/missile/wpn_launcher_Imagerec_mk4.iff", 999.0f, pInv);
+                makeCraftedItem("object/draft_schematic/space/weapon/missile/wpn_launcher_seismic_mk3.iff", 999.0f, pInv);
                 break;
 
             case 13:
