@@ -3766,6 +3766,9 @@ public class terminal_character_builder extends script.base_script
             case 8:
             refreshMenu(player, GENERIC_PROMPT, GENERIC_TITLE, SPACE_MISSILE_LAUNCHERS, "handleSpaceMissileLaunchersSelect", false);
             break;
+            case 9:
+            refreshMenu(player, GENERIC_PROMPT, GENERIC_TITLE, SPACE_COUNTERMEASURE_LAUNCHERS, "handleSpaceCountermeasureLaunchersSelect", false);
+            break;
             default:
             cleanScriptVars(player);
             return SCRIPT_CONTINUE;
@@ -4132,6 +4135,71 @@ public class terminal_character_builder extends script.base_script
                 makeCraftedItem("object/draft_schematic/space/weapon/missile/wpn_launcher_proton_mk4.iff", 999.0f, pInv);
                 break;
 
+        }
+
+        return SCRIPT_CONTINUE;
+    }
+
+
+    public void handleSpaceCountermeasureLaunchersSelect(obj_id player) throws InterruptedException
+    {
+        refreshMenu(player, "Select the desired deed option", "Test Center Terminal", MAIN_SHIP_OPTIONS, "handleShipMenuSelect", false);
+    }
+
+    public int handleSpaceCountermeasureLaunchersSelect(obj_id self, dictionary params) throws InterruptedException
+    {
+
+        if ((params == null) || (params.isEmpty()))
+        {
+            return SCRIPT_CONTINUE;
+        }
+        obj_id player = sui.getPlayerId(params);
+
+        int btn = sui.getIntButtonPressed(params);
+        int idx = sui.getListboxSelectedRow(params);
+        if (btn == sui.BP_REVERT)
+        {
+            handleShipMenuSelect(player);
+            return SCRIPT_CONTINUE;
+        }
+        if (btn == sui.BP_CANCEL)
+        {
+            cleanScriptVars(player);
+            closeOldWindow(player);
+            return SCRIPT_CONTINUE;
+        }
+
+
+        if (idx == -1 || idx > SPACE_COUNTERMEASURE_LAUNCHERS.length)
+        {
+            cleanScriptVars(player);
+            return SCRIPT_CONTINUE;
+        }
+
+        obj_id pInv = utils.getInventoryContainer(player);
+
+
+        switch(idx)
+        {
+            case 0:
+                makeCraftedItem("object/draft_schematic/space/weapon/missile/countermeasure_chaff_launcher.iff", 999.0f, pInv);
+                break;
+
+            case 1:
+                makeCraftedItem("object/draft_schematic/space/weapon/missile/countermeasure_decoy_launcher.iff", 999.0f, pInv);
+                break;
+
+            case 2:
+                makeCraftedItem("object/draft_schematic/space/weapon/missile/countermeasure_em_launcher.iff", 999.0f, pInv);
+                break;
+
+            case 3:
+                makeCraftedItem("object/draft_schematic/space/weapon/missile/countermeasure_confuser_launcher.iff", 999.0f, pInv);
+                break;
+
+            case 4:
+                makeCraftedItem("object/draft_schematic/space/weapon/missile/countermeasure_microchaff_launcher.iff", 999.0f, pInv);
+                break;
         }
 
         return SCRIPT_CONTINUE;
