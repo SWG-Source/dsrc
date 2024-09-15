@@ -748,6 +748,7 @@ public class terminal_character_builder extends script.base_script
         "Missile and Bomb Launchers",
         "Countermeasure Launchers",
         "Munitions",
+        "Countermeasures",
         "QA God Components",
     };
 
@@ -827,6 +828,16 @@ public class terminal_character_builder extends script.base_script
         "IFF Confuser Launcher",
         "Microchaff Launcher"
     };
+
+
+    public static final String[] SPACE_LAUNCHER_COUNTERMEASURES = {
+        "Chaff Pack",
+        "Decoy Pack",
+        "EM Emitter Pack",
+        "IFF Confuser Pack",
+        "Microchaff Pack"
+    };
+
 
     public static final String[] DEED_CRAFTING_OPTIONS = {
         "Deeds",
@@ -3789,6 +3800,9 @@ public class terminal_character_builder extends script.base_script
             case 10:
             refreshMenu(player, GENERIC_PROMPT, GENERIC_TITLE, SPACE_LAUNCHER_MUNITIONS, "handleSpaceMunitionsSelect", false);
             break;
+            case 11:
+            refreshMenu(player, GENERIC_PROMPT, GENERIC_TITLE, SPACE_LAUNCHER_COUNTERMEASURES, "handleSpaceCountermeasuresSelect", false);
+            break;
             default:
             cleanScriptVars(player);
             return SCRIPT_CONTINUE;
@@ -4322,6 +4336,71 @@ public class terminal_character_builder extends script.base_script
                 makeCraftedItem("object/draft_schematic/space/weapon/missile/wpn_proton_missile_mk4.iff", 999.0f, pInv);
                 break;
 
+        }
+
+        return SCRIPT_CONTINUE;
+    }
+
+
+    public void handleSpaceCountermeasuresSelect(obj_id player) throws InterruptedException
+    {
+        refreshMenu(player, "Select the desired deed option", "Test Center Terminal", MAIN_SHIP_OPTIONS, "handleShipMenuSelect", false);
+    }
+
+    public int handleSpaceCountermeasuresSelect(obj_id self, dictionary params) throws InterruptedException
+    {
+
+        if ((params == null) || (params.isEmpty()))
+        {
+            return SCRIPT_CONTINUE;
+        }
+        obj_id player = sui.getPlayerId(params);
+
+        int btn = sui.getIntButtonPressed(params);
+        int idx = sui.getListboxSelectedRow(params);
+        if (btn == sui.BP_REVERT)
+        {
+            handleShipMenuSelect(player);
+            return SCRIPT_CONTINUE;
+        }
+        if (btn == sui.BP_CANCEL)
+        {
+            cleanScriptVars(player);
+            closeOldWindow(player);
+            return SCRIPT_CONTINUE;
+        }
+
+
+        if (idx == -1 || idx > SPACE_LAUNCHER_COUNTERMEASURES.length)
+        {
+            cleanScriptVars(player);
+            return SCRIPT_CONTINUE;
+        }
+
+        obj_id pInv = utils.getInventoryContainer(player);
+
+
+        switch(idx)
+        {
+            case 0:
+                makeCraftedItem("object/draft_schematic/space/weapon/missile/countermeasure_chaff_pack.iff", 999.0f, pInv);
+                break;
+
+            case 1:
+                makeCraftedItem("object/draft_schematic/space/weapon/missile/countermeasure_decoy_pack.iff", 999.0f, pInv);
+                break;
+
+            case 2:
+                makeCraftedItem("object/draft_schematic/space/weapon/missile/countermeasure_em_pack.iff", 999.0f, pInv);
+                break;
+
+            case 3:
+                makeCraftedItem("object/draft_schematic/space/weapon/missile/countermeasure_confuser_pack.iff", 999.0f, pInv);
+                break;
+
+            case 4:
+                makeCraftedItem("object/draft_schematic/space/weapon/missile/countermeasure_microchaff_pack.iff", 999.0f, pInv);
+                break;
         }
 
         return SCRIPT_CONTINUE;
