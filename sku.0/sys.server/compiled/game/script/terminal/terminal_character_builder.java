@@ -742,14 +742,30 @@ public class terminal_character_builder extends script.base_script
         "Ship Chassis",
         "Gunship Collection Reward Schematics",
         "Component Schematics",
-        "Pilot Skills"
+        "Pilot Skills",
+        "Astromech Droids",
+        "Flight Computers",
+        "Chip Sets",
+        "QA Components",
+        "Munitions"        
     };
+
     public static final String[] PILOT_SKILLS = {
         "Master Imperial Pilot",
         "Master Rebel Pilot",
         "Neutral Pilot",
         "Revoke Pilot"
     };
+
+    public static final String[] ASTROMECH_DROIDS = {
+        "Level One Astromech",
+        "Level Two Astromech",
+        "Level Three Astromech",
+        "Level Four Astromech",
+        "Level Five Astromech",
+        "Level Six Astromech"
+    };
+
     public static final String[] DEED_CRAFTING_OPTIONS = {
         "Deeds",
         "Crafting"
@@ -851,7 +867,7 @@ public class terminal_character_builder extends script.base_script
         " Credits -- Gives 10,000 credits.",
         " Faction -- Sets your faction and faction standing.",
         " Vehicles, Mounts and Beasts -- Allows you to choose Vehicles and Pets",
-        " Ships -- Pilot Section, Allows you to choose ship deeds, and pilot skills.",
+        " Ships -- Pilot Section, Allows you to choose ship deeds, pilot skills, and gear.",
         " Crafting -- Gives you crafting tools.",
         " Structures -- Allows you to access common structures.",
         " Guild Halls -- Allows you to access guild hall deeds.",
@@ -3693,12 +3709,93 @@ public class terminal_character_builder extends script.base_script
             case 4:
             refreshMenu(player, GENERIC_PROMPT, GENERIC_TITLE, PILOT_SKILLS, "handlePilotSkillSelect", false);
             break;
+            case 5:
+            refreshMenu(player, GENERIC_PROMPT, GENERIC_TITLE, ASTROMECH_DROIDS, "handleAstromechDroidSelect", false);
+            break;
             default:
             cleanScriptVars(player);
             return SCRIPT_CONTINUE;
         }
         return SCRIPT_CONTINUE;
     }
+
+    //TODO Working
+
+    public void handleAstromechDroidSelect(obj_id player) throws InterruptedException
+    {
+        refreshMenu(player, "Select the desired deed option", "Test Center Terminal", MAIN_SHIP_OPTIONS, "handleShipMenuSelect", false);
+    }
+
+    public int handleAstromechDroidSelect(obj_id self, dictionary params) throws InterruptedException
+    {
+
+        if ((params == null) || (params.isEmpty()))
+        {
+            return SCRIPT_CONTINUE;
+        }
+        obj_id player = sui.getPlayerId(params);
+
+        int btn = sui.getIntButtonPressed(params);
+        int idx = sui.getListboxSelectedRow(params);
+        if (btn == sui.BP_REVERT)
+        {
+            handleShipMenuSelect(player);
+            return SCRIPT_CONTINUE;
+        }
+        if (btn == sui.BP_CANCEL)
+        {
+            cleanScriptVars(player);
+            closeOldWindow(player);
+            return SCRIPT_CONTINUE;
+        }
+
+
+        if (idx == -1 || idx > ASTROMECH_DROIDS.length)
+        {
+            cleanScriptVars(player);
+            return SCRIPT_CONTINUE;
+        }
+
+        obj_id pInv = utils.getInventoryContainer(player);
+        obj_id droid = null;
+
+        switch(idx)
+        {
+          case 0:
+                droid = makeCraftedItem("object/draft_schematic/droid/droid_r2_advanced.iff", 999.0f, pInv);
+                setObjVar(droid, "dataModuleRating", 2);
+                break;
+
+            case 1: 
+                droid = makeCraftedItem("object/draft_schematic/droid/droid_r2_advanced.iff", 999.0f, pInv);
+                setObjVar(droid, "dataModuleRating", 4);
+                break;
+
+
+            case 2:
+                droid = makeCraftedItem("object/draft_schematic/droid/droid_r2_advanced.iff", 999.0f, pInv);
+                setObjVar(droid, "dataModuleRating", 6);
+                break;
+
+            case 3:
+                droid = makeCraftedItem("object/draft_schematic/droid/droid_r2_advanced.iff", 999.0f, pInv);
+                setObjVar(droid, "dataModuleRating", 8);
+                break;
+
+            case 4:
+                droid = makeCraftedItem("object/draft_schematic/droid/droid_r2_advanced.iff", 999.0f, pInv);
+                setObjVar(droid, "dataModuleRating", 10);
+                break;
+
+            case 5:
+                droid = makeCraftedItem("object/draft_schematic/droid/droid_r2_advanced.iff", 999.0f, pInv);
+                setObjVar(droid, "dataModuleRating", 12);
+                break;        
+        }
+
+        return SCRIPT_CONTINUE;
+    }
+
     public void handleCollectionComponentSelect(obj_id player) throws InterruptedException
     {
         refreshMenu(player, GENERIC_PROMPT, GENERIC_TITLE, COLLECTION_COMPONENT_SCHEMS, "handleCollectionComponentSelect", false);
