@@ -124,3 +124,4 @@ object/tangible/ship/components/shield_generator/shd_esp_reactive.iff	Do not edi
 object/tangible/ship/components/shield_generator/shd_protecto_net.iff	Do not edit.	0.26	11.837	0.2	1752.053	0.2	1752.053	1168.037	1168.037	0.05	584.0185	584.0185	1	0.3	2931	0.2	34534.5	7
 object/tangible/ship/components/shield_generator/shd_taim_torton.iff	Do not edit.	0.28	13.937	0.3	2300	0.3	2300	1375.475	1375.475	0.03	687.7375	687.7375	1	0.3	3056	0.2	87550	10
 object/tangible/ship/components/shield_generator/shd_shd_moncal_ionweb_prototype_b.iff	Do not edit.	0.28	8.037	0.25	1325	0.25	1325	793.5	793.5	0.03	396.75	396.75	1	0.3	2806	0.2	16824.5	6
+object/tangible/ship/components/shield_generator/shd_heron_qa.iff	Do not edit.	0.0001	5000	0.0001	50000	0.0001	50000	2000	2000	0.0001	2000	2000	1	0.0001	100	0.0001	100	0

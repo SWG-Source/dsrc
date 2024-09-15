@@ -130,3 +130,4 @@ object/tangible/ship/components/weapon_capacitor/cap_z95_deepwell_experimental.i
 object/tangible/ship/components/weapon_capacitor/cap_z95_deepwell_k3.iff	Do not edit.	675	0.23	675	0.2	27	202.5	202.5	0.05	101.25	101.25	1	0.22	900	0.13	1575	2
 object/tangible/ship/components/weapon_capacitor/cap_z95_deepwell_k5.iff	Do not edit.	605	0.23	605	0.2	24.2	634.8	634.8	0.05	317.4	317.4	1	0.22	1100	0.13	6875	5
 object/tangible/ship/components/weapon_capacitor/cap_tiburon.iff	Do not edit.	632.225	0.23	632.225	0.2	25.289	887.708	887.708	0.05	443.854	443.854	1	0.22	1100	0.13	17160	6
+object/tangible/ship/components/weapon_capacitor/cap_heron_qa.iff	Do not edit.	10000	0.0001	10000	0.0001	1000	2000	2000	0.0001	2000	2000	1	0.0001	100	0.0001	100	0

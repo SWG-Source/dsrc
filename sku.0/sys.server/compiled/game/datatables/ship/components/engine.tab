@@ -125,3 +125,4 @@ object/tangible/ship/components/engine/eng_bezelbok_kessel_runner.iff	Do not edi
 object/tangible/ship/components/engine/eng_quantum_ion_drive.iff	Do not edit.	0.1	92	0.07	67	0.07	67	0.07	67	1168.0375	1168.0375	0.05	584.01875	584.01875	1	0.001	1900	0.001	30000	8
 object/tangible/ship/components/engine/eng_t86_shooting_star.iff	Do not edit.	0.13	82	0.07	63.2	0.07	63.2	0.07	63.2	793.5	793.5	0.05	396.75	396.75	1	0.14	1650	0.14	10815.75	6
 object/tangible/ship/components/engine/eng_kuat_m24.iff	Do not edit.	0.1	96	0.07	74.563125	0.07	74.563125	0.07	74.563125	1444.24875	1444.24875	0.05	722.124375	722.124375	1	0.14	1875	0.14	52875	10
+object/tangible/ship/components/engine/eng_heron_qa.iff	Do not edit.	0.0001	200	0.0001	80	0.0001	80	0.0001	80	2000	2000	0.0001	2000	2000	1	0.0001	100	0.0001	100	0
