@@ -775,6 +775,15 @@ public class terminal_character_builder extends script.base_script
         "Level Six Flight Computer"
     };
 
+    public static final String[] DROID_COMMAND_CHIP_SETS = {
+        "Level One Droid Program Set",
+        "Level Two Droid Program Set",
+        "Level Three Droid Program Set",
+        "Level Four Droid Program Set",
+        "Normalization Droid Commands",
+        "Special Program Set"
+    };
+
 
     public static final String[] DEED_CRAFTING_OPTIONS = {
         "Deeds",
@@ -3725,6 +3734,9 @@ public class terminal_character_builder extends script.base_script
             case 6:
             refreshMenu(player, GENERIC_PROMPT, GENERIC_TITLE, FLIGHT_COMPUTERS, "handleFlightComputerSelect", false);
             break;
+            case 7:
+            refreshMenu(player, GENERIC_PROMPT, GENERIC_TITLE, DROID_COMMAND_CHIP_SETS, "handleDroidCommandChipSelect", false);
+            break;
             default:
             cleanScriptVars(player);
             return SCRIPT_CONTINUE;
@@ -3876,6 +3888,126 @@ public class terminal_character_builder extends script.base_script
 
         return SCRIPT_CONTINUE;
     }
+
+    public void handleDroidCommandChipSelect(obj_id player) throws InterruptedException
+    {
+        refreshMenu(player, "Select the desired deed option", "Test Center Terminal", MAIN_SHIP_OPTIONS, "handleShipMenuSelect", false);
+    }
+
+    public int handleDroidCommandChipSelect(obj_id self, dictionary params) throws InterruptedException
+    {
+
+        if ((params == null) || (params.isEmpty()))
+        {
+            return SCRIPT_CONTINUE;
+        }
+        obj_id player = sui.getPlayerId(params);
+
+        int btn = sui.getIntButtonPressed(params);
+        int idx = sui.getListboxSelectedRow(params);
+        if (btn == sui.BP_REVERT)
+        {
+            handleShipMenuSelect(player);
+            return SCRIPT_CONTINUE;
+        }
+        if (btn == sui.BP_CANCEL)
+        {
+            cleanScriptVars(player);
+            closeOldWindow(player);
+            return SCRIPT_CONTINUE;
+        }
+
+
+        if (idx == -1 || idx > DROID_COMMAND_CHIP_SETS.length)
+        {
+            cleanScriptVars(player);
+            return SCRIPT_CONTINUE;
+        }
+
+        obj_id pInv = utils.getInventoryContainer(player);
+        obj_id droid = null;
+
+        switch(idx)
+        {
+            case 0:
+                character_terminal_tools.CreateProgrammedCommandChipInContainer(pInv, "droidcommand_breaklockone", 5);
+                character_terminal_tools.CreateProgrammedCommandChipInContainer(pInv, "droidcommand_engineefficiencyone", 5);
+                character_terminal_tools.CreateProgrammedCommandChipInContainer(pInv, "droidcommand_engineoverloadone", 5);
+                character_terminal_tools.CreateProgrammedCommandChipInContainer(pInv, "droidcommand_reactoroverloadone", 5);
+                character_terminal_tools.CreateProgrammedCommandChipInContainer(pInv, "droidcommand_shieldadjustfrontone", 5);
+                character_terminal_tools.CreateProgrammedCommandChipInContainer(pInv, "droidcommand_shieldbacktofronttwenty", 5);
+                character_terminal_tools.CreateProgrammedCommandChipInContainer(pInv, "droidcommand_shieldfronttobacktwenty", 5);
+                character_terminal_tools.CreateProgrammedCommandChipInContainer(pInv, "droidcommand_weaponeffeciencyone", 5);
+                character_terminal_tools.CreateProgrammedCommandChipInContainer(pInv, "droidcommand_weaponoverloadone", 5);
+                character_terminal_tools.CreateProgrammedCommandChipInContainer(pInv, "droidcommand_weapcaptoshieldone", 5);
+                character_terminal_tools.CreateProgrammedCommandChipInContainer(pInv, "droidcommand_weapcappowerupone", 5);
+                break;
+
+            case 1:
+                character_terminal_tools.CreateProgrammedCommandChipInContainer(pInv, "droidcommand_breaklocktwo", 10);
+                character_terminal_tools.CreateProgrammedCommandChipInContainer(pInv, "droidcommand_engineefficiencytwo", 10);
+                character_terminal_tools.CreateProgrammedCommandChipInContainer(pInv, "droidcommand_engineoverloadtwo", 10);
+                character_terminal_tools.CreateProgrammedCommandChipInContainer(pInv, "droidcommand_reactoroverloadtwo", 10);
+                character_terminal_tools.CreateProgrammedCommandChipInContainer(pInv, "droidcommand_shieldadjustfronttwo", 10);
+                character_terminal_tools.CreateProgrammedCommandChipInContainer(pInv, "droidcommand_shieldadjustreartwo", 10);
+                character_terminal_tools.CreateProgrammedCommandChipInContainer(pInv, "droidcommand_shieldbacktofrontfifty", 10);
+                character_terminal_tools.CreateProgrammedCommandChipInContainer(pInv, "droidcommand_shieldfronttobackfifty", 10);
+                character_terminal_tools.CreateProgrammedCommandChipInContainer(pInv, "droidcommand_weaponeffeciencytwo", 10);
+                character_terminal_tools.CreateProgrammedCommandChipInContainer(pInv, "droidcommand_weaponoverloadtwo", 10);
+                character_terminal_tools.CreateProgrammedCommandChipInContainer(pInv, "droidcommand_weapcaptoshieldtwo", 10);
+                character_terminal_tools.CreateProgrammedCommandChipInContainer(pInv, "droidcommand_weapcappoweruptwo", 10);
+                break;
+
+            case 2:
+                character_terminal_tools.CreateProgrammedCommandChipInContainer(pInv, "droidcommand_engineoverloadthree", 19);
+                character_terminal_tools.CreateProgrammedCommandChipInContainer(pInv, "droidcommand_reactoroverloadthree", 19);
+                character_terminal_tools.CreateProgrammedCommandChipInContainer(pInv, "droidcommand_weaponoverloadthree", 19);
+                character_terminal_tools.CreateProgrammedCommandChipInContainer(pInv, "droidcommand_weapcappowerupthree", 19);
+                character_terminal_tools.CreateProgrammedCommandChipInContainer(pInv, "droidcommand_breaklockthree", 20);
+                character_terminal_tools.CreateProgrammedCommandChipInContainer(pInv, "droidcommand_engineefficiencythree", 20);
+                character_terminal_tools.CreateProgrammedCommandChipInContainer(pInv, "droidcommand_shieldadjustfrontthree", 20);
+                character_terminal_tools.CreateProgrammedCommandChipInContainer(pInv, "droidcommand_shieldadjustrearthree", 20);
+                character_terminal_tools.CreateProgrammedCommandChipInContainer(pInv, "droidcommand_shieldbacktofronteighty", 20);
+                character_terminal_tools.CreateProgrammedCommandChipInContainer(pInv, "droidcommand_shieldfronttobackeighty", 20);
+                character_terminal_tools.CreateProgrammedCommandChipInContainer(pInv, "droidcommand_weaponeffeciencythree", 20);
+                character_terminal_tools.CreateProgrammedCommandChipInContainer(pInv, "droidcommand_weapcaptoshieldthree", 20);
+                break;
+
+            case 3:
+                character_terminal_tools.CreateProgrammedCommandChipInContainer(pInv, "droidcommand_engineoverloadfour", 24);
+                character_terminal_tools.CreateProgrammedCommandChipInContainer(pInv, "droidcommand_reactoroverloadfour", 24);
+                character_terminal_tools.CreateProgrammedCommandChipInContainer(pInv, "droidcommand_weaponoverloadfour", 24);
+                character_terminal_tools.CreateProgrammedCommandChipInContainer(pInv, "droidcommand_weapcappowerupfour", 24);
+                character_terminal_tools.CreateProgrammedCommandChipInContainer(pInv, "droidcommand_breaklockfour", 25);
+                character_terminal_tools.CreateProgrammedCommandChipInContainer(pInv, "droidcommand_engineefficiencyfour", 25);
+                character_terminal_tools.CreateProgrammedCommandChipInContainer(pInv, "droidcommand_shieldadjustfrontfour", 25);
+                character_terminal_tools.CreateProgrammedCommandChipInContainer(pInv, "droidcommand_shieldadjustrearfour", 25);
+                character_terminal_tools.CreateProgrammedCommandChipInContainer(pInv, "droidcommand_shieldbacktofronthundred", 25);
+                character_terminal_tools.CreateProgrammedCommandChipInContainer(pInv, "droidcommand_shieldfronttobackhundred", 25);
+                character_terminal_tools.CreateProgrammedCommandChipInContainer(pInv, "droidcommand_weaponeffeciencyfour", 25);
+                character_terminal_tools.CreateProgrammedCommandChipInContainer(pInv, "droidcommand_weapcaptoshieldfour", 25);
+                character_terminal_tools.CreateProgrammedCommandChipInContainer(pInv, "droidcommand_shieldemergencyfront", 35);
+                character_terminal_tools.CreateProgrammedCommandChipInContainer(pInv, "droidcommand_shieldemergencyrear", 35);
+                break;
+
+            case 4:
+                character_terminal_tools.CreateProgrammedCommandChipInContainer(pInv, "droidcommand_enginenormalize", 1);
+                character_terminal_tools.CreateProgrammedCommandChipInContainer(pInv, "droidcommand_reactornormalize", 1);
+                character_terminal_tools.CreateProgrammedCommandChipInContainer(pInv, "droidcommand_shieldnormalize", 1);
+                character_terminal_tools.CreateProgrammedCommandChipInContainer(pInv, "droidcommand_weaponnormalize", 1);
+                character_terminal_tools.CreateProgrammedCommandChipInContainer(pInv, "droidcommand_weapcapequalize", 1);
+                break;
+
+            case 5:
+                character_terminal_tools.CreateProgrammedCommandChipInContainer(pInv, "droidcommand_zonetokessel", 1);
+                character_terminal_tools.CreateProgrammedCommandChipInContainer(pInv, "droidcommand_zonetoimperialdeepspace", 1);
+                character_terminal_tools.CreateProgrammedCommandChipInContainer(pInv, "droidcommand_zonetorebeldeepspace", 1);
+                break;
+        }
+
+        return SCRIPT_CONTINUE;
+    }
+
 
 
     public void handleCollectionComponentSelect(obj_id player) throws InterruptedException
