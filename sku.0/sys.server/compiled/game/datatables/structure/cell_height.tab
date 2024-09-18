@@ -426,8 +426,8 @@ object/building/player/player_house_yt1300.iff	storage5	100	0.1
 object/building/player/player_house_yt1300.iff	storage6	100	0.1
 object/building/player/player_house_yt1300.iff	turretaccess	100	0.1
 object/building/player/player_house_tree_house_01.iff	entry	100	0.1
-object/building/player/player_house_wod_ns_hut	entry	100	0.1
-object/building/player/player_house_wod_sm_hut	entry	100	0.1
+object/building/player/player_house_wod_ns_hut.iff	r1	100	0.1
+object/building/player/player_house_wod_sm_hut.iff	r1	100	0.1
 object/building/player/player_house_jabbas_sail_barge.iff	interior	20	0.96
 object/building/player/player_guildhall_tatooine_style_01.iff	entry	7.78088	2.65798
 object/building/player/player_guildhall_tatooine_style_01.iff	foyer	8.34724	2.75
