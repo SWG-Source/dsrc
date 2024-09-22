@@ -148,6 +148,7 @@ bst_surronian_nomad_x8		yt2400_booster_s01:booster1
 bst_tiefighter_basic		yt2400_booster_s02:booster1		
 bst_xwing_booster_s01		yt2400_booster_s01:booster1		
 bst_z95_basic		yt2400_booster_s01:booster1		
+bst_heron_qa		yt2400_booster_s01:booster1		
 eng_bezelbok_kessel_runner	yt2400_engine_s01:engine1			
 eng_corellian_cruiser_grade_mk1	yt2400_engine_s01:engine1			
 eng_corellian_cruiser_grade_mk2	yt2400_engine_s01:engine1			
@@ -290,6 +291,7 @@ eng_t86_shooting_star	yt2400_engine_s01:engine1
 eng_kuat_m24	yt2400_engine_s01:engine1			
 eng_kuat_experimental	yt2400_engine_s01:engine1			
 eng_reward_experimental	yt2400_engine_s01:engine1			
+eng_heron_qa	yt2400_engine_s01:engine1			
 wpn_advanced_blaster			yt2400_turret_s02:turretyaw_1	yt2400_turret_s02:turretyaw_2
 wpn_advanced_blaster_green			yt2400_turret_s02:turretyaw_1	yt2400_turret_s02:turretyaw_2
 wpn_advanced_disruptor			yt2400_turret_s02:turretyaw_1	yt2400_turret_s02:turretyaw_2
@@ -462,3 +464,4 @@ wpn_reward_taim_elite			yt2400_turret_s02:turretyaw_1	yt2400_turret_s02:turretya
 wpn_nova_ioncannon			yt2400_turret_s02:turretyaw_1	yt2400_turret_s02:turretyaw_2
 wpn_orion_disruptor			yt2400_turret_s02:turretyaw_1	yt2400_turret_s02:turretyaw_2
 wpn_borstel_experimental			yt2400_turret_s02:turretyaw_1	yt2400_turret_s02:turretyaw_2
+wpn_heron_qa			yt2400_turret_s02:turretyaw_1	yt2400_turret_s02:turretyaw_2

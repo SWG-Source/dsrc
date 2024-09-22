@@ -148,6 +148,7 @@ bst_surronian_nomad_x8		gunship_neutral_booster_s01:engine_on1
 bst_tiefighter_basic		gunship_neutral_booster_s01:engine_on1								
 bst_xwing_booster_s01		gunship_neutral_booster_s01:engine_on1								
 bst_z95_basic		gunship_neutral_booster_s01:engine_on1								
+bst_heron_qa		gunship_neutral_booster_s01:engine_on1								
 eng_bezelbok_kessel_runner	gunship_neutral_engine_s01:engine_on1									
 eng_corellian_cruiser_grade_mk1	gunship_neutral_engine_s01:engine_on1									
 eng_corellian_cruiser_grade_mk2	gunship_neutral_engine_s01:engine_on1									
@@ -290,6 +291,7 @@ eng_t86_shooting_star	gunship_neutral_engine_s01:engine_on1
 eng_kuat_m24	gunship_neutral_engine_s01:engine_on1									
 eng_kuat_experimental	gunship_neutral_engine_s01:engine_on1									
 eng_reward_experimental	gunship_neutral_engine_s01:engine_on1									
+bst_heron_qa		gunship_neutral_booster_s01:engine_on1								
 wpn_advanced_blaster			blacksun_transport_weapon_s01:pilotmuzzle1	blacksun_transport_weapon_s01:pilotmuzzle2	yt1300_turret_s01:turret_yaw1	yt1300_turret_s01:turret_yaw2	yt1300_turret_s01:turret_yaw3	yt1300_turret_s01:turret_yaw4	yt1300_turret_s01:turret_yaw5	yt1300_turret_s01:turret_yaw6
 wpn_advanced_blaster_green			blacksun_transport_weapon_s01:pilotmuzzle1	blacksun_transport_weapon_s01:pilotmuzzle2	yt1300_turret_s01:turret_yaw1	yt1300_turret_s01:turret_yaw2	yt1300_turret_s01:turret_yaw3	yt1300_turret_s01:turret_yaw4	yt1300_turret_s01:turret_yaw5	yt1300_turret_s01:turret_yaw6
 wpn_advanced_disruptor			blacksun_transport_weapon_s01:pilotmuzzle1	blacksun_transport_weapon_s01:pilotmuzzle2	yt1300_turret_s01:turret_yaw1	yt1300_turret_s01:turret_yaw2	yt1300_turret_s01:turret_yaw3	yt1300_turret_s01:turret_yaw4	yt1300_turret_s01:turret_yaw5	yt1300_turret_s01:turret_yaw6
@@ -462,3 +464,4 @@ wpn_reward_taim_elite			blacksun_transport_weapon_s01:pilotmuzzle1	blacksun_tran
 wpn_nova_ioncannon			blacksun_transport_weapon_s01:pilotmuzzle1	blacksun_transport_weapon_s01:pilotmuzzle2	yt1300_turret_s01:turret_yaw1	yt1300_turret_s01:turret_yaw2	yt1300_turret_s01:turret_yaw3	yt1300_turret_s01:turret_yaw4	yt1300_turret_s01:turret_yaw5	yt1300_turret_s01:turret_yaw6
 wpn_orion_disruptor			blacksun_transport_weapon_s01:pilotmuzzle1	blacksun_transport_weapon_s01:pilotmuzzle2	yt1300_turret_s01:turret_yaw1	yt1300_turret_s01:turret_yaw2	yt1300_turret_s01:turret_yaw3	yt1300_turret_s01:turret_yaw4	yt1300_turret_s01:turret_yaw5	yt1300_turret_s01:turret_yaw6
 wpn_borstel_experimental			blacksun_transport_weapon_s01:pilotmuzzle1	blacksun_transport_weapon_s01:pilotmuzzle2	yt1300_turret_s01:turret_yaw1	yt1300_turret_s01:turret_yaw2	yt1300_turret_s01:turret_yaw3	yt1300_turret_s01:turret_yaw4	yt1300_turret_s01:turret_yaw5	yt1300_turret_s01:turret_yaw6
+wpn_heron_qa			blacksun_transport_weapon_s01:pilotmuzzle1	blacksun_transport_weapon_s01:pilotmuzzle2	yt1300_turret_s01:turret_yaw1	yt1300_turret_s01:turret_yaw2	yt1300_turret_s01:turret_yaw3	yt1300_turret_s01:turret_yaw4	yt1300_turret_s01:turret_yaw5	yt1300_turret_s01:turret_yaw6

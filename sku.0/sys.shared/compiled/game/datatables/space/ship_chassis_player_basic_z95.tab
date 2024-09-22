@@ -6,6 +6,7 @@ collection_reward_booster_01_mk3	 	 z95_booster_s01:booster1
 collection_reward_booster_01_mk4	 	 z95_booster_s01:booster1	 
 collection_reward_booster_01_mk5	 	 z95_booster_s01:booster1	 
 bst_z95_basic	 	 z95_booster_s01:booster1	 
+bst_heron_qa	 	 z95_booster_s01:booster1	 
 eng_z95_basic	 z95_engine_s01:engine1	 	 
 eng_nova_01	 z95_engine_s01:engine1	 	 
 eng_orion_01	 z95_engine_s01:engine1	 	 
@@ -18,6 +19,8 @@ eng_t86_shooting_star	 z95_engine_s01:engine1
 eng_kuat_m24	 z95_engine_s01:engine1	 	 
 eng_kuat_experimental	 z95_engine_s01:engine1	 	 
 eng_reward_experimental	 z95_engine_s01:engine1	 	 
+eng_heron_qa	 z95_engine_s01:engine1	 	 
 wpn_z95_basic	 	 	 z95_weapon_s01:weapon1
 wpn_nova_ioncannon	 	 	 z95_weapon_s01:weapon1
 wpn_orion_disruptor	 	 	 z95_weapon_s01:weapon1
+wpn_heron_qa	 	 	 z95_weapon_s01:weapon1

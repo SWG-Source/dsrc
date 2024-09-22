@@ -148,6 +148,7 @@ bst_surronian_nomad_x8		blacksun_medium_booster_s01:booster1
 bst_tiefighter_basic		blacksun_medium_booster_s02:booster1		
 bst_xwing_booster_s01		blacksun_medium_booster_s01:booster1		
 bst_z95_basic		blacksun_medium_booster_s01:booster1		
+bst_heron_qa		blacksun_medium_booster_s01:booster1		
 eng_bezelbok_kessel_runner	blacksun_medium_engine_s02:engine1			
 eng_corellian_cruiser_grade_mk1	blacksun_medium_engine_s01:engine1			
 eng_corellian_cruiser_grade_mk2	blacksun_medium_engine_s01:engine1			
@@ -288,6 +289,7 @@ eng_t86_shooting_star	blacksun_medium_engine_s01:engine1
 eng_kuat_m24	blacksun_medium_engine_s01:engine1			
 eng_kuat_experimental	blacksun_medium_engine_s01:engine1			
 eng_reward_experimental	blacksun_medium_engine_s01:engine1			
+eng_heron_qa	blacksun_medium_engine_s01:engine1			
 wpn_advanced_blaster			blacksun_medium_weapon1_s03:weapon1	blacksun_medium_weapon2_s05:weapon2
 wpn_advanced_blaster_green			blacksun_medium_weapon1_s03:weapon1	blacksun_medium_weapon2_s05:weapon2
 wpn_advanced_disruptor			blacksun_medium_weapon1_s01:weapon1	blacksun_medium_weapon2_s01:weapon2
@@ -472,3 +474,4 @@ wpn_reward_taim_elite			blacksun_medium_weapon1_s03:weapon1	blacksun_medium_weap
 wpn_nova_ioncannon			blacksun_medium_weapon1_s03:weapon1	blacksun_medium_weapon2_s05:weapon2
 wpn_orion_disruptor			blacksun_medium_weapon1_s03:weapon1	blacksun_medium_weapon2_s05:weapon2
 wpn_borstel_experimental			blacksun_medium_weapon1_s02:weapon1	blacksun_medium_weapon2_s02:weapon2
+wpn_heron_qa			blacksun_medium_weapon1_s02:weapon1	blacksun_medium_weapon2_s02:weapon2

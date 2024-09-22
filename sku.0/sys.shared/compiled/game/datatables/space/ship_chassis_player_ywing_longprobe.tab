@@ -148,6 +148,7 @@ bst_surronian_nomad_x8		ywing_booster_s01:booster1
 bst_tiefighter_basic		ywing_booster_s02:booster1		
 bst_xwing_booster_s01		ywing_booster_s01:booster1		
 bst_z95_basic		ywing_booster_s01:booster1		
+bst_heron_qa		ywing_booster_s01:booster1		
 eng_t86_shooting_star	ywing_engine_s01:engine1			
 eng_kuat_m24	ywing_engine_s01:engine1			
 eng_bezelbok_kessel_runner	ywing_engine_s02:engine1			
@@ -288,6 +289,7 @@ collection_reward_engine_01_mk4	ywing_engine_s01:engine1
 collection_reward_engine_01_mk5	ywing_engine_s01:engine1			
 eng_kuat_experimental	ywing_engine_s01:engine1			
 eng_reward_experimental	ywing_engine_s01:engine1			
+eng_heron_qa	ywing_engine_s01:engine1			
 wpn_advanced_blaster			ywing_weapon1_s05:weapon1	ywing_weapon2_s05:turretyaw1
 wpn_advanced_blaster_green			ywing_weapon1_s05:weapon1	ywing_weapon2_s05:turretyaw1
 wpn_advanced_disruptor			ywing_weapon1_s01:weapon1	ywing_weapon2_s01:turretyaw1
@@ -454,3 +456,4 @@ wpn_reward_taim_elite			ywing_weapon1_s06:weapon1	ywing_weapon2_s06:turretyaw1
 wpn_nova_ioncannon			ywing_weapon1_s06:weapon1	ywing_weapon2_s06:turretyaw1
 wpn_orion_disruptor			ywing_weapon1_s06:weapon1	ywing_weapon2_s06:turretyaw1
 wpn_borstel_experimental			ywing_weapon1_s06:weapon1	ywing_weapon2_s06:turretyaw1
+wpn_heron_qa			ywing_weapon1_s06:weapon1	ywing_weapon2_s06:turretyaw1

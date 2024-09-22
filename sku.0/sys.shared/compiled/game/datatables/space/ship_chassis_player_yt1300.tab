@@ -148,6 +148,7 @@ bst_surronian_nomad_x8		yt1300_booster_s01:booster1
 bst_tiefighter_basic		yt1300_booster_s02:booster1		
 bst_xwing_booster_s01		yt1300_booster_s01:booster1		
 bst_z95_basic		yt1300_booster_s01:booster1		
+bst_heron_qa		yt1300_booster_s01:booster1		
 eng_bezelbok_kessel_runner	yt1300_engine_s02:engine1			
 eng_corellian_cruiser_grade_mk1	yt1300_engine_s01:engine1			
 eng_corellian_cruiser_grade_mk2	yt1300_engine_s01:engine1			
@@ -290,6 +291,7 @@ eng_t86_shooting_star	yt1300_engine_s01:engine1
 eng_kuat_m24	yt1300_engine_s01:engine1			
 eng_kuat_experimental	yt1300_engine_s01:engine1			
 eng_reward_experimental	yt1300_engine_s01:engine1			
+eng_heron_qa	yt1300_engine_s01:engine1			
 wpn_advanced_blaster			yt1300_turret_s01:turretyaw1	yt1300_turret_s01:turretyaw2
 wpn_advanced_blaster_green			yt1300_turret_s01:turretyaw1	yt1300_turret_s01:turretyaw2
 wpn_advanced_disruptor			yt1300_turret_s01:turretyaw1	yt1300_turret_s01:turretyaw2
@@ -462,3 +464,4 @@ wpn_reward_taim_elite			yt1300_turret_s01:turretyaw1	yt1300_turret_s01:turretyaw
 wpn_nova_ioncannon			yt1300_turret_s01:turretyaw1	yt1300_turret_s01:turretyaw2
 wpn_orion_disruptor			yt1300_turret_s01:turretyaw1	yt1300_turret_s01:turretyaw2
 wpn_borstel_experimental			yt1300_turret_s02:turretyaw1	yt1300_turret_s02:turretyaw2
+wpn_heron_qa			yt1300_turret_s02:turretyaw1	yt1300_turret_s02:turretyaw2

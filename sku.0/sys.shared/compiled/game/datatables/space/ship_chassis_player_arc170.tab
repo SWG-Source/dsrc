@@ -148,6 +148,7 @@ bst_surronian_nomad_x8		arc170_booster_s01:booster1
 bst_tiefighter_basic		arc170_booster_s02:booster1			
 bst_xwing_booster_s01		arc170_booster_s01:booster1			
 bst_z95_basic		arc170_booster_s01:booster1			
+bst_heron_qa		arc170_booster_s01:booster1			
 eng_bezelbok_kessel_runner	arc170_engine_s02:engine1				
 eng_corellian_cruiser_grade_mk1	arc170_engine_s01:engine1				
 eng_corellian_cruiser_grade_mk2	arc170_engine_s01:engine1				
@@ -286,6 +287,7 @@ collection_reward_engine_01_mk4	arc170_engine_s02:engine1
 collection_reward_engine_01_mk5	arc170_engine_s02:engine1				
 eng_t86_shooting_star	arc170_engine_s01:engine1				
 eng_kuat_m24	arc170_engine_s01:engine1				
+eng_heron_qa	arc170_engine_s01:engine1				
 wpn_advanced_blaster			arc170_weapon_s05:weapon1	arc170_turret_s01:turretyaw1	arc170_turret_s01:turretyaw2
 wpn_advanced_blaster_green			arc170_weapon_s05:weapon1	arc170_turret_s01:turretyaw1	arc170_turret_s01:turretyaw2
 wpn_advanced_disruptor			arc170_weapon_s01:weapon1	arc170_turret_s01:turretyaw1	arc170_turret_s01:turretyaw2
@@ -453,3 +455,4 @@ wpn_reward_taim_elite			arc170_weapon_s06:weapon1	arc170_turret_s01:turretyaw1	a
 wpn_nova_ioncannon			arc170_weapon_s07:weapon1	arc170_turret_s01:turretyaw1	arc170_turret_s01:turretyaw2
 wpn_orion_disruptor			arc170_weapon_s07:weapon1	arc170_turret_s01:turretyaw1	arc170_turret_s01:turretyaw2
 wpn_borstel_experimental	 	 	 arc170_weapon_s05:weapon1	 arc170_turret_s01:turretyaw1	 arc170_turret_s01:turretyaw2
+wpn_heron_qa	 	 	 arc170_weapon_s05:weapon1	 arc170_turret_s01:turretyaw1	 arc170_turret_s01:turretyaw2

@@ -148,6 +148,7 @@ bst_surronian_nomad_x8		ykl37r_booster_s01:booster1
 bst_tiefighter_basic		ykl37r_booster_s02:booster1		
 bst_xwing_booster_s01		ykl37r_booster_s01:booster1		
 bst_z95_basic		ykl37r_booster_s01:booster1		
+bst_heron_qa		ykl37r_booster_s01:booster1		
 eng_bezelbok_kessel_runner	ykl37r_engine_s02:engine1			
 eng_corellian_cruiser_grade_mk1	ykl37r_engine_s01:engine1			
 eng_corellian_cruiser_grade_mk2	ykl37r_engine_s01:engine1			
@@ -290,6 +291,7 @@ eng_t86_shooting_star	ykl37r_engine_s01:engine1
 eng_kuat_m24	ykl37r_engine_s01:engine1			
 eng_kuat_experimental	ykl37r_engine_s01:engine1			
 eng_reward_experimental	ykl37r_engine_s01:engine1			
+eng_heron_qa	ykl37r_engine_s01:engine1			
 wpn_advanced_blaster			ykl37r_turret_base:turretyaw1	ykl37r_turret_base:turretyaw2
 wpn_advanced_blaster_green			ykl37r_turret_base:turretyaw1	ykl37r_turret_base:turretyaw2
 wpn_advanced_disruptor			ykl37r_turret_base:turretyaw1	ykl37r_turret_base:turretyaw2
@@ -467,3 +469,4 @@ wpn_reward_taim_elite			ykl37r_turret_base:turretyaw1	ykl37r_turret_base:turrety
 wpn_nova_ioncannon			ykl37r_turret_base:turretyaw1	ykl37r_turret_base:turretyaw2
 wpn_orion_disruptor			ykl37r_turret_base:turretyaw1	ykl37r_turret_base:turretyaw2
 wpn_borstel_experimental			ykl37r_turret_base:turretyaw1	ykl37r_turret_base:turretyaw2
+wpn_heron_qa			ykl37r_turret_base:turretyaw1	ykl37r_turret_base:turretyaw2
