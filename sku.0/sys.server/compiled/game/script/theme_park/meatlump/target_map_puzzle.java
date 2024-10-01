@@ -393,15 +393,15 @@ public class target_map_puzzle extends script.base_script
         {
             return SCRIPT_CONTINUE;
         }
-        else if (buff.hasBuff(player, "target_map_puzzle_downer"))
+        if (buff.hasBuff(player, "target_map_puzzle_downer"))
         {
             sendSystemMessage(player, YOU_HAVE_DEBUFF);
-            return SCRIPT_CONTINUE;
+            return SCRIPT_OVERRIDE;
         }
-        else if (!consumable.decrementObjectInventoryOrEquipped(player, DEVICE_TEMPLATE, DEVICE_OBJVAR))
+        if (!consumable.decrementObjectInventoryOrEquipped(player, DEVICE_TEMPLATE, DEVICE_OBJVAR))
         {
             sendSystemMessage(player, YOU_NEED_DEVICE);
-            return SCRIPT_CONTINUE;
+            return SCRIPT_OVERRIDE;
         }
         closeOldWindow(player);
         blog("OnObjectMenuSelect");
@@ -510,29 +510,50 @@ public class target_map_puzzle extends script.base_script
             blog("createMapText - failed script var validation");
             return SCRIPT_CONTINUE;
         }
-        String textToBeSolved = utils.getStringScriptVar(player, TEXT_TO_BE_SOLVED);
+        //fixed this line for grabbing textToBeSolved
+        String textToBeSolved = utils.getStringScriptVar(player, TEXT_TO_BE_SOLVED + "_" + self);
+
         String correctPhrase = "";
-        switch (textToBeSolved) {
-            case TEXT_TARGET:
-                correctPhrase = utils.getStringScriptVar(player, TARGET + "_" + self);
-                break;
-            case TEXT_LOCATION:
-                correctPhrase = utils.getStringScriptVar(player, TRAIL + "_" + self);
-                break;
-            case TEXT_PLANET:
-                correctPhrase = utils.getStringScriptVar(player, PLANET + "_" + self);
-                break;
+        //The output for textToBeSolved isn't compatible with the switch that was added here
+        if(textToBeSolved.equals(TEXT_TARGET + "_" + self))
+        {
+            correctPhrase = utils.getStringScriptVar(player, TARGET + "_" + self);
         }
+        else if(textToBeSolved.equals(TEXT_LOCATION + "_" + self))
+        {
+            correctPhrase = utils.getStringScriptVar(player, TRAIL + "_" + self);
+        }
+        else if(textToBeSolved.equals(TEXT_PLANET + "_" + self))
+        {
+            correctPhrase = utils.getStringScriptVar(player, PLANET + "_" + self);
+        }
+
         playerGuess = toLower(playerGuess);
         correctPhrase = toLower(correctPhrase);
-        if (playerGuess.equals(correctPhrase))
+
+        //compare the unscrambled password with the player guess
+        if (playerGuess == correctPhrase)
         {
             blog("handleDialogInput - Password Solved!! Rewardign Player");
             rewardPlayer(self, player);
             return SCRIPT_CONTINUE;
         }
-        createMapText(self, player);
-        return SCRIPT_CONTINUE;
+        //check it both ways incase one doesn't work because Java is not consistent across versions
+        else if (playerGuess.equals(correctPhrase))
+        {
+            blog("handleDialogInput - Password Solved!! Rewardign Player");
+            rewardPlayer(self, player);
+            return SCRIPT_CONTINUE;
+        }
+        //adding logic for if the player guesses wrong
+        else
+        {
+            buff.applyBuff(player, "target_map_puzzle_downer");
+            closeOldWindow(player);
+            blog("closeSui - removing removePlayerNonImperativeVars.");
+            removePlayerNonImperativeVars(player);
+            return SCRIPT_CONTINUE;
+        }
     }
     public boolean rerollPuzzleNeeded(obj_id collectionItem, obj_id player) throws InterruptedException
     {
@@ -789,15 +810,10 @@ public class target_map_puzzle extends script.base_script
         {
             return SCRIPT_CONTINUE;
         }
+        //fixing whatever was going on here originally
         blog("closeSui - init");
-        if (buff.applyBuff(player, "target_map_puzzle_downer"))
-        {
-            
-        }
-        
-        {
-            sendSystemMessage(player, YOU_CANCELED_EARLY);
-        }
+        buff.applyBuff(player, "target_map_puzzle_downer");
+        sendSystemMessage(player, YOU_CANCELED_EARLY);
         closeOldWindow(player);
         blog("closeSui - removing removePlayerNonImperativeVars.");
         removePlayerNonImperativeVars(player);
