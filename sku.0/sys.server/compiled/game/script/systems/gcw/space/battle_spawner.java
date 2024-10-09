@@ -83,7 +83,7 @@ public class battle_spawner extends script.base_class {
     public float customPvePointModifier = DEFAULT_PVE_POINT_MULTIPLIER;
     public float customPvpPointModifier = DEFAULT_PVP_POINT_MULTIPLIER;
     public float customWinTokenModifier = DEFAULT_WIN_TOKEN_MULTIPLIER;
-    public float customLossTokenModifier = DEFAULT_WIN_TOKEN_MULTIPLIER;
+    public float customLossTokenModifier = DEFAULT_LOSS_TOKEN_MULTIPLIER;
     public float customWinPointModifier = DEFAULT_WIN_POINT_MULTIPLIER;
     public float customLossPointModifier = DEFAULT_LOSS_POINT_MULTIPLIER;
     public int pobPlayerCeiling = DEFAULT_POB_PLAYER_CEILING;
