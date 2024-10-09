@@ -81,9 +81,9 @@ public class battle_spawner extends script.base_class {
     public float customPveBattleModifier = DEFAULT_PVE_TOKEN_MULTIPLIER;
     public float customPvpBattleModifier = DEFAULT_PVP_TOKEN_MULTIPLIER;
     public float customPvePointModifier = DEFAULT_PVE_POINT_MULTIPLIER;
-    public float customPvpPointModifier = DEFAULT_PVE_POINT_MULTIPLIER;
+    public float customPvpPointModifier = DEFAULT_PVP_POINT_MULTIPLIER;
     public float customWinTokenModifier = DEFAULT_WIN_TOKEN_MULTIPLIER;
-    public float customLossTokenModifier = DEFAULT_WIN_TOKEN_MULTIPLIER;
+    public float customLossTokenModifier = DEFAULT_LOSS_TOKEN_MULTIPLIER;
     public float customWinPointModifier = DEFAULT_WIN_POINT_MULTIPLIER;
     public float customLossPointModifier = DEFAULT_LOSS_POINT_MULTIPLIER;
     public int pobPlayerCeiling = DEFAULT_POB_PLAYER_CEILING;
@@ -126,6 +126,20 @@ public class battle_spawner extends script.base_class {
         // make sure we're not already having a battle
         if(battleIsActive(self)) return SCRIPT_CONTINUE;
         location spaceLocation = getLocation(self);
+
+        // double check and despawn old ships
+        obj_id old_attackingShip = getObjIdObjVar(self, "attackingShip");
+        obj_id old_defendingShip = getObjIdObjVar(self, "defendingShip");
+        if(isValidId(old_attackingShip))
+        {
+            detachAllScripts(old_attackingShip);
+            destroyObjectHyperspace(old_attackingShip);
+        }
+        if(isValidId(old_defendingShip))
+        {
+            detachAllScripts(old_defendingShip);
+            destroyObjectHyperspace(old_defendingShip);
+        }
 
         spaceLog( "In startSpaceGCWBattle... beginning battle creation.");
         obj_id controller = params.getObjId("controller");
@@ -707,6 +721,12 @@ public class battle_spawner extends script.base_class {
         if(isValidId(attackingShip)){
             detachAllScripts(attackingShip);
             destroyObjectHyperspace(attackingShip);
+        }
+        
+        if(isValidId(defendingShip)){
+            detachAllScripts(defendingShip);
+            spaceLog( "In cleanup... despawning defending capital ship...");
+            destroyObjectHyperspace(defendingShip);
         }
 
         // set obj vars on controller for next battle
