@@ -839,6 +839,18 @@ public class terminal_character_builder extends script.base_script
     };
 
 
+    public static final String[] QA_SPACE_COMPONENTS = {
+	"Heron's QA Shield",
+	"Heron's QA Armor",
+	"Heron's QA Engine",
+	"Heron's QA Reactor",
+	"Heron's QA Capacitor",
+	"Heron's QA Weapon",
+	"Heron's Droid Interface",
+	"Heron's QA Booster"
+    };
+
+
     public static final String[] DEED_CRAFTING_OPTIONS = {
         "Deeds",
         "Crafting"
@@ -3803,6 +3815,9 @@ public class terminal_character_builder extends script.base_script
             case 11:
             refreshMenu(player, GENERIC_PROMPT, GENERIC_TITLE, SPACE_LAUNCHER_COUNTERMEASURES, "handleSpaceCountermeasuresSelect", false);
             break;
+            case 12:
+            refreshMenu(player, GENERIC_PROMPT, GENERIC_TITLE, QA_SPACE_COMPONENTS, "handleSpaceQAComponentOptions", false);
+            break;
             default:
             cleanScriptVars(player);
             return SCRIPT_CONTINUE;
@@ -3948,7 +3963,7 @@ public class terminal_character_builder extends script.base_script
                 break;
 
             case 5:
-                makeCraftedItem("object/draft_schematic/droid/navicomputer_5.iff", 999.0f, pInv);
+                makeCraftedItem("object/draft_schematic/droid/navicomputer_6.iff", 999.0f, pInv);
                 break;
         }
 
@@ -4404,6 +4419,126 @@ public class terminal_character_builder extends script.base_script
         }
 
         return SCRIPT_CONTINUE;
+    }
+
+    public void handleSpaceQAComponentOptions(obj_id player) throws InterruptedException
+    {
+        refreshMenu(player, "Select the desired component", "Test Center Terminal", QA_SPACE_COMPONENTS, "handleSpaceQAComponentOptions", false);
+    }
+
+    public int handleSpaceQAComponentOptions(obj_id self, dictionary params) throws InterruptedException
+    {
+        if ((params == null) || (params.isEmpty()))
+        {
+            return SCRIPT_CONTINUE;
+        }
+
+        obj_id player = sui.getPlayerId(params);
+        obj_id pInv = utils.getInventoryContainer(player);
+        int btn = sui.getIntButtonPressed(params);
+        int idx = sui.getListboxSelectedRow(params);
+
+        if (btn == sui.BP_REVERT)
+        {
+            handleShipMenuSelect(player);
+            return SCRIPT_CONTINUE;
+        }
+        if (btn == sui.BP_CANCEL)
+        {
+            cleanScriptVars(player);
+            closeOldWindow(player);
+            return SCRIPT_CONTINUE;
+        }
+
+      
+        if (idx == -1 || idx > QA_SPACE_COMPONENTS.length)
+        {
+            cleanScriptVars(player);
+            return SCRIPT_CONTINUE;
+        }
+        if (!isIdValid(player))
+        {
+            sendSystemMessageTestingOnly(player, "The system is unable to complete the transaction.");
+            cleanScriptVars(player);
+            return SCRIPT_OVERRIDE;
+        }
+        if (!isIdValid(pInv))
+        {
+            sendSystemMessageTestingOnly(player, "The system is unable to complete the transaction.");
+            cleanScriptVars(player);
+            return SCRIPT_OVERRIDE;
+        }
+        if (getVolumeFree(pInv) <= 0)
+        {
+            sendSystemMessageTestingOnly(player, "Your Inventory is Full, please make room and try again.");
+            cleanScriptVars(player);
+            return SCRIPT_OVERRIDE;
+        }
+
+	obj_id component = null;
+
+        switch(idx)
+        {
+
+            case 0:
+                component = createObjectOverloaded("object/tangible/ship/components/shield_generator/shd_heron_qa.iff", pInv);
+                space_crafting.setShieldGeneratorCurrentFrontHitpoints(component, space_crafting.getShieldGeneratorMaximumFrontHitpoints(component));
+                space_crafting.setShieldGeneratorCurrentBackHitpoints(component, space_crafting.getShieldGeneratorMaximumBackHitpoints(component));
+                cleanScriptVars(player);
+                break;
+
+            case 1:
+                component = createObjectOverloaded("object/tangible/ship/components/armor/arm_heron_qa.iff", pInv);
+                space_crafting.setComponentCurrentArmorHitpoints(component, space_crafting.getComponentMaximumArmorHitpoints(component));
+                cleanScriptVars(player);
+                break;
+
+            case 2:
+                component = createObjectOverloaded("object/tangible/ship/components/engine/eng_heron_qa.iff", pInv);
+                cleanScriptVars(player);
+                break;
+
+            case 3:
+                component = createObjectOverloaded("object/tangible/ship/components/reactor/rct_heron_qa.iff", pInv);		
+                cleanScriptVars(player);
+                break;
+
+            case 4:
+                component = createObjectOverloaded("object/tangible/ship/components/weapon_capacitor/cap_heron_qa.iff", pInv);                        
+                space_crafting.setWeaponCapacitorCurrentEnergy(component, space_crafting.getWeaponCapacitorMaximumEnergy(component));
+                cleanScriptVars(player);
+                break;
+
+            case 5:
+                component = createObjectOverloaded("object/tangible/ship/components/weapon/wpn_heron_qa.iff", pInv);                        
+                cleanScriptVars(player);
+                break;
+
+            case 6:
+                component = createObjectOverloaded("object/tangible/ship/components/droid_interface/ddi_heron_qa.iff", pInv);
+                cleanScriptVars(player);
+                break;
+
+            case 7:
+                component = createObjectOverloaded("object/tangible/ship/components/booster/bst_heron_qa.iff", pInv);
+                space_crafting.setBoosterCurrentEnergy(component, space_crafting.getBoosterMaximumEnergy(component));
+                cleanScriptVars(player);
+                break;
+
+            default:
+                cleanScriptVars(player);
+
+        }
+
+        if (isValidId(component))
+        {
+            int flags = getIntObjVar(component, "ship_comp.flags");
+            flags |= ship_component_flags.SCF_reverse_engineered;            
+            setComponentObjVar(component, "character.builder", 1);
+        }
+
+        return SCRIPT_CONTINUE;
+        
     }
 
 
