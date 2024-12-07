@@ -148,6 +148,7 @@ bst_surronian_nomad_x8		kse_firespray_booster_s01:booster1
 bst_tiefighter_basic		kse_firespray_booster_s02:booster1		
 bst_xwing_booster_s01		kse_firespray_booster_s01:booster1		
 bst_z95_basic		kse_firespray_booster_s01:booster1		
+bst_heron_qa		kse_firespray_booster_s01:booster1		
 eng_bezelbok_kessel_runner	kse_firespray_engine_s02:engine1			
 eng_corellian_cruiser_grade_mk1	kse_firespray_engine_s01:engine1			
 eng_corellian_cruiser_grade_mk2	kse_firespray_engine_s01:engine1			
@@ -288,6 +289,7 @@ eng_t86_shooting_star	kse_firespray_engine_s03:engine1
 eng_kuat_m24	kse_firespray_engine_s01:engine1			
 eng_kuat_experimental	kse_firespray_engine_s01:engine1			
 eng_reward_experimental	kse_firespray_engine_s01:engine1			
+eng_heron_qa	kse_firespray_engine_s01:engine1			
 wpn_advanced_blaster			kse_firespray_weapon1_s05:weapon1	kse_firespray_weapon2_s05:weapon2
 wpn_advanced_blaster_green			kse_firespray_weapon1_s05:weapon1	kse_firespray_weapon2_s05:weapon2
 wpn_advanced_disruptor			kse_firespray_weapon1_s01:weapon1	kse_firespray_weapon2_s01:weapon2
@@ -457,3 +459,4 @@ wpn_reward_taim_elite			kse_firespray_weapon1_s06:weapon1	kse_firespray_weapon2_
 wpn_nova_ioncannon			kse_firespray_weapon1_s07:weapon1	kse_firespray_weapon2_s07:weapon2
 wpn_orion_disruptor			kse_firespray_weapon1_s07:weapon1	kse_firespray_weapon2_s07:weapon2
 wpn_borstel_experimental			kse_firespray_weapon1_s05:weapon1	kse_firespray_weapon2_s05:weapon2
+wpn_heron_qa			kse_firespray_weapon1_s05:weapon1	kse_firespray_weapon2_s05:weapon2

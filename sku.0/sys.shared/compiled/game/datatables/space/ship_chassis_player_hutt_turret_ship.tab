@@ -148,6 +148,7 @@ bst_surronian_nomad_x8		hutt_heavy_booster_s01:booster1
 bst_tiefighter_basic		hutt_heavy_booster_s02:booster1					
 bst_xwing_booster_s01		hutt_heavy_booster_s01:booster1					
 bst_z95_basic		hutt_heavy_booster_s01:booster1					
+bst_heron_qa		hutt_heavy_booster_s01:booster1					
 eng_bezelbok_kessel_runner	hutt_heavy_engine_s02:engine1						
 eng_corellian_cruiser_grade_mk1	hutt_heavy_engine_s01:engine1						
 eng_corellian_cruiser_grade_mk2	hutt_heavy_engine_s01:engine1						
@@ -288,6 +289,7 @@ eng_t86_shooting_star	hutt_heavy_engine_s01:engine1
 eng_kuat_m24	hutt_heavy_engine_s01:engine1						
 eng_kuat_experimental	hutt_heavy_engine_s01:engine1						
 eng_reward_experimental	hutt_heavy_engine_s01:engine1						
+eng_heron_qa	hutt_heavy_engine_s01:engine1						
 wpn_advanced_blaster			hutt_heavy_weapon1_s05:weapon1_1	ywing_weapon2_s05:turretyaw1	hutt_heavy_weapon3_s05:weapon3_1	hutt_heavy_weapon2_s05:weapon2_1	
 wpn_advanced_blaster_green			hutt_heavy_weapon1_s05:weapon1_1	ywing_weapon2_s05:turretyaw1	hutt_heavy_weapon3_s05:weapon3_1	hutt_heavy_weapon2_s05:weapon2_1	
 wpn_advanced_disruptor			hutt_heavy_weapon1_s01:weapon1_1	ywing_weapon2_s01:turretyaw1	hutt_heavy_weapon3_s01:weapon3_1	hutt_heavy_weapon2_s01:weapon2_1	
@@ -464,3 +466,4 @@ wpn_reward_taim_elite			hutt_heavy_weapon1_s06:weapon1_1	ywing_weapon2_s06:turre
 wpn_nova_ioncannon			hutt_heavy_weapon1_s06:weapon1_1	ywing_weapon2_s06:turretyaw1	hutt_heavy_weapon3_s06:weapon3_1	hutt_heavy_weapon2_s06:weapon2_1	
 wpn_orion_disruptor			hutt_heavy_weapon1_s06:weapon1_1	ywing_weapon2_s06:turretyaw1	hutt_heavy_weapon3_s06:weapon3_1	hutt_heavy_weapon2_s06:weapon2_1	
 wpn_borstel_experimental			hutt_heavy_weapon1_s01:weapon1_1	ywing_weapon2_s01:turretyaw1	hutt_heavy_weapon3_s01:weapon3_1	hutt_heavy_weapon2_s01:weapon2_1	
+wpn_heron_qa			hutt_heavy_weapon1_s01:weapon1_1	ywing_weapon2_s01:turretyaw1	hutt_heavy_weapon3_s01:weapon3_1	hutt_heavy_weapon2_s01:weapon2_1	

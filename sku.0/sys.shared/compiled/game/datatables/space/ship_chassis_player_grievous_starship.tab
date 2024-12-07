@@ -148,6 +148,7 @@ bst_surronian_nomad_x8		grievous_starship_booster_s01:booster1
 bst_tiefighter_basic		grievous_starship_booster_s02:booster1		
 bst_xwing_booster_s01		grievous_starship_booster_s01:booster1		
 bst_z95_basic		grievous_starship_booster_s01:booster1		
+bst_heron_qa		grievous_starship_booster_s01:booster1		
 eng_bezelbok_kessel_runner	grievous_starship_engine_s02:engine1			
 eng_corellian_cruiser_grade_mk1	grievous_starship_engine_s01:engine1			
 eng_corellian_cruiser_grade_mk2	grievous_starship_engine_s01:engine1			
@@ -288,6 +289,7 @@ eng_t86_shooting_star	grievous_starship_engine_s01:engine1
 eng_kuat_m24	grievous_starship_engine_s01:engine1			
 eng_kuat_experimental	grievous_starship_engine_s01:engine1			
 eng_reward_experimental	grievous_starship_engine_s01:engine1			
+eng_heron_qa	grievous_starship_engine_s01:engine1			
 wpn_advanced_blaster			grievous_starship_weapon1_s05:weapon1_1	grievous_starship_weapon2_s05:weapon2_1
 wpn_advanced_blaster_green			grievous_starship_weapon1_s05:weapon1_1	grievous_starship_weapon2_s05:weapon2_1
 wpn_advanced_disruptor			grievous_starship_weapon1_s01:weapon1_1	grievous_starship_weapon2_s01:weapon2_1
@@ -455,3 +457,4 @@ wpn_reward_taim_elite			grievous_starship_weapon1_s06:weapon1_1	grievous_starshi
 wpn_nova_ioncannon			grievous_starship_weapon1_s06:weapon1_1	grievous_starship_weapon2_s02:weapon2_1
 wpn_orion_disruptor			grievous_starship_weapon1_s06:weapon1_1	grievous_starship_weapon2_s02:weapon2_1
 wpn_borstel_experimental			grievous_starship_weapon1_s05:weapon1_1	grievous_starship_weapon2_s05:weapon2_1
+wpn_heron_qa			grievous_starship_weapon1_s05:weapon1_1	grievous_starship_weapon2_s05:weapon2_1

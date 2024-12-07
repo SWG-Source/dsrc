@@ -133,6 +133,7 @@ eng_t86_shooting_star	tie_engine_s01:
 eng_kuat_m24	tie_engine_s01:		
 eng_kuat_experimental	tie_engine_s01:		
 eng_reward_experimental	tie_engine_s01:		
+eng_heron_qa	tie_engine_s01:		
 wpn_advanced_blaster		aggressor_weapon_s02:weapon1	aggressor_weapon_s01:turretyaw1
 wpn_advanced_blaster_green		aggressor_weapon_s02:weapon1	aggressor_weapon_s01:turretyaw1
 wpn_advanced_disruptor		aggressor_weapon_s02:weapon1	aggressor_weapon_s01:turretyaw1
@@ -315,3 +316,4 @@ wpn_reward_taim_elite		aggressor_weapon_s02:weapon1	aggressor_weapon_s01:turrety
 wpn_nova_ioncannon		aggressor_weapon_s02:weapon1	aggressor_weapon_s01:turretyaw1
 wpn_orion_disruptor		aggressor_weapon_s02:weapon1	aggressor_weapon_s01:turretyaw1
 wpn_borstel_experimental		aggressor_weapon_s02:weapon1	aggressor_weapon_s01:turretyaw1
+wpn_heron_qa		aggressor_weapon_s02:weapon1	aggressor_weapon_s01:turretyaw1

@@ -148,6 +148,7 @@ bst_surronian_nomad_x8	 	 z95_booster_s01:booster1
 bst_tiefighter_basic	 	 z95_booster_s02:booster1	 	 
 bst_xwing_booster_s01	 	 z95_booster_s01:booster1	 	 
 bst_z95_basic	 	 z95_booster_s01:booster1	 	 
+bst_heron_qa	 	 z95_booster_s01:booster1	 	 
 eng_bezelbok_kessel_runner	 z95_engine_s02:engine1	 	 	 
 eng_corellian_cruiser_grade_mk1	 z95_engine_s01:engine1	 	 	 
 eng_corellian_cruiser_grade_mk2	 z95_engine_s01:engine1	 	 	 
@@ -286,6 +287,7 @@ collection_reward_engine_01_mk4	 z95_engine_s02:engine1
 collection_reward_engine_01_mk5	 z95_engine_s02:engine1	 	 	 
 eng_kuat_experimental	 z95_engine_s02:engine1	 	 	 
 eng_reward_experimental	 z95_engine_s02:engine1	 	 	 
+eng_heron_qa	 z95_engine_s02:engine1	 	 	 
 wpn_advanced_blaster	 	 	 z95_weapon_s05:weapon1	 
 wpn_advanced_blaster_green	 	 	 z95_weapon_s05:weapon1	 
 wpn_advanced_disruptor	 	 	 z95_weapon_s01:weapon1	 
@@ -468,3 +470,4 @@ wpn_reward_subpro_elite	 	 	 z95_weapon_s01:weapon1
 wpn_reward_taim_elite	 	 	 z95_weapon_s01:weapon1	 
 wpn_nova_ioncannon	 	 	 z95_weapon_s01:weapon1	 
 wpn_orion_disruptor	 	 	 z95_weapon_s01:weapon1	 
+wpn_heron_qa	 	 	 z95_weapon_s01:weapon1	 

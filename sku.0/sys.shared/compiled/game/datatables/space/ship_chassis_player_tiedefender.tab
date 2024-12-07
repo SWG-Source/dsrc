@@ -133,6 +133,7 @@ eng_t86_shooting_star	tie_engine_s01:
 eng_kuat_m24	tie_engine_s01:			
 eng_kuat_experimental	tie_engine_s01:			
 eng_reward_experimental	tie_engine_s01:			
+eng_heron_qa	tie_engine_s01:			
 wpn_advanced_blaster		defender_weapon_s01:weapon1	defender_weapon_s02:weapon2	defender_weapon_s03:weapon3
 wpn_advanced_blaster_green		defender_weapon_s01:weapon1	defender_weapon_s02:weapon2	defender_weapon_s03:weapon3
 wpn_advanced_disruptor		defender_weapon_s01:weapon1	defender_weapon_s02:weapon2	defender_weapon_s03:weapon3
@@ -303,3 +304,4 @@ wpn_reward_taim_elite		defender_weapon_s01:weapon1	defender_weapon_s02:weapon2	d
 wpn_nova_ioncannon		defender_weapon_s01:weapon1	defender_weapon_s02:weapon2	defender_weapon_s03:weapon3
 wpn_orion_disruptor		defender_weapon_s01:weapon1	defender_weapon_s02:weapon2	defender_weapon_s03:weapon3
 wpn_borstel_experimental		defender_weapon_s01:weapon1	defender_weapon_s02:weapon2	defender_weapon_s03:weapon3
+wpn_heron_qa		defender_weapon_s01:weapon1	defender_weapon_s02:weapon2	defender_weapon_s03:weapon3

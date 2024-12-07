@@ -148,6 +148,7 @@ bst_surronian_nomad_x8		jedifighter_booster_s01:booster1
 bst_tiefighter_basic		jedifighter_booster_s02:booster1		
 bst_xwing_booster_s01		jedifighter_booster_s01:booster1		
 bst_z95_basic		jedifighter_booster_s01:booster1		
+bst_heron_qa		jedifighter_booster_s01:booster1		
 eng_bezelbok_kessel_runner	jedifighter_engine_s02:engine1			
 eng_corellian_cruiser_grade_mk1	jedifighter_engine_s01:engine1			
 eng_corellian_cruiser_grade_mk2	jedifighter_engine_s01:engine1			
@@ -288,6 +289,7 @@ eng_t86_shooting_star	jedifighter_engine_s01:engine1
 eng_kuat_m24	jedifighter_engine_s01:engine1			
 eng_kuat_experimental	jedifighter_engine_s01:engine1			
 eng_reward_experimental	jedifighter_engine_s01:engine1			
+eng_heron_qa	jedifighter_engine_s01:engine1			
 wpn_advanced_blaster			jedifighter_weapon1_s05:weapon1	jedifighter_weapon2_s05:weapon2
 wpn_advanced_blaster_green			jedifighter_weapon1_s05:weapon1	jedifighter_weapon2_s05:weapon2
 wpn_advanced_disruptor			jedifighter_weapon1_s01:weapon1	jedifighter_weapon2_s01:weapon2
@@ -455,3 +457,4 @@ wpn_reward_taim_elite			jedifighter_weapon1_s06:weapon1	jedifighter_weapon2_s06:
 wpn_nova_ioncannon			jedifighter_weapon1_s07:weapon1	jedifighter_weapon2_s07:weapon2
 wpn_orion_disruptor			jedifighter_weapon1_s07:weapon1	jedifighter_weapon2_s07:weapon2
 wpn_borstel_experimental			jedifighter_weapon1_s05:weapon1	jedifighter_weapon2_s05:weapon2
+wpn_heron_qa			jedifighter_weapon1_s05:weapon1	jedifighter_weapon2_s05:weapon2

@@ -148,6 +148,7 @@ bst_surronian_nomad_x8
 bst_tiefighter_basic			
 bst_xwing_booster_s01			
 bst_z95_basic			
+bst_heron_qa			
 eng_bezelbok_kessel_runner	eng_snowspeeder_s01		
 eng_corellian_cruiser_grade_mk1	eng_snowspeeder_s01		
 eng_corellian_cruiser_grade_mk2	eng_snowspeeder_s01		
@@ -288,6 +289,7 @@ eng_t86_shooting_star
 eng_kuat_m24			
 eng_kuat_experimental			
 eng_reward_experimental			
+eng_heron_qa			
 wpn_advanced_blaster			
 wpn_advanced_blaster_green			
 wpn_advanced_disruptor			
@@ -455,3 +457,4 @@ wpn_reward_taim_elite
 wpn_nova_ioncannon			
 wpn_orion_disruptor			
 wpn_borstel_experimental			
+wpn_heron_qa			

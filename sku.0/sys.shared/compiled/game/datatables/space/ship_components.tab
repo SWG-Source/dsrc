@@ -144,6 +144,7 @@ armor_tiefighter_basic	object/tangible/ship/components/armor/armor_tiefighter_ba
 armor_trilon_custom.iff	object/tangible/ship/components/armor/armor_trilon_custom.iff	object/tangible/ship/components/armor/shared_armor_trilon_custom.iff	armor	arm_0
 armor_trilon_unknown.iff	object/tangible/ship/components/armor/armor_trilon_unknown.iff	object/tangible/ship/components/armor/shared_armor_trilon_unknown.iff	armor	arm_0
 armor_z95_basic	object/tangible/ship/components/armor/armor_z95_basic.iff	object/tangible/ship/components/armor/shared_armor_z95_basic.iff	armor	arm_basic
+arm_heron_qa	object/tangible/ship/components/armor/arm_heron_qa.iff	object/tangible/ship/components/armor/shared_arm_heron_qa.iff	armor	arm_0
 bdg_generic			bridge	bdg_0
 bst_corellian_advanced_thrust_enhancer	object/tangible/ship/components/booster/bst_corellian_advanced_thrust_enhancer.iff	object/tangible/ship/components/booster/shared_bst_corellian_advanced_thrust_enhancer.iff	booster	bst_0
 bst_corellian_elite_thrust_enhancer	object/tangible/ship/components/booster/bst_corellian_elite_thrust_enhancer.iff	object/tangible/ship/components/booster/shared_bst_corellian_elite_thrust_enhancer.iff	booster	bst_0
@@ -295,6 +296,7 @@ collection_reward_booster_01_mk2	object/tangible/ship/crafted/booster/collection
 collection_reward_booster_01_mk3	object/tangible/ship/crafted/booster/collection_reward_booster_01_mk3.iff	object/tangible/ship/crafted/booster/shared_collection_reward_booster_01_mk3.iff	booster	bst_0
 collection_reward_booster_01_mk4	object/tangible/ship/crafted/booster/collection_reward_booster_01_mk4.iff	object/tangible/ship/crafted/booster/shared_collection_reward_booster_01_mk4.iff	booster	bst_0
 collection_reward_booster_01_mk5	object/tangible/ship/crafted/booster/collection_reward_booster_01_mk5.iff	object/tangible/ship/crafted/booster/shared_collection_reward_booster_01_mk5.iff	booster	bst_0
+bst_heron_qa	object/tangible/ship/components/booster/bst_heron_qa.iff	object/tangible/ship/components/booster/shared_bst_heron_qa.iff	booster	bst_0
 collection_reward_capacitor_01_mk1	object/tangible/ship/crafted/capacitor/collection_reward_capacitor_01_mk1.iff	object/tangible/ship/crafted/capacitor/shared_collection_reward_capacitor_01_mk1.iff	capacitor	cap_0
 collection_reward_capacitor_01_mk2	object/tangible/ship/crafted/capacitor/collection_reward_capacitor_01_mk2.iff	object/tangible/ship/crafted/capacitor/shared_collection_reward_capacitor_01_mk2.iff	capacitor	cap_0
 collection_reward_capacitor_01_mk3	object/tangible/ship/crafted/capacitor/collection_reward_capacitor_01_mk3.iff	object/tangible/ship/crafted/capacitor/shared_collection_reward_capacitor_01_mk3.iff	capacitor	cap_0
@@ -448,6 +450,7 @@ cap_z95_basic	object/tangible/ship/components/weapon_capacitor/cap_z95_basic.iff
 cap_z95_deepwell_experimental	object/tangible/ship/components/weapon_capacitor/cap_z95_deepwell_experimental.iff	object/tangible/ship/components/weapon_capacitor/shared_cap_z95_deepwell_experimental.iff	capacitor	cap_0
 cap_z95_deepwell_k3	object/tangible/ship/components/weapon_capacitor/cap_z95_deepwell_k3.iff	object/tangible/ship/components/weapon_capacitor/shared_cap_z95_deepwell_k3.iff	capacitor	cap_0
 cap_z95_deepwell_k5	object/tangible/ship/components/weapon_capacitor/cap_z95_deepwell_k5.iff	object/tangible/ship/components/weapon_capacitor/shared_cap_z95_deepwell_k5.iff	capacitor	cap_0
+cap_heron_qa	object/tangible/ship/components/weapon_capacitor/cap_heron_qa.iff	object/tangible/ship/components/weapon_capacitor/shared_cap_heron_qa.iff	capacitor	cap_0
 countermeasure_chaff_launcher	object/tangible/ship/crafted/weapon/missile/countermeasure_chaff_launcher.iff	object/tangible/ship/crafted/weapon/missile/shared_countermeasure_chaff_launcher.iff	weapon	cms_0
 countermeasure_confuser_launcher	object/tangible/ship/crafted/weapon/missile/countermeasure_confuser_launcher.iff	object/tangible/ship/crafted/weapon/missile/shared_countermeasure_confuser_launcher.iff	weapon	cms_0
 countermeasure_decoy_launcher	object/tangible/ship/crafted/weapon/missile/countermeasure_decoy_launcher.iff	object/tangible/ship/crafted/weapon/missile/shared_countermeasure_decoy_launcher.iff	weapon	cms_0
@@ -577,6 +580,7 @@ ddi_subpro_improved_jrd33	object/tangible/ship/components/droid_interface/ddi_su
 ddi_subpro_jrd33	object/tangible/ship/components/droid_interface/ddi_subpro_jrd33.iff	object/tangible/ship/components/droid_interface/shared_ddi_subpro_jrd33.iff	droid_interface	ddi_0
 ddi_tiefighter_basic	object/tangible/ship/components/droid_interface/ddi_tiefighter_basic.iff	object/tangible/ship/components/droid_interface/shared_ddi_tiefighter_basic.iff	droid_interface	ddi_basic
 ddi_z95_basic	object/tangible/ship/components/droid_interface/ddi_z95_basic.iff	object/tangible/ship/components/droid_interface/shared_ddi_z95_basic.iff	droid_interface	ddi_basic
+ddi_heron_qa	object/tangible/ship/components/droid_interface/ddi_heron_qa.iff	object/tangible/ship/components/droid_interface/shared_ddi_heron_qa.iff	droid_interface	ddi_0
 eng_bezelbok_kessel_runner	object/tangible/ship/components/engine/eng_bezelbok_kessel_runner.iff	object/tangible/ship/components/engine/shared_eng_bezelbok_kessel_runner.iff	engine	eng_0
 eng_corellian_cruiser_grade_mk1	object/tangible/ship/components/engine/eng_corellian_cruiser_grade_mk1.iff	object/tangible/ship/components/engine/shared_eng_corellian_cruiser_grade_mk1.iff	engine	eng_0
 eng_corellian_cruiser_grade_mk2	object/tangible/ship/components/engine/eng_corellian_cruiser_grade_mk2.iff	object/tangible/ship/components/engine/shared_eng_corellian_cruiser_grade_mk2.iff	engine	eng_0
@@ -720,6 +724,7 @@ collection_reward_engine_01_mk2	object/tangible/ship/crafted/engine/collection_r
 collection_reward_engine_01_mk3	object/tangible/ship/crafted/engine/collection_reward_engine_01_mk3.iff	object/tangible/ship/crafted/engine/shared_collection_reward_engine_01_mk3.iff	engine	eng_0
 collection_reward_engine_01_mk4	object/tangible/ship/crafted/engine/collection_reward_engine_01_mk4.iff	object/tangible/ship/crafted/engine/shared_collection_reward_engine_01_mk4.iff	engine	eng_0
 collection_reward_engine_01_mk5	object/tangible/ship/crafted/engine/collection_reward_engine_01_mk5.iff	object/tangible/ship/crafted/engine/shared_collection_reward_engine_01_mk5.iff	engine	eng_0
+eng_heron_qa	object/tangible/ship/components/engine/eng_heron_qa.iff	object/tangible/ship/components/engine/shared_eng_heron_qa.iff	engine	eng_0
 hgr_generic			hangar	hgr_0
 hvy_durasteel_armor	object/tangible/ship/crafted/armor/heavy_durasteel_plating.iff	object/tangible/ship/crafted/armor/shared_heavy_durasteel_plating.iff	armor	arm_0
 lgt_durasteel_armor	object/tangible/ship/crafted/armor/light_durasteel_plating.iff	object/tangible/ship/crafted/armor/shared_light_durasteel_plating.iff	armor	arm_0
@@ -854,6 +859,7 @@ rct_unknown_multicore	object/tangible/ship/components/reactor/rct_unknown_multic
 rct_watto_sunray_2	object/tangible/ship/components/reactor/rct_watto_sunray_2.iff	object/tangible/ship/components/reactor/shared_rct_watto_sunray_2.iff	reactor	rct_0
 rct_watto_sunray_3	object/tangible/ship/components/reactor/rct_watto_sunray_3.iff	object/tangible/ship/components/reactor/shared_rct_watto_sunray_3.iff	reactor	rct_0
 rct_z95_basic	object/tangible/ship/components/reactor/rct_z95_basic.iff	object/tangible/ship/components/reactor/rct_z95_basic.iff	reactor	rct_basic
+rct_heron_qa	object/tangible/ship/components/reactor/rct_heron_qa.iff	object/tangible/ship/components/reactor/shared_rct_heron_qa.iff	reactor	rct_0
 shd_adv_deflector_shields	object/tangible/ship/crafted/shields/adv_deflector_shields.iff	object/tangible/ship/crafted/shields/shared_adv_deflector_shields.iff	shield	shd_0
 shd_armek_plasma_shell_elite	object/tangible/ship/components/shield_generator/shd_armek_plasma_shell_elite.iff	object/tangible/ship/components/shield_generator/shared_shd_armek_plasma_shell_elite.iff	shield	shd_0
 shd_armek_plasma_shell_elite_2	object/tangible/ship/components/shield_generator/shd_armek_plasma_shell_elite_2.iff	object/tangible/ship/components/shield_generator/shared_shd_armek_plasma_shell_elite_2.iff	shield	shd_0
@@ -990,6 +996,7 @@ shd_unknown_holosteel_x1	object/tangible/ship/components/shield_generator/shd_un
 shd_unknown_holosteel_x2	object/tangible/ship/components/shield_generator/shd_unknown_holosteel_x2.iff	object/tangible/ship/components/shield_generator/shared_shd_unknown_holosteel_x2.iff	shield	shd_0
 shd_unknown_proton_projector	object/tangible/ship/components/shield_generator/shd_unknown_proton_projector.iff	object/tangible/ship/components/shield_generator/shared_shd_unknown_proton_projector.iff	shield	shd_0
 shd_z95_basic	object/tangible/ship/components/shield_generator/shd_z95_basic.iff	object/tangible/ship/components/shield_generator/shared_shd_z95_basic.iff	shield	shd_basic
+shd_heron_qa	object/tangible/ship/components/shield_generator/shd_heron_qa.iff	object/tangible/ship/components/shield_generator/shared_shd_heron_qa.iff	shield	shd_0
 tst_generic			targeting_station	tst_0
 weapon_test	object/tangible/ship/components/weapon/weapon_test.iff	object/tangible/ship/components/weapon/shared_weapon_test.iff	weapon	wpn_0
 wpn_advanced_blaster	object/tangible/ship/crafted/weapon/wpn_advanced_blaster.iff	object/tangible/ship/crafted/weapon/shared_wpn_advanced_blaster.iff	weapon	wpn_0
@@ -1192,6 +1199,7 @@ wpn_vulcan_cannon	object/tangible/ship/components/weapon/wpn_vulcan_cannon.iff	o
 wpn_xwing_missile_s01	object/tangible/ship/components/weapon/xwing_missile_s01_test.iff	object/tangible/ship/components/weapon/shared_xwing_weapon_s01_test.iff	weapon	wpn_1
 wpn_z95_basic	object/tangible/ship/components/weapon/wpn_z95_basic.iff	object/tangible/ship/components/weapon/shared_wpn_z95_basic.iff	weapon	wpn_basic
 wpn_z95_blaster	object/tangible/ship/components/weapon/wpn_z95_blaster.iff	object/tangible/ship/components/weapon/shared_wpn_z95_blaster.iff	weapon	wpn_0
+wpn_heron_qa	object/tangible/ship/components/weapon/wpn_heron_qa.iff	object/tangible/ship/components/weapon/shared_wpn_heron_qa.iff	weapon	wpn_0
 xwing_engine_s01_test	object/tangible/ship/components/engine/xwing_engine_s01_test.iff	object/tangible/ship/components/engine/shared_xwing_engine_s01_test.iff	engine	eng_0
 xwing_engine_s02_test	object/tangible/ship/components/engine/xwing_engine_s02_test.iff	object/tangible/ship/components/engine/shared_xwing_engine_s02_test.iff	engine	eng_0
 mod_xwing_modification_s01	object/tangible/ship/crafted/modification/xwing_modification_s01.iff	object/tangible/ship/crafted/modification/shared_xwing_modification_s01.iff	modification	mod_xwing

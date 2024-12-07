@@ -40,7 +40,6 @@ public class terminal_character_builder extends script.base_script
 
         public String getSceneLabel() {
             switch(this.scene) {
-                case "tatooine":
                 case "dantooine":
                 case "naboo":
                 case "corellia":
@@ -742,14 +741,116 @@ public class terminal_character_builder extends script.base_script
         "Ship Chassis",
         "Gunship Collection Reward Schematics",
         "Component Schematics",
-        "Pilot Skills"
+        "Pilot Skills",
+        "Astromech Droids",
+        "Flight Computers",
+        "Chip Sets",
+        "Missile and Bomb Launchers",
+        "Countermeasure Launchers",
+        "Munitions",
+        "Countermeasures",
+        "QA God Components",
     };
+
     public static final String[] PILOT_SKILLS = {
         "Master Imperial Pilot",
         "Master Rebel Pilot",
         "Neutral Pilot",
         "Revoke Pilot"
     };
+
+    public static final String[] ASTROMECH_DROIDS = {
+        "Level One Astromech",
+        "Level Two Astromech",
+        "Level Three Astromech",
+        "Level Four Astromech",
+        "Level Five Astromech",
+        "Level Six Astromech"
+    };
+
+    public static final String[] FLIGHT_COMPUTERS = {
+        "Level One Flight Computer",
+        "Level Two Flight Computer",
+        "Level Three Flight Computer",
+        "Level Four Flight Computer",
+        "Level Five Flight Computer",
+        "Level Six Flight Computer"
+    };
+
+    public static final String[] DROID_COMMAND_CHIP_SETS = {
+        "Level One Droid Program Set",
+        "Level Two Droid Program Set",
+        "Level Three Droid Program Set",
+        "Level Four Droid Program Set",
+        "Normalization Droid Commands",
+        "Special Program Set"
+    };
+
+    public static final String[] SPACE_MISSILE_LAUNCHERS = {
+        "Mark I Concussion Missile Launcher",
+        "Mark I Image Recognition Missile Launcher",
+        "Mark I Proton Missile Launcher",
+        "Mark I Seismic Missile Launcher",
+        "Mark I Space Bomb Launcher",
+        "Mark II Concussion Missile Launcher",
+        "Mark II Image Recognition Missile Launcher",
+        "Mark II Proton Missile Launcher",
+        "Mark II Seismic Missile Launcher",
+        "Mark II Space Bomb Launcher",
+        "Mark III Concussion Missile Launcher",
+        "Mark III Proton Missile Launcher",        
+        "Mark III Seismic Missile Launcher",
+        "Mark IV Proton Missile Launcher"
+    };
+
+    public static final String[] SPACE_LAUNCHER_MUNITIONS = {
+        "Mark I Concussion Missile Pack",
+        "Mark I Image Recognition Missile Pack",
+        "Mark I Proton Missile Pack",
+        "Mark I Seismic Missile Pack",
+        "Mark I Space Bomb Pack",
+        "Mark II Concussion Missile Pack",
+        "Mark II Image Recognition Missile Pack",
+        "Mark II Proton Missile Launcher",
+        "Mark II Seismic Missile Pack",
+        "Mark II Space Bomb Pack",
+        "Mark III Concussion Missile Pack",
+        "Mark III Proton Missile Pack",        
+        "Mark III Seismic Missile Pack",
+        "Mark IV Proton Missile Pack"
+    };
+
+
+    public static final String[] SPACE_COUNTERMEASURE_LAUNCHERS = {
+        "Chaff Launcher",
+        "Decoy Launcher",
+        "EM Emitter Launcher",
+        "IFF Confuser Launcher",
+        "Microchaff Launcher"
+    };
+
+
+    public static final String[] SPACE_LAUNCHER_COUNTERMEASURES = {
+        "Chaff Pack",
+        "Decoy Pack",
+        "EM Emitter Pack",
+        "IFF Confuser Pack",
+        "Microchaff Pack"
+    };
+
+
+    public static final String[] QA_SPACE_COMPONENTS = {
+	"Heron's QA Shield",
+	"Heron's QA Armor",
+	"Heron's QA Engine",
+	"Heron's QA Reactor",
+	"Heron's QA Capacitor",
+	"Heron's QA Weapon",
+	"Heron's Droid Interface",
+	"Heron's QA Booster"
+    };
+
+
     public static final String[] DEED_CRAFTING_OPTIONS = {
         "Deeds",
         "Crafting"
@@ -851,7 +952,7 @@ public class terminal_character_builder extends script.base_script
         " Credits -- Gives 10,000 credits.",
         " Faction -- Sets your faction and faction standing.",
         " Vehicles, Mounts and Beasts -- Allows you to choose Vehicles and Pets",
-        " Ships -- Pilot Section, Allows you to choose ship deeds, and pilot skills.",
+        " Ships -- Pilot Section, Allows you to choose ship deeds, pilot skills, and gear.",
         " Crafting -- Gives you crafting tools.",
         " Structures -- Allows you to access common structures.",
         " Guild Halls -- Allows you to access guild hall deeds.",
@@ -3693,12 +3794,754 @@ public class terminal_character_builder extends script.base_script
             case 4:
             refreshMenu(player, GENERIC_PROMPT, GENERIC_TITLE, PILOT_SKILLS, "handlePilotSkillSelect", false);
             break;
+            case 5:
+            refreshMenu(player, GENERIC_PROMPT, GENERIC_TITLE, ASTROMECH_DROIDS, "handleAstromechDroidSelect", false);
+            break;
+            case 6:
+            refreshMenu(player, GENERIC_PROMPT, GENERIC_TITLE, FLIGHT_COMPUTERS, "handleFlightComputerSelect", false);
+            break;
+            case 7:
+            refreshMenu(player, GENERIC_PROMPT, GENERIC_TITLE, DROID_COMMAND_CHIP_SETS, "handleDroidCommandChipSelect", false);
+            break;
+            case 8:
+            refreshMenu(player, GENERIC_PROMPT, GENERIC_TITLE, SPACE_MISSILE_LAUNCHERS, "handleSpaceMissileLaunchersSelect", false);
+            break;
+            case 9:
+            refreshMenu(player, GENERIC_PROMPT, GENERIC_TITLE, SPACE_COUNTERMEASURE_LAUNCHERS, "handleSpaceCountermeasureLaunchersSelect", false);
+            break;
+            case 10:
+            refreshMenu(player, GENERIC_PROMPT, GENERIC_TITLE, SPACE_LAUNCHER_MUNITIONS, "handleSpaceMunitionsSelect", false);
+            break;
+            case 11:
+            refreshMenu(player, GENERIC_PROMPT, GENERIC_TITLE, SPACE_LAUNCHER_COUNTERMEASURES, "handleSpaceCountermeasuresSelect", false);
+            break;
+            case 12:
+            refreshMenu(player, GENERIC_PROMPT, GENERIC_TITLE, QA_SPACE_COMPONENTS, "handleSpaceQAComponentOptions", false);
+            break;
             default:
             cleanScriptVars(player);
             return SCRIPT_CONTINUE;
         }
         return SCRIPT_CONTINUE;
     }
+
+
+    public void handleAstromechDroidSelect(obj_id player) throws InterruptedException
+    {
+        refreshMenu(player, "Select the desired deed option", "Test Center Terminal", MAIN_SHIP_OPTIONS, "handleShipMenuSelect", false);
+    }
+
+    public int handleAstromechDroidSelect(obj_id self, dictionary params) throws InterruptedException
+    {
+
+        if ((params == null) || (params.isEmpty()))
+        {
+            return SCRIPT_CONTINUE;
+        }
+        obj_id player = sui.getPlayerId(params);
+
+        int btn = sui.getIntButtonPressed(params);
+        int idx = sui.getListboxSelectedRow(params);
+        if (btn == sui.BP_REVERT)
+        {
+            handleShipMenuSelect(player);
+            return SCRIPT_CONTINUE;
+        }
+        if (btn == sui.BP_CANCEL)
+        {
+            cleanScriptVars(player);
+            closeOldWindow(player);
+            return SCRIPT_CONTINUE;
+        }
+
+
+        if (idx == -1 || idx > ASTROMECH_DROIDS.length)
+        {
+            cleanScriptVars(player);
+            return SCRIPT_CONTINUE;
+        }
+
+        obj_id pInv = utils.getInventoryContainer(player);
+        obj_id droid = null;
+
+        switch(idx)
+        {
+          case 0:
+                droid = makeCraftedItem("object/draft_schematic/droid/droid_r2_advanced.iff", 999.0f, pInv);
+                setObjVar(droid, "dataModuleRating", 2);
+                break;
+
+            case 1: 
+                droid = makeCraftedItem("object/draft_schematic/droid/droid_r2_advanced.iff", 999.0f, pInv);
+                setObjVar(droid, "dataModuleRating", 4);
+                break;
+
+
+            case 2:
+                droid = makeCraftedItem("object/draft_schematic/droid/droid_r2_advanced.iff", 999.0f, pInv);
+                setObjVar(droid, "dataModuleRating", 6);
+                break;
+
+            case 3:
+                droid = makeCraftedItem("object/draft_schematic/droid/droid_r2_advanced.iff", 999.0f, pInv);
+                setObjVar(droid, "dataModuleRating", 8);
+                break;
+
+            case 4:
+                droid = makeCraftedItem("object/draft_schematic/droid/droid_r2_advanced.iff", 999.0f, pInv);
+                setObjVar(droid, "dataModuleRating", 10);
+                break;
+
+            case 5:
+                droid = makeCraftedItem("object/draft_schematic/droid/droid_r2_advanced.iff", 999.0f, pInv);
+                setObjVar(droid, "dataModuleRating", 12);
+                break;        
+        }
+
+        return SCRIPT_CONTINUE;
+    }
+
+
+    public void handleFlightComputerSelect(obj_id player) throws InterruptedException
+    {
+        refreshMenu(player, "Select the desired deed option", "Test Center Terminal", MAIN_SHIP_OPTIONS, "handleShipMenuSelect", false);
+    }
+
+    public int handleFlightComputerSelect(obj_id self, dictionary params) throws InterruptedException
+    {
+
+        if ((params == null) || (params.isEmpty()))
+        {
+            return SCRIPT_CONTINUE;
+        }
+        obj_id player = sui.getPlayerId(params);
+
+        int btn = sui.getIntButtonPressed(params);
+        int idx = sui.getListboxSelectedRow(params);
+        if (btn == sui.BP_REVERT)
+        {
+            handleShipMenuSelect(player);
+            return SCRIPT_CONTINUE;
+        }
+        if (btn == sui.BP_CANCEL)
+        {
+            cleanScriptVars(player);
+            closeOldWindow(player);
+            return SCRIPT_CONTINUE;
+        }
+
+
+        if (idx == -1 || idx > FLIGHT_COMPUTERS.length)
+        {
+            cleanScriptVars(player);
+            return SCRIPT_CONTINUE;
+        }
+
+        obj_id pInv = utils.getInventoryContainer(player);
+        obj_id droid = null;
+
+        switch(idx)
+        {
+            case 0:
+                makeCraftedItem("object/draft_schematic/droid/navicomputer_1.iff", 999.0f, pInv);
+                break;
+
+            case 1:
+                makeCraftedItem("object/draft_schematic/droid/navicomputer_2.iff", 999.0f, pInv);
+                break;
+
+            case 2:
+                makeCraftedItem("object/draft_schematic/droid/navicomputer_3.iff", 999.0f, pInv);
+                break;
+
+            case 3:
+                makeCraftedItem("object/draft_schematic/droid/navicomputer_4.iff", 999.0f, pInv);
+                break;
+
+            case 4:
+                makeCraftedItem("object/draft_schematic/droid/navicomputer_5.iff", 999.0f, pInv);
+                break;
+
+            case 5:
+                makeCraftedItem("object/draft_schematic/droid/navicomputer_6.iff", 999.0f, pInv);
+                break;
+        }
+
+        return SCRIPT_CONTINUE;
+    }
+
+    public void handleDroidCommandChipSelect(obj_id player) throws InterruptedException
+    {
+        refreshMenu(player, "Select the desired deed option", "Test Center Terminal", MAIN_SHIP_OPTIONS, "handleShipMenuSelect", false);
+    }
+
+    public int handleDroidCommandChipSelect(obj_id self, dictionary params) throws InterruptedException
+    {
+
+        if ((params == null) || (params.isEmpty()))
+        {
+            return SCRIPT_CONTINUE;
+        }
+        obj_id player = sui.getPlayerId(params);
+
+        int btn = sui.getIntButtonPressed(params);
+        int idx = sui.getListboxSelectedRow(params);
+        if (btn == sui.BP_REVERT)
+        {
+            handleShipMenuSelect(player);
+            return SCRIPT_CONTINUE;
+        }
+        if (btn == sui.BP_CANCEL)
+        {
+            cleanScriptVars(player);
+            closeOldWindow(player);
+            return SCRIPT_CONTINUE;
+        }
+
+
+        if (idx == -1 || idx > DROID_COMMAND_CHIP_SETS.length)
+        {
+            cleanScriptVars(player);
+            return SCRIPT_CONTINUE;
+        }
+
+        obj_id pInv = utils.getInventoryContainer(player);
+
+        switch(idx)
+        {
+            case 0:
+                character_terminal_tools.CreateProgrammedCommandChipInContainer(pInv, "droidcommand_breaklockone", 5);
+                character_terminal_tools.CreateProgrammedCommandChipInContainer(pInv, "droidcommand_engineefficiencyone", 5);
+                character_terminal_tools.CreateProgrammedCommandChipInContainer(pInv, "droidcommand_engineoverloadone", 5);
+                character_terminal_tools.CreateProgrammedCommandChipInContainer(pInv, "droidcommand_reactoroverloadone", 5);
+                character_terminal_tools.CreateProgrammedCommandChipInContainer(pInv, "droidcommand_shieldadjustfrontone", 5);
+                character_terminal_tools.CreateProgrammedCommandChipInContainer(pInv, "droidcommand_shieldbacktofronttwenty", 5);
+                character_terminal_tools.CreateProgrammedCommandChipInContainer(pInv, "droidcommand_shieldfronttobacktwenty", 5);
+                character_terminal_tools.CreateProgrammedCommandChipInContainer(pInv, "droidcommand_weaponeffeciencyone", 5);
+                character_terminal_tools.CreateProgrammedCommandChipInContainer(pInv, "droidcommand_weaponoverloadone", 5);
+                character_terminal_tools.CreateProgrammedCommandChipInContainer(pInv, "droidcommand_weapcaptoshieldone", 5);
+                character_terminal_tools.CreateProgrammedCommandChipInContainer(pInv, "droidcommand_weapcappowerupone", 5);
+                break;
+
+            case 1:
+                character_terminal_tools.CreateProgrammedCommandChipInContainer(pInv, "droidcommand_breaklocktwo", 10);
+                character_terminal_tools.CreateProgrammedCommandChipInContainer(pInv, "droidcommand_engineefficiencytwo", 10);
+                character_terminal_tools.CreateProgrammedCommandChipInContainer(pInv, "droidcommand_engineoverloadtwo", 10);
+                character_terminal_tools.CreateProgrammedCommandChipInContainer(pInv, "droidcommand_reactoroverloadtwo", 10);
+                character_terminal_tools.CreateProgrammedCommandChipInContainer(pInv, "droidcommand_shieldadjustfronttwo", 10);
+                character_terminal_tools.CreateProgrammedCommandChipInContainer(pInv, "droidcommand_shieldadjustreartwo", 10);
+                character_terminal_tools.CreateProgrammedCommandChipInContainer(pInv, "droidcommand_shieldbacktofrontfifty", 10);
+                character_terminal_tools.CreateProgrammedCommandChipInContainer(pInv, "droidcommand_shieldfronttobackfifty", 10);
+                character_terminal_tools.CreateProgrammedCommandChipInContainer(pInv, "droidcommand_weaponeffeciencytwo", 10);
+                character_terminal_tools.CreateProgrammedCommandChipInContainer(pInv, "droidcommand_weaponoverloadtwo", 10);
+                character_terminal_tools.CreateProgrammedCommandChipInContainer(pInv, "droidcommand_weapcaptoshieldtwo", 10);
+                character_terminal_tools.CreateProgrammedCommandChipInContainer(pInv, "droidcommand_weapcappoweruptwo", 10);
+                break;
+
+            case 2:
+                character_terminal_tools.CreateProgrammedCommandChipInContainer(pInv, "droidcommand_engineoverloadthree", 19);
+                character_terminal_tools.CreateProgrammedCommandChipInContainer(pInv, "droidcommand_reactoroverloadthree", 19);
+                character_terminal_tools.CreateProgrammedCommandChipInContainer(pInv, "droidcommand_weaponoverloadthree", 19);
+                character_terminal_tools.CreateProgrammedCommandChipInContainer(pInv, "droidcommand_weapcappowerupthree", 19);
+                character_terminal_tools.CreateProgrammedCommandChipInContainer(pInv, "droidcommand_breaklockthree", 20);
+                character_terminal_tools.CreateProgrammedCommandChipInContainer(pInv, "droidcommand_engineefficiencythree", 20);
+                character_terminal_tools.CreateProgrammedCommandChipInContainer(pInv, "droidcommand_shieldadjustfrontthree", 20);
+                character_terminal_tools.CreateProgrammedCommandChipInContainer(pInv, "droidcommand_shieldadjustrearthree", 20);
+                character_terminal_tools.CreateProgrammedCommandChipInContainer(pInv, "droidcommand_shieldbacktofronteighty", 20);
+                character_terminal_tools.CreateProgrammedCommandChipInContainer(pInv, "droidcommand_shieldfronttobackeighty", 20);
+                character_terminal_tools.CreateProgrammedCommandChipInContainer(pInv, "droidcommand_weaponeffeciencythree", 20);
+                character_terminal_tools.CreateProgrammedCommandChipInContainer(pInv, "droidcommand_weapcaptoshieldthree", 20);
+                break;
+
+            case 3:
+                character_terminal_tools.CreateProgrammedCommandChipInContainer(pInv, "droidcommand_engineoverloadfour", 24);
+                character_terminal_tools.CreateProgrammedCommandChipInContainer(pInv, "droidcommand_reactoroverloadfour", 24);
+                character_terminal_tools.CreateProgrammedCommandChipInContainer(pInv, "droidcommand_weaponoverloadfour", 24);
+                character_terminal_tools.CreateProgrammedCommandChipInContainer(pInv, "droidcommand_weapcappowerupfour", 24);
+                character_terminal_tools.CreateProgrammedCommandChipInContainer(pInv, "droidcommand_breaklockfour", 25);
+                character_terminal_tools.CreateProgrammedCommandChipInContainer(pInv, "droidcommand_engineefficiencyfour", 25);
+                character_terminal_tools.CreateProgrammedCommandChipInContainer(pInv, "droidcommand_shieldadjustfrontfour", 25);
+                character_terminal_tools.CreateProgrammedCommandChipInContainer(pInv, "droidcommand_shieldadjustrearfour", 25);
+                character_terminal_tools.CreateProgrammedCommandChipInContainer(pInv, "droidcommand_shieldbacktofronthundred", 25);
+                character_terminal_tools.CreateProgrammedCommandChipInContainer(pInv, "droidcommand_shieldfronttobackhundred", 25);
+                character_terminal_tools.CreateProgrammedCommandChipInContainer(pInv, "droidcommand_weaponeffeciencyfour", 25);
+                character_terminal_tools.CreateProgrammedCommandChipInContainer(pInv, "droidcommand_weapcaptoshieldfour", 25);
+                character_terminal_tools.CreateProgrammedCommandChipInContainer(pInv, "droidcommand_shieldemergencyfront", 35);
+                character_terminal_tools.CreateProgrammedCommandChipInContainer(pInv, "droidcommand_shieldemergencyrear", 35);
+                break;
+
+            case 4:
+                character_terminal_tools.CreateProgrammedCommandChipInContainer(pInv, "droidcommand_enginenormalize", 1);
+                character_terminal_tools.CreateProgrammedCommandChipInContainer(pInv, "droidcommand_reactornormalize", 1);
+                character_terminal_tools.CreateProgrammedCommandChipInContainer(pInv, "droidcommand_shieldnormalize", 1);
+                character_terminal_tools.CreateProgrammedCommandChipInContainer(pInv, "droidcommand_weaponnormalize", 1);
+                character_terminal_tools.CreateProgrammedCommandChipInContainer(pInv, "droidcommand_weapcapequalize", 1);
+                break;
+
+            case 5:
+                character_terminal_tools.CreateProgrammedCommandChipInContainer(pInv, "droidcommand_zonetokessel", 1);
+                character_terminal_tools.CreateProgrammedCommandChipInContainer(pInv, "droidcommand_zonetoimperialdeepspace", 1);
+                character_terminal_tools.CreateProgrammedCommandChipInContainer(pInv, "droidcommand_zonetorebeldeepspace", 1);
+                break;
+        }
+
+        return SCRIPT_CONTINUE;
+    }
+
+    public void handleSpaceMissileLaunchersSelect(obj_id player) throws InterruptedException
+    {
+        refreshMenu(player, "Select the desired deed option", "Test Center Terminal", MAIN_SHIP_OPTIONS, "handleShipMenuSelect", false);
+    }
+
+    public int handleSpaceMissileLaunchersSelect(obj_id self, dictionary params) throws InterruptedException
+    {
+
+        if ((params == null) || (params.isEmpty()))
+        {
+            return SCRIPT_CONTINUE;
+        }
+        obj_id player = sui.getPlayerId(params);
+
+        int btn = sui.getIntButtonPressed(params);
+        int idx = sui.getListboxSelectedRow(params);
+        if (btn == sui.BP_REVERT)
+        {
+            handleShipMenuSelect(player);
+            return SCRIPT_CONTINUE;
+        }
+        if (btn == sui.BP_CANCEL)
+        {
+            cleanScriptVars(player);
+            closeOldWindow(player);
+            return SCRIPT_CONTINUE;
+        }
+
+
+        if (idx == -1 || idx > SPACE_MISSILE_LAUNCHERS.length)
+        {
+            cleanScriptVars(player);
+            return SCRIPT_CONTINUE;
+        }
+
+        obj_id pInv = utils.getInventoryContainer(player);
+
+
+        switch(idx)
+        {
+            case 0:
+                makeCraftedItem("object/draft_schematic/space/weapon/missile/wpn_launcher_concussion_mk1.iff", 999.0f, pInv);
+                break;
+
+            case 1:
+                makeCraftedItem("object/draft_schematic/space/weapon/missile/wpn_launcher_imagerec_mk1.iff", 999.0f, pInv);
+                break;
+
+            case 2:
+                makeCraftedItem("object/draft_schematic/space/weapon/missile/wpn_launcher_proton_mk1.iff", 999.0f, pInv);
+                break;
+
+            case 3:
+                makeCraftedItem("object/draft_schematic/space/weapon/missile/wpn_launcher_seismic_mk1.iff", 999.0f, pInv);
+                break;
+
+            case 4:
+                makeCraftedItem("object/draft_schematic/space/weapon/missile/wpn_launcher_spacebomb_mk1.iff", 999.0f, pInv);
+                break;
+
+            case 5:
+                makeCraftedItem("object/draft_schematic/space/weapon/missile/wpn_launcher_concussion_mk2.iff", 999.0f, pInv);
+                break;
+
+            case 6:
+                makeCraftedItem("object/draft_schematic/space/weapon/missile/wpn_launcher_imagerec_mk2.iff", 999.0f, pInv);
+                break;
+
+            case 7:
+                makeCraftedItem("object/draft_schematic/space/weapon/missile/wpn_launcher_proton_mk2.iff", 999.0f, pInv);
+                break;
+
+            case 8:
+                makeCraftedItem("object/draft_schematic/space/weapon/missile/wpn_launcher_seismic_mk2.iff", 999.0f, pInv);
+                break;
+
+            case 9:
+                makeCraftedItem("object/draft_schematic/space/weapon/missile/wpn_launcher_spacebomb_mk2.iff", 999.0f, pInv);
+                break;
+
+            case 10:
+                makeCraftedItem("object/draft_schematic/space/weapon/missile/wpn_launcher_concussion_mk3.iff", 999.0f, pInv);
+                break;
+
+            case 11:
+                makeCraftedItem("object/draft_schematic/space/weapon/missile/wpn_launcher_proton_mk3.iff", 999.0f, pInv);
+                break;
+
+            case 12:
+                makeCraftedItem("object/draft_schematic/space/weapon/missile/wpn_launcher_seismic_mk3.iff", 999.0f, pInv);
+                break;
+
+            case 13:
+                makeCraftedItem("object/draft_schematic/space/weapon/missile/wpn_launcher_proton_mk4.iff", 999.0f, pInv);
+                break;
+
+        }
+
+        return SCRIPT_CONTINUE;
+    }
+
+
+    public void handleSpaceCountermeasureLaunchersSelect(obj_id player) throws InterruptedException
+    {
+        refreshMenu(player, "Select the desired deed option", "Test Center Terminal", MAIN_SHIP_OPTIONS, "handleShipMenuSelect", false);
+    }
+
+    public int handleSpaceCountermeasureLaunchersSelect(obj_id self, dictionary params) throws InterruptedException
+    {
+
+        if ((params == null) || (params.isEmpty()))
+        {
+            return SCRIPT_CONTINUE;
+        }
+        obj_id player = sui.getPlayerId(params);
+
+        int btn = sui.getIntButtonPressed(params);
+        int idx = sui.getListboxSelectedRow(params);
+        if (btn == sui.BP_REVERT)
+        {
+            handleShipMenuSelect(player);
+            return SCRIPT_CONTINUE;
+        }
+        if (btn == sui.BP_CANCEL)
+        {
+            cleanScriptVars(player);
+            closeOldWindow(player);
+            return SCRIPT_CONTINUE;
+        }
+
+
+        if (idx == -1 || idx > SPACE_COUNTERMEASURE_LAUNCHERS.length)
+        {
+            cleanScriptVars(player);
+            return SCRIPT_CONTINUE;
+        }
+
+        obj_id pInv = utils.getInventoryContainer(player);
+
+
+        switch(idx)
+        {
+            case 0:
+                makeCraftedItem("object/draft_schematic/space/weapon/missile/countermeasure_chaff_launcher.iff", 999.0f, pInv);
+                break;
+
+            case 1:
+                makeCraftedItem("object/draft_schematic/space/weapon/missile/countermeasure_decoy_launcher.iff", 999.0f, pInv);
+                break;
+
+            case 2:
+                makeCraftedItem("object/draft_schematic/space/weapon/missile/countermeasure_em_launcher.iff", 999.0f, pInv);
+                break;
+
+            case 3:
+                makeCraftedItem("object/draft_schematic/space/weapon/missile/countermeasure_confuser_launcher.iff", 999.0f, pInv);
+                break;
+
+            case 4:
+                makeCraftedItem("object/draft_schematic/space/weapon/missile/countermeasure_microchaff_launcher.iff", 999.0f, pInv);
+                break;
+        }
+
+        return SCRIPT_CONTINUE;
+    }
+
+
+    public void handleSpaceMunitionsSelect(obj_id player) throws InterruptedException
+    {
+        refreshMenu(player, "Select the desired deed option", "Test Center Terminal", MAIN_SHIP_OPTIONS, "handleShipMenuSelect", false);
+    }
+
+    public int handleSpaceMunitionsSelect(obj_id self, dictionary params) throws InterruptedException
+    {
+
+        if ((params == null) || (params.isEmpty()))
+        {
+            return SCRIPT_CONTINUE;
+        }
+        obj_id player = sui.getPlayerId(params);
+
+        int btn = sui.getIntButtonPressed(params);
+        int idx = sui.getListboxSelectedRow(params);
+        if (btn == sui.BP_REVERT)
+        {
+            handleShipMenuSelect(player);
+            return SCRIPT_CONTINUE;
+        }
+        if (btn == sui.BP_CANCEL)
+        {
+            cleanScriptVars(player);
+            closeOldWindow(player);
+            return SCRIPT_CONTINUE;
+        }
+
+
+        if (idx == -1 || idx > SPACE_LAUNCHER_MUNITIONS.length)
+        {
+            cleanScriptVars(player);
+            return SCRIPT_CONTINUE;
+        }
+
+        obj_id pInv = utils.getInventoryContainer(player);
+
+
+        switch(idx)
+        {
+            case 0:
+                makeCraftedItem("object/draft_schematic/space/weapon/missile/wpn_concussion_missile_mk1.iff", 999.0f, pInv);
+                break;
+
+            case 1:
+                makeCraftedItem("object/draft_schematic/space/weapon/missile/wpn_imagerec_missile_mk1.iff", 999.0f, pInv);
+                break;
+
+            case 2:
+                makeCraftedItem("object/draft_schematic/space/weapon/missile/wpn_proton_missile_mk1.iff", 999.0f, pInv);
+                break;
+
+            case 3:
+                makeCraftedItem("object/draft_schematic/space/weapon/missile/wpn_seismic_missile_mk1.iff", 999.0f, pInv);
+                break;
+
+            case 4:
+                makeCraftedItem("object/draft_schematic/space/weapon/missile/wpn_spacebomb_missile_mk1.iff", 999.0f, pInv);
+                break;
+
+            case 5:
+                makeCraftedItem("object/draft_schematic/space/weapon/missile/wpn_concussion_missile_mk2.iff", 999.0f, pInv);
+                break;
+
+            case 6:
+                makeCraftedItem("object/draft_schematic/space/weapon/missile/wpn_imagerec_missile_mk2.iff", 999.0f, pInv);
+                break;
+
+            case 7:
+                makeCraftedItem("object/draft_schematic/space/weapon/missile/wpn_proton_missile_mk2.iff", 999.0f, pInv);
+                break;
+
+            case 8:
+                makeCraftedItem("object/draft_schematic/space/weapon/missile/wpn_seismic_missile_mk2.iff", 999.0f, pInv);
+                break;
+
+            case 9:
+                makeCraftedItem("object/draft_schematic/space/weapon/missile/wpn_spacebomb_missile_mk2.iff", 999.0f, pInv);
+                break;
+
+            case 10:
+                makeCraftedItem("object/draft_schematic/space/weapon/missile/wpn_concussion_missile_mk3.iff", 999.0f, pInv);
+                break;
+
+            case 11:
+                makeCraftedItem("object/draft_schematic/space/weapon/missile/wpn_proton_missile_mk3.iff", 999.0f, pInv);
+                break;
+
+            case 12:
+                makeCraftedItem("object/draft_schematic/space/weapon/missile/wpn_seismic_missile_mk3.iff", 999.0f, pInv);
+                break;
+
+            case 13:
+                makeCraftedItem("object/draft_schematic/space/weapon/missile/wpn_proton_missile_mk4.iff", 999.0f, pInv);
+                break;
+
+        }
+
+        return SCRIPT_CONTINUE;
+    }
+
+
+    public void handleSpaceCountermeasuresSelect(obj_id player) throws InterruptedException
+    {
+        refreshMenu(player, "Select the desired deed option", "Test Center Terminal", MAIN_SHIP_OPTIONS, "handleShipMenuSelect", false);
+    }
+
+    public int handleSpaceCountermeasuresSelect(obj_id self, dictionary params) throws InterruptedException
+    {
+
+        if ((params == null) || (params.isEmpty()))
+        {
+            return SCRIPT_CONTINUE;
+        }
+        obj_id player = sui.getPlayerId(params);
+
+        int btn = sui.getIntButtonPressed(params);
+        int idx = sui.getListboxSelectedRow(params);
+        if (btn == sui.BP_REVERT)
+        {
+            handleShipMenuSelect(player);
+            return SCRIPT_CONTINUE;
+        }
+        if (btn == sui.BP_CANCEL)
+        {
+            cleanScriptVars(player);
+            closeOldWindow(player);
+            return SCRIPT_CONTINUE;
+        }
+
+
+        if (idx == -1 || idx > SPACE_LAUNCHER_COUNTERMEASURES.length)
+        {
+            cleanScriptVars(player);
+            return SCRIPT_CONTINUE;
+        }
+
+        obj_id pInv = utils.getInventoryContainer(player);
+
+
+        switch(idx)
+        {
+            case 0:
+                makeCraftedItem("object/draft_schematic/space/weapon/missile/countermeasure_chaff_pack.iff", 999.0f, pInv);
+                break;
+
+            case 1:
+                makeCraftedItem("object/draft_schematic/space/weapon/missile/countermeasure_decoy_pack.iff", 999.0f, pInv);
+                break;
+
+            case 2:
+                makeCraftedItem("object/draft_schematic/space/weapon/missile/countermeasure_em_pack.iff", 999.0f, pInv);
+                break;
+
+            case 3:
+                makeCraftedItem("object/draft_schematic/space/weapon/missile/countermeasure_confuser_pack.iff", 999.0f, pInv);
+                break;
+
+            case 4:
+                makeCraftedItem("object/draft_schematic/space/weapon/missile/countermeasure_microchaff_pack.iff", 999.0f, pInv);
+                break;
+        }
+
+        return SCRIPT_CONTINUE;
+    }
+
+    public void handleSpaceQAComponentOptions(obj_id player) throws InterruptedException
+    {
+        refreshMenu(player, "Select the desired component", "Test Center Terminal", QA_SPACE_COMPONENTS, "handleSpaceQAComponentOptions", false);
+    }
+
+    public int handleSpaceQAComponentOptions(obj_id self, dictionary params) throws InterruptedException
+    {
+        if ((params == null) || (params.isEmpty()))
+        {
+            return SCRIPT_CONTINUE;
+        }
+
+        obj_id player = sui.getPlayerId(params);
+        obj_id pInv = utils.getInventoryContainer(player);
+        int btn = sui.getIntButtonPressed(params);
+        int idx = sui.getListboxSelectedRow(params);
+
+        if (btn == sui.BP_REVERT)
+        {
+            handleShipMenuSelect(player);
+            return SCRIPT_CONTINUE;
+        }
+        if (btn == sui.BP_CANCEL)
+        {
+            cleanScriptVars(player);
+            closeOldWindow(player);
+            return SCRIPT_CONTINUE;
+        }
+
+      
+        if (idx == -1 || idx > QA_SPACE_COMPONENTS.length)
+        {
+            cleanScriptVars(player);
+            return SCRIPT_CONTINUE;
+        }
+        if (!isIdValid(player))
+        {
+            sendSystemMessageTestingOnly(player, "The system is unable to complete the transaction.");
+            cleanScriptVars(player);
+            return SCRIPT_OVERRIDE;
+        }
+        if (!isIdValid(pInv))
+        {
+            sendSystemMessageTestingOnly(player, "The system is unable to complete the transaction.");
+            cleanScriptVars(player);
+            return SCRIPT_OVERRIDE;
+        }
+        if (getVolumeFree(pInv) <= 0)
+        {
+            sendSystemMessageTestingOnly(player, "Your Inventory is Full, please make room and try again.");
+            cleanScriptVars(player);
+            return SCRIPT_OVERRIDE;
+        }
+
+	obj_id component = null;
+
+        switch(idx)
+        {
+
+            case 0:
+                component = createObjectOverloaded("object/tangible/ship/components/shield_generator/shd_heron_qa.iff", pInv);
+                space_crafting.setShieldGeneratorCurrentFrontHitpoints(component, space_crafting.getShieldGeneratorMaximumFrontHitpoints(component));
+                space_crafting.setShieldGeneratorCurrentBackHitpoints(component, space_crafting.getShieldGeneratorMaximumBackHitpoints(component));
+                cleanScriptVars(player);
+                break;
+
+            case 1:
+                component = createObjectOverloaded("object/tangible/ship/components/armor/arm_heron_qa.iff", pInv);
+                space_crafting.setComponentCurrentArmorHitpoints(component, space_crafting.getComponentMaximumArmorHitpoints(component));
+                cleanScriptVars(player);
+                break;
+
+            case 2:
+                component = createObjectOverloaded("object/tangible/ship/components/engine/eng_heron_qa.iff", pInv);
+                cleanScriptVars(player);
+                break;
+
+            case 3:
+                component = createObjectOverloaded("object/tangible/ship/components/reactor/rct_heron_qa.iff", pInv);		
+                cleanScriptVars(player);
+                break;
+
+            case 4:
+                component = createObjectOverloaded("object/tangible/ship/components/weapon_capacitor/cap_heron_qa.iff", pInv);                        
+                space_crafting.setWeaponCapacitorCurrentEnergy(component, space_crafting.getWeaponCapacitorMaximumEnergy(component));
+                cleanScriptVars(player);
+                break;
+
+            case 5:
+                component = createObjectOverloaded("object/tangible/ship/components/weapon/wpn_heron_qa.iff", pInv);                        
+                cleanScriptVars(player);
+                break;
+
+            case 6:
+                component = createObjectOverloaded("object/tangible/ship/components/droid_interface/ddi_heron_qa.iff", pInv);
+                cleanScriptVars(player);
+                break;
+
+            case 7:
+                component = createObjectOverloaded("object/tangible/ship/components/booster/bst_heron_qa.iff", pInv);
+                space_crafting.setBoosterCurrentEnergy(component, space_crafting.getBoosterMaximumEnergy(component));
+                cleanScriptVars(player);
+                break;
+
+            default:
+                cleanScriptVars(player);
+
+        }
+
+        if (isValidId(component))
+        {
+            int flags = getIntObjVar(component, "ship_comp.flags");
+            flags |= ship_component_flags.SCF_reverse_engineered;            
+            setComponentObjVar(component, "character.builder", 1);
+        }
+
+        return SCRIPT_CONTINUE;
+        
+    }
+
+
     public void handleCollectionComponentSelect(obj_id player) throws InterruptedException
     {
         refreshMenu(player, GENERIC_PROMPT, GENERIC_TITLE, COLLECTION_COMPONENT_SCHEMS, "handleCollectionComponentSelect", false);

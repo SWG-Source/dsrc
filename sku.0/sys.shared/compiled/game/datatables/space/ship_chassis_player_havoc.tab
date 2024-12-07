@@ -133,6 +133,7 @@ eng_t86_shooting_star	havoc_engine_s01:
 eng_kuat_m24	havoc_engine_s01:			
 eng_kuat_experimental	havoc_engine_s01:			
 eng_reward_experimental	havoc_engine_s01:			
+eng_heron_qa	havoc_engine_s01:			
 wpn_advanced_blaster		havoc_weapon_s01:weapon1	havoc_turret_s02:turretyaw1	havoc_weapon_s02:weapon2
 wpn_advanced_blaster_green		havoc_weapon_s01:weapon1	havoc_turret_s02:turretyaw1	havoc_weapon_s02:weapon2
 wpn_advanced_disruptor		havoc_weapon_s01:weapon1	havoc_turret_s02:turretyaw1	havoc_weapon_s02:weapon2
@@ -301,3 +302,4 @@ wpn_reward_taim_elite		havoc_weapon_s01:weapon1	havoc_turret_s02:turretyaw1	havo
 wpn_nova_ioncannon		havoc_weapon_s01:weapon1	havoc_turret_s02:turretyaw1	havoc_weapon_s02:weapon2
 wpn_orion_disruptor		havoc_weapon_s01:weapon1	havoc_turret_s02:turretyaw1	havoc_weapon_s02:weapon2
 wpn_borstel_experimental		havoc_weapon_s01:weapon1	havoc_turret_s02:turretyaw1	havoc_weapon_s02:weapon2
+wpn_heron_qa		havoc_weapon_s01:weapon1	havoc_turret_s02:turretyaw1	havoc_weapon_s02:weapon2

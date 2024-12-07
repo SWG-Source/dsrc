@@ -148,6 +148,7 @@ bst_surronian_nomad_x8		bwing_booster_s01:booster1
 bst_tiefighter_basic		bwing_booster_s02:booster1				
 bst_xwing_booster_s01		bwing_booster_s01:booster1				
 bst_z95_basic		bwing_booster_s01:booster1				
+bst_heron_qa		bwing_booster_s01:booster1				
 eng_bezelbok_kessel_runner	bwing_engine_s02:engine1					
 eng_corellian_cruiser_grade_mk1	bwing_engine_s01:engine1					
 eng_corellian_cruiser_grade_mk2	bwing_engine_s01:engine1					
@@ -288,6 +289,7 @@ eng_t86_shooting_star	bwing_engine_s01:engine1
 eng_kuat_m24	bwing_engine_s01:engine1					
 eng_kuat_experimental	bwing_engine_s01:engine1					
 eng_reward_experimental	bwing_engine_s01:engine1					
+eng_heron_qa	bwing_engine_s01:engine1					
 wpn_advanced_blaster			bwing_weapon1_s05:weapon1	bwing_weapon2l_s05:weapon2l	bwing_weapon2r_s05:weapon2r1	bwing_weapon3_s05:weapon3
 wpn_advanced_blaster_green			bwing_weapon1_s05:weapon1	bwing_weapon2l_s05:weapon2l	bwing_weapon2r_s05:weapon2r1	bwing_weapon3_s05:weapon3
 wpn_advanced_disruptor			bwing_weapon1_s01:weapon1	bwing_weapon2l_s01:weapon2l	bwing_weapon2r_s01:weapon2r1	bwing_weapon3_s01:weapon3
@@ -457,3 +459,4 @@ wpn_reward_taim_elite			bwing_weapon1_s06:weapon1	bwing_weapon2l_s06:weapon2l	bw
 wpn_nova_ioncannon			bwing_weapon1_s06:weapon1	bwing_weapon2l_s06:weapon2l	bwing_weapon2r_s06:weapon2r1	bwing_weapon3_s06:weapon3
 wpn_orion_disruptor			bwing_weapon1_s06:weapon1	bwing_weapon2l_s06:weapon2l	bwing_weapon2r_s06:weapon2r1	bwing_weapon3_s06:weapon3
 wpn_borstel_experimental			bwing_weapon1_s06:weapon1	bwing_weapon2l_s06:weapon2l	bwing_weapon2r_s06:weapon2r1	bwing_weapon3_s06:weapon3
+wpn_heron_qa			bwing_weapon1_s06:weapon1	bwing_weapon2l_s06:weapon2l	bwing_weapon2r_s06:weapon2r1	bwing_weapon3_s06:weapon3

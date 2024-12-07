@@ -148,6 +148,7 @@ bst_surronian_nomad_x8		y8_booster_s01:booster_on1
 bst_tiefighter_basic		y8_booster_s01:booster_on1					
 bst_xwing_booster_s01		y8_booster_s01:booster_on1					
 bst_z95_basic		y8_booster_s01:booster_on1					
+bst_heron_qa		y8_booster_s01:booster_on1					
 eng_bezelbok_kessel_runner	y8_engine_s01:engine_on1						
 eng_corellian_cruiser_grade_mk1	y8_engine_s01:engine_on1						
 eng_corellian_cruiser_grade_mk2	y8_engine_s01:engine_on1						
@@ -290,6 +291,7 @@ eng_t86_shooting_star	y8_engine_s01:engine_on1
 eng_kuat_m24	y8_engine_s01:engine_on1						
 eng_kuat_experimental	y8_engine_s01:engine_on1						
 eng_reward_experimental	y8_engine_s01:engine_on1						
+eng_heron_qa	y8_engine_s01:engine_on1						
 wpn_advanced_blaster			decimator_turret_base:turretyaw1	decimator_turret_base:turretyaw2	y8_weapon_s01:engine_on1	decimator_turret_base:turretyaw3	decimator_turret_base:turretyaw4
 wpn_advanced_blaster_green			decimator_turret_base:turretyaw1	decimator_turret_base:turretyaw2	y8_weapon_s01:engine_on1	decimator_turret_base:turretyaw3	decimator_turret_base:turretyaw4
 wpn_advanced_disruptor			decimator_turret_base:turretyaw1	decimator_turret_base:turretyaw2	y8_weapon_s01:engine_on1	decimator_turret_base:turretyaw3	decimator_turret_base:turretyaw4
@@ -468,3 +470,4 @@ wpn_reward_taim_elite			decimator_turret_base:turretyaw1	decimator_turret_base:t
 wpn_nova_ioncannon			decimator_turret_base:turretyaw1	decimator_turret_base:turretyaw2	y8_weapon_s01:engine_on1	decimator_turret_base:turretyaw3	decimator_turret_base:turretyaw4
 wpn_orion_disruptor			decimator_turret_base:turretyaw1	decimator_turret_base:turretyaw2	y8_weapon_s01:engine_on1	decimator_turret_base:turretyaw3	decimator_turret_base:turretyaw4
 wpn_borstel_experimental			decimator_turret_base:turretyaw1	decimator_turret_base:turretyaw2	y8_weapon_s01:engine_on1	decimator_turret_base:turretyaw3	decimator_turret_base:turretyaw4
+wpn_heron_qa			decimator_turret_base:turretyaw1	decimator_turret_base:turretyaw2	y8_weapon_s01:engine_on1	decimator_turret_base:turretyaw3	decimator_turret_base:turretyaw4
