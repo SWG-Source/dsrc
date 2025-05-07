@@ -22792,6 +22792,18 @@ public class base_class
     public static native float[] getBuildoutAreaSizeAndCenter( float x, float z, String sceneId, boolean ignoreInternal, boolean allowComposite );
 
     /**
+     * Return the buildout area rectangle coords
+     * (x,z) position.
+     * <p>
+     * returns: float array or null
+     * float[0] -> width
+     * float[1] -> height
+     * float[2] -> centerX
+     * float[3] -> centerZ
+     */
+    public static native float[] getBuildoutAreaRect(float x, float z, String sceneId, boolean allowComposite);
+
+    /**
      * Notify the mount that its wearable-related visuals must be updated.
      *
      * Call this function after the equipment for the mount changes.
