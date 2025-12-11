@@ -183,7 +183,7 @@ public class firework extends script.base_script {
         }
         String title = "@firework:data_title";
         String prompt = "@firework:data_prompt";
-        int pid = sui.listBox(show, player, prompt, sui.OK_ONLY, title, entries, "handleEventDataSUI");
+        int pid = sui.listbox(show, player, prompt, sui.OK_ONLY, title, entries, "handleEventDataSUI");
         if (pid > -1) {
             setSUIScriptVars(show, pid, player);
         }
@@ -205,7 +205,7 @@ public class firework extends script.base_script {
         }
         String title = "@firework:remove_title";
         String prompt = "@firework:remove_prompt";
-        int pid = sui.listBox(show, player, prompt, sui.OK_CANCEL, title, entries, "handleRemoveEventSUI");
+        int pid = sui.listbox(show, player, prompt, sui.OK_CANCEL, title, entries, "handleRemoveEventSUI");
         if (pid > -1) {
             setSUIScriptVars(show, pid, player);
         }
@@ -227,7 +227,7 @@ public class firework extends script.base_script {
         }
         String title = "@firework:reorder_title";
         String prompt = "@firework:reorder_prompt";
-        int pid = sui.listBox(show, player, prompt, sui.MOVEUP_MOVEDOWN_DONE, title, entries, "handleReorderEventsSUI");
+        int pid = sui.listbox(show, player, prompt, sui.MOVEUP_MOVEDOWN_DONE, title, entries, "handleReorderEventsSUI");
         if (pid > -1) {
             setSUIScriptVars(show, pid, player);
         }
@@ -249,7 +249,7 @@ public class firework extends script.base_script {
         }
         String title = "@firework:modify_index_title";
         String prompt = "@firework:modify_index_prompt";
-        int pid = sui.listBox(show, player, prompt, sui.OK_CANCEL, title, entries, "handleModifyEventIndexSUI");
+        int pid = sui.listbox(show, player, prompt, sui.OK_CANCEL, title, entries, "handleModifyEventIndexSUI");
         if (pid > -1) {
             setSUIScriptVars(show, pid, player);
         }
@@ -429,3 +429,4 @@ public class firework extends script.base_script {
         }
     }
 }
+
