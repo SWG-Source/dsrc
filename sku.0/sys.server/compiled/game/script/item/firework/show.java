@@ -109,7 +109,7 @@ public class show extends script.base_script {
                     if (entries != null && fireworks != null && entries.size() == fireworks.size()) {
                         String title = "Select Show Addition";
                         String prompt = "Select the firework to append to the end of the show package.";
-                        int pid = sui.listBox(self, player, prompt, sui.OK_CANCEL, title, entries, "handleAddEventSui");
+                        int pid = sui.listbox(self, player, prompt, sui.OK_CANCEL, title, entries, "handleAddEventSui");
                         if (pid > -1) {
                             utils.setScriptVar(self, "addEvent.pid", pid);
                             utils.setScriptVar(self, "addEvent.player", player);
@@ -257,3 +257,4 @@ public class show extends script.base_script {
         }
     }
 }
+
