@@ -142,7 +142,7 @@ public class show extends script.base_script {
         if (!isIdValid(player)) {
             return SCRIPT_CONTINUE;
         }
-        int idx = sui.getListBoxSelectedRow(params);
+        int idx = sui.getListboxSelectedRow(params);
         if (idx == -1) {
             return SCRIPT_CONTINUE;
         }
@@ -164,7 +164,7 @@ public class show extends script.base_script {
         if (bp == sui.BP_CANCEL) {
             return SCRIPT_CONTINUE;
         }
-        int idx = sui.getListBoxSelectedRow(params);
+        int idx = sui.getListboxSelectedRow(params);
         if (idx < 0) {
             return SCRIPT_CONTINUE;
         }
@@ -183,7 +183,7 @@ public class show extends script.base_script {
         if (bp == sui.BP_CANCEL) {
             return SCRIPT_CONTINUE;
         }
-        int idx = sui.getListBoxSelectedRow(params);
+        int idx = sui.getListboxSelectedRow(params);
         if (idx < 0) {
             return SCRIPT_CONTINUE;
         }
@@ -206,7 +206,7 @@ public class show extends script.base_script {
         if (bp == sui.BP_CANCEL) {
             return SCRIPT_CONTINUE;
         }
-        int idx = sui.getListBoxSelectedRow(params);
+        int idx = sui.getListboxSelectedRow(params);
         if (idx < 0) {
             return SCRIPT_CONTINUE;
         }
@@ -257,4 +257,5 @@ public class show extends script.base_script {
         }
     }
 }
+
 
