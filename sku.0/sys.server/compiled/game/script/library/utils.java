@@ -117,6 +117,21 @@ public class utils extends script.base_script
         }
         return am;
     }
+    
+    public static double clamp(double value, double min, double max)
+    {
+      if (value < min)
+      {
+        return min;
+      }
+      else if (value > max)
+      {
+        return max;
+      }
+
+      return value;
+    }
+
     public static int randix(float[] fArray) throws InterruptedException
     {
         if (fArray.length > 1)

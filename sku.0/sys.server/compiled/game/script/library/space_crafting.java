@@ -1,6 +1,7 @@
 package script.library;
 
 import script.*;
+import script.library.utils;
 
 import java.util.Vector;
 
@@ -72,27 +73,47 @@ public class space_crafting extends script.base_script
     public static final String STARSHIP_DROID_TABLE = "datatables/space_combat/ship_droid_assignments.iff";
     public static final String SHIP_COMPONENT_TABLE = "datatables/space/ship_components.iff";
     public static final String SHIP_WEAPON_TABLE = "datatables/ship/components/weapon.iff";
+
     public static double randBell(double avg, double var)
     {
+
+	//This looks like the Marsagila polar form of a Box-Muller
+	//Distributes a value over a bell curve, giving a result in standard deviations
+	//Needs to be clamped to avoid insane values
+
+
         var = var / 2;
         double r, v1, v2;
+
+
         do
         {
             v1 = 2.0 * rand() - 1.0;
             v2 = 2.0 * rand() - 1.0;
             r = v1 * v1 + v2 * v2;
         } while (r >= 1.0 || r == 0.0);
+
+
         double fac = Math.sqrt(-2.0 * StrictMath.log(r) / r);
-        double value = (avg + (v1 * fac) * (avg * var));
-        if (value < 0)
-        {
-            return 0;
-        }
-        else 
-        {
-            return value;
-        }
+	
+	double deviations = (v1 * fac);
+
+
+	//Now we are going to clamp to +/- 3 standard deviations
+
+	deviations = utils.clamp(deviations, -3.0, 3.0);
+ 
+	double value = (avg + deviations * (avg * var));
+	if (value < 0)
+	{
+	  return 0;
+	}
+	else 
+	{
+	  return value;
+	}
     }
+
     public static float getBellValue(float fltValue, float fltModifier)
     {
         return (float)(randBell(fltValue, fltModifier));
