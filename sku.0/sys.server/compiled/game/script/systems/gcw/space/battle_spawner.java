@@ -392,10 +392,14 @@ public class battle_spawner extends script.base_class {
     }
     public static obj_id createUnit(obj_id centralObject, String unitName, float radius) throws InterruptedException
     {
-        return space_create.createShip(
+
+        obj_id ship = space_create.createShip(
                 unitName,
-                space_utils.getRandomPositionInSphere(getTransform_o2p(centralObject), 100.0f, radius, true)
-        );
+                space_utils.getRandomPositionInSphere(getTransform_o2p(centralObject), 100.0f, radius, true));
+
+	setObjVar(ship, "motherShip", centralObject);
+
+        return ship;
     }
     public int capitalShipDestroyed(obj_id self, dictionary params) {
         if(!battleIsActive(self)) return SCRIPT_CONTINUE;
@@ -532,7 +536,8 @@ public class battle_spawner extends script.base_class {
 
             spaceLog( "In processShip... now processing " + playerCount + " VALID players on board ship " + ship + " (i.e. not ejected, still on board ship, etc).");
             for(obj_id player : currentShipMembers){
-                if(!factions.isImperialorImperialHelper(player) && !factions.isRebelorRebelHelper(player)) continue;
+                if (!space_flags.isImperialHelperPilot(player) && !space_flags.isImperialPilot(player) && !space_flags.isRebelHelperPilot(player) && !space_flags.isRebelPilot(player)) continue;
+
                 spaceLog( "In processShip... now processing player " + player + ".");
                 // make sure the player haven't been given anything yet.
                 if(pointAwardedPlayers.contains(player)){
@@ -546,10 +551,12 @@ public class battle_spawner extends script.base_class {
         }
         return pointAwardedPlayers;
     }
+ 
     public void handlePlayerAwards(obj_id player, String attackingFaction, boolean imperialsWon, String shipType, String battleType, String battleId, float pointAdjustmentValue) throws InterruptedException {
         spaceLog( "In handlePlayerAwards... now awarding GCW points.");
-        boolean playerIsImperial = factions.isImperialorImperialHelper(player);
-        boolean playerWasAttacking = (playerIsImperial && attackingFaction.equals("imperial")) || (factions.isRebelorRebelHelper(player) && attackingFaction.equals("rebel"));
+        boolean playerIsImperial = space_flags.isImperialHelperPilot(player) || space_flags.isImperialPilot(player) ;
+        boolean playerIsRebel = space_flags.isRebelHelperPilot(player) || space_flags.isRebelPilot(player) ;
+        boolean playerWasAttacking = (playerIsImperial && attackingFaction.equals("imperial")) || (playerIsRebel && attackingFaction.equals("rebel"));
         boolean playerWon = (playerIsImperial && imperialsWon) ||
                 (!playerIsImperial && !imperialsWon);
 
@@ -570,7 +577,7 @@ public class battle_spawner extends script.base_class {
         );
 
         // tell player they've won/lost
-        sendSystemMessage(
+        sendConsoleMessage(
                 player,
                 constructFinishedBattleMessage(
                         playerWasAttacking,
@@ -581,8 +588,7 @@ public class battle_spawner extends script.base_class {
                         attackingFaction,
                         playerIsImperial ? "Imperial" : "Rebel",
                         awardedTokens
-                ),
-                null
+                )
         );
 
 
@@ -596,6 +602,7 @@ public class battle_spawner extends script.base_class {
         }
 
     }
+
     public boolean awardGcwTokens(obj_id player, int quantity, String factionType) throws InterruptedException{
         obj_id inventory = getObjectInSlot(player, "inventory");
         if (isIdValid(inventory)) {
