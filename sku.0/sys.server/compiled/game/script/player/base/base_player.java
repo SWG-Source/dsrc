@@ -196,9 +196,23 @@ public class base_player extends script.base_script
     public static final String PVP_SKILL_5 = "aura_buff_self";
     public static final String PVP_SKILL_6 = "airstrike_ability";
     public static final string_id COVERCHARGE_DANCER_MESSAGE = new string_id("base_player", "covercharge_dancer_message");
+
     public static final string_id SID_FOUND_NOTHING = new string_id("lair_n", "found_nothing");
     public static final string_id TOO_FAR_FROM_LAIR = new string_id("lair_n", "too_far_from_lair");
     public static final string_id LAIR_NOT_TARGETED = new string_id("lair_n", "lair_not_targeted");
+    public static final string_id SID_LAIR_NOT_SEARCHED = new string_id("lair_n", "lair_not_searched");
+    public static final string_id SID_LAIR_SEARCHED = new string_id("lair_n", "lair_searched");
+	public static final string_id SID_LAIR_INVALID_ARGUMENTS = new string_id("lair_n", "lair_invalid_arguments");
+
+
+	public static final String LAIR_SEARCHED = "lair.searched";
+	public static final String LAIR_SEARCHED_TIME = "lair.searched_time";
+    public static final String CONFIG_SECTION_LAIR_INTERACTIVITY = "LairInteractivity";
+
+    public static final String CONFIG_LAIR_INTERACTIVITY_ENABLED = "enabled";
+
+
+
     public static final string_id SHAPECHANGE = new string_id("spam", "shapechange_combat");
     public static final String[] WAYPOINT_GROUND_PLANETS_EXTERNAL = 
     {
@@ -4520,6 +4534,151 @@ public class base_player extends script.base_script
         }
         return SCRIPT_OVERRIDE;
     }
+
+	public int adminLair(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException
+	{
+
+		if (!isGod(self))
+		{
+			return SCRIPT_OVERRIDE;
+		}
+
+        obj_id intendedTarget = getIntendedTarget(self);
+        obj_id lookAtTarget = getLookAtTarget(self);
+        int GOT_type_intended = getGameObjectType(intendedTarget);
+        int GOT_type_look = getGameObjectType(lookAtTarget);
+        if (GOT_type_intended == GOT_lair)
+        {
+            target = intendedTarget;
+        }
+        else if (GOT_type_look == GOT_lair)
+        {
+            target = lookAtTarget;
+        }
+        else 
+        {
+            sendSystemMessage(self, LAIR_NOT_TARGETED);
+            return SCRIPT_OVERRIDE;
+        }
+
+        float maxDistance = 10.0f;
+        float distanceToLair = utils.getDistance2D(self, target);
+
+        if (hasScript(target, "theme_park.dungeon.mustafar_trials.valley_battleground.battlefield_destructable"))
+        {
+            return SCRIPT_OVERRIDE;
+        }
+
+        if (distanceToLair > maxDistance)
+        {
+            sendSystemMessage(self, TOO_FAR_FROM_LAIR);
+            return SCRIPT_OVERRIDE;
+        }
+
+		java.util.StringTokenizer st = new java.util.StringTokenizer(params);
+
+		boolean getInfo = false;
+		boolean setSearched = false;
+		boolean clearSearched = false;
+
+		int tokens = st.countTokens();
+
+		if (tokens > 1)
+		{
+			sendSystemMessage(self, SID_LAIR_INVALID_ARGUMENTS);
+			return SCRIPT_OVERRIDE;
+		}
+
+		String argument = "";
+
+		if (tokens == 0)
+		{
+			sendSystemMessage(self, "Valid options are info, set, or clear", null);
+			return SCRIPT_OVERRIDE;
+		}
+		else
+		{
+			argument = st.nextToken().toLowerCase();
+		}
+
+		if (argument.equals("info"))
+		{
+			getInfo = true;
+		}
+		else if (argument.equals("set"))
+		{
+			setSearched = true;
+		}
+		else if (argument.equals("clear"))
+		{
+			clearSearched = true;
+		}
+		else
+		{
+			sendSystemMessage(self, SID_LAIR_INVALID_ARGUMENTS);
+			return SCRIPT_OVERRIDE;
+		}
+
+		if (getInfo)
+		{
+
+			if (utils.hasScriptVar(target, LAIR_SEARCHED))
+			{
+				sendSystemMessage(self, SID_LAIR_SEARCHED);			
+			}
+			else
+			{
+				sendSystemMessage(self, SID_LAIR_NOT_SEARCHED);							
+			}
+			
+
+			if (utils.hasScriptVar(target, LAIR_SEARCHED_TIME))
+			{
+				int searchedTime = utils.getIntScriptVar(target, LAIR_SEARCHED_TIME);
+				int now = getGameTime();
+				int elapsed = now - searchedTime;
+				sendSystemMessage(self, "Was searched at (gametime) " + searchedTime + ". That was " + elapsed + " seconds ago.", null);
+			}
+
+
+			return SCRIPT_CONTINUE;
+		}
+
+
+		if (setSearched)
+		{
+			utils.setScriptVar(target, LAIR_SEARCHED, 1);
+			
+
+			if (config_utils.getBooleanConfig(CONFIG_SECTION_LAIR_INTERACTIVITY, CONFIG_LAIR_INTERACTIVITY_ENABLED))
+			{
+				utils.setScriptVar(target, LAIR_SEARCHED_TIME, getGameTime());
+			}
+			else
+			{
+				utils.removeScriptVar(target, LAIR_SEARCHED_TIME);
+			}
+
+
+			sendSystemMessage(self, SID_LAIR_SEARCHED);							
+
+			return SCRIPT_CONTINUE;
+		}
+
+		if (clearSearched)
+		{
+			utils.removeScriptVar(target, LAIR_SEARCHED);
+			utils.removeScriptVar(target, LAIR_SEARCHED_TIME);
+			sendSystemMessage(self, SID_LAIR_NOT_SEARCHED);							
+			return SCRIPT_CONTINUE;
+		}
+
+		
+		return SCRIPT_CONTINUE;
+	}
+
+
+
     public int searchLair(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException
     {
         obj_id intendedTarget = getIntendedTarget(self);
@@ -4552,7 +4711,7 @@ public class base_player extends script.base_script
         }
         else 
         {
-            if (!utils.hasScriptVar(target, "lair.searched") && !isIncapacitated(self))
+            if (!isIncapacitated(self))
             {
                 collection.collectionResource(self, "egg");
                 dictionary dict = new dictionary();

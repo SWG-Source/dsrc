@@ -44,12 +44,10 @@ public class lair_interactivity extends script.base_script
 
     public static final String CONFIG_LAIR_INTERACTIVITY_ENABLED = "enabled";
     public static final String CONFIG_LAIR_EGG_CHANCE = "eggChance";
-    public static final String CONFIG_LAIR_BUG_CHANCE = "bugChance";
     public static final String CONFIG_LAIR_NOTHING_CHANCE = "nothingChance";
     public static final String CONFIG_LAIR_EMPTY_CHANCE = "emptyChance";
     public static final String CONFIG_LAIR_EGG_AMOUNT_MULTIPLIER_PERCENT = "eggAmountMultiplierPercent";
     public static final String CONFIG_LAIR_RESET_MINUTES = "resetMinutes";
-    public static final String CONFIG_LAIR_SHOW_EMPTY_MESSAGE = "showEmptyMessage";
     public static final String CONFIG_LAIR_USE_LUCK = "useLuck";
 
     public static final String LAIR_SEARCHED_TIME = "lair.searched_time";
@@ -80,9 +78,10 @@ public class lair_interactivity extends script.base_script
 
 	public void searchLair(obj_id self, obj_id player) throws InterruptedException
 	{
+
 		// Missing [LairInteractivity] or enabled=false preserves vanilla/public behavior.
 		if (!config_utils.getBooleanConfig(CONFIG_SECTION_LAIR_INTERACTIVITY, CONFIG_LAIR_INTERACTIVITY_ENABLED))
-		{
+		{	
 		    searchLairVanilla(self, player);
 		    return;
 		}
@@ -94,18 +93,16 @@ public class lair_interactivity extends script.base_script
 	{
 		if (utils.hasScriptVar(self, LAIR_SEARCHED))
 		{
-		    if (hasLairSearchResetExpired(self))
+
+
+		    if (hasLairSearchResetExpired(self, player))
 		    {
 		        resetLairSearchState(self);
 		    }
 		    else
-		    {
-		        if (config_utils.getBooleanConfig(CONFIG_SECTION_LAIR_INTERACTIVITY, CONFIG_LAIR_SHOW_EMPTY_MESSAGE, true))
-		        {
-		            sendSystemMessage(player, SID_LAIR_EMPTY);
-		        }
-
-		        return;
+		    {			
+		       sendSystemMessage(player, SID_LAIR_EMPTY);
+		       return;
 		    }
 		}
 
@@ -117,7 +114,7 @@ public class lair_interactivity extends script.base_script
 		}
 
 		if (getVolumeFree(pInv) <= 0)
-		{
+		{	
 		    sendSystemMessage(player, SID_INVENTORY_FULL);
 		    return;
 		}
@@ -125,7 +122,7 @@ public class lair_interactivity extends script.base_script
 		int result = rollLairSearchResult();
 
 		if (result == 0)
-		{
+		{		
 		    sendSystemMessage(player, SID_FOUND_NOTHING);
 		    return;
 		}
@@ -146,7 +143,13 @@ public class lair_interactivity extends script.base_script
 	{
 		int nothingChance = config_utils.getPercentConfig(CONFIG_SECTION_LAIR_INTERACTIVITY, CONFIG_LAIR_NOTHING_CHANCE, 10);
 		int eggChance = config_utils.getPercentConfig(CONFIG_SECTION_LAIR_INTERACTIVITY, CONFIG_LAIR_EGG_CHANCE, 80);
-		int bugChance = config_utils.getPercentConfig(CONFIG_SECTION_LAIR_INTERACTIVITY, CONFIG_LAIR_BUG_CHANCE, 10);
+
+		int bugChance = 100 - nothingChance - eggChance;
+
+		if (bugChance < 0)
+		{
+		    bugChance = 0;
+		}
 
 		int totalChance = nothingChance + eggChance + bugChance;
 
@@ -297,9 +300,11 @@ public class lair_interactivity extends script.base_script
 	}
 
 
-	private boolean hasLairSearchResetExpired(obj_id self) throws InterruptedException
+	private boolean hasLairSearchResetExpired(obj_id self, obj_id player) throws InterruptedException
 	{
 		int resetMinutes = getLairResetMinutes();
+
+		sendSystemMessage(player, "Reset minutes " + resetMinutes, null);
 
 		if (resetMinutes <= 0)
 		{
@@ -323,7 +328,7 @@ public class lair_interactivity extends script.base_script
 		return config_utils.getIntConfigClamped(
 		    CONFIG_SECTION_LAIR_INTERACTIVITY,
 		    CONFIG_LAIR_RESET_MINUTES,
-		    0,
+		    10,
 		    0,
 		    10080
 		);
