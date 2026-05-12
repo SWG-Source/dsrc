@@ -109,6 +109,9 @@ public class shellfish_harvesting extends script.base_script
         {
             return SCRIPT_CONTINUE;
         }
+
+        location playerLocation = getLocation(player);
+
         int searchRoll = rand(1, 100);
         if (searchRoll < 25)
         {
@@ -118,13 +121,13 @@ public class shellfish_harvesting extends script.base_script
         {
             sendSystemMessage(player, SID_FOUND_MOLLUSKS);
             int amt = rand(8, 14);
-            resource.createRandom("seafood_mollusk", amt, getLocation(self), pInv, player, 2);
+            resource.createRandom("seafood_mollusk_" + playerLocation.area, amt, playerLocation, pInv, player, 2);
         }
         else 
         {
             sendSystemMessage(player, SID_FOUND_CRUSTACEANS);
             int amt = rand(8, 14);
-            resource.createRandom("seafood_crustacean", amt, getLocation(self), pInv, player, 2);
+            resource.createRandom("seafood_crustacean_" + playerLocation.area, amt, playerLocation, pInv, player, 2);
         }
         utils.removeScriptVar(player, "shellfish_harvesting");
         return SCRIPT_CONTINUE;
