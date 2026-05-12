@@ -51,4 +51,34 @@ public class luck extends script.base_script
         pp = prose.setStringId(pp, new string_id("system_msg", "lucky_fly_text"));
         showFlyTextPrivateProseWithFlags(player, player, pp, 1.5f, colors.GOLD, FLY_TEXT_FLAG_IS_LUCKY);
     }
+
+	public static float getLevelCappedLuck(obj_id player) throws InterruptedException
+	{
+		if (!isPlayer(player))
+		{
+		    return 0.0f;
+		}
+
+		int level = getLevel(player);
+		int cap = level * 5;
+
+		float luckValue = getSkillStatisticModifier(player, "luck");
+		float luckBonus = getEnhancedSkillStatisticModifierUncapped(player, "luck_modified");
+
+		luckValue += luckBonus;
+
+		if (luckValue < 0.0f)
+		{
+		    return 0.0f;
+		}
+
+		if (luckValue > cap)
+		{
+		    return cap;
+		}
+
+		return luckValue;
+	}
+
+
 }
