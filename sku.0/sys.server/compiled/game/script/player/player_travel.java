@@ -1107,18 +1107,24 @@ public class player_travel extends script.base_script
             buff.removeBuff(player, ITV_PICKUP_BUFF);
             return false;
         }
+
         location here = getLocation(player);
-        if (locations.isInCity(here))
-        {
-            sendSystemMessage(player, SID_NO_PICKUP_IN_TOWN);
-            return false;
-        }
-        region geoCities[] = getRegionsWithGeographicalAtPoint(here, regions.GEO_CITY);
-        if (geoCities != null && geoCities.length > 0)
-        {
-            sendSystemMessage(player, SID_INVALID_PICKUP_LOC);
-            return false;
-        }
+		
+		boolean allowInstantTravelInCity = utils.checkConfigFlag("GameServer", "allowInstantTravelInCity");
+
+
+		if (!allowInstantTravelInCity && locations.isInCity(here))
+		{
+			 return false;
+		}
+		 
+		region geoCities[] = getRegionsWithGeographicalAtPoint(here, regions.GEO_CITY);
+		if (!allowInstantTravelInCity && geoCities != null && geoCities.length > 0)
+		{
+			return false;
+		}
+
+
         region[] regionList = getRegionsWithPvPAtPoint(here, regions.PVP_REGION_TYPE_ADVANCED);
         if (regionList != null && regionList.length > 0)
         {
