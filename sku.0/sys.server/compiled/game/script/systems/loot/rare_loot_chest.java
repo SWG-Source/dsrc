@@ -6,6 +6,7 @@ import script.library.utils;
 import script.menu_info;
 import script.menu_info_types;
 import script.obj_id;
+import script.space.rare_loot.space_rare_loot;
 import script.string_id;
 
 import java.util.ArrayList;
@@ -13,6 +14,10 @@ import java.util.List;
 
 public class rare_loot_chest extends script.base_script {
     public int OnObjectMenuRequest(obj_id self, obj_id player, menu_info mi) throws InterruptedException {
+        if (hasObjVar(self, space_rare_loot.VAR_CHEST_REWARD_QUALITY))
+        {
+            return SCRIPT_CONTINUE;
+        }
         if (utils.getContainingPlayer(self) == player) {
             int mnu2 = mi.addRootMenu(menu_info_types.ITEM_USE, new string_id("npe", "crate_use"));
         }
@@ -20,6 +25,10 @@ public class rare_loot_chest extends script.base_script {
     }
 
     public int OnObjectMenuSelect(obj_id self, obj_id player, int item) throws InterruptedException {
+        if (hasObjVar(self, space_rare_loot.VAR_CHEST_REWARD_QUALITY))
+        {
+            return SCRIPT_CONTINUE;
+        }
         sendDirtyObjectMenuNotification(self);
         if (item == menu_info_types.ITEM_USE)
         {

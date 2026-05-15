@@ -1,6 +1,7 @@
 package script.library;
 
 import script.*;
+import script.space.rare_loot.space_rare_loot;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -703,6 +704,7 @@ public class space_combat extends script.base_script
         }
         if ((objWinner.isLoaded() && (objWinner.isAuthoritative())))
         {
+            space_rare_loot.checkAwardEligibility(objWinner, objDefender);
             createLoot(objDefender, objWinner);
             CustomerServiceLog("space_loot", "Creating Loot from " + objDefender + " in " + getLocation(objDefender) + " for " + objWinner);
             if (space_battlefield.isInBattlefield(objWinner))

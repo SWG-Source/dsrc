@@ -76,16 +76,12 @@ public class space_crafting extends script.base_script
 
     public static double randBell(double avg, double var)
     {
+        return applyBellModifier(avg, var, getRandomBellDeviation());
+    }
 
-	//This looks like the Marsagila polar form of a Box-Muller
-	//Distributes a value over a bell curve, giving a result in standard deviations
-	//Needs to be clamped to avoid insane values
-
-
-        var = var / 2;
+    public static double getRandomBellDeviation()
+    {
         double r, v1, v2;
-
-
         do
         {
             v1 = 2.0 * rand() - 1.0;
@@ -93,30 +89,39 @@ public class space_crafting extends script.base_script
             r = v1 * v1 + v2 * v2;
         } while (r >= 1.0 || r == 0.0);
 
-
         double fac = Math.sqrt(-2.0 * StrictMath.log(r) / r);
-	
-	double deviations = (v1 * fac);
+        double deviations = v1 * fac;
+        return utils.clamp(deviations, -3.0, 3.0);
+    }
 
+    public static double applyBellModifier(double avg, double var, double deviations)
+    {
+        var = var / 2;
+        double value = avg + deviations * (avg * var);
+        if (value < 0)
+        {
+            return 0;
+        }
+        return value;
+    }
 
-	//Now we are going to clamp to +/- 3 standard deviations
-
-	deviations = utils.clamp(deviations, -3.0, 3.0);
- 
-	double value = (avg + deviations * (avg * var));
-	if (value < 0)
-	{
-	  return 0;
-	}
-	else 
-	{
-	  return value;
-	}
+    public static double applyDirectedBellModifier(double avg, double var, double deviations, boolean lowerIsBetter)
+    {
+        deviations = Math.abs(deviations);
+        if (lowerIsBetter)
+        {
+            deviations = -deviations;
+        }
+        return applyBellModifier(avg, var, deviations);
     }
 
     public static float getBellValue(float fltValue, float fltModifier)
     {
         return (float)(randBell(fltValue, fltModifier));
+    }
+    public static float getDirectedBellValue(float fltValue, float fltModifier, double deviations, boolean lowerIsBetter)
+    {
+        return (float)(applyDirectedBellModifier(fltValue, fltModifier, deviations, lowerIsBetter));
     }
     public static float getModifiedValue(float fltValue, float fltModifier)
     {

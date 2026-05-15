@@ -1,0 +1,30 @@
+quality	strItemName	strItemType	enabled	comments
+s	s	s	Int[1]	s
+all	object/tangible/ship/components/armor/arm_corellian_light_durasteel.iff	armor		
+all	object/tangible/ship/components/armor/arm_corellian_reinforced_light_durasteel.iff	armor		
+all	object/tangible/ship/components/armor/arm_cygnus_light_weave.iff	armor		
+all	object/tangible/ship/components/armor/arm_cygnus_standard_weave.iff	armor		
+all	object/tangible/ship/components/armor/arm_freitek_deluxe_light.iff	armor		
+all	object/tangible/ship/components/armor/arm_gallofree_mk2.iff	armor		
+all	object/tangible/ship/components/armor/arm_incom_standard_plate.iff	armor		
+all	object/tangible/ship/components/armor/arm_koensayr_promotional_b9_durasteel.iff	armor		
+all	object/tangible/ship/components/armor/arm_koensayr_reinforced_b5_durasteel.iff	armor		
+all	object/tangible/ship/components/armor/arm_koensayr_standard_durasteel.iff	armor		
+all	object/tangible/ship/components/armor/arm_kse_intermediate_durasteel.iff	armor		
+all	object/tangible/ship/components/armor/arm_kse_modified_light_durasteel.iff	armor		
+all	object/tangible/ship/components/armor/arm_kse_standard_durasteel.iff	armor		
+all	object/tangible/ship/components/armor/arm_mandal_composite_j7.iff	armor		
+all	object/tangible/ship/components/armor/arm_mandal_modifier_composite_j5.iff	armor		
+all	object/tangible/ship/components/armor/arm_moncal_improved_light_weave.iff	armor		
+all	object/tangible/ship/components/armor/arm_rendili_tough_plate.iff	armor		
+all	object/tangible/ship/components/armor/arm_sfs_standard_durasteel.iff	armor		
+all	object/tangible/ship/components/armor/arm_slayn_tech_weave.iff	armor		
+all	object/tangible/ship/components/armor/arm_sorosuub_improved_light_plastisteel.iff	armor		
+all	object/tangible/ship/components/armor/arm_sorosuub_intemediate_plastisteel.iff	armor		
+all	object/tangible/ship/components/armor/arm_subpro_improved_light_plastisteel.iff	armor		
+all	object/tangible/ship/components/armor/armor_baktoid_mtt_prototype.iff	armor		
+all	object/tangible/ship/components/armor/armor_baktoid_shock_armor.iff	armor		
+all	object/tangible/ship/components/armor/armor_baktoid_spider_shell_g2.iff	armor		
+all	object/tangible/ship/components/armor/armor_freitek_es4_durasteel.iff	armor		
+all	object/tangible/ship/components/armor/armor_freitek_ew6_prototype.iff	armor		
+all	object/tangible/ship/components/armor/armor_mandal_composite_j14.iff	armor		
