@@ -29,7 +29,7 @@ public class space_rare_loot extends script.base_script
     public static final String REWARD_TABLE_COLUMN_ITEM_TYPE = "strItemType";
     public static final String REWARD_TABLE_COLUMN_ENABLED = "enabled";
     public static final String REWARD_TABLE_QUALITY_ALL = "all";
-    public static final String CHEST_STATIC_ITEM_BASE = "rare_loot_chest_quality_";
+    public static final String CHEST_STATIC_ITEM_BASE = "space_rare_loot_chest_quality_";
     public static final String SCRIPT_GROUND_RARE_LOOT_CHEST = "systems.loot.rare_loot_chest";
     public static final String SCRIPT_SPACE_RARE_LOOT_CHEST = "space.rare_loot.space_rare_loot_chest";
     public static final int MIN_REWARD_TIER = 1;
@@ -206,8 +206,14 @@ public class space_rare_loot extends script.base_script
         {
             setObjVar(chest, VAR_CHEST_REWARD_QUALITY, rewardQuality);
             setObjVar(chest, VAR_CHEST_REWARD_TIER, rewardTier);
-            detachScript(chest, SCRIPT_GROUND_RARE_LOOT_CHEST);
-            attachScript(chest, SCRIPT_SPACE_RARE_LOOT_CHEST);
+            if (hasScript(chest, SCRIPT_GROUND_RARE_LOOT_CHEST))
+            {
+                detachScript(chest, SCRIPT_GROUND_RARE_LOOT_CHEST);
+            }
+            if (!hasScript(chest, SCRIPT_SPACE_RARE_LOOT_CHEST))
+            {
+                attachScript(chest, SCRIPT_SPACE_RARE_LOOT_CHEST);
+            }
         }
         return chest;
     }
