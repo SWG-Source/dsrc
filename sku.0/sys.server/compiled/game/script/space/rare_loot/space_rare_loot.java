@@ -1,5 +1,6 @@
 package script.space.rare_loot;
 
+import script.library.luck;
 import script.library.static_item;
 import script.library.space_flags;
 import script.library.space_utils;
@@ -16,6 +17,10 @@ public class space_rare_loot extends script.base_script
     public static final String VAR_LAST_CHEST_AWARD_TIME = "loot.space_rare.lastChestAwardTime";
     public static final String VAR_CHEST_REWARD_QUALITY = "loot.space_rare.rewardQuality";
     public static final String VAR_CHEST_REWARD_TIER = "loot.space_rare.rewardTier";
+    public static final String VAR_ITEM_IS_RARE_SPACE_LOOT = "loot.space_rare.item.isRareSpaceLoot";
+    public static final String VAR_ITEM_REWARD_QUALITY = "loot.space_rare.item.rewardQuality";
+    public static final String VAR_ITEM_REWARD_QUALITY_NAME = "loot.space_rare.item.rewardQualityName";
+    public static final String VAR_ITEM_REWARD_TIER = "loot.space_rare.item.rewardTier";
     public static final String SPACE_RLS_TABLE_LOCATION = "datatables/space_loot/space_rls";
     public static final String REWARD_TABLE_BASE =  SPACE_RLS_TABLE_LOCATION + "/rewards_tier_";
     public static final String REWARD_TABLE_SUFFIX = ".iff";
@@ -29,6 +34,7 @@ public class space_rare_loot extends script.base_script
     public static final String SCRIPT_SPACE_RARE_LOOT_CHEST = "space.rare_loot.space_rare_loot_chest";
     public static final int MIN_REWARD_TIER = 1;
     public static final int MAX_REWARD_TIER = 5;
+    public static final float LUCK_QUALITY_UPGRADE_MODIFIER = 0.10f;
 
     public static boolean checkAwardEligibility(obj_id playerShip, obj_id targetShip) throws InterruptedException
     {
@@ -107,9 +113,15 @@ public class space_rare_loot extends script.base_script
         double rewardChanceTotal = adjustedRareChance + adjustedExceptionalChance + adjustedLegendaryChance;
         double rewardRoll = rewardChanceTotal > 0.0d ? Math.random() * rewardChanceTotal : 0.0d;
         int rewardQuality = determineRewardQuality(rewardRoll, adjustedRareChance, adjustedExceptionalChance, adjustedLegendaryChance);
+        int originalRewardQuality = rewardQuality;
+        boolean luckyQualityUpgrade = luck.isLucky(player, LUCK_QUALITY_UPGRADE_MODIFIER);
+        if (luckyQualityUpgrade)
+        {
+            rewardQuality = upgradeRewardQuality(rewardQuality);
+        }
         String rewardQualityName = getRewardQualityName(rewardQuality);
         float rewardQualityModifier = getRewardQualityModifier(rewardQuality);
-        int rewardTier = getRewardTier(effectivePlayerTier, targetTier);
+        int rewardTier = getRewardTier(targetTier);
         obj_id lootContainer = getLootContainer(playerShip, player);
         if (!isIdValid(lootContainer))
         {
@@ -125,8 +137,21 @@ public class space_rare_loot extends script.base_script
         }
         setObjVar(player, VAR_LAST_CHEST_AWARD_TIME, getGameTime());
         debug(player, "eligible, roll " + roll + " <= chance " + adjustedChance + " succeeded. Created " + rewardQualityName + " chest " + chest + ".");
-        CustomerServiceLog(LOG_CHANNEL, "Space rare loot award success. Player=" + player + " playerTier=" + playerTier + " effectivePlayerTier=" + effectivePlayerTier + " playerShip=" + playerShip + " targetShip=" + targetShip + " targetTier=" + targetTier + " lootContainer=" + lootContainer + " chest=" + chest + " rewardTier=" + rewardTier + " higherTierDelta=" + higherTierDelta + " chance=" + adjustedChance + " roll=" + roll + " rewardQuality=" + rewardQualityName + "(" + rewardQuality + ")" + " rewardQualityModifier=" + rewardQualityModifier + " rewardRoll=" + rewardRoll + " rewardChanceTotal=" + rewardChanceTotal + " baseRareChance=" + rareChance + " baseExceptionalChance=" + exceptionalChance + " baseLegendaryChance=" + legendaryChance + " adjustedRareChance=" + adjustedRareChance + " adjustedExceptionalChance=" + adjustedExceptionalChance + " adjustedLegendaryChance=" + adjustedLegendaryChance + " shiftedChance=" + shiftedChance);
+        CustomerServiceLog(LOG_CHANNEL, "Space rare loot award success. Player=" + player + " playerTier=" + playerTier + " effectivePlayerTier=" + effectivePlayerTier + " playerShip=" + playerShip + " targetShip=" + targetShip + " targetTier=" + targetTier + " lootContainer=" + lootContainer + " chest=" + chest + " rewardTier=" + rewardTier + " higherTierDelta=" + higherTierDelta + " chance=" + adjustedChance + " roll=" + roll + " rewardQuality=" + rewardQualityName + "(" + rewardQuality + ")" + " originalRewardQuality=" + getRewardQualityName(originalRewardQuality) + "(" + originalRewardQuality + ")" + " luckyQualityUpgrade=" + luckyQualityUpgrade + " rewardQualityModifier=" + rewardQualityModifier + " rewardRoll=" + rewardRoll + " rewardChanceTotal=" + rewardChanceTotal + " baseRareChance=" + rareChance + " baseExceptionalChance=" + exceptionalChance + " baseLegendaryChance=" + legendaryChance + " adjustedRareChance=" + adjustedRareChance + " adjustedExceptionalChance=" + adjustedExceptionalChance + " adjustedLegendaryChance=" + adjustedLegendaryChance + " shiftedChance=" + shiftedChance);
         return true;
+    }
+
+    public static int upgradeRewardQuality(int rewardQuality)
+    {
+        if (rewardQuality == space_rare_loot_config.QUALITY_RARE)
+        {
+            return space_rare_loot_config.QUALITY_EXCEPTIONAL;
+        }
+        if (rewardQuality == space_rare_loot_config.QUALITY_EXCEPTIONAL)
+        {
+            return space_rare_loot_config.QUALITY_LEGENDARY;
+        }
+        return rewardQuality;
     }
 
     public static int getEffectivePilotTier(int playerTier, int targetTier)
@@ -230,22 +255,39 @@ public class space_rare_loot extends script.base_script
         return parseTier(difficulty);
     }
 
-    public static int getRewardTier(int playerTier, int targetTier)
+    public static int getRewardTier(int targetTier) throws InterruptedException
     {
-        int rewardTier = playerTier;
-        if (targetTier < rewardTier)
-        {
-            rewardTier = targetTier;
-        }
-        if (rewardTier < MIN_REWARD_TIER)
+        int maxRewardTier = getClampedRewardTier(targetTier);
+        if (maxRewardTier <= MIN_REWARD_TIER)
         {
             return MIN_REWARD_TIER;
         }
-        if (rewardTier > MAX_REWARD_TIER)
+        int totalWeight = 0;
+        int overCapTierCount = targetTier - MAX_REWARD_TIER;
+        if (overCapTierCount < 0)
         {
-            return MAX_REWARD_TIER;
+            overCapTierCount = 0;
         }
-        return rewardTier;
+        for (int rewardTier = MIN_REWARD_TIER; rewardTier <= maxRewardTier; rewardTier++)
+        {
+            totalWeight += getRewardTierWeight(rewardTier, overCapTierCount);
+        }
+        int roll = rand(1, totalWeight);
+        int currentWeight = 0;
+        for (int rewardTier = MIN_REWARD_TIER; rewardTier <= maxRewardTier; rewardTier++)
+        {
+            currentWeight += getRewardTierWeight(rewardTier, overCapTierCount);
+            if (roll <= currentWeight)
+            {
+                return rewardTier;
+            }
+        }
+        return maxRewardTier;
+    }
+
+    public static int getRewardTierWeight(int rewardTier, int overCapTierCount)
+    {
+        return rewardTier + (overCapTierCount * rewardTier * rewardTier);
     }
 
     public static String getRewardTable(int rewardTier)
