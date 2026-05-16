@@ -1091,6 +1091,7 @@ item_krayt_pearl_04_17			int:jedi.crystal.stats.min_dmg=18,int:jedi.crystal.stat
 item_krayt_pearl_04_18			int:jedi.crystal.stats.min_dmg=19,int:jedi.crystal.stats.max_dmg=20,int:jedi.crystal.stats.quality=6,int:jedi.crystal.stats.level=-1								
 item_krayt_pearl_04_19			int:jedi.crystal.stats.min_dmg=20,int:jedi.crystal.stats.max_dmg=22,int:jedi.crystal.stats.quality=6,int:jedi.crystal.stats.level=-1								
 item_krayt_pearl_04_20			int:jedi.crystal.stats.min_dmg=21,int:jedi.crystal.stats.max_dmg=23,int:jedi.crystal.stats.quality=6,int:jedi.crystal.stats.level=-1								
+item_krayt_pearl_QA			int:jedi.crystal.stats.min_dmg=50000,int:jedi.crystal.stats.max_dmg=50000,int:jedi.crystal.stats.quality=6,int:jedi.crystal.stats.level=-1								
 item_color_crystal_02_00			int:jedi.crystal.stats.color=0,int:jedi.crystal.stats.level=-1	index_color_1=0							
 item_color_crystal_02_01			int:jedi.crystal.stats.color=1,int:jedi.crystal.stats.level=-1	index_color_1=1							
 item_color_crystal_02_02			int:jedi.crystal.stats.color=2,int:jedi.crystal.stats.level=-1	index_color_1=2							

@@ -1287,7 +1287,7 @@ public class terminal_character_builder extends script.base_script
         "Nightsister Clothes",
         "Mandalorian Armor",
         "Cybernetic Headband",
-        "Set Player Size",
+        "Nigthsister Backpack",
         "Increase Factory Speed",
         "Torrent of the Force Drink",
         "Bespin Port (x10)"
@@ -1355,7 +1355,8 @@ public class terminal_character_builder extends script.base_script
         "Special Color Crystals",
         "Perfect Power Crystals",
         "Ancient Krayt Pearls",
-        "QA Power Crystals"
+        "QA Power Crystals",
+        "QA God Krayt Pearls"
     };
     public static final String[] SABER_OPTIONS =
     {
@@ -1388,7 +1389,8 @@ public class terminal_character_builder extends script.base_script
         "(80)Black Jedi Master Cloak",
         "(90)Cloak of Hate",
         "(90)Shatterpoint Cloak",
-        "Reset Jedi Statue Slots for Master Jedi Cloaks Collection"
+        "Reset Jedi Statue Slots for Master Jedi Cloaks Collection",
+        "Nightsister God QA Jedi Clothing"
     };
     public static final String ARMOR_SET_PREFIX = "object/tangible/wearables/armor/";
     public static final String[] ARMOR_SET_ASSAULT_1 =
@@ -8233,7 +8235,8 @@ public class terminal_character_builder extends script.base_script
                 sendSystemMessageTestingOnly(player, "Quest Obtained - Accept and Choose Reward");
                 break;
             case 15:
-                sendSystemMessageTestingOnly(player, "This option is disabled.");
+                static_item.createNewItemFunction("item_tcg_loot_reward_series5_nightsister_backpack", pInv);
+                sendSystemMessageTestingOnly(player, "Nighstsister Backpack Issued.");
                 break;
             case 16:
                 obj_id attachment = createObject("object/tangible/gem/clothing.iff", pInv, "");
@@ -10591,6 +10594,18 @@ public class terminal_character_builder extends script.base_script
                 sendSystemMessageTestingOnly(player, "QA Power Crystals Issued!");
             }
             break;
+            case 5:
+
+            if (isGod(player))
+            {
+                for (int i = 0; i < 5; i++)
+                {
+                    static_item.createNewItemFunction("item_krayt_pearl_QA", pInv);
+                }
+                sendSystemMessageTestingOnly(player, "QA Pearls Issued!");
+            }
+
+            break;            
             default:
             cleanScriptVars(player);
             return SCRIPT_CONTINUE;
@@ -10930,6 +10945,34 @@ public class terminal_character_builder extends script.base_script
                 if (hasCompletedCollectionSlot(player, "jedi_robe_01_08"))
                     modifyCollectionSlotValue(player, "jedi_robe_01_08", -1);
                 sendSystemMessageTestingOnly(player, "Statue slots in Master Jedi Cloak collection reset!");
+                break;
+            case 16:
+                obj_id clothing;
+                clothing = createObject("object/tangible/wearables/pants/nightsister_pants_s01.iff", pInv, "");
+                SetupNightSisterJediClothes(clothing);
+                clothing = createObject("object/tangible/wearables/pants/nightsister_pants_s02.iff", pInv, "");
+                SetupNightSisterJediClothes(clothing);
+                clothing = createObject("object/tangible/wearables/shirt/nightsister_shirt_s01.iff", pInv, "");
+                SetupNightSisterJediClothes(clothing);
+                clothing = createObject("object/tangible/wearables/shirt/nightsister_shirt_s02.iff", pInv, "");
+                SetupNightSisterJediClothes(clothing);
+                clothing = createObject("object/tangible/wearables/shirt/nightsister_shirt_s03.iff", pInv, "");
+                SetupNightSisterJediClothes(clothing);
+                clothing = createObject("object/tangible/wearables/dress/nightsister_dress.iff", pInv, "");
+                SetupNightSisterJediClothes(clothing);
+                clothing = createObject("object/tangible/wearables/hat/nightsister_hat_s01.iff", pInv, "");
+                SetupNightSisterJediClothes(clothing);
+                clothing = createObject("object/tangible/wearables/hat/nightsister_hat_s02.iff", pInv, "");
+                SetupNightSisterJediClothes(clothing);
+                clothing = createObject("object/tangible/wearables/hat/nightsister_hat_s03.iff", pInv, "");
+                SetupNightSisterJediClothes(clothing);
+                clothing = createObject("object/tangible/wearables/boots/nightsister_boots.iff", pInv, "");
+                SetupNightSisterJediClothes(clothing);
+                clothing = createObject("object/tangible/wearables/armor/nightsister/armor_nightsister_bicep_r_s01.iff", pInv, "");                
+                SetupNightSisterJediClothes(clothing);
+                cleanScriptVars(player);
+
+                break;
             default:
                 cleanScriptVars(player);
                 return SCRIPT_CONTINUE;
@@ -10937,6 +10980,37 @@ public class terminal_character_builder extends script.base_script
         refreshMenu(player, "Select the desired armor option", "Test Center Terminal", ROBE_OPTIONS, "handleRobeSelect", false);
         return SCRIPT_CONTINUE;
     }
+    
+    private void SetupNightSisterJediClothes(obj_id clothing)
+    {
+        setObjVar(clothing, "armor.general_protection_clothing", 65000);
+        setObjVar(clothing, "skillmod.bonus.agility_modified", 500);
+        setObjVar(clothing, "skillmod.bonus.constitution_modified", 500);
+        setObjVar(clothing, "skillmod.bonus.luck_modified", 500);
+        setObjVar(clothing, "skillmod.bonus.precision_modified", 500);
+        setObjVar(clothing, "skillmod.bonus.strength_modified", 500);
+        setObjVar(clothing, "skillmod.bonus.stamina_modified", 500);
+        setObjVar(clothing, "skillmod.bonus.expertise_damage_line_fs_ae_dm_cc", 500);
+        setObjVar(clothing, "skillmod.bonus.expertise_damage_line_fs_dm_cc", 500);
+        setObjVar(clothing, "skillmod.bonus.expertise_damage_weapon_9", 500);
+        setObjVar(clothing, "skillmod.bonus.expertise_action_weapon_9", 500);
+        setObjVar(clothing, "skillmod.bonus.expertise_damage_weapon_10", 500);
+        setObjVar(clothing, "skillmod.bonus.expertise_action_weapon_10", 500);
+        setObjVar(clothing, "skillmod.bonus.expertise_damage_weapon_11", 500);
+        setObjVar(clothing, "skillmod.bonus.expertise_action_weapon_11", 500);
+        setObjVar(clothing, "skillmod.bonus.expertise_damage_line_fs_cc_crit", 500);
+        setObjVar(clothing, "skillmod.bonus.expertise_damage_line_fs_force_throw", 500);
+        setObjVar(clothing, "skillmod.bonus.expertise_dm_armor_bypass", 500);
+        setObjVar(clothing, "skillmod.bonus.expertise_fs_imp_choke", 500);
+        setObjVar(clothing, "skillmod.bonus.expertise_dot_damage_fs_dm_cc", 500);
+        setObjVar(clothing, "skillmod.bonus.expertise_action_line_fs_path_corruption", 500);
+        setObjVar(clothing, "skillmod.bonus.expertise_damage_line_fs_path_corruption", 500);
+        setObjVar(clothing, "skillmod.bonus.expertise_dot_duration_line_fs_path_bleed", 500);
+        setObjVar(clothing, "skillmod.bonus.expertise_damage_line_fs_path_bleed", 500);
+        attachScript(clothing, "item.buff_worn_item");
+    }
+
+
     public void generateGenerationSabers(int generation, obj_id player, obj_id pInv, float[] weaponMinDamage, float[] weaponMaxDamage, float[] weaponAttackSpeed, float weaponWoundChance, float weaponForceCost, float weaponAttackCost) throws InterruptedException
     {
         String[] saber;
