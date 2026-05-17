@@ -230,7 +230,7 @@ slot																																		resource	0	grip	petrochem_inert	7
 slot																																		template	0	vibration_generator	object/tangible/component/weapon/vibro_unit_base.iff	1																												
 slot																																		template	0	power_circuits	object/tangible/component/item/electronic_control_unit.iff	1																												
 slot																																		template	0	weapon_core	object/tangible/component/weapon/core/weapon_core_melee_base.iff	1																												
-weapon	melee	weapon_appearance_maul		systems.crafting.weapon.core.crafting_new_weapon_final	25	weapon	5	weapon_crafting		object/weapon/melee/2h_sword/2h_sword_maul.iff	object/weapon/melee/2h_sword/2h_sword_maul.iff	40	120	800	1100	0	0	0	0	0	0	kinetic	none	-1	-1	melee	melee	1	1	100	100		5							sys.server/compiled/game/object/draft_schematic/weapon/appearance/																							0	42	0	20
+weapon	melee	weapon_appearance_maul		systems.crafting.weapon.core.crafting_new_weapon_final	25	weapon	5	weapon_crafting		object/weapon/melee/2h_sword/2h_sword_maul.iff	object/weapon/melee/2h_sword/2h_sword_maul.iff	40	120	800	1100	0	0	0	0	0	0	kinetic	none	-1	-1	melee	melee	1	1	100	100		5							sys.server/compiled/game/object/draft_schematic/weapon/appearance/																							0	42	0	30
 slot																																		resource	0	grip_unit	metal	40																												
 slot																																		resource	0	reactive_striking_surface	iron_kammris	75																												
 slot																																		resource	0	power_cell_brackets	copper	24																												
