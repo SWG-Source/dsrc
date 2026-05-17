@@ -2398,14 +2398,24 @@ waitForComplete:triggerId:xport_destroyed_3:xport_3		spawn_imperial_objective
 waitForComplete:triggerId:xport_destroyed_4:xport_4		spawn_imperial_objective
 waitForComplete:triggerId:xport_destroyed_5:xport_5		spawn_imperial_objective
 messageTo;quest_tracker;questUpdate;string:update=p3_transport_destroyed		xport_destroyed_1
+taskId:xport_update		xport_destroyed_1
+taskId:xport_destroy		xport_destroyed_1
 deleteSpawn:rebel_evac_pilot_1:none		xport_destroyed_1												
-messageTo;quest_tracker;questUpdate;string:update=p3_transport_destroyed		xport_destroyed_2												
+messageTo;quest_tracker;questUpdate;string:update=p3_transport_destroyed		xport_destroyed_2
+taskId:xport_update		xport_destroyed_2
+taskId:xport_destroy		xport_destroyed_2
 deleteSpawn:rebel_evac_pilot_2:none		xport_destroyed_2												
-messageTo;quest_tracker;questUpdate;string:update=p3_transport_destroyed		xport_destroyed_3												
+messageTo;quest_tracker;questUpdate;string:update=p3_transport_destroyed		xport_destroyed_3
+taskId:xport_update		xport_destroyed_3
+taskId:xport_destroy		xport_destroyed_3
 deleteSpawn:rebel_evac_pilot_3:none		xport_destroyed_3												
-messageTo;quest_tracker;questUpdate;string:update=p3_transport_destroyed		xport_destroyed_4												
+messageTo;quest_tracker;questUpdate;string:update=p3_transport_destroyed		xport_destroyed_4
+taskId:xport_update		xport_destroyed_4
+taskId:xport_destroy		xport_destroyed_4
 deleteSpawn:rebel_evac_pilot_4:none		xport_destroyed_4												
-messageTo;quest_tracker;questUpdate;string:update=p3_transport_destroyed		xport_destroyed_5												
+messageTo;quest_tracker;questUpdate;string:update=p3_transport_destroyed		xport_destroyed_5
+taskId:xport_update		xport_destroyed_5
+taskId:xport_destroy		xport_destroyed_5
 deleteSpawn:rebel_evac_pilot_5:none		xport_destroyed_5												
 delayAction:spawn_evac_st:1		start_spawn_evac_st											"st_xport1:patrolOnce:evac_st_setup_1,evac_st_exit_1,evac_st_1_1,evac_st_1_2,evac_st_1_3,evac_st_1_4,evac_st_1_5,evac_st_1_6,evac_st_1_7,evac_st_1_8,evac_st_1_9,evac_st_1_10,evac_st_1_11,evac_st_1_12,evac_st_1_13,evac_st_1_14,evac_st_1_15,evac_st_1_16,evac_st_1_17,evac_st_1_18,evac_st_1_19,evac_st_1_20,evac_st_1_21,evac_st_1_22,evac_st_1_23,evac_st_1_24,evac_st_1_25"	
 delayAction:spawn_evac_st:30		start_spawn_evac_st											"st_xport2:patrolOnce:evac_st_setup_2,evac_st_exit_2,evac_st_2_1,evac_st_2_2,evac_st_2_3,evac_st_2_4,evac_st_2_5,evac_st_2_6,evac_st_2_7,evac_st_2_8,evac_st_2_9,evac_st_2_10,evac_st_2_11,evac_st_2_12,evac_st_2_13,evac_st_2_14,evac_st_2_15,evac_st_2_16,evac_st_2_17,evac_st_2_18,evac_st_2_19,evac_st_2_20,evac_st_2_21,evac_st_2_22,evac_st_2_23,evac_st_2_24,evac_st_2_25,evac_st_2_26,evac_st_2_27,evac_st_2_28,evac_st_2_29,evac_st_2_30,evac_st_2_31,evac_st_2_32,evac_st_2_33,evac_st_2_34,evac_st_2_35,evac_st_2_36"	
