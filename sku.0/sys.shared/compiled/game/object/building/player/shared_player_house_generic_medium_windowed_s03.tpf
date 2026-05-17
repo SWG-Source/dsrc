@@ -16,6 +16,8 @@ clearFloraRadius = 38
 objectName = "building_name" "player_house_generic_medium_windowed_s03"
 detailedDescription = "building_detail" "player_house_generic_medium_windowed_s03"
 
+appearanceFilename = "appearance/ply_house_med_s03_hue_r0_exterior.apt"
+
 portalLayoutFilename = "appearance/ply_house_med_s03_hue.pob"
 
 clientDataFile = "clientdata/building/shared_player_house_tatooine_medium_style_01.cdf"
