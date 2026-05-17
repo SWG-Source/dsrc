@@ -2491,6 +2491,14 @@ public class loot extends script.base_script
         // get the attacker who did the most damage.
         obj_id player = getObjIdObjVar(target, xp.VAR_TOP_GROUP);
 
+        // VAR_TOP_GROUP stores a group object when the top damage dealer is grouped.
+        // Pick a random member of that group to receive the RLS chest.
+        if (group.isGroupObject(player)) {
+            obj_id[] members = utils.getLocalGroupMemberIds(player);
+            if (members == null || members.length == 0) return false;
+            player = members[rand(0, members.length - 1)];
+        }
+
         // make sure the attacker is a player.
         if(!isValidId(player) || !isPlayer(player)){
             return false;
