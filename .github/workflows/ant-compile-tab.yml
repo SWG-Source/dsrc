@@ -24,7 +24,7 @@ jobs:
 
       - name: Setup System Requisites
         run: |
-          sudo apt-get install -y zlib1g
+          sudo apt-get install -y lib32z1
           sudo chmod 777 ${GITHUB_WORKSPACE}/include/DataTableTool
 
       # NOTE: DataTableTool was built and placed in dsrc/include which is called by ant when compile_tab is ran
