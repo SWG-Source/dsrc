@@ -23,7 +23,9 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Setup System Requisites
-        run: sudo chmod 777 ${GITHUB_WORKSPACE}/include/DataTableTool
+        run: |
+          sudo apt-get install -y zlib1g
+          sudo chmod 777 ${GITHUB_WORKSPACE}/include/DataTableTool
 
       # NOTE: DataTableTool was built and placed in dsrc/include which is called by ant when compile_tab is ran
       # The DataTableTool in dsrc is a special version modified specifically to work with the GitHub Runner so DO NOT replace it with a regular build
