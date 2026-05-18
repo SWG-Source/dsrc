@@ -3,7 +3,6 @@ package script.conversation;
 import script.*;
 import script.library.ai_lib;
 import script.library.chat;
-import script.library.money;
 import script.library.utils;
 
 public class heraldtatooine2 extends script.base_script
@@ -66,8 +65,6 @@ public class heraldtatooine2 extends script.base_script
     }
     public void heraldtatooine2_action_getcash50(obj_id player, obj_id npc) throws InterruptedException
     {
-        dictionary params = new dictionary();
-        money.requestPayment(player, npc, 50, "pass_fail", params, true);
         location rebel = new location(-784, 0, -4451);
         obj_id waypoint = createWaypointInDatapad(player, rebel);
         setWaypointName(waypoint, "Rebel Military Base");
@@ -77,8 +74,6 @@ public class heraldtatooine2 extends script.base_script
     }
     public void heraldtatooine2_action_getcash30(obj_id player, obj_id npc) throws InterruptedException
     {
-        dictionary params = new dictionary();
-        money.requestPayment(player, npc, 30, "pass_fail", params, true);
         location rebel = new location(-1084, 0, -4751);
         obj_id waypoint = createWaypointInDatapad(player, rebel);
         setWaypointName(waypoint, "Rebel Military Base");
@@ -88,8 +83,6 @@ public class heraldtatooine2 extends script.base_script
     }
     public void heraldtatooine2_action_getcash30a(obj_id player, obj_id npc) throws InterruptedException
     {
-        dictionary params = new dictionary();
-        money.requestPayment(player, npc, 15, "pass_fail", params, true);
         location tusken = new location(-1493, 0, -208);
         obj_id waypoint = createWaypointInDatapad(player, tusken);
         setWaypointName(waypoint, "Tusken Bunker");
@@ -99,8 +92,6 @@ public class heraldtatooine2 extends script.base_script
     }
     public void heraldtatooine2_action_getcash60(obj_id player, obj_id npc) throws InterruptedException
     {
-        dictionary params = new dictionary();
-        money.requestPayment(player, npc, 60, "pass_fail", params, true);
         location hutt = new location(5021, 0, 547);
         obj_id waypoint = createWaypointInDatapad(player, hutt);
         setWaypointName(waypoint, "Hutt Hideout");
