@@ -8,6 +8,6 @@ objectName = "static_item_n" "space_rare_loot_chest_2"
 
 detailedDescription = "static_item_d" "space_rare_loot_chest_2"
 
-appearanceFilename = "appearance/item_rare_loot_chest_exquisite.apt"
+appearanceFilename = "appearance/item_space_rare_loot_chest_exquisite.apt"
 
 gameObjectType = GOT_misc_item_usable
