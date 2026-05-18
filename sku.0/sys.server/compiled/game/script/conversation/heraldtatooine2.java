@@ -15,54 +15,6 @@ public class heraldtatooine2 extends script.base_script
     {
         return true;
     }
-    public boolean heraldtatooine2_condition_cashyes50(obj_id player, obj_id npc) throws InterruptedException
-    {
-        int cash = getTotalMoney(player);
-        if (cash >= 50)
-        {
-            return true;
-        }
-        else 
-        {
-            return false;
-        }
-    }
-    public boolean heraldtatooine2_condition_cashyes30(obj_id player, obj_id npc) throws InterruptedException
-    {
-        int cash = getTotalMoney(player);
-        if (cash >= 30)
-        {
-            return true;
-        }
-        else 
-        {
-            return false;
-        }
-    }
-    public boolean heraldtatooine2_condition_cashyes15(obj_id player, obj_id npc) throws InterruptedException
-    {
-        int cash = getTotalMoney(player);
-        if (cash >= 15)
-        {
-            return true;
-        }
-        else 
-        {
-            return false;
-        }
-    }
-    public boolean heraldtatooine2_condition_cashyes60(obj_id player, obj_id npc) throws InterruptedException
-    {
-        int cash = getTotalMoney(player);
-        if (cash >= 60)
-        {
-            return true;
-        }
-        else 
-        {
-            return false;
-        }
-    }
     public void heraldtatooine2_action_getcash50(obj_id player, obj_id npc) throws InterruptedException
     {
         location rebel = new location(-784, 0, -4451);
@@ -445,17 +397,10 @@ public class heraldtatooine2 extends script.base_script
     {
         if (response.equals("s_c3dbbcab"))
         {
-            if (heraldtatooine2_condition_cashyes60(player, npc))
+            if (heraldtatooine2_condition__defaultCondition(player, npc))
             {
                 heraldtatooine2_action_getcash60(player, npc);
                 string_id message = new string_id(c_stringFile, "s_32a1ecd");
-                utils.removeScriptVar(player, "conversation.heraldtatooine2.branchId");
-                npcEndConversationWithMessage(player, message);
-                return SCRIPT_CONTINUE;
-            }
-            if (heraldtatooine2_condition__defaultCondition(player, npc))
-            {
-                string_id message = new string_id(c_stringFile, "s_241afd0a");
                 utils.removeScriptVar(player, "conversation.heraldtatooine2.branchId");
                 npcEndConversationWithMessage(player, message);
                 return SCRIPT_CONTINUE;
@@ -592,18 +537,10 @@ public class heraldtatooine2 extends script.base_script
         }
         if (response.equals("s_81a382e3"))
         {
-            if (heraldtatooine2_condition_cashyes50(player, npc))
+            if (heraldtatooine2_condition__defaultCondition(player, npc))
             {
                 heraldtatooine2_action_getcash50(player, npc);
                 string_id message = new string_id(c_stringFile, "s_c799721b");
-                utils.removeScriptVar(player, "conversation.heraldtatooine2.branchId");
-                npcEndConversationWithMessage(player, message);
-                return SCRIPT_CONTINUE;
-            }
-            if (heraldtatooine2_condition__defaultCondition(player, npc))
-            {
-                heraldtatooine2_action_dismiss(player, npc);
-                string_id message = new string_id(c_stringFile, "s_1c6f5661");
                 utils.removeScriptVar(player, "conversation.heraldtatooine2.branchId");
                 npcEndConversationWithMessage(player, message);
                 return SCRIPT_CONTINUE;
@@ -615,18 +552,10 @@ public class heraldtatooine2 extends script.base_script
     {
         if (response.equals("s_d9903b42"))
         {
-            if (heraldtatooine2_condition_cashyes30(player, npc))
+            if (heraldtatooine2_condition__defaultCondition(player, npc))
             {
                 heraldtatooine2_action_getcash30(player, npc);
                 string_id message = new string_id(c_stringFile, "s_aae6686e");
-                utils.removeScriptVar(player, "conversation.heraldtatooine2.branchId");
-                npcEndConversationWithMessage(player, message);
-                return SCRIPT_CONTINUE;
-            }
-            if (heraldtatooine2_condition__defaultCondition(player, npc))
-            {
-                heraldtatooine2_action_dismiss(player, npc);
-                string_id message = new string_id(c_stringFile, "s_38bef1fe");
                 utils.removeScriptVar(player, "conversation.heraldtatooine2.branchId");
                 npcEndConversationWithMessage(player, message);
                 return SCRIPT_CONTINUE;
@@ -718,18 +647,10 @@ public class heraldtatooine2 extends script.base_script
         }
         if (response.equals("s_177f6371"))
         {
-            if (heraldtatooine2_condition_cashyes30(player, npc))
+            if (heraldtatooine2_condition__defaultCondition(player, npc))
             {
                 heraldtatooine2_action_getcash30a(player, npc);
                 string_id message = new string_id(c_stringFile, "s_5d7da0");
-                utils.removeScriptVar(player, "conversation.heraldtatooine2.branchId");
-                npcEndConversationWithMessage(player, message);
-                return SCRIPT_CONTINUE;
-            }
-            if (heraldtatooine2_condition__defaultCondition(player, npc))
-            {
-                heraldtatooine2_action_dismiss(player, npc);
-                string_id message = new string_id(c_stringFile, "s_e3dda380");
                 utils.removeScriptVar(player, "conversation.heraldtatooine2.branchId");
                 npcEndConversationWithMessage(player, message);
                 return SCRIPT_CONTINUE;
