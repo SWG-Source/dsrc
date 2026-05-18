@@ -1,6 +1,7 @@
 package script.library;
 
 import script.*;
+import script.library.groundquests;
 
 public class minigame extends script.base_script
 {
@@ -1339,6 +1340,10 @@ public class minigame extends script.base_script
         }
         LOG("fishingLog", "datatable ROW - " + row);
         setFishData(fish, row, target, castLoc);
+        if (groundquests.isTaskActive(target, "wod_themepark_ns_fishing", "catchFish") || groundquests.isTaskActive(target, "wod_themepark_sm_fishing", "catchFish"))
+        {
+            groundquests.sendSignal(target, "caughtFish");
+        }
         fishing.handleElusiveFishRollAndWin(target, fish);
         return fish;
     }

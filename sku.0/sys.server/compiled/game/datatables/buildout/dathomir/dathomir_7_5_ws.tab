@@ -32,7 +32,7 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 4335535	0	object/static/structure/general/camp_tent_s01.iff	0	1629.1	125	1934.17	0.741646	0	-0.670791	0		$|
 4335536	0	object/static/structure/general/camp_tent_s01.iff	0	1544.53	122	1868.78	0.346476	0	0.938059	0		$|
 4335537	0	object/static/structure/general/camp_tent_s01.iff	0	1548.08	122	1857.82	0.999411	0	-0.0343203	0		$|
-4335538	0	object/static/structure/general/campfire_ash.iff	0	1546.72	122	1863.54	1	0	0	0		$|
+4335538	0	object/static/structure/general/campfire_ash.iff	0	1546.72	122	1863.54	1	0	0	0	theme_park.dungeon.generic_spawner	spawn_table|4|datatables/spawning/poi_spawner/dathomir/dath_crashed_ship.iff|$|
 4335539	0	object/static/structure/tatooine/debris_tatt_crate_metal_1.iff	0	1550.31	122	1859.78	1	0	-0.000557358	0		$|
 4335540	0	object/static/item/item_con_ration_kit_m.iff	0	1546.93	122	1868.31	0.972514	0	0.232843	0		$|
 4335541	0	object/static/item/item_con_ration_kit_m.iff	0	1546.78	122	1868.69	0.979061	0	-0.203567	0		$|
@@ -93,3 +93,7 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 4335588	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	1606.905273	122	1938.255127	1	0	0	0		$|
 4335589	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	1631.299805	125	1924.647461	1	0	0	0		$|
 -1	0	object/tangible/poi/tatooine/explore_dat_crashed_ship.iff	0	1601	122	1933	1	0	0	0		$|
+9815359	0	object/building/general/wod_kwi_temple.iff	0	1124.1499	128.94	226.997	0.38267356	0	0.9238836	0		$|
+9815360	9815359	object/cell/cell.iff	1	0	0	0	1	1.401298E-45	0	0		$|
+9815361	9815359	object/cell/cell.iff	2	0	0	0	1	2.802597E-45	0	0		$|
+9815362	9815361	object/tangible/furniture/wod_themepark/data_cache.iff	2	-0.3936987	-37.297607	8.471548	1	0	0	0	quest.task.ground.wave_event_controller	$|

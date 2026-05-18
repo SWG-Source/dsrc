@@ -1,10 +1,7 @@
-
 @base object/tangible/terminal/base/base_terminal.iff
-
 @class tangible_object_template 0
-
 @class object_template 2
 
-sharedTemplate = "object/tangible/terminal/shared_wod_themepark_herb_04.iff"
-
-
+sharedTemplate = "object/tangible/furniture/wod_themepark/shared_wod_themepark_herb_04.iff"
+objvars = +["herb_type" = 4]
+scripts = +["theme_park.wod.herb_quest_object"]

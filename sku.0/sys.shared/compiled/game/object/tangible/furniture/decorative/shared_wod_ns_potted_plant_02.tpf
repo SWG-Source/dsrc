@@ -1,20 +1,11 @@
-// Template Editor -SWG Source
-
 @base object/tangible/furniture/base/shared_furniture_base.iff
 
-@class tangible_object_template 6
-
-@class object_template 5
+@class tangible_object_template 10
 
 
-objectName = "theme_park_wod/messages"  "wod_ns_potted_plant_02_n"
-detailedDescription = "theme_park_wod/messages"  "wod_ns_potted_plant_02_d"
+@class object_template 10
 
-//lookAtText = "string_table"  "item"
-
-//snapToTerrain = false
-
+objectName = "theme_park_wod/messages" "wod_ns_potted_plant_02_n"
+detailedDescription = "theme_park_wod/messages" "wod_ns_potted_plant_02_d"
 appearanceFilename = "appearance/frn_all_potted_plants_sml_s03.apt"
 clientDataFile = "clientdata/item/client_shared_strong_red_light.cdf"
-//portalLayoutFilename = ""
-

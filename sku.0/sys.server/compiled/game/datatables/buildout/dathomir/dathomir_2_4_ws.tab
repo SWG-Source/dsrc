@@ -87,6 +87,7 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 9725916	0	object/static/structure/dathomir/nsister_fence_style_01.iff	0	1974.27	24.9569	1212.54	0.857709	0	0.514136	0		$|
 9725917	0	object/static/structure/dathomir/nsister_fence_style_01.iff	0	1982.59	24.1477	1212.59	0.841901	0	-0.539632	0		$|
 9725918	0	object/static/structure/dathomir/night_sister_banner_s02.iff	0	1945.29	26.6385	1202.65	0.825336	0	-0.564643	0		$|
-9725921	0	object/static/structure/dantooine/dant_fire_pit.iff	0	1962.37	24.9641	1195.55	0.731689	0	-0.681638	0		$|
 1105977	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	1977.970703	24.22852707	1201.140381	1	0	0	0		$|
 1105978	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	1955.561523	25.08749771	1187.370117	1	0	0	0		$|
+9725921	0	object/static/structure/dantooine/dant_fire_pit.iff	0	1962.37	24.9641	1195.55	0.731689	0	-0.681638	0	theme_park.dungeon.generic_spawner	spawn_table|4|datatables/spawning/poi_spawner/dathomir/dath_nsister_camp_near_stronghold.iff|$|
+5655363	0	object/tangible/poi/base/poi_base_nosnap.iff	0	1990.1904	121.0	1951.777	0.9358382	0	0.35242987	0	theme_park.wod.entertainer_rancor_area_trigger	wod.areaName|4|nsRancorFinished|$|

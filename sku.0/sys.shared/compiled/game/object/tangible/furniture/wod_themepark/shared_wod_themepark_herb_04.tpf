@@ -1,15 +1,8 @@
-// Template Editor -SWG Source
-
 @base object/tangible/terminal/base/shared_base_terminal.iff
-
-@class tangible_object_template 3
-
+@class tangible_object_template 6
 @class object_template 5
 
-objectName = "theme_park_wod/messages" "wod_themepark_herb"
-detailedDescription = "theme_park_wod/messages" "wod_themepark_herb_type_4"
+objectName = "theme_park_wod/messages" "wod_themepark_herb" //ongmuel
+detailedDescription = "theme_park_wod/messages" "wod_themepark_herb_type_2"
 
-appearanceFilename = "appearance/shrb_dath_redweed.apt"
-
-//clientDataFile = "clientdata/"
-
+appearanceFilename = "appearance/leaf_dath_ongmuelplant.apt"

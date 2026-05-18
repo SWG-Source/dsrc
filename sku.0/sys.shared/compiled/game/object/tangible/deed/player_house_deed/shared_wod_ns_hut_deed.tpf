@@ -1,14 +1,10 @@
-
 @base object/tangible/deed/base/shared_deed_building_base.iff
 
-@class tangible_object_template 6
-
-@class object_template 5
+@class tangible_object_template 10
 
 
-objectName = "static_item_n" "wod_ns_hut_deed_n"
+@class object_template 10
 
-detailedDescription = "static_item_d" "wod_ns_hut_deed_d"
-lookAtText = ""  ""
-
-appearanceFilename = "appearance/item_dant_small_mudhut.apt"
+objectName = "deed" "wod_ns_hut_deed_n"
+detailedDescription = "deed_detail" "wod_ns_hut_deed_d"
+appearanceFilename = "appearance/eqp_tool_datapad.apt"

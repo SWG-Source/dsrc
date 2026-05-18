@@ -1,0 +1,7 @@
+@base  object/tangible/furniture/base/furniture_base.iff
+
+@class tangible_object_template 1
+
+@class object_template 2
+
+sharedTemplate = "object/tangible/furniture/wod_themepark/shared_wod_pro_painting_scene_02.iff"

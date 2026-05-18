@@ -1,24 +1,17 @@
-// NPC Editor - SWG Source
-@base object/mobile/skeleton/shared_spider.iff 
+@base object/mobile/skeleton/shared_humanoid.iff
 
-@class creature_object_template 12
+@class creature_object_template 10
 
-//gender = GE_male
-species = SP_angler
+gender = GE_female
+species = SP_bith
 
 @class tangible_object_template 3
 
-//animationMapFilename = "all_male.map"
-
 @class object_template 3
 
+objectName = "theme_park_name" "gray_witch"
+detailedDescription = "theme_park_detail" "gray_witch"
+lookAtText = "theme_park_lookat" "gray_witch"
 
-objectName = "monster_name"  "bane_back_spider"
-detailedDescription = "" ""
-lookAtText = "monster_lookat"  "bane_back_spider"
-
-
-appearanceFilename = "appearance/bane_back_spider.sat"
-clientDataFile = "clientdata/creature/client_shared_spider_royal_guard.cdf"
-
-
+appearanceFilename = "appearance/sing_mt_clan_f.sat"
+clientDataFile = "clientdata/npc/client_shared_gray_witch.cdf"

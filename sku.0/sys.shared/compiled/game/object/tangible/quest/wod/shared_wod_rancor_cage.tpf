@@ -1,0 +1,11 @@
+@base object/tangible/loot/base/shared_loot_base.iff
+
+@class tangible_object_template 10
+
+
+@class object_template 10
+
+objectName = "item_n" "human_skull"
+detailedDescription = "item_d" "human_skull"
+lookAtText = "item_d" "human_skull"
+appearanceFilename = "appearance/poi_all_skeleton_human_head.apt"

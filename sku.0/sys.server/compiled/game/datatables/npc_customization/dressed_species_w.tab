@@ -1,8 +1,15 @@
-warren_imperial_officer	warren_imperial_worker	warren_irradiated_worker	warren_scientist	warren_teraud_loyalist	warren_teraud_loyalist_cyborg	weequay_thug
-s	s	s	s	s	s	s
-warren_imperial_officer_s01.iff	warren_imperial_worker_s01.iff	warren_irradiated_worker_s01.iff	warren_scientist_s01.iff	warren_teraud_loyalist_s01.iff	warren_teraud_loyalist_cyborg_s01.iff	dressed_tatooine_weequay_thug.iff
-warren_imperial_officer_s02.iff	warren_imperial_worker_s02.iff	warren_irradiated_worker_s02.iff	warren_scientist_s02.iff	warren_teraud_loyalist_s02.iff	warren_teraud_loyalist_cyborg_s02.iff	dressed_tatooine_weequay_soldier.iff
-warren_imperial_officer_s03.iff	warren_imperial_worker_s03.iff	warren_irradiated_worker_s03.iff	warren_scientist_s03.iff	warren_teraud_loyalist_s03.iff	warren_teraud_loyalist_cyborg_s03.iff	dressed_tatooine_weequay_zealot.iff
-	warren_imperial_worker_s04.iff			warren_teraud_loyalist_s04.iff	warren_teraud_loyalist_cyborg_s04.iff	dressed_tatooine_weequay_champion.iff
-	warren_imperial_worker_s05.iff					
-	warren_imperial_worker_s06.iff					
+warren_imperial_officer	warren_imperial_worker	warren_irradiated_worker	warren_scientist	warren_teraud_loyalist	warren_teraud_loyalist_cyborg	weequay_thug	wod_reanimated_slave_all	wod_reanimated_witch_all
+s	s	s	s	s	s	s	s	s
+warren_imperial_officer_s01.iff	warren_imperial_worker_s01.iff	warren_irradiated_worker_s01.iff	warren_scientist_s01.iff	warren_teraud_loyalist_s01.iff	warren_teraud_loyalist_cyborg_s01.iff	dressed_tatooine_weequay_thug.iff	wod_reanimated_slave_01.iff	wod_reanimated_witch_01.iff
+warren_imperial_officer_s02.iff	warren_imperial_worker_s02.iff	warren_irradiated_worker_s02.iff	warren_scientist_s02.iff	warren_teraud_loyalist_s02.iff	warren_teraud_loyalist_cyborg_s02.iff	dressed_tatooine_weequay_soldier.iff	wod_reanimated_slave_02.iff	wod_reanimated_witch_02.iff
+warren_imperial_officer_s03.iff	warren_imperial_worker_s03.iff	warren_irradiated_worker_s03.iff	warren_scientist_s03.iff	warren_teraud_loyalist_s03.iff	warren_teraud_loyalist_cyborg_s03.iff	dressed_tatooine_weequay_zealot.iff	wod_reanimated_slave_03.iff	wod_reanimated_witch_03.iff
+	warren_imperial_worker_s04.iff			warren_teraud_loyalist_s04.iff	warren_teraud_loyalist_cyborg_s04.iff	dressed_tatooine_weequay_champion.iff	wod_reanimated_slave_04.iff	wod_reanimated_witch_04.iff
+	warren_imperial_worker_s05.iff						wod_reanimated_slave_05.iff	wod_reanimated_witch_05.iff
+	warren_imperial_worker_s06.iff						wod_reanimated_slave_06.iff	wod_reanimated_witch_06.iff
+							wod_reanimated_slave_07.iff	wod_reanimated_witch_07.iff
+							wod_reanimated_slave_08.iff	wod_reanimated_witch_08.iff
+							wod_reanimated_slave_09.iff	wod_reanimated_witch_09.iff
+							wod_reanimated_slave_10.iff	wod_reanimated_witch_10.iff
+							wod_reanimated_slave_11.iff	wod_reanimated_witch_11.iff
+							wod_reanimated_slave_12.iff	wod_reanimated_witch_12.iff
+							wod_reanimated_slave_13.iff	wod_reanimated_witch_13.iff
