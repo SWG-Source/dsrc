@@ -4,29 +4,3 @@ s	s	s[normal]	s[normal]	s	s	s[none]	s[none]	s	s	s	s	s[none]	s	i	s[none]	s	i	s[no
 smuggle	static_npc/tatooine/tekil_barje			static.tekil_barje	tekil_barje	object/tangible/medicine/crafted/medpack_cure_disease_a.iff		npc.static_quest.quest_player	npc.static_quest.quest_npc	miner	"Dagonel ""Digger"" Dimms"																					30						womprat	aggro	womprat	aggro	womprat	aggro													
 rescue	static_npc/tatooine/tekil_barje			static.tekil_barje	tekil_barje			npc.static_quest.quest_player	npc.static_quest.quest_npc	miner	"Dagonel ""Digger"" Dimms"																					30						tusken_raider	aggro	tusken_raider	aggro															
 destroy	static_npc/tatooine/tekil_barje			static.tekil_barje	tekil_barje			npc.static_quest.quest_player	npc.static_quest.quest_npc	tusken_raider																						30						tusken_raider	aggro	tusken_raider	aggro	tusken_raider	aggro													
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-16 - Extras
-17 - Extras
-18 - Extras
-19 - Extras
-20 - Extras
