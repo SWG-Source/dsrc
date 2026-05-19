@@ -21,6 +21,12 @@ public class wod_rubina extends script.base_script
     }
  
     public static String c_stringFile = "conversation/wod_rubina";
+    public static final String OBJVAR_WOD_PROLOGUE_QUESTS = "wod_prologue_quests";
+    public static final String QUEST_RUBINA_GOTO_NS = "wod_rubina_goto_ns";
+    public static final String QUEST_RUBINA_GOTO_SM = "wod_rubina_goto_sm";
+    public static final int STATUS_FULL_SUPPORT = 7;
+    public static final int STATUS_MOST_SUPPORT = 4;
+    public static final int STATUS_SLIGHT_SUPPORT = 1;
     public static final String HELLO_DEARIE = "hello_dearie";
     public static final String NOT_IN_MY_PLANS = "not_in_my_plans";
     public static final String SUITING_PURPOSE = "suiting_purpose";
@@ -31,7 +37,16 @@ public class wod_rubina extends script.base_script
     public static final String HOW_AM_I_DOING = "how_am_i_doing";
     public static final String SMALL_TASKS_TASK_REPLY = "small_tasks_task_reply";
     public static final String SMALL_TASKS_INFO_REPLY = "task_more_info";
-    public static final String SMALL_TASKS_STATUS_REPLY = "small_tasks_status_reply";
+    public static final String CAN_STATUS_READY_NS = "clan_status_ready_ns";
+    public static final String CAN_STATUS_READY_SM = "clan_status_ready_sm";
+    public static final String CAN_STATUS_FULL_NS = "clan_status_full_ns";
+    public static final String CAN_STATUS_FULL_SM = "clan_status_full_sm";
+    public static final String CAN_STATUS_MOST_NS = "clan_status_most_ns";
+    public static final String CAN_STATUS_MOST_SM = "clan_status_most_sm";
+    public static final String CAN_STATUS_SLIGHT_NS = "clan_status_slight_ns";
+    public static final String CAN_STATUS_SLIGHT_SM = "clan_status_slight_sm";
+    public static final String CAN_STATUS_ONE_QUEST = "clan_status_one_quest";
+    public static final String CAN_STATUS_BALANCE = "clan_status_balance";
     public static final String WHY_GAIN_FAVOR = "why_gain_favor";
     public static final String HELP_ONE_CLAN = "help_one_clan";
     public static final String HOW_CHANGE_CLANS = "how_change_clans";
@@ -99,7 +114,7 @@ public class wod_rubina extends script.base_script
         }
         else if (response.equals(HOW_AM_I_DOING))
         {
-            message = new string_id(c_stringFile, SMALL_TASKS_STATUS_REPLY);
+            message = wod_rubina_getStatusReply(player, npc);
         }
         if (message != null)
         {
@@ -108,6 +123,52 @@ public class wod_rubina extends script.base_script
             return SCRIPT_CONTINUE;
         }
         return SCRIPT_DEFAULT;
+    }
+
+    public string_id wod_rubina_getStatusReply(obj_id player, obj_id npc) throws InterruptedException
+    {
+        int questCount = 0;
+        if (hasObjVar(player, OBJVAR_WOD_PROLOGUE_QUESTS))
+        {
+            questCount = getIntObjVar(player, OBJVAR_WOD_PROLOGUE_QUESTS);
+        }
+        if (questCount > STATUS_FULL_SUPPORT && !groundquests.hasCompletedQuest(player, QUEST_RUBINA_GOTO_NS))
+        {
+            return new string_id(c_stringFile, CAN_STATUS_READY_NS);
+        }
+        if (questCount < -STATUS_FULL_SUPPORT && !groundquests.hasCompletedQuest(player, QUEST_RUBINA_GOTO_SM))
+        {
+            return new string_id(c_stringFile, CAN_STATUS_READY_SM);
+        }
+        if (questCount < -STATUS_FULL_SUPPORT)
+        {
+            return new string_id(c_stringFile, CAN_STATUS_FULL_SM);
+        }
+        if (questCount > STATUS_FULL_SUPPORT)
+        {
+            return new string_id(c_stringFile, CAN_STATUS_FULL_NS);
+        }
+        if (questCount < -STATUS_MOST_SUPPORT)
+        {
+            return new string_id(c_stringFile, CAN_STATUS_MOST_SM);
+        }
+        if (questCount > STATUS_MOST_SUPPORT)
+        {
+            return new string_id(c_stringFile, CAN_STATUS_MOST_NS);
+        }
+        if (questCount < -STATUS_SLIGHT_SUPPORT)
+        {
+            return new string_id(c_stringFile, CAN_STATUS_SLIGHT_SM);
+        }
+        if (questCount > STATUS_SLIGHT_SUPPORT)
+        {
+            return new string_id(c_stringFile, CAN_STATUS_SLIGHT_NS);
+        }
+        if (questCount == STATUS_SLIGHT_SUPPORT || questCount == -STATUS_SLIGHT_SUPPORT)
+        {
+            return new string_id(c_stringFile, CAN_STATUS_ONE_QUEST);
+        }
+        return new string_id(c_stringFile, CAN_STATUS_BALANCE);
     }
 
     public int wod_rubina_handleTaskMoreInfo(obj_id player, obj_id npc, string_id response) throws InterruptedException
