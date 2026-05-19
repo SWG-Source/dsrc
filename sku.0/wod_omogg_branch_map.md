@@ -9,6 +9,10 @@ Source script:
 
 This file maps Omogg's generated conversation flow and the two walkabout quests he controls. The script has inline dialogue comments, so the branch text below comes from the Java import.
 
+## Current Direction
+
+The generic `systems.conversation_manager` prototype was removed from this branch. It proved too broad for the first WOD pass: even Omogg needed too much generic loader, table, script, and live-spawn plumbing before we could validate behavior. The next approach should build upward from the concrete Rubina/Omogg fixes: keep one script per NPC, extract small shared helpers only after repeated WOD patterns are obvious, and preserve direct player-facing debug while testing.
+
 ## What Quest To Reset
 
 Most Omogg blockers are one of these two quests:

@@ -6,7 +6,21 @@ Source script:
 - String file used by script: `conversation/wod_rubina`
 - NPC attachment: `gray_witch` in `sys.server/compiled/game/datatables/mob/creatures.tab`
 
-This file maps the behavior of the imported generated conversation script so it can be rebuilt with the conversation manager. The existing Java and the live STF appear to be out of sync; preserve the state checks and quest effects, but do not trust the string IDs as authoritative dialogue text.
+This file maps the behavior of the imported generated conversation script so Rubina can be repaired directly, one concrete quest NPC at a time. The original Java and the live STF were out of sync; preserve the state checks and quest effects, but treat the old generated string IDs as suspect unless they have been reconciled against the live STF.
+
+## Current Repair Scope
+
+`conversation/wod_rubina.java` has been remapped to live `conversation/wod_rubina` STF keys for the core prologue loop:
+
+- Walkabout II return to Rubina.
+- The generic prologue menu after Walkabout II is complete.
+- The task selection menu for herbs, enemies, and wisdom.
+- The task detail branches that grant those repeatable prologue quests.
+- Repeatable turn-ins for herbs, enemies, and wisdom.
+- Status text and the ready-to-go referrals to Nightsister Stronghold or Singing Mountain.
+- The chest/data-cylinder and cache return path.
+
+As of this pass, the script no longer references any missing `s_N` keys from the live Rubina STF.
 
 ## Global State
 
@@ -58,7 +72,7 @@ State check:
 Conversation:
 
 - Start branch `1`.
-- Player response `s_6`.
+- Player response `s_22`.
 
 Trigger:
 
@@ -78,7 +92,7 @@ State check:
 Conversation:
 
 - Start branch `3`.
-- Player response `s_63`.
+- Player response `s_45`.
 
 Triggers:
 
@@ -100,7 +114,7 @@ State check:
 Conversation:
 
 - Start branch `5`.
-- Player response `s_64`.
+- Player response `s_49`.
 
 Triggers:
 
@@ -124,7 +138,7 @@ State check:
 Conversation:
 
 - Start branch `7`.
-- Player response `s_67`.
+- Player response `s_37`.
 
 Triggers:
 
@@ -152,7 +166,7 @@ State check:
 Conversation:
 
 - Start branch `9`.
-- Player response `s_68`.
+- Player response `s_41`.
 
 Triggers:
 
@@ -179,7 +193,7 @@ State check:
 Conversation:
 
 - Start branch `11`.
-- Player response `s_140`.
+- Player response `s_29`.
 
 Triggers:
 
@@ -201,7 +215,7 @@ State check:
 Conversation:
 
 - Start branch `13`.
-- Player response `s_139`.
+- Player response `s_33`.
 
 Triggers:
 
@@ -226,9 +240,9 @@ State check:
 Conversation:
 
 - Start branch `15`.
-- `s_188` -> branch `16`.
-- `s_190` -> sends cylinder signal, then branch `17`.
-- `s_197` -> grants left-behind quest.
+- `s_160` -> branch `16`.
+- `s_174` -> sends cylinder signal, then branch `17`.
+- `s_172` -> grants left-behind quest.
 
 Triggers:
 
@@ -249,9 +263,9 @@ State check:
 Conversation:
 
 - Start branch `19`.
-- `s_200` -> branch `20`.
-- `s_202` -> branch `21`.
-- `s_204` -> completes return.
+- `s_186` -> branch `20`.
+- `s_190` -> branch `21`.
+- `s_194` -> completes return.
 
 Trigger:
 
@@ -307,22 +321,22 @@ Start branch:
 
 Top-level options:
 
-- `s_45`: work/task menu.
-- `s_100`: information menu.
-- `s_158`: status / final referral check.
+- `s_68`: work/task menu.
+- `s_104`: information menu.
+- `s_154`: status / final referral check.
 
 #### Work / Task Menu
 
 Branch flow:
 
-- `24:s_45` -> branch `25`.
+- `24:s_68` -> branch `25`.
 
 Branch `25` options:
 
-- `s_49`: asks for task details, goes to branch `26`.
-- `s_148`: grants herb quest immediately.
-- `s_145`: grants enemy quest immediately.
-- `s_149`: grants wisdom quest immediately.
+- `s_72`: asks for task details, goes to branch `26`.
+- `s_88`: grants herb quest immediately.
+- `s_92`: grants enemy quest immediately.
+- `s_96`: grants wisdom quest immediately.
 
 Quest grants:
 
@@ -337,31 +351,31 @@ Quest grants:
 
 Task detail sub-branches:
 
-- `26:s_53` -> `27:s_57` -> `28:s_69` -> grants herb quest.
-- `26:s_73` -> `30:s_77` -> `31:s_81` -> grants enemy quest.
-- `26:s_85` -> `33:s_89` -> `34:s_93` -> grants wisdom quest.
+- `26:s_175` -> `27:s_181` -> `28:s_88` -> grants herb quest.
+- `26:s_177` -> `30:s_183` -> `31:s_92` -> grants enemy quest.
+- `26:s_179` -> `33:s_187` -> `34:s_96` -> grants wisdom quest.
 
 #### Information Menu
 
 Branch flow:
 
-- `24:s_100` -> branch `36`.
+- `24:s_104` -> branch `36`.
 
 Branch `36` options:
 
-- `s_104`: more information submenu, goes to branch `37`.
-- `s_116`: exits with one informational response.
-- `s_120`: exits with one informational response.
-- `s_124`: exits with one informational response.
-- `s_128`: exits with one informational response.
-- `s_132`: exits with one informational response.
-- `s_136`: exits with one informational response.
-- `s_146`: exits with one informational response.
+- `s_191`: more information submenu, goes to branch `37`.
+- `s_130`: exits with Singing Mountain information.
+- `s_134`: exits with Nightsister information.
+- `s_139`: exits with Spider Clan information.
+- `s_143`: exits with magic/Force information.
+- `s_150`: exits with favor information.
+- `s_163`: exits with clan opposition information.
+- `s_166`: exits with changing-support information.
 
 Submenu:
 
-- `37:s_108` -> branch `38`.
-- `38:s_112` -> exits with final informational response.
+- `37:s_169` -> branch `38`.
+- `38:s_118` -> exits with final informational response.
 
 No quest triggers are fired in this information branch.
 
@@ -369,19 +383,19 @@ No quest triggers are fired in this information branch.
 
 Branch flow:
 
-- `24:s_158` evaluates the current `wod_prologue_quests` score.
+- `24:s_154` evaluates the current `wod_prologue_quests` score.
 
 If `status > 7` and `wod_rubina_goto_ns` is not complete:
 
 - Opens branch `47`.
-- `47:s_174` grants `quest/wod_rubina_goto_ns`.
-- `47:s_178` returns to branch `24` style menu without granting.
+- `47:s_127` grants `quest/wod_rubina_goto_ns`.
+- `47:s_124` returns to branch `24` style menu without granting.
 
 If `status < -7` and `wod_rubina_goto_sm` is not complete:
 
 - Opens branch `50`.
-- `50:s_182` grants `quest/wod_rubina_goto_sm`.
-- `50:s_186` returns to branch `24` style menu without granting.
+- `50:s_123` grants `quest/wod_rubina_goto_sm`.
+- `50:s_121` returns to branch `24` style menu without granting.
 
 If not ready for a new goto quest, status-only responses end the conversation:
 
@@ -411,7 +425,7 @@ State check:
 
 Conversation:
 
-- Rubina chats `s_210`.
+- Rubina chats `s_206`.
 - No branch is opened.
 - No trigger is fired.
 
@@ -427,7 +441,7 @@ The generated Java references many string IDs that are missing from the live STF
 
 - `/home/swg/swg-main/serverdata/string/en/conversation/wod_rubina.stf`
 
-Missing IDs include:
+Before the repair pass, missing IDs included:
 
 - `s_4`, `s_6`, `s_51`, `s_53`, `s_55`, `s_57`, `s_59`
 - `s_61`, `s_62`, `s_63`, `s_64`, `s_65`, `s_67`, `s_69`, `s_71`
@@ -437,9 +451,11 @@ Missing IDs include:
 
 This strongly suggests the conversation Java and string table were generated from different versions of Rubina's source.
 
-## Quest Checklist For Rewrite
+The current script has been remapped so every string ID it emits or compares exists in the live STF. Some branch text is still best-effort where the STF only has generic clan-gain copy, especially the outcast wisdom turn-ins.
 
-The conversation-manager version must preserve these quest operations:
+## Quest Checklist For Direct Repair
+
+Rubina's script must preserve these quest operations:
 
 - Send `speakWithRubina`.
 - Grant `quest/wod_prologue_herb_gathering`.
