@@ -1870,19 +1870,16 @@ public class base_class
      * @param name      the objvar name to search for
      * @return the float array, or null if not found
      */
-    public static Vector getResizeableFloatArrayObjVar(obj_id object, String name)
-    {
+    public static Vector getResizeableFloatArrayObjVar(obj_id object, String name) {
         float[] array = getFloatArrayObjVar(object, name);
-        if (array != null)
-        {
-            /*
+        if (array != null) {
             Float[] newArray = new Float[array.length];
-            for ( int i = 0; i < array.length; ++i )
-                newArray[i] = new Float(array[i]);
+            for (int i = 0; i < array.length; ++i) {
+                newArray[i] = Float.valueOf(array[i]);
+            }
             return new Vector(Arrays.asList(newArray));
-            */
-            return new Vector(Arrays.asList(array));
         }
+
         return null;
     }
     /**
@@ -2609,6 +2606,8 @@ public class base_class
             return setObjVar(object, name, ((Float)data).floatValue());
         else if (data instanceof float[])
             return setObjVar(object, name, (float[])data);
+		else if (data instanceof Float[])
+            return setObjVar(object, name, (Float[]) data);
         if (data instanceof Boolean)
             return setObjVar(object, name, ((Boolean)data).booleanValue());
         else if (data instanceof boolean[])
@@ -26873,3 +26872,4 @@ public class base_class
     }
 
 }   // class base_class
+
