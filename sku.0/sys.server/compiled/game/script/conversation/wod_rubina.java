@@ -6,13 +6,13 @@ import script.combat_engine.*;
 import java.util.Arrays;
 import java.util.Hashtable;
 import java.util.Vector;
-import script.base_script;
 
 import script.library.ai_lib;
 import script.library.chat;
 import script.library.conversation;
 import script.library.groundquests;
 import script.library.utils;
+import script.systems.movement.public_instance_setup;
 
 public class wod_rubina extends script.base_script
 {
@@ -47,6 +47,24 @@ public class wod_rubina extends script.base_script
     public static final String CAN_STATUS_SLIGHT_SM = "clan_status_slight_sm";
     public static final String CAN_STATUS_ONE_QUEST = "clan_status_one_quest";
     public static final String CAN_STATUS_BALANCE = "clan_status_balance";
+
+
+    public static final String TASK_RESPONSE_TELL_ME_MORE = "task_response_tell_me_more";
+    public static final String TASK_RESPONSE_INFO_HERBS = "response_task_info_herbs";
+    public static final String TASK_RESPONSE_INFO_ENEMIES = "task_response_info_enemies";
+    public static final String TASK_RESPONSE_INFO_WISDOM = "task_response_info_wisdom";
+    public static final String TASK_RESPONSE_WHERE_CAN_FIND_HERBS = "task_response_where_can_find_herbs";
+    public static final String TASK_RESPONSE_GATHER_HERBS = "task_response_gather_herbs";
+    
+
+    public static final String TASK_REPLY_HERBS_LOCATION = "task_reply_herbs_location";
+    public static final String TASK_REPLY_ASK_ABOUT_ENEMIES = "task_reply_ask_about_enemies";
+    public static final String TASK_RESPONSE_CAN_HANDLE_ENEMIES = "task_response_can_handle_enemies";
+
+
+    public static final String TASK_REPLY_CAN_HANDLE_ENEMIES = "task_reply_can_handle_enemies";
+    public static final String TASK_RESPONSE_ELIMINATE_ENEMIES = "task_response_eliminate_enemies";
+
     public static final String WHY_GAIN_FAVOR = "why_gain_favor";
     public static final String HELP_ONE_CLAN = "help_one_clan";
     public static final String HOW_CHANGE_CLANS = "how_change_clans";
@@ -67,11 +85,20 @@ public class wod_rubina extends script.base_script
     public static final String RUBINA_EXPLAINS_SPIDER_CLAN = "rubina_explains_spider_clan";
     public static final String RUBINA_EXPLAINS_MAGIC = "rubina_explains_magic";
     public static final String RUBINA_EXPLAINS_TASKS = "rubina_explains_tasks";
+    public static final String RUBINA_EXPLAINS_HERBS = "rubina_explains_herbs";
     public static final String TASK_MORE_INFO_REPLY = "task_more_info_reply";
     public static final String BRANCH_ID = "conversation.wod_rubina.branchId";
-    public static final int BRANCH_INTRODUCTION = 1;
-    public static final int BRANCH_SMALL_TASKS = 2;
-    public static final int BRANCH_TASK_MORE_INFO = 3;
+
+    public static final int BRANCH_NOT_IN_PLANS = 0; //Player has no business with Rubona
+    public static final int BRANCH_INTRODUCTION = 1; //occurs when the player first meets Rubina
+    public static final int BRANCH_RUBINA_ASKS_FOR_HELP = 2; //Rubina asks the player to perform small tasks; they are dicussing the tasks
+    public static final int BRANCH_TASKS_TYPES = 3; //The player asks Rubina for information about the tasks
+    public static final int BRANCH_TASKS_TYPES_INFO = 4; //The player asks Rubina for information about the tasks
+    
+
+
+    public static final int BRANCH_TASK_MORE_INFO = 5; //The player asks Rubina for information about the tasks
+
 
 
     public int wod_rubina_handleIntroduction(obj_id player, obj_id npc, string_id response) throws InterruptedException
@@ -87,13 +114,24 @@ public class wod_rubina extends script.base_script
         return SCRIPT_DEFAULT;
     }
 
-    public int wod_rubina_handleSmallTasks(obj_id player, obj_id npc, string_id response) throws InterruptedException
+    public int wod_rubina_handleAsksForHelp(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
         string_id message = null;
         if (response.equals(OK_GIVE_ME_A_TASK))
         {
             message = new string_id(c_stringFile, SMALL_TASKS_TASK_REPLY);
+            string_id responses[] = new string_id[4];
+            responses[0] = new string_id(c_stringFile, TASK_RESPONSE_TELL_ME_MORE);
+            responses[1] = new string_id(c_stringFile, TASK_RESPONSE_INFO_HERBS);
+            responses[2] = new string_id(c_stringFile, TASK_RESPONSE_INFO_ENEMIES);
+            responses[3] = new string_id(c_stringFile, TASK_RESPONSE_INFO_WISDOM);
+            
+            utils.setScriptVar(player, BRANCH_ID, BRANCH_TASKS_TYPES);
+            npcSpeak(player, message);
+            npcSetConversationResponses(player, responses);     
+            return SCRIPT_CONTINUE;       
         }
+        //information is a terminating branch...
         else if (response.equals(MORE_INFORMATION))
         {
             string_id taskMoreInfo = new string_id(c_stringFile, SMALL_TASKS_INFO_REPLY);
@@ -124,6 +162,129 @@ public class wod_rubina extends script.base_script
         }
         return SCRIPT_DEFAULT;
     }
+
+    public int wod_rubina_discuss_task_types(obj_id player, obj_id npc, string_id response) throws InterruptedException
+    {
+
+        string_id message = null;
+        if (response.equals(TASK_RESPONSE_TELL_ME_MORE))
+        {
+            message = new string_id(c_stringFile, TASK_MORE_INFO_REPLY);
+            string_id responses[] = new string_id[4];
+            responses[0] = new string_id(c_stringFile, TASK_RESPONSE_INFO_HERBS);
+            responses[1] = new string_id(c_stringFile, TASK_RESPONSE_INFO_ENEMIES);
+            responses[2] = new string_id(c_stringFile, TASK_RESPONSE_INFO_WISDOM);
+            
+            
+            utils.setScriptVar(player, BRANCH_ID, BRANCH_TASKS_TYPES_INFO);
+            npcSpeak(player, message);
+            npcSetConversationResponses(player, responses);     
+            return SCRIPT_CONTINUE;       
+        }
+
+        return SCRIPT_DEFAULT;
+
+    }
+
+    public int wod_rubina_discuss_task_types_info(obj_id player, obj_id npc, string_id response) throws InterruptedException
+    {
+        
+        //note that we stay in the branch BRANCH_TASKS_TYPES_INFO
+
+        string_id message = null;
+
+        //Herbs       
+
+       
+        if (response.equals(TASK_RESPONSE_INFO_HERBS))
+        {
+            message = new string_id(c_stringFile, RUBINA_EXPLAINS_HERBS);
+            string_id responses[] = new string_id[1];
+            responses[0] = new string_id(c_stringFile, TASK_RESPONSE_WHERE_CAN_FIND_HERBS);           
+            
+            npcSpeak(player, message);
+            npcSetConversationResponses(player, responses);     
+            return SCRIPT_CONTINUE;       
+        }
+
+
+        if (response.equals(TASK_RESPONSE_WHERE_CAN_FIND_HERBS))
+        {
+            message = new string_id(c_stringFile, TASK_REPLY_HERBS_LOCATION);
+            string_id responses[] = new string_id[1];
+            responses[0] = new string_id(c_stringFile, TASK_RESPONSE_GATHER_HERBS);           
+            
+            npcSpeak(player, message);
+            npcSetConversationResponses(player, responses);     
+            return SCRIPT_CONTINUE;       
+        }
+
+        if (response.equals(TASK_RESPONSE_GATHER_HERBS))
+        {
+
+            //TODO trigger quest
+
+            return SCRIPT_CONTINUE;       
+        }
+
+
+        //enemies
+
+        if (response.equals(TASK_RESPONSE_INFO_ENEMIES))
+        {
+            message = new string_id(c_stringFile, TASK_REPLY_ASK_ABOUT_ENEMIES);
+            string_id responses[] = new string_id[1];
+            responses[0] = new string_id(c_stringFile, TASK_RESPONSE_CAN_HANDLE_ENEMIES);           
+            
+            npcSpeak(player, message);
+            npcSetConversationResponses(player, responses);     
+            return SCRIPT_CONTINUE;                   
+        }        
+
+
+        if (response.equals(TASK_RESPONSE_CAN_HANDLE_ENEMIES))
+        {
+
+            message = new string_id(c_stringFile, TASK_REPLY_CAN_HANDLE_ENEMIES);
+            string_id responses[] = new string_id[1];
+            responses[0] = new string_id(c_stringFile, TASK_RESPONSE_ELIMINATE_ENEMIES);           
+            
+            npcSpeak(player, message);
+            npcSetConversationResponses(player, responses);     
+            return SCRIPT_CONTINUE;
+        }     
+
+
+        //wisdom
+
+
+        //quest triggers
+
+
+
+
+        if (response.equals(TASK_RESPONSE_GATHER_HERBS))
+        {
+
+            //TODO trigger quest
+
+            return SCRIPT_CONTINUE;       
+        }        
+
+        if (response.equals(TASK_RESPONSE_ELIMINATE_ENEMIES))
+        {
+
+            //TODO trigger quest
+
+            return SCRIPT_CONTINUE;       
+        }        
+
+
+        return SCRIPT_DEFAULT;
+
+
+    }
+
 
     public string_id wod_rubina_getStatusReply(obj_id player, obj_id npc) throws InterruptedException
     {
@@ -292,6 +453,66 @@ public class wod_rubina extends script.base_script
         return npcStartConversation(player, npc, convoName, greetingId, greetingProse, objects);
     }
 
+
+
+    private int GetStartingConversationBranch(obj_id player)  throws InterruptedException    
+    {
+        if (groundquests.isTaskActive(player, "wod_prologue_walkabout_02", "speakWithRubina"))
+        {
+            return BRANCH_INTRODUCTION;
+        }
+
+        //Do we need to update after the completed?
+        if (groundquests.hasCompletedQuest(player, "wod_prologue_walkabout_02"))
+        {
+            return BRANCH_RUBINA_ASKS_FOR_HELP;
+        }
+
+        return BRANCH_NOT_IN_PLANS;
+    }
+
+    private string_id GetStartingConversationMessage(int branch_id)
+    {
+
+        if (branch_id == BRANCH_INTRODUCTION)
+        {
+            return new string_id(c_stringFile, HELLO_DEARIE);
+        }
+
+        if (branch_id == BRANCH_RUBINA_ASKS_FOR_HELP)
+        {
+            return new string_id(c_stringFile, ASSIST_WITH_SMALL_TASKS);
+        }
+
+
+         return new string_id(c_stringFile, NOT_IN_MY_PLANS);
+    }
+
+    private string_id[] GetStartingConversationResponses(int branch_id)
+    {
+
+        if (branch_id == BRANCH_INTRODUCTION)
+        {
+            string_id responses[] = new string_id[1];
+            responses[0] = new string_id(c_stringFile, SUITING_PURPOSE); 
+            return responses;
+
+        }
+
+        if (branch_id == BRANCH_RUBINA_ASKS_FOR_HELP)
+        {
+            string_id responses[] = new string_id[3];
+            responses[0] = new string_id(c_stringFile, OK_GIVE_ME_A_TASK);
+            responses[1] = new string_id(c_stringFile, MORE_INFORMATION);
+            responses[2] = new string_id(c_stringFile, HOW_AM_I_DOING);
+            return responses;
+        }
+
+         return null;
+    }
+
+
+
     public int OnStartNpcConversation(obj_id self, obj_id player) throws InterruptedException
     {
         obj_id npc = self;
@@ -299,51 +520,83 @@ public class wod_rubina extends script.base_script
         {
             return SCRIPT_OVERRIDE;
         }
-        if (groundquests.isTaskActive(player, "wod_prologue_walkabout_02", "speakWithRubina"))
+
+        int branch_id = GetStartingConversationBranch(player);
+
+        //fetch the message for the starting branch
+        //fetch the player responses
+
+        string_id message = GetStartingConversationMessage(branch_id);
+        string_id responses[] = GetStartingConversationResponses(branch_id);
+
+        utils.setScriptVar(player, BRANCH_ID, branch_id);
+
+        if (responses != null)
         {
-            string_id message = new string_id(c_stringFile, HELLO_DEARIE);
-            string_id responses[] = new string_id[1];
-            responses[0] = new string_id(c_stringFile, SUITING_PURPOSE);
-            utils.setScriptVar(player, BRANCH_ID, BRANCH_INTRODUCTION);
             npcStartConversation(player, npc, "wod_rubina", message, responses);
             return SCRIPT_CONTINUE;
         }
-        if (groundquests.hasCompletedQuest(player, "wod_prologue_walkabout_02"))
-        {
-            string_id message = new string_id(c_stringFile, ASSIST_WITH_SMALL_TASKS);
-            string_id responses[] = new string_id[3];
-            responses[0] = new string_id(c_stringFile, OK_GIVE_ME_A_TASK);
-            responses[1] = new string_id(c_stringFile, MORE_INFORMATION);
-            responses[2] = new string_id(c_stringFile, HOW_AM_I_DOING);
-            utils.setScriptVar(player, BRANCH_ID, BRANCH_SMALL_TASKS);
-            npcStartConversation(player, npc, "wod_rubina", message, responses);
-            return SCRIPT_CONTINUE;
-        }
-        string_id message = new string_id(c_stringFile, NOT_IN_MY_PLANS);
+
         chat.chat(npc, player, message);
+
         return SCRIPT_CONTINUE;
     }
+
+
     public int OnNpcConversationResponse(obj_id self, String conversationId, obj_id player, string_id response) throws InterruptedException
     {
         if (!conversationId.equals("wod_rubina"))
         {
             return SCRIPT_CONTINUE;
         }
+
         obj_id npc = self;
 
         int branchId = utils.getIntScriptVar(player, BRANCH_ID);
+
         if (branchId == BRANCH_INTRODUCTION && wod_rubina_handleIntroduction(player, npc, response) == SCRIPT_CONTINUE)
         {
             return SCRIPT_CONTINUE;
         }
-        if (branchId == BRANCH_SMALL_TASKS && wod_rubina_handleSmallTasks(player, npc, response) == SCRIPT_CONTINUE)
+
+
+        if (branchId == BRANCH_RUBINA_ASKS_FOR_HELP && wod_rubina_handleAsksForHelp(player, npc, response) == SCRIPT_CONTINUE)
         {
-            return SCRIPT_CONTINUE;
+           return SCRIPT_CONTINUE;
         }
+
+
+        if (branchId == BRANCH_TASKS_TYPES && wod_rubina_discuss_task_types(player, npc, response) == SCRIPT_CONTINUE)
+        {
+           return SCRIPT_CONTINUE;
+        }
+
+        if (branchId == BRANCH_TASKS_TYPES_INFO && wod_rubina_discuss_task_types_info(player, npc, response) == SCRIPT_CONTINUE)
+        {
+           return SCRIPT_CONTINUE;
+        }
+
+
+        
+
+
+
+//    public static final int BRANCH_TASKS_TYPES = 3; //The player asks Rubina for information about the tasks
+//    public static final int BRANCH_TASK_MORE_INFO = 4; //The player asks Rubina for information about the tasks
+
+
+        
+
+        /*
+
         if (branchId == BRANCH_TASK_MORE_INFO && wod_rubina_handleTaskMoreInfo(player, npc, response) == SCRIPT_CONTINUE)
         {
             return SCRIPT_CONTINUE;
         }
+
+
+        */
+
         chat.chat(npc, "Error:  Fell through all branches and responses for OnNpcConversationResponse.");
         utils.removeScriptVar(player, BRANCH_ID);
         return SCRIPT_CONTINUE;
