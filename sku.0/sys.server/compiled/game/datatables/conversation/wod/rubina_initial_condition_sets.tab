@@ -1,0 +1,6 @@
+id	group_id	order	strComments
+s	s	i	c
+walkabout_2_active_set	walkabout_2_active_group	1
+walkabout_2_complete_set	walkabout_2_complete_group	2
+quests_active_set	quests_active_group	3
+default_set	default_group	4

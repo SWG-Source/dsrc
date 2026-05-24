@@ -1,0 +1,6 @@
+id	type	parameters	strComments
+s	s	s	c
+quest_walkabout_2_active	isQuestActive	{ quest_name: "wod_prologue_walkabout_02", step: "speakWithRubina" }
+quest_walkabout_2_complete	isQuestCompleted	{ quest_name: "wod_prologue_walkabout_02" }
+quest_wod_active	isAnyQuestActive	{ quests: ["quest/wod_prologue_kill_rancor", "quest/wod_prologue_kill_spider_clan", "quest/wod_prologue_herb_gathering", "quest/wod_outcast_1", "quest/wod_outcast_2", "quest/wod_outcast_3", "quest/wod_outcast_4", "quest/wod_outcast_5", "quest/wod_outcast_6", "quest/wod_outcast_7"] }
+rubina_initial_default	default	none

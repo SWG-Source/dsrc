@@ -10,9 +10,12 @@ import java.util.Vector;
 import script.library.ai_lib;
 import script.library.chat;
 import script.library.conversation;
+import script.library.conversation_manager.ConversationManagerData.Condition;
+import script.library.conversation_manager.*;
 import script.library.groundquests;
 import script.library.utils;
 import script.systems.movement.public_instance_setup;
+
 
 public class wod_rubina extends script.base_script
 {
@@ -522,6 +525,15 @@ public class wod_rubina extends script.base_script
         }
 
         int branch_id = GetStartingConversationBranch(player);
+        Condition[] conditions = ConditionTable.getConditionsFromTable(ConditionTable.getTableName("wod", "rubina_initial_"));
+        for (int i = 0; i < conditions.length; i++)
+        {
+            if (conditions[i] != null)
+            {
+                sendSystemMessageTestingOnly(player, "condition id: " + conditions[i].getId());
+            }
+        }
+
 
         //fetch the message for the starting branch
         //fetch the player responses

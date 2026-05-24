@@ -1,0 +1,6 @@
+id	condition_id	logical_operation	strComments
+s	s	s	c
+walkabout_2_active_group	quest_walkabout_2_active	any
+walkabout_2_complete_group	quest_walkabout_2_complete	any
+quests_active_group	quest_wod_active	any
+default_group	rubina_initial_default	any
