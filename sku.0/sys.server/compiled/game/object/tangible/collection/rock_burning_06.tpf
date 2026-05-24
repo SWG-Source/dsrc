@@ -6,5 +6,5 @@
 @class object_template 5
 
 sharedTemplate = "object/tangible/collection/shared_rock_burning_06.iff"
-objvars = ["collection.slotName" = "col_rock_burning:burning_rock_06"]
+objvars = ["collection.slotName" = "col_rock_burning:burning_rock_06", "skipLosCheck" = 1]
 scripts = ["systems.collections.consume_click"]
