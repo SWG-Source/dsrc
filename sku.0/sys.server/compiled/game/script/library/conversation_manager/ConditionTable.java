@@ -47,6 +47,11 @@ public class ConditionTable
         return getConditionsFromTable(getTableName(directory, baseName));
     }
 
+    public static Condition getCondition(String directory, String baseName, String id) throws InterruptedException
+    {
+        return getConditionFromTable(getTableName(directory, baseName), id);
+    }
+
     public static Condition[] getConditionsFromTable(String table) throws InterruptedException
     {
         dictionary[] rows = datatable_api.getRows(table);
@@ -56,6 +61,12 @@ public class ConditionTable
             conditions[i] = Condition.fromDictionary(rows[i]);
         }
         return conditions;
+    }
+
+    public static Condition getConditionFromTable(String table, String id) throws InterruptedException
+    {
+        dictionary row = datatable_api.firstRowByString(table, Condition.COLUMN_ID, id);
+        return Condition.fromDictionary(row);
     }
 
     private static String normalizeDirectory(String directory)

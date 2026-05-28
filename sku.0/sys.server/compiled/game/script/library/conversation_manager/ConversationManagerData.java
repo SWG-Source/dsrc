@@ -16,6 +16,14 @@ public class ConversationManagerData
         public static final String COLUMN_ID = "id";
         public static final String COLUMN_TYPE = "type";
         public static final String COLUMN_PARAMETERS = "parameters";
+        public static final String TYPE_IS_QUEST_ACTIVE = "isQuestActive";
+        public static final String TYPE_IS_QUEST_COMPLETED = "isQuestCompleted";
+        public static final String TYPE_IS_ANY_QUEST_ACTIVE = "isAnyQuestActive";
+        public static final String TYPE_PLAYER_HAS_OBJVAR = "playerHasObjVar";
+        public static final String TYPE_PLAYER_HAS_SCRIPT_VAR = "playerHasScriptVar";
+        public static final String TYPE_NPC_HAS_OBJVAR = "npcHasObjVar";
+        public static final String TYPE_NPC_HAS_SCRIPT_VAR = "npcHasScriptVar";
+        public static final String TYPE_DEFAULT = "default";
 
         public String id = "";
         public String type = "";
