@@ -535,6 +535,18 @@ public class wod_rubina extends script.base_script
         if (selectedResponseState != null)
         {
             sendSystemMessageTestingOnly(player, "selected response state id: " + selectedResponseState.getId());
+            ResponseAction[] selectedResponseActions = ConversationManagerProcessor.getResponseActions("wod", "rubina_initial_", selectedResponseState);
+            for (int i = 0; i < selectedResponseActions.length; i++)
+            {
+                if (selectedResponseActions[i] != null)
+                {
+                    sendSystemMessageTestingOnly(player, "selected response action id: " + selectedResponseActions[i].getId() + " order: " + selectedResponseActions[i].getOrder() + " action: " + selectedResponseActions[i].getAction());
+                }
+            }
+            if (ConversationManagerProcessor.executeResponseActions("wod", "rubina_initial_", selectedResponseState, player, npc, BRANCH_ID, "wod_rubina", c_stringFile) > 0)
+            {
+                return SCRIPT_CONTINUE;
+            }
         }
         else
         {
@@ -617,6 +629,12 @@ public class wod_rubina extends script.base_script
 
         chat.chat(npc, "Error:  Fell through all branches and responses for OnNpcConversationResponse.");
         utils.removeScriptVar(player, BRANCH_ID);
+        return SCRIPT_CONTINUE;
+    }
+
+    public int OnEndNpcConversation(obj_id self, obj_id speaker) throws InterruptedException
+    {
+        utils.removeScriptVar(speaker, BRANCH_ID);
         return SCRIPT_CONTINUE;
     }
 }

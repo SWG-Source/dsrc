@@ -210,6 +210,17 @@ public class ConversationManagerData
         public static final String COLUMN_ORDER = "order";
         public static final String COLUMN_ACTION = "action";
         public static final String COLUMN_PARAMETERS = "parameters";
+        public static final String ACTION_SIGNAL = "signal";
+        public static final String ACTION_CONVERSATION = "conversation";
+        public static final String ACTION_SPEAK = "speak";
+        public static final String ACTION_ANIMATION = "animation";
+        public static final String ACTION_COMPLETE_QUEST = "complete_quest";
+        public static final String ACTION_GRANT_QUEST = "grant_quest";
+        public static final String ACTION_GRANT_REWARD = "grant_reward";
+        public static final String ACTION_SET_OBJECT_VAR = "set_object_var";
+        public static final String ACTION_REMOVE_OBJECT_VAR = "remove_object_var";
+        public static final String ACTION_SET_SCRIPT_VAR = "set_script_var";
+        public static final String ACTION_REMOVE_SCRIPT_VAR = "remove_script_var";
 
         public String id = "";
         public String responseStateId = "";

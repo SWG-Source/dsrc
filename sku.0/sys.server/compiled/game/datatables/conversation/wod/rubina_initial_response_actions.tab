@@ -1,6 +1,6 @@
 id	response_state_id	order	action	parameters	strComments
 s	s	i	s	s	c
 walkabout_2_active	walkabout_2_active_response	1	signal	{ signal_name: "speakWithRubina" }
-walkabout_2_active	walkabout_2_active_response	2	conversation	{ branch : first_meeting_branch, npc_reply: "hello_dearie", player_responses: ["suiting_purpose"] }
-walkabout_2_complete_action	walkabout_2_complete_response	1	conversation	{ branch : rubina_asks_for_help_branch, npc_reply: "small_tasks_task_reply", player_responses: ["task_response_tell_me_more", "response_task_info_herbs", "task_response_info_enemies", "task_response_info_wisdom";] }
+walkabout_2_active	walkabout_2_active_response	2	conversation	{ branch: 1, npc_reply: "hello_dearie", player_responses: ["suiting_purpose"] }
+walkabout_2_complete_action	walkabout_2_complete_response	1	conversation	{ branch: 2, npc_reply: "small_tasks_task_reply", player_responses: ["task_response_tell_me_more", "response_task_info_herbs", "task_response_info_enemies", "task_response_info_wisdom"] }
 quests_active_action	quests_active_response	1	speak	{ npc_reply: "not_in_my_plans" }
