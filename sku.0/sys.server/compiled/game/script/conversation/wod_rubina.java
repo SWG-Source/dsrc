@@ -529,49 +529,16 @@ public class wod_rubina extends script.base_script
         }
 
         int branch_id = GetStartingConversationBranch(player);
-        Condition[] conditions = ConditionTable.getConditionsFromTable(ConditionTable.getTableName("wod", "rubina_initial_"));
-        for (int i = 0; i < conditions.length; i++)
-        {
-            if (conditions[i] != null)
-            {
-                sendSystemMessageTestingOnly(player, "condition id: " + conditions[i].getId());
-            }
-        }
 
-        ConditionGroup[] conditionGroups = ConditionGroupTable.getConditionGroups("wod", "rubina_initial_");
-        for (int i = 0; i < conditionGroups.length; i++)
-        {
-            if (conditionGroups[i] != null)
-            {
-                sendSystemMessageTestingOnly(player, "condition group id: " + conditionGroups[i].getId() + " condition: " + conditionGroups[i].getConditionId() + " op: " + conditionGroups[i].getLogicalOperation());
-            }
-        }
 
-        ConditionSet[] conditionSets = ConditionSetTable.getConditionSets("wod", "rubina_initial_");
-        for (int i = 0; i < conditionSets.length; i++)
+        ResponseState selectedResponseState = ConversationManagerProcessor.getFirstPassingResponseState("wod", "rubina_initial_", player, npc);
+        if (selectedResponseState != null)
         {
-            if (conditionSets[i] != null)
-            {
-                sendSystemMessageTestingOnly(player, "condition set id: " + conditionSets[i].getId() + " group: " + conditionSets[i].getGroupId() + " order: " + conditionSets[i].getOrder());
-            }
+            sendSystemMessageTestingOnly(player, "selected response state id: " + selectedResponseState.getId());
         }
-
-        ResponseState[] responseStates = ResponseStateTable.getResponseStates("wod", "rubina_initial_");
-        for (int i = 0; i < responseStates.length; i++)
+        else
         {
-            if (responseStates[i] != null)
-            {
-                sendSystemMessageTestingOnly(player, "response state id: " + responseStates[i].getId() + " condition set: " + responseStates[i].getConditionSetId() + " order: " + responseStates[i].getOrder());
-            }
-        }
-
-        ResponseAction[] responseActions = ResponseActionTable.getResponseActions("wod", "rubina_initial_");
-        for (int i = 0; i < responseActions.length; i++)
-        {
-            if (responseActions[i] != null)
-            {
-                sendSystemMessageTestingOnly(player, "response action id: " + responseActions[i].getId() + " state: " + responseActions[i].getResponseStateId() + " order: " + responseActions[i].getOrder() + " action: " + responseActions[i].getAction());
-            }
+            sendSystemMessageTestingOnly(player, "selected response state id: none");
         }
 
         //fetch the message for the starting branch

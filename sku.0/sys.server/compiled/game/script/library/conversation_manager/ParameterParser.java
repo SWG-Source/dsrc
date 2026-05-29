@@ -126,8 +126,7 @@ public class ParameterParser
         {
             return ParameterValue.intValue(readInt());
         }
-        fail("Expected string, int, object, or array");
-        return null;
+        return ParameterValue.stringValue(readBareString());
     }
 
     private String readKey()
@@ -203,6 +202,26 @@ public class ParameterParser
         }
         fail("Unterminated string");
         return null;
+    }
+
+    private String readBareString()
+    {
+        int start = index;
+        while (!isAtEnd())
+        {
+            char ch = text.charAt(index);
+            if (ch == ',' || ch == '}' || ch == ']')
+            {
+                break;
+            }
+            index++;
+        }
+        String value = text.substring(start, index).trim();
+        if (value.length() == 0)
+        {
+            fail("Expected string, int, object, or array");
+        }
+        return value;
     }
 
     private int readInt()

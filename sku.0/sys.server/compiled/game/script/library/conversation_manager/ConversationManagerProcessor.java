@@ -82,7 +82,7 @@ public class ConversationManagerProcessor
                 return false;
             }
         }
-        return false;
+        return true;
     }
 
     private static boolean conditionSetPasses(ConditionSet conditionSet, String conditionTable, String conditionGroupTable, obj_id player, obj_id npc) throws InterruptedException
@@ -185,6 +185,10 @@ public class ConversationManagerProcessor
         {
             return false;
         }
+        if (groundquests.hasCompletedQuest(player, questName))
+        {
+            return false;
+        }
         String step = params.getString("step");
         if (step != null && step.length() > 0)
         {
@@ -215,7 +219,7 @@ public class ConversationManagerProcessor
         for (int i = 0; i < quests.size(); i++)
         {
             String questName = quests.getString(i);
-            if (questName != null && questName.length() > 0 && groundquests.isQuestActive(player, questName))
+            if (questName != null && questName.length() > 0 && !groundquests.hasCompletedQuest(player, questName) && groundquests.isQuestActive(player, questName))
             {
                 return true;
             }
