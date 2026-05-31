@@ -1,0 +1,7 @@
+id	condition_id	logical_operation	strComments
+s	s	s	c
+give_task_tell_more_reply_group	give_task_tell_more_reply	any
+give_task_herbs_reply_group	give_task_herbs_reply	any
+give_task_enemies_reply_group	give_task_enemies_reply	any
+give_task_wisdom_reply_group	give_task_wisdom_reply	any
+default_group	give_task_default	any

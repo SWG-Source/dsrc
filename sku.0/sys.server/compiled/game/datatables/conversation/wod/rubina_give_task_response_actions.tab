@@ -1,0 +1,7 @@
+id	response_state_id	order	action	parameters	strComments
+s	s	i	s	s	c
+give_task_tell_more_reply_action	give_task_tell_more_reply_response	1	conversation	{ branch: "rubina_tasks_info", npc_reply: "task_more_info", player_responses: ["task_response_info_herbs", "task_response_info_enemies", "task_response_info_wisdom"] }
+give_task_herbs_reply_action	give_task_herbs_reply_response	1	grantQuest	{ quest_name: "quest/wod_prologue_herb_gathering"}
+give_task_enemies_reply_action	give_task_enemies_reply_response	1	message	{ target: "npc", script: "conversation.wod_rubina", message: "grantKillEnemyQuest" }
+give_task_wisdom_reply_action	give_task_wisdom_reply_response	1	message	{ target: "npc", script: "conversation.wod_rubina", message: "grantWisdomQuest" }
+default_action	default_response	1	speak	{ npc_reply: "not_in_my_plans" }

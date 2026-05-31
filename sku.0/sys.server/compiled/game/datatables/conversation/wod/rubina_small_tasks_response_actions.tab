@@ -1,0 +1,6 @@
+id	response_state_id	order	action	parameters	strComments
+s	s	i	s	s	c
+give_task_action	give_task_reply_response	1	conversation	{ branch: "rubina_give_task", npc_reply: "small_tasks_task_reply", player_responses: ["task_response_tell_me_more", "task_response_gather_herbs", "task_response_eliminate_enemies", "task_response_offer_wisdom"] }
+more_information_action	more_information_reply_response	1	conversation	{ branch: "rubina_more_information", npc_reply": "task_more_info",  player_responses: ["why_gain_favor", "why_infiltrate_clan", "who_witches", "who_nightsisters", "who_spider_clan", "witches_use_magic", "what_do_again"]}
+how_am_i_doing_action	how_am_i_doing_reply_response	1	message	{ target: "npc", script: "conversation.wod_rubina", message: "handleRubinaClanStatus", data: { branch: "rubina_clan_status", response: "how_am_i_doing" }  }
+default_action	default_response	1	speak	{ npc_reply: "not_in_my_plans" }

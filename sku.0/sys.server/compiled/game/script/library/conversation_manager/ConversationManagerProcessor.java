@@ -39,6 +39,11 @@ public class ConversationManagerProcessor
 
     public static ResponseState getFirstPassingResponseState(String directory, String baseName, obj_id player, obj_id npc) throws InterruptedException
     {
+        return getFirstPassingResponseState(directory, baseName, player, npc, null, null);
+    }
+
+    public static ResponseState getFirstPassingResponseState(String directory, String baseName, obj_id player, obj_id npc, String branchName, String playerResponse) throws InterruptedException
+    {
         String conditionTable = ConditionTable.getTableName(directory, baseName);
         String conditionGroupTable = ConditionGroupTable.getTableName(directory, baseName);
         String conditionSetTable = ConditionSetTable.getTableName(directory, baseName);
@@ -46,7 +51,7 @@ public class ConversationManagerProcessor
         ResponseState[] states = ResponseStateTable.getResponseStates(directory, baseName);
         for (int i = 0; i < states.length; i++)
         {
-            if (responseStatePasses(states[i], conditionTable, conditionGroupTable, conditionSetTable, player, npc))
+            if (responseStatePasses(states[i], conditionTable, conditionGroupTable, conditionSetTable, player, npc, branchName, playerResponse))
             {
                 return states[i];
             }
@@ -80,15 +85,20 @@ public class ConversationManagerProcessor
 
     public static boolean responseStatePasses(ResponseState state, String conditionTable, String conditionGroupTable, String conditionSetTable, obj_id player, obj_id npc) throws InterruptedException
     {
+        return responseStatePasses(state, conditionTable, conditionGroupTable, conditionSetTable, player, npc, null, null);
+    }
+
+    public static boolean responseStatePasses(ResponseState state, String conditionTable, String conditionGroupTable, String conditionSetTable, obj_id player, obj_id npc, String branchName, String playerResponse) throws InterruptedException
+    {
         if (state == null)
         {
             return false;
         }
         ConditionSet[] conditionSets = ConditionSetTable.getConditionSetsByIdFromTable(conditionSetTable, state.conditionSetId);
-        return conditionSetsPass(conditionSets, conditionTable, conditionGroupTable, player, npc);
+        return conditionSetsPass(conditionSets, conditionTable, conditionGroupTable, player, npc, branchName, playerResponse);
     }
 
-    private static boolean conditionSetsPass(ConditionSet[] conditionSets, String conditionTable, String conditionGroupTable, obj_id player, obj_id npc) throws InterruptedException
+    private static boolean conditionSetsPass(ConditionSet[] conditionSets, String conditionTable, String conditionGroupTable, obj_id player, obj_id npc, String branchName, String playerResponse) throws InterruptedException
     {
         if (conditionSets == null || conditionSets.length < 1)
         {
@@ -96,7 +106,7 @@ public class ConversationManagerProcessor
         }
         for (int i = 0; i < conditionSets.length; i++)
         {
-            if (!conditionSetPasses(conditionSets[i], conditionTable, conditionGroupTable, player, npc))
+            if (!conditionSetPasses(conditionSets[i], conditionTable, conditionGroupTable, player, npc, branchName, playerResponse))
             {
                 return false;
             }
@@ -104,17 +114,17 @@ public class ConversationManagerProcessor
         return true;
     }
 
-    private static boolean conditionSetPasses(ConditionSet conditionSet, String conditionTable, String conditionGroupTable, obj_id player, obj_id npc) throws InterruptedException
+    private static boolean conditionSetPasses(ConditionSet conditionSet, String conditionTable, String conditionGroupTable, obj_id player, obj_id npc, String branchName, String playerResponse) throws InterruptedException
     {
         if (conditionSet == null)
         {
             return false;
         }
         ConditionGroup[] conditionGroups = ConditionGroupTable.getConditionGroupsByIdFromTable(conditionGroupTable, conditionSet.groupId);
-        return conditionGroupPasses(conditionGroups, conditionTable, player, npc);
+        return conditionGroupPasses(conditionGroups, conditionTable, player, npc, branchName, playerResponse);
     }
 
-    private static boolean conditionGroupPasses(ConditionGroup[] conditionGroups, String conditionTable, obj_id player, obj_id npc) throws InterruptedException
+    private static boolean conditionGroupPasses(ConditionGroup[] conditionGroups, String conditionTable, obj_id player, obj_id npc, String branchName, String playerResponse) throws InterruptedException
     {
         if (conditionGroups == null || conditionGroups.length < 1)
         {
@@ -126,7 +136,7 @@ public class ConversationManagerProcessor
         {
             for (int i = 0; i < conditionGroups.length; i++)
             {
-                if (!conditionLinkPasses(conditionGroups[i], conditionTable, player, npc))
+                if (!conditionLinkPasses(conditionGroups[i], conditionTable, player, npc, branchName, playerResponse))
                 {
                     return false;
                 }
@@ -136,7 +146,7 @@ public class ConversationManagerProcessor
 
         for (int i = 0; i < conditionGroups.length; i++)
         {
-            if (conditionLinkPasses(conditionGroups[i], conditionTable, player, npc))
+            if (conditionLinkPasses(conditionGroups[i], conditionTable, player, npc, branchName, playerResponse))
             {
                 return true;
             }
@@ -144,17 +154,17 @@ public class ConversationManagerProcessor
         return false;
     }
 
-    private static boolean conditionLinkPasses(ConditionGroup conditionGroup, String conditionTable, obj_id player, obj_id npc) throws InterruptedException
+    private static boolean conditionLinkPasses(ConditionGroup conditionGroup, String conditionTable, obj_id player, obj_id npc, String branchName, String playerResponse) throws InterruptedException
     {
         if (conditionGroup == null)
         {
             return false;
         }
         Condition condition = ConditionTable.getConditionFromTable(conditionTable, conditionGroup.conditionId);
-        return conditionPasses(condition, player, npc);
+        return conditionPasses(condition, player, npc, branchName, playerResponse);
     }
 
-    private static boolean conditionPasses(Condition condition, obj_id player, obj_id npc) throws InterruptedException
+    private static boolean conditionPasses(Condition condition, obj_id player, obj_id npc, String branchName, String playerResponse) throws InterruptedException
     {
         if (condition == null || condition.type == null)
         {
@@ -187,6 +197,10 @@ public class ConversationManagerProcessor
         if (Condition.TYPE_NPC_HAS_SCRIPT_VAR.equals(condition.type))
         {
             return npcHasScriptVar(npc, condition.parameters);
+        }
+        if (Condition.TYPE_PLAYER_RESPONSE.equals(condition.type))
+        {
+            return playerResponsePasses(branchName, playerResponse, condition.parameters);
         }
         if (Condition.TYPE_DEFAULT.equals(condition.type))
         {
@@ -269,6 +283,22 @@ public class ConversationManagerProcessor
     private static boolean defaultCondition()
     {
         return true;
+    }
+
+    private static boolean playerResponsePasses(String branchName, String playerResponse, String parameters) throws InterruptedException
+    {
+        if (branchName == null || branchName.length() == 0 || playerResponse == null || playerResponse.length() == 0)
+        {
+            return false;
+        }
+        ParameterObject params = ParameterParser.parseObject(parameters);
+        String expectedBranchName = params.getString("branch_name");
+        String expectedResponse = params.getString("response");
+        if (expectedBranchName == null || expectedBranchName.length() == 0 || expectedResponse == null || expectedResponse.length() == 0)
+        {
+            return false;
+        }
+        return branchName.equals(expectedBranchName) && playerResponse.equals(expectedResponse);
     }
 
     private static boolean hasObjVarCondition(obj_id target, String parameters) throws InterruptedException
@@ -374,7 +404,15 @@ public class ConversationManagerProcessor
         boolean isActiveConversation = branchScriptVar != null && branchScriptVar.length() > 0 && utils.hasScriptVar(player, branchScriptVar);
         if (branchScriptVar != null && branchScriptVar.length() > 0)
         {
-            utils.setScriptVar(player, branchScriptVar, params.getInt("branch"));
+            ParameterValue branch = params.get("branch");
+            if (branch != null && branch.isString())
+            {
+                utils.setScriptVar(player, branchScriptVar, branch.getString());
+            }
+            else if (branch != null && branch.isInt())
+            {
+                utils.setScriptVar(player, branchScriptVar, branch.getInt());
+            }
         }
         if (conversationName == null || conversationName.length() == 0 || stringFile == null || stringFile.length() == 0)
         {
@@ -396,6 +434,7 @@ public class ConversationManagerProcessor
         {
             responses[i] = new string_id(stringFile, playerResponses.getString(i));
         }
+        base_class.sendSystemMessageTestingOnly(player, getConversationResponseDebugMessage(responses));
         if (isActiveConversation)
         {
             base_class.npcSpeak(player, new string_id(stringFile, npcReply));
@@ -403,6 +442,16 @@ public class ConversationManagerProcessor
             return;
         }
         base_class.npcStartConversation(player, npc, conversationName, new string_id(stringFile, npcReply), responses);
+    }
+
+    private static String getConversationResponseDebugMessage(string_id[] responses)
+    {
+        String message = "conversation manager responses count: " + responses.length;
+        for (int i = 0; i < responses.length; i++)
+        {
+            message += " [" + i + "]=" + responses[i].getAsciiId();
+        }
+        return message;
     }
 
     private static void speak(obj_id player, obj_id npc, String parameters, String branchScriptVar, String stringFile) throws InterruptedException

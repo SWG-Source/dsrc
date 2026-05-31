@@ -1,0 +1,5 @@
+id	response_state_id	order	action	parameters	strComments
+s	s	i	s	s	c
+suiting_purpose_action	suiting_purpose_response	1	signal	{ signal_name: "speakWithRubina" }
+suiting_purpose_action	suiting_purpose_response	2	speak	{ npc_reply: "speak_to_rubina_again" }
+default_action	default_response	1	speak	{ npc_reply: "not_in_my_plans" }

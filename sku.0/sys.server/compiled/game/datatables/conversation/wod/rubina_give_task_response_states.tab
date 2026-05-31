@@ -1,0 +1,7 @@
+id	condition_set_id	order	strComments
+s	s	i	c
+give_task_tell_more_reply_response	give_task_tell_more_reply_set	1
+give_task_herbs_reply_response	give_task_herbs_reply_set	2
+give_task_enemies_reply_response	give_task_enemies_reply_set	3
+give_task_wisdom_reply_response	give_task_wisdom_reply_set	4
+default_response	default_set	5

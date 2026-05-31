@@ -1,0 +1,6 @@
+id	condition_set_id	order	strComments
+s	s	i	c
+give_task_reply_response	give_task_reply_set	1
+more_information_reply_response	more_information_reply_set	2
+how_am_i_doing_reply_response	how_am_i_doing_reply_set	3
+default_response	default_set	4

@@ -1,0 +1,6 @@
+id	type	parameters	strComments
+s	s	s	c
+give_task_reply	playerResponse	{ branch_name: "rubina_small_tasks", response: "give_me_a_task" }
+more_information_reply	playerResponse	{ branch_name: "rubina_small_tasks", response: "like_more_information" }
+how_am_i_doing_reply	playerResponse	{ branch_name: "rubina_small_tasks", response: "how_am_i_doing" }
+rubina_small_tasks_default	default	none

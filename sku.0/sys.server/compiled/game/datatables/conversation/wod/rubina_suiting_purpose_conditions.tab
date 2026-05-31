@@ -1,0 +1,5 @@
+id	type	parameters	strComments
+s	s	s	c
+suiting_purpose	playerResponse	{ branch_name: "rubina_suiting_purpose", response: "suiting_purpose" }
+suiting_purpose_default	default	none
+

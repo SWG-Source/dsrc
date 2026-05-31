@@ -1,0 +1,4 @@
+id	condition_set_id	order	strComments
+s	s	i	c
+suiting_purpose_response	suiting_purpose_set	1
+default_response	default_set	2

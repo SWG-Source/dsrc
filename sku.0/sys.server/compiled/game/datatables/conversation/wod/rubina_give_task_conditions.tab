@@ -1,0 +1,7 @@
+id	type	parameters	strComments
+s	s	s	c
+give_task_tell_more_reply	playerResponse	{ branch_name: "rubina_give_task", response: "task_response_tell_me_more" }
+give_task_herbs_reply	playerResponse	{ branch_name: "rubina_give_task", response: "task_response_gather_herbs" }
+give_task_enemies_reply	playerResponse	{ branch_name: "rubina_give_task", response: "task_response_eliminate_enemies" }
+give_task_wisdom_reply	playerResponse	{ branch_name: "rubina_give_task", response: "task_response_offer_wisdom" }
+give_task_default	default	none

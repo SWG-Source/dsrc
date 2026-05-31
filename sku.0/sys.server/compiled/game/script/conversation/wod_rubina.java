@@ -575,6 +575,7 @@ public class wod_rubina extends script.base_script
 
     public int OnNpcConversationResponse(obj_id self, String conversationId, obj_id player, string_id response) throws InterruptedException
     {
+        sendSystemMessageTestingOnly(player, "OnNpcConversationResponse fired conversationId: " + conversationId + " response: " + response.getAsciiId());
         if (!conversationId.equals("wod_rubina"))
         {
             return SCRIPT_CONTINUE;
@@ -582,7 +583,11 @@ public class wod_rubina extends script.base_script
 
         obj_id npc = self;
 
-        int branchId = utils.getIntScriptVar(player, BRANCH_ID);
+        String branchId = getConversationBranch(player);
+        sendSystemMessageTestingOnly(player, "conversation response branch: " + branchId + " response: " + response.getAsciiId());
+
+
+        /*
 
         if (branchId == BRANCH_INTRODUCTION && wod_rubina_handleIntroduction(player, npc, response) == SCRIPT_CONTINUE)
         {
@@ -607,7 +612,7 @@ public class wod_rubina extends script.base_script
         }
 
 
-        
+        */
 
 
 
@@ -632,9 +637,46 @@ public class wod_rubina extends script.base_script
         return SCRIPT_CONTINUE;
     }
 
-    public int OnEndNpcConversation(obj_id self, obj_id speaker) throws InterruptedException
+    public String getConversationBranch(obj_id player) throws InterruptedException
     {
-        utils.removeScriptVar(speaker, BRANCH_ID);
-        return SCRIPT_CONTINUE;
+        if (!utils.hasScriptVar(player, BRANCH_ID))
+        {
+            return "none";
+        }
+        String branchId = utils.getStringScriptVar(player, BRANCH_ID);
+        if (branchId != null && branchId.length() > 0)
+        {
+            return branchId;
+        }
+        return getBranchName(utils.getIntScriptVar(player, BRANCH_ID));
+    }
+
+    public String getBranchName(int branchId) throws InterruptedException
+    {
+        if (branchId == BRANCH_NOT_IN_PLANS)
+        {
+            return "BRANCH_NOT_IN_PLANS";
+        }
+        if (branchId == BRANCH_INTRODUCTION)
+        {
+            return "BRANCH_INTRODUCTION";
+        }
+        if (branchId == BRANCH_RUBINA_ASKS_FOR_HELP)
+        {
+            return "BRANCH_RUBINA_ASKS_FOR_HELP";
+        }
+        if (branchId == BRANCH_TASKS_TYPES)
+        {
+            return "BRANCH_TASKS_TYPES";
+        }
+        if (branchId == BRANCH_TASKS_TYPES_INFO)
+        {
+            return "BRANCH_TASKS_TYPES_INFO";
+        }
+        if (branchId == BRANCH_TASK_MORE_INFO)
+        {
+            return "BRANCH_TASK_MORE_INFO";
+        }
+        return "UNKNOWN_BRANCH";
     }
 }

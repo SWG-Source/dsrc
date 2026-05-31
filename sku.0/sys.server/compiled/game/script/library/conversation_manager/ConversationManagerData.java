@@ -23,6 +23,7 @@ public class ConversationManagerData
         public static final String TYPE_PLAYER_HAS_SCRIPT_VAR = "playerHasScriptVar";
         public static final String TYPE_NPC_HAS_OBJVAR = "npcHasObjVar";
         public static final String TYPE_NPC_HAS_SCRIPT_VAR = "npcHasScriptVar";
+        public static final String TYPE_PLAYER_RESPONSE = "playerResponse";
         public static final String TYPE_DEFAULT = "default";
 
         public String id = "";

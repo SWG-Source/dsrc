@@ -1,0 +1,4 @@
+id	condition_id	logical_operation	strComments
+s	s	s	c
+suiting_purpose_group	suiting_purpose	any
+default_group	suiting_purpose_default	any

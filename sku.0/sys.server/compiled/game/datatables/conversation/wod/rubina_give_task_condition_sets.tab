@@ -1,0 +1,7 @@
+id	group_id	order	strComments
+s	s	i	c
+give_task_tell_more_reply_set	give_task_tell_more_reply_group	1
+give_task_herbs_reply_set	give_task_herbs_reply_group	2
+give_task_enemies_reply_set	give_task_enemies_reply_group	3
+give_task_wisdom_reply_set	give_task_wisdom_reply_group	4
+default_set	default_group	5

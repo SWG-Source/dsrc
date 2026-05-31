@@ -1,0 +1,6 @@
+id	condition_id	logical_operation	strComments
+s	s	s	c
+give_task_reply_group	give_task_reply	any
+more_information_reply_group	more_information_reply	any
+how_am_i_doing_reply_group	how_am_i_doing_reply	any
+default_group	rubina_small_tasks_default	any
