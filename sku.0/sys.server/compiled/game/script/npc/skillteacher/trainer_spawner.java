@@ -13,7 +13,7 @@ public class trainer_spawner extends script.base_script
     public trainer_spawner()
     {
     }
-    public static final boolean TRAINERS_OFF = true;
+    public static final boolean TRAINERS_OFF = false;
     public int OnInitialize(obj_id self) throws InterruptedException
     {
         if (TRAINERS_OFF)

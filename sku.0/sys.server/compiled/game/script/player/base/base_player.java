@@ -1942,7 +1942,11 @@ public class base_player extends script.base_script
             }
             String skillTemplate = getSkillTemplate(self);
             String workingSkill = getWorkingSkill(self);
-            if (skillTemplate == null || skillTemplate.equals("") || skillTemplate.equals("a"))
+            // Pre-CU skill-based professions: characters do not use NGE skillTemplate /
+            // workingSkill. The empty/"a" template check below is NGE-only and forces
+            // click_combat_respec + a SUI "You must select a new profession..." msgbox
+            // on every login. Skip that path entirely under the restored pre-CU flow.
+            if (false && (skillTemplate == null || skillTemplate.equals("") || skillTemplate.equals("a")))
             {
                 int combatLevel = respec.getOldCombatLevel(self);
                 obj_id respecDevice = utils.getStaticItemInBankOrInventory(self, "item_respec_token_01_01");
@@ -1950,7 +1954,7 @@ public class base_player extends script.base_script
                 {
                     combatLevel = getIntObjVar(self, "combatLevel");
                 }
-                else 
+                else
                 {
                     if (isIdValid(respecDevice))
                     {
@@ -4474,6 +4478,48 @@ public class base_player extends script.base_script
     }
     public int maskscent(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException
     {
+        // Toggle off if already masked
+        if (getState(self, STATE_MASK_SCENT) == 1)
+        {
+            dictionary outparams = new dictionary();
+            outparams.put("count", utils.getIntScriptVar(self, "scentmask.count"));
+            messageTo(self, "removeScentMask", outparams, 0, false);
+            return SCRIPT_CONTINUE;
+        }
+        // Concealed (camo kit) blocks manual mask scent
+        if (utils.hasScriptVar(self, "scentmask.camokit"))
+        {
+            sendSystemMessage(self, SID_SYS_SCENTMASK_CONCEALED);
+            return SCRIPT_OVERRIDE;
+        }
+        // Re-mask delay after break / toggle off
+        if (utils.hasScriptVar(self, "remaskDelay"))
+        {
+            int delayUntil = utils.getIntScriptVar(self, "remaskDelay");
+            int timeDiff = delayUntil - getGameTime();
+            if (timeDiff > 0)
+            {
+                prose_package pp = prose.getPackage(SID_SYS_SCENTMASK_DELAY, timeDiff);
+                sendSystemMessageProse(self, pp);
+                return SCRIPT_OVERRIDE;
+            }
+            utils.removeScriptVar(self, "remaskDelay");
+        }
+        int maskMod = getEnhancedSkillStatisticModifier(self, "mask_scent");
+        if (maskMod < 1)
+        {
+            sendSystemMessage(self, SID_SYS_SCENTMASK_NOSKILL);
+            return SCRIPT_OVERRIDE;
+        }
+        // Apply state + buff (10 minute duration — matches pre-CU)
+        setState(self, STATE_MASK_SCENT, true);
+        buff.applyBuff(self, "mask_scent");
+        int count = utils.getIntScriptVar(self, "scentmask.count") + 1;
+        utils.setScriptVar(self, "scentmask.count", count);
+        dictionary params2 = new dictionary();
+        params2.put("count", count);
+        messageTo(self, "removeScentMask", params2, 600, false);
+        sendSystemMessage(self, SID_SYS_SCENTMASK_START);
         return SCRIPT_CONTINUE;
     }
     public int failMaskscent(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException
@@ -4746,6 +4792,22 @@ public class base_player extends script.base_script
     }
     public int removeScentMaskNoNotify(obj_id self, dictionary params) throws InterruptedException
     {
+        setState(self, STATE_MASK_SCENT, false);
+        buff.removeBuff(self, "mask_scent");
+        utils.removeScriptVar(self, "scentmask.count");
+        utils.removeScriptVar(self, "scentmask.creatureDiff");
+        utils.removeScriptVar(self, "scentmask.time");
+        // Re-mask delay: 60s base, reduced by mask_scent mod (scout.breakScentMask)
+        int remaskDelay = 60;
+        if (params != null && params.containsKey("remaskDelay"))
+        {
+            remaskDelay = params.getInt("remaskDelay");
+        }
+        if (remaskDelay < 0)
+        {
+            remaskDelay = 0;
+        }
+        utils.setScriptVar(self, "remaskDelay", getGameTime() + remaskDelay);
         return SCRIPT_CONTINUE;
     }
     public int concealEnable(obj_id self, dictionary params) throws InterruptedException
@@ -9525,6 +9587,7 @@ public class base_player extends script.base_script
                         createObject("object/tangible/survey_tool/survey_tool_mineral.iff", inventory, "");
                         weapons.createWeapon("object/weapon/melee/knife/knife_survival.iff", inventory, 0.90f);
                         createObject("object/tangible/crafting/station/generic_tool.iff", inventory, "");
+                        createObject("object/tangible/loot/npc_loot/comlink_civilian_generic.iff", inventory, "");
                         if (utils.isProfession(self, utils.ENTERTAINER))
                         {
                             createObject("object/tangible/instrument/slitherhorn.iff", inventory, "");

@@ -45,20 +45,56 @@ public class taming extends script.base_script
         }
         return SCRIPT_CONTINUE;
     }
-    public int tellPetFollow(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException
+    public int cmdTame(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException
     {
-        if (callable.hasAnyCallable(self))
+        // Pre-CU tame: short attempt window, then chance roll. Instant makePet is not pre-CU.
+        if (!isIdValid(self) || !isIdValid(target))
         {
-            obj_id[] callableList = callable.getCallables(self);
-            if (callableList.length > 0 && callableList != null)
-            {
-                for (obj_id obj_id : callableList) {
-                    if (getDistance(obj_id, self) < 200.0f && !ai_lib.aiIsDead(obj_id) && !beast_lib.isBeast(obj_id)) {
-                        pet_lib.doCommandNum(obj_id, pet_lib.COMMAND_FOLLOW, self);
-                    }
-                }
-            }
+            return SCRIPT_CONTINUE;
         }
+        if (isDead(self) || isIncapacitated(self))
+        {
+            return SCRIPT_CONTINUE;
+        }
+        float dist = getDistance(getLocation(self), getLocation(target));
+        if (dist < 0.0f || dist > 15.0f)
+        {
+            return SCRIPT_CONTINUE;
+        }
+        // Pre-CU: only babies (ai.pet_advance from makeBaby)
+        if (!hasScript(target, "ai.pet_advance"))
+        {
+            sendSystemMessageTestingOnly(self, "TAME FAIL: target missing ai.pet_advance (not a baby marker)");
+            sendSystemMessage(self, pet_lib.SID_SYS_CANT_TAME);
+            return SCRIPT_CONTINUE;
+        }
+        if (!pet_lib.hasTamingMenuOption(target, self))
+        {
+            sendSystemMessageTestingOnly(self, "TAME FAIL: hasTamingMenuOption=false (skill/master/combat/monster/chance)");
+            sendSystemMessage(self, pet_lib.SID_SYS_CANT_TAME);
+            return SCRIPT_CONTINUE;
+        }
+        int chance = pet_lib.getChanceToTame(target, self);
+        sendSystemMessageTestingOnly(self, "TAME: chance=" + chance + " name=" + getCreatureName(target));
+        if (chance <= 0)
+        {
+            sendSystemMessageTestingOnly(self, "TAME FAIL: chance<=0");
+            sendSystemMessage(self, pet_lib.SID_SYS_CANT_TAME);
+            return SCRIPT_CONTINUE;
+        }
+        // Clear a stuck flag from a previous attempt whose callback never ran
+        if (utils.hasScriptVar(self, "pet.tameLoopNum"))
+        {
+            utils.removeScriptVar(self, "pet.tameLoopNum");
+            utils.removeScriptVar(self, "pet.tameTarget");
+        }
+        utils.setScriptVar(self, "pet.tameLoopNum", 1);
+        utils.setScriptVar(self, "pet.tameTarget", target);
+        dictionary d = new dictionary();
+        d.put("player", self);
+        d.put("chance", chance);
+        d.put("phase", 0);
+        messageTo(target, "handleBeingTamed", d, 1.0f, false);
         return SCRIPT_CONTINUE;
     }
     public int mount(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException

@@ -172,11 +172,100 @@ public class pet_lib extends script.base_script
     public static final int ACTION_WOUND = 4;
     public static final int MIND_WOUND = 5;
     public static final String FAMILAR_DATA_DATATABLE = "datatables/pet/non_combat_familiar.iff";
-    public static void petFollow(obj_id pet, obj_id master) throws InterruptedException
+        public static void petFollow(obj_id pet, obj_id master) throws InterruptedException
     {
-        final float collisionRadius = getObjectCollisionRadius(pet) * 2.0f;
-        ai_lib.aiFollow(pet, master, collisionRadius, collisionRadius);
-        setMovementRun(pet);
+        final float minDist = ai_lib.DEFAULT_FOLLOW_MIN; // 4.0f
+        final float maxDist = ai_lib.DEFAULT_FOLLOW_MAX; // 8.0f
+        if (aiGetMovementState(pet) != ai_lib.MOVEMENT_PATROL && hasSuspendedMovement(pet))
+        {
+            resumeMovement(pet);
+        }
+        // Healthy continuous follow already in motion for this master: leave it.
+        // Skip this shortcut when recovering from combat — post-combat often
+        // leaves isFollowing=true + a dead movement state; a full re-attach is required.
+        boolean fromCombat = utils.hasScriptVar(pet, "pet.combatEnded");
+        if (!fromCombat && ai_lib.isFollowing(pet) && ai_lib.getFollowTarget(pet) == master && getLocomotion(pet) != 0)
+        {
+            if (isMount(pet))
+            {
+                setUnmountedMovementRate(master, pet);
+                dictionary mountInfo = getMountMovementInfo(pet);
+                float runSpeed = 7.0f;
+                {
+                    runSpeed = mountInfo.getFloat("fltBurstRunSpeed");
+                    if (runSpeed < 1.0f)
+                    {
+                        runSpeed = mountInfo.getFloat("fltBaseRunSpeed");
+                    }
+                    if (runSpeed < 1.0f)
+                    {
+                        runSpeed = 7.0f;
+                    }
+                }
+                setBaseRunSpeed(pet, runSpeed);
+                setMovementRun(pet);
+            }
+            else
+            {
+                setMovementRun(pet);
+            }
+            return;
+        }
+        if (fromCombat)
+        {
+            utils.removeScriptVar(pet, "pet.combatEnded");
+        }
+        // Dead follow state (post-combat / post-Stay): isFollowing objvar is set
+        // but locomotion is 0. Clear the script-side follow marker WITHOUT
+        // aiStopFollowing's 5s resumeDefaultCalmBehavior.
+        // Do NOT call stop() when recovering from combat — stop() leaves mounts
+        // (and sometimes pets) with isFollowing=true but loco=0 forever.
+        if (ai_lib.isFollowing(pet))
+        {
+            removeObjVar(pet, "ai.persistantFollowing");
+            if (!fromCombat)
+            {
+                stop(pet);
+            }
+        }
+        else if (!fromCombat)
+        {
+            stop(pet);
+        }
+        if (isMount(pet))
+        {
+            setUnmountedMovementRate(master, pet);
+            dictionary mountInfo = getMountMovementInfo(pet);
+            float runSpeed = 7.0f;
+            if (mountInfo != null)
+            {
+                runSpeed = mountInfo.getFloat("fltBurstRunSpeed");
+                if (runSpeed < 1.0f)
+                {
+                    runSpeed = mountInfo.getFloat("fltBaseRunSpeed");
+                }
+                if (runSpeed < 1.0f)
+                {
+                    runSpeed = 7.0f;
+                }
+            }
+            setBaseRunSpeed(pet, runSpeed);
+            setMovementRun(pet);
+        }
+        else
+        {
+            setMovementRun(pet);
+        }
+        aiSetHomeLocation(pet, getLocation(master));
+        utils.removeScriptVar(pet, "ai.pet.staying");
+        ai_lib.aiFollow(pet, master, minDist, maxDist);
+        // Kick locomotion if we started inside the band (Waiting would otherwise
+        // never path until the master first moves out of range).
+        float distNow = getDistance(pet, master);
+        if (getLocomotion(pet) == 0 && distNow <= maxDist)
+        {
+            pathTo(pet, getLocation(master));
+        }
     }
     public static void setUpPetControlDevice(obj_id petControlDevice, obj_id pet) throws InterruptedException
     {
@@ -193,37 +282,49 @@ public class pet_lib extends script.base_script
         }
         markExpansionPets(petControlDevice, pet);
     }
-    public static obj_id makeControlDevice(obj_id master, obj_id pet) throws InterruptedException
-    {
+public static obj_id makeControlDevice(obj_id master, obj_id pet) throws InterruptedException
+{
         if (callable.hasCallableCD(pet))
         {
-            return callable.getCallableCD(pet);
+                obj_id existingCD = callable.getCallableCD(pet);
+                callable.setCDCallable(existingCD, pet);
+                obj_id verify = callable.getCDCallable(existingCD);
+//                sendSystemMessageTestingOnly(master, "TAMEDEBUG: pet already has callableCD, relinked CD->pet cd=" + existingCD + " pet=" + pet + " verifyImmediate=" + verify);
+                return existingCD;
         }
         obj_id datapad = utils.getPlayerDatapad(master);
         if (!isIdValid(datapad))
         {
-            return null;
+//                sendSystemMessageTestingOnly(master, "TAMEDEBUG BAIL: no valid datapad for master");
+                return null;
         }
         String creatureName = ai_lib.getCreatureName(pet);
         if (creatureName == null || creatureName.equals(""))
         {
-            return null;
+//                sendSystemMessageTestingOnly(master, "TAMEDEBUG BAIL: creatureName null/empty for pet");
+                return null;
         }
         String controlTemplate = "object/intangible/pet/" + utils.dataTableGetString(create.CREATURE_TABLE, creatureName, "template");
+//        sendSystemMessageTestingOnly(master, "TAMEDEBUG: creatureName=" + creatureName + " controlTemplate=" + controlTemplate);
         if (!controlTemplate.endsWith(".iff"))
         {
-            controlTemplate = pet_lib.PET_CTRL_DEVICE_TEMPLATE;
+//                sendSystemMessageTestingOnly(master, "TAMEDEBUG: template lookup failed, using fallback " + pet_lib.PET_CTRL_DEVICE_TEMPLATE);
+                controlTemplate = pet_lib.PET_CTRL_DEVICE_TEMPLATE;
         }
         obj_id petControlDevice = createObject(controlTemplate, datapad, "");
+//        sendSystemMessageTestingOnly(master, "TAMEDEBUG: createObject(" + controlTemplate + ") valid=" + isIdValid(petControlDevice));
         if (!isIdValid(petControlDevice))
         {
-            petControlDevice = createObject(pet_lib.PET_CTRL_DEVICE_TEMPLATE, datapad, "");
-            if (!isIdValid(petControlDevice))
-            {
-                sendSystemMessage(master, pet_lib.SID_SYS_TOO_MANY_STORED_PETS);
-                return null;
-            }
+                petControlDevice = createObject(pet_lib.PET_CTRL_DEVICE_TEMPLATE, datapad, "");
+//                sendSystemMessageTestingOnly(master, "TAMEDEBUG: fallback createObject valid=" + isIdValid(petControlDevice));
+                if (!isIdValid(petControlDevice))
+                {
+//                        sendSystemMessageTestingOnly(master, "TAMEDEBUG BAIL: both createObject calls failed");
+                        sendSystemMessage(master, pet_lib.SID_SYS_TOO_MANY_STORED_PETS);
+                        return null;
+                }
         }
+//        sendSystemMessageTestingOnly(master, "TAMEDEBUG: SUCCESS petControlDevice=" + petControlDevice);
         setUpPetControlDevice(petControlDevice, pet);
         if (hasObjVar(pet, "ai.petAbility.wildAbility"))
         {
@@ -240,15 +341,23 @@ public class pet_lib extends script.base_script
         }
         else 
         {
-            pet_lib.setPetStatsByGrowth(pet, 10);
+            int initialGrowthStage = 10;
+            int petType = getIntObjVar(petControlDevice, "ai.pet.type");
+            if (petType == PET_TYPE_AGGRO || petType == PET_TYPE_NON_AGGRO)
+            {
+                initialGrowthStage = 1;
+                setObjVar(petControlDevice, "ai.petAdvance.growthStage", initialGrowthStage);
+            }
+            pet_lib.setPetStatsByGrowth(pet, initialGrowthStage);
         }
-        callable.setCallableCD(pet, petControlDevice);
         return petControlDevice;
     }
     public static void makePet(obj_id pet, obj_id master) throws InterruptedException
     {
+//        sendSystemMessageTestingOnly(master, "TAMEDEBUG: makePet ENTER pet=" + pet + " master=" + master);
         if (!isIdValid(pet) || !isIdValid(master) || !exists(pet) || !exists(master))
         {
+//            sendSystemMessageTestingOnly(master, "TAMEDEBUG: makePet BAIL - invalid pet/master idValid_pet=" + isIdValid(pet) + " idValid_master=" + isIdValid(master) + " exists_pet=" + exists(pet) + " exists_master=" + exists(master));
             return;
         }
         if (!hasScript(master, "ai.pet_master"))
@@ -260,8 +369,10 @@ public class pet_lib extends script.base_script
         params.put("master", master);
         petFollow(pet, master);
         int petSpecies = ai_lib.aiGetSpecies(pet);
+//        sendSystemMessageTestingOnly(master, "TAMEDEBUG: makePet petSpecies=" + petSpecies);
         if (petSpecies == -1)
         {
+//            sendSystemMessageTestingOnly(master, "TAMEDEBUG: makePet BAIL - petSpecies == -1");
             return;
         }
         String masterFaction = factions.getFaction(master);
@@ -269,8 +380,10 @@ public class pet_lib extends script.base_script
         {
             setObjVar(pet, factions.FACTION, masterFaction);
         }
-        if (!utils.hasScriptVar(pet, "petBeingInitialized") || (callable.hasCallable(master, callable.getCallableType(pet)) && callable.getCallable(master, callable.getCallableType(pet)) != pet))
+//        sendSystemMessageTestingOnly(master, "TAMEDEBUG: makePet guard check - hasScriptVar(petBeingInitialized)=" + utils.hasScriptVar(pet, "petBeingInitialized"));
+        if (!utils.hasScriptVar(pet, "petBeingInitialized"))
         {
+//            sendSystemMessageTestingOnly(master, "TAMEDEBUG: makePet BAIL - petBeingInitialized not set");
             return;
         }
         obj_id controlDevice = obj_id.NULL_ID;
@@ -280,15 +393,17 @@ public class pet_lib extends script.base_script
         }
         int petType = pet_lib.getPetType(pet);
         setObjVar(pet, "ai.pet.type", petType);
-        if (!pet_lib.hasMaxPets(master, petType, pet) || (pet_lib.hasMaxPets(master, petType) && hasObjVar(controlDevice, "ai.pet.trainedMount")))
+        boolean tookIfBranch = (!pet_lib.hasMaxPets(master, petType, pet) || (pet_lib.hasMaxPets(master, petType) && hasObjVar(controlDevice, "ai.pet.trainedMount")));
+//        sendSystemMessageTestingOnly(master, "TAMEDEBUG: makePet branch check petType=" + petType + " tookIfBranch=" + tookIfBranch + " hasMaxPets(this pet)=" + pet_lib.hasMaxPets(master, petType, pet) + " hasMaxPets(any)=" + pet_lib.hasMaxPets(master, petType) + " hasTrainedMount=" + hasObjVar(controlDevice, "ai.pet.trainedMount"));
+        if (tookIfBranch)
         {
             controlDevice = makeControlDevice(master, pet);
             ai_lib.setDefaultCalmBehavior(pet, ai_lib.BEHAVIOR_STOP);
             if (!isIdValid(controlDevice) || !exists(controlDevice))
             {
+//                sendSystemMessageTestingOnly(master, "TAMEDEBUG: makePet BAIL - makeControlDevice invalid");
                 return;
             }
-            pet_lib.addToPetList(master, pet);
             params.put("controlDevice", controlDevice);
             messageTo(pet, "handleAddMaster", params, 0, false);
         }
@@ -296,6 +411,7 @@ public class pet_lib extends script.base_script
         {
             if (callable.hasCallableCD(pet))
             {
+//                sendSystemMessageTestingOnly(master, "TAMEDEBUG: makePet ELSE-BRANCH destroyObject(pet) pet=" + pet);
                 destroyObject(pet);
             }
         }
@@ -303,6 +419,7 @@ public class pet_lib extends script.base_script
         {
             setName(pet, getMountName(controlDevice));
         }
+//        sendSystemMessageTestingOnly(master, "TAMEDEBUG: makePet EXIT pet=" + pet + " exists=" + exists(pet));
     }
     public static boolean hasMaster(obj_id pet) throws InterruptedException
     {
@@ -579,18 +696,34 @@ public class pet_lib extends script.base_script
         {
             myName = myName.substring(1, suffix);
         }
+        // Match case-insensitively
+        String textKey = toLower(text);
         int commandNum = -1;
-        if (petCommandList.containsKey(text))
+        java.util.Enumeration keys = petCommandList.keys();
+        while (keys.hasMoreElements())
         {
-            commandNum = petCommandList.getInt(text);
+            String k = (String) keys.nextElement();
+            if (k != null && toLower(k).equals(textKey))
+            {
+                commandNum = petCommandList.getInt(k);
+                break;
+            }
+            if (k != null && toLower(k).equals(myName + " " + textKey))
+            {
+                commandNum = petCommandList.getInt(k);
+                break;
+            }
         }
-        else if (petCommandList.containsKey(myName + " " + text))
-        {
-            commandNum = petCommandList.getInt(myName + " " + text);
-        }
+        obj_id master = getMaster(pet);
+        // Only ignore spoken commands while the mount is actually being ridden.
+        // Unmounted mounts should still respond (follow, stay, etc.).
         if (callable.getCallableType(pet) == callable.CALLABLE_TYPE_RIDEABLE)
         {
-            return -1;
+            obj_id rider = getRiderId(pet);
+            if (isIdValid(rider))
+            {
+                return -1;
+            }
         }
         if (commandNum > -1)
         {
@@ -1184,6 +1317,7 @@ public class pet_lib extends script.base_script
     }
     public static void doFollowCommand(obj_id pet, obj_id master) throws InterruptedException
     {
+        final boolean wasStaying = utils.hasScriptVar(pet, "ai.pet.staying");
         if (ai_lib.isInCombat(pet))
         {
             utils.removeScriptVar(pet, "ai.combat.target");
@@ -1203,12 +1337,54 @@ public class pet_lib extends script.base_script
         int myPosture = getPosture(pet);
         if (myPosture != POSTURE_UPRIGHT && myPosture != POSTURE_SITTING)
         {
-            stop(pet);
             removeObjVar(pet, "ai.combat.moveMode");
             queueCommand(pet, (-1465754503), pet, "", COMMAND_PRIORITY_FRONT);
         }
+        if (isMount(pet))
+        {
+            if (getPosture(pet) != POSTURE_UPRIGHT)
+            {
+                setPosture(pet, POSTURE_UPRIGHT);
+            }
+            aiSetHomeLocation(pet, getLocation(master));
+            setUnmountedMovementRate(master, pet);
+            dictionary mountInfo = getMountMovementInfo(pet);
+            float runSpeed = 7.0f;
+            if (mountInfo != null)
+            {
+                runSpeed = mountInfo.getFloat("fltBurstRunSpeed");
+                if (runSpeed < 1.0f)
+                {
+                    runSpeed = mountInfo.getFloat("fltBaseRunSpeed");
+                }
+                if (runSpeed < 1.0f)
+                {
+                    runSpeed = 7.0f;
+                }
+            }
+            setBaseRunSpeed(pet, runSpeed);
+            setMovementRun(pet);
+        }
+        else
+        {
+            setMovementRun(pet);
+        }
+
+        // petFollow() already handles "still standing inside the follow band":
+        // it calls aiFollow() FIRST, then only nudges with pathTo() afterward
+        // if the pet is still standing and already in-band. Calling pathTo()
+        // BEFORE aiFollow() (the previous wasStaying-only fix) raced with the
+        // native follow attach and left mounts with no live follow behaviour
+        // after Stay — no further OnFollowWaiting/OnFollowMoving ever fired.
+        // Always go through the same proven path regardless of wasStaying.
         petFollow(pet, master);
+
+        // TEMP DIAGNOSTIC — remove once we know if raw movement works post-Stay.
+        // Forces a plain path order with no follow logic involved, to tell us
+        // whether ALL native movement is blocked on this object after Stay,
+        // or if this is specifically a follow-behaviour problem.
     }
+
     public static void doFollowOtherCommand(obj_id pet, obj_id master) throws InterruptedException
     {
         obj_id target = getIntendedTarget(master);
@@ -1248,7 +1424,14 @@ public class pet_lib extends script.base_script
         utils.setScriptVar(pet, "ai.pet.staying", true);
         ai_lib.aiStopFollowing(pet);
         location myLoc = getLocation(pet);
-        setHomeLocation(pet, myLoc);
+        aiSetHomeLocation(pet, myLoc);
+        // NOTE: mounts used to call stop(pet) here. aiStopFollowing() above
+        // already calls stop(pet) once. The extra explicit stop() on mounts
+        // appears to leave the native mover permanently unable to accept any
+        // further pathTo()/follow() order (confirmed: even a raw pathTo()
+        // after Stay does nothing) until the mount is fully re-Called/
+        // re-spawned into the world. Regular pets never hit this second
+        // stop() and never show the problem. Testing without it.
         setMovementWalk(pet);
         if (ai_lib.isMonster(pet))
         {
@@ -1274,6 +1457,16 @@ public class pet_lib extends script.base_script
         utils.removeScriptVar(pet, "ai.pet.staying");
         utils.setScriptVar(pet, "ai.pet.guarding", master);
         setWantSawAttackTriggers(pet, true);
+        // If the pet was following, keep it following; otherwise let calm behaviour resume.
+        // Do NOT force a fresh petFollow – that was stopping ordinary pets.
+        if (ai_lib.isFollowing(pet))
+        {
+            ai_lib.resumeFollow(pet);
+        }
+        else
+        {
+            messageTo(pet, "resumeDefaultCalmBehavior", null, 0, false);
+        }
     }
     public static boolean isGuarding(obj_id pet, obj_id target) throws InterruptedException
     {
@@ -1947,6 +2140,11 @@ public class pet_lib extends script.base_script
         {
             return;
         }
+        if (!isIdValid(master))
+        {
+            master = getMaster(pet);
+        }
+//        sendSystemMessageTestingOnly(master, "TAMEDEBUG: storePet ENTER pet=" + pet + " master=" + master);
         obj_id petControlDevice = callable.getCallableCD(pet);
         if (isIdValid(petControlDevice) && petControlDevice.isLoaded())
         {
@@ -1959,6 +2157,7 @@ public class pet_lib extends script.base_script
                 setCount(petControlDevice, 0);
             }
         }
+//        sendSystemMessageTestingOnly(master, "TAMEDEBUG: storePet about to messageTo handlePackRequest pet=" + pet);
         messageTo(pet, "handlePackRequest", null, 0, false);
     }
     public static boolean hasMaxStoredPetsOfType(obj_id player, int petType) throws InterruptedException
@@ -2270,11 +2469,17 @@ public class pet_lib extends script.base_script
         {
             removeObjVar(master, "pet.petList");
         }
-        if (callable.hasCallable(master, callable.getCallableType(pet), pet))
+        int ctype = callable.getCallableType(pet);
+        boolean alreadyHas = callable.hasCallable(master, ctype, pet);
+        obj_id existing = alreadyHas ? callable.getCallable(master, ctype) : null;
+//        sendSystemMessageTestingOnly(master, "TAMEDEBUG: addToPetList pet=" + pet + " ctype=" + ctype + " alreadyHas=" + alreadyHas + " existing=" + existing);
+        if (alreadyHas)
         {
-            callable.storeCallable(master, callable.getCallable(master, callable.getCallableType(pet)));
+//            sendSystemMessageTestingOnly(master, "TAMEDEBUG: addToPetList about to storeCallable existing=" + existing);
+            callable.storeCallable(master, existing);
         }
-        callable.setCallable(master, pet, callable.getCallableType(pet));
+        callable.setCallable(master, pet, ctype);
+//        sendSystemMessageTestingOnly(master, "TAMEDEBUG: addToPetList setCallable done, master now has=" + callable.getCallable(master, ctype));
     }
     public static void storeAllPets(obj_id master) throws InterruptedException
     {
@@ -2850,10 +3055,28 @@ public class pet_lib extends script.base_script
             if (growthStage >= 10)
             {
                 removeObjVar(pcd, "ai.petAdvance.growthStage");
+                growthStage = 10;
             }
-            else 
+            else
             {
                 setObjVar(pcd, "ai.petAdvance.growthStage", growthStage);
+            }
+            // Live pet was never resized/statted on level-up — only on Call.
+            setPetStatsByGrowth(pet, growthStage);
+            obj_id master = getMaster(pet);
+            if (isIdValid(master) && exists(master))
+            {
+                if (growthStage >= 10)
+                {
+                    sendSystemMessage(master, new string_id("pet/pet_menu", "pet_is_adult"));
+                }
+                else
+                {
+                    prose_package pp = new prose_package();
+                    pp.stringId = new string_id("pet/pet_menu", "pet_grows");
+                    pp.digitInteger = growthStage;
+                    sendSystemMessageProse(master, pp);
+                }
             }
             if (rand(0, 100) < growthStage * 10)
             {
@@ -3430,9 +3653,16 @@ public class pet_lib extends script.base_script
     }
     public static void setPetStatsByGrowth(obj_id pet, int growthStage) throws InterruptedException
     {
+        obj_id petControlDevice = callable.getCallableCD(pet);
+        if (!isIdValid(petControlDevice))
+        {
+            return;
+        }
+        setCraftedPetStatsByGrowth(petControlDevice, pet, growthStage);
     }
     public static void setCraftedPetStatsByGrowth(obj_id petControlDevice, obj_id pet, int growthStage) throws InterruptedException
     {
+//        sendSystemMessageTestingOnly(utils.getContainingPlayer(petControlDevice), "TAMEDEBUG: setCraftedPetStatsByGrowth ENTER pet=" + pet + " growthStage=" + growthStage);
         setObjVar(pet, "combat.intCombatXP", 0);
         if (growthStage < 1)
         {
@@ -3483,12 +3713,19 @@ public class pet_lib extends script.base_script
                 level = 60;
             }
             dictionary droidDefaultStatsDict = dataTableGetRow(TBL_MOB_STAT_BALANCE, level - 1);
-            myHealth = droidDefaultStatsDict.getInt("HP");
-            toHit = droidDefaultStatsDict.getInt("ToHit") - 5;
-            defenseValue = droidDefaultStatsDict.getInt("Def") - 5;
-            float creatureAttribs_dps = droidDefaultStatsDict.getFloat("damagePerSecond");
-            minDamage = (int)creatureAttribs_dps;
-            maxDamage = (int)creatureAttribs_dps * 3;
+            if (droidDefaultStatsDict != null)
+            {
+                myHealth = droidDefaultStatsDict.getInt("HP");
+                toHit = droidDefaultStatsDict.getInt("ToHit") - 5;
+                defenseValue = droidDefaultStatsDict.getInt("Def") - 5;
+                float creatureAttribs_dps = droidDefaultStatsDict.getFloat("damagePerSecond");
+                minDamage = (int)creatureAttribs_dps;
+                maxDamage = (int)creatureAttribs_dps * 3;
+            }
+            else
+            {
+//                sendSystemMessageTestingOnly(player, "TAMEDEBUG: setCraftedPetStatsByGrowth - TBL_MOB_STAT_BALANCE row null for level " + level + ", keeping PCD-derived stats");
+            }
         }
         setLevel(pet, level);
         utils.setScriptVar(pet, "ai.level", level);
@@ -3572,10 +3809,17 @@ public class pet_lib extends script.base_script
             maxDamage = 10;
         }
         obj_id creatureWeapon = getCurrentWeapon(pet);
-        setWeaponMaxDamage(creatureWeapon, maxDamage);
-        setWeaponMinDamage(creatureWeapon, minDamage);
-        setWeaponAttackSpeed(creatureWeapon, wpnSpeed);
-        weapons.setWeaponData(creatureWeapon);
+        if (isIdValid(creatureWeapon))
+        {
+            setWeaponMaxDamage(creatureWeapon, maxDamage);
+            setWeaponMinDamage(creatureWeapon, minDamage);
+            setWeaponAttackSpeed(creatureWeapon, wpnSpeed);
+            weapons.setWeaponData(creatureWeapon);
+        }
+        else
+        {
+//            sendSystemMessageTestingOnly(player, "TAMEDEBUG: setCraftedPetStatsByGrowth - getCurrentWeapon(pet) invalid (id=" + creatureWeapon + "), skipping current-weapon stat write");
+        }
         creatureWeapon = aiGetPrimaryWeapon(pet);
         if (isIdValid(creatureWeapon))
         {
@@ -3621,6 +3865,7 @@ public class pet_lib extends script.base_script
             }
             hue.setColor(pet, hue.INDEX_1, colorIdx);
         }
+//        sendSystemMessageTestingOnly(player, "TAMEDEBUG: setCraftedPetStatsByGrowth EXIT OK pet=" + pet);
     }
     public static void fixMinRegenStats(obj_id pet) throws InterruptedException
     {
@@ -4810,8 +5055,10 @@ public class pet_lib extends script.base_script
                 buff.removeBuff(playerCurrentMount, vehicleHasBuff);
             }
             int petType = getPetType(playerCurrentMount);
-            if (isPetType(playerCurrentMount, PET_TYPE_MOUNT))
+            obj_id mountPcd = callable.getCallableCD(playerCurrentMount);
+            if (petType == PET_TYPE_MOUNT && !pet_lib.isMountPcd(mountPcd))
             {
+//                sendSystemMessageTestingOnly(riderId, "TAMEDEBUG: CALLSITE storePet(playerCurrentMount) from doDismountNow");
                 storePet(playerCurrentMount);
             }
         }
@@ -4855,6 +5102,7 @@ public class pet_lib extends script.base_script
     public static void createPetFromData(obj_id petControlDevice, obj_id objContainer) throws InterruptedException
     {
         String creatureName = getStringObjVar(petControlDevice, "pet.creatureName");
+//        sendSystemMessageTestingOnly(utils.getContainingPlayer(petControlDevice), "TAMEDEBUG: createPetFromData ENTER petControlDevice=" + petControlDevice + " creatureName=" + creatureName);
         if (creatureName == null || creatureName.equals(""))
         {
             return;
@@ -4939,6 +5187,7 @@ public class pet_lib extends script.base_script
         }
         setObjVar(pet, "ai.pet", true);
         callable.setCallableCD(pet, petControlDevice);
+        callable.setCDCallable(petControlDevice, pet);
         if (!hasScript(pet, "ai.pet"))
         {
             
@@ -4955,7 +5204,10 @@ public class pet_lib extends script.base_script
                 setObjVar(pet, factions.FACTION, masterFaction);
             }
         }
+        utils.setScriptVar(pet, "petBeingInitialized", true);
+//        sendSystemMessageTestingOnly(master, "TAMEDEBUG: createPetFromData BEFORE makePet pet=" + pet);
         pet_lib.makePet(pet, master);
+//        sendSystemMessageTestingOnly(master, "TAMEDEBUG: createPetFromData AFTER makePet pet=" + pet + " exists=" + exists(pet) + " isIdValid=" + isIdValid(pet));
         if (hasObjVar(petControlDevice, "ai.petAdvance.growthStage"))
         {
             int growthStage = getIntObjVar(petControlDevice, "ai.petAdvance.growthStage");
@@ -5002,10 +5254,26 @@ public class pet_lib extends script.base_script
         {
             setObjVar(pet, "alreadyTrained", true);
         }
-        if (hasObjVar(petControlDevice, "ai.pet.trainedMount"))
+                if (hasObjVar(petControlDevice, "ai.pet.trainedMount"))
         {
             pet_lib.mountablePetInit(pet, master);
         }
+
+        // Force both sides of the CD <-> pet link one last time
+        callable.setCallableCD(pet, petControlDevice);
+        callable.setCDCallable(petControlDevice, pet);
+//        sendSystemMessageTestingOnly(master, "TAMEDEBUG: createPetFromData FINAL relink pet=" + pet + " cd=" + petControlDevice + " verify=" + callable.getCallableCD(pet));
+
+        // Restore custom name for mounts and common pets
+        if (hasObjVar(petControlDevice, "pet.mountName"))
+        {
+            setName(pet, getStringObjVar(petControlDevice, "pet.mountName"));
+        }
+        else if (hasObjVar(petControlDevice, "pet.petName"))
+        {
+            setName(pet, getStringObjVar(petControlDevice, "pet.petName"));
+        }
+
         if (!ai_lib.isDroid(pet) && !ai_lib.isAndroid(pet))
         {
             restoreCustomization(pet, petControlDevice);
@@ -5778,18 +6046,20 @@ public class pet_lib extends script.base_script
         }
         setName(pcd, mountName);
         setObjVar(pcd, "pet.mountName", mountName);
+        // Also store a generic name so non-mount pets keep it across store/call
+        setObjVar(pcd, "pet.petName", mountName);
         obj_id yourPad = getContainedBy(pcd);
         obj_id player = getContainedBy(yourPad);
         if (!isIdValid(player) || !exists(player))
         {
             return;
         }
-        obj_id mount = callable.getCDCallable(pcd);
-        if (!isIdValid(mount) || !exists(mount))
+        obj_id called = callable.getCDCallable(pcd);
+        if (!isIdValid(called) || !exists(called))
         {
             return;
         }
-        setName(mount, mountName);
+        setName(called, mountName);
     }
     public static String getMountName(obj_id pcd) throws InterruptedException
     {

@@ -12476,4 +12476,2099 @@ public class combat_actions extends script.systems.combat.combat_base {
         }
         return SCRIPT_CONTINUE;
     }
+
+// Auto-generated Pre-CU combat entry points (hybrid)
+
+    public int actionShot1(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!combatStandardAction("actionShot1", self, target, params, "", "")) {
+            return SCRIPT_OVERRIDE;
+        }
+        return SCRIPT_CONTINUE;
+    }
+
+    public int actionShot2(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!combatStandardAction("actionShot2", self, target, params, "", "")) {
+            return SCRIPT_OVERRIDE;
+        }
+        return SCRIPT_CONTINUE;
+    }
+
+    public int aim(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!combatStandardAction("aim", self, target, params, "", "")) {
+            return SCRIPT_OVERRIDE;
+        }
+        return SCRIPT_CONTINUE;
+    }
+
+    public int animalAttack(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!combatStandardAction("animalAttack", self, target, params, "", "")) {
+            return SCRIPT_OVERRIDE;
+        }
+        return SCRIPT_CONTINUE;
+    }
+
+    public int animalCalm(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!combatStandardAction("animalCalm", self, target, params, "", "")) {
+            return SCRIPT_OVERRIDE;
+        }
+        return SCRIPT_CONTINUE;
+    }
+
+    public int animalScare(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!combatStandardAction("animalScare", self, target, params, "", "")) {
+            return SCRIPT_OVERRIDE;
+        }
+        return SCRIPT_CONTINUE;
+    }
+
+    public int attack(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!combatStandardAction("attack", self, target, params, "", "")) {
+            return SCRIPT_OVERRIDE;
+        }
+        return SCRIPT_CONTINUE;
+    }
+
+    public int avoidIncapacitation(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!combatStandardAction("avoidIncapacitation", self, target, params, "", "")) {
+            return SCRIPT_OVERRIDE;
+        }
+        return SCRIPT_CONTINUE;
+    }
+
+    public int bleedingShot(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!combatStandardAction("bleedingShot", self, target, params, "", "")) {
+            return SCRIPT_OVERRIDE;
+        }
+        return SCRIPT_CONTINUE;
+    }
+
+    public int blindAttack(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!combatStandardAction("blindAttack", self, target, params, "", "")) {
+            return SCRIPT_OVERRIDE;
+        }
+        return SCRIPT_CONTINUE;
+    }
+
+    public int bodyShot1(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!combatStandardAction("bodyShot1", self, target, params, "", "")) {
+            return SCRIPT_OVERRIDE;
+        }
+        return SCRIPT_CONTINUE;
+    }
+
+    public int bodyShot2(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!combatStandardAction("bodyShot2", self, target, params, "", "")) {
+            return SCRIPT_OVERRIDE;
+        }
+        return SCRIPT_CONTINUE;
+    }
+
+    public int bodyShot3(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!combatStandardAction("bodyShot3", self, target, params, "", "")) {
+            return SCRIPT_OVERRIDE;
+        }
+        return SCRIPT_CONTINUE;
+    }
+
+    public int burstShot1(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!combatStandardAction("burstShot1", self, target, params, "", "")) {
+            return SCRIPT_OVERRIDE;
+        }
+        return SCRIPT_CONTINUE;
+    }
+
+    public int burstShot2(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!combatStandardAction("burstShot2", self, target, params, "", "")) {
+            return SCRIPT_OVERRIDE;
+        }
+        return SCRIPT_CONTINUE;
+    }
+
+    public int chargeShot1(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!combatStandardAction("chargeShot1", self, target, params, "", "")) {
+            return SCRIPT_OVERRIDE;
+        }
+        return SCRIPT_CONTINUE;
+    }
+
+    public int chargeShot2(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!combatStandardAction("chargeShot2", self, target, params, "", "")) {
+            return SCRIPT_OVERRIDE;
+        }
+        return SCRIPT_CONTINUE;
+    }
+
+    public int concealShot(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!combatStandardAction("concealShot", self, target, params, "", "")) {
+            return SCRIPT_OVERRIDE;
+        }
+        return SCRIPT_CONTINUE;
+    }
+
+    public int confusionShot(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!combatStandardAction("confusionShot", self, target, params, "", "")) {
+            return SCRIPT_OVERRIDE;
+        }
+        return SCRIPT_CONTINUE;
+    }
+
+    public int counterAttack(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!combatStandardAction("counterAttack", self, target, params, "", "")) {
+            return SCRIPT_OVERRIDE;
+        }
+        return SCRIPT_CONTINUE;
+    }
+
+
+
+
+
+
+
+    public int cripplingShot(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!combatStandardAction("cripplingShot", self, target, params, "", "")) {
+            return SCRIPT_OVERRIDE;
+        }
+        return SCRIPT_CONTINUE;
+    }
+
+    public int defaultAttack(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!combatStandardAction("defaultAttack", self, target, params, "", "")) {
+            return SCRIPT_OVERRIDE;
+        }
+        return SCRIPT_CONTINUE;
+    }
+
+    public int defaultdroidattack(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!combatStandardAction("defaultdroidattack", self, target, params, "", "")) {
+            return SCRIPT_OVERRIDE;
+        }
+        return SCRIPT_CONTINUE;
+    }
+
+    public int disarmingShot1(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!combatStandardAction("disarmingShot1", self, target, params, "", "")) {
+            return SCRIPT_OVERRIDE;
+        }
+        return SCRIPT_CONTINUE;
+    }
+
+    public int disarmingShot2(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!combatStandardAction("disarmingShot2", self, target, params, "", "")) {
+            return SCRIPT_OVERRIDE;
+        }
+        return SCRIPT_CONTINUE;
+    }
+
+    public int diveShot(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!combatStandardAction("diveShot", self, target, params, "", "")) {
+            return SCRIPT_OVERRIDE;
+        }
+        return SCRIPT_CONTINUE;
+    }
+
+    public int dizzyAttack(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!combatStandardAction("dizzyAttack", self, target, params, "", "")) {
+            return SCRIPT_OVERRIDE;
+        }
+        return SCRIPT_CONTINUE;
+    }
+
+    public int doubleTap(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!combatStandardAction("doubleTap", self, target, params, "", "")) {
+            return SCRIPT_OVERRIDE;
+        }
+        return SCRIPT_CONTINUE;
+    }
+
+    public int drainForce(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!combatStandardAction("drainForce", self, target, params, "", "")) {
+            return SCRIPT_OVERRIDE;
+        }
+        return SCRIPT_CONTINUE;
+    }
+
+    public int eyeShot(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!combatStandardAction("eyeShot", self, target, params, "", "")) {
+            return SCRIPT_OVERRIDE;
+        }
+        return SCRIPT_CONTINUE;
+    }
+
+    public int fanShot(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!combatStandardAction("fanShot", self, target, params, "", "")) {
+            return SCRIPT_OVERRIDE;
+        }
+        return SCRIPT_CONTINUE;
+    }
+
+    public int fastBlast(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!combatStandardAction("fastBlast", self, target, params, "", "")) {
+            return SCRIPT_OVERRIDE;
+        }
+        return SCRIPT_CONTINUE;
+    }
+
+    public int fireAcidCone1(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!combatStandardAction("fireAcidCone1", self, target, params, "", "")) {
+            return SCRIPT_OVERRIDE;
+        }
+        return SCRIPT_CONTINUE;
+    }
+
+    public int fireAcidCone2(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!combatStandardAction("fireAcidCone2", self, target, params, "", "")) {
+            return SCRIPT_OVERRIDE;
+        }
+        return SCRIPT_CONTINUE;
+    }
+
+    public int fireAcidSingle1(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!combatStandardAction("fireAcidSingle1", self, target, params, "", "")) {
+            return SCRIPT_OVERRIDE;
+        }
+        return SCRIPT_CONTINUE;
+    }
+
+    public int fireAcidSingle2(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!combatStandardAction("fireAcidSingle2", self, target, params, "", "")) {
+            return SCRIPT_OVERRIDE;
+        }
+        return SCRIPT_CONTINUE;
+    }
+
+    public int fireLightningCone1(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!combatStandardAction("fireLightningCone1", self, target, params, "", "")) {
+            return SCRIPT_OVERRIDE;
+        }
+        return SCRIPT_CONTINUE;
+    }
+
+    public int fireLightningCone2(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!combatStandardAction("fireLightningCone2", self, target, params, "", "")) {
+            return SCRIPT_OVERRIDE;
+        }
+        return SCRIPT_CONTINUE;
+    }
+
+    public int fireLightningSingle1(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!combatStandardAction("fireLightningSingle1", self, target, params, "", "")) {
+            return SCRIPT_OVERRIDE;
+        }
+        return SCRIPT_CONTINUE;
+    }
+
+    public int fireLightningSingle2(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!combatStandardAction("fireLightningSingle2", self, target, params, "", "")) {
+            return SCRIPT_OVERRIDE;
+        }
+        return SCRIPT_CONTINUE;
+    }
+
+    public int flameCone1(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!combatStandardAction("flameCone1", self, target, params, "", "")) {
+            return SCRIPT_OVERRIDE;
+        }
+        return SCRIPT_CONTINUE;
+    }
+
+    public int flameCone2(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!combatStandardAction("flameCone2", self, target, params, "", "")) {
+            return SCRIPT_OVERRIDE;
+        }
+        return SCRIPT_CONTINUE;
+    }
+
+    public int flameSingle1(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!combatStandardAction("flameSingle1", self, target, params, "", "")) {
+            return SCRIPT_OVERRIDE;
+        }
+        return SCRIPT_CONTINUE;
+    }
+
+    public int flameSingle2(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!combatStandardAction("flameSingle2", self, target, params, "", "")) {
+            return SCRIPT_OVERRIDE;
+        }
+        return SCRIPT_CONTINUE;
+    }
+
+    public int flurryShot1(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!combatStandardAction("flurryShot1", self, target, params, "", "")) {
+            return SCRIPT_OVERRIDE;
+        }
+        return SCRIPT_CONTINUE;
+    }
+
+    public int flurryShot2(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!combatStandardAction("flurryShot2", self, target, params, "", "")) {
+            return SCRIPT_OVERRIDE;
+        }
+        return SCRIPT_CONTINUE;
+    }
+
+    public int flushingShot1(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!combatStandardAction("flushingShot1", self, target, params, "", "")) {
+            return SCRIPT_OVERRIDE;
+        }
+        return SCRIPT_CONTINUE;
+    }
+
+    public int flushingShot2(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!combatStandardAction("flushingShot2", self, target, params, "", "")) {
+            return SCRIPT_OVERRIDE;
+        }
+        return SCRIPT_CONTINUE;
+    }
+
+    public int forceAbsorb1(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!combatStandardAction("forceAbsorb1", self, target, params, "", "")) {
+            return SCRIPT_OVERRIDE;
+        }
+        return SCRIPT_CONTINUE;
+    }
+
+    public int forceAbsorb2(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!combatStandardAction("forceAbsorb2", self, target, params, "", "")) {
+            return SCRIPT_OVERRIDE;
+        }
+        return SCRIPT_CONTINUE;
+    }
+
+    public int forceArmor1(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!combatStandardAction("forceArmor1", self, target, params, "", "")) {
+            return SCRIPT_OVERRIDE;
+        }
+        return SCRIPT_CONTINUE;
+    }
+
+    public int forceArmor2(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!combatStandardAction("forceArmor2", self, target, params, "", "")) {
+            return SCRIPT_OVERRIDE;
+        }
+        return SCRIPT_CONTINUE;
+    }
+
+    public int forceChoke(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!combatStandardAction("forceChoke", self, target, params, "", "")) {
+            return SCRIPT_OVERRIDE;
+        }
+        return SCRIPT_CONTINUE;
+    }
+
+    public int forceCureDisease(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!combatStandardAction("forceCureDisease", self, target, params, "", "")) {
+            return SCRIPT_OVERRIDE;
+        }
+        return SCRIPT_CONTINUE;
+    }
+
+    public int forceCurePoison(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!combatStandardAction("forceCurePoison", self, target, params, "", "")) {
+            return SCRIPT_OVERRIDE;
+        }
+        return SCRIPT_CONTINUE;
+    }
+
+    public int forceFeedback1(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!combatStandardAction("forceFeedback1", self, target, params, "", "")) {
+            return SCRIPT_OVERRIDE;
+        }
+        return SCRIPT_CONTINUE;
+    }
+
+    public int forceFeedback2(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!combatStandardAction("forceFeedback2", self, target, params, "", "")) {
+            return SCRIPT_OVERRIDE;
+        }
+        return SCRIPT_CONTINUE;
+    }
+
+    public int forceIntimidate1(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!combatStandardAction("forceIntimidate1", self, target, params, "", "")) {
+            return SCRIPT_OVERRIDE;
+        }
+        return SCRIPT_CONTINUE;
+    }
+
+    public int forceIntimidate2(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!combatStandardAction("forceIntimidate2", self, target, params, "", "")) {
+            return SCRIPT_OVERRIDE;
+        }
+        return SCRIPT_CONTINUE;
+    }
+
+    public int forceKnockdown1(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!combatStandardAction("forceKnockdown1", self, target, params, "", "")) {
+            return SCRIPT_OVERRIDE;
+        }
+        return SCRIPT_CONTINUE;
+    }
+
+    public int forceKnockdown2(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!combatStandardAction("forceKnockdown2", self, target, params, "", "")) {
+            return SCRIPT_OVERRIDE;
+        }
+        return SCRIPT_CONTINUE;
+    }
+
+    public int forceKnockdown3(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!combatStandardAction("forceKnockdown3", self, target, params, "", "")) {
+            return SCRIPT_OVERRIDE;
+        }
+        return SCRIPT_CONTINUE;
+    }
+
+    public int forceLightningCone1(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!combatStandardAction("forceLightningCone1", self, target, params, "", "")) {
+            return SCRIPT_OVERRIDE;
+        }
+        return SCRIPT_CONTINUE;
+    }
+
+    public int forceLightningCone2(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!combatStandardAction("forceLightningCone2", self, target, params, "", "")) {
+            return SCRIPT_OVERRIDE;
+        }
+        return SCRIPT_CONTINUE;
+    }
+
+    public int forceLightningSingle1(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!combatStandardAction("forceLightningSingle1", self, target, params, "", "")) {
+            return SCRIPT_OVERRIDE;
+        }
+        return SCRIPT_CONTINUE;
+    }
+
+    public int forceLightningSingle2(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!combatStandardAction("forceLightningSingle2", self, target, params, "", "")) {
+            return SCRIPT_OVERRIDE;
+        }
+        return SCRIPT_CONTINUE;
+    }
+
+    public int forceResistBleeding(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!combatStandardAction("forceResistBleeding", self, target, params, "", "")) {
+            return SCRIPT_OVERRIDE;
+        }
+        return SCRIPT_CONTINUE;
+    }
+
+    public int forceResistDisease(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!combatStandardAction("forceResistDisease", self, target, params, "", "")) {
+            return SCRIPT_OVERRIDE;
+        }
+        return SCRIPT_CONTINUE;
+    }
+
+    public int forceResistPoison(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!combatStandardAction("forceResistPoison", self, target, params, "", "")) {
+            return SCRIPT_OVERRIDE;
+        }
+        return SCRIPT_CONTINUE;
+    }
+
+    public int forceResistStates(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!combatStandardAction("forceResistStates", self, target, params, "", "")) {
+            return SCRIPT_OVERRIDE;
+        }
+        return SCRIPT_CONTINUE;
+    }
+
+    public int forceRun1(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!combatStandardAction("forceRun1", self, target, params, "", "")) {
+            return SCRIPT_OVERRIDE;
+        }
+        return SCRIPT_CONTINUE;
+    }
+
+    public int forceRun2(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!combatStandardAction("forceRun2", self, target, params, "", "")) {
+            return SCRIPT_OVERRIDE;
+        }
+        return SCRIPT_CONTINUE;
+    }
+
+    public int forceRun3(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!combatStandardAction("forceRun3", self, target, params, "", "")) {
+            return SCRIPT_OVERRIDE;
+        }
+        return SCRIPT_CONTINUE;
+    }
+
+    public int forceShield1(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!combatStandardAction("forceShield1", self, target, params, "", "")) {
+            return SCRIPT_OVERRIDE;
+        }
+        return SCRIPT_CONTINUE;
+    }
+
+    public int forceShield2(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!combatStandardAction("forceShield2", self, target, params, "", "")) {
+            return SCRIPT_OVERRIDE;
+        }
+        return SCRIPT_CONTINUE;
+    }
+
+    public int forceSpeed1(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!combatStandardAction("forceSpeed1", self, target, params, "", "")) {
+            return SCRIPT_OVERRIDE;
+        }
+        return SCRIPT_CONTINUE;
+    }
+
+    public int forceSpeed2(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!combatStandardAction("forceSpeed2", self, target, params, "", "")) {
+            return SCRIPT_OVERRIDE;
+        }
+        return SCRIPT_CONTINUE;
+    }
+
+    public int forceThrow1(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!combatStandardAction("forceThrow1", self, target, params, "", "")) {
+            return SCRIPT_OVERRIDE;
+        }
+        return SCRIPT_CONTINUE;
+    }
+
+    public int forceThrow2(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!combatStandardAction("forceThrow2", self, target, params, "", "")) {
+            return SCRIPT_OVERRIDE;
+        }
+        return SCRIPT_CONTINUE;
+    }
+
+    public int forceWeaken1(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!combatStandardAction("forceWeaken1", self, target, params, "", "")) {
+            return SCRIPT_OVERRIDE;
+        }
+        return SCRIPT_CONTINUE;
+    }
+
+    public int forceWeaken2(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!combatStandardAction("forceWeaken2", self, target, params, "", "")) {
+            return SCRIPT_OVERRIDE;
+        }
+        return SCRIPT_CONTINUE;
+    }
+
+    public int fullAutoArea1(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!combatStandardAction("fullAutoArea1", self, target, params, "", "")) {
+            return SCRIPT_OVERRIDE;
+        }
+        return SCRIPT_CONTINUE;
+    }
+
+    public int fullAutoArea2(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!combatStandardAction("fullAutoArea2", self, target, params, "", "")) {
+            return SCRIPT_OVERRIDE;
+        }
+        return SCRIPT_CONTINUE;
+    }
+
+    public int fullAutoSingle1(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!combatStandardAction("fullAutoSingle1", self, target, params, "", "")) {
+            return SCRIPT_OVERRIDE;
+        }
+        return SCRIPT_CONTINUE;
+    }
+
+    public int fullAutoSingle2(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!combatStandardAction("fullAutoSingle2", self, target, params, "", "")) {
+            return SCRIPT_OVERRIDE;
+        }
+        return SCRIPT_CONTINUE;
+    }
+
+    public int headShot1(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!combatStandardAction("headShot1", self, target, params, "", "")) {
+            return SCRIPT_OVERRIDE;
+        }
+        return SCRIPT_CONTINUE;
+    }
+
+    public int headShot2(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!combatStandardAction("headShot2", self, target, params, "", "")) {
+            return SCRIPT_OVERRIDE;
+        }
+        return SCRIPT_CONTINUE;
+    }
+
+    public int headShot3(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!combatStandardAction("headShot3", self, target, params, "", "")) {
+            return SCRIPT_OVERRIDE;
+        }
+        return SCRIPT_CONTINUE;
+    }
+
+    public int healActionSelf1(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!combatStandardAction("healActionSelf1", self, target, params, "", "")) {
+            return SCRIPT_OVERRIDE;
+        }
+        return SCRIPT_CONTINUE;
+    }
+
+    public int healActionSelf2(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!combatStandardAction("healActionSelf2", self, target, params, "", "")) {
+            return SCRIPT_OVERRIDE;
+        }
+        return SCRIPT_CONTINUE;
+    }
+
+    public int healActionWoundOther1(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!combatStandardAction("healActionWoundOther1", self, target, params, "", "")) {
+            return SCRIPT_OVERRIDE;
+        }
+        return SCRIPT_CONTINUE;
+    }
+
+    public int healActionWoundOther2(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!combatStandardAction("healActionWoundOther2", self, target, params, "", "")) {
+            return SCRIPT_OVERRIDE;
+        }
+        return SCRIPT_CONTINUE;
+    }
+
+    public int healActionWoundSelf1(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!combatStandardAction("healActionWoundSelf1", self, target, params, "", "")) {
+            return SCRIPT_OVERRIDE;
+        }
+        return SCRIPT_CONTINUE;
+    }
+
+    public int healActionWoundSelf2(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!combatStandardAction("healActionWoundSelf2", self, target, params, "", "")) {
+            return SCRIPT_OVERRIDE;
+        }
+        return SCRIPT_CONTINUE;
+    }
+
+    public int healAllOther1(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!combatStandardAction("healAllOther1", self, target, params, "", "")) {
+            return SCRIPT_OVERRIDE;
+        }
+        return SCRIPT_CONTINUE;
+    }
+
+    public int healAllOther2(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!combatStandardAction("healAllOther2", self, target, params, "", "")) {
+            return SCRIPT_OVERRIDE;
+        }
+        return SCRIPT_CONTINUE;
+    }
+
+    public int healAllSelf1(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!combatStandardAction("healAllSelf1", self, target, params, "", "")) {
+            return SCRIPT_OVERRIDE;
+        }
+        return SCRIPT_CONTINUE;
+    }
+
+    public int healAllSelf2(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!combatStandardAction("healAllSelf2", self, target, params, "", "")) {
+            return SCRIPT_OVERRIDE;
+        }
+        return SCRIPT_CONTINUE;
+    }
+
+    public int healBattleFatigueOther1(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!combatStandardAction("healBattleFatigueOther1", self, target, params, "", "")) {
+            return SCRIPT_OVERRIDE;
+        }
+        return SCRIPT_CONTINUE;
+    }
+
+    public int healBattleFatigueOther2(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!combatStandardAction("healBattleFatigueOther2", self, target, params, "", "")) {
+            return SCRIPT_OVERRIDE;
+        }
+        return SCRIPT_CONTINUE;
+    }
+
+    public int healBattleFatigueSelf1(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!combatStandardAction("healBattleFatigueSelf1", self, target, params, "", "")) {
+            return SCRIPT_OVERRIDE;
+        }
+        return SCRIPT_CONTINUE;
+    }
+
+    public int healBattleFatigueSelf2(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!combatStandardAction("healBattleFatigueSelf2", self, target, params, "", "")) {
+            return SCRIPT_OVERRIDE;
+        }
+        return SCRIPT_CONTINUE;
+    }
+
+    public int healHealthSelf1(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!combatStandardAction("healHealthSelf1", self, target, params, "", "")) {
+            return SCRIPT_OVERRIDE;
+        }
+        return SCRIPT_CONTINUE;
+    }
+
+    public int healHealthSelf2(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!combatStandardAction("healHealthSelf2", self, target, params, "", "")) {
+            return SCRIPT_OVERRIDE;
+        }
+        return SCRIPT_CONTINUE;
+    }
+
+    public int healHealthWoundOther1(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!combatStandardAction("healHealthWoundOther1", self, target, params, "", "")) {
+            return SCRIPT_OVERRIDE;
+        }
+        return SCRIPT_CONTINUE;
+    }
+
+    public int healHealthWoundOther2(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!combatStandardAction("healHealthWoundOther2", self, target, params, "", "")) {
+            return SCRIPT_OVERRIDE;
+        }
+        return SCRIPT_CONTINUE;
+    }
+
+    public int healHealthWoundSelf1(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!combatStandardAction("healHealthWoundSelf1", self, target, params, "", "")) {
+            return SCRIPT_OVERRIDE;
+        }
+        return SCRIPT_CONTINUE;
+    }
+
+    public int healHealthWoundSelf2(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!combatStandardAction("healHealthWoundSelf2", self, target, params, "", "")) {
+            return SCRIPT_OVERRIDE;
+        }
+        return SCRIPT_CONTINUE;
+    }
+
+    public int healMindSelf1(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!combatStandardAction("healMindSelf1", self, target, params, "", "")) {
+            return SCRIPT_OVERRIDE;
+        }
+        return SCRIPT_CONTINUE;
+    }
+
+    public int healMindSelf2(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!combatStandardAction("healMindSelf2", self, target, params, "", "")) {
+            return SCRIPT_OVERRIDE;
+        }
+        return SCRIPT_CONTINUE;
+    }
+
+    public int healMindWoundOther1(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!combatStandardAction("healMindWoundOther1", self, target, params, "", "")) {
+            return SCRIPT_OVERRIDE;
+        }
+        return SCRIPT_CONTINUE;
+    }
+
+    public int healMindWoundOther2(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!combatStandardAction("healMindWoundOther2", self, target, params, "", "")) {
+            return SCRIPT_OVERRIDE;
+        }
+        return SCRIPT_CONTINUE;
+    }
+
+    public int healMindWoundSelf1(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!combatStandardAction("healMindWoundSelf1", self, target, params, "", "")) {
+            return SCRIPT_OVERRIDE;
+        }
+        return SCRIPT_CONTINUE;
+    }
+
+    public int healMindWoundSelf2(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!combatStandardAction("healMindWoundSelf2", self, target, params, "", "")) {
+            return SCRIPT_OVERRIDE;
+        }
+        return SCRIPT_CONTINUE;
+    }
+
+    public int healStatesOther(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!combatStandardAction("healStatesOther", self, target, params, "", "")) {
+            return SCRIPT_OVERRIDE;
+        }
+        return SCRIPT_CONTINUE;
+    }
+
+    public int healStatesSelf(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!combatStandardAction("healStatesSelf", self, target, params, "", "")) {
+            return SCRIPT_OVERRIDE;
+        }
+        return SCRIPT_CONTINUE;
+    }
+
+    public int healthShot1(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!combatStandardAction("healthShot1", self, target, params, "", "")) {
+            return SCRIPT_OVERRIDE;
+        }
+        return SCRIPT_CONTINUE;
+    }
+
+    public int healthShot2(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!combatStandardAction("healthShot2", self, target, params, "", "")) {
+            return SCRIPT_OVERRIDE;
+        }
+        return SCRIPT_CONTINUE;
+    }
+
+    public int intimidate1(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!combatStandardAction("intimidate1", self, target, params, "", "")) {
+            return SCRIPT_OVERRIDE;
+        }
+        return SCRIPT_CONTINUE;
+    }
+
+    public int intimidate2(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!combatStandardAction("intimidate2", self, target, params, "", "")) {
+            return SCRIPT_OVERRIDE;
+        }
+        return SCRIPT_CONTINUE;
+    }
+
+    public int intimidationAttack(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!combatStandardAction("intimidationAttack", self, target, params, "", "")) {
+            return SCRIPT_OVERRIDE;
+        }
+        return SCRIPT_CONTINUE;
+    }
+
+    public int jediMindTrick(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!combatStandardAction("jediMindTrick", self, target, params, "", "")) {
+            return SCRIPT_OVERRIDE;
+        }
+        return SCRIPT_CONTINUE;
+    }
+
+    public int kipUpShot(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!combatStandardAction("kipUpShot", self, target, params, "", "")) {
+            return SCRIPT_OVERRIDE;
+        }
+        return SCRIPT_CONTINUE;
+    }
+
+    public int knockdownAttack(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!combatStandardAction("knockdownAttack", self, target, params, "", "")) {
+            return SCRIPT_OVERRIDE;
+        }
+        return SCRIPT_CONTINUE;
+    }
+
+    public int knockdownFire(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!combatStandardAction("knockdownFire", self, target, params, "", "")) {
+            return SCRIPT_OVERRIDE;
+        }
+        return SCRIPT_CONTINUE;
+    }
+
+    public int lastDitch(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!combatStandardAction("lastDitch", self, target, params, "", "")) {
+            return SCRIPT_OVERRIDE;
+        }
+        return SCRIPT_CONTINUE;
+    }
+
+    public int legShot1(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!combatStandardAction("legShot1", self, target, params, "", "")) {
+            return SCRIPT_OVERRIDE;
+        }
+        return SCRIPT_CONTINUE;
+    }
+
+    public int legShot2(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!combatStandardAction("legShot2", self, target, params, "", "")) {
+            return SCRIPT_OVERRIDE;
+        }
+        return SCRIPT_CONTINUE;
+    }
+
+    public int legShot3(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!combatStandardAction("legShot3", self, target, params, "", "")) {
+            return SCRIPT_OVERRIDE;
+        }
+        return SCRIPT_CONTINUE;
+    }
+
+    public int lowBlow(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!combatStandardAction("lowBlow", self, target, params, "", "")) {
+            return SCRIPT_OVERRIDE;
+        }
+        return SCRIPT_CONTINUE;
+    }
+
+    public int mediumdisease(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!combatStandardAction("mediumdisease", self, target, params, "", "")) {
+            return SCRIPT_OVERRIDE;
+        }
+        return SCRIPT_CONTINUE;
+    }
+
+    public int mediumpoison(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!combatStandardAction("mediumpoison", self, target, params, "", "")) {
+            return SCRIPT_OVERRIDE;
+        }
+        return SCRIPT_CONTINUE;
+    }
+
+    public int melee1hBlindHit1(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!combatStandardAction("melee1hBlindHit1", self, target, params, "", "")) {
+            return SCRIPT_OVERRIDE;
+        }
+        return SCRIPT_CONTINUE;
+    }
+
+    public int melee1hBlindHit2(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!combatStandardAction("melee1hBlindHit2", self, target, params, "", "")) {
+            return SCRIPT_OVERRIDE;
+        }
+        return SCRIPT_CONTINUE;
+    }
+
+    public int melee1hBodyHit1(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!combatStandardAction("melee1hBodyHit1", self, target, params, "", "")) {
+            return SCRIPT_OVERRIDE;
+        }
+        return SCRIPT_CONTINUE;
+    }
+
+    public int melee1hBodyHit2(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!combatStandardAction("melee1hBodyHit2", self, target, params, "", "")) {
+            return SCRIPT_OVERRIDE;
+        }
+        return SCRIPT_CONTINUE;
+    }
+
+    public int melee1hBodyHit3(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!combatStandardAction("melee1hBodyHit3", self, target, params, "", "")) {
+            return SCRIPT_OVERRIDE;
+        }
+        return SCRIPT_CONTINUE;
+    }
+
+    public int melee1hDizzyHit1(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!combatStandardAction("melee1hDizzyHit1", self, target, params, "", "")) {
+            return SCRIPT_OVERRIDE;
+        }
+        return SCRIPT_CONTINUE;
+    }
+
+    public int melee1hDizzyHit2(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!combatStandardAction("melee1hDizzyHit2", self, target, params, "", "")) {
+            return SCRIPT_OVERRIDE;
+        }
+        return SCRIPT_CONTINUE;
+    }
+
+    public int melee1hHealthHit1(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!combatStandardAction("melee1hHealthHit1", self, target, params, "", "")) {
+            return SCRIPT_OVERRIDE;
+        }
+        return SCRIPT_CONTINUE;
+    }
+
+    public int melee1hHealthHit2(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!combatStandardAction("melee1hHealthHit2", self, target, params, "", "")) {
+            return SCRIPT_OVERRIDE;
+        }
+        return SCRIPT_CONTINUE;
+    }
+
+    public int melee1hHit1(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!combatStandardAction("melee1hHit1", self, target, params, "", "")) {
+            return SCRIPT_OVERRIDE;
+        }
+        return SCRIPT_CONTINUE;
+    }
+
+    public int melee1hHit2(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!combatStandardAction("melee1hHit2", self, target, params, "", "")) {
+            return SCRIPT_OVERRIDE;
+        }
+        return SCRIPT_CONTINUE;
+    }
+
+    public int melee1hHit3(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!combatStandardAction("melee1hHit3", self, target, params, "", "")) {
+            return SCRIPT_OVERRIDE;
+        }
+        return SCRIPT_CONTINUE;
+    }
+
+    public int melee1hLunge1(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!combatStandardAction("melee1hLunge1", self, target, params, "", "")) {
+            return SCRIPT_OVERRIDE;
+        }
+        return SCRIPT_CONTINUE;
+    }
+
+    public int melee1hLunge2(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!combatStandardAction("melee1hLunge2", self, target, params, "", "")) {
+            return SCRIPT_OVERRIDE;
+        }
+        return SCRIPT_CONTINUE;
+    }
+
+    public int melee1hScatterHit1(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!combatStandardAction("melee1hScatterHit1", self, target, params, "", "")) {
+            return SCRIPT_OVERRIDE;
+        }
+        return SCRIPT_CONTINUE;
+    }
+
+    public int melee1hScatterHit2(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!combatStandardAction("melee1hScatterHit2", self, target, params, "", "")) {
+            return SCRIPT_OVERRIDE;
+        }
+        return SCRIPT_CONTINUE;
+    }
+
+    public int melee1hSpinAttack1(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!combatStandardAction("melee1hSpinAttack1", self, target, params, "", "")) {
+            return SCRIPT_OVERRIDE;
+        }
+        return SCRIPT_CONTINUE;
+    }
+
+    public int melee1hSpinAttack2(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!combatStandardAction("melee1hSpinAttack2", self, target, params, "", "")) {
+            return SCRIPT_OVERRIDE;
+        }
+        return SCRIPT_CONTINUE;
+    }
+
+    public int melee2hArea1(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!combatStandardAction("melee2hArea1", self, target, params, "", "")) {
+            return SCRIPT_OVERRIDE;
+        }
+        return SCRIPT_CONTINUE;
+    }
+
+    public int melee2hArea2(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!combatStandardAction("melee2hArea2", self, target, params, "", "")) {
+            return SCRIPT_OVERRIDE;
+        }
+        return SCRIPT_CONTINUE;
+    }
+
+    public int melee2hArea3(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!combatStandardAction("melee2hArea3", self, target, params, "", "")) {
+            return SCRIPT_OVERRIDE;
+        }
+        return SCRIPT_CONTINUE;
+    }
+
+    public int melee2hHeadHit1(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!combatStandardAction("melee2hHeadHit1", self, target, params, "", "")) {
+            return SCRIPT_OVERRIDE;
+        }
+        return SCRIPT_CONTINUE;
+    }
+
+    public int melee2hHeadHit2(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!combatStandardAction("melee2hHeadHit2", self, target, params, "", "")) {
+            return SCRIPT_OVERRIDE;
+        }
+        return SCRIPT_CONTINUE;
+    }
+
+    public int melee2hHeadHit3(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!combatStandardAction("melee2hHeadHit3", self, target, params, "", "")) {
+            return SCRIPT_OVERRIDE;
+        }
+        return SCRIPT_CONTINUE;
+    }
+
+    public int melee2hHit1(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!combatStandardAction("melee2hHit1", self, target, params, "", "")) {
+            return SCRIPT_OVERRIDE;
+        }
+        return SCRIPT_CONTINUE;
+    }
+
+    public int melee2hHit2(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!combatStandardAction("melee2hHit2", self, target, params, "", "")) {
+            return SCRIPT_OVERRIDE;
+        }
+        return SCRIPT_CONTINUE;
+    }
+
+    public int melee2hHit3(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!combatStandardAction("melee2hHit3", self, target, params, "", "")) {
+            return SCRIPT_OVERRIDE;
+        }
+        return SCRIPT_CONTINUE;
+    }
+
+    public int melee2hLunge1(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!combatStandardAction("melee2hLunge1", self, target, params, "", "")) {
+            return SCRIPT_OVERRIDE;
+        }
+        return SCRIPT_CONTINUE;
+    }
+
+    public int melee2hLunge2(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!combatStandardAction("melee2hLunge2", self, target, params, "", "")) {
+            return SCRIPT_OVERRIDE;
+        }
+        return SCRIPT_CONTINUE;
+    }
+
+    public int melee2hMindHit1(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!combatStandardAction("melee2hMindHit1", self, target, params, "", "")) {
+            return SCRIPT_OVERRIDE;
+        }
+        return SCRIPT_CONTINUE;
+    }
+
+    public int melee2hMindHit2(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!combatStandardAction("melee2hMindHit2", self, target, params, "", "")) {
+            return SCRIPT_OVERRIDE;
+        }
+        return SCRIPT_CONTINUE;
+    }
+
+    public int melee2hSpinAttack1(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!combatStandardAction("melee2hSpinAttack1", self, target, params, "", "")) {
+            return SCRIPT_OVERRIDE;
+        }
+        return SCRIPT_CONTINUE;
+    }
+
+    public int melee2hSpinAttack2(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!combatStandardAction("melee2hSpinAttack2", self, target, params, "", "")) {
+            return SCRIPT_OVERRIDE;
+        }
+        return SCRIPT_CONTINUE;
+    }
+
+    public int melee2hSweep1(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!combatStandardAction("melee2hSweep1", self, target, params, "", "")) {
+            return SCRIPT_OVERRIDE;
+        }
+        return SCRIPT_CONTINUE;
+    }
+
+    public int melee2hSweep2(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!combatStandardAction("melee2hSweep2", self, target, params, "", "")) {
+            return SCRIPT_OVERRIDE;
+        }
+        return SCRIPT_CONTINUE;
+    }
+
+    public int milddisease(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!combatStandardAction("milddisease", self, target, params, "", "")) {
+            return SCRIPT_OVERRIDE;
+        }
+        return SCRIPT_CONTINUE;
+    }
+
+    public int mildpoison(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!combatStandardAction("mildpoison", self, target, params, "", "")) {
+            return SCRIPT_OVERRIDE;
+        }
+        return SCRIPT_CONTINUE;
+    }
+
+    public int mindBlast1(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!combatStandardAction("mindBlast1", self, target, params, "", "")) {
+            return SCRIPT_OVERRIDE;
+        }
+        return SCRIPT_CONTINUE;
+    }
+
+    public int mindBlast2(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!combatStandardAction("mindBlast2", self, target, params, "", "")) {
+            return SCRIPT_OVERRIDE;
+        }
+        return SCRIPT_CONTINUE;
+    }
+
+    public int mindShot1(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!combatStandardAction("mindShot1", self, target, params, "", "")) {
+            return SCRIPT_OVERRIDE;
+        }
+        return SCRIPT_CONTINUE;
+    }
+
+    public int mindShot2(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!combatStandardAction("mindShot2", self, target, params, "", "")) {
+            return SCRIPT_OVERRIDE;
+        }
+        return SCRIPT_CONTINUE;
+    }
+
+    public int multiTargetPistolShot(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!combatStandardAction("multiTargetPistolShot", self, target, params, "", "")) {
+            return SCRIPT_OVERRIDE;
+        }
+        return SCRIPT_CONTINUE;
+    }
+
+    public int overChargeShot1(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!combatStandardAction("overChargeShot1", self, target, params, "", "")) {
+            return SCRIPT_OVERRIDE;
+        }
+        return SCRIPT_CONTINUE;
+    }
+
+    public int overChargeShot2(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!combatStandardAction("overChargeShot2", self, target, params, "", "")) {
+            return SCRIPT_OVERRIDE;
+        }
+        return SCRIPT_CONTINUE;
+    }
+
+    public int coneDelay(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!combatStandardAction("coneDelay", self, target, params, "", "")) {
+            return SCRIPT_OVERRIDE;
+        }
+        return SCRIPT_CONTINUE;
+    }
+
+    public int pistolMeleeDefense1(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!combatStandardAction("pistolMeleeDefense1", self, target, params, "", "")) {
+            return SCRIPT_OVERRIDE;
+        }
+        return SCRIPT_CONTINUE;
+    }
+
+    public int pistolMeleeDefense2(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!combatStandardAction("pistolMeleeDefense2", self, target, params, "", "")) {
+            return SCRIPT_OVERRIDE;
+        }
+        return SCRIPT_CONTINUE;
+    }
+
+    public int pointBlankArea1(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!combatStandardAction("pointBlankArea1", self, target, params, "", "")) {
+            return SCRIPT_OVERRIDE;
+        }
+        return SCRIPT_CONTINUE;
+    }
+
+    public int pointBlankArea2(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!combatStandardAction("pointBlankArea2", self, target, params, "", "")) {
+            return SCRIPT_OVERRIDE;
+        }
+        return SCRIPT_CONTINUE;
+    }
+
+    public int pointBlankSingle1(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!combatStandardAction("pointBlankSingle1", self, target, params, "", "")) {
+            return SCRIPT_OVERRIDE;
+        }
+        return SCRIPT_CONTINUE;
+    }
+
+    public int pointBlankSingle2(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!combatStandardAction("pointBlankSingle2", self, target, params, "", "")) {
+            return SCRIPT_OVERRIDE;
+        }
+        return SCRIPT_CONTINUE;
+    }
+
+    public int polearmActionHit1(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!combatStandardAction("polearmActionHit1", self, target, params, "", "")) {
+            return SCRIPT_OVERRIDE;
+        }
+        return SCRIPT_CONTINUE;
+    }
+
+    public int polearmActionHit2(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!combatStandardAction("polearmActionHit2", self, target, params, "", "")) {
+            return SCRIPT_OVERRIDE;
+        }
+        return SCRIPT_CONTINUE;
+    }
+
+    public int polearmArea1(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!combatStandardAction("polearmArea1", self, target, params, "", "")) {
+            return SCRIPT_OVERRIDE;
+        }
+        return SCRIPT_CONTINUE;
+    }
+
+    public int polearmArea2(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!combatStandardAction("polearmArea2", self, target, params, "", "")) {
+            return SCRIPT_OVERRIDE;
+        }
+        return SCRIPT_CONTINUE;
+    }
+
+    public int polearmHit1(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!combatStandardAction("polearmHit1", self, target, params, "", "")) {
+            return SCRIPT_OVERRIDE;
+        }
+        return SCRIPT_CONTINUE;
+    }
+
+    public int polearmHit2(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!combatStandardAction("polearmHit2", self, target, params, "", "")) {
+            return SCRIPT_OVERRIDE;
+        }
+        return SCRIPT_CONTINUE;
+    }
+
+    public int polearmHit3(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!combatStandardAction("polearmHit3", self, target, params, "", "")) {
+            return SCRIPT_OVERRIDE;
+        }
+        return SCRIPT_CONTINUE;
+    }
+
+    public int polearmLegHit1(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!combatStandardAction("polearmLegHit1", self, target, params, "", "")) {
+            return SCRIPT_OVERRIDE;
+        }
+        return SCRIPT_CONTINUE;
+    }
+
+    public int polearmLegHit2(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!combatStandardAction("polearmLegHit2", self, target, params, "", "")) {
+            return SCRIPT_OVERRIDE;
+        }
+        return SCRIPT_CONTINUE;
+    }
+
+    public int polearmLegHit3(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!combatStandardAction("polearmLegHit3", self, target, params, "", "")) {
+            return SCRIPT_OVERRIDE;
+        }
+        return SCRIPT_CONTINUE;
+    }
+
+    public int polearmLunge1(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!combatStandardAction("polearmLunge1", self, target, params, "", "")) {
+            return SCRIPT_OVERRIDE;
+        }
+        return SCRIPT_CONTINUE;
+    }
+
+    public int polearmLunge2(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!combatStandardAction("polearmLunge2", self, target, params, "", "")) {
+            return SCRIPT_OVERRIDE;
+        }
+        return SCRIPT_CONTINUE;
+    }
+
+    public int polearmSpinAttack1(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!combatStandardAction("polearmSpinAttack1", self, target, params, "", "")) {
+            return SCRIPT_OVERRIDE;
+        }
+        return SCRIPT_CONTINUE;
+    }
+
+    public int polearmSpinAttack2(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!combatStandardAction("polearmSpinAttack2", self, target, params, "", "")) {
+            return SCRIPT_OVERRIDE;
+        }
+        return SCRIPT_CONTINUE;
+    }
+
+    public int polearmStun1(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!combatStandardAction("polearmStun1", self, target, params, "", "")) {
+            return SCRIPT_OVERRIDE;
+        }
+        return SCRIPT_CONTINUE;
+    }
+
+    public int polearmStun2(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!combatStandardAction("polearmStun2", self, target, params, "", "")) {
+            return SCRIPT_OVERRIDE;
+        }
+        return SCRIPT_CONTINUE;
+    }
+
+    public int polearmSweep1(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!combatStandardAction("polearmSweep1", self, target, params, "", "")) {
+            return SCRIPT_OVERRIDE;
+        }
+        return SCRIPT_CONTINUE;
+    }
+
+    public int polearmSweep2(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!combatStandardAction("polearmSweep2", self, target, params, "", "")) {
+            return SCRIPT_OVERRIDE;
+        }
+        return SCRIPT_CONTINUE;
+    }
+
+    public int postureDownAttack(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!combatStandardAction("postureDownAttack", self, target, params, "", "")) {
+            return SCRIPT_OVERRIDE;
+        }
+        return SCRIPT_CONTINUE;
+    }
+
+    public int postureUpAttack(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!combatStandardAction("postureUpAttack", self, target, params, "", "")) {
+            return SCRIPT_OVERRIDE;
+        }
+        return SCRIPT_CONTINUE;
+    }
+
+    public int regainConsciousness(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!combatStandardAction("regainConsciousness", self, target, params, "", "")) {
+            return SCRIPT_OVERRIDE;
+        }
+        return SCRIPT_CONTINUE;
+    }
+
+    public int rollShot(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!combatStandardAction("rollShot", self, target, params, "", "")) {
+            return SCRIPT_OVERRIDE;
+        }
+        return SCRIPT_CONTINUE;
+    }
+
+    public int saber1hComboHit1(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!combatStandardAction("saber1hComboHit1", self, target, params, "", "")) {
+            return SCRIPT_OVERRIDE;
+        }
+        return SCRIPT_CONTINUE;
+    }
+
+    public int saber1hComboHit2(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!combatStandardAction("saber1hComboHit2", self, target, params, "", "")) {
+            return SCRIPT_OVERRIDE;
+        }
+        return SCRIPT_CONTINUE;
+    }
+
+    public int saber1hComboHit3(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!combatStandardAction("saber1hComboHit3", self, target, params, "", "")) {
+            return SCRIPT_OVERRIDE;
+        }
+        return SCRIPT_CONTINUE;
+    }
+
+    public int saber1hFlurry2(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!combatStandardAction("saber1hFlurry2", self, target, params, "", "")) {
+            return SCRIPT_OVERRIDE;
+        }
+        return SCRIPT_CONTINUE;
+    }
+
+    public int saber1hFlurry(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!combatStandardAction("saber1hFlurry", self, target, params, "", "")) {
+            return SCRIPT_OVERRIDE;
+        }
+        return SCRIPT_CONTINUE;
+    }
+
+    public int saber1hHeadHit1(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!combatStandardAction("saber1hHeadHit1", self, target, params, "", "")) {
+            return SCRIPT_OVERRIDE;
+        }
+        return SCRIPT_CONTINUE;
+    }
+
+    public int saber1hHeadHit2(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!combatStandardAction("saber1hHeadHit2", self, target, params, "", "")) {
+            return SCRIPT_OVERRIDE;
+        }
+        return SCRIPT_CONTINUE;
+    }
+
+    public int saber1hHeadHit3(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!combatStandardAction("saber1hHeadHit3", self, target, params, "", "")) {
+            return SCRIPT_OVERRIDE;
+        }
+        return SCRIPT_CONTINUE;
+    }
+
+    public int saber1hHit1(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!combatStandardAction("saber1hHit1", self, target, params, "", "")) {
+            return SCRIPT_OVERRIDE;
+        }
+        return SCRIPT_CONTINUE;
+    }
+
+    public int saber1hHit2(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!combatStandardAction("saber1hHit2", self, target, params, "", "")) {
+            return SCRIPT_OVERRIDE;
+        }
+        return SCRIPT_CONTINUE;
+    }
+
+    public int saber1hHit3(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!combatStandardAction("saber1hHit3", self, target, params, "", "")) {
+            return SCRIPT_OVERRIDE;
+        }
+        return SCRIPT_CONTINUE;
+    }
+
+    public int saber2hBodyHit1(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!combatStandardAction("saber2hBodyHit1", self, target, params, "", "")) {
+            return SCRIPT_OVERRIDE;
+        }
+        return SCRIPT_CONTINUE;
+    }
+
+    public int saber2hBodyHit2(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!combatStandardAction("saber2hBodyHit2", self, target, params, "", "")) {
+            return SCRIPT_OVERRIDE;
+        }
+        return SCRIPT_CONTINUE;
+    }
+
+    public int saber2hBodyHit3(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!combatStandardAction("saber2hBodyHit3", self, target, params, "", "")) {
+            return SCRIPT_OVERRIDE;
+        }
+        return SCRIPT_CONTINUE;
+    }
+
+    public int saber2hFrenzy(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!combatStandardAction("saber2hFrenzy", self, target, params, "", "")) {
+            return SCRIPT_OVERRIDE;
+        }
+        return SCRIPT_CONTINUE;
+    }
+
+    public int saber2hHit1(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!combatStandardAction("saber2hHit1", self, target, params, "", "")) {
+            return SCRIPT_OVERRIDE;
+        }
+        return SCRIPT_CONTINUE;
+    }
+
+    public int saber2hHit2(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!combatStandardAction("saber2hHit2", self, target, params, "", "")) {
+            return SCRIPT_OVERRIDE;
+        }
+        return SCRIPT_CONTINUE;
+    }
+
+    public int saber2hHit3(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!combatStandardAction("saber2hHit3", self, target, params, "", "")) {
+            return SCRIPT_OVERRIDE;
+        }
+        return SCRIPT_CONTINUE;
+    }
+
+    public int saber2hPhantom(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!combatStandardAction("saber2hPhantom", self, target, params, "", "")) {
+            return SCRIPT_OVERRIDE;
+        }
+        return SCRIPT_CONTINUE;
+    }
+
+    public int saber2hSweep1(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!combatStandardAction("saber2hSweep1", self, target, params, "", "")) {
+            return SCRIPT_OVERRIDE;
+        }
+        return SCRIPT_CONTINUE;
+    }
+
+    public int saber2hSweep2(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!combatStandardAction("saber2hSweep2", self, target, params, "", "")) {
+            return SCRIPT_OVERRIDE;
+        }
+        return SCRIPT_CONTINUE;
+    }
+
+    public int saber2hSweep3(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!combatStandardAction("saber2hSweep3", self, target, params, "", "")) {
+            return SCRIPT_OVERRIDE;
+        }
+        return SCRIPT_CONTINUE;
+    }
+
+    public int saberPolearmDervish2(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!combatStandardAction("saberPolearmDervish2", self, target, params, "", "")) {
+            return SCRIPT_OVERRIDE;
+        }
+        return SCRIPT_CONTINUE;
+    }
+
+    public int saberPolearmDervish(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!combatStandardAction("saberPolearmDervish", self, target, params, "", "")) {
+            return SCRIPT_OVERRIDE;
+        }
+        return SCRIPT_CONTINUE;
+    }
+
+    public int saberPolearmHit1(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!combatStandardAction("saberPolearmHit1", self, target, params, "", "")) {
+            return SCRIPT_OVERRIDE;
+        }
+        return SCRIPT_CONTINUE;
+    }
+
+    public int saberPolearmHit2(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!combatStandardAction("saberPolearmHit2", self, target, params, "", "")) {
+            return SCRIPT_OVERRIDE;
+        }
+        return SCRIPT_CONTINUE;
+    }
+
+    public int saberPolearmHit3(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!combatStandardAction("saberPolearmHit3", self, target, params, "", "")) {
+            return SCRIPT_OVERRIDE;
+        }
+        return SCRIPT_CONTINUE;
+    }
+
+    public int saberPolearmLegHit1(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!combatStandardAction("saberPolearmLegHit1", self, target, params, "", "")) {
+            return SCRIPT_OVERRIDE;
+        }
+        return SCRIPT_CONTINUE;
+    }
+
+    public int saberPolearmLegHit2(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!combatStandardAction("saberPolearmLegHit2", self, target, params, "", "")) {
+            return SCRIPT_OVERRIDE;
+        }
+        return SCRIPT_CONTINUE;
+    }
+
+    public int saberPolearmLegHit3(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!combatStandardAction("saberPolearmLegHit3", self, target, params, "", "")) {
+            return SCRIPT_OVERRIDE;
+        }
+        return SCRIPT_CONTINUE;
+    }
+
+    public int saberPolearmSpinAttack1(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!combatStandardAction("saberPolearmSpinAttack1", self, target, params, "", "")) {
+            return SCRIPT_OVERRIDE;
+        }
+        return SCRIPT_CONTINUE;
+    }
+
+    public int saberPolearmSpinAttack2(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!combatStandardAction("saberPolearmSpinAttack2", self, target, params, "", "")) {
+            return SCRIPT_OVERRIDE;
+        }
+        return SCRIPT_CONTINUE;
+    }
+
+    public int saberPolearmSpinAttack3(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!combatStandardAction("saberPolearmSpinAttack3", self, target, params, "", "")) {
+            return SCRIPT_OVERRIDE;
+        }
+        return SCRIPT_CONTINUE;
+    }
+
+    public int saberSlash1(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!combatStandardAction("saberSlash1", self, target, params, "", "")) {
+            return SCRIPT_OVERRIDE;
+        }
+        return SCRIPT_CONTINUE;
+    }
+
+    public int saberSlash2(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!combatStandardAction("saberSlash2", self, target, params, "", "")) {
+            return SCRIPT_OVERRIDE;
+        }
+        return SCRIPT_CONTINUE;
+    }
+
+    public int saberThrow1(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!combatStandardAction("saberThrow1", self, target, params, "", "")) {
+            return SCRIPT_OVERRIDE;
+        }
+        return SCRIPT_CONTINUE;
+    }
+
+    public int saberThrow2(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!combatStandardAction("saberThrow2", self, target, params, "", "")) {
+            return SCRIPT_OVERRIDE;
+        }
+        return SCRIPT_CONTINUE;
+    }
+
+    public int saberThrow3(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!combatStandardAction("saberThrow3", self, target, params, "", "")) {
+            return SCRIPT_OVERRIDE;
+        }
+        return SCRIPT_CONTINUE;
+    }
+
+    public int scatterShot1(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!combatStandardAction("scatterShot1", self, target, params, "", "")) {
+            return SCRIPT_OVERRIDE;
+        }
+        return SCRIPT_CONTINUE;
+    }
+
+    public int scatterShot2(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!combatStandardAction("scatterShot2", self, target, params, "", "")) {
+            return SCRIPT_OVERRIDE;
+        }
+        return SCRIPT_CONTINUE;
+    }
+
+    public int sniperShot(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!combatStandardAction("sniperShot", self, target, params, "", "")) {
+            return SCRIPT_OVERRIDE;
+        }
+        return SCRIPT_CONTINUE;
+    }
+
+    public int sprayShot(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!combatStandardAction("sprayShot", self, target, params, "", "")) {
+            return SCRIPT_OVERRIDE;
+        }
+        return SCRIPT_CONTINUE;
+    }
+
+    public int startleShot1(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!combatStandardAction("startleShot1", self, target, params, "", "")) {
+            return SCRIPT_OVERRIDE;
+        }
+        return SCRIPT_CONTINUE;
+    }
+
+    public int startleShot2(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!combatStandardAction("startleShot2", self, target, params, "", "")) {
+            return SCRIPT_OVERRIDE;
+        }
+        return SCRIPT_CONTINUE;
+    }
+
+    public int stopBleeding(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!combatStandardAction("stopBleeding", self, target, params, "", "")) {
+            return SCRIPT_OVERRIDE;
+        }
+        return SCRIPT_CONTINUE;
+    }
+
+    public int stoppingShot(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!combatStandardAction("stoppingShot", self, target, params, "", "")) {
+            return SCRIPT_OVERRIDE;
+        }
+        return SCRIPT_CONTINUE;
+    }
+
+    public int strafeShot1(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!combatStandardAction("strafeShot1", self, target, params, "", "")) {
+            return SCRIPT_OVERRIDE;
+        }
+        return SCRIPT_CONTINUE;
+    }
+
+    public int strafeShot2(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!combatStandardAction("strafeShot2", self, target, params, "", "")) {
+            return SCRIPT_OVERRIDE;
+        }
+        return SCRIPT_CONTINUE;
+    }
+
+    public int strongdisease(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!combatStandardAction("strongdisease", self, target, params, "", "")) {
+            return SCRIPT_OVERRIDE;
+        }
+        return SCRIPT_CONTINUE;
+    }
+
+    public int strongpoison(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!combatStandardAction("strongpoison", self, target, params, "", "")) {
+            return SCRIPT_OVERRIDE;
+        }
+        return SCRIPT_CONTINUE;
+    }
+
+    public int stunAttack(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!combatStandardAction("stunAttack", self, target, params, "", "")) {
+            return SCRIPT_OVERRIDE;
+        }
+        return SCRIPT_CONTINUE;
+    }
+
+    public int suppressionFire1(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!combatStandardAction("suppressionFire1", self, target, params, "", "")) {
+            return SCRIPT_OVERRIDE;
+        }
+        return SCRIPT_CONTINUE;
+    }
+
+    public int suppressionFire2(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!combatStandardAction("suppressionFire2", self, target, params, "", "")) {
+            return SCRIPT_OVERRIDE;
+        }
+        return SCRIPT_CONTINUE;
+    }
+
+    public int surpriseShot(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!combatStandardAction("surpriseShot", self, target, params, "", "")) {
+            return SCRIPT_OVERRIDE;
+        }
+        return SCRIPT_CONTINUE;
+    }
+
+    public int threatenShot(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!combatStandardAction("threatenShot", self, target, params, "", "")) {
+            return SCRIPT_OVERRIDE;
+        }
+        return SCRIPT_CONTINUE;
+    }
+
+    public int torsoShot(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!combatStandardAction("torsoShot", self, target, params, "", "")) {
+            return SCRIPT_OVERRIDE;
+        }
+        return SCRIPT_CONTINUE;
+    }
+
+    public int totalHealOther(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!combatStandardAction("totalHealOther", self, target, params, "", "")) {
+            return SCRIPT_OVERRIDE;
+        }
+        return SCRIPT_CONTINUE;
+    }
+
+    public int totalHealSelf(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!combatStandardAction("totalHealSelf", self, target, params, "", "")) {
+            return SCRIPT_OVERRIDE;
+        }
+        return SCRIPT_CONTINUE;
+    }
+
+    public int transferForce(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!combatStandardAction("transferForce", self, target, params, "", "")) {
+            return SCRIPT_OVERRIDE;
+        }
+        return SCRIPT_CONTINUE;
+    }
+
+    public int turretfire(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!combatStandardAction("turretfire", self, target, params, "", "")) {
+            return SCRIPT_OVERRIDE;
+        }
+        return SCRIPT_CONTINUE;
+    }
+
+    public int unarmedBlind1(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!combatStandardAction("unarmedBlind1", self, target, params, "", "")) {
+            return SCRIPT_OVERRIDE;
+        }
+        return SCRIPT_CONTINUE;
+    }
+
+    public int unarmedBodyHit1(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!combatStandardAction("unarmedBodyHit1", self, target, params, "", "")) {
+            return SCRIPT_OVERRIDE;
+        }
+        return SCRIPT_CONTINUE;
+    }
+
+    public int unarmedCombo1(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!combatStandardAction("unarmedCombo1", self, target, params, "", "")) {
+            return SCRIPT_OVERRIDE;
+        }
+        return SCRIPT_CONTINUE;
+    }
+
+    public int unarmedCombo2(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!combatStandardAction("unarmedCombo2", self, target, params, "", "")) {
+            return SCRIPT_OVERRIDE;
+        }
+        return SCRIPT_CONTINUE;
+    }
+
+    public int unarmedDizzy1(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!combatStandardAction("unarmedDizzy1", self, target, params, "", "")) {
+            return SCRIPT_OVERRIDE;
+        }
+        return SCRIPT_CONTINUE;
+    }
+
+    public int unarmedHeadHit1(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!combatStandardAction("unarmedHeadHit1", self, target, params, "", "")) {
+            return SCRIPT_OVERRIDE;
+        }
+        return SCRIPT_CONTINUE;
+    }
+
+    public int unarmedHit1(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!combatStandardAction("unarmedHit1", self, target, params, "", "")) {
+            return SCRIPT_OVERRIDE;
+        }
+        return SCRIPT_CONTINUE;
+    }
+
+    public int unarmedHit2(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!combatStandardAction("unarmedHit2", self, target, params, "", "")) {
+            return SCRIPT_OVERRIDE;
+        }
+        return SCRIPT_CONTINUE;
+    }
+
+    public int unarmedHit3(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!combatStandardAction("unarmedHit3", self, target, params, "", "")) {
+            return SCRIPT_OVERRIDE;
+        }
+        return SCRIPT_CONTINUE;
+    }
+
+    public int unarmedKnockdown1(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!combatStandardAction("unarmedKnockdown1", self, target, params, "", "")) {
+            return SCRIPT_OVERRIDE;
+        }
+        return SCRIPT_CONTINUE;
+    }
+
+    public int unarmedKnockdown2(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!combatStandardAction("unarmedKnockdown2", self, target, params, "", "")) {
+            return SCRIPT_OVERRIDE;
+        }
+        return SCRIPT_CONTINUE;
+    }
+
+    public int unarmedLegHit1(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!combatStandardAction("unarmedLegHit1", self, target, params, "", "")) {
+            return SCRIPT_OVERRIDE;
+        }
+        return SCRIPT_CONTINUE;
+    }
+
+    public int unarmedLunge1(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!combatStandardAction("unarmedLunge1", self, target, params, "", "")) {
+            return SCRIPT_OVERRIDE;
+        }
+        return SCRIPT_CONTINUE;
+    }
+
+    public int unarmedLunge2(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!combatStandardAction("unarmedLunge2", self, target, params, "", "")) {
+            return SCRIPT_OVERRIDE;
+        }
+        return SCRIPT_CONTINUE;
+    }
+
+    public int unarmedSpinAttack1(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!combatStandardAction("unarmedSpinAttack1", self, target, params, "", "")) {
+            return SCRIPT_OVERRIDE;
+        }
+        return SCRIPT_CONTINUE;
+    }
+
+    public int unarmedSpinAttack2(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!combatStandardAction("unarmedSpinAttack2", self, target, params, "", "")) {
+            return SCRIPT_OVERRIDE;
+        }
+        return SCRIPT_CONTINUE;
+    }
+
+    public int unarmedStun1(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!combatStandardAction("unarmedStun1", self, target, params, "", "")) {
+            return SCRIPT_OVERRIDE;
+        }
+        return SCRIPT_CONTINUE;
+    }
+
+    public int underHandShot(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!combatStandardAction("underHandShot", self, target, params, "", "")) {
+            return SCRIPT_OVERRIDE;
+        }
+        return SCRIPT_CONTINUE;
+    }
+
+    public int volleyFireAttack(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!combatStandardAction("volleyFireAttack", self, target, params, "", "")) {
+            return SCRIPT_OVERRIDE;
+        }
+        return SCRIPT_CONTINUE;
+    }
+
+    public int volleyFire(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!combatStandardAction("volleyFire", self, target, params, "", "")) {
+            return SCRIPT_OVERRIDE;
+        }
+        return SCRIPT_CONTINUE;
+    }
+
+    public int warcry1(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!combatStandardAction("warcry1", self, target, params, "", "")) {
+            return SCRIPT_OVERRIDE;
+        }
+        return SCRIPT_CONTINUE;
+    }
+
+    public int warcry2(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!combatStandardAction("warcry2", self, target, params, "", "")) {
+            return SCRIPT_OVERRIDE;
+        }
+        return SCRIPT_CONTINUE;
+    }
+
+    public int warningShot(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!combatStandardAction("warningShot", self, target, params, "", "")) {
+            return SCRIPT_OVERRIDE;
+        }
+        return SCRIPT_CONTINUE;
+    }
+
+    public int wildShot1(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!combatStandardAction("wildShot1", self, target, params, "", "")) {
+            return SCRIPT_OVERRIDE;
+        }
+        return SCRIPT_CONTINUE;
+    }
+
+    public int wildShot2(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!combatStandardAction("wildShot2", self, target, params, "", "")) {
+            return SCRIPT_OVERRIDE;
+        }
+        return SCRIPT_CONTINUE;
+    }
+
+    public int wookieeRoar(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!combatStandardAction("wookieeRoar", self, target, params, "", "")) {
+            return SCRIPT_OVERRIDE;
+        }
+        return SCRIPT_CONTINUE;
+    }
+
+    public int boostmorale(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!combatStandardAction("boostmorale", self, target, params, "", "")) {
+            return SCRIPT_OVERRIDE;
+        }
+        return SCRIPT_CONTINUE;
+    }
+    public int creaturerangedattack(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!combatStandardAction("creaturerangedattack", self, target, params, "", "")) {
+            return SCRIPT_OVERRIDE;
+        }
+        return SCRIPT_CONTINUE;
+    }
+    public int fireHeavyWeapon(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!combatStandardAction("fireHeavyWeapon", self, target, params, "", "")) {
+            return SCRIPT_OVERRIDE;
+        }
+        return SCRIPT_CONTINUE;
+    }
+    public int minefieldattack(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!combatStandardAction("minefieldattack", self, target, params, "", "")) {
+            return SCRIPT_OVERRIDE;
+        }
+        return SCRIPT_CONTINUE;
+    }
+    public int multiTargetShot(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!combatStandardAction("multiTargetShot", self, target, params, "", "")) {
+            return SCRIPT_OVERRIDE;
+        }
+        return SCRIPT_CONTINUE;
+    }
+    public int panicShot(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!combatStandardAction("panicShot", self, target, params, "", "")) {
+            return SCRIPT_OVERRIDE;
+        }
+        return SCRIPT_CONTINUE;
+    }
+    public int steadyaim(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!combatStandardAction("steadyaim", self, target, params, "", "")) {
+            return SCRIPT_OVERRIDE;
+        }
+        return SCRIPT_CONTINUE;
+    }
+    public int taunt(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!combatStandardAction("taunt", self, target, params, "", "")) {
+            return SCRIPT_OVERRIDE;
+        }
+        return SCRIPT_CONTINUE;
+    }
+
 }

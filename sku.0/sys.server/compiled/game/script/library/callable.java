@@ -71,6 +71,54 @@ public class callable extends script.base_script
         {
             return CALLABLE_TYPE_UNKNOWN;
         }
+        // Trained mounts / vehicles are rideable (checked first so dual-purpose mounts stay in the rideable slot)
+        if (hasCallableCD(objCallable))
+        {
+            obj_id petControlDevice = getCallableCD(objCallable);
+            if ((isValidId(petControlDevice) && exists(petControlDevice) && hasObjVar(petControlDevice, "ai.pet.trainedMount")) || pet_lib.isVehiclePet(objCallable))
+            {
+                return CALLABLE_TYPE_RIDEABLE;
+            }
+            // Classic pre-CU path: CD carries ai.pet.type for AGGRO/NON_AGGRO/NPC/DROID
+            if (isValidId(petControlDevice) && exists(petControlDevice) && hasObjVar(petControlDevice, "ai.pet.type"))
+            {
+                int cdPetType = getIntObjVar(petControlDevice, "ai.pet.type");
+                switch (cdPetType)
+                {
+                    case pet_lib.PET_TYPE_NON_AGGRO:
+                    case pet_lib.PET_TYPE_AGGRO:
+                    case pet_lib.PET_TYPE_NPC:
+                    case pet_lib.PET_TYPE_DROID:
+                        return CALLABLE_TYPE_COMBAT_PET;
+                    case pet_lib.PET_TYPE_FAMILIAR:
+                        return CALLABLE_TYPE_FAMILIAR;
+                    case pet_lib.PET_TYPE_MOUNT:
+                        return CALLABLE_TYPE_RIDEABLE;
+                    default:
+                        break;
+                }
+            }
+        }
+        // Live pet ai.pet.type (set by makePet)
+        if (hasObjVar(objCallable, "ai.pet.type"))
+        {
+            int petType = getIntObjVar(objCallable, "ai.pet.type");
+            switch (petType)
+            {
+                case pet_lib.PET_TYPE_NON_AGGRO:
+                case pet_lib.PET_TYPE_AGGRO:
+                case pet_lib.PET_TYPE_NPC:
+                case pet_lib.PET_TYPE_DROID:
+                    return CALLABLE_TYPE_COMBAT_PET;
+                case pet_lib.PET_TYPE_FAMILIAR:
+                    return CALLABLE_TYPE_FAMILIAR;
+                case pet_lib.PET_TYPE_MOUNT:
+                    return CALLABLE_TYPE_RIDEABLE;
+                default:
+                    break;
+            }
+        }
+        // NGE-era paths (beasts / droids / NPC niche)
         if ((beast_lib.isBeast(objCallable) || pet_lib.isDroidPet(objCallable) || ai_lib.aiGetNiche(objCallable) == NICHE_NPC) && pet_lib.getPetType(objCallable) != pet_lib.PET_TYPE_FAMILIAR)
         {
             return CALLABLE_TYPE_COMBAT_PET;
@@ -79,13 +127,9 @@ public class callable extends script.base_script
         {
             return CALLABLE_TYPE_FAMILIAR;
         }
-        if (hasCallableCD(objCallable))
+        if (pet_lib.isVehiclePet(objCallable))
         {
-            obj_id petControlDevice = getCallableCD(objCallable);
-            if ((isValidId(petControlDevice) && exists(petControlDevice) && hasObjVar(petControlDevice, "ai.pet.trainedMount")) || pet_lib.isVehiclePet(objCallable))
-            {
-                return CALLABLE_TYPE_RIDEABLE;
-            }
+            return CALLABLE_TYPE_RIDEABLE;
         }
         if (hasObjVar(objCallable, "ai.pet.buddy"))
         {
@@ -358,6 +402,7 @@ public class callable extends script.base_script
         {
             return;
         }
+//        sendSystemMessageTestingOnly(master, "TAMEDEBUG: storeCallable ENTER master=" + master + " objCallable=" + objCallable + " type=" + getCallableType(objCallable));
         if (beast_lib.isBeast(objCallable))
         {
             beast_lib.storeBeast(beast_lib.getBeastBCD(objCallable));
@@ -376,6 +421,7 @@ public class callable extends script.base_script
             }
             setCallable(master, null, callableType);
         }
+//        sendSystemMessageTestingOnly(master, "TAMEDEBUG: storeCallable EXIT objCallable still exists=" + exists(objCallable));
     }
     public static void storeCallables(obj_id master) throws InterruptedException
     {

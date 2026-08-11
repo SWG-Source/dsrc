@@ -794,6 +794,7 @@ public class corpse extends script.base_script
                 {
                     params.put(resourceType, actualAmount);
                     successCount++;
+                    xp.grant(player, xp.SCOUT, actualAmount);
                     if (hasScript(player, "theme_park.new_player.new_player"))
                     {
                         dictionary webster = new dictionary();

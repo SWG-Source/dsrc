@@ -20,6 +20,10 @@ public class commerce_trainer_spawner extends script.base_script
     }
     public void spawnEveryone(obj_id self) throws InterruptedException
     {
+        spawnArtisan(self);
+        spawnChef(self);
+        spawnTailor(self);
+        spawnPolitician(self);
         spawnSurveyMission(self);
         spawnFoodStation(self);
         spawnClothingStation(self);
@@ -27,6 +31,26 @@ public class commerce_trainer_spawner extends script.base_script
         {
             spawnCraftingContractor(self);
         }
+    }
+    public void spawnChef(obj_id self) throws InterruptedException
+    {
+        obj_id room = getCellId(self, "meetinga");
+        location loc = new location(0.0f, 1.13f, 0.0f, "tatooine", room);
+        obj_id trainer = create.object("trainer_chef", loc);
+        create.addDestroyMessage(trainer, "chefDied", 10.0f, self);
+        setCreatureStatic(trainer, true);
+        setInvulnerable(trainer, true);
+        return;
+    }
+    public void spawnTailor(obj_id self) throws InterruptedException
+    {
+        obj_id room = getCellId(self, "meetingb");
+        location loc = new location(0.0f, 1.13f, 0.0f, "tatooine", room);
+        obj_id trainer = create.object("trainer_tailor", loc);
+        create.addDestroyMessage(trainer, "tailorDied", 10.0f, self);
+        setCreatureStatic(trainer, true);
+        setInvulnerable(trainer, true);
+        return;
     }
     public void spawnArtisan(obj_id self) throws InterruptedException
     {
@@ -74,6 +98,16 @@ public class commerce_trainer_spawner extends script.base_script
         setYaw(clothingStation, 90);
         return;
     }
+    public void spawnPolitician(obj_id self) throws InterruptedException
+    {
+        obj_id room = getCellId(self, "mainroom");
+        location loc = new location(3.0f, 1.13f, -6.0f, "tatooine", room);
+        obj_id trainer = create.object("trainer_politician", loc);
+        create.addDestroyMessage(trainer, "politicianDied", 10.0f, self);
+        setCreatureStatic(trainer, true);
+        setInvulnerable(trainer, true);
+        return;
+    }
     public void spawnCraftingContractor(obj_id self) throws InterruptedException
     {
         obj_id room = getCellId(self, "mainroom");
@@ -95,9 +129,24 @@ public class commerce_trainer_spawner extends script.base_script
         spawnEveryone(stuffs);
         return SCRIPT_CONTINUE;
     }
+    public int chefDied(obj_id self, dictionary params) throws InterruptedException
+    {
+        spawnChef(self);
+        return SCRIPT_CONTINUE;
+    }
+    public int tailorDied(obj_id self, dictionary params) throws InterruptedException
+    {
+        spawnTailor(self);
+        return SCRIPT_CONTINUE;
+    }
     public int artisanDied(obj_id self, dictionary params) throws InterruptedException
     {
         spawnArtisan(self);
+        return SCRIPT_CONTINUE;
+    }
+    public int politicianDied(obj_id self, dictionary params) throws InterruptedException
+    {
+        spawnPolitician(self);
         return SCRIPT_CONTINUE;
     }
     public int surveyorDied(obj_id self, dictionary params) throws InterruptedException

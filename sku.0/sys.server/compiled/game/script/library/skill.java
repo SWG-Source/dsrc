@@ -407,17 +407,95 @@ public class skill extends script.base_script
     {
         return null;
     }
+    public static String[] getQualifiedSkillsFromList(obj_id target, String[] teachableSkills, String trainerType) throws InterruptedException
+    {
+        if (!isIdValid(target) || (!isMob(target)) || teachableSkills == null)
+        {
+            return null;
+        }
+        Vector qualifiedSkills = new Vector();
+        qualifiedSkills.setSize(0);
+        dictionary d;
+        Object o;
+        String xpType;
+        Enumeration species_keys;
+        String key;
+        String branch;
+        String skillName;
+        for (String teachableSkill : teachableSkills) {
+            boolean qualifies = true;
+            d = getSkillPrerequisiteExperience(teachableSkill);
+            if (d != null && !d.isEmpty()) {
+                Enumeration keys = d.keys();
+                while (keys.hasMoreElements()) {
+                    o = keys.nextElement();
+                    if (o instanceof String) {
+                        xpType = (String) o;
+                        int xpCost = d.getInt(xpType);
+                        int playerXP = getExperiencePoints(target, xpType);
+                        if (playerXP < xpCost) {
+                            qualifies = false;
+                        }
+                    } else {
+                        return null;
+                    }
+                }
+            }
+            dictionary species = getSkillPrerequisiteSpecies(teachableSkill);
+            if (species != null && d != null && !d.isEmpty()) {
+                species_keys = species.keys();
+                while (species_keys.hasMoreElements()) {
+                    o = species_keys.nextElement();
+                    if (o instanceof String) {
+                        key = (String) o;
+                        if (species.getBoolean(key)) {
+                            qualifies = false;
+                        }
+                    }
+                }
+            }
+            if (trainerType != null && trainerType.equals("trainer_fs")) {
+                if (qualifies) {
+                    if (fs_quests.isVillageEligible(target)) {
+                        branch = fs_quests.getBranchFromSkill(teachableSkill);
+                        if (!fs_quests.hasUnlockedBranch(target, branch)) {
+                            qualifies = false;
+                        }
+                    } else {
+                        qualifies = false;
+                    }
+                }
+            }
+            if (hasObjVar(target, "newbie.hasSkill") && !hasObjVar(target, "newbie.trained")) {
+                skillName = getStringObjVar(target, "newbie.hasSkill");
+                if (skillName.equals(teachableSkill)) {
+                    qualifies = true;
+                }
+            }
+            if (qualifies) {
+                qualifiedSkills = utils.addElement(qualifiedSkills, teachableSkill);
+            }
+        }
+        if ((qualifiedSkills != null) && (qualifiedSkills.size() > 0))
+        {
+            String[] _qualifiedSkills = new String[qualifiedSkills.size()];
+            qualifiedSkills.toArray(_qualifiedSkills);
+            return _qualifiedSkills;
+        }
+        return null;
+    }
     public static String[] getQualifiedTeachableSkills(obj_id target, obj_id teacher) throws InterruptedException
     {
         if (!isIdValid(target) || (!isMob(target)) || (isIdNull(teacher)) || (!isMob(teacher)))
         {
             return null;
         }
-        String[] teachableSkills = getTeachableSkills(target, teacher);
+        String[] teachableSkills = getTeacherSkills(teacher, target);
         if (teachableSkills == null)
         {
             return null;
         }
+        String[] pSkills = getSkillListingForPlayer(target);
         Vector qualifiedSkills = new Vector();
         qualifiedSkills.setSize(0);
         dictionary d;
@@ -449,8 +527,7 @@ public class skill extends script.base_script
                 }
             }
             dictionary species = getSkillPrerequisiteSpecies(teachableSkill);
-            assert d != null;
-            if (species != null && !d.isEmpty()) {
+            if (species != null && !species.isEmpty()) {
                 species_keys = species.keys();
                 while (species_keys.hasMoreElements()) {
                     o = species_keys.nextElement();
@@ -460,6 +537,12 @@ public class skill extends script.base_script
                             qualifies = false;
                         }
                     }
+                }
+            }
+            String[] skillReqs = getSkillPrerequisiteSkills(teachableSkill);
+            if (skillReqs != null && skillReqs.length > 0) {
+                if (!utils.isSubset(pSkills, skillReqs)) {
+                    qualifies = false;
                 }
             }
             trainer_type = getStringObjVar(teacher, "trainer");

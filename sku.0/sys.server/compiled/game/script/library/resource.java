@@ -615,6 +615,19 @@ public class resource extends script.base_script
                                 merriam.put("resource", typeId);
                                 messageTo(user, "forceSensitiveQuestInfo", merriam, 1, false);
                             }
+                            LOG("xpdebug", "getSample(): resource_class=" + resource_class + " amt=" + amt + " isOrganic=" + isOrganic(resource_class) + " isInorganic=" + isInorganic(resource_class));
+                            if (isOrganic(resource_class))
+                            {
+                                xp.grant(user, xp.HARVEST_INORGANIC, amt);
+                            }
+                            else if (isInorganic(resource_class) || isEnergyWindResource(resource_class) || isEnergySolarResource(resource_class) || isEnergyGeoThermal(resource_class))
+                            {
+                                xp.grant(user, xp.HARVEST_INORGANIC, amt);
+                            }
+                            else
+                            {
+                                LOG("xpdebug", "resource_class=" + resource_class + " matched NEITHER organic nor inorganic - no XP branch taken");
+                            }
                             sendSystemMessageProse(user, prose.getPackage(SID_SAMPLE_LOCATED, type, amt));
                             if (isResourceDerivedFrom(typeId, "radioactive"))
                         {

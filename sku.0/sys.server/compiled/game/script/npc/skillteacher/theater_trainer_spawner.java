@@ -23,6 +23,11 @@ public class theater_trainer_spawner extends script.base_script
         spawnMusicMission(self);
         spawnDanceMission(self);
         spawnStorytellerVendor(self);
+        spawnEntertainer(self);
+        spawnDancer(self);
+        spawnMusician(self);
+        spawnImageDesigner(self);
+        spawnChoreographer(self);
         if (utils.checkConfigFlag("Quest", "CrowdPleaser"))
         {
             spawnTheaterManager(self);
@@ -99,7 +104,7 @@ public class theater_trainer_spawner extends script.base_script
         obj_id greenroom = getCellId(self, "backstage");
         location dancerloc = new location(18.78f, 2.13f, 54.98f, "tatooine", greenroom);
         obj_id dancer = create.object("trainer_dancer", dancerloc);
-        create.addDestroyMessage(dancer, "dancerDied", 10.0f, self);
+        create.addDestroyMessage(dancer, "danceDied", 10.0f, self);
         String name = getName(dancer);
         setCreatureStatic(dancer, true);
         setInvulnerable(dancer, true);

@@ -617,6 +617,7 @@ public class npc_lair extends script.theme_park.poi.base
                     int creatureXpValue = getIntObjVar(mobile, "combat.intCombatXP");
                     xpValue = xpValue + creatureXpValue;
                 }
+                makeBaby(mobile);
             }
         }
         mobileNumber = mobileNumber + 1;
@@ -819,17 +820,22 @@ public class npc_lair extends script.theme_park.poi.base
         int lairLevel = getIntObjVar(self, "spawning.intDifficultyLevel");
         obj_id target = getObjIdObjVar(self, "npc_lair.target");
         String name = params.getString("name");
+        obj_id newMobile = null;
         if (name != null)
         {
-            spawnMobile(name, target, lairLevel);
+            newMobile = spawnMobile(name, target, lairLevel);
         }
         else 
         {
             name = params.getString("creatureName");
             if (name != null)
             {
-                spawnMobile(name, target, lairLevel);
+                newMobile = spawnMobile(name, target, lairLevel);
             }
+        }
+        if (isIdValid(newMobile))
+        {
+            makeBaby(newMobile);
         }
         return SCRIPT_CONTINUE;
     }
@@ -951,6 +957,17 @@ public class npc_lair extends script.theme_park.poi.base
         numBabiesSpawned++;
         utils.setScriptVar(baseObj, "npc_lair.numbabies", numBabiesSpawned);
         attachScript(mobile, "ai.pet_advance");
+        String myName = getAssignedName(mobile);
+        if (myName != null && !myName.equals("") && !myName.equals("null"))
+        {
+            setName(mobile, myName + " (baby)");
+        }
+        else
+        {
+            setName(mobile, (getString(getNameStringId(mobile)) + " (baby)"));
+        }
+        float adultScale = getScale(mobile);
+        setScale(mobile, adultScale * 0.4f);
     }
     public int handleNpcAiManagement(obj_id self, dictionary params) throws InterruptedException
     {

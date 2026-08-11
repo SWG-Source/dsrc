@@ -45,12 +45,6 @@ public class pet_ping extends script.base_script
         {
             LOG("pcdping-debug", "pet_ping.petPingCallback(): self = [" + self + "] entered");
         }
-        obj_id player = getRiderId(self);
-        if (!isValidId(player) && pet_lib.isMount(self))
-        {
-            pet_lib.storePet(self);
-            return SCRIPT_CONTINUE;
-        }
         final int previousMessageNumber = getIntObjVar(self, PCDPING_SEND_MESSAGE_NUMBER);
         final int newMessageNumber = previousMessageNumber + 1;
         setObjVar(self, PCDPING_SEND_MESSAGE_NUMBER, newMessageNumber);
@@ -58,6 +52,9 @@ public class pet_ping extends script.base_script
         {
             ensurePcdHasSisterScript(self);
         }
+        // Pre-CU behavior: dismounted mounts are allowed to stay out, follow,
+        // and fight like any other pet. NGE auto-stored any mount with no
+        // active rider on every 5-minute ping — removed for pre-CU parity.
         final int mostRecentAcknowledgedMessageNumber = getIntObjVar(self, PCDPING_LAST_ACK_MESSAGE_NUMBER);
         final int unacknowledgedGap = previousMessageNumber - mostRecentAcknowledgedMessageNumber;
         if (unacknowledgedGap > PCDPING_MAX_UNACKNOWLEDGED_MESSAGE_COUNT)

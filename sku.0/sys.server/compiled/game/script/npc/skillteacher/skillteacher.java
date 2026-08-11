@@ -238,7 +238,11 @@ public class skillteacher extends script.base_script
                     if (utils.getElementPositionInArray(qualifiedSkills, response) > -1)
                     {
                         string_id sid_skillName = new string_id(SKILL_N, response);
-                        int cost = 1;
+                        int cost = dataTableGetInt(skill.TBL_SKILL, response, "MONEY_REQUIRED");
+                        if (cost < 0)
+                        {
+                            cost = 0;
+                        }
                         float skillMod = getEnhancedSkillStatisticModifier(speaker, "force_persuade");
                         skillMod = skillMod * 0.01f;
                         float discount = cost * skillMod;
@@ -258,17 +262,8 @@ public class skillteacher extends script.base_script
                             }
                             else 
                             {
-                                int ptsLeft = 0;
+                                int ptsLeft = 1;
                                 int ptsCost = 1;
-                                if (ptsLeft < ptsCost)
-                                {
-                                    int diff = ptsCost - ptsLeft;
-                                    string_id PROSE_NSF_SKILL_PTS = new string_id(convo, "nsf_skill_pts");
-                                    prose_package ppNsfSkillPts = prose.getPackage(PROSE_NSF_SKILL_PTS, sid_skillName, diff);
-                                    npcSpeak(speaker, ppNsfSkillPts);
-                                    npcSetConversationResponses(speaker, OPT_DEFAULT);
-                                    return SCRIPT_CONTINUE;
-                                }
                                 String ovPath = "confirmTeach." + speaker;
                                 setObjVar(self, ovPath + ".sid_skillname", sid_skillName);
                                 setObjVar(self, ovPath + ".cost", cost);
@@ -284,17 +279,8 @@ public class skillteacher extends script.base_script
                         }
                         else 
                         {
-                            int ptsLeft = 0;
+                            int ptsLeft = 1;
                             int ptsCost = 1;
-                            if (ptsLeft < ptsCost)
-                            {
-                                int diff = ptsCost - ptsLeft;
-                                string_id PROSE_NSF_SKILL_PTS = new string_id(convo, "nsf_skill_pts");
-                                prose_package ppNsfSkillPts = prose.getPackage(PROSE_NSF_SKILL_PTS, sid_skillName, diff);
-                                npcSpeak(speaker, ppNsfSkillPts);
-                                npcSetConversationResponses(speaker, OPT_DEFAULT);
-                                return SCRIPT_CONTINUE;
-                            }
                             if (completeSkillPurchase(speaker, response))
                             {
                                 if (response.equals("jedi_light_side_journeyman_novice") || response.equals("jedi_dark_side_journeyman_novice"))
@@ -569,27 +555,13 @@ public class skillteacher extends script.base_script
         {
             convo = JEDI_TRAINER;
         }
-        String[] lowSkills = getSkillPrerequisiteSkills(tSkills[0]);
-        if (lowSkills != null && lowSkills.length > 0)
+        String[] qualifiedSkills = skill.getQualifiedTeachableSkills(speaker, trainer);
+        if (qualifiedSkills == null || qualifiedSkills.length == 0)
         {
-            if (!utils.isSubset(pSkills, lowSkills))
-            {
-                string_id msg = new string_id(convo, "no_qualify");
-                chat.chat(self, speaker, msg, chat.ChatFlag_targetOnly);
-                npcEndConversation(speaker);
-                Vector entries = new Vector();
-                entries.setSize(0);
-                for (String lowSkill : lowSkills) {
-                    entries = utils.addElement(entries, "@skl_n:" + lowSkill);
-                }
-                if (entries != null && entries.size() > 0)
-                {
-                    String title = "@skill_teacher:no_qualify_title";
-                    String prompt = "@skill_teacher:no_qualify_prompt";
-                    sui.listbox(self, player, prompt, sui.OK_ONLY, title, entries, "noHandler");
-                }
-                return false;
-            }
+            string_id msg = new string_id(convo, "no_qualify");
+            chat.chat(self, speaker, msg, chat.ChatFlag_targetOnly);
+            npcEndConversation(speaker);
+            return false;
         }
         if (utils.isSubset(pSkills, tSkills))
         {
@@ -598,10 +570,7 @@ public class skillteacher extends script.base_script
             npcEndConversation(speaker);
             return false;
         }
-        string_id msg = new string_id(convo, "no_skill_pts");
-        chat.chat(self, speaker, msg, chat.ChatFlag_targetOnly);
-        npcEndConversation(speaker);
-        return false;
+        return true;
     }
     public boolean hasSurpassedTrainer(obj_id trainer, obj_id player) throws InterruptedException
     {

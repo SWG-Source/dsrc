@@ -20,6 +20,8 @@ public class hospital_02_trainer_spawner extends script.base_script
     }
     public void spawnEveryone(obj_id self) throws InterruptedException
     {
+        spawnCombatMedic(self);
+        spawnMedic(self);
         spawnDoctor(self);
     }
     public void spawnCombatMedic(obj_id self) throws InterruptedException
@@ -40,7 +42,7 @@ public class hospital_02_trainer_spawner extends script.base_script
     {
         obj_id room = getCellId(self, "mainroom");
         location medicloc = new location(3.64f, 0.18f, -8.19f, "tatooine", room);
-        obj_id medic = create.object("trainer_1hsword", medicloc);
+        obj_id medic = create.object("trainer_medic", medicloc);
         setCreatureStatic(medic, true);
         create.addDestroyMessage(medic, "medicDied", 10.0f, self);
         setInvulnerable(medic, true);

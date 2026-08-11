@@ -1019,10 +1019,11 @@ public class xp extends script.base_script
             killerVar = killers[i];
             killer = allKillers[i];
             master = obj_id.NULL_ID;
-            if (beast_lib.isBeast(killer) && !ai_lib.aiIsDead(killer))
+            // Pre-CU pets + NGE beasts both need master for XP / growth credit.
+            if ((beast_lib.isBeast(killer) || pet_lib.isPet(killer)) && !ai_lib.aiIsDead(killer))
             {
                 master = getMaster(killer);
-                if (!master.isLoaded() || master.isBeingDestroyed())
+                if (!isIdValid(master) || !master.isLoaded() || master.isBeingDestroyed())
                 {
                     master = null;
                 }
@@ -1105,6 +1106,14 @@ public class xp extends script.base_script
                             displayXpMsg(master, null, xpTotal);
                             double percentDamage = (dam / damageTally) + PERCENT_ADJUSTER;
                             factions.grantCombatFaction(master, target, percentDamage);
+                        }
+                        // Pre-CU: handlePetTargetKilled was fully written but never called.
+                        // Reconnect it so Creature Handler XP + pet growth XP both fire.
+                        if (pet_lib.isPet(killer))
+                        {
+                            dictionary growthParams = new dictionary();
+                            growthParams.put("defender", target);
+                            messageTo(killer, "handlePetTargetKilled", growthParams, 0.0f, false);
                         }
                     }
                 }
@@ -1242,22 +1251,7 @@ public class xp extends script.base_script
     public static int grantSocialStyleXp(obj_id player, String xpType, int amount) throws InterruptedException
     {
         amount = Math.round(amount * ENTERTAINER_XP_MOD);
-        String templateXp = skill_template.getTemplateSkillXpType(player, false);
-        if (templateXp != null)
-        {
-            if (isSocialXpType(templateXp))
-            {
-                amount = grant(player, templateXp, amount, false);
-            }
-            else 
-            {
-                amount = 0;
-            }
-        }
-        else 
-        {
-            amount = 0;
-        }
+        amount = grant(player, xpType, amount, false);
         return amount;
     }
     public static int grantCraftingQuestXp(obj_id player, int amount) throws InterruptedException
@@ -1284,66 +1278,20 @@ public class xp extends script.base_script
     {
         amount = Math.round(amount * TRADER_XP_MOD);
         int merchantXP = (int)(amount * CRAFTING_MERCHANT_EXCHANGE_RATE);
-        float xpRatio = skill_template.NON_TEMPLATE_XP_RATIO;
         if (xpType.equals(QUEST_CRAFTING))
         {
             merchantXP = 0;
-            xpRatio = skill_template.QUEST_XP_RATIO;
         }
-        String templateXp = skill_template.getTemplateSkillXpType(player, false);
-        if (templateXp != null)
+        int granted = grant(player, xpType, amount, false);
+        if (merchantXP > 0 && !xpType.equals(MERCHANT))
         {
-            if (isCraftingXpType(templateXp))
-            {
-                if (!xpType.equals(templateXp))
-                {
-                    amount = (int)(amount * xpRatio);
-                }
-                if (!templateXp.equals(MERCHANT))
-                {
-                    merchantXP = (int)(merchantXP * xpRatio);
-                }
-                amount += merchantXP;
-                amount = grant(player, templateXp, amount, false);
-            }
-            else 
-            {
-                amount = 0;
-            }
+            granted += grant(player, MERCHANT, merchantXP, false);
         }
-        else 
-        {
-            amount = 0;
-        }
-        return amount;
+        return granted;
     }
     public static int grantCombatStyleXp(obj_id player, String xpType, int amount) throws InterruptedException
     {
-        float xpRatio = skill_template.NON_TEMPLATE_XP_RATIO;
-        if (xpType.equals(QUEST_COMBAT))
-        {
-            xpRatio = skill_template.QUEST_XP_RATIO;
-        }
-        String templateXp = skill_template.getTemplateSkillXpType(player, false);
-        if (templateXp != null)
-        {
-            if (isCombatXpType(templateXp))
-            {
-                if (!xpType.equals(templateXp))
-                {
-                    amount = (int)(amount * xpRatio);
-                }
-                amount = grant(player, templateXp, amount, false);
-            }
-            else 
-            {
-                amount = 0;
-            }
-        }
-        else 
-        {
-            amount = 0;
-        }
+        amount = grant(player, xpType, amount, false);
         return amount;
     }
     public static void displayXpMsg(obj_id player, String xpType, int amt) throws InterruptedException

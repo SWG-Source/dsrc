@@ -753,7 +753,12 @@ public class pet extends script.base_script
         {
             detachScript(self, "ai.droid");
         }
-        pet_lib.petFollow(self, master);
+        // Only start follow if we are not already following this master.
+        // makePet already issued petFollow; a second stop+follow freezes mounts.
+        if (!(ai_lib.isFollowing(self) && ai_lib.getFollowTarget(self) == master))
+        {
+            pet_lib.petFollow(self, master);
+        }
         return SCRIPT_CONTINUE;
     }
     public int handleLostMaster(obj_id self, dictionary params) throws InterruptedException
@@ -985,6 +990,11 @@ public class pet extends script.base_script
             return SCRIPT_CONTINUE;
         }
         utils.setScriptVar(self, "pet.combatEnded", getGameTime());
+        // Stay put while incapacitated / dead — do not path home or restore follow
+        if (isIncapacitated(self) || isDead(self) || ai_lib.isAiDead(self))
+        {
+            return SCRIPT_CONTINUE;
+        }
         if (!utils.hasScriptVar(self, "ai.pet.staying"))
         {
             obj_id master = getMaster(self);
@@ -992,10 +1002,15 @@ public class pet extends script.base_script
             {
                 aiSetHomeLocation(self, getLocation(master));
             }
-            else 
+            else
             {
                 aiSetHomeLocation(self, getLocation(self));
             }
+            // Always schedule follow resume from the pet script itself.
+            // creature_combat also does this when present, but not all pets
+            // reliably keep that script; postCombatPathHome is idempotent.
+            utils.removeScriptVar(self, "pet.postCombatAttempts");
+            messageTo(self, "postCombatPathHome", null, 6, false);
         }
         return SCRIPT_CONTINUE;
     }
@@ -1069,9 +1084,14 @@ public class pet extends script.base_script
         int numPets = pet_lib.countPetsOfType(master, pet_lib.getPetType(self));
         if (numPets > 1)
         {
-            amount = amount / numPets;
+        amount = amount / numPets;
         }
         xp.grant(master, xp.CREATUREHANDLER, amount);
+        // Pre-CU pet growth — same amount drives stage 1→10 on the PCD.
+        if (isIdValid(callable.getCallableCD(self)))
+        {
+            pet_lib.grantPetGrowthXp(self, amount);
+        }
         return SCRIPT_CONTINUE;
     }
     public int lairThreatened(obj_id self, dictionary params) throws InterruptedException
@@ -1098,6 +1118,7 @@ public class pet extends script.base_script
         {
             if (pet_lib.isDroidPet(self) || pet_lib.isCombatDroid(self))
             {
+//                sendSystemMessageTestingOnly(master, "TAMEDEBUG: CALLSITE storePet from pet.OnIncapacitated (droid)");
                 pet_lib.storePet(self, master);
                 sendSystemMessage(master, pet_lib.SID_SYS_PACKED_DROID);
                 return SCRIPT_CONTINUE;
@@ -1131,6 +1152,9 @@ public class pet extends script.base_script
         messageTo(self, "handlePetIncappedDecay", dictIncap, 120, false);
         deltadictionary dict = self.getScriptVars();
         dict.put("pet.regenMultiplier", 0);
+        // Hard-zero regen so combat-exit handlers cannot stand the pet back up
+        setRegenRate(self, HEALTH, 0);
+        setRegenRate(self, ACTION, 0);
         stop(self);
         return SCRIPT_CONTINUE;
     }
@@ -1153,7 +1177,13 @@ public class pet extends script.base_script
         }
         if (isIncapacitated(self))
         {
-            destroyObject(self);
+            // Flag PCD dead so Call is blocked until a revive path clears pet.isDead
+            obj_id petControlDevice = callable.getCallableCD(self);
+            if (isIdValid(petControlDevice))
+            {
+                messageTo(petControlDevice, "handleFlagDeadCreature", null, 0, false);
+            }
+            reallyKill(self);
         }
         return SCRIPT_CONTINUE;
     }
@@ -1161,7 +1191,30 @@ public class pet extends script.base_script
     {
         LOGC(aiLoggingEnabled(self), "debug_ai", "pet::OnRecapacitated() self(" + self + ":" + getName(self) + ") master(" + getMaster(self) + ":" + getName(getMaster(self)) + ")");
         debugSpeakMsgc(aiLoggingEnabled(self), self, "OnRecapacitated");
-        pet_lib.petFollow(self, getMaster(self));
+        utils.removeScriptVar(self, "recapTimer");
+        utils.removeScriptVar(self, "incapTimer");
+        float healthRegen = getMaxAttrib(self, HEALTH) / 10.0f;
+        float actionRegen = getMaxAttrib(self, ACTION) / 10.0f;
+        if (healthRegen < 1.0f)
+        {
+            healthRegen = 1.0f;
+        }
+        if (actionRegen < 1.0f)
+        {
+            actionRegen = 1.0f;
+        }
+        setRegenRate(self, HEALTH, (int)healthRegen);
+        setRegenRate(self, ACTION, (int)actionRegen);
+        deltadictionary dict = self.getScriptVars();
+        dict.put("pet.regenMultiplier", 1);
+        if (!utils.hasScriptVar(self, "ai.pet.staying"))
+        {
+            obj_id master = getMaster(self);
+            if (isIdValid(master) && master.isLoaded())
+            {
+                pet_lib.doFollowCommand(self, master);
+            }
+        }
         return SCRIPT_CONTINUE;
     }
     public int OnStartNpcConversation(obj_id self, obj_id speaker) throws InterruptedException
@@ -1529,6 +1582,7 @@ public class pet extends script.base_script
             {
                 if (!pet_lib.wasInCombatRecently(self, player, true))
                 {
+//                    sendSystemMessageTestingOnly(player, "TAMEDEBUG: CALLSITE storePet from pet.OnObjectMenuSelect PET_STORE");
                     pet_lib.storePet(self, player);
                 }
             }
@@ -1731,9 +1785,30 @@ public class pet extends script.base_script
     public int awakenPet(obj_id self, dictionary params) throws InterruptedException
     {
         utils.removeScriptVar(self, "recapTimer");
+        utils.removeScriptVar(self, "incapTimer");
         if (getAttrib(self, HEALTH) < 1)
         {
             setAttrib(self, HEALTH, 1);
+        }
+        // Restore regen that OnIncapacitated zeroed
+        float healthRegen = getMaxAttrib(self, HEALTH) / 10.0f;
+        float actionRegen = getMaxAttrib(self, ACTION) / 10.0f;
+        if (healthRegen < 1.0f)
+        {
+            healthRegen = 1.0f;
+        }
+        if (actionRegen < 1.0f)
+        {
+            actionRegen = 1.0f;
+        }
+        setRegenRate(self, HEALTH, (int)healthRegen);
+        setRegenRate(self, ACTION, (int)actionRegen);
+        deltadictionary dict = self.getScriptVars();
+        dict.put("pet.regenMultiplier", 1);
+        // Resume follow after recovery
+        if (!utils.hasScriptVar(self, "ai.pet.staying") && !ai_lib.isInCombat(self))
+        {
+            messageTo(self, "postCombatPathHome", null, 1, false);
         }
         return SCRIPT_CONTINUE;
     }
@@ -1744,7 +1819,7 @@ public class pet extends script.base_script
         {
             return SCRIPT_CONTINUE;
         }
-        if (ai_lib.isInCombat(self))
+        if (isIncapacitated(self) || isDead(self) || ai_lib.isAiDead(self))
         {
             return SCRIPT_CONTINUE;
         }
@@ -1752,30 +1827,224 @@ public class pet extends script.base_script
         {
             return SCRIPT_CONTINUE;
         }
-        obj_id guardTarget = utils.getObjIdScriptVar(self, "ai.pet.guarding");
-        if (isIdValid(guardTarget))
+        // Both pet.java's OnExitedCombat and creature_combat.java's OnExitedCombat
+        // fire on the same real combat-exit event and each independently call
+        // this method — two competing native follow-attach sequences landing
+        // back-to-back can corrupt the follow state machine (pet freezes at
+        // loco=0 permanently). Debounce: skip the redundant duplicate call.
+        // NOTE: this check used to be gated on !isInCombat(self), which meant
+        // it did nothing to stop creature_combat.java's doCombatFrame() from
+        // spamming this method every combat tick whenever the pet is nominally
+        // still in combat but has no valid target (its own unthrottled
+        // messageTo call in the !isIdValid(target) branch). That produced the
+        // observed attempts=20 spam with no fresh OnExitedCombat in between,
+        // and left the pet jittering in place — stuck re-entering the combat
+        // retry block every tick instead of ever reaching real follow-restore.
+        // Throttle applies regardless of combat state now.
         {
-            pet_lib.petFollow(self, guardTarget);
+            int now = getGameTime();
+            int lastRun = utils.getIntScriptVar(self, "pet.lastPathHomeRun");
+            if (lastRun > 0 && (now - lastRun) < 2)
+            {
+                return SCRIPT_CONTINUE;
+            }
+            utils.setScriptVar(self, "pet.lastPathHomeRun", now);
+        }
+        // Combat flag can lag after the last kill. Retry a few times instead of
+        // giving up forever (that left guarded pets frozen until a manual Follow).
+        if (ai_lib.isInCombat(self))
+        {
+            int attempts = utils.getIntScriptVar(self, "pet.postCombatAttempts");
+            if (attempts < 20)
+            {
+                // Force combat clear after a few tries — flag can lag after last kill.
+                if (attempts >= 3)
+                {
+                    utils.removeScriptVar(self, "ai.combat.target");
+                    utils.setScriptVar(self, "petIgnoreAttacks", getGameTime());
+                    stopCombat(self);
+                }
+                utils.setScriptVar(self, "pet.postCombatAttempts", attempts + 1);
+                messageTo(self, "postCombatPathHome", null, 2, false);
+            }
+            return SCRIPT_CONTINUE;
+        }
+        utils.removeScriptVar(self, "pet.postCombatAttempts");
+        obj_id guardTarget = utils.getObjIdScriptVar(self, "ai.pet.guarding");
+        obj_id master = getMaster(self);
+        obj_id followTarget = master;
+        if (isIdValid(followTarget) && followTarget.isLoaded())
+        {
+            boolean wasGuarding = isIdValid(guardTarget);
+            // Do NOT call stop() here — this runs right after combat, and
+            // stop() leaves mounts/pets with isFollowing=true but loco=0
+            // forever (same failure mode petFollow()'s fromCombat guard
+            // exists to avoid — but that guard only protects petFollow's
+            // OWN stop() call, not this one made a level up, before it).
+            utils.setScriptVar(self, "pet.combatEnded", getGameTime());
+            pet_lib.doFollowCommand(self, followTarget);
+            // Removed the external pathTo() nudge that used to sit here.
+            // pathTo() is a one-shot order to a SNAPSHOT location, not a
+            // moving target — issuing it here (on top of the nudge
+            // petFollow() already does internally, WITH a live distance
+            // check, right after aiFollow()) caused the pet to path to
+            // wherever the master was standing at that instant, arrive,
+            // and then sit idle forever once that one-shot order completed
+            // — even though real continuous follow had just been attached.
+            // pet_lib.doFollowCommand() -> petFollow() already handles the
+            // "still standing, still in-band" nudge safely; do not duplicate it.
+            utils.removeScriptVar(self, "pet.forceFollowPulses");
+            messageTo(self, "handleForceFollow", null, 1.5f, false);
+            if (wasGuarding)
+            {
+                utils.setScriptVar(self, "ai.pet.guarding", guardTarget);
+                setWantSawAttackTriggers(self, true);
+            }
         }
         else if (hasObjVar(self, "ai.inFormation"))
         {
             ai_lib.resumeFormationFollowing(self);
         }
-        else 
+        else
         {
-            obj_id master = getMaster(self);
-            if (isIdValid(master) && master.isLoaded())
-            {
-                pet_lib.petFollow(self, master);
-            }
-            else 
-            {
-                stop(self);
-            }
+            stop(self);
         }
         checkForWounds(self);
         return SCRIPT_OVERRIDE;
     }
+public int handleForceFollow(obj_id self, dictionary params) throws InterruptedException
+    {
+        if (!isMob(self) || isIncapacitated(self) || isDead(self) || ai_lib.isAiDead(self))
+        {
+            return SCRIPT_CONTINUE;
+        }
+        if (utils.hasScriptVar(self, "ai.pet.staying") || ai_lib.isInCombat(self))
+        {
+            return SCRIPT_CONTINUE;
+        }
+        obj_id master = getMaster(self);
+        if (!isIdValid(master) || !master.isLoaded())
+        {
+            return SCRIPT_CONTINUE;
+        }
+        float dist = getDistance(self, master);
+        // Only force a fresh native follow attach if the pet isn't already
+        // properly following this master. Re-issuing doFollowCommand() (and
+        // therefore ai_lib.aiFollow()->follow()) on every pulse, even once the
+        // pet has already caught up and is idling in-band, resets the native
+        // follow state machine mid-transition and can leave it permanently
+        // idle right at the moment it arrives — no further OnFollowWaiting/
+        // OnFollowMoving ever fires until a fresh manual Follow command.
+        boolean alreadyFollowing = ai_lib.isFollowing(self) && ai_lib.getFollowTarget(self) == master;
+        // loco can legitimately read 0 for a single frame while actively
+        // following (mid-turn, path recalculation) — reacting to that one
+        // frame and forcing a fresh doFollowCommand()/aiFollow() re-attach
+        // was corrupting genuinely-working follow (proven: loco=3 for
+        // several pulses, one loco=0 blip, re-attach fired, never recovered,
+        // pulse budget ran out, pet frozen forever with isFollowing=true).
+        // Require two consecutive zero-loco readings before treating it as
+        // a real stall.
+        boolean locoZeroNow = (getLocomotion(self) == 0 && dist > 3.0f);
+        boolean locoZeroLastTime = utils.hasScriptVar(self, "pet.forceFollowLocoZero");
+        boolean stuck = !alreadyFollowing || (locoZeroNow && locoZeroLastTime);
+        if (locoZeroNow)
+        {
+            utils.setScriptVar(self, "pet.forceFollowLocoZero", 1);
+        }
+        else
+        {
+            utils.removeScriptVar(self, "pet.forceFollowLocoZero");
+        }
+        if (stuck)
+        {
+            removeObjVar(self, "ai.persistantFollowing");
+            utils.removeScriptVar(self, "ai.pet.staying");
+            utils.setScriptVar(self, "pet.combatEnded", getGameTime());
+            pet_lib.doFollowCommand(self, master);
+            dist = getDistance(self, master);
+        }
+        int pulses = utils.getIntScriptVar(self, "pet.forceFollowPulses");
+        if (pulses < 6 && dist > 3.0f)
+        {
+            utils.setScriptVar(self, "pet.forceFollowPulses", pulses + 1);
+            messageTo(self, "handleForceFollow", null, 1.5f, false);
+        }
+        else
+        {
+            utils.removeScriptVar(self, "pet.forceFollowPulses");
+            // Start the persistent follow watchdog if it isn't already
+            // running (it re-schedules itself indefinitely).
+            if (!utils.hasScriptVar(self, "pet.watchdogRunning"))
+            {
+                utils.setScriptVar(self, "pet.watchdogRunning", 1);
+                messageTo(self, "followHeartbeat", null, 1.0f, false);
+            }
+        }
+        return SCRIPT_CONTINUE;
+    }
+    public int followHeartbeat(obj_id self, dictionary params) throws InterruptedException
+    {
+        obj_id master = getMaster(self);
+        if (!isIdValid(master) || isIncapacitated(self) || isDead(self) || ai_lib.isAiDead(self))
+        {
+            utils.removeScriptVar(self, "pet.watchdogRunning");
+            return SCRIPT_CONTINUE;
+        }
+        // Stop the watchdog cleanly if staying or actively fighting —
+        // combat-exit will kick it off again via postCombatPathHome/
+        // handleForceFollow when appropriate. Must clear watchdogRunning
+        // here too (same as the master-invalid branch above), otherwise
+        // the stale flag permanently blocks handleForceFollow from ever
+        // re-arming a fresh watchdog loop later.
+        if (utils.hasScriptVar(self, "ai.pet.staying") || ai_lib.isInCombat(self))
+        {
+            utils.removeScriptVar(self, "pet.heartbeatLocoZero");
+            utils.removeScriptVar(self, "pet.watchdogRunning");
+            return SCRIPT_CONTINUE;
+        }
+        float dist = getDistance(self, master);
+        int loco = getLocomotion(self);
+
+        // Cheap fast-path check every pulse: isFollowing/getFollowTarget/
+        // getDistance are lightweight native reads, not worth throttling.
+        // Only the actual re-attach below (pet_lib.doFollowCommand) is
+        // costly, and that's already gated behind two-consecutive-bad-
+        // reading confirmation — so we keep this poll itself always fast
+        // instead of trading detection latency for savings that don't
+        // really exist at this scale.
+        if (ai_lib.isFollowing(self) && ai_lib.getFollowTarget(self) == master && dist <= ai_lib.DEFAULT_FOLLOW_MAX)
+        {
+            utils.removeScriptVar(self, "pet.heartbeatLocoZero");
+            messageTo(self, "followHeartbeat", null, 1.0f, false);
+            return SCRIPT_CONTINUE;
+        }
+
+        // Native continuous follow can silently drop out sometime after a
+        // successful re-attach, well outside handleForceFollow's short
+        // post-combat pulse burst. This watchdog runs continuously and
+        // self-heals using the same validated two-consecutive-zero check
+        // (a single loco=0 frame is normal mid-follow; two in a row while
+        // still out of band means it actually stopped).
+        boolean locoZeroNow = (loco == 0 && dist > 3.0f);
+        boolean locoZeroLastTime = utils.hasScriptVar(self, "pet.heartbeatLocoZero");
+        if (locoZeroNow && locoZeroLastTime)
+        {
+            removeObjVar(self, "ai.persistantFollowing");
+            utils.setScriptVar(self, "pet.combatEnded", getGameTime());
+            pet_lib.doFollowCommand(self, master);
+            utils.removeScriptVar(self, "pet.heartbeatLocoZero");
+        }
+        else if (locoZeroNow)
+        {
+            utils.setScriptVar(self, "pet.heartbeatLocoZero", 1);
+        }
+        else
+        {
+            utils.removeScriptVar(self, "pet.heartbeatLocoZero");
+        }
+        messageTo(self, "followHeartbeat", null, 1.0f, false);
+        return SCRIPT_CONTINUE;
+    }   
     public void checkForWounds(obj_id pet) throws InterruptedException
     {
     }
@@ -1910,6 +2179,8 @@ public class pet extends script.base_script
     }
     public int handlePackRequest(obj_id self, dictionary params) throws InterruptedException
     {
+        obj_id debugMaster = getMaster(self);
+//        sendSystemMessageTestingOnly(debugMaster, "TAMEDEBUG: handlePackRequest ENTER self=" + self + " master=" + debugMaster);
         debugServerConsoleMsg(null, "+++ ai.pet.messageHandler handlePackRequest +++ entered HANDLEPACKREQUEST message handler");
         if (!isIdValid(self) || !exists(self))
         {
@@ -2175,6 +2446,7 @@ public class pet extends script.base_script
         {
             setObjVar(petControlDevice, "ai.pet.trainedMount", 1);
         }
+//        sendSystemMessageTestingOnly(master, "TAMEDEBUG: CALLSITE storePet from pet.handlePetTradeInStore");
         pet_lib.storePet(pet, master);
         return SCRIPT_CONTINUE;
     }
@@ -2209,6 +2481,40 @@ public class pet extends script.base_script
             params.put("col_faction", dataTableGetString("datatables/mob/creatures.iff", creatureName, "col_faction"));
             params.put("col_faction", dataTableGetInt("datatables/mob/creatures.iff", creatureName, "difficultyClass"));
             messageTo(master, "receiveCreditForKill", params, 0.0f, false);
+            // Pre-CU pet growth: XP was never wired — grantPetGrowthXp had zero callers.
+            if (isIdValid(callable.getCallableCD(self)))
+            {
+                obj_id target = params.getObjId("target");
+                int defLevel = 1;
+                if (isIdValid(target) && exists(target))
+                {
+                    defLevel = getLevel(target);
+                }
+                if (defLevel < 1)
+                {
+                    defLevel = 1;
+                }
+                int petLevel = getLevel(self);
+                if (petLevel < 1)
+                {
+                    petLevel = 1;
+                }
+                int amount = (defLevel - petLevel) + 10;
+                if (amount < 1)
+                {
+                    amount = 1;
+                }
+                if (petLevel > (defLevel * 2))
+                {
+                    amount = 1;
+                }
+                amount *= 10;
+                if (amount > 2000)
+                {
+                    amount = 2000;
+                }
+                pet_lib.grantPetGrowthXp(self, amount);
+            }
         }
         return SCRIPT_CONTINUE;
     }

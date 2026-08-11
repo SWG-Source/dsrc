@@ -4089,6 +4089,126 @@ public class cmd extends script.base_script
         }
         return SCRIPT_CONTINUE;
     }
+    public int cmdSkillBrowser(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException
+    {
+        obj_id player = self;
+        String[] rawCategories = dataTableGetColumnNames("datatables/npc_customization/skill_table.iff");
+        Vector categories = new Vector();
+        categories.setSize(0);
+        for (String c : rawCategories)
+        {
+            if (c != null && c.startsWith("trainer_"))
+            {
+                categories = utils.addElement(categories, c);
+            }
+        }
+        String[] categoryArray = new String[categories.size()];
+        categories.toArray(categoryArray);
+        utils.setBatchScriptVar(player, "skillBrowser.categories", categoryArray);
+        sui.listbox(player, player, "Select a skill category", sui.OK_CANCEL, "Skill Browser", categoryArray, "skillBrowserCategorySelect", true, false);
+        return SCRIPT_CONTINUE;
+    }
+    public int skillBrowserCategorySelect(obj_id self, dictionary params) throws InterruptedException
+    {
+        obj_id player = sui.getPlayerId(params);
+        int btn = sui.getIntButtonPressed(params);
+        sendSystemMessageTestingOnly(player, "DEBUG cat: btn=" + btn + " BP_CANCEL=" + sui.BP_CANCEL);
+        if (btn == sui.BP_CANCEL)
+        {
+            utils.removeScriptVarTree(player, "skillBrowser");
+            return SCRIPT_CONTINUE;
+        }
+        int idx = sui.getListboxSelectedRow(params);
+        sendSystemMessageTestingOnly(player, "DEBUG cat: idx=" + idx);
+        if (idx == -1)
+        {
+            return SCRIPT_CONTINUE;
+        }
+        String[] categories = utils.getStringBatchScriptVar(player, "skillBrowser.categories");
+        if (categories == null || idx >= categories.length)
+        {
+            return SCRIPT_CONTINUE;
+        }
+        String category = categories[idx];
+        utils.setScriptVar(player, "skillBrowser.category", category);
+        String[] rawSkills = dataTableGetStringColumn("datatables/npc_customization/skill_table.iff", category);
+        Vector skills = new Vector();
+        skills.setSize(0);
+        if (rawSkills != null)
+        {
+            for (String s : rawSkills)
+            {
+                if (s != null && s.length() > 0 && !s.equals(category))
+                {
+                    skills = utils.addElement(skills, s);
+                }
+            }
+        }
+        String[] skillArray = new String[skills.size()];
+        skills.toArray(skillArray);
+        String[] qualified = skill.getQualifiedSkillsFromList(player, skillArray, category);
+        if (qualified == null || qualified.length == 0)
+        {
+            sendSystemMessageTestingOnly(player, "No qualified skills in category: " + category);
+            utils.removeScriptVarTree(player, "skillBrowser");
+            return SCRIPT_CONTINUE;
+        }
+        String[] pSkills = getSkillListingForPlayer(player);
+        Vector available = new Vector();
+        available.setSize(0);
+        for (String s : qualified)
+        {
+            if (pSkills == null || utils.getElementPositionInArray(pSkills, s) == -1)
+            {
+                available = utils.addElement(available, s);
+            }
+        }
+        if (available.size() == 0)
+        {
+            sendSystemMessageTestingOnly(player, "You already own all qualified skills in category: " + category);
+            utils.removeScriptVarTree(player, "skillBrowser");
+            return SCRIPT_CONTINUE;
+        }
+        String[] availableArray = new String[available.size()];
+        available.toArray(availableArray);
+        utils.setBatchScriptVar(player, "skillBrowser.skills", availableArray);
+        sui.listbox(player, player, "Select a skill to learn (" + category + ")", sui.OK_CANCEL, "Skill Browser", availableArray, "skillBrowserSkillSelect", true, false);
+        return SCRIPT_CONTINUE;
+    }
+    public int skillBrowserSkillSelect(obj_id self, dictionary params) throws InterruptedException
+    {
+        obj_id player = sui.getPlayerId(params);
+        int btn = sui.getIntButtonPressed(params);
+        sendSystemMessageTestingOnly(player, "DEBUG: btn=" + btn + " BP_CANCEL=" + sui.BP_CANCEL + " BP_OK=" + sui.BP_OK);
+        if (btn == sui.BP_CANCEL)
+        {
+            utils.removeScriptVarTree(player, "skillBrowser");
+            return SCRIPT_CONTINUE;
+        }
+        int idx = sui.getListboxSelectedRow(params);
+        sendSystemMessageTestingOnly(player, "DEBUG: idx=" + idx);
+        if (idx == -1)
+        {
+            return SCRIPT_CONTINUE;
+        }
+        String[] skills = utils.getStringBatchScriptVar(player, "skillBrowser.skills");
+        if (skills == null || idx >= skills.length)
+        {
+            return SCRIPT_CONTINUE;
+        }
+        String skillName = skills[idx];
+        boolean success = skill.purchaseSkill(player, skillName);
+        if (success)
+        {
+            sendSystemMessageTestingOnly(player, "Learned skill: " + skillName);
+        }
+        else
+        {
+            sendSystemMessageTestingOnly(player, "Failed to learn skill: " + skillName);
+        }
+        utils.removeScriptVarTree(player, "skillBrowser");
+        return SCRIPT_CONTINUE;
+    }
     public int cmdCsDumpTarget(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException
     {
         StringTokenizer st = new java.util.StringTokenizer(params);

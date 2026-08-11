@@ -22,6 +22,11 @@ public class university_trainer_spawner extends script.base_script
         spawnDroidStation(self);
         spawnClothingStation(self);
         spawnStructureStation(self);
+        spawnMerchant(self);
+        spawnArchitect(self);
+        spawnWeaponsmith(self);
+        spawnDroidEngineer(self);
+        spawnArmorsmith(self);
     }
     public void spawnMerchant(obj_id self) throws InterruptedException
     {

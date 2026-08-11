@@ -82,10 +82,10 @@ public class pet_control_device extends script.base_script
                 setObjVar(self, "ai.petAbility.available", 0);
             }
         }
-        if (hasObjVar(self, "ai.pet.trainedMount"))
-        {
-            setObjVar(self, "ai.pet.type", pet_lib.PET_TYPE_MOUNT);
-        }
+//        if (hasObjVar(self, "ai.pet.trainedMount"))
+//        {
+//            setObjVar(self, "ai.pet.type", pet_lib.PET_TYPE_MOUNT);
+//        }
         if (hasObjVar(self, "dancingDroid.soundObject"))
         {
             obj_id soundObject = getObjIdObjVar(self, "dancingDroid.soundObject");
@@ -118,8 +118,13 @@ public class pet_control_device extends script.base_script
                 mi.addRootMenu(menu_info_types.SERVER_MENU1, new string_id(pet_lib.MENU_FILE, "convert_pet"));
             }
         }
-        if (pet_lib.isMountPcd(self) && callable.getControlDeviceType(self) == callable.CALLABLE_TYPE_RIDEABLE && !pet_lib.hasMountName(self))
+        if (pet_lib.isMountPcd(self) && callable.getControlDeviceType(self) == callable.CALLABLE_TYPE_RIDEABLE)
         {
+            mi.addRootMenu(menu_info_types.SERVER_MENU2, new string_id("pet/pet_menu", "name_mount"));
+        }
+        else if (hasObjVar(self, "ai.pet.type") && !pet_lib.isPetType(self, pet_lib.PET_TYPE_FAMILIAR))
+        {
+            // name_mount exists in pet_menu; use it until a dedicated "name pet" string is added
             mi.addRootMenu(menu_info_types.SERVER_MENU2, new string_id("pet/pet_menu", "name_mount"));
         }
         obj_id currentPet = callable.getCDCallable(self);
@@ -202,10 +207,6 @@ public class pet_control_device extends script.base_script
         if (item == menu_info_types.PET_CALL)
         {
             int petType = getIntObjVar(self, "ai.pet.type");
-            if ((petType == pet_lib.PET_TYPE_NON_AGGRO || petType == pet_lib.PET_TYPE_AGGRO) && !hasObjVar(self, "ai.pet.trainedMount"))
-            {
-                return SCRIPT_CONTINUE;
-            }
             String petObjVar = getStringObjVar(self, "pet.creatureName");
             if (utils.hasScriptVar(player, "petCreationPending") && utils.getIntScriptVar(player, "petCreationPending") > getGameTime())
             {
@@ -244,6 +245,7 @@ public class pet_control_device extends script.base_script
             {
                 currentPet = callable.getCallable(player, callable.CALLABLE_TYPE_RIDEABLE);
                 obj_id cd = callable.getCallableCD(currentPet);
+//                sendSystemMessageTestingOnly(player, "TAMEDEBUG: OnObjectMenuSelect PET_CALL - TOGGLE/STORE branch entered currentPet=" + currentPet + " cd=" + cd + " self=" + self);
                 if (cd != self)
                 {
                     sendSystemMessage(player, pet_lib.SID_SYS_CANT_CALL_ANOTHER_RIDEABLE);
@@ -257,6 +259,7 @@ public class pet_control_device extends script.base_script
                         pet_lib.setUnmountedMovementRate(player, currentPet);
                         utils.removeScriptVar(player, callable.OBJVAR_CALLABLE_TYPE_RIDEABLE);
                     }
+//                    sendSystemMessageTestingOnly(player, "TAMEDEBUG: OnObjectMenuSelect PET_CALL - destroyCurrentPet() firing self=" + self);
                     destroyCurrentPet(self);
                     callable.restoreCallable(player);
                     return SCRIPT_CONTINUE;
@@ -375,6 +378,7 @@ public class pet_control_device extends script.base_script
             utils.setScriptVar(player, CALLED_FOR_PET, getGameTime());
             utils.setScriptVar(player, pet_lib.CALL_FINISH, callTime);
             utils.setScriptVar(player, "petCreationPending", (getGameTime() + pet_lib.BUTTON_MASHING_DELAY));
+//            sendSystemMessageTestingOnly(player, "TAMEDEBUG: OnObjectMenuSelect PET_CALL - scheduling delayCreatePet self=" + self + " callTime=" + callTime);
             messageTo(self, "delayCreatePet", data, callTime, false);
             return SCRIPT_CONTINUE;
         }
@@ -398,10 +402,15 @@ public class pet_control_device extends script.base_script
         {
             int pid = sui.msgbox(self, player, "@" + SID_CONVERT_PROMPT, sui.YES_NO, "@" + SID_CONVERT_TITLE, "handleConvertPetSui");
         }
-        if (item == menu_info_types.SERVER_MENU2 && callable.getControlDeviceType(self) == callable.CALLABLE_TYPE_RIDEABLE && !pet_lib.hasMountName(self))
+        if (item == menu_info_types.SERVER_MENU2)
         {
-            sui.inputbox(self, player, "@pet/pet_menu:name_d", sui.OK_CANCEL, "@pet/pet_menu:name_t", sui.INPUT_NORMAL, null, "handleSetMountName", null);
-            return SCRIPT_CONTINUE;
+            // Mounts and common pets both use the same name dialog/handler
+            if (callable.getControlDeviceType(self) == callable.CALLABLE_TYPE_RIDEABLE
+                || (hasObjVar(self, "ai.pet.type") && !pet_lib.isPetType(self, pet_lib.PET_TYPE_FAMILIAR)))
+            {
+                sui.inputbox(self, player, "@pet/pet_menu:name_d", sui.OK_CANCEL, "@pet/pet_menu:name_t", sui.INPUT_NORMAL, null, "handleSetMountName", null);
+                return SCRIPT_CONTINUE;
+            }
         }
         return SCRIPT_CONTINUE;
     }
@@ -440,8 +449,10 @@ public class pet_control_device extends script.base_script
     {
         obj_id player = params.getObjId("player");
         obj_id pcd = params.getObjId("pcd");
+//        sendSystemMessageTestingOnly(player, "TAMEDEBUG: delayCreatePet ENTER pcd=" + pcd);
         if (ai_lib.isInCombat(player) || pet_lib.wasInCombat(player))
         {
+//            sendSystemMessageTestingOnly(player, "TAMEDEBUG: delayCreatePet BAIL - combat");
             utils.removeScriptVar(player, CALLED_FOR_PET);
             return SCRIPT_CONTINUE;
         }
@@ -478,6 +489,7 @@ public class pet_control_device extends script.base_script
         }
         pet_lib.createPetFromData(pcd);
         obj_id pet = callable.getCDCallable(pcd);
+//        sendSystemMessageTestingOnly(player, "TAMEDEBUG: delayCreatePet AFTER createPetFromData pet=" + pet + " isIdValid=" + isIdValid(pet) + " exists=" + exists(pet));
         if (pet_lib.isMountPcd(pcd))
         {
             if (!hasObjVar(pcd, "pet.species"))
@@ -493,27 +505,14 @@ public class pet_control_device extends script.base_script
         {
             dictionary parms = new dictionary();
             parms.put("calledPet", pet);
+//            sendSystemMessageTestingOnly(player, "TAMEDEBUG: delayCreatePet scheduling handleValidatePet(+5s) pet=" + pet);
             messageTo(pcd, "handleValidatePet", parms, 5, false);
         }
         utils.removeScriptVar(player, CALLED_FOR_PET);
-        if (hasObjVar(pcd, "ai.pet.trainedMount"))
+        if (hasObjVar(pcd, "ai.pet.trainedMount") && hasObjVar(self, beast_lib.OBJVAR_BEAST_HUE))
         {
-            String invis = stealth.getInvisBuff(player);
-            if (invis != null && !invis.equals(""))
-            {
-                sendSystemMessage(player, SID_NO_MOUNT_WHILE_STEALTH);
-                callable.storeCallable(player, pet);
-                return SCRIPT_CONTINUE;
-            }
-            dictionary dict = new dictionary();
-            dict.put("player", player);
-            dict.put("pet", pet);
-            if (hasObjVar(self, beast_lib.OBJVAR_BEAST_HUE))
-            {
-                int mountHue = getIntObjVar(self, beast_lib.OBJVAR_BEAST_HUE);
-                hue.setColor(pet, hue.INDEX_1, mountHue);
-            }
-            messageTo(self, "delayMountPet", dict, 1, false);
+            int mountHue = getIntObjVar(self, beast_lib.OBJVAR_BEAST_HUE);
+            hue.setColor(pet, hue.INDEX_1, mountHue);
         }
         return SCRIPT_CONTINUE;
     }
@@ -553,6 +552,7 @@ public class pet_control_device extends script.base_script
         obj_id datapad = getContainedBy(petControlDevice);
         obj_id player = getContainedBy(datapad);
         obj_id currentPet = callable.getCDCallable(petControlDevice);
+//        sendSystemMessageTestingOnly(player, "TAMEDEBUG: destroyCurrentPet CALLED petControlDevice=" + petControlDevice + " currentPet=" + currentPet);
         if (isIdValid(currentPet))
         {
             if (currentPet.isLoaded() && exists(currentPet))
@@ -574,6 +574,8 @@ public class pet_control_device extends script.base_script
     public int handleStorePetRequest(obj_id self, dictionary params) throws InterruptedException
     {
         obj_id currentPet = callable.getCDCallable(self);
+        obj_id debugPlayerA = params.getObjId("master");
+//        sendSystemMessageTestingOnly(debugPlayerA, "TAMEDEBUG: handleStorePetRequest CALLED self=" + self + " currentPet=" + currentPet);
         if (!isIdValid(currentPet))
         {
             destroyCurrentPet(self);
@@ -608,6 +610,9 @@ public class pet_control_device extends script.base_script
     }
     public int OnDestroy(obj_id self) throws InterruptedException
     {
+        obj_id debugDatapadX = getContainedBy(self);
+        obj_id debugPlayerX = getContainedBy(debugDatapadX);
+//        sendSystemMessageTestingOnly(debugPlayerX, "TAMEDEBUG: pet_control_device OnDestroy CALLED self=" + self);
         if (!hasObjVar(self, "pet.releasingPet"))
         {
             destroyCurrentPet(self);
@@ -649,6 +654,9 @@ public class pet_control_device extends script.base_script
         {
             return SCRIPT_CONTINUE;
         }
+        obj_id debugDatapadY = getContainedBy(self);
+        obj_id debugPlayerY = getContainedBy(debugDatapadY);
+//        sendSystemMessageTestingOnly(debugPlayerY, "TAMEDEBUG: pet_control_device OnTransferred CALLED self=" + self + " src=" + sourceContainer + " dest=" + destContainer + " transferer=" + transferer);
         destroyCurrentPet(self);
         return SCRIPT_CONTINUE;
     }
@@ -723,6 +731,61 @@ public class pet_control_device extends script.base_script
             int currentRideables = callable.getNumStoredCDByType(player, callable.CALLABLE_TYPE_RIDEABLE);
             int maxRideables = callable.getMaxAllowedStoredRideables(player);
             attribs[idx] = target_dummy.BLUE + currentRideables + " of " + maxRideables;
+            idx++;
+            if (idx >= names.length)
+            {
+                return SCRIPT_CONTINUE;
+            }
+        }
+        // Growth stage / XP for creature pets (1=baby … 10=adult)
+        int growthStage = 10;
+        boolean hasGrowth = hasObjVar(self, "ai.petAdvance.growthStage");
+        if (hasGrowth)
+        {
+            growthStage = getIntObjVar(self, "ai.petAdvance.growthStage");
+        }
+        int growthPetType = getIntObjVar(self, "ai.pet.type");
+        if (hasGrowth || growthPetType == pet_lib.PET_TYPE_AGGRO || growthPetType == pet_lib.PET_TYPE_NON_AGGRO)
+        {
+            names[idx] = "challenge_level";
+            int level = getLevelFromPetControlDevice(self);
+            int adultLevel = pet_lib.getAdultLevel(creatureName);
+            if (hasObjVar(self, "creature_attribs.level"))
+            {
+                adultLevel = getIntObjVar(self, "creature_attribs.level");
+            }
+            if (adultLevel != level)
+            {
+                attribs[idx] = Integer.toString(level) + " (" + Integer.toString(adultLevel) + ")";
+            }
+            else
+            {
+                attribs[idx] = Integer.toString(level);
+            }
+            idx++;
+            if (idx >= names.length)
+            {
+                return SCRIPT_CONTINUE;
+            }
+            // Flat key — "pet_stats.growth_stage" is not in obj_attr and shows as obj_attr_:[growth_stage]
+            names[idx] = "ability_mod";
+            if (growthStage >= 10)
+            {
+                attribs[idx] = "Growth: Adult (10/10)";
+            }
+            else
+            {
+                attribs[idx] = "Growth: " + growthStage + " / 10";
+            }
+            idx++;
+            if (idx >= names.length)
+            {
+                return SCRIPT_CONTINUE;
+            }
+            int xpEarned = getIntObjVar(self, "ai.petAdvance.xpEarned");
+            int xpToLevel = pet_lib.getPcdXpForNextLevel(self);
+            names[idx] = "ability_xp";
+            attribs[idx] = xpEarned + " / " + xpToLevel;
             idx++;
             if (idx >= names.length)
             {
@@ -1828,11 +1891,10 @@ public class pet_control_device extends script.base_script
     {
         if (hasObjVar(petControlDevice, "pet.isDead"))
         {
-            if (petType == pet_lib.PET_TYPE_NON_AGGRO || petType == pet_lib.PET_TYPE_AGGRO || petType == pet_lib.PET_TYPE_DROID)
-            {
-                removeObjVar(petControlDevice, "pet.isDead");
-                return false;
-            }
+            // Pre-CU: dead pets stay dead until revived (vitality heal / CH ability).
+            // The old NGE path cleared pet.isDead for AGGRO/NON_AGGRO/DROID so
+            // they could be re-called for free — that is what made pets "come
+            // back to life" immediately after dying.
             sendSystemMessage(player, new string_id("pet/pet_menu", "dead_pet"));
             return true;
         }
@@ -1909,38 +1971,67 @@ public class pet_control_device extends script.base_script
         }
         return true;
     }
-    public int handleValidatePet(obj_id self, dictionary params) throws InterruptedException
+    public int handleValidatePing(obj_id self, dictionary params) throws InterruptedException
     {
         obj_id currentPet = callable.getCDCallable(self);
         obj_id calledPet = params.getObjId("calledPet");
-        if (!isIdValid(currentPet))
+        obj_id debugDatapad = getContainedBy(self);
+        obj_id debugPlayer = getContainedBy(debugDatapad);
+//        sendSystemMessageTestingOnly(debugPlayer, "TAMEDEBUG: handleValidatePing self=" + self + " currentPet=" + currentPet + " calledPet=" + calledPet + " match=" + (currentPet == calledPet));
+        return SCRIPT_CONTINUE;
+    }
+        public int handleValidatePet(obj_id self, dictionary params) throws InterruptedException
+    {
+        obj_id calledPet = params.getObjId("calledPet");
+        obj_id debugDatapad = getContainedBy(self);
+        obj_id debugPlayer = getContainedBy(debugDatapad);
+
+        if (!isIdValid(calledPet) || !exists(calledPet))
         {
-            if (isIdValid(calledPet))
+//            sendSystemMessageTestingOnly(debugPlayer, "TAMEDEBUG: handleValidatePet BAIL - calledPet invalid/gone calledPet=" + calledPet);
+            return SCRIPT_CONTINUE;
+        }
+
+        obj_id petsCD = callable.getCallableCD(calledPet);
+//        sendSystemMessageTestingOnly(debugPlayer, "TAMEDEBUG: handleValidatePet ENTER self=" + self + " petsCD=" + petsCD + " calledPet=" + calledPet + " exists=" + exists(calledPet));
+
+        // Re-link instead of destroy when the pet-side link is missing/mismatched
+        if (petsCD != self)
+        {
+//            sendSystemMessageTestingOnly(debugPlayer, "TAMEDEBUG: handleValidatePet RELINK (petsCD mismatch or null) fixing CD<->pet");
+            callable.setCallableCD(calledPet, self);
+            callable.setCDCallable(self, calledPet);
+            petsCD = callable.getCallableCD(calledPet);
+//            sendSystemMessageTestingOnly(debugPlayer, "TAMEDEBUG: handleValidatePet after relink petsCD=" + petsCD);
+        }
+
+        if (petsCD != self)
+        {
+//            sendSystemMessageTestingOnly(debugPlayer, "TAMEDEBUG: handleValidatePet DESTROY-A (still mismatched after relink) calledPet=" + calledPet + " petsCD=" + petsCD);
+            if (calledPet.isLoaded())
             {
-                if (calledPet.isLoaded())
-                {
-                    destroyObject(calledPet);
-                }
-                else 
-                {
-                    messageTo(calledPet, "handlePackRequest", null, 1, false);
-                }
+                destroyObject(calledPet);
+            }
+            else
+            {
+                messageTo(calledPet, "handlePackRequest", null, 1, false);
             }
             return SCRIPT_CONTINUE;
         }
-        if (!isIdValid(calledPet))
-        {
-            return SCRIPT_CONTINUE;
-        }
+
         int petType = pet_lib.getPetType(calledPet, self);
         if (pet_lib.countPetsOfType(self, petType) > pet_lib.getMaxPets(self, petType))
         {
+//            sendSystemMessageTestingOnly(debugPlayer, "TAMEDEBUG: handleValidatePet PACK (over max) calledPet=" + calledPet);
             messageTo(calledPet, "handlePackRequest", null, 1, false);
         }
-        if (calledPet == currentPet)
-        {
-            return SCRIPT_CONTINUE;
-        }
+
+//        sendSystemMessageTestingOnly(debugPlayer, "TAMEDEBUG: handleValidatePet OK");
+        return SCRIPT_CONTINUE;
+    }
+    private int handleValidatePet_unused_tail(obj_id self, dictionary params) throws InterruptedException
+    {
+        obj_id calledPet = null;
         if (isIdValid(calledPet))
         {
             if (calledPet.isLoaded())

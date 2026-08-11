@@ -102,12 +102,21 @@ public class creature_combat extends script.systems.combat.combat_base
         if (!beast_lib.isBeast(self))
         {
             ai_lib.resetCombatTriggerVolumes();
-            float healthRegenMod = hasObjVar(self, "regen_mod.health") ? getFloatObjVar(self, "regen_mod.health") : 1.0f;
-            float actionRegenMod = hasObjVar(self, "regen_mod.action") ? getFloatObjVar(self, "regen_mod.action") : 1.0f;
-            float healthRegen = (getMaxAttrib(self, HEALTH) / 10.0f) * healthRegenMod;
-            float actionRegen = (getMaxAttrib(self, ACTION) / 10.0f) * actionRegenMod;
-            setRegenRate(self, HEALTH, (int)healthRegen);
-            setRegenRate(self, ACTION, (int)actionRegen);
+            // Do not stand incapacitated/dead pets back up via combat-exit regen
+            if (!isIncapacitated(self) && !isDead(self) && !ai_lib.isAiDead(self))
+            {
+                float healthRegenMod = hasObjVar(self, "regen_mod.health") ? getFloatObjVar(self, "regen_mod.health") : 1.0f;
+                float actionRegenMod = hasObjVar(self, "regen_mod.action") ? getFloatObjVar(self, "regen_mod.action") : 1.0f;
+                float healthRegen = (getMaxAttrib(self, HEALTH) / 10.0f) * healthRegenMod;
+                float actionRegen = (getMaxAttrib(self, ACTION) / 10.0f) * actionRegenMod;
+                setRegenRate(self, HEALTH, (int)healthRegen);
+                setRegenRate(self, ACTION, (int)actionRegen);
+            }
+            else
+            {
+                setRegenRate(self, HEALTH, 0);
+                setRegenRate(self, ACTION, 0);
+            }
         }
         else 
         {
@@ -143,7 +152,7 @@ public class creature_combat extends script.systems.combat.combat_base
             }
             if (!beast_lib.isBeast(self))
             {
-                if (pet_lib.isPet(self))
+                if (pet_lib.isPet(self) && !isIncapacitated(self) && !isDead(self) && !ai_lib.isAiDead(self))
                 {
                     messageTo(self, "postCombatPathHome", null, 1, false);
                 }
@@ -304,7 +313,22 @@ public class creature_combat extends script.systems.combat.combat_base
         }
         if (utils.hasScriptVar(self, "petIgnoreAttacks"))
         {
-            return;
+            // This flag is set in several places (postCombatPathHome's
+            // combat-retry branch, doFollowCommand, doStayCommand) whenever
+            // stopCombat() is called mid-recovery. The only place that ever
+            // cleared it on a timer was pet.java's OnDefenderCombatAction —
+            // a reactive trigger that only fires if THIS pet is personally
+            // attacked again. If the pet re-engages via assist/guard without
+            // ever being personally hit, the flag never expires and this
+            // check silently blocks all attacks forever (pet tracks/follows
+            // normally, never strikes). Enforce the same 20s timeout here,
+            // at the actual gate, instead of depending on that reactive path.
+            int timeStarted = utils.getIntScriptVar(self, "petIgnoreAttacks");
+            if (getGameTime() < (timeStarted + 20))
+            {
+                return;
+            }
+            utils.removeScriptVar(self, "petIgnoreAttacks");
         }
         if (!isIdValid(target))
         {

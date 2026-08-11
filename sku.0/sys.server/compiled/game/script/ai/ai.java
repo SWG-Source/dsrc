@@ -155,6 +155,14 @@ public class ai extends script.base_script
             LOGC(aiLoggingEnabled(npc), "debug_ai", "ai::doDefaultCalmBehavior() npc(" + npc + ") I THINK I AM INCAPACITATED");
             return;
         }
+        // Honour pet Stay only when the pet is not already under a follow order.
+        // If a Follow has cleared the intent to stay, do not block movement.
+        if (utils.hasScriptVar(npc, "ai.pet.staying") && !ai_lib.isFollowing(npc))
+        {
+            LOGC(aiLoggingEnabled(npc), "debug_ai", "ai::doDefaultCalmBehavior() npc(" + npc + ") IS STAYING – stop only");
+            stop(npc);
+            return;
+        }
         removeObjVar(npc, "ai.threat");
         ai_lib.setMood(npc, ai_lib.MOOD_CALM);
         messageTo(npc, "redoYaw", null, 30, false);
@@ -278,12 +286,6 @@ public class ai extends script.base_script
     }
     public int OnFollowWaiting(obj_id self, obj_id target) throws InterruptedException
     {
-        /*
-        if (!target.isLoaded() || !exists(target) || hasObjVar(target, "gm") || ai_lib.isInCombat(self))
-        {
-            return SCRIPT_CONTINUE;
-        }
-        */
         if (!isIdValid(target) || ai_lib.isAiDead(target))
         {
             ai_lib.aiStopFollowing(self);
@@ -1206,22 +1208,30 @@ public class ai extends script.base_script
         }
         if (pet_lib.hasMaxPets(master, pet_lib.getPetType(self), pet) && callable.hasCallableCD(self))
         {
+//            sendSystemMessageTestingOnly(master, "TAMEDEBUG: handleAddMaster SELF-DESTRUCT triggered for pet=" + self + " (hasMaxPets+hasCallableCD both true)");
             destroyObject(self);
             return SCRIPT_CONTINUE;
         }
+
+        // Always set master + clear the init flag (script may already be attached on call-from-datapad path)
+        setMaster(self, master);
+        setOwner(utils.getInventoryContainer(self), master);
         if (!hasScript(self, "ai.pet"))
         {
-            setMaster(self, master);
-            setOwner(utils.getInventoryContainer(self), master);
             attachScript(self, "ai.pet");
-            setObjVar(pet, "ai.pet.masterName", getEncodedName(master));
-            utils.removeScriptVar(self, "petBeingInitialized");
         }
+        setObjVar(pet, "ai.pet.masterName", getEncodedName(master));
+        utils.removeScriptVar(self, "petBeingInitialized");
+//        sendSystemMessageTestingOnly(master, "TAMEDEBUG: handleAddMaster setMaster done master=" + master + " petBeingInitialized cleared");
+
         if (!ai_lib.isMonster(self))
         {
             pet_lib.setupDefaultCommands(self);
         }
+        obj_id cdBefore = callable.getCallableCD(self);
+//        sendSystemMessageTestingOnly(master, "TAMEDEBUG: handleAddMaster BEFORE addToPetList self=" + self + " cd=" + cdBefore + " cdCurrentPet=" + (isIdValid(cdBefore) ? callable.getCDCallable(cdBefore) : obj_id.NULL_ID));
         pet_lib.addToPetList(master, self);
+//        sendSystemMessageTestingOnly(master, "TAMEDEBUG: handleAddMaster AFTER addToPetList self=" + self + " cd=" + cdBefore + " cdCurrentPet=" + (isIdValid(cdBefore) ? callable.getCDCallable(cdBefore) : obj_id.NULL_ID));
         return SCRIPT_CONTINUE;
     }
     public int handleRemoveMaster(obj_id self, dictionary params) throws InterruptedException
@@ -1762,6 +1772,12 @@ public class ai extends script.base_script
         {
             return SCRIPT_CONTINUE;
         }
+        // Pre-CU: Tame on eligible wild babies (hasTamingMenuOption was never called)
+        if (hasScript(self, "ai.pet_advance") && pet_lib.hasTamingMenuOption(self, player)
+            && pet_lib.getChanceToTame(self, player) >= 15)
+        {
+            mi.addRootMenu(menu_info_types.PET_TAME, new string_id("pet/pet_menu", "menu_tame"));
+        }
         location here = getLocation(self);
         if (here == null)
         {
@@ -1782,6 +1798,87 @@ public class ai extends script.base_script
     }
     public int OnObjectMenuSelect(obj_id self, obj_id player, int item) throws InterruptedException
     {
+        if (item == menu_info_types.PET_TAME)
+        {
+            queueCommand(player, getStringCrc("tame"), self, "", COMMAND_PRIORITY_DEFAULT);
+        }
+        return SCRIPT_CONTINUE;
+    }
+    public int handleBeingTamed(obj_id self, dictionary params) throws InterruptedException
+    {
+        if (params == null)
+        {
+            return SCRIPT_CONTINUE;
+        }
+        obj_id player = params.getObjId("player");
+        int chance = params.getInt("chance");
+        int phase = 0;
+        if (params.containsKey("phase"))
+        {
+            phase = params.getInt("phase");
+        }
+        if (!isIdValid(player) || !exists(player))
+        {
+            return SCRIPT_CONTINUE;
+        }
+        if (!exists(self))
+        {
+            utils.removeScriptVar(player, "pet.tameLoopNum");
+            utils.removeScriptVar(player, "pet.tameTarget");
+            return SCRIPT_CONTINUE;
+        }
+        if (isDead(player) || isIncapacitated(player) || ai_lib.isAiDead(self) || ai_lib.isInCombat(self))
+        {
+            utils.removeScriptVar(player, "pet.tameLoopNum");
+            utils.removeScriptVar(player, "pet.tameTarget");
+            sendSystemMessage(player, pet_lib.SID_SYS_CANT_TAME);
+            return SCRIPT_CONTINUE;
+        }
+        float dist = getDistance(getLocation(player), getLocation(self));
+        if (dist < 0.0f || dist > 15.0f)
+        {
+            utils.removeScriptVar(player, "pet.tameLoopNum");
+            utils.removeScriptVar(player, "pet.tameTarget");
+            sendSystemMessage(player, pet_lib.SID_SYS_CANT_TAME);
+            return SCRIPT_CONTINUE;
+        }
+        if (phase < 3)
+        {
+            String[] lines = new String[]
+            {
+                "Steady. Easy now.",
+                "I'm not going to hurt you.",
+                "That's it... good."
+            };
+            chat.chat(player, lines[phase]);
+            dictionary next = new dictionary();
+            next.put("player", player);
+            next.put("chance", chance);
+            next.put("phase", phase + 1);
+            messageTo(self, "handleBeingTamed", next, 10.0f, false);
+            return SCRIPT_CONTINUE;
+        }
+        utils.removeScriptVar(player, "pet.tameLoopNum");
+        utils.removeScriptVar(player, "pet.tameTarget");
+        if (rand(1, 100) > chance)
+        {
+            sendSystemMessage(player, pet_lib.SID_SYS_CANT_TAME);
+            return SCRIPT_CONTINUE;
+        }
+        int level = getLevel(self);
+        if (level < 1)
+        {
+            level = 1;
+        }
+        utils.setScriptVar(self, "petBeingInitialized", true);
+        pet_lib.makePet(self, player);
+        xp.grant(player, xp.CREATUREHANDLER, 20 * level);
+        sendSystemMessage(player, new string_id("hireling/hireling", "taming_success"));
+        if (isIdValid(self) && exists(self))
+        {
+//                sendSystemMessageTestingOnly(player, "TAMEDEBUG: CALLSITE storePet(self, player) from taming success");
+                pet_lib.storePet(self, player);
+        }
         return SCRIPT_CONTINUE;
     }
     public int OnDestroy(obj_id self) throws InterruptedException

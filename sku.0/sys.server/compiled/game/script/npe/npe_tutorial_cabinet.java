@@ -1,5 +1,4 @@
 package script.npe;
-
 import script.library.sequencer;
 import script.library.static_item;
 import script.library.utils;
@@ -8,7 +7,6 @@ import script.menu_info;
 import script.menu_info_types;
 import script.obj_id;
 import script.string_id;
-
 public class npe_tutorial_cabinet extends script.base_script
 {
     public npe_tutorial_cabinet()

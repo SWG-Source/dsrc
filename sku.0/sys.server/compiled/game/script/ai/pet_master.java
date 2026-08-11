@@ -37,18 +37,108 @@ public class pet_master extends script.base_script
         }
         return SCRIPT_CONTINUE;
     }
+    // Helper: live pet that is currently out (combat pet or trained mount acting as pet)
+    private obj_id getOutCallablePet(obj_id master) throws InterruptedException
+    {
+        obj_id pet = callable.getCallable(master, callable.CALLABLE_TYPE_COMBAT_PET);
+        if (isIdValid(pet) && exists(pet))
+        {
+            return pet;
+        }
+        pet = callable.getCallable(master, callable.CALLABLE_TYPE_RIDEABLE);
+        if (isIdValid(pet) && exists(pet))
+        {
+            return pet;
+        }
+        return null;
+    }
     public int OnDefenderCombatAction(obj_id self, obj_id attacker, obj_id weapon, int combatResult) throws InterruptedException
     {
-        obj_id pet = callable.getCallable(self, callable.CALLABLE_TYPE_COMBAT_PET);
+        obj_id pet = getOutCallablePet(self);
         if (isIdValid(pet) && exists(pet) && !ai_lib.isInCombat(pet) && !beast_lib.isBeast(pet) && utils.hasScriptVar(pet, "ai.pet.guarding"))
         {
             addHate(pet, attacker, 0.0f);
         }
         return SCRIPT_CONTINUE;
     }
-    public int failPetBuff(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException
+    public int OnAttackerCombatAction(obj_id self, obj_id weapon, obj_id defender) throws InterruptedException
+    {
+        obj_id pet = getOutCallablePet(self);
+        if (isIdValid(pet) && exists(pet) && !beast_lib.isBeast(pet) && utils.hasScriptVar(pet, "ai.pet.guarding"))
+        {
+            startCombat(pet, defender);
+        }
+        return SCRIPT_CONTINUE;
+    }
+public int failPetBuff(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException
     {
         sendSystemMessage(self, SID_SYS_CANT_BUFF);
+        return SCRIPT_CONTINUE;
+    }
+    private obj_id[] getPetsForBuff(obj_id self, obj_id target) throws InterruptedException
+    {
+        if (isIdValid(target) && exists(target) && pet_lib.isPet(target) && getMaster(target) == self)
+        {
+            return new obj_id[] { target };
+        }
+        obj_id[] callables = callable.getCallables(self);
+        if (callables == null || callables.length < 1)
+        {
+            return null;
+        }
+        Vector result = new Vector();
+        for (int i = 0; i < callables.length; i++)
+        {
+            int type = callable.getCallableType(callables[i]);
+            if (type == callable.CALLABLE_TYPE_COMBAT_PET || type == callable.CALLABLE_TYPE_RIDEABLE)
+            {
+                result.addElement(callables[i]);
+            }
+        }
+        if (result.size() < 1)
+        {
+            return null;
+        }
+        obj_id[] arr = new obj_id[result.size()];
+        result.copyInto(arr);
+        return arr;
+    }
+    public int enragePets(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException
+    {
+        obj_id[] pets = getPetsForBuff(self, target);
+        if (pets == null || pets.length < 1)
+        {
+            sendSystemMessage(self, SID_SYS_FAIL_ENRAGE);
+            return SCRIPT_CONTINUE;
+        }
+        for (int i = 0; i < pets.length; i++)
+        {
+            if (ai_lib.isAiDead(pets[i]))
+            {
+                continue;
+            }
+            buff.applyBuff(pets[i], "enragePet");
+        }
+        sendSystemMessage(self, SID_SYS_ENRAGE);
+        return SCRIPT_CONTINUE;
+    }
+    public int emboldenPets(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException
+    {
+        obj_id[] pets = getPetsForBuff(self, target);
+        if (pets == null || pets.length < 1)
+        {
+            sendSystemMessage(self, SID_SYS_FAIL_EMBOLDEN);
+            return SCRIPT_CONTINUE;
+        }
+        for (int i = 0; i < pets.length; i++)
+        {
+            if (ai_lib.isAiDead(pets[i]))
+            {
+                continue;
+            }
+            buff.applyBuff(pets[i], "emboldenPet");
+        }
+        sendSystemMessage(self, SID_SYS_EMBOLDEN);
         return SCRIPT_CONTINUE;
     }
     public int OnSkillGranted(obj_id self, String skillName) throws InterruptedException
