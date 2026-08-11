@@ -12480,6 +12480,9 @@ public class combat_actions extends script.systems.combat.combat_base {
 // Auto-generated Pre-CU combat entry points (hybrid)
 
     public int actionShot1(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!precuWeaponOk(self, WEAPON_TYPE_PISTOL, -1)) {
+            return SCRIPT_OVERRIDE;
+        }
         if (!combatStandardAction("actionShot1", self, target, params, "", "")) {
             return SCRIPT_OVERRIDE;
         }
@@ -12487,6 +12490,9 @@ public class combat_actions extends script.systems.combat.combat_base {
     }
 
     public int actionShot2(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!precuWeaponOk(self, WEAPON_TYPE_PISTOL, -1)) {
+            return SCRIPT_OVERRIDE;
+        }
         if (!combatStandardAction("actionShot2", self, target, params, "", "")) {
             return SCRIPT_OVERRIDE;
         }
@@ -12494,6 +12500,9 @@ public class combat_actions extends script.systems.combat.combat_base {
     }
 
     public int aim(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!precuWeaponOk(self, WEAPON_TYPE_RIFLE, -1)) {
+            return SCRIPT_OVERRIDE;
+        }
         if (!combatStandardAction("aim", self, target, params, "", "")) {
             return SCRIPT_OVERRIDE;
         }
@@ -12536,6 +12545,9 @@ public class combat_actions extends script.systems.combat.combat_base {
     }
 
     public int bleedingShot(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!precuWeaponOk(self, WEAPON_TYPE_RIFLE, -1)) {
+            return SCRIPT_OVERRIDE;
+        }
         if (!combatStandardAction("bleedingShot", self, target, params, "", "")) {
             return SCRIPT_OVERRIDE;
         }
@@ -12550,6 +12562,9 @@ public class combat_actions extends script.systems.combat.combat_base {
     }
 
     public int bodyShot1(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!precuWeaponOk(self, WEAPON_TYPE_PISTOL, -1)) {
+            return SCRIPT_OVERRIDE;
+        }
         if (!combatStandardAction("bodyShot1", self, target, params, "", "")) {
             return SCRIPT_OVERRIDE;
         }
@@ -12557,6 +12572,9 @@ public class combat_actions extends script.systems.combat.combat_base {
     }
 
     public int bodyShot2(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!precuWeaponOk(self, WEAPON_TYPE_PISTOL, -1)) {
+            return SCRIPT_OVERRIDE;
+        }
         if (!combatStandardAction("bodyShot2", self, target, params, "", "")) {
             return SCRIPT_OVERRIDE;
         }
@@ -12564,6 +12582,9 @@ public class combat_actions extends script.systems.combat.combat_base {
     }
 
     public int bodyShot3(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!precuWeaponOk(self, WEAPON_TYPE_PISTOL, -1)) {
+            return SCRIPT_OVERRIDE;
+        }
         if (!combatStandardAction("bodyShot3", self, target, params, "", "")) {
             return SCRIPT_OVERRIDE;
         }
@@ -12571,6 +12592,9 @@ public class combat_actions extends script.systems.combat.combat_base {
     }
 
     public int burstShot1(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!precuWeaponOk(self, WEAPON_TYPE_LIGHT_RIFLE, -1)) {
+            return SCRIPT_OVERRIDE;
+        }
         if (!combatStandardAction("burstShot1", self, target, params, "", "")) {
             return SCRIPT_OVERRIDE;
         }
@@ -12578,6 +12602,9 @@ public class combat_actions extends script.systems.combat.combat_base {
     }
 
     public int burstShot2(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!precuWeaponOk(self, WEAPON_TYPE_LIGHT_RIFLE, -1)) {
+            return SCRIPT_OVERRIDE;
+        }
         if (!combatStandardAction("burstShot2", self, target, params, "", "")) {
             return SCRIPT_OVERRIDE;
         }
@@ -12585,6 +12612,9 @@ public class combat_actions extends script.systems.combat.combat_base {
     }
 
     public int chargeShot1(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!precuWeaponOk(self, WEAPON_TYPE_LIGHT_RIFLE, -1)) {
+            return SCRIPT_OVERRIDE;
+        }
         if (!combatStandardAction("chargeShot1", self, target, params, "", "")) {
             return SCRIPT_OVERRIDE;
         }
@@ -12592,6 +12622,9 @@ public class combat_actions extends script.systems.combat.combat_base {
     }
 
     public int chargeShot2(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!precuWeaponOk(self, WEAPON_TYPE_LIGHT_RIFLE, -1)) {
+            return SCRIPT_OVERRIDE;
+        }
         if (!combatStandardAction("chargeShot2", self, target, params, "", "")) {
             return SCRIPT_OVERRIDE;
         }
@@ -12599,6 +12632,9 @@ public class combat_actions extends script.systems.combat.combat_base {
     }
 
     public int concealShot(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!precuWeaponOk(self, WEAPON_TYPE_RIFLE, -1)) {
+            return SCRIPT_OVERRIDE;
+        }
         if (!combatStandardAction("concealShot", self, target, params, "", "")) {
             return SCRIPT_OVERRIDE;
         }
@@ -12606,6 +12642,9 @@ public class combat_actions extends script.systems.combat.combat_base {
     }
 
     public int confusionShot(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!precuWeaponOk(self, WEAPON_TYPE_RIFLE, -1)) {
+            return SCRIPT_OVERRIDE;
+        }
         if (!combatStandardAction("confusionShot", self, target, params, "", "")) {
             return SCRIPT_OVERRIDE;
         }
@@ -12626,6 +12665,9 @@ public class combat_actions extends script.systems.combat.combat_base {
 
 
     public int cripplingShot(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!precuWeaponOk(self, WEAPON_TYPE_RIFLE, -1)) {
+            return SCRIPT_OVERRIDE;
+        }
         if (!combatStandardAction("cripplingShot", self, target, params, "", "")) {
             return SCRIPT_OVERRIDE;
         }
@@ -12647,6 +12689,9 @@ public class combat_actions extends script.systems.combat.combat_base {
     }
 
     public int disarmingShot1(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!precuWeaponOk(self, WEAPON_TYPE_PISTOL, -1)) {
+            return SCRIPT_OVERRIDE;
+        }
         if (!combatStandardAction("disarmingShot1", self, target, params, "", "")) {
             return SCRIPT_OVERRIDE;
         }
@@ -12654,6 +12699,9 @@ public class combat_actions extends script.systems.combat.combat_base {
     }
 
     public int disarmingShot2(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!precuWeaponOk(self, WEAPON_TYPE_PISTOL, -1)) {
+            return SCRIPT_OVERRIDE;
+        }
         if (!combatStandardAction("disarmingShot2", self, target, params, "", "")) {
             return SCRIPT_OVERRIDE;
         }
@@ -12661,6 +12709,9 @@ public class combat_actions extends script.systems.combat.combat_base {
     }
 
     public int diveShot(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!precuWeaponOk(self, WEAPON_TYPE_PISTOL, -1)) {
+            return SCRIPT_OVERRIDE;
+        }
         if (!combatStandardAction("diveShot", self, target, params, "", "")) {
             return SCRIPT_OVERRIDE;
         }
@@ -12675,6 +12726,9 @@ public class combat_actions extends script.systems.combat.combat_base {
     }
 
     public int doubleTap(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!precuWeaponOk(self, WEAPON_TYPE_PISTOL, -1)) {
+            return SCRIPT_OVERRIDE;
+        }
         if (!combatStandardAction("doubleTap", self, target, params, "", "")) {
             return SCRIPT_OVERRIDE;
         }
@@ -12682,6 +12736,9 @@ public class combat_actions extends script.systems.combat.combat_base {
     }
 
     public int drainForce(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!precuWeaponOk(self, -1, combat.MELEE_WEAPON)) {
+            return SCRIPT_OVERRIDE;
+        }
         if (!combatStandardAction("drainForce", self, target, params, "", "")) {
             return SCRIPT_OVERRIDE;
         }
@@ -12689,6 +12746,9 @@ public class combat_actions extends script.systems.combat.combat_base {
     }
 
     public int eyeShot(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!precuWeaponOk(self, WEAPON_TYPE_RIFLE, -1)) {
+            return SCRIPT_OVERRIDE;
+        }
         if (!combatStandardAction("eyeShot", self, target, params, "", "")) {
             return SCRIPT_OVERRIDE;
         }
@@ -12696,6 +12756,9 @@ public class combat_actions extends script.systems.combat.combat_base {
     }
 
     public int fanShot(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!precuWeaponOk(self, WEAPON_TYPE_PISTOL, -1)) {
+            return SCRIPT_OVERRIDE;
+        }
         if (!combatStandardAction("fanShot", self, target, params, "", "")) {
             return SCRIPT_OVERRIDE;
         }
@@ -12703,6 +12766,9 @@ public class combat_actions extends script.systems.combat.combat_base {
     }
 
     public int fastBlast(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!precuWeaponOk(self, WEAPON_TYPE_RIFLE, -1)) {
+            return SCRIPT_OVERRIDE;
+        }
         if (!combatStandardAction("fastBlast", self, target, params, "", "")) {
             return SCRIPT_OVERRIDE;
         }
@@ -12710,6 +12776,9 @@ public class combat_actions extends script.systems.combat.combat_base {
     }
 
     public int fireAcidCone1(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!precuWeaponOk(self, WEAPON_TYPE_HEAVY, -1)) {
+            return SCRIPT_OVERRIDE;
+        }
         if (!combatStandardAction("fireAcidCone1", self, target, params, "", "")) {
             return SCRIPT_OVERRIDE;
         }
@@ -12717,6 +12786,9 @@ public class combat_actions extends script.systems.combat.combat_base {
     }
 
     public int fireAcidCone2(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!precuWeaponOk(self, WEAPON_TYPE_HEAVY, -1)) {
+            return SCRIPT_OVERRIDE;
+        }
         if (!combatStandardAction("fireAcidCone2", self, target, params, "", "")) {
             return SCRIPT_OVERRIDE;
         }
@@ -12724,6 +12796,9 @@ public class combat_actions extends script.systems.combat.combat_base {
     }
 
     public int fireAcidSingle1(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!precuWeaponOk(self, WEAPON_TYPE_HEAVY, -1)) {
+            return SCRIPT_OVERRIDE;
+        }
         if (!combatStandardAction("fireAcidSingle1", self, target, params, "", "")) {
             return SCRIPT_OVERRIDE;
         }
@@ -12731,6 +12806,9 @@ public class combat_actions extends script.systems.combat.combat_base {
     }
 
     public int fireAcidSingle2(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!precuWeaponOk(self, WEAPON_TYPE_HEAVY, -1)) {
+            return SCRIPT_OVERRIDE;
+        }
         if (!combatStandardAction("fireAcidSingle2", self, target, params, "", "")) {
             return SCRIPT_OVERRIDE;
         }
@@ -12738,6 +12816,9 @@ public class combat_actions extends script.systems.combat.combat_base {
     }
 
     public int fireLightningCone1(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!precuWeaponOk(self, WEAPON_TYPE_HEAVY, -1)) {
+            return SCRIPT_OVERRIDE;
+        }
         if (!combatStandardAction("fireLightningCone1", self, target, params, "", "")) {
             return SCRIPT_OVERRIDE;
         }
@@ -12745,6 +12826,9 @@ public class combat_actions extends script.systems.combat.combat_base {
     }
 
     public int fireLightningCone2(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!precuWeaponOk(self, WEAPON_TYPE_HEAVY, -1)) {
+            return SCRIPT_OVERRIDE;
+        }
         if (!combatStandardAction("fireLightningCone2", self, target, params, "", "")) {
             return SCRIPT_OVERRIDE;
         }
@@ -12752,6 +12836,9 @@ public class combat_actions extends script.systems.combat.combat_base {
     }
 
     public int fireLightningSingle1(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!precuWeaponOk(self, WEAPON_TYPE_HEAVY, -1)) {
+            return SCRIPT_OVERRIDE;
+        }
         if (!combatStandardAction("fireLightningSingle1", self, target, params, "", "")) {
             return SCRIPT_OVERRIDE;
         }
@@ -12759,6 +12846,9 @@ public class combat_actions extends script.systems.combat.combat_base {
     }
 
     public int fireLightningSingle2(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!precuWeaponOk(self, WEAPON_TYPE_HEAVY, -1)) {
+            return SCRIPT_OVERRIDE;
+        }
         if (!combatStandardAction("fireLightningSingle2", self, target, params, "", "")) {
             return SCRIPT_OVERRIDE;
         }
@@ -12766,6 +12856,9 @@ public class combat_actions extends script.systems.combat.combat_base {
     }
 
     public int flameCone1(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!precuWeaponOk(self, WEAPON_TYPE_HEAVY, -1)) {
+            return SCRIPT_OVERRIDE;
+        }
         if (!combatStandardAction("flameCone1", self, target, params, "", "")) {
             return SCRIPT_OVERRIDE;
         }
@@ -12773,6 +12866,9 @@ public class combat_actions extends script.systems.combat.combat_base {
     }
 
     public int flameCone2(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!precuWeaponOk(self, WEAPON_TYPE_HEAVY, -1)) {
+            return SCRIPT_OVERRIDE;
+        }
         if (!combatStandardAction("flameCone2", self, target, params, "", "")) {
             return SCRIPT_OVERRIDE;
         }
@@ -12780,6 +12876,9 @@ public class combat_actions extends script.systems.combat.combat_base {
     }
 
     public int flameSingle1(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!precuWeaponOk(self, WEAPON_TYPE_HEAVY, -1)) {
+            return SCRIPT_OVERRIDE;
+        }
         if (!combatStandardAction("flameSingle1", self, target, params, "", "")) {
             return SCRIPT_OVERRIDE;
         }
@@ -12787,6 +12886,9 @@ public class combat_actions extends script.systems.combat.combat_base {
     }
 
     public int flameSingle2(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!precuWeaponOk(self, WEAPON_TYPE_HEAVY, -1)) {
+            return SCRIPT_OVERRIDE;
+        }
         if (!combatStandardAction("flameSingle2", self, target, params, "", "")) {
             return SCRIPT_OVERRIDE;
         }
@@ -12794,6 +12896,9 @@ public class combat_actions extends script.systems.combat.combat_base {
     }
 
     public int flurryShot1(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!precuWeaponOk(self, WEAPON_TYPE_RIFLE, -1)) {
+            return SCRIPT_OVERRIDE;
+        }
         if (!combatStandardAction("flurryShot1", self, target, params, "", "")) {
             return SCRIPT_OVERRIDE;
         }
@@ -12801,6 +12906,9 @@ public class combat_actions extends script.systems.combat.combat_base {
     }
 
     public int flurryShot2(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!precuWeaponOk(self, WEAPON_TYPE_RIFLE, -1)) {
+            return SCRIPT_OVERRIDE;
+        }
         if (!combatStandardAction("flurryShot2", self, target, params, "", "")) {
             return SCRIPT_OVERRIDE;
         }
@@ -12808,6 +12916,9 @@ public class combat_actions extends script.systems.combat.combat_base {
     }
 
     public int flushingShot1(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!precuWeaponOk(self, WEAPON_TYPE_RIFLE, -1)) {
+            return SCRIPT_OVERRIDE;
+        }
         if (!combatStandardAction("flushingShot1", self, target, params, "", "")) {
             return SCRIPT_OVERRIDE;
         }
@@ -12815,6 +12926,9 @@ public class combat_actions extends script.systems.combat.combat_base {
     }
 
     public int flushingShot2(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!precuWeaponOk(self, WEAPON_TYPE_RIFLE, -1)) {
+            return SCRIPT_OVERRIDE;
+        }
         if (!combatStandardAction("flushingShot2", self, target, params, "", "")) {
             return SCRIPT_OVERRIDE;
         }
@@ -12850,6 +12964,9 @@ public class combat_actions extends script.systems.combat.combat_base {
     }
 
     public int forceChoke(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!precuWeaponOk(self, -1, combat.MELEE_WEAPON)) {
+            return SCRIPT_OVERRIDE;
+        }
         if (!combatStandardAction("forceChoke", self, target, params, "", "")) {
             return SCRIPT_OVERRIDE;
         }
@@ -12885,6 +13002,9 @@ public class combat_actions extends script.systems.combat.combat_base {
     }
 
     public int forceIntimidate1(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!precuWeaponOk(self, -1, combat.MELEE_WEAPON)) {
+            return SCRIPT_OVERRIDE;
+        }
         if (!combatStandardAction("forceIntimidate1", self, target, params, "", "")) {
             return SCRIPT_OVERRIDE;
         }
@@ -12892,6 +13012,9 @@ public class combat_actions extends script.systems.combat.combat_base {
     }
 
     public int forceIntimidate2(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!precuWeaponOk(self, -1, combat.MELEE_WEAPON)) {
+            return SCRIPT_OVERRIDE;
+        }
         if (!combatStandardAction("forceIntimidate2", self, target, params, "", "")) {
             return SCRIPT_OVERRIDE;
         }
@@ -12899,6 +13022,9 @@ public class combat_actions extends script.systems.combat.combat_base {
     }
 
     public int forceKnockdown1(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!precuWeaponOk(self, -1, combat.MELEE_WEAPON)) {
+            return SCRIPT_OVERRIDE;
+        }
         if (!combatStandardAction("forceKnockdown1", self, target, params, "", "")) {
             return SCRIPT_OVERRIDE;
         }
@@ -12906,6 +13032,9 @@ public class combat_actions extends script.systems.combat.combat_base {
     }
 
     public int forceKnockdown2(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!precuWeaponOk(self, -1, combat.MELEE_WEAPON)) {
+            return SCRIPT_OVERRIDE;
+        }
         if (!combatStandardAction("forceKnockdown2", self, target, params, "", "")) {
             return SCRIPT_OVERRIDE;
         }
@@ -12913,6 +13042,9 @@ public class combat_actions extends script.systems.combat.combat_base {
     }
 
     public int forceKnockdown3(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!precuWeaponOk(self, -1, combat.MELEE_WEAPON)) {
+            return SCRIPT_OVERRIDE;
+        }
         if (!combatStandardAction("forceKnockdown3", self, target, params, "", "")) {
             return SCRIPT_OVERRIDE;
         }
@@ -12920,6 +13052,9 @@ public class combat_actions extends script.systems.combat.combat_base {
     }
 
     public int forceLightningCone1(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!precuWeaponOk(self, -1, combat.MELEE_WEAPON)) {
+            return SCRIPT_OVERRIDE;
+        }
         if (!combatStandardAction("forceLightningCone1", self, target, params, "", "")) {
             return SCRIPT_OVERRIDE;
         }
@@ -12927,6 +13062,9 @@ public class combat_actions extends script.systems.combat.combat_base {
     }
 
     public int forceLightningCone2(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!precuWeaponOk(self, -1, combat.MELEE_WEAPON)) {
+            return SCRIPT_OVERRIDE;
+        }
         if (!combatStandardAction("forceLightningCone2", self, target, params, "", "")) {
             return SCRIPT_OVERRIDE;
         }
@@ -12934,6 +13072,9 @@ public class combat_actions extends script.systems.combat.combat_base {
     }
 
     public int forceLightningSingle1(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!precuWeaponOk(self, -1, combat.MELEE_WEAPON)) {
+            return SCRIPT_OVERRIDE;
+        }
         if (!combatStandardAction("forceLightningSingle1", self, target, params, "", "")) {
             return SCRIPT_OVERRIDE;
         }
@@ -12941,6 +13082,9 @@ public class combat_actions extends script.systems.combat.combat_base {
     }
 
     public int forceLightningSingle2(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!precuWeaponOk(self, -1, combat.MELEE_WEAPON)) {
+            return SCRIPT_OVERRIDE;
+        }
         if (!combatStandardAction("forceLightningSingle2", self, target, params, "", "")) {
             return SCRIPT_OVERRIDE;
         }
@@ -13025,6 +13169,9 @@ public class combat_actions extends script.systems.combat.combat_base {
     }
 
     public int forceThrow1(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!precuWeaponOk(self, -1, combat.MELEE_WEAPON)) {
+            return SCRIPT_OVERRIDE;
+        }
         if (!combatStandardAction("forceThrow1", self, target, params, "", "")) {
             return SCRIPT_OVERRIDE;
         }
@@ -13032,6 +13179,9 @@ public class combat_actions extends script.systems.combat.combat_base {
     }
 
     public int forceThrow2(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!precuWeaponOk(self, -1, combat.MELEE_WEAPON)) {
+            return SCRIPT_OVERRIDE;
+        }
         if (!combatStandardAction("forceThrow2", self, target, params, "", "")) {
             return SCRIPT_OVERRIDE;
         }
@@ -13039,6 +13189,9 @@ public class combat_actions extends script.systems.combat.combat_base {
     }
 
     public int forceWeaken1(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!precuWeaponOk(self, -1, combat.MELEE_WEAPON)) {
+            return SCRIPT_OVERRIDE;
+        }
         if (!combatStandardAction("forceWeaken1", self, target, params, "", "")) {
             return SCRIPT_OVERRIDE;
         }
@@ -13046,6 +13199,9 @@ public class combat_actions extends script.systems.combat.combat_base {
     }
 
     public int forceWeaken2(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!precuWeaponOk(self, -1, combat.MELEE_WEAPON)) {
+            return SCRIPT_OVERRIDE;
+        }
         if (!combatStandardAction("forceWeaken2", self, target, params, "", "")) {
             return SCRIPT_OVERRIDE;
         }
@@ -13053,6 +13209,9 @@ public class combat_actions extends script.systems.combat.combat_base {
     }
 
     public int fullAutoArea1(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!precuWeaponOk(self, WEAPON_TYPE_LIGHT_RIFLE, -1)) {
+            return SCRIPT_OVERRIDE;
+        }
         if (!combatStandardAction("fullAutoArea1", self, target, params, "", "")) {
             return SCRIPT_OVERRIDE;
         }
@@ -13060,6 +13219,9 @@ public class combat_actions extends script.systems.combat.combat_base {
     }
 
     public int fullAutoArea2(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!precuWeaponOk(self, WEAPON_TYPE_LIGHT_RIFLE, -1)) {
+            return SCRIPT_OVERRIDE;
+        }
         if (!combatStandardAction("fullAutoArea2", self, target, params, "", "")) {
             return SCRIPT_OVERRIDE;
         }
@@ -13067,6 +13229,9 @@ public class combat_actions extends script.systems.combat.combat_base {
     }
 
     public int fullAutoSingle1(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!precuWeaponOk(self, WEAPON_TYPE_LIGHT_RIFLE, -1)) {
+            return SCRIPT_OVERRIDE;
+        }
         if (!combatStandardAction("fullAutoSingle1", self, target, params, "", "")) {
             return SCRIPT_OVERRIDE;
         }
@@ -13074,6 +13239,9 @@ public class combat_actions extends script.systems.combat.combat_base {
     }
 
     public int fullAutoSingle2(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!precuWeaponOk(self, WEAPON_TYPE_LIGHT_RIFLE, -1)) {
+            return SCRIPT_OVERRIDE;
+        }
         if (!combatStandardAction("fullAutoSingle2", self, target, params, "", "")) {
             return SCRIPT_OVERRIDE;
         }
@@ -13081,6 +13249,9 @@ public class combat_actions extends script.systems.combat.combat_base {
     }
 
     public int headShot1(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!precuWeaponOk(self, WEAPON_TYPE_RIFLE, -1)) {
+            return SCRIPT_OVERRIDE;
+        }
         if (!combatStandardAction("headShot1", self, target, params, "", "")) {
             return SCRIPT_OVERRIDE;
         }
@@ -13088,6 +13259,9 @@ public class combat_actions extends script.systems.combat.combat_base {
     }
 
     public int headShot2(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!precuWeaponOk(self, WEAPON_TYPE_RIFLE, -1)) {
+            return SCRIPT_OVERRIDE;
+        }
         if (!combatStandardAction("headShot2", self, target, params, "", "")) {
             return SCRIPT_OVERRIDE;
         }
@@ -13095,6 +13269,9 @@ public class combat_actions extends script.systems.combat.combat_base {
     }
 
     public int headShot3(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!precuWeaponOk(self, WEAPON_TYPE_RIFLE, -1)) {
+            return SCRIPT_OVERRIDE;
+        }
         if (!combatStandardAction("headShot3", self, target, params, "", "")) {
             return SCRIPT_OVERRIDE;
         }
@@ -13298,6 +13475,9 @@ public class combat_actions extends script.systems.combat.combat_base {
     }
 
     public int healthShot1(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!precuWeaponOk(self, WEAPON_TYPE_PISTOL, -1)) {
+            return SCRIPT_OVERRIDE;
+        }
         if (!combatStandardAction("healthShot1", self, target, params, "", "")) {
             return SCRIPT_OVERRIDE;
         }
@@ -13305,6 +13485,9 @@ public class combat_actions extends script.systems.combat.combat_base {
     }
 
     public int healthShot2(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!precuWeaponOk(self, WEAPON_TYPE_PISTOL, -1)) {
+            return SCRIPT_OVERRIDE;
+        }
         if (!combatStandardAction("healthShot2", self, target, params, "", "")) {
             return SCRIPT_OVERRIDE;
         }
@@ -13340,6 +13523,9 @@ public class combat_actions extends script.systems.combat.combat_base {
     }
 
     public int kipUpShot(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!precuWeaponOk(self, WEAPON_TYPE_PISTOL, -1)) {
+            return SCRIPT_OVERRIDE;
+        }
         if (!combatStandardAction("kipUpShot", self, target, params, "", "")) {
             return SCRIPT_OVERRIDE;
         }
@@ -13354,6 +13540,9 @@ public class combat_actions extends script.systems.combat.combat_base {
     }
 
     public int knockdownFire(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!precuWeaponOk(self, WEAPON_TYPE_HEAVY, -1)) {
+            return SCRIPT_OVERRIDE;
+        }
         if (!combatStandardAction("knockdownFire", self, target, params, "", "")) {
             return SCRIPT_OVERRIDE;
         }
@@ -13361,6 +13550,9 @@ public class combat_actions extends script.systems.combat.combat_base {
     }
 
     public int lastDitch(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!precuWeaponOk(self, WEAPON_TYPE_RIFLE, -1)) {
+            return SCRIPT_OVERRIDE;
+        }
         if (!combatStandardAction("lastDitch", self, target, params, "", "")) {
             return SCRIPT_OVERRIDE;
         }
@@ -13368,6 +13560,9 @@ public class combat_actions extends script.systems.combat.combat_base {
     }
 
     public int legShot1(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!precuWeaponOk(self, WEAPON_TYPE_PISTOL, -1)) {
+            return SCRIPT_OVERRIDE;
+        }
         if (!combatStandardAction("legShot1", self, target, params, "", "")) {
             return SCRIPT_OVERRIDE;
         }
@@ -13375,6 +13570,9 @@ public class combat_actions extends script.systems.combat.combat_base {
     }
 
     public int legShot2(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!precuWeaponOk(self, WEAPON_TYPE_PISTOL, -1)) {
+            return SCRIPT_OVERRIDE;
+        }
         if (!combatStandardAction("legShot2", self, target, params, "", "")) {
             return SCRIPT_OVERRIDE;
         }
@@ -13382,6 +13580,9 @@ public class combat_actions extends script.systems.combat.combat_base {
     }
 
     public int legShot3(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!precuWeaponOk(self, WEAPON_TYPE_PISTOL, -1)) {
+            return SCRIPT_OVERRIDE;
+        }
         if (!combatStandardAction("legShot3", self, target, params, "", "")) {
             return SCRIPT_OVERRIDE;
         }
@@ -13410,6 +13611,9 @@ public class combat_actions extends script.systems.combat.combat_base {
     }
 
     public int melee1hBlindHit1(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!precuWeaponOk(self, WEAPON_TYPE_1HAND_MELEE, -1)) {
+            return SCRIPT_OVERRIDE;
+        }
         if (!combatStandardAction("melee1hBlindHit1", self, target, params, "", "")) {
             return SCRIPT_OVERRIDE;
         }
@@ -13417,6 +13621,9 @@ public class combat_actions extends script.systems.combat.combat_base {
     }
 
     public int melee1hBlindHit2(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!precuWeaponOk(self, WEAPON_TYPE_1HAND_MELEE, -1)) {
+            return SCRIPT_OVERRIDE;
+        }
         if (!combatStandardAction("melee1hBlindHit2", self, target, params, "", "")) {
             return SCRIPT_OVERRIDE;
         }
@@ -13424,6 +13631,9 @@ public class combat_actions extends script.systems.combat.combat_base {
     }
 
     public int melee1hBodyHit1(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!precuWeaponOk(self, WEAPON_TYPE_1HAND_MELEE, -1)) {
+            return SCRIPT_OVERRIDE;
+        }
         if (!combatStandardAction("melee1hBodyHit1", self, target, params, "", "")) {
             return SCRIPT_OVERRIDE;
         }
@@ -13431,6 +13641,9 @@ public class combat_actions extends script.systems.combat.combat_base {
     }
 
     public int melee1hBodyHit2(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!precuWeaponOk(self, WEAPON_TYPE_1HAND_MELEE, -1)) {
+            return SCRIPT_OVERRIDE;
+        }
         if (!combatStandardAction("melee1hBodyHit2", self, target, params, "", "")) {
             return SCRIPT_OVERRIDE;
         }
@@ -13438,6 +13651,9 @@ public class combat_actions extends script.systems.combat.combat_base {
     }
 
     public int melee1hBodyHit3(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!precuWeaponOk(self, WEAPON_TYPE_1HAND_MELEE, -1)) {
+            return SCRIPT_OVERRIDE;
+        }
         if (!combatStandardAction("melee1hBodyHit3", self, target, params, "", "")) {
             return SCRIPT_OVERRIDE;
         }
@@ -13445,6 +13661,9 @@ public class combat_actions extends script.systems.combat.combat_base {
     }
 
     public int melee1hDizzyHit1(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!precuWeaponOk(self, WEAPON_TYPE_1HAND_MELEE, -1)) {
+            return SCRIPT_OVERRIDE;
+        }
         if (!combatStandardAction("melee1hDizzyHit1", self, target, params, "", "")) {
             return SCRIPT_OVERRIDE;
         }
@@ -13452,6 +13671,9 @@ public class combat_actions extends script.systems.combat.combat_base {
     }
 
     public int melee1hDizzyHit2(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!precuWeaponOk(self, WEAPON_TYPE_1HAND_MELEE, -1)) {
+            return SCRIPT_OVERRIDE;
+        }
         if (!combatStandardAction("melee1hDizzyHit2", self, target, params, "", "")) {
             return SCRIPT_OVERRIDE;
         }
@@ -13459,6 +13681,9 @@ public class combat_actions extends script.systems.combat.combat_base {
     }
 
     public int melee1hHealthHit1(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!precuWeaponOk(self, WEAPON_TYPE_1HAND_MELEE, -1)) {
+            return SCRIPT_OVERRIDE;
+        }
         if (!combatStandardAction("melee1hHealthHit1", self, target, params, "", "")) {
             return SCRIPT_OVERRIDE;
         }
@@ -13466,6 +13691,9 @@ public class combat_actions extends script.systems.combat.combat_base {
     }
 
     public int melee1hHealthHit2(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!precuWeaponOk(self, WEAPON_TYPE_1HAND_MELEE, -1)) {
+            return SCRIPT_OVERRIDE;
+        }
         if (!combatStandardAction("melee1hHealthHit2", self, target, params, "", "")) {
             return SCRIPT_OVERRIDE;
         }
@@ -13473,6 +13701,9 @@ public class combat_actions extends script.systems.combat.combat_base {
     }
 
     public int melee1hHit1(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!precuWeaponOk(self, WEAPON_TYPE_1HAND_MELEE, -1)) {
+            return SCRIPT_OVERRIDE;
+        }
         if (!combatStandardAction("melee1hHit1", self, target, params, "", "")) {
             return SCRIPT_OVERRIDE;
         }
@@ -13480,6 +13711,9 @@ public class combat_actions extends script.systems.combat.combat_base {
     }
 
     public int melee1hHit2(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!precuWeaponOk(self, WEAPON_TYPE_1HAND_MELEE, -1)) {
+            return SCRIPT_OVERRIDE;
+        }
         if (!combatStandardAction("melee1hHit2", self, target, params, "", "")) {
             return SCRIPT_OVERRIDE;
         }
@@ -13487,6 +13721,9 @@ public class combat_actions extends script.systems.combat.combat_base {
     }
 
     public int melee1hHit3(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!precuWeaponOk(self, WEAPON_TYPE_1HAND_MELEE, -1)) {
+            return SCRIPT_OVERRIDE;
+        }
         if (!combatStandardAction("melee1hHit3", self, target, params, "", "")) {
             return SCRIPT_OVERRIDE;
         }
@@ -13494,6 +13731,9 @@ public class combat_actions extends script.systems.combat.combat_base {
     }
 
     public int melee1hLunge1(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!precuWeaponOk(self, WEAPON_TYPE_1HAND_MELEE, -1)) {
+            return SCRIPT_OVERRIDE;
+        }
         if (!combatStandardAction("melee1hLunge1", self, target, params, "", "")) {
             return SCRIPT_OVERRIDE;
         }
@@ -13501,6 +13741,9 @@ public class combat_actions extends script.systems.combat.combat_base {
     }
 
     public int melee1hLunge2(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!precuWeaponOk(self, WEAPON_TYPE_1HAND_MELEE, -1)) {
+            return SCRIPT_OVERRIDE;
+        }
         if (!combatStandardAction("melee1hLunge2", self, target, params, "", "")) {
             return SCRIPT_OVERRIDE;
         }
@@ -13508,6 +13751,9 @@ public class combat_actions extends script.systems.combat.combat_base {
     }
 
     public int melee1hScatterHit1(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!precuWeaponOk(self, WEAPON_TYPE_1HAND_MELEE, -1)) {
+            return SCRIPT_OVERRIDE;
+        }
         if (!combatStandardAction("melee1hScatterHit1", self, target, params, "", "")) {
             return SCRIPT_OVERRIDE;
         }
@@ -13515,6 +13761,9 @@ public class combat_actions extends script.systems.combat.combat_base {
     }
 
     public int melee1hScatterHit2(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!precuWeaponOk(self, WEAPON_TYPE_1HAND_MELEE, -1)) {
+            return SCRIPT_OVERRIDE;
+        }
         if (!combatStandardAction("melee1hScatterHit2", self, target, params, "", "")) {
             return SCRIPT_OVERRIDE;
         }
@@ -13522,6 +13771,9 @@ public class combat_actions extends script.systems.combat.combat_base {
     }
 
     public int melee1hSpinAttack1(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!precuWeaponOk(self, WEAPON_TYPE_1HAND_MELEE, -1)) {
+            return SCRIPT_OVERRIDE;
+        }
         if (!combatStandardAction("melee1hSpinAttack1", self, target, params, "", "")) {
             return SCRIPT_OVERRIDE;
         }
@@ -13529,6 +13781,9 @@ public class combat_actions extends script.systems.combat.combat_base {
     }
 
     public int melee1hSpinAttack2(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!precuWeaponOk(self, WEAPON_TYPE_1HAND_MELEE, -1)) {
+            return SCRIPT_OVERRIDE;
+        }
         if (!combatStandardAction("melee1hSpinAttack2", self, target, params, "", "")) {
             return SCRIPT_OVERRIDE;
         }
@@ -13536,6 +13791,9 @@ public class combat_actions extends script.systems.combat.combat_base {
     }
 
     public int melee2hArea1(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!precuWeaponOk(self, WEAPON_TYPE_2HAND_MELEE, -1)) {
+            return SCRIPT_OVERRIDE;
+        }
         if (!combatStandardAction("melee2hArea1", self, target, params, "", "")) {
             return SCRIPT_OVERRIDE;
         }
@@ -13543,6 +13801,9 @@ public class combat_actions extends script.systems.combat.combat_base {
     }
 
     public int melee2hArea2(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!precuWeaponOk(self, WEAPON_TYPE_2HAND_MELEE, -1)) {
+            return SCRIPT_OVERRIDE;
+        }
         if (!combatStandardAction("melee2hArea2", self, target, params, "", "")) {
             return SCRIPT_OVERRIDE;
         }
@@ -13550,6 +13811,9 @@ public class combat_actions extends script.systems.combat.combat_base {
     }
 
     public int melee2hArea3(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!precuWeaponOk(self, WEAPON_TYPE_2HAND_MELEE, -1)) {
+            return SCRIPT_OVERRIDE;
+        }
         if (!combatStandardAction("melee2hArea3", self, target, params, "", "")) {
             return SCRIPT_OVERRIDE;
         }
@@ -13557,6 +13821,9 @@ public class combat_actions extends script.systems.combat.combat_base {
     }
 
     public int melee2hHeadHit1(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!precuWeaponOk(self, WEAPON_TYPE_2HAND_MELEE, -1)) {
+            return SCRIPT_OVERRIDE;
+        }
         if (!combatStandardAction("melee2hHeadHit1", self, target, params, "", "")) {
             return SCRIPT_OVERRIDE;
         }
@@ -13564,6 +13831,9 @@ public class combat_actions extends script.systems.combat.combat_base {
     }
 
     public int melee2hHeadHit2(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!precuWeaponOk(self, WEAPON_TYPE_2HAND_MELEE, -1)) {
+            return SCRIPT_OVERRIDE;
+        }
         if (!combatStandardAction("melee2hHeadHit2", self, target, params, "", "")) {
             return SCRIPT_OVERRIDE;
         }
@@ -13571,6 +13841,9 @@ public class combat_actions extends script.systems.combat.combat_base {
     }
 
     public int melee2hHeadHit3(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!precuWeaponOk(self, WEAPON_TYPE_2HAND_MELEE, -1)) {
+            return SCRIPT_OVERRIDE;
+        }
         if (!combatStandardAction("melee2hHeadHit3", self, target, params, "", "")) {
             return SCRIPT_OVERRIDE;
         }
@@ -13578,6 +13851,9 @@ public class combat_actions extends script.systems.combat.combat_base {
     }
 
     public int melee2hHit1(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!precuWeaponOk(self, WEAPON_TYPE_2HAND_MELEE, -1)) {
+            return SCRIPT_OVERRIDE;
+        }
         if (!combatStandardAction("melee2hHit1", self, target, params, "", "")) {
             return SCRIPT_OVERRIDE;
         }
@@ -13585,6 +13861,9 @@ public class combat_actions extends script.systems.combat.combat_base {
     }
 
     public int melee2hHit2(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!precuWeaponOk(self, WEAPON_TYPE_2HAND_MELEE, -1)) {
+            return SCRIPT_OVERRIDE;
+        }
         if (!combatStandardAction("melee2hHit2", self, target, params, "", "")) {
             return SCRIPT_OVERRIDE;
         }
@@ -13592,6 +13871,9 @@ public class combat_actions extends script.systems.combat.combat_base {
     }
 
     public int melee2hHit3(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!precuWeaponOk(self, WEAPON_TYPE_2HAND_MELEE, -1)) {
+            return SCRIPT_OVERRIDE;
+        }
         if (!combatStandardAction("melee2hHit3", self, target, params, "", "")) {
             return SCRIPT_OVERRIDE;
         }
@@ -13599,6 +13881,9 @@ public class combat_actions extends script.systems.combat.combat_base {
     }
 
     public int melee2hLunge1(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!precuWeaponOk(self, WEAPON_TYPE_2HAND_MELEE, -1)) {
+            return SCRIPT_OVERRIDE;
+        }
         if (!combatStandardAction("melee2hLunge1", self, target, params, "", "")) {
             return SCRIPT_OVERRIDE;
         }
@@ -13606,6 +13891,9 @@ public class combat_actions extends script.systems.combat.combat_base {
     }
 
     public int melee2hLunge2(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!precuWeaponOk(self, WEAPON_TYPE_2HAND_MELEE, -1)) {
+            return SCRIPT_OVERRIDE;
+        }
         if (!combatStandardAction("melee2hLunge2", self, target, params, "", "")) {
             return SCRIPT_OVERRIDE;
         }
@@ -13613,6 +13901,9 @@ public class combat_actions extends script.systems.combat.combat_base {
     }
 
     public int melee2hMindHit1(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!precuWeaponOk(self, WEAPON_TYPE_2HAND_MELEE, -1)) {
+            return SCRIPT_OVERRIDE;
+        }
         if (!combatStandardAction("melee2hMindHit1", self, target, params, "", "")) {
             return SCRIPT_OVERRIDE;
         }
@@ -13620,6 +13911,9 @@ public class combat_actions extends script.systems.combat.combat_base {
     }
 
     public int melee2hMindHit2(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!precuWeaponOk(self, WEAPON_TYPE_2HAND_MELEE, -1)) {
+            return SCRIPT_OVERRIDE;
+        }
         if (!combatStandardAction("melee2hMindHit2", self, target, params, "", "")) {
             return SCRIPT_OVERRIDE;
         }
@@ -13627,6 +13921,9 @@ public class combat_actions extends script.systems.combat.combat_base {
     }
 
     public int melee2hSpinAttack1(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!precuWeaponOk(self, WEAPON_TYPE_2HAND_MELEE, -1)) {
+            return SCRIPT_OVERRIDE;
+        }
         if (!combatStandardAction("melee2hSpinAttack1", self, target, params, "", "")) {
             return SCRIPT_OVERRIDE;
         }
@@ -13634,6 +13931,9 @@ public class combat_actions extends script.systems.combat.combat_base {
     }
 
     public int melee2hSpinAttack2(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!precuWeaponOk(self, WEAPON_TYPE_2HAND_MELEE, -1)) {
+            return SCRIPT_OVERRIDE;
+        }
         if (!combatStandardAction("melee2hSpinAttack2", self, target, params, "", "")) {
             return SCRIPT_OVERRIDE;
         }
@@ -13641,6 +13941,9 @@ public class combat_actions extends script.systems.combat.combat_base {
     }
 
     public int melee2hSweep1(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!precuWeaponOk(self, WEAPON_TYPE_2HAND_MELEE, -1)) {
+            return SCRIPT_OVERRIDE;
+        }
         if (!combatStandardAction("melee2hSweep1", self, target, params, "", "")) {
             return SCRIPT_OVERRIDE;
         }
@@ -13648,6 +13951,9 @@ public class combat_actions extends script.systems.combat.combat_base {
     }
 
     public int melee2hSweep2(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!precuWeaponOk(self, WEAPON_TYPE_2HAND_MELEE, -1)) {
+            return SCRIPT_OVERRIDE;
+        }
         if (!combatStandardAction("melee2hSweep2", self, target, params, "", "")) {
             return SCRIPT_OVERRIDE;
         }
@@ -13669,6 +13975,9 @@ public class combat_actions extends script.systems.combat.combat_base {
     }
 
     public int mindBlast1(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!precuWeaponOk(self, -1, combat.MELEE_WEAPON)) {
+            return SCRIPT_OVERRIDE;
+        }
         if (!combatStandardAction("mindBlast1", self, target, params, "", "")) {
             return SCRIPT_OVERRIDE;
         }
@@ -13676,6 +13985,9 @@ public class combat_actions extends script.systems.combat.combat_base {
     }
 
     public int mindBlast2(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!precuWeaponOk(self, -1, combat.MELEE_WEAPON)) {
+            return SCRIPT_OVERRIDE;
+        }
         if (!combatStandardAction("mindBlast2", self, target, params, "", "")) {
             return SCRIPT_OVERRIDE;
         }
@@ -13683,6 +13995,9 @@ public class combat_actions extends script.systems.combat.combat_base {
     }
 
     public int mindShot1(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!precuWeaponOk(self, WEAPON_TYPE_RIFLE, -1)) {
+            return SCRIPT_OVERRIDE;
+        }
         if (!combatStandardAction("mindShot1", self, target, params, "", "")) {
             return SCRIPT_OVERRIDE;
         }
@@ -13690,6 +14005,9 @@ public class combat_actions extends script.systems.combat.combat_base {
     }
 
     public int mindShot2(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!precuWeaponOk(self, WEAPON_TYPE_RIFLE, -1)) {
+            return SCRIPT_OVERRIDE;
+        }
         if (!combatStandardAction("mindShot2", self, target, params, "", "")) {
             return SCRIPT_OVERRIDE;
         }
@@ -13697,6 +14015,9 @@ public class combat_actions extends script.systems.combat.combat_base {
     }
 
     public int multiTargetPistolShot(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!precuWeaponOk(self, WEAPON_TYPE_PISTOL, -1)) {
+            return SCRIPT_OVERRIDE;
+        }
         if (!combatStandardAction("multiTargetPistolShot", self, target, params, "", "")) {
             return SCRIPT_OVERRIDE;
         }
@@ -13704,6 +14025,9 @@ public class combat_actions extends script.systems.combat.combat_base {
     }
 
     public int overChargeShot1(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!precuWeaponOk(self, WEAPON_TYPE_RIFLE, -1)) {
+            return SCRIPT_OVERRIDE;
+        }
         if (!combatStandardAction("overChargeShot1", self, target, params, "", "")) {
             return SCRIPT_OVERRIDE;
         }
@@ -13711,6 +14035,9 @@ public class combat_actions extends script.systems.combat.combat_base {
     }
 
     public int overChargeShot2(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!precuWeaponOk(self, WEAPON_TYPE_RIFLE, -1)) {
+            return SCRIPT_OVERRIDE;
+        }
         if (!combatStandardAction("overChargeShot2", self, target, params, "", "")) {
             return SCRIPT_OVERRIDE;
         }
@@ -13725,6 +14052,9 @@ public class combat_actions extends script.systems.combat.combat_base {
     }
 
     public int pistolMeleeDefense1(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!precuWeaponOk(self, WEAPON_TYPE_PISTOL, -1)) {
+            return SCRIPT_OVERRIDE;
+        }
         if (!combatStandardAction("pistolMeleeDefense1", self, target, params, "", "")) {
             return SCRIPT_OVERRIDE;
         }
@@ -13732,6 +14062,9 @@ public class combat_actions extends script.systems.combat.combat_base {
     }
 
     public int pistolMeleeDefense2(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!precuWeaponOk(self, WEAPON_TYPE_PISTOL, -1)) {
+            return SCRIPT_OVERRIDE;
+        }
         if (!combatStandardAction("pistolMeleeDefense2", self, target, params, "", "")) {
             return SCRIPT_OVERRIDE;
         }
@@ -13739,6 +14072,9 @@ public class combat_actions extends script.systems.combat.combat_base {
     }
 
     public int pointBlankArea1(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!precuWeaponOk(self, WEAPON_TYPE_PISTOL, -1)) {
+            return SCRIPT_OVERRIDE;
+        }
         if (!combatStandardAction("pointBlankArea1", self, target, params, "", "")) {
             return SCRIPT_OVERRIDE;
         }
@@ -13746,6 +14082,9 @@ public class combat_actions extends script.systems.combat.combat_base {
     }
 
     public int pointBlankArea2(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!precuWeaponOk(self, WEAPON_TYPE_PISTOL, -1)) {
+            return SCRIPT_OVERRIDE;
+        }
         if (!combatStandardAction("pointBlankArea2", self, target, params, "", "")) {
             return SCRIPT_OVERRIDE;
         }
@@ -13753,6 +14092,9 @@ public class combat_actions extends script.systems.combat.combat_base {
     }
 
     public int pointBlankSingle1(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!precuWeaponOk(self, WEAPON_TYPE_PISTOL, -1)) {
+            return SCRIPT_OVERRIDE;
+        }
         if (!combatStandardAction("pointBlankSingle1", self, target, params, "", "")) {
             return SCRIPT_OVERRIDE;
         }
@@ -13760,6 +14102,9 @@ public class combat_actions extends script.systems.combat.combat_base {
     }
 
     public int pointBlankSingle2(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!precuWeaponOk(self, WEAPON_TYPE_PISTOL, -1)) {
+            return SCRIPT_OVERRIDE;
+        }
         if (!combatStandardAction("pointBlankSingle2", self, target, params, "", "")) {
             return SCRIPT_OVERRIDE;
         }
@@ -13767,6 +14112,9 @@ public class combat_actions extends script.systems.combat.combat_base {
     }
 
     public int polearmActionHit1(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!precuWeaponOk(self, WEAPON_TYPE_POLEARM, -1)) {
+            return SCRIPT_OVERRIDE;
+        }
         if (!combatStandardAction("polearmActionHit1", self, target, params, "", "")) {
             return SCRIPT_OVERRIDE;
         }
@@ -13774,6 +14122,9 @@ public class combat_actions extends script.systems.combat.combat_base {
     }
 
     public int polearmActionHit2(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!precuWeaponOk(self, WEAPON_TYPE_POLEARM, -1)) {
+            return SCRIPT_OVERRIDE;
+        }
         if (!combatStandardAction("polearmActionHit2", self, target, params, "", "")) {
             return SCRIPT_OVERRIDE;
         }
@@ -13781,6 +14132,9 @@ public class combat_actions extends script.systems.combat.combat_base {
     }
 
     public int polearmArea1(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!precuWeaponOk(self, WEAPON_TYPE_POLEARM, -1)) {
+            return SCRIPT_OVERRIDE;
+        }
         if (!combatStandardAction("polearmArea1", self, target, params, "", "")) {
             return SCRIPT_OVERRIDE;
         }
@@ -13788,6 +14142,9 @@ public class combat_actions extends script.systems.combat.combat_base {
     }
 
     public int polearmArea2(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!precuWeaponOk(self, WEAPON_TYPE_POLEARM, -1)) {
+            return SCRIPT_OVERRIDE;
+        }
         if (!combatStandardAction("polearmArea2", self, target, params, "", "")) {
             return SCRIPT_OVERRIDE;
         }
@@ -13795,6 +14152,9 @@ public class combat_actions extends script.systems.combat.combat_base {
     }
 
     public int polearmHit1(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!precuWeaponOk(self, WEAPON_TYPE_POLEARM, -1)) {
+            return SCRIPT_OVERRIDE;
+        }
         if (!combatStandardAction("polearmHit1", self, target, params, "", "")) {
             return SCRIPT_OVERRIDE;
         }
@@ -13802,6 +14162,9 @@ public class combat_actions extends script.systems.combat.combat_base {
     }
 
     public int polearmHit2(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!precuWeaponOk(self, WEAPON_TYPE_POLEARM, -1)) {
+            return SCRIPT_OVERRIDE;
+        }
         if (!combatStandardAction("polearmHit2", self, target, params, "", "")) {
             return SCRIPT_OVERRIDE;
         }
@@ -13809,6 +14172,9 @@ public class combat_actions extends script.systems.combat.combat_base {
     }
 
     public int polearmHit3(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!precuWeaponOk(self, WEAPON_TYPE_POLEARM, -1)) {
+            return SCRIPT_OVERRIDE;
+        }
         if (!combatStandardAction("polearmHit3", self, target, params, "", "")) {
             return SCRIPT_OVERRIDE;
         }
@@ -13816,6 +14182,9 @@ public class combat_actions extends script.systems.combat.combat_base {
     }
 
     public int polearmLegHit1(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!precuWeaponOk(self, WEAPON_TYPE_POLEARM, -1)) {
+            return SCRIPT_OVERRIDE;
+        }
         if (!combatStandardAction("polearmLegHit1", self, target, params, "", "")) {
             return SCRIPT_OVERRIDE;
         }
@@ -13823,6 +14192,9 @@ public class combat_actions extends script.systems.combat.combat_base {
     }
 
     public int polearmLegHit2(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!precuWeaponOk(self, WEAPON_TYPE_POLEARM, -1)) {
+            return SCRIPT_OVERRIDE;
+        }
         if (!combatStandardAction("polearmLegHit2", self, target, params, "", "")) {
             return SCRIPT_OVERRIDE;
         }
@@ -13830,6 +14202,9 @@ public class combat_actions extends script.systems.combat.combat_base {
     }
 
     public int polearmLegHit3(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!precuWeaponOk(self, WEAPON_TYPE_POLEARM, -1)) {
+            return SCRIPT_OVERRIDE;
+        }
         if (!combatStandardAction("polearmLegHit3", self, target, params, "", "")) {
             return SCRIPT_OVERRIDE;
         }
@@ -13837,6 +14212,9 @@ public class combat_actions extends script.systems.combat.combat_base {
     }
 
     public int polearmLunge1(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!precuWeaponOk(self, WEAPON_TYPE_POLEARM, -1)) {
+            return SCRIPT_OVERRIDE;
+        }
         if (!combatStandardAction("polearmLunge1", self, target, params, "", "")) {
             return SCRIPT_OVERRIDE;
         }
@@ -13844,6 +14222,9 @@ public class combat_actions extends script.systems.combat.combat_base {
     }
 
     public int polearmLunge2(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!precuWeaponOk(self, WEAPON_TYPE_POLEARM, -1)) {
+            return SCRIPT_OVERRIDE;
+        }
         if (!combatStandardAction("polearmLunge2", self, target, params, "", "")) {
             return SCRIPT_OVERRIDE;
         }
@@ -13851,6 +14232,9 @@ public class combat_actions extends script.systems.combat.combat_base {
     }
 
     public int polearmSpinAttack1(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!precuWeaponOk(self, WEAPON_TYPE_POLEARM, -1)) {
+            return SCRIPT_OVERRIDE;
+        }
         if (!combatStandardAction("polearmSpinAttack1", self, target, params, "", "")) {
             return SCRIPT_OVERRIDE;
         }
@@ -13858,6 +14242,9 @@ public class combat_actions extends script.systems.combat.combat_base {
     }
 
     public int polearmSpinAttack2(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!precuWeaponOk(self, WEAPON_TYPE_POLEARM, -1)) {
+            return SCRIPT_OVERRIDE;
+        }
         if (!combatStandardAction("polearmSpinAttack2", self, target, params, "", "")) {
             return SCRIPT_OVERRIDE;
         }
@@ -13865,6 +14252,9 @@ public class combat_actions extends script.systems.combat.combat_base {
     }
 
     public int polearmStun1(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!precuWeaponOk(self, WEAPON_TYPE_POLEARM, -1)) {
+            return SCRIPT_OVERRIDE;
+        }
         if (!combatStandardAction("polearmStun1", self, target, params, "", "")) {
             return SCRIPT_OVERRIDE;
         }
@@ -13872,6 +14262,9 @@ public class combat_actions extends script.systems.combat.combat_base {
     }
 
     public int polearmStun2(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!precuWeaponOk(self, WEAPON_TYPE_POLEARM, -1)) {
+            return SCRIPT_OVERRIDE;
+        }
         if (!combatStandardAction("polearmStun2", self, target, params, "", "")) {
             return SCRIPT_OVERRIDE;
         }
@@ -13879,6 +14272,9 @@ public class combat_actions extends script.systems.combat.combat_base {
     }
 
     public int polearmSweep1(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!precuWeaponOk(self, WEAPON_TYPE_POLEARM, -1)) {
+            return SCRIPT_OVERRIDE;
+        }
         if (!combatStandardAction("polearmSweep1", self, target, params, "", "")) {
             return SCRIPT_OVERRIDE;
         }
@@ -13886,6 +14282,9 @@ public class combat_actions extends script.systems.combat.combat_base {
     }
 
     public int polearmSweep2(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!precuWeaponOk(self, WEAPON_TYPE_POLEARM, -1)) {
+            return SCRIPT_OVERRIDE;
+        }
         if (!combatStandardAction("polearmSweep2", self, target, params, "", "")) {
             return SCRIPT_OVERRIDE;
         }
@@ -13914,6 +14313,9 @@ public class combat_actions extends script.systems.combat.combat_base {
     }
 
     public int rollShot(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!precuWeaponOk(self, WEAPON_TYPE_PISTOL, -1)) {
+            return SCRIPT_OVERRIDE;
+        }
         if (!combatStandardAction("rollShot", self, target, params, "", "")) {
             return SCRIPT_OVERRIDE;
         }
@@ -13921,6 +14323,9 @@ public class combat_actions extends script.systems.combat.combat_base {
     }
 
     public int saber1hComboHit1(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!precuWeaponOk(self, WEAPON_TYPE_WT_1HAND_LIGHTSABER, -1)) {
+            return SCRIPT_OVERRIDE;
+        }
         if (!combatStandardAction("saber1hComboHit1", self, target, params, "", "")) {
             return SCRIPT_OVERRIDE;
         }
@@ -13928,6 +14333,9 @@ public class combat_actions extends script.systems.combat.combat_base {
     }
 
     public int saber1hComboHit2(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!precuWeaponOk(self, WEAPON_TYPE_WT_1HAND_LIGHTSABER, -1)) {
+            return SCRIPT_OVERRIDE;
+        }
         if (!combatStandardAction("saber1hComboHit2", self, target, params, "", "")) {
             return SCRIPT_OVERRIDE;
         }
@@ -13935,6 +14343,9 @@ public class combat_actions extends script.systems.combat.combat_base {
     }
 
     public int saber1hComboHit3(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!precuWeaponOk(self, WEAPON_TYPE_WT_1HAND_LIGHTSABER, -1)) {
+            return SCRIPT_OVERRIDE;
+        }
         if (!combatStandardAction("saber1hComboHit3", self, target, params, "", "")) {
             return SCRIPT_OVERRIDE;
         }
@@ -13942,6 +14353,9 @@ public class combat_actions extends script.systems.combat.combat_base {
     }
 
     public int saber1hFlurry2(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!precuWeaponOk(self, WEAPON_TYPE_WT_1HAND_LIGHTSABER, -1)) {
+            return SCRIPT_OVERRIDE;
+        }
         if (!combatStandardAction("saber1hFlurry2", self, target, params, "", "")) {
             return SCRIPT_OVERRIDE;
         }
@@ -13949,6 +14363,9 @@ public class combat_actions extends script.systems.combat.combat_base {
     }
 
     public int saber1hFlurry(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!precuWeaponOk(self, WEAPON_TYPE_WT_1HAND_LIGHTSABER, -1)) {
+            return SCRIPT_OVERRIDE;
+        }
         if (!combatStandardAction("saber1hFlurry", self, target, params, "", "")) {
             return SCRIPT_OVERRIDE;
         }
@@ -13956,6 +14373,9 @@ public class combat_actions extends script.systems.combat.combat_base {
     }
 
     public int saber1hHeadHit1(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!precuWeaponOk(self, WEAPON_TYPE_WT_1HAND_LIGHTSABER, -1)) {
+            return SCRIPT_OVERRIDE;
+        }
         if (!combatStandardAction("saber1hHeadHit1", self, target, params, "", "")) {
             return SCRIPT_OVERRIDE;
         }
@@ -13963,6 +14383,9 @@ public class combat_actions extends script.systems.combat.combat_base {
     }
 
     public int saber1hHeadHit2(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!precuWeaponOk(self, WEAPON_TYPE_WT_1HAND_LIGHTSABER, -1)) {
+            return SCRIPT_OVERRIDE;
+        }
         if (!combatStandardAction("saber1hHeadHit2", self, target, params, "", "")) {
             return SCRIPT_OVERRIDE;
         }
@@ -13970,6 +14393,9 @@ public class combat_actions extends script.systems.combat.combat_base {
     }
 
     public int saber1hHeadHit3(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!precuWeaponOk(self, WEAPON_TYPE_WT_1HAND_LIGHTSABER, -1)) {
+            return SCRIPT_OVERRIDE;
+        }
         if (!combatStandardAction("saber1hHeadHit3", self, target, params, "", "")) {
             return SCRIPT_OVERRIDE;
         }
@@ -13977,6 +14403,9 @@ public class combat_actions extends script.systems.combat.combat_base {
     }
 
     public int saber1hHit1(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!precuWeaponOk(self, WEAPON_TYPE_WT_1HAND_LIGHTSABER, -1)) {
+            return SCRIPT_OVERRIDE;
+        }
         if (!combatStandardAction("saber1hHit1", self, target, params, "", "")) {
             return SCRIPT_OVERRIDE;
         }
@@ -13984,6 +14413,9 @@ public class combat_actions extends script.systems.combat.combat_base {
     }
 
     public int saber1hHit2(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!precuWeaponOk(self, WEAPON_TYPE_WT_1HAND_LIGHTSABER, -1)) {
+            return SCRIPT_OVERRIDE;
+        }
         if (!combatStandardAction("saber1hHit2", self, target, params, "", "")) {
             return SCRIPT_OVERRIDE;
         }
@@ -13991,6 +14423,9 @@ public class combat_actions extends script.systems.combat.combat_base {
     }
 
     public int saber1hHit3(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!precuWeaponOk(self, WEAPON_TYPE_WT_1HAND_LIGHTSABER, -1)) {
+            return SCRIPT_OVERRIDE;
+        }
         if (!combatStandardAction("saber1hHit3", self, target, params, "", "")) {
             return SCRIPT_OVERRIDE;
         }
@@ -13998,6 +14433,9 @@ public class combat_actions extends script.systems.combat.combat_base {
     }
 
     public int saber2hBodyHit1(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!precuWeaponOk(self, WEAPON_TYPE_WT_2HAND_LIGHTSABER, -1)) {
+            return SCRIPT_OVERRIDE;
+        }
         if (!combatStandardAction("saber2hBodyHit1", self, target, params, "", "")) {
             return SCRIPT_OVERRIDE;
         }
@@ -14005,6 +14443,9 @@ public class combat_actions extends script.systems.combat.combat_base {
     }
 
     public int saber2hBodyHit2(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!precuWeaponOk(self, WEAPON_TYPE_WT_2HAND_LIGHTSABER, -1)) {
+            return SCRIPT_OVERRIDE;
+        }
         if (!combatStandardAction("saber2hBodyHit2", self, target, params, "", "")) {
             return SCRIPT_OVERRIDE;
         }
@@ -14012,6 +14453,9 @@ public class combat_actions extends script.systems.combat.combat_base {
     }
 
     public int saber2hBodyHit3(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!precuWeaponOk(self, WEAPON_TYPE_WT_2HAND_LIGHTSABER, -1)) {
+            return SCRIPT_OVERRIDE;
+        }
         if (!combatStandardAction("saber2hBodyHit3", self, target, params, "", "")) {
             return SCRIPT_OVERRIDE;
         }
@@ -14019,6 +14463,9 @@ public class combat_actions extends script.systems.combat.combat_base {
     }
 
     public int saber2hFrenzy(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!precuWeaponOk(self, WEAPON_TYPE_WT_2HAND_LIGHTSABER, -1)) {
+            return SCRIPT_OVERRIDE;
+        }
         if (!combatStandardAction("saber2hFrenzy", self, target, params, "", "")) {
             return SCRIPT_OVERRIDE;
         }
@@ -14026,6 +14473,9 @@ public class combat_actions extends script.systems.combat.combat_base {
     }
 
     public int saber2hHit1(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!precuWeaponOk(self, WEAPON_TYPE_WT_2HAND_LIGHTSABER, -1)) {
+            return SCRIPT_OVERRIDE;
+        }
         if (!combatStandardAction("saber2hHit1", self, target, params, "", "")) {
             return SCRIPT_OVERRIDE;
         }
@@ -14033,6 +14483,9 @@ public class combat_actions extends script.systems.combat.combat_base {
     }
 
     public int saber2hHit2(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!precuWeaponOk(self, WEAPON_TYPE_WT_2HAND_LIGHTSABER, -1)) {
+            return SCRIPT_OVERRIDE;
+        }
         if (!combatStandardAction("saber2hHit2", self, target, params, "", "")) {
             return SCRIPT_OVERRIDE;
         }
@@ -14040,6 +14493,9 @@ public class combat_actions extends script.systems.combat.combat_base {
     }
 
     public int saber2hHit3(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!precuWeaponOk(self, WEAPON_TYPE_WT_2HAND_LIGHTSABER, -1)) {
+            return SCRIPT_OVERRIDE;
+        }
         if (!combatStandardAction("saber2hHit3", self, target, params, "", "")) {
             return SCRIPT_OVERRIDE;
         }
@@ -14047,6 +14503,9 @@ public class combat_actions extends script.systems.combat.combat_base {
     }
 
     public int saber2hPhantom(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!precuWeaponOk(self, WEAPON_TYPE_WT_2HAND_LIGHTSABER, -1)) {
+            return SCRIPT_OVERRIDE;
+        }
         if (!combatStandardAction("saber2hPhantom", self, target, params, "", "")) {
             return SCRIPT_OVERRIDE;
         }
@@ -14054,6 +14513,9 @@ public class combat_actions extends script.systems.combat.combat_base {
     }
 
     public int saber2hSweep1(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!precuWeaponOk(self, WEAPON_TYPE_WT_2HAND_LIGHTSABER, -1)) {
+            return SCRIPT_OVERRIDE;
+        }
         if (!combatStandardAction("saber2hSweep1", self, target, params, "", "")) {
             return SCRIPT_OVERRIDE;
         }
@@ -14061,6 +14523,9 @@ public class combat_actions extends script.systems.combat.combat_base {
     }
 
     public int saber2hSweep2(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!precuWeaponOk(self, WEAPON_TYPE_WT_2HAND_LIGHTSABER, -1)) {
+            return SCRIPT_OVERRIDE;
+        }
         if (!combatStandardAction("saber2hSweep2", self, target, params, "", "")) {
             return SCRIPT_OVERRIDE;
         }
@@ -14068,6 +14533,9 @@ public class combat_actions extends script.systems.combat.combat_base {
     }
 
     public int saber2hSweep3(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!precuWeaponOk(self, WEAPON_TYPE_WT_2HAND_LIGHTSABER, -1)) {
+            return SCRIPT_OVERRIDE;
+        }
         if (!combatStandardAction("saber2hSweep3", self, target, params, "", "")) {
             return SCRIPT_OVERRIDE;
         }
@@ -14075,6 +14543,9 @@ public class combat_actions extends script.systems.combat.combat_base {
     }
 
     public int saberPolearmDervish2(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!precuWeaponOk(self, WEAPON_TYPE_WT_POLEARM_LIGHTSABER, -1)) {
+            return SCRIPT_OVERRIDE;
+        }
         if (!combatStandardAction("saberPolearmDervish2", self, target, params, "", "")) {
             return SCRIPT_OVERRIDE;
         }
@@ -14082,6 +14553,9 @@ public class combat_actions extends script.systems.combat.combat_base {
     }
 
     public int saberPolearmDervish(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!precuWeaponOk(self, WEAPON_TYPE_WT_POLEARM_LIGHTSABER, -1)) {
+            return SCRIPT_OVERRIDE;
+        }
         if (!combatStandardAction("saberPolearmDervish", self, target, params, "", "")) {
             return SCRIPT_OVERRIDE;
         }
@@ -14089,6 +14563,9 @@ public class combat_actions extends script.systems.combat.combat_base {
     }
 
     public int saberPolearmHit1(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!precuWeaponOk(self, WEAPON_TYPE_WT_POLEARM_LIGHTSABER, -1)) {
+            return SCRIPT_OVERRIDE;
+        }
         if (!combatStandardAction("saberPolearmHit1", self, target, params, "", "")) {
             return SCRIPT_OVERRIDE;
         }
@@ -14096,6 +14573,9 @@ public class combat_actions extends script.systems.combat.combat_base {
     }
 
     public int saberPolearmHit2(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!precuWeaponOk(self, WEAPON_TYPE_WT_POLEARM_LIGHTSABER, -1)) {
+            return SCRIPT_OVERRIDE;
+        }
         if (!combatStandardAction("saberPolearmHit2", self, target, params, "", "")) {
             return SCRIPT_OVERRIDE;
         }
@@ -14103,6 +14583,9 @@ public class combat_actions extends script.systems.combat.combat_base {
     }
 
     public int saberPolearmHit3(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!precuWeaponOk(self, WEAPON_TYPE_WT_POLEARM_LIGHTSABER, -1)) {
+            return SCRIPT_OVERRIDE;
+        }
         if (!combatStandardAction("saberPolearmHit3", self, target, params, "", "")) {
             return SCRIPT_OVERRIDE;
         }
@@ -14110,6 +14593,9 @@ public class combat_actions extends script.systems.combat.combat_base {
     }
 
     public int saberPolearmLegHit1(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!precuWeaponOk(self, WEAPON_TYPE_WT_POLEARM_LIGHTSABER, -1)) {
+            return SCRIPT_OVERRIDE;
+        }
         if (!combatStandardAction("saberPolearmLegHit1", self, target, params, "", "")) {
             return SCRIPT_OVERRIDE;
         }
@@ -14117,6 +14603,9 @@ public class combat_actions extends script.systems.combat.combat_base {
     }
 
     public int saberPolearmLegHit2(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!precuWeaponOk(self, WEAPON_TYPE_WT_POLEARM_LIGHTSABER, -1)) {
+            return SCRIPT_OVERRIDE;
+        }
         if (!combatStandardAction("saberPolearmLegHit2", self, target, params, "", "")) {
             return SCRIPT_OVERRIDE;
         }
@@ -14124,6 +14613,9 @@ public class combat_actions extends script.systems.combat.combat_base {
     }
 
     public int saberPolearmLegHit3(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!precuWeaponOk(self, WEAPON_TYPE_WT_POLEARM_LIGHTSABER, -1)) {
+            return SCRIPT_OVERRIDE;
+        }
         if (!combatStandardAction("saberPolearmLegHit3", self, target, params, "", "")) {
             return SCRIPT_OVERRIDE;
         }
@@ -14131,6 +14623,9 @@ public class combat_actions extends script.systems.combat.combat_base {
     }
 
     public int saberPolearmSpinAttack1(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!precuWeaponOk(self, WEAPON_TYPE_WT_POLEARM_LIGHTSABER, -1)) {
+            return SCRIPT_OVERRIDE;
+        }
         if (!combatStandardAction("saberPolearmSpinAttack1", self, target, params, "", "")) {
             return SCRIPT_OVERRIDE;
         }
@@ -14138,6 +14633,9 @@ public class combat_actions extends script.systems.combat.combat_base {
     }
 
     public int saberPolearmSpinAttack2(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!precuWeaponOk(self, WEAPON_TYPE_WT_POLEARM_LIGHTSABER, -1)) {
+            return SCRIPT_OVERRIDE;
+        }
         if (!combatStandardAction("saberPolearmSpinAttack2", self, target, params, "", "")) {
             return SCRIPT_OVERRIDE;
         }
@@ -14145,6 +14643,9 @@ public class combat_actions extends script.systems.combat.combat_base {
     }
 
     public int saberPolearmSpinAttack3(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!precuWeaponOk(self, WEAPON_TYPE_WT_POLEARM_LIGHTSABER, -1)) {
+            return SCRIPT_OVERRIDE;
+        }
         if (!combatStandardAction("saberPolearmSpinAttack3", self, target, params, "", "")) {
             return SCRIPT_OVERRIDE;
         }
@@ -14152,6 +14653,9 @@ public class combat_actions extends script.systems.combat.combat_base {
     }
 
     public int saberSlash1(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!precuWeaponOk(self, WEAPON_TYPE_WT_1HAND_LIGHTSABER, -1)) {
+            return SCRIPT_OVERRIDE;
+        }
         if (!combatStandardAction("saberSlash1", self, target, params, "", "")) {
             return SCRIPT_OVERRIDE;
         }
@@ -14159,6 +14663,9 @@ public class combat_actions extends script.systems.combat.combat_base {
     }
 
     public int saberSlash2(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!precuWeaponOk(self, WEAPON_TYPE_WT_1HAND_LIGHTSABER, -1)) {
+            return SCRIPT_OVERRIDE;
+        }
         if (!combatStandardAction("saberSlash2", self, target, params, "", "")) {
             return SCRIPT_OVERRIDE;
         }
@@ -14166,6 +14673,9 @@ public class combat_actions extends script.systems.combat.combat_base {
     }
 
     public int saberThrow1(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!precuWeaponOk(self, WEAPON_TYPE_WT_1HAND_LIGHTSABER, -1)) {
+            return SCRIPT_OVERRIDE;
+        }
         if (!combatStandardAction("saberThrow1", self, target, params, "", "")) {
             return SCRIPT_OVERRIDE;
         }
@@ -14173,6 +14683,9 @@ public class combat_actions extends script.systems.combat.combat_base {
     }
 
     public int saberThrow2(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!precuWeaponOk(self, WEAPON_TYPE_WT_1HAND_LIGHTSABER, -1)) {
+            return SCRIPT_OVERRIDE;
+        }
         if (!combatStandardAction("saberThrow2", self, target, params, "", "")) {
             return SCRIPT_OVERRIDE;
         }
@@ -14180,6 +14693,9 @@ public class combat_actions extends script.systems.combat.combat_base {
     }
 
     public int saberThrow3(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!precuWeaponOk(self, WEAPON_TYPE_WT_1HAND_LIGHTSABER, -1)) {
+            return SCRIPT_OVERRIDE;
+        }
         if (!combatStandardAction("saberThrow3", self, target, params, "", "")) {
             return SCRIPT_OVERRIDE;
         }
@@ -14187,6 +14703,9 @@ public class combat_actions extends script.systems.combat.combat_base {
     }
 
     public int scatterShot1(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!precuWeaponOk(self, WEAPON_TYPE_LIGHT_RIFLE, -1)) {
+            return SCRIPT_OVERRIDE;
+        }
         if (!combatStandardAction("scatterShot1", self, target, params, "", "")) {
             return SCRIPT_OVERRIDE;
         }
@@ -14194,6 +14713,9 @@ public class combat_actions extends script.systems.combat.combat_base {
     }
 
     public int scatterShot2(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!precuWeaponOk(self, WEAPON_TYPE_LIGHT_RIFLE, -1)) {
+            return SCRIPT_OVERRIDE;
+        }
         if (!combatStandardAction("scatterShot2", self, target, params, "", "")) {
             return SCRIPT_OVERRIDE;
         }
@@ -14201,6 +14723,9 @@ public class combat_actions extends script.systems.combat.combat_base {
     }
 
     public int sniperShot(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!precuWeaponOk(self, WEAPON_TYPE_RIFLE, -1)) {
+            return SCRIPT_OVERRIDE;
+        }
         if (!combatStandardAction("sniperShot", self, target, params, "", "")) {
             return SCRIPT_OVERRIDE;
         }
@@ -14208,6 +14733,9 @@ public class combat_actions extends script.systems.combat.combat_base {
     }
 
     public int sprayShot(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!precuWeaponOk(self, WEAPON_TYPE_RIFLE, -1)) {
+            return SCRIPT_OVERRIDE;
+        }
         if (!combatStandardAction("sprayShot", self, target, params, "", "")) {
             return SCRIPT_OVERRIDE;
         }
@@ -14215,6 +14743,9 @@ public class combat_actions extends script.systems.combat.combat_base {
     }
 
     public int startleShot1(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!precuWeaponOk(self, WEAPON_TYPE_RIFLE, -1)) {
+            return SCRIPT_OVERRIDE;
+        }
         if (!combatStandardAction("startleShot1", self, target, params, "", "")) {
             return SCRIPT_OVERRIDE;
         }
@@ -14222,6 +14753,9 @@ public class combat_actions extends script.systems.combat.combat_base {
     }
 
     public int startleShot2(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!precuWeaponOk(self, WEAPON_TYPE_RIFLE, -1)) {
+            return SCRIPT_OVERRIDE;
+        }
         if (!combatStandardAction("startleShot2", self, target, params, "", "")) {
             return SCRIPT_OVERRIDE;
         }
@@ -14236,6 +14770,9 @@ public class combat_actions extends script.systems.combat.combat_base {
     }
 
     public int stoppingShot(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!precuWeaponOk(self, WEAPON_TYPE_PISTOL, -1)) {
+            return SCRIPT_OVERRIDE;
+        }
         if (!combatStandardAction("stoppingShot", self, target, params, "", "")) {
             return SCRIPT_OVERRIDE;
         }
@@ -14243,6 +14780,9 @@ public class combat_actions extends script.systems.combat.combat_base {
     }
 
     public int strafeShot1(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!precuWeaponOk(self, WEAPON_TYPE_RIFLE, -1)) {
+            return SCRIPT_OVERRIDE;
+        }
         if (!combatStandardAction("strafeShot1", self, target, params, "", "")) {
             return SCRIPT_OVERRIDE;
         }
@@ -14250,6 +14790,9 @@ public class combat_actions extends script.systems.combat.combat_base {
     }
 
     public int strafeShot2(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!precuWeaponOk(self, WEAPON_TYPE_RIFLE, -1)) {
+            return SCRIPT_OVERRIDE;
+        }
         if (!combatStandardAction("strafeShot2", self, target, params, "", "")) {
             return SCRIPT_OVERRIDE;
         }
@@ -14278,6 +14821,9 @@ public class combat_actions extends script.systems.combat.combat_base {
     }
 
     public int suppressionFire1(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!precuWeaponOk(self, WEAPON_TYPE_LIGHT_RIFLE, -1)) {
+            return SCRIPT_OVERRIDE;
+        }
         if (!combatStandardAction("suppressionFire1", self, target, params, "", "")) {
             return SCRIPT_OVERRIDE;
         }
@@ -14285,6 +14831,9 @@ public class combat_actions extends script.systems.combat.combat_base {
     }
 
     public int suppressionFire2(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!precuWeaponOk(self, WEAPON_TYPE_LIGHT_RIFLE, -1)) {
+            return SCRIPT_OVERRIDE;
+        }
         if (!combatStandardAction("suppressionFire2", self, target, params, "", "")) {
             return SCRIPT_OVERRIDE;
         }
@@ -14292,6 +14841,9 @@ public class combat_actions extends script.systems.combat.combat_base {
     }
 
     public int surpriseShot(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!precuWeaponOk(self, WEAPON_TYPE_RIFLE, -1)) {
+            return SCRIPT_OVERRIDE;
+        }
         if (!combatStandardAction("surpriseShot", self, target, params, "", "")) {
             return SCRIPT_OVERRIDE;
         }
@@ -14299,6 +14851,9 @@ public class combat_actions extends script.systems.combat.combat_base {
     }
 
     public int threatenShot(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!precuWeaponOk(self, WEAPON_TYPE_RIFLE, -1)) {
+            return SCRIPT_OVERRIDE;
+        }
         if (!combatStandardAction("threatenShot", self, target, params, "", "")) {
             return SCRIPT_OVERRIDE;
         }
@@ -14306,6 +14861,9 @@ public class combat_actions extends script.systems.combat.combat_base {
     }
 
     public int torsoShot(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!precuWeaponOk(self, WEAPON_TYPE_PISTOL, -1)) {
+            return SCRIPT_OVERRIDE;
+        }
         if (!combatStandardAction("torsoShot", self, target, params, "", "")) {
             return SCRIPT_OVERRIDE;
         }
@@ -14341,6 +14899,9 @@ public class combat_actions extends script.systems.combat.combat_base {
     }
 
     public int unarmedBlind1(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!precuWeaponOk(self, WEAPON_TYPE_UNARMED, -1)) {
+            return SCRIPT_OVERRIDE;
+        }
         if (!combatStandardAction("unarmedBlind1", self, target, params, "", "")) {
             return SCRIPT_OVERRIDE;
         }
@@ -14348,6 +14909,9 @@ public class combat_actions extends script.systems.combat.combat_base {
     }
 
     public int unarmedBodyHit1(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!precuWeaponOk(self, WEAPON_TYPE_UNARMED, -1)) {
+            return SCRIPT_OVERRIDE;
+        }
         if (!combatStandardAction("unarmedBodyHit1", self, target, params, "", "")) {
             return SCRIPT_OVERRIDE;
         }
@@ -14355,6 +14919,9 @@ public class combat_actions extends script.systems.combat.combat_base {
     }
 
     public int unarmedCombo1(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!precuWeaponOk(self, WEAPON_TYPE_UNARMED, -1)) {
+            return SCRIPT_OVERRIDE;
+        }
         if (!combatStandardAction("unarmedCombo1", self, target, params, "", "")) {
             return SCRIPT_OVERRIDE;
         }
@@ -14362,6 +14929,9 @@ public class combat_actions extends script.systems.combat.combat_base {
     }
 
     public int unarmedCombo2(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!precuWeaponOk(self, WEAPON_TYPE_UNARMED, -1)) {
+            return SCRIPT_OVERRIDE;
+        }
         if (!combatStandardAction("unarmedCombo2", self, target, params, "", "")) {
             return SCRIPT_OVERRIDE;
         }
@@ -14369,6 +14939,9 @@ public class combat_actions extends script.systems.combat.combat_base {
     }
 
     public int unarmedDizzy1(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!precuWeaponOk(self, WEAPON_TYPE_UNARMED, -1)) {
+            return SCRIPT_OVERRIDE;
+        }
         if (!combatStandardAction("unarmedDizzy1", self, target, params, "", "")) {
             return SCRIPT_OVERRIDE;
         }
@@ -14376,6 +14949,9 @@ public class combat_actions extends script.systems.combat.combat_base {
     }
 
     public int unarmedHeadHit1(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!precuWeaponOk(self, WEAPON_TYPE_UNARMED, -1)) {
+            return SCRIPT_OVERRIDE;
+        }
         if (!combatStandardAction("unarmedHeadHit1", self, target, params, "", "")) {
             return SCRIPT_OVERRIDE;
         }
@@ -14383,6 +14959,9 @@ public class combat_actions extends script.systems.combat.combat_base {
     }
 
     public int unarmedHit1(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!precuWeaponOk(self, WEAPON_TYPE_UNARMED, -1)) {
+            return SCRIPT_OVERRIDE;
+        }
         if (!combatStandardAction("unarmedHit1", self, target, params, "", "")) {
             return SCRIPT_OVERRIDE;
         }
@@ -14390,6 +14969,9 @@ public class combat_actions extends script.systems.combat.combat_base {
     }
 
     public int unarmedHit2(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!precuWeaponOk(self, WEAPON_TYPE_UNARMED, -1)) {
+            return SCRIPT_OVERRIDE;
+        }
         if (!combatStandardAction("unarmedHit2", self, target, params, "", "")) {
             return SCRIPT_OVERRIDE;
         }
@@ -14397,6 +14979,9 @@ public class combat_actions extends script.systems.combat.combat_base {
     }
 
     public int unarmedHit3(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!precuWeaponOk(self, WEAPON_TYPE_UNARMED, -1)) {
+            return SCRIPT_OVERRIDE;
+        }
         if (!combatStandardAction("unarmedHit3", self, target, params, "", "")) {
             return SCRIPT_OVERRIDE;
         }
@@ -14404,6 +14989,9 @@ public class combat_actions extends script.systems.combat.combat_base {
     }
 
     public int unarmedKnockdown1(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!precuWeaponOk(self, WEAPON_TYPE_UNARMED, -1)) {
+            return SCRIPT_OVERRIDE;
+        }
         if (!combatStandardAction("unarmedKnockdown1", self, target, params, "", "")) {
             return SCRIPT_OVERRIDE;
         }
@@ -14411,6 +14999,9 @@ public class combat_actions extends script.systems.combat.combat_base {
     }
 
     public int unarmedKnockdown2(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!precuWeaponOk(self, WEAPON_TYPE_UNARMED, -1)) {
+            return SCRIPT_OVERRIDE;
+        }
         if (!combatStandardAction("unarmedKnockdown2", self, target, params, "", "")) {
             return SCRIPT_OVERRIDE;
         }
@@ -14418,6 +15009,9 @@ public class combat_actions extends script.systems.combat.combat_base {
     }
 
     public int unarmedLegHit1(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!precuWeaponOk(self, WEAPON_TYPE_UNARMED, -1)) {
+            return SCRIPT_OVERRIDE;
+        }
         if (!combatStandardAction("unarmedLegHit1", self, target, params, "", "")) {
             return SCRIPT_OVERRIDE;
         }
@@ -14425,6 +15019,9 @@ public class combat_actions extends script.systems.combat.combat_base {
     }
 
     public int unarmedLunge1(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!precuWeaponOk(self, WEAPON_TYPE_UNARMED, -1)) {
+            return SCRIPT_OVERRIDE;
+        }
         if (!combatStandardAction("unarmedLunge1", self, target, params, "", "")) {
             return SCRIPT_OVERRIDE;
         }
@@ -14432,6 +15029,9 @@ public class combat_actions extends script.systems.combat.combat_base {
     }
 
     public int unarmedLunge2(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!precuWeaponOk(self, WEAPON_TYPE_UNARMED, -1)) {
+            return SCRIPT_OVERRIDE;
+        }
         if (!combatStandardAction("unarmedLunge2", self, target, params, "", "")) {
             return SCRIPT_OVERRIDE;
         }
@@ -14439,6 +15039,9 @@ public class combat_actions extends script.systems.combat.combat_base {
     }
 
     public int unarmedSpinAttack1(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!precuWeaponOk(self, WEAPON_TYPE_UNARMED, -1)) {
+            return SCRIPT_OVERRIDE;
+        }
         if (!combatStandardAction("unarmedSpinAttack1", self, target, params, "", "")) {
             return SCRIPT_OVERRIDE;
         }
@@ -14446,6 +15049,9 @@ public class combat_actions extends script.systems.combat.combat_base {
     }
 
     public int unarmedSpinAttack2(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!precuWeaponOk(self, WEAPON_TYPE_UNARMED, -1)) {
+            return SCRIPT_OVERRIDE;
+        }
         if (!combatStandardAction("unarmedSpinAttack2", self, target, params, "", "")) {
             return SCRIPT_OVERRIDE;
         }
@@ -14453,6 +15059,9 @@ public class combat_actions extends script.systems.combat.combat_base {
     }
 
     public int unarmedStun1(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!precuWeaponOk(self, WEAPON_TYPE_UNARMED, -1)) {
+            return SCRIPT_OVERRIDE;
+        }
         if (!combatStandardAction("unarmedStun1", self, target, params, "", "")) {
             return SCRIPT_OVERRIDE;
         }
@@ -14460,6 +15069,9 @@ public class combat_actions extends script.systems.combat.combat_base {
     }
 
     public int underHandShot(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!precuWeaponOk(self, WEAPON_TYPE_PISTOL, -1)) {
+            return SCRIPT_OVERRIDE;
+        }
         if (!combatStandardAction("underHandShot", self, target, params, "", "")) {
             return SCRIPT_OVERRIDE;
         }
@@ -14495,6 +15107,9 @@ public class combat_actions extends script.systems.combat.combat_base {
     }
 
     public int warningShot(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!precuWeaponOk(self, WEAPON_TYPE_RIFLE, -1)) {
+            return SCRIPT_OVERRIDE;
+        }
         if (!combatStandardAction("warningShot", self, target, params, "", "")) {
             return SCRIPT_OVERRIDE;
         }
@@ -14502,6 +15117,9 @@ public class combat_actions extends script.systems.combat.combat_base {
     }
 
     public int wildShot1(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!precuWeaponOk(self, WEAPON_TYPE_RIFLE, -1)) {
+            return SCRIPT_OVERRIDE;
+        }
         if (!combatStandardAction("wildShot1", self, target, params, "", "")) {
             return SCRIPT_OVERRIDE;
         }
@@ -14509,6 +15127,9 @@ public class combat_actions extends script.systems.combat.combat_base {
     }
 
     public int wildShot2(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!precuWeaponOk(self, WEAPON_TYPE_RIFLE, -1)) {
+            return SCRIPT_OVERRIDE;
+        }
         if (!combatStandardAction("wildShot2", self, target, params, "", "")) {
             return SCRIPT_OVERRIDE;
         }
@@ -14535,6 +15156,9 @@ public class combat_actions extends script.systems.combat.combat_base {
         return SCRIPT_CONTINUE;
     }
     public int fireHeavyWeapon(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!precuWeaponOk(self, WEAPON_TYPE_HEAVY, -1)) {
+            return SCRIPT_OVERRIDE;
+        }
         if (!combatStandardAction("fireHeavyWeapon", self, target, params, "", "")) {
             return SCRIPT_OVERRIDE;
         }
@@ -14547,18 +15171,27 @@ public class combat_actions extends script.systems.combat.combat_base {
         return SCRIPT_CONTINUE;
     }
     public int multiTargetShot(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!precuWeaponOk(self, WEAPON_TYPE_RIFLE, -1)) {
+            return SCRIPT_OVERRIDE;
+        }
         if (!combatStandardAction("multiTargetShot", self, target, params, "", "")) {
             return SCRIPT_OVERRIDE;
         }
         return SCRIPT_CONTINUE;
     }
     public int panicShot(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!precuWeaponOk(self, WEAPON_TYPE_RIFLE, -1)) {
+            return SCRIPT_OVERRIDE;
+        }
         if (!combatStandardAction("panicShot", self, target, params, "", "")) {
             return SCRIPT_OVERRIDE;
         }
         return SCRIPT_CONTINUE;
     }
     public int steadyaim(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (!precuWeaponOk(self, WEAPON_TYPE_RIFLE, -1)) {
+            return SCRIPT_OVERRIDE;
+        }
         if (!combatStandardAction("steadyaim", self, target, params, "", "")) {
             return SCRIPT_OVERRIDE;
         }
@@ -14569,6 +15202,38 @@ public class combat_actions extends script.systems.combat.combat_base {
             return SCRIPT_OVERRIDE;
         }
         return SCRIPT_CONTINUE;
+    }
+
+    // -------------------------------------------------------------------------
+    // Pre-CU weapon restriction helper (hybrid restoration)
+    // requiredType: WEAPON_TYPE_* constant, or -1 to skip exact-type check
+    // requiredCategory: combat.RANGED_WEAPON / combat.MELEE_WEAPON, or -1 to skip
+    // -------------------------------------------------------------------------
+    public boolean precuWeaponOk(obj_id self, int requiredType, int requiredCategory) throws InterruptedException {
+        obj_id weapon = getCurrentWeapon(self);
+        int wt = -1;
+        if (isIdValid(weapon)) {
+            wt = getWeaponType(weapon);
+        } else {
+            wt = WEAPON_TYPE_UNARMED;
+        }
+
+        if (requiredType >= 0) {
+            if (wt != requiredType) {
+                sendSystemMessage(self, new string_id("cbt_spam", "no_attack_wrong_weapon"));
+                return false;
+            }
+            return true;
+        }
+
+        if (requiredCategory == combat.RANGED_WEAPON || requiredCategory == combat.MELEE_WEAPON) {
+            int cat = combat.getWeaponCategory(wt);
+            if (cat != requiredCategory) {
+                sendSystemMessage(self, new string_id("cbt_spam", "no_attack_wrong_weapon"));
+                return false;
+            }
+        }
+        return true;
     }
 
 }
