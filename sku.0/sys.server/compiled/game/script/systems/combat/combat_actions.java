@@ -15218,20 +15218,25 @@ public class combat_actions extends script.systems.combat.combat_base {
             wt = WEAPON_TYPE_UNARMED;
         }
 
+        boolean ok = true;
         if (requiredType >= 0) {
             if (wt != requiredType) {
-                sendSystemMessage(self, new string_id("cbt_spam", "no_attack_wrong_weapon"));
-                return false;
+                ok = false;
             }
-            return true;
-        }
-
-        if (requiredCategory == combat.RANGED_WEAPON || requiredCategory == combat.MELEE_WEAPON) {
+        } else if (requiredCategory == combat.RANGED_WEAPON || requiredCategory == combat.MELEE_WEAPON) {
             int cat = combat.getWeaponCategory(wt);
             if (cat != requiredCategory) {
-                sendSystemMessage(self, new string_id("cbt_spam", "no_attack_wrong_weapon"));
-                return false;
+                ok = false;
             }
+        }
+
+        if (!ok) {
+            // Match combat_base.checkWeaponData messaging. clearQueue flushes combat command
+            // groups so a rejected special is less likely to finish a client-predicted swing/fire.
+            string_id strSpam = new string_id("cbt_spam", "no_attack_wrong_weapon");
+            sendSystemMessage(self, strSpam);
+            clearQueue(self);
+            return false;
         }
         return true;
     }
