@@ -15220,7 +15220,13 @@ public class combat_actions extends script.systems.combat.combat_base {
 
         boolean ok = true;
         if (requiredType >= 0) {
-            if (wt != requiredType) {
+            // Heavy weapons include plain HEAVY (3), GROUND_TARGETTING (12), and DIRECTIONAL (13).
+            // Flamethrowers / acid / lightning are often directional or ground-target, not type==3.
+            if (requiredType == WEAPON_TYPE_HEAVY) {
+                if (!combat.isHeavyWeapon(wt)) {
+                    ok = false;
+                }
+            } else if (wt != requiredType) {
                 ok = false;
             }
         } else if (requiredCategory == combat.RANGED_WEAPON || requiredCategory == combat.MELEE_WEAPON) {
