@@ -403,6 +403,15 @@ public class script_class_loader extends ClassLoader
 		defaultLoad.add("script.vector");
 		defaultLoad.add("script.system_process");
 		defaultLoad.add("script.terminal.terminal_character_builder$warp_location");
+
+		// advanced_conversation_tool
+		// sku.0/sys.server/.../script/tools/adv_conv_tool/
+		defaultLoad.add("script.tools.adv_conv_tool.base_conversation");
+		defaultLoad.add("script.tools.adv_conv_tool.advanced_conversation_tool");
+		defaultLoad.add("script.tools.adv_conv_tool.advanced_conversation_tool$convo_entry_point");
+		defaultLoad.add("script.tools.adv_conv_tool.advanced_conversation_tool$convo_branch_builder");
+		defaultLoad.add("script.tools.adv_conv_tool.advanced_conversation_tool$convo_branch");
+		defaultLoad.add("script.tools.adv_conv_tool.advanced_conversation_tool$convo_response");
 	}
 
 }   // class script_class_loader

@@ -26837,6 +26837,17 @@ public class base_class
     }
 
     /**
+     * Conditional WARNING call that takes in a boolean to determine if the output will be shown or not.
+     * @param shouldDisplay
+     * @param message
+     */
+    public static void WARNING(boolean shouldDisplay, String message) {
+        if (shouldDisplay) {
+            WARNING(message);
+        }
+    }
+
+    /**
      * getPlayerAccountUsername
      * Returns the username of a player (they must have logged in at least once for this to work)
      *
