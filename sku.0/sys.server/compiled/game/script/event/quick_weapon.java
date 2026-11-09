@@ -133,7 +133,7 @@ public class quick_weapon extends script.base_script
                 setWeaponMaxDamage(objWeapon, maxDamage);
                 setName(objWeapon, "***INTERNAL USE ONLY: " + weaponType[weaponNum]);
                 attachScript(objWeapon, "event.no_rent");
-                float creationTime = getGameTime();
+                int creationTime = getGameTime();
                 setObjVar(objWeapon, "event.creationTime", creationTime);
                 return SCRIPT_CONTINUE;
             }

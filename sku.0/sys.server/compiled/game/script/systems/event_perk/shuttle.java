@@ -1,6 +1,7 @@
 package script.systems.event_perk;
 
 import script.dictionary;
+import script.library.utils;
 import script.obj_id;
 import script.string_id;
 
@@ -13,10 +14,9 @@ public class shuttle extends script.base_script
     public int OnAttach(obj_id self) throws InterruptedException
     {
         float lifeSpan = getFloatObjVar(self, "event_perk.lifeSpan");
-        float timeStamp = getFloatObjVar(self, "event_perk.timeStamp");
-        float deathStamp = timeStamp + lifeSpan;
-        float rightNow = getGameTime();
-        float dieTime = deathStamp - rightNow;
+        int timeStamp = utils.getIntTimeObjVar(self, "event_perk.timeStamp");
+        int rightNow = getGameTime();
+        float dieTime = (timeStamp - rightNow) + lifeSpan;
         messageTo(self, "cleanUp", null, dieTime, true);
         return SCRIPT_CONTINUE;
     }
@@ -85,9 +85,9 @@ public class shuttle extends script.base_script
     public void checkTimeLimit(obj_id self) throws InterruptedException
     {
         float lifeSpan = getFloatObjVar(self, "event_perk.lifeSpan");
-        float timeStamp = getFloatObjVar(self, "event_perk.timeStamp");
-        float rightNow = getGameTime();
-        float delta = rightNow - timeStamp;
+        int timeStamp = utils.getIntTimeObjVar(self, "event_perk.timeStamp");
+        int rightNow = getGameTime();
+        int delta = rightNow - timeStamp;
         if (delta > lifeSpan)
         {
             destroyObject(self);

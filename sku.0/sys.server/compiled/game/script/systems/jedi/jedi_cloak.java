@@ -122,7 +122,7 @@ public class jedi_cloak extends script.base_script
                 {
                     if (reverse_engineering.isPoweredUpItem(self) && !isAppearanceItem)
                     {
-                        float remainingTime = getFloatObjVar(self, reverse_engineering.ENGINEERING_TIMESTAMP);
+                        int remainingTime = utils.getIntTimeObjVar(self, reverse_engineering.ENGINEERING_TIMESTAMP);
                         reverse_engineering.removePlayerPowerUpMods(player, self);
                         reverse_engineering.addModsAndScript(player, self, newRobe, remainingTime);
                     }
@@ -161,7 +161,7 @@ public class jedi_cloak extends script.base_script
                 {
                     if (reverse_engineering.isPoweredUpItem(self) && !isAppearanceItem)
                     {
-                        float remainingTime = getFloatObjVar(self, reverse_engineering.ENGINEERING_TIMESTAMP);
+                        int remainingTime = utils.getIntTimeObjVar(self, reverse_engineering.ENGINEERING_TIMESTAMP);
                         reverse_engineering.removePlayerPowerUpMods(player, self);
                         reverse_engineering.addModsAndScript(player, self, newRobe, remainingTime);
                     }

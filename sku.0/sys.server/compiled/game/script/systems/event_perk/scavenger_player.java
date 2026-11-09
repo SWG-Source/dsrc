@@ -1,6 +1,7 @@
 package script.systems.event_perk;
 
 import script.dictionary;
+import script.library.utils;
 import script.obj_id;
 import script.string_id;
 
@@ -12,7 +13,7 @@ public class scavenger_player extends script.base_script
     public static final float TIMELIMIT = 60 * 60 * 8;
     public int OnAttach(obj_id self) throws InterruptedException
     {
-        float rightNow = getGameTime();
+        int rightNow = getGameTime();
         setObjVar(self, "event_perk.scavenger.startTime", rightNow);
         setObjVar(self, "event_perk.scavenger.my_score", 0);
         return SCRIPT_CONTINUE;
@@ -58,9 +59,9 @@ public class scavenger_player extends script.base_script
     }
     public void checkTimeLimit(obj_id self) throws InterruptedException
     {
-        float myCreationTime = getFloatObjVar(self, "event_perk.scavenger.startTime");
-        float rightNow = getGameTime();
-        float delta = rightNow - myCreationTime;
+        int myCreationTime = utils.getIntTimeObjVar(self, "event_perk.scavenger.startTime");
+        int rightNow = getGameTime();
+        int delta = rightNow - myCreationTime;
         String myName = getName(self);
         if (delta > TIMELIMIT)
         {

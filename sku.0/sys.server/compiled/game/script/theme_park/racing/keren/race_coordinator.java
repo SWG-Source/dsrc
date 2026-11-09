@@ -69,7 +69,7 @@ public class race_coordinator extends script.base_script
         obj_id player = params.getObjId("player");
         obj_id npc = params.getObjId("npc");
         int missionNum = 0;
-        float startTime = getGameTime();
+        int startTime = getGameTime();
         int isRacing = 1;
         int maxCheckPoints = CHECK_POINT.length / 3;
         for (int i = 0; i < CHECK_POINT.length; i += 3)

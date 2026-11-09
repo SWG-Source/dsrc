@@ -56,8 +56,8 @@ public class remote_encounter extends script.quest.task.ground.base_task
         int isVisible = groundquests.getTaskIntDataEntry(questCrc, taskId, dataTableColumnVisible);
         if (isVisible != 0)
         {
-            float playerPlayedTimeWhenTimerEnds = (float)getPlayerPlayedTime(self) + encounterDuration;
-            questSetQuestTaskTimer(self, questGetQuestName(questCrc), taskId, "quest/groundquests:timer_timertext", (int)playerPlayedTimeWhenTimerEnds);
+            int playerPlayedTimeWhenTimerEnds = getPlayerPlayedTime(self) + encounterDuration;
+            questSetQuestTaskTimer(self, questGetQuestName(questCrc), taskId, "quest/groundquests:timer_timertext", playerPlayedTimeWhenTimerEnds);
         }
         return super.OnTaskActivated(self, questCrc, taskId);
     }

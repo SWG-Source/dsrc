@@ -19,23 +19,23 @@ public class firework_show extends script.base_script
         {
             return SCRIPT_CONTINUE;
         }
-        float rightNow = getGameTime();
-        float nextShowTime = rightNow + 3600;
+        int rightNow = getGameTime();
+        int nextShowTime = rightNow + 3600;
         setObjVar(self, "event.next_show_time", nextShowTime);
         messageTo(self, "fireworksTimerPing", null, 30, false);
         return SCRIPT_CONTINUE;
     }
     public int fireworksTimerReset(obj_id self, dictionary params) throws InterruptedException
     {
-        float rightNow = getGameTime();
-        float nextShowTime = rightNow + 3600;
+        int rightNow = getGameTime();
+        int nextShowTime = rightNow + 3600;
         setObjVar(self, "event.next_show_time", nextShowTime);
         return SCRIPT_CONTINUE;
     }
     public int fireworksTimerPing(obj_id self, dictionary params) throws InterruptedException
     {
-        float nextShowTime = getFloatObjVar(self, "event.next_show_time");
-        float rightNow = getGameTime();
+        int nextShowTime = utils.getIntTimeObjVar(self, "event.next_show_time");
+        int rightNow = getGameTime();
         if (rightNow > nextShowTime)
         {
             messageTo(self, "broadcastFireworkAnnouncement", null, 1, false);

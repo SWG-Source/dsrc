@@ -608,7 +608,7 @@ public class healing extends script.base_script
             pp = prose.setTT(pp, getEncodedName(pet));
             pp = prose.setDI(pp, delta);
             sendMedicalSpam(user, pp, COMBAT_RESULT_MEDICAL);
-            float reuseTime = VAR_ITEM_REUSE_TIME;
+            int reuseTime = VAR_ITEM_REUSE_TIME;
             utils.setScriptVar(user, VAR_ITEM_TIMER, (getGameTime() + (reuseTime)));
             sendCooldownGroupTimingOnly(user, (-360620575), reuseTime);
             doHealingAnimationAndEffect(user, pet);
@@ -5274,7 +5274,7 @@ public class healing extends script.base_script
     }
     public static int doDiminishingReturns(int toHeal, obj_id medic) throws InterruptedException
     {
-        float rightNow = getGameTime();
+        int rightNow = getGameTime();
         if (!utils.hasScriptVar(medic, "healing.diminishing_returns.last_heal_time"))
         {
             utils.setScriptVar(medic, "healing.diminishing_returns.last_heal_time", rightNow);
@@ -5282,8 +5282,8 @@ public class healing extends script.base_script
             buff.applyBuff(medic, "heal_diminishing_returns_1");
             return toHeal;
         }
-        float lastHealTime = utils.getFloatScriptVar(medic, "healing.diminishing_returns.last_heal_time");
-        if (rightNow - lastHealTime > 30.0f)
+        int lastHealTime = utils.getIntScriptVar(medic, "healing.diminishing_returns.last_heal_time");
+        if (rightNow - lastHealTime > 30)
         {
             utils.setScriptVar(medic, "healing.diminishing_returns.last_heal_time", rightNow);
             utils.setScriptVar(medic, "healing.diminishing_returns.heal_total", toHeal);

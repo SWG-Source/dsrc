@@ -33,7 +33,7 @@ public class shuttle_beacon extends script.base_script
         }
         
         {
-            float timeStamp = getGameTime();
+            int timeStamp = getGameTime();
             setObjVar(self, "event_perk.timeStamp", timeStamp);
         }
         if (!hasObjVar(self, "event_perk.deedNumber"))
@@ -133,7 +133,7 @@ public class shuttle_beacon extends script.base_script
         int deedNumber = getIntObjVar(self, "event_perk.deedNumber");
         float lifeSpan = getFloatObjVar(self, "event_perk.lifeSpan");
         float heading = getYaw(player);
-        float timeStamp = getFloatObjVar(self, "event_perk.timeStamp");
+        int timeStamp = utils.getIntTimeObjVar(self, "event_perk.timeStamp");
         float terminalRegistration = getFloatObjVar(self, "event_perk.terminal_registration");
         String[] rawShuttleOptions = dataTableGetStringColumn(SHUTTLE_TABLE, 0);
         String[] shuttleOptions = new String[rawShuttleOptions.length];
@@ -168,7 +168,7 @@ public class shuttle_beacon extends script.base_script
         if (event_perk.canPlaceEventPerkHere(self, player, here) && !event_perk.tooCloseToSomething(here, player, self) && !event_perk.tooManyPerks(here, player))
         {
             float lifeSpan = utils.getFloatScriptVar(self, "event_perk.lifeSpan");
-            float timeStamp = utils.getFloatScriptVar(self, "event_perk.timeStamp");
+            int timeStamp = utils.getIntScriptVar(self, "event_perk.timeStamp");
             String ownerName = getFirstName(player);
             obj_id deedId = utils.getObjIdScriptVar(self, "event_perk.deedId");
             location spawnPoint = getLocation(player);
@@ -230,9 +230,9 @@ public class shuttle_beacon extends script.base_script
     public void checkTimeLimit(obj_id self, obj_id player) throws InterruptedException
     {
         float lifeSpan = getFloatObjVar(self, "event_perk.lifeSpan");
-        float timeStamp = getFloatObjVar(self, "event_perk.timeStamp");
-        float rightNow = getGameTime();
-        float delta = rightNow - timeStamp;
+        int timeStamp = utils.getIntTimeObjVar(self, "event_perk.timeStamp");
+        int rightNow = getGameTime();
+        int delta = rightNow - timeStamp;
         if (delta > lifeSpan)
         {
             dismissShuttle(self, player);

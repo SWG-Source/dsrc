@@ -1,5 +1,6 @@
 package script.event;
 
+import script.library.utils;
 import script.menu_info;
 import script.obj_id;
 
@@ -25,9 +26,9 @@ public class no_rent extends script.base_script
     }
     public void checkTimeLimit(obj_id self, obj_id player) throws InterruptedException
     {
-        float myCreationTime = getFloatObjVar(self, "event.creationTime");
-        float rightNow = getGameTime();
-        float delta = rightNow - myCreationTime;
+        int myCreationTime = utils.getIntTimeObjVar(self, "event.creationTime");
+        int rightNow = getGameTime();
+        int delta = rightNow - myCreationTime;
         String myName = getName(self);
         if (delta > 60 * 60 * 4)
         {

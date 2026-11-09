@@ -356,6 +356,54 @@ public class utils extends script.base_script
         }
         return getFloatObjVar(object, name);
     }
+    /**
+     * Reads a game-time or played-time stamp (whole seconds) from an objvar.
+     * Older scripts stored these stamps as float, which loses whole seconds
+     * once the value passes 2^24; newer ones store int. Both are accepted.
+     * Returns intDefault if the objvar is missing or holds another type.
+     */
+    public static int getIntTimeObjVar(obj_id object, String name, int intDefault) throws InterruptedException
+    {
+        obj_var var = getObjVar(object, name);
+        if (var == null)
+        {
+            return intDefault;
+        }
+        return timeFromObject(var.getData(), intDefault);
+    }
+    public static int getIntTimeObjVar(obj_id object, String name) throws InterruptedException
+    {
+        return getIntTimeObjVar(object, name, 0);
+    }
+    /**
+     * Reads a game-time or played-time stamp from a dictionary (for example
+     * the parameters of a messageTo queued by older scripts), whether it was
+     * put as int or float. Returns intDefault if it is missing.
+     */
+    public static int getIntTime(dictionary params, String key, int intDefault) throws InterruptedException
+    {
+        if (params == null)
+        {
+            return intDefault;
+        }
+        return timeFromObject(params.get(key), intDefault);
+    }
+    public static int getIntTime(dictionary params, String key) throws InterruptedException
+    {
+        return getIntTime(params, key, 0);
+    }
+    private static int timeFromObject(Object data, int intDefault) throws InterruptedException
+    {
+        if (data instanceof Integer)
+        {
+            return (Integer)data;
+        }
+        if (data instanceof Float)
+        {
+            return (int)((Float)data).floatValue();
+        }
+        return intDefault;
+    }
     public static float[] getFloatArrayObjVar(obj_id object, String name, float[] fltArrayDefault) throws InterruptedException
     {
         if (!hasObjVar(object, name))

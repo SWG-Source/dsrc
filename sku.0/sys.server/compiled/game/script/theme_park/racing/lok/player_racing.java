@@ -39,8 +39,8 @@ public class player_racing extends script.base_script
     }
     public int OnArrivedAtLocation(obj_id self, String name) throws InterruptedException
     {
-        float startTime = getFloatObjVar(self, "racing.lok.startTime");
-        float deltaTime = getGameTime();
+        int startTime = utils.getIntTimeObjVar(self, "racing.lok.startTime");
+        int deltaTime = getGameTime();
         float lapTime = (deltaTime - startTime);
         float currentTime = getFloatObjVar(self, "racing.lok.currentTime");
         string_id waypointName = new string_id(RACING_STF, "lok_waypoint_name_" + name);

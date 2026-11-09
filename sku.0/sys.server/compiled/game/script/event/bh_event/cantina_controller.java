@@ -28,7 +28,7 @@ public class cantina_controller extends script.base_script
                 float minInvasionTime = TWENTY_FOUR_HOURS;
                 float timeChunkSize = 900.0f;
                 int numTimeChunk = 192;
-                float nextInvasionTime = (rand(1, numTimeChunk) * timeChunkSize) + minInvasionTime + getGameTime();
+                int nextInvasionTime = getGameTime() + (int)((rand(1, numTimeChunk) * timeChunkSize) + minInvasionTime);
                 setObjVar(self, "bhcelebs.next_invasion_time", nextInvasionTime);
             }
             setObjVar(self, "bhcelebs.invasion_active", 0);
@@ -44,8 +44,8 @@ public class cantina_controller extends script.base_script
         {
             return SCRIPT_CONTINUE;
         }
-        float rightNow = getGameTime();
-        float nextInvasionTime = getFloatObjVar(self, "bhcelebs.next_invasion_time");
+        int rightNow = getGameTime();
+        int nextInvasionTime = utils.getIntTimeObjVar(self, "bhcelebs.next_invasion_time");
         if (rightNow > nextInvasionTime && invasionActive == 0)
         {
             messageTo(self, "startBosskEvent", null, 1, false);
@@ -112,8 +112,8 @@ public class cantina_controller extends script.base_script
         float minInvasionTime = TWENTY_FOUR_HOURS;
         float timeChunkSize = 900.0f;
         int numTimeChunk = 192;
-        float rightNow = getGameTime();
-        float nextInvasionTime = (rand(1, numTimeChunk) * timeChunkSize) + minInvasionTime + rightNow;
+        int rightNow = getGameTime();
+        int nextInvasionTime = rightNow + (int)((rand(1, numTimeChunk) * timeChunkSize) + minInvasionTime);
         setObjVar(self, "bhcelebs.next_invasion_time", nextInvasionTime);
         messageTo(self, "invasionTimerPing", null, TWENTY_FOUR_HOURS, false);
         return SCRIPT_CONTINUE;

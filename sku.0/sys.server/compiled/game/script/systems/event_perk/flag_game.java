@@ -57,9 +57,9 @@ public class flag_game extends script.base_script
     {
         obj_id player = params.getObjId("player");
         float lifeSpan = getFloatObjVar(self, "event_perk.lifeSpan");
-        float timeStamp = getFloatObjVar(self, "event_perk.timeStamp");
-        float rightNow = getGameTime();
-        float expirationTimeMinutesFloat = ((lifeSpan + timeStamp) - rightNow) / 60;
+        int timeStamp = utils.getIntTimeObjVar(self, "event_perk.timeStamp");
+        int rightNow = getGameTime();
+        float expirationTimeMinutesFloat = ((timeStamp - rightNow) + lifeSpan) / 60;
         int expirationTimeMinutes = (int)expirationTimeMinutesFloat;
         prose_package showExpiration = new prose_package();
         showExpiration = prose.getPackage(new string_id("event_perk", "show_exp_time"));
@@ -83,9 +83,9 @@ public class flag_game extends script.base_script
         }
         String sourceDeed = getStringObjVar(self, "event_perk.source_deed");
         float lifeSpan = getFloatObjVar(self, "event_perk.lifeSpan");
-        float timeStamp = getFloatObjVar(self, "event_perk.timeStamp");
-        float rightNow = getGameTime();
-        float adjustedLifeSpan = (lifeSpan + timeStamp) - rightNow;
+        int timeStamp = utils.getIntTimeObjVar(self, "event_perk.timeStamp");
+        int rightNow = getGameTime();
+        float adjustedLifeSpan = (timeStamp - rightNow) + lifeSpan;
         obj_id playerInventory = utils.getInventoryContainer(player);
         obj_id perkDeed = createObject(sourceDeed, playerInventory, "");
         if (isIdValid(perkDeed))

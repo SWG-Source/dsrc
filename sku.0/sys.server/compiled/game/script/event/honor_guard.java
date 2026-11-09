@@ -225,7 +225,7 @@ public class honor_guard extends script.base_script
         int numRows = getIntObjVar(self, "event.honor_guard.numRows");
         float offset = getFloatObjVar(self, "event.honor_guard.offset");
         float expirationTime = getFloatObjVar(self, "event.honor_guard.expirationTime");
-        float timeStamp = getGameTime();
+        int timeStamp = getGameTime();
         location here = getLocation(self);
         float heading = getYaw(self);
         float xLoc = here.x;

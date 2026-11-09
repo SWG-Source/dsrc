@@ -78,7 +78,7 @@ public class spawner extends script.base_script
     }
     public int fighterStillAlive(obj_id self, dictionary params) throws InterruptedException
     {
-        float rightNow = getGameTime();
+        int rightNow = getGameTime();
         obj_id fighter = params.getObjId("fighter");
         setObjVar(self, "event.lost_squadron.last_checkin", rightNow);
         return SCRIPT_CONTINUE;
@@ -97,7 +97,7 @@ public class spawner extends script.base_script
             CustomerServiceLog("EventPerk", "[Lost Squadron Event] WARNING: Failed to create a new fighter object. Spawner = " + self + " at location " + here);
             return SCRIPT_CONTINUE;
         }
-        float rightNow = getGameTime();
+        int rightNow = getGameTime();
         String type = getStringObjVar(self, "event.lost_squadron.type");
         setObjVar(fighter, "event.lost_squadron.type", type);
         setObjVar(fighter, "event.lost_squadron.timeStamp", rightNow);

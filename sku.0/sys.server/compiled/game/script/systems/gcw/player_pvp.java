@@ -381,7 +381,7 @@ public class player_pvp extends script.base_script
             }
             else if (battlefieldState == pvp.PVP_STATE_INVITE_QUEUE)
             {
-                int time = ((int)(pvp.BATTLEFIELD_INVITATION_WAIT_TIME + battlefieldInvitationTime) - getGameTime());
+                int time = (int)pvp.BATTLEFIELD_INVITATION_WAIT_TIME + (battlefieldInvitationTime - getGameTime());
                 if (time < 0)
                 {
                     time = 0;
@@ -704,7 +704,7 @@ public class player_pvp extends script.base_script
         }
         else if (bfState == pvp.PVP_STATE_INVITE_QUEUE)
         {
-            statisticsInfoStr += "\nInvitation Time Left: " + formatBattlefieldCountdown((int)((pvp.BATTLEFIELD_INVITATION_WAIT_TIME + battlefieldInvitationTime) - getGameTime()));
+            statisticsInfoStr += "\nInvitation Time Left: " + formatBattlefieldCountdown((int)pvp.BATTLEFIELD_INVITATION_WAIT_TIME + (battlefieldInvitationTime - getGameTime()));
         }
         int pid = sui.tableRowMajor(self, self, sui.OK_CANCEL, statisticsTitle, "onStatisticsMembersResponse", statisticsInfoStr, table_titles, table_types, scoreData, true);
         utils.setScriptVar(self, "battlefield.pid", pid);

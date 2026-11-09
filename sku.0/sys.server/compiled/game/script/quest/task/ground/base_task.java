@@ -43,17 +43,17 @@ public class base_task extends script.base.remote_object_requester
         if (timerLength > 0)
         {
             groundquests.questOutputDebugInfo(self, questCrc, taskId, taskType, "OnTaskActivated", "Setting timer for " + timerLength + " seconds.");
-            final float playerPlayedTimeWhenTimerEnds = (float)getPlayerPlayedTime(self) + timerLength;
+            final int playerPlayedTimeWhenTimerEnds = getPlayerPlayedTime(self) + timerLength;
             final String objVar = groundquests.setBaseObjVar(self, taskType, questGetQuestName(questCrc), taskId) + dot + groundquests.timeObjVar;
             setObjVar(self, objVar, playerPlayedTimeWhenTimerEnds);
             dictionary params = new dictionary();
             params.put("questcrc", questCrc);
             params.put("taskid", taskId);
-            params.put("endTime", (int)getFloatObjVar(self, objVar));
+            params.put("endTime", playerPlayedTimeWhenTimerEnds);
             messageTo(self, "QuestBaseTaskTimerTaskCompleted", params, timerLength, true);
             if (isVisible != 0)
             {
-                questSetQuestTaskTimer(self, questGetQuestName(questCrc), taskId, "quest/groundquests:timer_timertext", (int)playerPlayedTimeWhenTimerEnds);
+                questSetQuestTaskTimer(self, questGetQuestName(questCrc), taskId, "quest/groundquests:timer_timertext", playerPlayedTimeWhenTimerEnds);
             }
         }
         return SCRIPT_CONTINUE;
@@ -65,16 +65,16 @@ public class base_task extends script.base.remote_object_requester
         if (questIsTaskActive(questCrc, taskId, self))
         {
             final String baseObjVar = groundquests.getBaseObjVar(self, taskType, questGetQuestName(questCrc), taskId);
-            final float playerPlayedTimeWhenTimerEnds = getFloatObjVar(self, baseObjVar + dot + groundquests.timeObjVar);
+            final int playerPlayedTimeWhenTimerEnds = utils.getIntTimeObjVar(self, baseObjVar + dot + groundquests.timeObjVar);
             if (params.containsKey("endTime"))
             {
                 final int endTime = params.getInt("endTime");
-                if (endTime != (int)playerPlayedTimeWhenTimerEnds)
+                if (endTime != playerPlayedTimeWhenTimerEnds)
                 {
                     return SCRIPT_CONTINUE;
                 }
             }
-            final float timeLeft = playerPlayedTimeWhenTimerEnds - getPlayerPlayedTime(self);
+            final int timeLeft = playerPlayedTimeWhenTimerEnds - getPlayerPlayedTime(self);
             if (timeLeft <= 0)
             {
                 questFailTask(questCrc, taskId, self);
@@ -84,7 +84,7 @@ public class base_task extends script.base.remote_object_requester
                 dictionary newParams = new dictionary();
                 newParams.put("questcrc", questCrc);
                 newParams.put("taskid", taskId);
-                newParams.put("endTime", (int)playerPlayedTimeWhenTimerEnds);
+                newParams.put("endTime", playerPlayedTimeWhenTimerEnds);
                 messageTo(self, "QuestBaseTaskTimerTaskCompleted", newParams, timeLeft, true);
             }
         }

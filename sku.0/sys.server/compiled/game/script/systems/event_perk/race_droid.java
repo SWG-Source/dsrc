@@ -117,7 +117,7 @@ public class race_droid extends script.base_script
     {
         obj_id player = params.getObjId("player");
         int missionNum = 0;
-        float startTime = getGameTime();
+        int startTime = getGameTime();
         int isRacing = 1;
         int maxWaypoints = getIntObjVar(self, "event_perk.racing.maxWaypoints");
         for (int i = 0; i < maxWaypoints; i++)

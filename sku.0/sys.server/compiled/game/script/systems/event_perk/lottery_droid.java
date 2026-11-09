@@ -377,7 +377,7 @@ public class lottery_droid extends script.base_script
     {
         obj_id[] playerOIDList = getObjIdArrayObjVar(self, "event_perk.lottery.player_OID_list");
         String[] playerNameList = getStringArrayObjVar(self, "event_perk.lottery.player_name_list");
-        float rightNow = getGameTime();
+        int rightNow = getGameTime();
         string_id noWinner = new string_id("event_perk", "lottery_no_winner");
         String noWinnerName = getString(noWinner);
         int numberRegistered = playerNameList.length - 1;
@@ -409,9 +409,9 @@ public class lottery_droid extends script.base_script
         {
             int duration = getIntObjVar(self, "event_perk.lottery.game_duration");
             float gameDuration = duration * 3600;
-            float rightNow = getGameTime();
-            float gameStartTime = getFloatObjVar(self, "event_perk.lottery.game_start_time");
-            float delta = rightNow - gameStartTime;
+            int rightNow = getGameTime();
+            int gameStartTime = utils.getIntTimeObjVar(self, "event_perk.lottery.game_start_time");
+            int delta = rightNow - gameStartTime;
             if (delta > gameDuration)
             {
                 setObjVar(self, "event_perk.lottery.initialized", 2);
@@ -422,9 +422,9 @@ public class lottery_droid extends script.base_script
         {
             int duration = getIntObjVar(self, "event_perk.lottery.game_duration");
             float gameDuration = duration * 3600;
-            float rightNow = getGameTime();
-            float gameStartTime = getFloatObjVar(self, "event_perk.lottery.game_start_time");
-            float delta = rightNow - gameStartTime;
+            int rightNow = getGameTime();
+            int gameStartTime = utils.getIntTimeObjVar(self, "event_perk.lottery.game_start_time");
+            int delta = rightNow - gameStartTime;
             if (delta > gameDuration)
             {
                 destroyObject(self);
@@ -445,7 +445,7 @@ public class lottery_droid extends script.base_script
         if (initialized == 0)
         {
             setObjVar(self, "event_perk.lottery.initialized", 1);
-            float rightNow = getGameTime();
+            int rightNow = getGameTime();
             setObjVar(self, "event_perk.lottery.game_start_time", rightNow);
             sendSystemMessage(player, new string_id("event_perk", "lottery_initialize_success"));
             messageTo(self, "lotteryTimerPing", null, 300, false);
@@ -515,8 +515,8 @@ public class lottery_droid extends script.base_script
             int myBankBalance = getBankBalance(self);
             float payoutFloat = myBankBalance * (payoutPercent / 100);
             int payout = (int)payoutFloat;
-            float gameStartTime = getFloatObjVar(self, "event_perk.lottery.game_start_time");
-            float rightNow = getGameTime();
+            int gameStartTime = utils.getIntTimeObjVar(self, "event_perk.lottery.game_start_time");
+            int rightNow = getGameTime();
             float elapsed = rightNow - gameStartTime;
             float remaining = (duration * 60 * 60) - elapsed;
             String remainingStr = estimateTime(remaining);

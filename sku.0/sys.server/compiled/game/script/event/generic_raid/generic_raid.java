@@ -4,6 +4,7 @@ import script.dictionary;
 import script.library.badge;
 import script.library.create;
 import script.library.locations;
+import script.library.utils;
 import script.location;
 import script.obj_id;
 import script.string_id;
@@ -45,10 +46,10 @@ public class generic_raid extends script.base_script
         float minInvasionTime = dataTableGetFloat(DATATABLE, referenceNumber, "MINTIME");
         float timeChunkSize = dataTableGetFloat(DATATABLE, referenceNumber, "TIMECHUNKSIZE");
         int numTimeChunk = dataTableGetInt(DATATABLE, referenceNumber, "NUMTIMECHUNK");
-        float rightNow = getGameTime();
+        int rightNow = getGameTime();
         if (!hasObjVar(self, "auto_invasion.next_invasion_time"))
         {
-            float nextInvasionTime = (rand(1, numTimeChunk) * timeChunkSize) + minInvasionTime + rightNow;
+            int nextInvasionTime = rightNow + (int)((rand(1, numTimeChunk) * timeChunkSize) + minInvasionTime);
             setObjVar(self, "auto_invasion.next_invasion_time", nextInvasionTime);
         }
         setObjVar(self, "auto_invasion.invasion_active", 0);
@@ -63,7 +64,7 @@ public class generic_raid extends script.base_script
         {
             return SCRIPT_CONTINUE;
         }
-        float nextInvasionTime = getFloatObjVar(self, "auto_invasion.next_invasion_time");
+        int nextInvasionTime = utils.getIntTimeObjVar(self, "auto_invasion.next_invasion_time");
         if (getGameTime() > nextInvasionTime && invasionActive == 0)
         {
             if (rand(0, 100) < 50)
@@ -309,10 +310,10 @@ public class generic_raid extends script.base_script
         float minInvasionTime = dataTableGetFloat(DATATABLE, referenceNumber, "MINTIME");
         float timeChunkSize = dataTableGetFloat(DATATABLE, referenceNumber, "TIMECHUNKSIZE");
         int numTimeChunk = dataTableGetInt(DATATABLE, referenceNumber, "NUMTIMECHUNK");
-        float rightNow = getGameTime();
+        int rightNow = getGameTime();
         if (!hasObjVar(self, "auto_invasion.next_invasion_time"))
         {
-            float nextInvasionTime = (rand(1, numTimeChunk) * timeChunkSize) + minInvasionTime + rightNow;
+            int nextInvasionTime = rightNow + (int)((rand(1, numTimeChunk) * timeChunkSize) + minInvasionTime);
             setObjVar(self, "auto_invasion.next_invasion_time", nextInvasionTime);
         }
         setObjVar(self, "auto_invasion.testing_multiplier", 1);

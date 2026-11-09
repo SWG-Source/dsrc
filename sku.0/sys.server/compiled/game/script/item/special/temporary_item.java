@@ -22,7 +22,7 @@ public class temporary_item extends script.base_script
         else 
         {
             float lifeSpan = getLifeSpan(self);
-            float rightNow = getGameTime();
+            int rightNow = getGameTime();
             setObjVar(self, "item.temporary.time_stamp", rightNow);
             float dieTime = getDieTime(lifeSpan, self);
             if (dieTime < 1)
@@ -65,10 +65,9 @@ public class temporary_item extends script.base_script
     }
     public float getDieTime(float lifeSpan, obj_id tempObject) throws InterruptedException
     {
-        float timeStamp = getFloatObjVar(tempObject, "item.temporary.time_stamp");
-        float deathStamp = timeStamp + lifeSpan;
-        float rightNow = getGameTime();
-        float dieTime = deathStamp - rightNow;
+        int timeStamp = utils.getIntTimeObjVar(tempObject, "item.temporary.time_stamp");
+        int rightNow = getGameTime();
+        float dieTime = (timeStamp - rightNow) + lifeSpan;
         return dieTime;
     }
     public int cleanUp(obj_id self, dictionary params) throws InterruptedException

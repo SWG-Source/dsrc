@@ -1631,21 +1631,17 @@ public class groundquests extends script.base_script
         }
         return false;
     }
-    public static float getPlayerPlayedTimeWhenTimerEnds(obj_id player, int questCrc, int taskId) throws InterruptedException
+    public static int getPlayerPlayedTimeWhenTimerEnds(obj_id player, int questCrc, int taskId) throws InterruptedException
     {
         String baseObjVar = groundquests.getBaseObjVar(player, "base_task", questGetQuestName(questCrc), taskId);
-        if (hasObjVar(player, baseObjVar + dot + timeObjVar))
-        {
-            return getFloatObjVar(player, baseObjVar + dot + timeObjVar);
-        }
-        return -1.0f;
+        return utils.getIntTimeObjVar(player, baseObjVar + dot + timeObjVar, -1);
     }
     public static boolean isTimeRemainingBeforeCompletion(obj_id player, int questCrc, int taskId) throws InterruptedException
     {
         final int remainingTime = getTaskIntDataEntry(questCrc, taskId, dataTableColumnRemainingTime);
         if (remainingTime > 0)
         {
-            final int endTime = (int)getPlayerPlayedTimeWhenTimerEnds(player, questCrc, taskId);
+            final int endTime = getPlayerPlayedTimeWhenTimerEnds(player, questCrc, taskId);
             if (endTime > 0)
             {
                 final int timeLeft = endTime - getPlayerPlayedTime(player) - remainingTime;

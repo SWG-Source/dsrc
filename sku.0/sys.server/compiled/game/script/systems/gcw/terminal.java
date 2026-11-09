@@ -136,7 +136,7 @@ public class terminal extends script.base_script
                 sendSystemMessageTestingOnly(player1, "COUNTDOWN INITIATED: estimated time to detonation: " + minutes + " minutes.");
             }
         }
-        utils.setScriptVar(self, SCRIPTVAR_COUNTDOWN, getGameTime() + delay);
+        utils.setScriptVar(self, SCRIPTVAR_COUNTDOWN, getGameTime() + (int)delay);
         dictionary d = new dictionary();
         d.put("player", player);
         d.put("cnt", minutes);

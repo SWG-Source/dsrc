@@ -17,16 +17,16 @@ public class ep3_trando_herald extends script.base_script
     public int OnAttach(obj_id self) throws InterruptedException
     {
         messageTo(self, "ep3HeraldGiveAnotherWp", null, 1, false);
-        float timeStamp = getGameTime();
+        int timeStamp = getGameTime();
         setObjVar(self, "event.ep3_trando_herald.timeStamp", timeStamp);
         messageTo(self, "ep3HeraldTimeUp", null, 1800, false);
         return SCRIPT_CONTINUE;
     }
     public int OnLogin(obj_id self) throws InterruptedException
     {
-        float rightNow = getGameTime();
-        float timeStamp = getFloatObjVar(self, "event.ep3_trando_herald.timeStamp");
-        float delta = rightNow - timeStamp;
+        int rightNow = getGameTime();
+        int timeStamp = utils.getIntTimeObjVar(self, "event.ep3_trando_herald.timeStamp");
+        int delta = rightNow - timeStamp;
         if (delta > 1800)
         {
             messageTo(self, "ep3HeraldTimeUp", null, 1, false);
