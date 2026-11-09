@@ -2158,8 +2158,9 @@ public class player_structure extends script.base_script
             return;
         }
         int ownerLastLoginTime = getPlayerLastLoginTime(owner);
-        // an unknown last login (<= 0) must not count as inactive; treat the owner as active
-        if (ownerLastLoginTime <= 0 || (getCalendarTime() - ownerLastLoginTime) < cityGetInactivePackupInactiveTimeSeconds())
+        // an unknown last login (0 = unset, -1 = not found) must not count as inactive; treat the owner as active.
+        // Other negative values are real times: calendar times wrap negative after 2038.
+        if (ownerLastLoginTime == 0 || ownerLastLoginTime == -1 || (getCalendarTime() - ownerLastLoginTime) < cityGetInactivePackupInactiveTimeSeconds())
         {
             if (hasObjVar(player, "qa.city_packup"))
             {

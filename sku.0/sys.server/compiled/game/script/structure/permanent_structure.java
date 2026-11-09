@@ -1758,8 +1758,9 @@ public class permanent_structure extends script.base_script
                     if (!city.hasMayorProtectionFlag(owner, city_id))
                     {
                         int loginTime = getPlayerLastLoginTime(owner);
-                        // an unknown last login (<= 0) must not count as inactive; treat the owner as active
-                        boolean loginTimeKnown = loginTime > 0;
+                        // an unknown last login (0 = unset, -1 = not found) must not count as inactive; treat the owner
+                        // as active. Other negative values are real times: calendar times wrap negative after 2038.
+                        boolean loginTimeKnown = loginTime != 0 && loginTime != -1;
                         if (loginTimeKnown && (curTime - loginTime) > cityGetInactivePackupInactiveTimeSeconds())
                         {
                             if (!player_structure.isCityAbandoned(self))
