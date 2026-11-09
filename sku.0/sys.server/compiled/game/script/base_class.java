@@ -3582,6 +3582,12 @@ public class base_class
     public static native int getGameTime();
 
     // returns the calendar time in seconds (i.e. the Epoch)
+    //
+    // The value is the low 32 bits of the server's 64-bit time, so it wraps negative after
+    // 2038-01-19 03:14:07 UTC. Never order calendar times with < or > directly: compare the
+    // difference instead, e.g. (now - then) >= 0 rather than now >= then, which is correct for
+    // intervals under 68 years. Use 0 (or hasObjVar) as "unset", never "<= 0". To split a
+    // calendar time into days/hours/minutes use player_structure.convertCalendarTime().
     public static native int getCalendarTime();
 
     // returns the calendar time in seconds (i.e. the Epoch) corresponding to the specified

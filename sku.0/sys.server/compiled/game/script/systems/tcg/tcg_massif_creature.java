@@ -1106,13 +1106,14 @@ public class tcg_massif_creature extends script.base_script
             justBorn = true;
         }
         int lastFed = getIntObjVar(controller, house_pet.MASSIFF_LAST_FED);
-        if (currentGameTime < (lastFed + updateWeek))
+        // Calendar times wrap after 2038: compare elapsed time; an unset lastFed (justBorn) never matches.
+        if (!justBorn && (currentGameTime - lastFed) < updateWeek)
         {
             CustomerServiceLog("tcg", "Massif Pet: " + pet + " has received an update before the request too soon. Bailing out.");
             blog("updateMassiffPet - Last Fed Timer: " + (lastFed + updateWeek) + " currentGameTime: " + currentGameTime);
             return true;
         }
-        if (currentGameTime >= (lastFed + updateWeek) && currentGameTime < (lastFed + (updateWeek * 2)) && !utils.hasScriptVar(pet, house_pet.BEING_FED))
+        if (!justBorn && (currentGameTime - lastFed) >= updateWeek && (currentGameTime - lastFed) < (updateWeek * 2) && !utils.hasScriptVar(pet, house_pet.BEING_FED))
         {
             CustomerServiceLog("tcg", "Massif Pet: " + pet + " is hungry but has time before being DEAD. Exiting.");
             if (currentPhase != house_pet.MASSIFF_HUNGRY)
@@ -1142,7 +1143,7 @@ public class tcg_massif_creature extends script.base_script
             CustomerServiceLog("tcg", "Massif Pet: " + pet + " is currently hungry but still has time before moving to dead. Bailing out.");
             return true;
         }
-        if (!justBorn && currentGameTime >= (lastFed + updateWeek * 2))
+        if (!justBorn && (currentGameTime - lastFed) >= (updateWeek * 2))
         {
             CustomerServiceLog("tcg", "Massif Pet: " + pet + " is supposed to be dead because the player has not fed it in over 2 weeks.");
             if (currentPhase != house_pet.MASSIFF_DEAD)

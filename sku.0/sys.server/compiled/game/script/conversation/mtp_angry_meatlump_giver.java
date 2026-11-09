@@ -29,7 +29,7 @@ public class mtp_angry_meatlump_giver extends script.base_script
         if (groundquests.hasCompletedQuest(player, "mtp_angry_meatlumps") && hasObjVar(player, "mtp_hideout.eligibleAngryMeatlump"))
         {
             int eligibleForNextQuestAt = getIntObjVar(player, "mtp_hideout.eligibleAngryMeatlump");
-            if (getCalendarTime() < eligibleForNextQuestAt)
+            if ((getCalendarTime() - eligibleForNextQuestAt) < 0)
             {
                 return true;
             }

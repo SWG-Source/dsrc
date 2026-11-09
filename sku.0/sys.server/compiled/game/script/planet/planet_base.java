@@ -224,7 +224,7 @@ public class planet_base extends script.base_script
         utils.setScriptVar(self, "gcw.calendar_time." + city, calendarTime);
 
         // this is the case if we haven't run an invasion yet at all.
-        if (scheduleTime <= 0)
+        if (scheduleTime == 0)
         {
             // timeToInvasion should never be in the past.  Reset and try again - possibly skipping this cycle.
             if (timeToInvasion < 0)

@@ -44,7 +44,7 @@ public class master_object extends script.base_script {
         if (!hasObjVar(self, OBJVAR_LEADERBOARD_UPDATE_TIME)) {
             messageTo(self, "handleWeeklyUpdateLeaderboards", null, 20f, true);
         }
-        if(getCalendarTime() > getIntObjVar(self, OBJVAR_LEADERBOARD_UPDATE_TIME) + 604800) {
+        if((getCalendarTime() - getIntObjVar(self, OBJVAR_LEADERBOARD_UPDATE_TIME)) > 604800) {
             messageTo(self, "handleWeeklyUpdateLeaderboards", null, 20f, true);
         }
         return SCRIPT_CONTINUE;

@@ -253,7 +253,7 @@ public class dianoga_dumpster extends script.base_script
             if (hasObjVar(self, house_pet.SARLACC_LAST_FED))
             {
                 int lastFed = getIntObjVar(self, house_pet.SARLACC_LAST_FED);
-                if (lastFed < 0)
+                if (lastFed == 0)
                 {
                     return SCRIPT_CONTINUE;
                 }
@@ -640,14 +640,14 @@ public class dianoga_dumpster extends script.base_script
             CustomerServiceLog("sarlacc_minigame: ", "updateSarlaccPet - Dianoga: " + sarlacc + " has no version number so the Dianoga is being stamped for the first time. ");
             setObjVar(sarlacc, house_pet.SARLACC_VERSION_VAR, house_pet.SARLACC_VERSION);
         }
-        if (currentGameTime < (lastFed + updateWeek))
+        if ((currentGameTime - lastFed) < updateWeek)
         {
             CustomerServiceLog("sarlacc_minigame: ", "updateSarlaccPet - Dianoga: " + sarlacc + " has received an update before the request too soon. Bailing out.");
             blog("updateSarlaccPet - Last Fed Timer: " + (lastFed + updateWeek) + " currentGameTime: " + currentGameTime);
             return false;
         }
         CustomerServiceLog("sarlacc_minigame: ", "updateSarlaccPet - It has been at least a week since the Dianoga: " + sarlacc + " has had food.");
-        if (currentGameTime < (lastFed + (updateWeek * 2)))
+        if ((currentGameTime - lastFed) < (updateWeek * 2))
         {
             CustomerServiceLog("sarlacc_minigame: ", "updateSarlaccPet - Dianoga: " + sarlacc + " is supposed to be hungry but has time before being Very Hungry. We are going to check the current phase.");
             if (currentPhase != house_pet.SARLACC_HUNGRY)
@@ -662,14 +662,14 @@ public class dianoga_dumpster extends script.base_script
             CustomerServiceLog("sarlacc_minigame: ", "updateSarlaccPet - Dianoga: " + sarlacc + " is currently hungry but still has time before moving to very hungry. Bailing out.");
             return false;
         }
-        if (currentGameTime >= (lastFed + updateWeek) && currentGameTime < (lastFed + (updateWeek * 2)))
+        if ((currentGameTime - lastFed) >= updateWeek && (currentGameTime - lastFed) < (updateWeek * 2))
         {
             CustomerServiceLog("sarlacc_minigame: ", "updateSarlaccPet - Dianoga: " + sarlacc + " was phase " + currentPhase + " and is now being set to HUNGRY.");
             setObjVar(sarlacc, house_pet.SARLACC_CURRENT_PHASE, house_pet.SARLACC_HUNGRY);
             return true;
         }
         CustomerServiceLog("sarlacc_minigame: ", "updateSarlaccPet - Dianoga: " + sarlacc + " has been neglected by owner. Checking for penalties.");
-        if (currentGameTime >= (lastFed + (updateWeek * 2)) && (!hasObjVar(sarlacc, house_pet.SARLACC_FREE_CHANCE) || !getBooleanObjVar(sarlacc, house_pet.SARLACC_FREE_CHANCE)))
+        if ((currentGameTime - lastFed) >= (updateWeek * 2) && (!hasObjVar(sarlacc, house_pet.SARLACC_FREE_CHANCE) || !getBooleanObjVar(sarlacc, house_pet.SARLACC_FREE_CHANCE)))
         {
             CustomerServiceLog("sarlacc_minigame: ", "updateSarlaccPet - It has been at least 2 weeks since the Dianoga: " + sarlacc + " has had food but the player hasn't used up their free chance yet.  We'll take care of this when the player feed this sarlacc.");
             setObjVar(sarlacc, house_pet.SARLACC_PENALTY_VAR, true);
@@ -677,12 +677,12 @@ public class dianoga_dumpster extends script.base_script
             return false;
         }
         CustomerServiceLog("sarlacc_minigame: ", "updateSarlaccPet - Dianoga: " + sarlacc + " has been neglected by owner and the free chance has been used.");
-        if (currentGameTime >= (lastFed + (updateWeek * 3)))
+        if ((currentGameTime - lastFed) >= (updateWeek * 3))
         {
             CustomerServiceLog("sarlacc_minigame: ", "updateSarlaccPet - It has been at least 2 weeks since the Dianoga: " + sarlacc + " has had food, but less than 3 weeks.");
             currentPhase += 3;
         }
-        else if (currentGameTime >= (lastFed + (updateWeek * 2)))
+        else if ((currentGameTime - lastFed) >= (updateWeek * 2))
         {
             CustomerServiceLog("sarlacc_minigame: ", "updateSarlaccPet - It has been at least 2 weeks since the Dianoga: " + sarlacc + " has had food, but less than 3 weeks.");
             currentPhase += 2;

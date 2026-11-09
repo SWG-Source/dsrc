@@ -63,7 +63,7 @@ public class emperor_statue extends script.base_script
         else 
         {
             int nextCeremony = getIntObjVar(self, "ceremonyTime");
-            if (nextCeremony <= 0)
+            if (nextCeremony == 0)
             {
                 return SCRIPT_CONTINUE;
             }

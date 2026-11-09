@@ -529,7 +529,7 @@ public class terminal_guild extends script.terminal.base.base_terminal
                     boolean allow = true;
                     final int previousFactionId = guildGetPreviousFaction(guildId);
                     final int timeLeftPreviousFaction = guildGetTimeLeftPreviousFaction(guildId);
-                    if (((370444368) == previousFactionId) && (timeLeftPreviousFaction > 0))
+                    if (((370444368) == previousFactionId) && (timeLeftPreviousFaction != 0))
                     {
                         int cooldown = (timeLeftPreviousFaction + (isGod(player) ? 10 : 86400)) - getCalendarTime();
                         if (cooldown > 0)
@@ -581,7 +581,7 @@ public class terminal_guild extends script.terminal.base.base_terminal
                     boolean allow = true;
                     final int previousFactionId = guildGetPreviousFaction(guildId);
                     final int timeLeftPreviousFaction = guildGetTimeLeftPreviousFaction(guildId);
-                    if (((-615855020) == previousFactionId) && (timeLeftPreviousFaction > 0))
+                    if (((-615855020) == previousFactionId) && (timeLeftPreviousFaction != 0))
                     {
                         int cooldown = (timeLeftPreviousFaction + (isGod(player) ? 10 : 86400)) - getCalendarTime();
                         if (cooldown > 0)
@@ -655,7 +655,7 @@ public class terminal_guild extends script.terminal.base.base_terminal
                             String announcement = "Select a GCW region for your guild to defend.";
                             final String gcwPreviousDefenderRegion = guildGetPreviousGcwDefenderRegion(guildId);
                             final int timeLeftPreviousGcwDefenderRegion = guildGetTimeLeftPreviousGcwDefenderRegion(guildId);
-                            if ((gcwPreviousDefenderRegion != null) && (gcwPreviousDefenderRegion.length() > 0) && (timeLeftPreviousGcwDefenderRegion > 0))
+                            if ((gcwPreviousDefenderRegion != null) && (gcwPreviousDefenderRegion.length() > 0) && (timeLeftPreviousGcwDefenderRegion != 0))
                             {
                                 final int cooldown = timeLeftPreviousGcwDefenderRegion + (isGod(player) ? 10 : 86400) - getCalendarTime();
                                 if (cooldown > 0)
@@ -832,7 +832,7 @@ public class terminal_guild extends script.terminal.base.base_terminal
         int lastLoginTime = getPlayerLastLoginTime(guildLeader);
         int timeDifference = getCalendarTime() - lastLoginTime;
         for (obj_id member : members) {
-            if (isIdValid(member) && member != guildLeader && member != player && timeDifference < LEADER_ABSENT_TIME) {
+            if (isIdValid(member) && member != guildLeader && member != player && lastLoginTime != 0 && timeDifference < LEADER_ABSENT_TIME) {
                 guildSetMemberAllegiance(guildId, member, guildLeader);
             } else {
                 if (isIdValid(member) && member != guildLeader && member != player) {

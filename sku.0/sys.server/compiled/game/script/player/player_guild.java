@@ -1973,7 +1973,7 @@ public class player_guild extends script.base_script
         }
         final String gcwPreviousDefenderRegion = guildGetPreviousGcwDefenderRegion(guildId);
         final int timeLeftPreviousGcwDefenderRegion = guildGetTimeLeftPreviousGcwDefenderRegion(guildId);
-        if ((gcwPreviousDefenderRegion != null) && (gcwPreviousDefenderRegion.length() > 0) && (timeLeftPreviousGcwDefenderRegion > 0))
+        if ((gcwPreviousDefenderRegion != null) && (gcwPreviousDefenderRegion.length() > 0) && (timeLeftPreviousGcwDefenderRegion != 0))
         {
             final int cooldown = timeLeftPreviousGcwDefenderRegion + (isGod(self) ? 10 : 86400) - getCalendarTime();
             if ((cooldown > 0) && !selectedGcwDefenderRegion.equals(gcwPreviousDefenderRegion))

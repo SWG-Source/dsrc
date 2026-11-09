@@ -724,7 +724,7 @@ public class instance extends script.base_script
         CustomerServiceLog(INSTANCE_DEBUG_LOG, "getLockoutData-player " + getFirstName(player) + "(" + player + ") parsed owner was " + owner + ".");
         int start_time = utils.stringToInt(parse[3]);
         CustomerServiceLog(INSTANCE_DEBUG_LOG, "getLockoutData-player " + getFirstName(player) + "(" + player + ") parsed start_time was " + start_time + ".");
-        if (getCalendarTime() >= time)
+        if ((getCalendarTime() - time) >= 0)
         {
             CustomerServiceLog(INSTANCE_DEBUG_LOG, "getLockoutData-player " + getFirstName(player) + "(" + player + ") calander time was greater than or equal to parsed time. Removing objvar and returning null.");
             removeObjVar(player, PLAYER_INSTANCE + "." + instance_name);

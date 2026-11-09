@@ -7122,7 +7122,7 @@ public class utils extends script.base_script
         else if (!isPlayerConnected(player))
         {
             int lastLoginTime = getPlayerLastLoginTime(player);
-            if (lastLoginTime > 0)
+            if (lastLoginTime != 0)
             {
                 int timeDifference = getCalendarTime() - lastLoginTime;
                 if (timeDifference > 0)

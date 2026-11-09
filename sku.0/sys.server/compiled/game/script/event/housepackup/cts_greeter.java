@@ -109,7 +109,7 @@ public class cts_greeter extends script.base_script
                 return SCRIPT_CONTINUE;
             }
             int refugeeTimeTransfer = getIntObjVar(self, cts.DATETIME_GIFT_TRANSFER);
-            if (refugeeTimeTransfer <= 0)
+            if (refugeeTimeTransfer == 0)
             {
                 return SCRIPT_CONTINUE;
             }
@@ -144,7 +144,7 @@ public class cts_greeter extends script.base_script
                 return SCRIPT_CONTINUE;
             }
             int giftTime = getIntObjVar(self, cts.SPONSOR_PLAYER_TIME);
-            if (refugeeTimeTransfer <= 0)
+            if (refugeeTimeTransfer == 0)
             {
                 return SCRIPT_CONTINUE;
             }

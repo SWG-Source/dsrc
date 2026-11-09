@@ -59,7 +59,7 @@ public class battle_controller extends script.base_script {
 
         // get minutes to the top of the hour so we can kick off a regularly scheduled battle status check.
         int calendarTime = getCalendarTime();
-        int[] convertedCalendarTime = player_structure.convertSecondsTime(calendarTime);
+        int[] convertedCalendarTime = player_structure.convertCalendarTime(calendarTime);
         //float minutesToTopOfHour = 59 - convertedCalendarTime[2];
         float minutesToTopOfHour = 0;
         getSettings();
@@ -174,7 +174,7 @@ public class battle_controller extends script.base_script {
         int gameTime = getCalendarTime();
         int nextBattleTime = lastBattleTime + secondsUntilNext;
 
-        if(nextBattleTime > gameTime){
+        if((nextBattleTime - gameTime) > 0){
             return nextBattleTime - gameTime;
         }
         return 0;

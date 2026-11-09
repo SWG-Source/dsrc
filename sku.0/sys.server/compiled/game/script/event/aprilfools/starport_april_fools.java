@@ -44,7 +44,7 @@ public class starport_april_fools extends script.base_script
         if (forceAprilFools == null || forceAprilFools.length() <= 0)
         {
             LOG("AprilFools", "Fools day is being forced into the April Fools real 24 hour period because the [EventTeam] forceFoolsDay setting is null or not set.");
-            if (currentTime < midnightOnAprilFoolsDay || currentTime > midnightOnDayAfterAprilFools)
+            if ((currentTime - midnightOnAprilFoolsDay) < 0 || (currentTime - midnightOnDayAfterAprilFools) > 0)
             {
                 messageTo(self, "cleanupCreatures", null, 0.0f, false);
                 messageTo(self, "heartbeat", null, 60.0f, false);
@@ -70,7 +70,7 @@ public class starport_april_fools extends script.base_script
         {
             spawnTime = configTime * 60;
         }
-        if (currentTime - getIntObjVar(self, LAST_SPAWN) < spawnTime)
+        if (hasObjVar(self, LAST_SPAWN) && (currentTime - getIntObjVar(self, LAST_SPAWN)) < spawnTime)
         {
             messageTo(self, "heartbeat", null, 60.0f, false);
             return SCRIPT_CONTINUE;

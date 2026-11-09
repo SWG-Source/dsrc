@@ -4085,6 +4085,19 @@ public class player_structure extends script.base_script
             seconds
         };
     }
+    // Split a calendar time (from getCalendarTime()) into {days, hours, minutes, seconds} since the epoch.
+    // Script calendar times are 32-bit ints that wrap negative after 2038-01-19; reading them as unsigned
+    // keeps the time-of-day fields correct until 2106. Use convertSecondsTime() for durations.
+    public static int[] convertCalendarTime(int calendarTime) throws InterruptedException
+    {
+        long time = ((long)calendarTime) & 0xFFFFFFFFL;
+        return new int[]{
+            (int)(time / 86400),
+            (int)((time % 86400) / 3600),
+            (int)((time % 3600) / 60),
+            (int)(time % 60)
+        };
+    }
     public static String assembleTimeRemaining(int[] time_values) throws InterruptedException
     {
         if (time_values == null || time_values.length == 0 || time_values.length > 4)

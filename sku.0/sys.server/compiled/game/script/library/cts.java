@@ -61,7 +61,7 @@ public class cts extends script.base_script
         }
         blog("grantPackagedPainting has painting, CTS player OID and Sponsor OID.");
         int refugeeTimeTransfer = getIntObjVar(sponsorGiftBox, cts.DATETIME_GIFT_TRANSFER);
-        if (refugeeTimeTransfer <= 0)
+        if (refugeeTimeTransfer == 0)
         {
             return false;
         }
@@ -107,7 +107,7 @@ public class cts extends script.base_script
             return false;
         }
         int giftTime = getIntObjVar(sponsorGiftBox, cts.SPONSOR_PLAYER_TIME);
-        if (refugeeTimeTransfer <= 0)
+        if (refugeeTimeTransfer == 0)
         {
             return false;
         }

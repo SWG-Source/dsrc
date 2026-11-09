@@ -2204,14 +2204,14 @@ public class player_utility extends script.base_script
             final int previousRenameTime = getIntObjVar(self, "renameCharacterRequest.requestTime");
             final int nextRenameTime = previousRenameTime + (90 * 24 * 60 * 60);
             final int timeNow = getCalendarTime();
-            if (nextRenameTime > timeNow)
+            if ((nextRenameTime - timeNow) > 0)
             {
                 final String previousRenameName = getStringObjVar(self, "renameCharacterRequest.requestNewName");
                 final String currentName = getName(self);
                 if ((currentName != null) && (previousRenameName != null) && !previousRenameName.equals(currentName))
                 {
                     final int renameRequestTimeOut = previousRenameTime + (24 * 60 * 60);
-                    if (renameRequestTimeOut > timeNow)
+                    if ((renameRequestTimeOut - timeNow) > 0)
                     {
                         int[] convertedGameTime = player_structure.convertSecondsTime(renameRequestTimeOut - timeNow);
                         if ((convertedGameTime != null) && (convertedGameTime.length == 4))
@@ -3192,6 +3192,40 @@ public class player_utility extends script.base_script
         }
         return SCRIPT_CONTINUE;
     }
+    // Seconds the given side has continuously held the region at >= 70%, or 0 if it does not.
+    // Calendar times are wrapping 32-bit ints, so the faction cannot be carried in the sign of
+    // the time after 2038. The current format stores the start time and the controlling faction
+    // separately (gcwScore.timeControlledSince.<region> / gcwScore.timeControlledFaction.<region>).
+    // The legacy format stored +time for Imperial and -time for Rebel control in
+    // gcwScore.timeControlled.<region>; the caller already knows which side holds the region,
+    // so the legacy value is decoded by negating it for Rebel control (int negation wraps).
+    public static final String GCW_TIME_CONTROLLED_SINCE = "gcwScore.timeControlledSince.";
+    public static final String GCW_TIME_CONTROLLED_FACTION = "gcwScore.timeControlledFaction.";
+    public static final String GCW_TIME_CONTROLLED_LEGACY = "gcwScore.timeControlled.";
+    public static int getGcwRegionControlledDuration(obj_id tatooine, String region, boolean imperialControlled) throws InterruptedException
+    {
+        int since = 0;
+        if (hasObjVar(tatooine, GCW_TIME_CONTROLLED_SINCE + region) && hasObjVar(tatooine, GCW_TIME_CONTROLLED_FACTION + region))
+        {
+            final int faction = getIntObjVar(tatooine, GCW_TIME_CONTROLLED_FACTION + region);
+            if (faction != (imperialControlled ? (-615855020) : (370444368)))
+            {
+                return 0;
+            }
+            since = getIntObjVar(tatooine, GCW_TIME_CONTROLLED_SINCE + region);
+        }
+        else if (hasObjVar(tatooine, GCW_TIME_CONTROLLED_LEGACY + region))
+        {
+            final int legacy = getIntObjVar(tatooine, GCW_TIME_CONTROLLED_LEGACY + region);
+            since = imperialControlled ? legacy : -legacy;
+        }
+        if (since == 0)
+        {
+            return 0;
+        }
+        final int duration = getCalendarTime() - since;
+        return (duration > 0) ? duration : 0;
+    }
     public int onGcwRegionDefenderTableDictionaryResponse(obj_id self, dictionary params) throws InterruptedException
     {
         if (utils.hasScriptVar(self, "gcw.gcwRegionDefenderTablePid"))
@@ -3280,7 +3314,7 @@ public class player_utility extends script.base_script
                 rowData[total][1] = "";
                 rowData[total][2] = "/Styles.Icon.Faction.rebel_logo";
                 final int timeJoinedGcwDefenderRegion = cityGetTimeJoinedGcwDefenderRegion(i1);
-                rowData[total][3] = ((timeJoinedGcwDefenderRegion > 0) ? getCalendarTimeStringLocal_YYYYMMDDHHMMSS(timeJoinedGcwDefenderRegion) : "");
+                rowData[total][3] = ((timeJoinedGcwDefenderRegion != 0) ? getCalendarTimeStringLocal_YYYYMMDDHHMMSS(timeJoinedGcwDefenderRegion) : "");
                 ++total;
             }
         }
@@ -3296,7 +3330,7 @@ public class player_utility extends script.base_script
                 }
                 rowData[total][2] = "/Styles.Icon.Faction.rebel_logo";
                 final int timeJoinedGcwDefenderRegion = guildGetTimeJoinedCurrentGcwDefenderRegion(i1);
-                rowData[total][3] = ((timeJoinedGcwDefenderRegion > 0) ? getCalendarTimeStringLocal_YYYYMMDDHHMMSS(timeJoinedGcwDefenderRegion) : "");
+                rowData[total][3] = ((timeJoinedGcwDefenderRegion != 0) ? getCalendarTimeStringLocal_YYYYMMDDHHMMSS(timeJoinedGcwDefenderRegion) : "");
                 ++total;
             }
         }
@@ -3308,7 +3342,7 @@ public class player_utility extends script.base_script
                 rowData[total][1] = "";
                 rowData[total][2] = "/Styles.Icon.Faction.imperial_logo";
                 final int timeJoinedGcwDefenderRegion = cityGetTimeJoinedGcwDefenderRegion(i1);
-                rowData[total][3] = ((timeJoinedGcwDefenderRegion > 0) ? getCalendarTimeStringLocal_YYYYMMDDHHMMSS(timeJoinedGcwDefenderRegion) : "");
+                rowData[total][3] = ((timeJoinedGcwDefenderRegion != 0) ? getCalendarTimeStringLocal_YYYYMMDDHHMMSS(timeJoinedGcwDefenderRegion) : "");
                 ++total;
             }
         }
@@ -3324,7 +3358,7 @@ public class player_utility extends script.base_script
                 }
                 rowData[total][2] = "/Styles.Icon.Faction.imperial_logo";
                 final int timeJoinedGcwDefenderRegion = guildGetTimeJoinedCurrentGcwDefenderRegion(i1);
-                rowData[total][3] = ((timeJoinedGcwDefenderRegion > 0) ? getCalendarTimeStringLocal_YYYYMMDDHHMMSS(timeJoinedGcwDefenderRegion) : "");
+                rowData[total][3] = ((timeJoinedGcwDefenderRegion != 0) ? getCalendarTimeStringLocal_YYYYMMDDHHMMSS(timeJoinedGcwDefenderRegion) : "");
                 ++total;
             }
         }
@@ -3338,28 +3372,12 @@ public class player_utility extends script.base_script
         final int imperialPct = getGcwImperialScorePercentile(selectedGcwDefenderRegion);
         String details = "GCW Region: " + localize(new string_id("gcw_regions", selectedGcwDefenderRegion)) + " (R:" + (100 - imperialPct) + "%% I:" + imperialPct + "%%)";
         int controlledDuration = 0;
-        if (imperialPct >= 70)
+        if (imperialPct >= 70 || imperialPct <= 30)
         {
             final obj_id tatooine = getPlanetByName("tatooine");
             if (isIdValid(tatooine))
             {
-                controlledDuration = getIntObjVar(tatooine, "gcwScore.timeControlled." + selectedGcwDefenderRegion);
-                if (controlledDuration > 0)
-                {
-                    controlledDuration = getCalendarTime() - controlledDuration;
-                }
-            }
-        }
-        else if (imperialPct <= 30)
-        {
-            final obj_id tatooine = getPlanetByName("tatooine");
-            if (isIdValid(tatooine))
-            {
-                controlledDuration = getIntObjVar(tatooine, "gcwScore.timeControlled." + selectedGcwDefenderRegion);
-                if (controlledDuration < 0)
-                {
-                    controlledDuration = getCalendarTime() + controlledDuration;
-                }
+                controlledDuration = getGcwRegionControlledDuration(tatooine, selectedGcwDefenderRegion, imperialPct >= 70);
             }
         }
         if (controlledDuration > 0)
@@ -3655,7 +3673,7 @@ public class player_utility extends script.base_script
             previousRegionTimeEndDefend = getIntObjVar(cityHall, "cityGcwRegionDefender.timeEnd");
         }
         final int timeNow = getCalendarTime();
-        if ((previousRegion != null) && (previousRegion.length() > 0) && (previousRegionTimeStartDefend > 0) && (previousRegionTimeEndDefend > 0))
+        if ((previousRegion != null) && (previousRegion.length() > 0) && (previousRegionTimeStartDefend != 0) && (previousRegionTimeEndDefend != 0))
         {
             final int cooldown = previousRegionTimeEndDefend + (isGod(self) ? 10 : 86400) - timeNow;
             if ((cooldown > 0) && !selectedGcwDefenderRegion.equals(previousRegion))

@@ -511,7 +511,7 @@ public class terminal_city extends script.base_script
                                 previousRegionTimeEndDefend = getIntObjVar(structure, "cityGcwRegionDefender.timeEnd");
                             }
                             String announcement = "Select a GCW region for your city to defend.";
-                            if ((previousRegion != null) && (previousRegion.length() > 0) && (previousRegionTimeStartDefend > 0) && (previousRegionTimeEndDefend > 0))
+                            if ((previousRegion != null) && (previousRegion.length() > 0) && (previousRegionTimeStartDefend != 0) && (previousRegionTimeEndDefend != 0))
                             {
                                 final int cooldown = previousRegionTimeEndDefend + (isGod(player) ? 10 : 86400) - getCalendarTime();
                                 if (cooldown > 0)
@@ -993,7 +993,7 @@ public class terminal_city extends script.base_script
         }
         String founder = getStringObjVar(cityHall, "founder.id");
         int creationTime = cityGetCreationTime(city_id);
-        if (((founder != null) && (founder.length() > 0)) || (creationTime > 0))
+        if (((founder != null) && (founder.length() > 0)) || (creationTime != 0))
         {
             city_data += " (founded";
             if ((founder != null) && (founder.length() > 0))
@@ -1001,7 +1001,7 @@ public class terminal_city extends script.base_script
                 city_data += " by ";
                 city_data += founder;
             }
-            if (creationTime > 0)
+            if (creationTime != 0)
             {
                 city_data += " on ";
                 city_data += getCalendarTimeStringLocal(creationTime);
@@ -1022,7 +1022,7 @@ public class terminal_city extends script.base_script
         {
             final int timeJoinedGcwDefenderRegion = cityGetTimeJoinedGcwDefenderRegion(city_id);
             city_info[2] = "GCW Region Defender: " + localize(new string_id("gcw_regions", gcwDefenderRegion));
-            if (timeJoinedGcwDefenderRegion > 0)
+            if (timeJoinedGcwDefenderRegion != 0)
             {
                 city_info[2] += (" (started defending on " + getCalendarTimeStringLocal(timeJoinedGcwDefenderRegion) + ")");
                 final int gcwDaysRequiredForGcwRegionDefenderBonus = utils.stringToInt(getConfigSetting("GameServer", "gcwDaysRequiredForGcwRegionDefenderBonus"));

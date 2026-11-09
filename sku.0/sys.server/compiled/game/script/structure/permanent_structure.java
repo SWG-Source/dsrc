@@ -1752,7 +1752,8 @@ public class permanent_structure extends script.base_script
             if (cityExists(city_id))
             {
                 int createTime = cityGetCreationTime(city_id);
-                if ((curTime - createTime) > 1814400)
+                // A time of 0 is unset (treated as long ago); calendar times wrap after 2038.
+                if (createTime == 0 || (curTime - createTime) > 1814400)
                 {
                     obj_id city_mayor = cityGetLeader(city_id);
                     if (!city.hasMayorProtectionFlag(owner, city_id))

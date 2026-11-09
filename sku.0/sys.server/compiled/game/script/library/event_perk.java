@@ -263,7 +263,7 @@ public class event_perk extends script.base_script
         {
             int now = getCalendarTime();
             int then = getIntObjVar(player, event_perk.COUNTER_TIMESTAMP);
-            if (now > then)
+            if ((now - then) > 0)
             {
                 return true;
             }
@@ -276,7 +276,7 @@ public class event_perk extends script.base_script
         {
             int now = getCalendarTime();
             int then = getIntObjVar(player, event_perk.COUNTER_RESTARTTIME);
-            if (now > then)
+            if ((now - then) > 0)
             {
                 return true;
             }
@@ -319,7 +319,7 @@ public class event_perk extends script.base_script
                 {
                     int now = getCalendarTime();
                     int then = getIntObjVar(player, event_perk.COUNTER_RESTARTTIME);
-                    if (now > then)
+                    if ((now - then) > 0)
                     {
                         removeObjVar(player, event_perk.COUNTER_RESTARTTIME);
                         removeObjVar(player, event_perk.COUNTER);

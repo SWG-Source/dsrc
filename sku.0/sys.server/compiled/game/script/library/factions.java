@@ -2095,7 +2095,7 @@ public class factions extends script.base_script
         if ((faction.toLowerCase()).equals("imperial") && hasObjVar(player, "factionalHelper.timeStopHelpingRebel"))
         {
             int time = getIntObjVar(player, "factionalHelper.timeStopHelpingRebel");
-            if ((time > 0) && ((time + 1800) > timeNow))
+            if ((time != 0) && ((time + 1800) - timeNow) > 0)
             {
                 LOG("time_left", "rebel time left: " + ((time + 1800) - timeNow));
                 return false;
@@ -2104,7 +2104,7 @@ public class factions extends script.base_script
         if ((faction.toLowerCase()).equals("rebel") && hasObjVar(player, "factionalHelper.timeStopHelpingImperial"))
         {
             int time = getIntObjVar(player, "factionalHelper.timeStopHelpingImperial");
-            if ((time > 0) && ((time + 1800) > timeNow))
+            if ((time != 0) && ((time + 1800) - timeNow) > 0)
             {
                 LOG("time_left", "imperial time left: " + ((time + 1800) - timeNow));
                 return false;
@@ -2209,7 +2209,7 @@ public class factions extends script.base_script
         if (hasObjVar(player, "factionalHelper.timeStopHelpingRebel"))
         {
             int time = getIntObjVar(player, "factionalHelper.timeStopHelpingRebel");
-            if ((time > 0) && ((time + timeCooldown) > timeNow))
+            if ((time != 0) && ((time + timeCooldown) - timeNow) > 0)
             {
                 secondsUntilCanHelpImperial = time + timeCooldown - timeNow;
             }
@@ -2217,7 +2217,7 @@ public class factions extends script.base_script
         else if (hasObjVar(player, "factionalHelper.timeStopHelpingImperial"))
         {
             int time = getIntObjVar(player, "factionalHelper.timeStopHelpingImperial");
-            if ((time > 0) && ((time + timeCooldown) > timeNow))
+            if ((time != 0) && ((time + timeCooldown) - timeNow) > 0)
             {
                 secondsUntilCanHelpRebel = time + timeCooldown - timeNow;
             }

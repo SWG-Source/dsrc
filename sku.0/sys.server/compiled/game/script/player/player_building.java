@@ -3129,7 +3129,7 @@ public class player_building extends script.base_script
                 columnData[0][1] = "";
             }
             int saveTime = getIntObjVar(playerObject, "savedDecoration1.saveTime");
-            if (saveTime > 0)
+            if (saveTime != 0)
             {
                 columnData[0][2] = getCalendarTimeStringLocal(saveTime);
             }
@@ -3158,7 +3158,7 @@ public class player_building extends script.base_script
                 columnData[1][1] = "";
             }
             int saveTime = getIntObjVar(playerObject, "savedDecoration2.saveTime");
-            if (saveTime > 0)
+            if (saveTime != 0)
             {
                 columnData[1][2] = getCalendarTimeStringLocal(saveTime);
             }
@@ -3187,7 +3187,7 @@ public class player_building extends script.base_script
                 columnData[2][1] = "";
             }
             int saveTime = getIntObjVar(playerObject, "savedDecoration3.saveTime");
-            if (saveTime > 0)
+            if (saveTime != 0)
             {
                 columnData[2][2] = getCalendarTimeStringLocal(saveTime);
             }
@@ -3401,7 +3401,7 @@ public class player_building extends script.base_script
         if (hasObjVar(playerObject, "savedDecoration1.saveTime"))
         {
             int saveTime = getIntObjVar(playerObject, "savedDecoration1.saveTime");
-            if (saveTime > 0)
+            if (saveTime != 0)
             {
                 ++numberOfSavedSlots;
                 saveSlot1 = new String[4];
@@ -3423,7 +3423,7 @@ public class player_building extends script.base_script
         if (hasObjVar(playerObject, "savedDecoration2.saveTime"))
         {
             int saveTime = getIntObjVar(playerObject, "savedDecoration2.saveTime");
-            if (saveTime > 0)
+            if (saveTime != 0)
             {
                 ++numberOfSavedSlots;
                 saveSlot2 = new String[4];
@@ -3445,7 +3445,7 @@ public class player_building extends script.base_script
         if (hasObjVar(playerObject, "savedDecoration3.saveTime"))
         {
             int saveTime = getIntObjVar(playerObject, "savedDecoration3.saveTime");
-            if (saveTime > 0)
+            if (saveTime != 0)
             {
                 ++numberOfSavedSlots;
                 saveSlot3 = new String[4];

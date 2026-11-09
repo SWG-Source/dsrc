@@ -1177,7 +1177,8 @@ public class pgc_quests extends script.base_script
                 getGrantedRewardsArray = getIntArrayObjVar(player, PGC_GRANTED_ROADMAP_REWARDS_OBJVAR);
             }
             int alreadyHasReward = getGrantedRewardsArray[skillIndex];
-            if (alreadyHasReward <= -1)
+            // -1 means not granted; granted entries hold a calendar time, which is negative after 2038.
+            if (alreadyHasReward == -1)
             {
                 String skillTemplate = "chronicles";
                 String itemGrant = skill_template.getRoadmapItem(player, skillTemplate, skillName);

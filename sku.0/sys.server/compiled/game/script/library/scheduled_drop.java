@@ -211,7 +211,7 @@ public class scheduled_drop extends script.base_script
             int endYear = currentPromotion.getInt(DATATABLE_SCHEDULE_PROMO_END_YEAR);
             int endDate = getCalendarTime(endYear, endMonth, endDay, endHour, endMinute, endSecond);
             testingSpam(self, "Scheduled Promotion: " + currentPromotion.getString(DATATABLE_SCHEDULE_PROMO_NAME) + " Start: " + startDate + " End: " + endDate);
-            if (startDate <= currentDate && endDate >= currentDate) {
+            if ((currentDate - startDate) >= 0 && (endDate - currentDate) >= 0) {
                 scheduledPromotions = utils.addElement(scheduledPromotions, currentPromotion.getString(DATATABLE_SCHEDULE_PROMO_NAME));
             }
         }
@@ -324,7 +324,7 @@ public class scheduled_drop extends script.base_script
         }
         int lastUpdate = getLastClusterUpdateTime();
         int currentDate = getCalendarTime();
-        if (currentDate - lastUpdate < 1800)
+        if (lastUpdate != 0 && (currentDate - lastUpdate) < 1800)
         {
             return;
         }

@@ -422,7 +422,7 @@ public class player_pvp extends script.base_script
             if (playerData.length > 4)
             {
                 int bfTime = utils.stringToInt(playerData[2]);
-                if (bfTime <= 0)
+                if (bfTime == 0)
                 {
                     waitTime = 0;
                 }
@@ -434,7 +434,7 @@ public class player_pvp extends script.base_script
             else 
             {
                 int bfTime = utils.stringToInt(playerData[1]);
-                if (bfTime <= 0)
+                if (bfTime == 0)
                 {
                     waitTime = 0;
                 }

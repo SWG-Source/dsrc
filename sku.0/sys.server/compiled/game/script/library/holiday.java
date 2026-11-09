@@ -1231,7 +1231,8 @@ public class holiday extends script.base_script
         }
         int now = getCalendarTime();
         int then = getIntObjVar(player, eventLockTimer);
-        if (then <= 0)
+        // Wrapping 32-bit calendar time: 0 is unset; negative values are valid after 2038.
+        if (then == 0)
         {
             CustomerServiceLog("holidayEvent", "holiday.checkEventLockOutRemoval: Player: " + player + " had invalid lockout timer: " + eventLockTimer + " for flag: " + eventLockFlag + ". POSSIBLE EXPLOIT. Removing both objvars.");
             removeObjVar(player, eventLockTimer);
@@ -1240,7 +1241,7 @@ public class holiday extends script.base_script
             removeObjVar(player, EMPIRE_DAY_BUFF_TRACKER);
             return true;
         }
-        if (now > then)
+        if ((now - then) > 0)
         {
             CustomerServiceLog("holidayEvent", "holiday.checkEventLockOutRemoval: Player: " + player + " has lockout timer that has expired: " + eventLockTimer + " for flag: " + eventLockFlag + ". Removing both objvars to allow participation in event.");
             removeObjVar(player, eventLockTimer);
@@ -1267,11 +1268,12 @@ public class holiday extends script.base_script
         }
         int now = getCalendarTime();
         int then = getIntObjVar(player, eventLockOut);
-        if (then <= 0)
+        // Wrapping 32-bit calendar time: 0 is unset; negative values are valid after 2038.
+        if (then == 0)
         {
             return null;
         }
-        if (now > then)
+        if ((now - then) > 0)
         {
             return "can start another task now";
         }

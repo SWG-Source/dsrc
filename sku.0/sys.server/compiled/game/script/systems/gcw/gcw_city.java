@@ -327,7 +327,7 @@ public class gcw_city extends script.base_script
         int calendarTime = getCalendarTime();
 
         // When did this city last have its invasion?
-        int[] convertedCalendarTime = player_structure.convertSecondsTime(calendarTime);
+        int[] convertedCalendarTime = player_structure.convertCalendarTime(calendarTime);
         int hour = convertedCalendarTime[1];
         CustomerServiceLog("gcw_city_invasion_started", "gcw_city.beginInvasion: cityName: " + cityName + " interval: " + gcw.gcwGetTimeToInvasion() + " cycle: " + gcw.gcwCalculateInvasionCycle() + " hour: " + hour);
         CustomerServiceLog("gcw_city_invasion", "gcw_city.beginInvasion: beginInvasion has been called. we are starting the construction phase at: " + getGameTime() + " session: " + params.getInt(trial.MESSAGE_SESSION));

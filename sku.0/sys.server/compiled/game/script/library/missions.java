@@ -165,7 +165,7 @@ public class missions extends script.base_script
         {
             int currentTime = getCalendarTime();
             int alarmTimeObjVar = getIntObjVar(player, missions.DAILY_MISSION_CLOCK_OBJVAR);
-            if (currentTime >= alarmTimeObjVar)
+            if ((currentTime - alarmTimeObjVar) >= 0)
             {
                 clearDailyObjVars(player);
             }

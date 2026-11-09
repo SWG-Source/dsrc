@@ -425,7 +425,7 @@ public class lifeday_objective extends script.base_script
         {
             int now = getCalendarTime();
             int then = getIntObjVar(player, LIFEDAY_TIMESTAMP);
-            return now > then;
+            return (now - then) > 0;
         }
         return true;
     }

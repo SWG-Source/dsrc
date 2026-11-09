@@ -940,7 +940,7 @@ public class collection extends script.base_script
         if (hasObjVar(groupMember, COL_HEROIC_SD_SMUGGLE_OBJVAR))
         {
             int timeStampCheck = getIntObjVar(groupMember, COL_HEROIC_SD_SMUGGLE_OBJVAR);
-            if (currentTime < timeStampCheck)
+            if ((currentTime - timeStampCheck) < 0)
             {
                 if (groupMember.equals(pilot) && utils.isOwner(ship, groupMember))
                 {
