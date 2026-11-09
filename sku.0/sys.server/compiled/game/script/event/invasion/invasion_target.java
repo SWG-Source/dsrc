@@ -15,7 +15,7 @@ public class invasion_target extends script.base_script
     }
     public int OnAttach(obj_id self) throws InterruptedException
     {
-        float timeStamp = getGameTime();
+        int timeStamp = getGameTime();
         setObjVar(self, "event.invasion.timeStamp", timeStamp);
         obj_id coordinator = getObjIdObjVar(self, "event.invasion.eventCoordinator");
         sendSystemMessage(coordinator, "Starting...", null);
@@ -164,9 +164,9 @@ public class invasion_target extends script.base_script
     }
     public void checkTimeLimit(obj_id self) throws InterruptedException
     {
-        float myCreationTime = getFloatObjVar(self, "event.invasion.timeStamp");
-        float rightNow = getGameTime();
-        float delta = rightNow - myCreationTime;
+        int myCreationTime = utils.getIntTimeObjVar(self, "event.invasion.timeStamp");
+        int rightNow = getGameTime();
+        int delta = rightNow - myCreationTime;
         if (delta > 60 * 60 * 10)
         {
             destroyObject(self);
@@ -183,7 +183,7 @@ public class invasion_target extends script.base_script
         String name = getStringObjVar(self, "event.invasion.keyObject.name");
         float expirationTime = getFloatObjVar(self, "event.invasion.keyObject.expirationTime");
         location whereIAmNow = getLocation(self);
-        float timeStamp = getGameTime();
+        int timeStamp = getGameTime();
         obj_id keyObject = create.object(name, whereIAmNow);
         setObjVar(keyObject, "event.invasion.keyObject.expirationTime", expirationTime);
         setObjVar(keyObject, "event.invasion.keyObject.timeStamp", timeStamp);

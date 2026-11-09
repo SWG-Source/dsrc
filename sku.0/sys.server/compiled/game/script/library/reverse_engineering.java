@@ -128,8 +128,8 @@ public class reverse_engineering extends script.base_script
     }
     public static float getDieTime(float lifeSpan, obj_id tempObject) throws InterruptedException
     {
-        float deathStamp = getFloatObjVar(tempObject, ENGINEERING_TIMESTAMP) + reverse_engineering.EXPIRATION_TIME;
-        return deathStamp - getGameTime();
+        int timeStamp = utils.getIntTimeObjVar(tempObject, ENGINEERING_TIMESTAMP);
+        return (timeStamp - getGameTime()) + reverse_engineering.EXPIRATION_TIME;
     }
     public static String getMyEquippedSlot(obj_id itemWithPowerUp) throws InterruptedException
     {
@@ -226,14 +226,14 @@ public class reverse_engineering extends script.base_script
     }
     public static void addModsAndScript(obj_id player, obj_id powerUp, obj_id itemToPowerUp) throws InterruptedException
     {
-        addModsAndScript(player, powerUp, itemToPowerUp, 0.0f);
+        addModsAndScript(player, powerUp, itemToPowerUp, 0);
     }
-    public static void addModsAndScript(obj_id player, obj_id powerUp, obj_id itemToPowerUp, float remainingTime) throws InterruptedException
+    public static void addModsAndScript(obj_id player, obj_id powerUp, obj_id itemToPowerUp, int previousTimeStamp) throws InterruptedException
     {
-        float timeStamp = getGameTime();
-        if (remainingTime > 0.0f)
+        int timeStamp = getGameTime();
+        if (previousTimeStamp > 0)
         {
-            timeStamp = remainingTime;
+            timeStamp = previousTimeStamp;
         }
         setObjVar(itemToPowerUp, ENGINEERING_MODIFIER, getStringObjVar(powerUp, ENGINEERING_MODIFIER));
         setObjVar(itemToPowerUp, ENGINEERING_RATIO, getIntObjVar(powerUp, ENGINEERING_RATIO));

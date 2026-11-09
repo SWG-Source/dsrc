@@ -24,8 +24,8 @@ public class nym_anniversary_dispenser extends script.base_script
     {
         if (hasObjVar(player, "event.last_timed_reward"))
         {
-            float lastRewardTime = getFloatObjVar(player, "event.last_timed_reward");
-            float rightNow = getGameTime();
+            int lastRewardTime = utils.getIntTimeObjVar(player, "event.last_timed_reward");
+            int rightNow = getGameTime();
             if (rightNow - lastRewardTime > 3600)
             {
                 return true;
@@ -63,7 +63,7 @@ public class nym_anniversary_dispenser extends script.base_script
         }
         if (exists(reward) && isIdValid(reward))
         {
-            float rightNow = getGameTime();
+            int rightNow = getGameTime();
             setObjVar(player, "event.last_timed_reward", rightNow);
         }
     }

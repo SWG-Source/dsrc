@@ -33,15 +33,15 @@ public class cantina_controller extends script.base_script
         {
             return SCRIPT_CONTINUE;
         }
-        float rightNow = getGameTime();
+        int rightNow = getGameTime();
         if (!hasObjVar(self, "aprilfools.invasion_run_time"))
         {
-            float invasionRunTime = rightNow + THIRTY_SIX_HOURS;
+            int invasionRunTime = rightNow + (int)THIRTY_SIX_HOURS;
             setObjVar(self, "aprilfools.invasion_run_time", invasionRunTime);
         }
         float minInvasionTime = 2700.0f;
         float timeChunkSize = 900.0f;
-        float nextInvasionTime = (rand(1, 9) * timeChunkSize) + minInvasionTime + rightNow;
+        int nextInvasionTime = rightNow + (int)((rand(1, 9) * timeChunkSize) + minInvasionTime);
         setObjVar(self, "aprilfools.next_invasion_time", nextInvasionTime);
         setObjVar(self, "aprilfools.invasion_active", 0);
         messageTo(self, "invasionTimerPing", null, 30, false);
@@ -49,8 +49,8 @@ public class cantina_controller extends script.base_script
     }
     public int invasionTimerPing(obj_id self, dictionary params) throws InterruptedException
     {
-        float rightNow = getGameTime();
-        float invasionRunTime = getFloatObjVar(self, "aprilfools.invasion_run_time");
+        int rightNow = getGameTime();
+        int invasionRunTime = utils.getIntTimeObjVar(self, "aprilfools.invasion_run_time");
         if (rightNow > invasionRunTime)
         {
             return SCRIPT_CONTINUE;
@@ -60,7 +60,7 @@ public class cantina_controller extends script.base_script
         {
             return SCRIPT_CONTINUE;
         }
-        float nextInvasionTime = getFloatObjVar(self, "aprilfools.next_invasion_time");
+        int nextInvasionTime = utils.getIntTimeObjVar(self, "aprilfools.next_invasion_time");
         if (rightNow > nextInvasionTime && invasionActive == 0)
         {
             if (rand(1, 2) == 1)
@@ -252,8 +252,8 @@ public class cantina_controller extends script.base_script
         float minInvasionTime = 2700.0f;
         float timeChunkSize = 900.0f;
         int numTimeChunk = 9;
-        float rightNow = getGameTime();
-        float nextInvasionTime = (rand(1, numTimeChunk) * timeChunkSize) + minInvasionTime + rightNow;
+        int rightNow = getGameTime();
+        int nextInvasionTime = rightNow + (int)((rand(1, numTimeChunk) * timeChunkSize) + minInvasionTime);
 
         setObjVar(self, "aprilfools.next_invasion_time", nextInvasionTime);
         messageTo(self, "invasionTimerPing", null, 2700, false);

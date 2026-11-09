@@ -12,20 +12,18 @@ public class event_perk extends script.base_script
     public int OnAttach(obj_id self) throws InterruptedException
     {
         float lifeSpan = getFloatObjVar(self, "event_perk.lifeSpan");
-        float timeStamp = getFloatObjVar(self, "event_perk.timeStamp");
-        float deathStamp = timeStamp + lifeSpan;
-        float rightNow = getGameTime();
-        float dieTime = deathStamp - rightNow;
+        int timeStamp = utils.getIntTimeObjVar(self, "event_perk.timeStamp");
+        int rightNow = getGameTime();
+        float dieTime = (timeStamp - rightNow) + lifeSpan;
         messageTo(self, "cleanUp", null, dieTime, false);
         return SCRIPT_CONTINUE;
     }
     public int OnInitialize(obj_id self) throws InterruptedException
     {
         float lifeSpan = getFloatObjVar(self, "event_perk.lifeSpan");
-        float timeStamp = getFloatObjVar(self, "event_perk.timeStamp");
-        float deathStamp = timeStamp + lifeSpan;
-        float rightNow = getGameTime();
-        float dieTime = deathStamp - rightNow;
+        int timeStamp = utils.getIntTimeObjVar(self, "event_perk.timeStamp");
+        int rightNow = getGameTime();
+        float dieTime = (timeStamp - rightNow) + lifeSpan;
         messageTo(self, "cleanUp", null, dieTime, false);
         return SCRIPT_CONTINUE;
     }
@@ -90,9 +88,9 @@ public class event_perk extends script.base_script
         if (item == menu_info_types.SERVER_MENU3 || item == menu_info_types.SERVER_MENU8)
         {
             float lifeSpan = getFloatObjVar(self, "event_perk.lifeSpan");
-            float timeStamp = getFloatObjVar(self, "event_perk.timeStamp");
-            float rightNow = getGameTime();
-            float expirationTimeMinutesFloat = ((lifeSpan + timeStamp) - rightNow) / 60;
+            int timeStamp = utils.getIntTimeObjVar(self, "event_perk.timeStamp");
+            int rightNow = getGameTime();
+            float expirationTimeMinutesFloat = ((timeStamp - rightNow) + lifeSpan) / 60;
             int expirationTimeMinutes = (int)expirationTimeMinutesFloat;
             prose_package showExpiration = new prose_package();
             showExpiration = prose.getPackage(new string_id("event_perk", "show_exp_time"));
@@ -137,10 +135,9 @@ public class event_perk extends script.base_script
             return SCRIPT_CONTINUE;
         }
         float lifeSpan = getFloatObjVar(self, "event_perk.lifeSpan");
-        float timeStamp = getFloatObjVar(self, "event_perk.timeStamp");
-        float rightNow = getGameTime();
-        float deathStamp = timeStamp + lifeSpan;
-        float dieTime = deathStamp - rightNow;
+        int timeStamp = utils.getIntTimeObjVar(self, "event_perk.timeStamp");
+        int rightNow = getGameTime();
+        float dieTime = (timeStamp - rightNow) + lifeSpan;
         if (dieTime < 1)
         {
             CustomerServiceLog("EventPerk", "(Spawned Object - [" + self + "]) lifespan expired so it was destroyed.");
@@ -176,9 +173,9 @@ public class event_perk extends script.base_script
         }
         String sourceDeed = getStringObjVar(self, "event_perk.source_deed");
         float lifeSpan = getFloatObjVar(self, "event_perk.lifeSpan");
-        float timeStamp = getFloatObjVar(self, "event_perk.timeStamp");
-        float rightNow = getGameTime();
-        float adjustedLifeSpan = (lifeSpan + timeStamp) - rightNow;
+        int timeStamp = utils.getIntTimeObjVar(self, "event_perk.timeStamp");
+        int rightNow = getGameTime();
+        float adjustedLifeSpan = (timeStamp - rightNow) + lifeSpan;
         obj_id playerInventory = utils.getInventoryContainer(player);
         obj_id perkDeed = createObject(sourceDeed, playerInventory, "");
         if (isIdValid(perkDeed))
@@ -213,9 +210,9 @@ public class event_perk extends script.base_script
     public void checkTimeLimit(obj_id self) throws InterruptedException
     {
         float lifeSpan = getFloatObjVar(self, "event_perk.lifeSpan");
-        float timeStamp = getFloatObjVar(self, "event_perk.timeStamp");
-        float rightNow = getGameTime();
-        float delta = rightNow - timeStamp;
+        int timeStamp = utils.getIntTimeObjVar(self, "event_perk.timeStamp");
+        int rightNow = getGameTime();
+        int delta = rightNow - timeStamp;
         if (delta > lifeSpan)
         {
             CustomerServiceLog("EventPerk", "(Spawned Object - [" + self + "]) lifespan expired so it was destroyed.");

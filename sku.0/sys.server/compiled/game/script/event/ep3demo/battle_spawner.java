@@ -20,8 +20,8 @@ public class battle_spawner extends script.base_script
     }
     public int OnInitialize(obj_id self) throws InterruptedException
     {
-        float timeStamp = getFloatObjVar(self, "ep3demo.timeStamp");
-        float rightNow = getGameTime();
+        int timeStamp = utils.getIntTimeObjVar(self, "ep3demo.timeStamp");
+        int rightNow = getGameTime();
         if (rightNow - timeStamp > 36000)
         {
             destroyObject(self);
@@ -30,8 +30,8 @@ public class battle_spawner extends script.base_script
     }
     public int OnAddedToWorld(obj_id self) throws InterruptedException
     {
-        float timeStamp = getFloatObjVar(self, "ep3demo.timeStamp");
-        float rightNow = getGameTime();
+        int timeStamp = utils.getIntTimeObjVar(self, "ep3demo.timeStamp");
+        int rightNow = getGameTime();
         if (rightNow - timeStamp > 36000)
         {
             destroyObject(self);

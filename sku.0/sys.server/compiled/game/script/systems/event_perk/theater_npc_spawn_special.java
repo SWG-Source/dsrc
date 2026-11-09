@@ -2,6 +2,7 @@ package script.systems.event_perk;
 
 import script.library.ai_lib;
 import script.library.create;
+import script.library.utils;
 import script.location;
 import script.obj_id;
 
@@ -14,7 +15,7 @@ public class theater_npc_spawn_special extends script.base_script
     {
         location here = getLocation(self);
         float lifeSpan = getFloatObjVar(self, "event_perk.lifeSpan");
-        float timeStamp = getFloatObjVar(self, "event_perk.timeStamp");
+        int timeStamp = utils.getIntTimeObjVar(self, "event_perk.timeStamp");
         float terminalRegistration = getFloatObjVar(self, "event_perk.terminal_registration");
         String spawn = getStringObjVar(self, "event_perk.stringData1");
         float xOffset = getFloatObjVar(self, "event_perk.floatData1");

@@ -1,6 +1,7 @@
 package script.event.invasion;
 
 import script.dictionary;
+import script.library.utils;
 import script.obj_id;
 
 public class key_object extends script.base_script
@@ -22,9 +23,9 @@ public class key_object extends script.base_script
     public void checkTimeLimit(obj_id self) throws InterruptedException
     {
         float expirationTime = getFloatObjVar(self, "event.invasion.keyObject.expirationTime");
-        float timeStamp = getFloatObjVar(self, "event.invasion.keyObject.timeStamp");
-        float rightNow = getGameTime();
-        float delta = rightNow - timeStamp;
+        int timeStamp = utils.getIntTimeObjVar(self, "event.invasion.keyObject.timeStamp");
+        int rightNow = getGameTime();
+        int delta = rightNow - timeStamp;
         if (delta > expirationTime)
         {
             destroyObject(self);

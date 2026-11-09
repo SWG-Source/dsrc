@@ -166,7 +166,7 @@ public class battle extends script.base_script
     }
     public void startBattle(obj_id self, int battleIndex) throws InterruptedException
     {
-        float timeStamp = getGameTime();
+        int timeStamp = getGameTime();
         location here = getLocation(self);
         obj_id battleSpawner = create.object("object/tangible/poi/base/poi_base.iff", here);
         if (battleIndex == 1)

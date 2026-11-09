@@ -2,6 +2,7 @@ package script.event;
 
 import script.dictionary;
 import script.library.create;
+import script.library.utils;
 import script.obj_id;
 
 public class shuttle_control extends script.base_script
@@ -19,7 +20,7 @@ public class shuttle_control extends script.base_script
     };
     public int OnAttach(obj_id self) throws InterruptedException
     {
-        float timeStamp = getGameTime();
+        int timeStamp = getGameTime();
         setObjVar(self, "event.shuttle.timeStamp", timeStamp);
         messageTo(self, "cleanUp", null, DECAY_TIME, false);
         return SCRIPT_CONTINUE;
@@ -93,9 +94,9 @@ public class shuttle_control extends script.base_script
     }
     public void checkTimeLimit(obj_id self) throws InterruptedException
     {
-        float timeStamp = getFloatObjVar(self, "event.shuttle.timeStamp");
-        float rightNow = getGameTime();
-        float delta = rightNow - timeStamp;
+        int timeStamp = utils.getIntTimeObjVar(self, "event.shuttle.timeStamp");
+        int rightNow = getGameTime();
+        int delta = rightNow - timeStamp;
         if (delta > DECAY_TIME)
         {
             destroyObject(self);

@@ -68,9 +68,9 @@ public class event_perk_deed extends script.base_script
             if (hasObjVar(self, "event_perk.timeStamp"))
             {
                 float lifeSpan = getFloatObjVar(self, "event_perk.lifeSpan");
-                float timeStamp = getFloatObjVar(self, "event_perk.timeStamp");
-                float rightNow = getGameTime();
-                float expirationTimeMinutesFloat = ((lifeSpan + timeStamp) - rightNow) / 60;
+                int timeStamp = utils.getIntTimeObjVar(self, "event_perk.timeStamp");
+                int rightNow = getGameTime();
+                float expirationTimeMinutesFloat = ((timeStamp - rightNow) + lifeSpan) / 60;
                 int expirationTimeMinutes = (int)expirationTimeMinutesFloat;
                 prose_package showExpiration = new prose_package();
                 showExpiration = prose.getPackage(new string_id("event_perk", "show_exp_time"));
@@ -134,7 +134,7 @@ public class event_perk_deed extends script.base_script
     {
         if (!hasObjVar(self, "event_perk.timeStamp"))
         {
-            float timeStamp = getGameTime();
+            int timeStamp = getGameTime();
             setObjVar(self, "event_perk.timeStamp", timeStamp);
         }
         int deedNumber = getIntObjVar(self, "event_perk.deedNumber");
@@ -143,7 +143,7 @@ public class event_perk_deed extends script.base_script
         String script = dataTableGetString(DATATABLE, deedNumber, "SCRIPT");
         float lifeSpan = getFloatObjVar(self, "event_perk.lifeSpan");
         float heading = getYaw(player);
-        float timeStamp = getFloatObjVar(self, "event_perk.timeStamp");
+        int timeStamp = utils.getIntTimeObjVar(self, "event_perk.timeStamp");
         String ownerName = getFirstName(player);
         float terminalRegistration = getFloatObjVar(self, "event_perk.terminal_registration");
         String stringData1 = dataTableGetString(DATATABLE, deedNumber, "SDATA1");
@@ -311,9 +311,9 @@ public class event_perk_deed extends script.base_script
         if (hasObjVar(self, "event_perk.timeStamp"))
         {
             float lifeSpan = getFloatObjVar(self, "event_perk.lifeSpan");
-            float timeStamp = getFloatObjVar(self, "event_perk.timeStamp");
-            float rightNow = getGameTime();
-            float delta = rightNow - timeStamp;
+            int timeStamp = utils.getIntTimeObjVar(self, "event_perk.timeStamp");
+            int rightNow = getGameTime();
+            int delta = rightNow - timeStamp;
             if (delta > lifeSpan)
             {
                 destroyObject(self);
@@ -437,7 +437,7 @@ public class event_perk_deed extends script.base_script
         String titleAppendStr = getString(titleAppend);
         vendorName += titleAppendStr + ownerName + ")";
         float lifeSpan = utils.getFloatScriptVar(self, "event_perk.lifeSpan");
-        float timeStamp = utils.getFloatScriptVar(self, "event_perk.timeStamp");
+        int timeStamp = utils.getIntScriptVar(self, "event_perk.timeStamp");
         float heading = utils.getFloatScriptVar(self, "event_perk.heading");
         String vendorTemplate = "object/tangible/vendor/vendor_" + terminalSuffix;
         int raceIndex = utils.getIntScriptVar(self, "event_perk.raceIndex");

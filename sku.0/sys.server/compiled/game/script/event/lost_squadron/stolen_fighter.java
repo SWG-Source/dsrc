@@ -89,9 +89,9 @@ public class stolen_fighter extends script.base_script
     }
     public int checkTimeLimit(obj_id self, dictionary params) throws InterruptedException
     {
-        float timeStamp = getFloatObjVar(self, "event.lost_squadron.timeStamp");
-        float rightNow = getGameTime();
-        float delta = rightNow - timeStamp;
+        int timeStamp = utils.getIntTimeObjVar(self, "event.lost_squadron.timeStamp");
+        int rightNow = getGameTime();
+        int delta = rightNow - timeStamp;
         obj_id mom = getObjIdObjVar(self, "event.lost_squadron.mom");
         int coreRemoved = getIntObjVar(self, "event.lost_squadron.core_removed");
         String type = getStringObjVar(self, "event.lost_squadron.type");

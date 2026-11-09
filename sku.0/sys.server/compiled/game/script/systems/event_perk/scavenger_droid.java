@@ -3,6 +3,7 @@ package script.systems.event_perk;
 import script.*;
 import script.library.prose;
 import script.library.sui;
+import script.library.utils;
 
 public class scavenger_droid extends script.base_script
 {
@@ -241,7 +242,7 @@ public class scavenger_droid extends script.base_script
                 sendSystemMessage(player, new string_id("event_perk", "scavenger_no_items"));
                 return SCRIPT_CONTINUE;
             }
-            float rightNow = getGameTime();
+            int rightNow = getGameTime();
             setObjVar(self, "event_perk.scavenger.game_start_time", rightNow);
             setObjVar(self, "event_perk.scavenger.initialized", 1);
             announceStatusToPlayers(self, "scavenger_game_start");
@@ -292,8 +293,8 @@ public class scavenger_droid extends script.base_script
         int playerScore = getIntObjVar(player, "event_perk.scavenger.my_score");
         if (playerScore == maxScore)
         {
-            float rightNow = getGameTime();
-            float gameStartTime = getFloatObjVar(self, "event_perk.scavenger.game_start_time");
+            int rightNow = getGameTime();
+            int gameStartTime = utils.getIntTimeObjVar(self, "event_perk.scavenger.game_start_time");
             float rawTimeToWin = rightNow - gameStartTime;
             float timeToWinMinutesFloat = rawTimeToWin / 60;
             int timeToWinMinutes = (int)timeToWinMinutesFloat;
