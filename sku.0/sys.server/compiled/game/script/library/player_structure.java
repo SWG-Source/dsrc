@@ -2157,7 +2157,10 @@ public class player_structure extends script.base_script
             sendSystemMessage(player, SID_GENERIC_CITY_PACKUP_ERROR);
             return;
         }
-        if ((getCalendarTime() - getPlayerLastLoginTime(owner)) < cityGetInactivePackupInactiveTimeSeconds())
+        int ownerLastLoginTime = getPlayerLastLoginTime(owner);
+        // an unknown last login (0 = unset, -1 = not found) must not count as inactive; treat the owner as active.
+        // Other negative values are real times: calendar times wrap negative after 2038.
+        if (ownerLastLoginTime == 0 || ownerLastLoginTime == -1 || (getCalendarTime() - ownerLastLoginTime) < cityGetInactivePackupInactiveTimeSeconds())
         {
             if (hasObjVar(player, "qa.city_packup"))
             {
