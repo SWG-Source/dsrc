@@ -104,7 +104,8 @@ public class player_saga_quest extends script.base_script
                     {
                         int[] getGrantedRewardsArray = getIntArrayObjVar(self, pgc_quests.PGC_GRANTED_ROADMAP_REWARDS_OBJVAR);
                         int alreadyHasReward = getGrantedRewardsArray[i];
-                        if (alreadyHasReward <= -1)
+                        // -1 means not granted; granted entries hold a calendar time, which is negative after 2038.
+                        if (alreadyHasReward == -1)
                         {
                             pgc_quests.grantChroniclesRoadmapItem(self, skillName, i);
                         }
