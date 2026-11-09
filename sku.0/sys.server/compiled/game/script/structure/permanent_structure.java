@@ -1759,7 +1759,7 @@ public class permanent_structure extends script.base_script
                     if (!city.hasMayorProtectionFlag(owner, city_id))
                     {
                         int loginTime = getPlayerLastLoginTime(owner);
-                        if (loginTime == 0 || (curTime - loginTime) > cityGetInactivePackupInactiveTimeSeconds())
+                        if ((curTime - loginTime) > cityGetInactivePackupInactiveTimeSeconds())
                         {
                             if (!player_structure.isCityAbandoned(self))
                             {
@@ -1770,7 +1770,7 @@ public class permanent_structure extends script.base_script
                                 return SCRIPT_CONTINUE;
                             }
                         }
-                        if (loginTime == 0 || (curTime - loginTime) > (60 * 24 * 60 * 60))
+                        if ((curTime - loginTime) > (60 * 24 * 60 * 60))
                         {
                             if (hasObjVar(self, "city_packup.inactive_citizen_mail_sent"))
                             {
