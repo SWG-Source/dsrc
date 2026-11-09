@@ -53,7 +53,7 @@ public class spawn extends script.quest.task.ground.base_task
         dictionary params = new dictionary();
         params.put("questCrc", questCrc);
         params.put("taskId", taskId);
-        float playerPlayedTimeWhenTimerEnds = (float)getPlayerPlayedTime(self) + timeLeft;
+        int playerPlayedTimeWhenTimerEnds = getPlayerPlayedTime(self) + timeLeft;
         setObjVar(self, baseObjVar + "." + objvarPlayedTimeEnd, playerPlayedTimeWhenTimerEnds);
         messageTo(self, "messageStartQuestSpawn", params, timeLeft, true);
         return super.OnTaskActivated(self, questCrc, taskId);
@@ -65,8 +65,8 @@ public class spawn extends script.quest.task.ground.base_task
         if (questIsTaskActive(questCrc, taskId, self))
         {
             String baseObjVar = groundquests.getBaseObjVar(self, taskType, questGetQuestName(questCrc), taskId);
-            float playerPlayedTimeWhenTimerEnds = getFloatObjVar(self, baseObjVar + "." + objvarPlayedTimeEnd);
-            float timeLeft = playerPlayedTimeWhenTimerEnds - getPlayerPlayedTime(self);
+            int playerPlayedTimeWhenTimerEnds = utils.getIntTimeObjVar(self, baseObjVar + "." + objvarPlayedTimeEnd);
+            int timeLeft = playerPlayedTimeWhenTimerEnds - getPlayerPlayedTime(self);
             if (timeLeft > 1)
             {
                 messageTo(self, "messageStartQuestSpawn", params, timeLeft, true);

@@ -29,7 +29,7 @@ public class timer extends script.quest.task.ground.base_task
             maxTime = temp;
         }
         float timerLength = rand(minTime, maxTime);
-        float playerPlayedTimeWhenTimerEnds = getPlayerPlayedTime(self) + timerLength;
+        int playerPlayedTimeWhenTimerEnds = getPlayerPlayedTime(self) + (int)timerLength;
         groundquests.questOutputDebugInfo(self, questCrc, taskId, taskType, "OnTaskActivated", "Setting timer for " + timerLength + " seconds.");
         dictionary params = new dictionary();
         params.put("questcrc", questCrc);
@@ -39,7 +39,7 @@ public class timer extends script.quest.task.ground.base_task
         setObjVar(self, baseObjVar + dot + timeObjVar, playerPlayedTimeWhenTimerEnds);
         if (isVisible != 0)
         {
-            questSetQuestTaskTimer(self, questGetQuestName(questCrc), taskId, "quest/groundquests:timer_timertext", (int)playerPlayedTimeWhenTimerEnds);
+            questSetQuestTaskTimer(self, questGetQuestName(questCrc), taskId, "quest/groundquests:timer_timertext", playerPlayedTimeWhenTimerEnds);
         }
         return super.OnTaskActivated(self, questCrc, taskId);
     }
@@ -50,8 +50,8 @@ public class timer extends script.quest.task.ground.base_task
         if (questIsTaskActive(questCrc, taskId, self))
         {
             String baseObjVar = groundquests.getBaseObjVar(self, taskType, questGetQuestName(questCrc), taskId);
-            float playerPlayedTimeWhenTimerEnds = getFloatObjVar(self, baseObjVar + dot + timeObjVar);
-            float timeLeft = playerPlayedTimeWhenTimerEnds - getPlayerPlayedTime(self);
+            int playerPlayedTimeWhenTimerEnds = utils.getIntTimeObjVar(self, baseObjVar + dot + timeObjVar);
+            int timeLeft = playerPlayedTimeWhenTimerEnds - getPlayerPlayedTime(self);
             if (timeLeft <= 0)
             {
                 questCompleteTask(questCrc, taskId, self);
@@ -106,11 +106,11 @@ public class timer extends script.quest.task.ground.base_task
                 int[] tasksForCurrentQuest = tasks.getIntArray(questCrcString);
                 for (int taskId : tasksForCurrentQuest) {
                     String baseObjVar = groundquests.getBaseObjVar(self, taskType, questGetQuestName(questCrc), taskId);
-                    float playerPlayedTimeWhenTimerEnds = getFloatObjVar(self, baseObjVar + dot + timeObjVar);
+                    int playerPlayedTimeWhenTimerEnds = utils.getIntTimeObjVar(self, baseObjVar + dot + timeObjVar);
                     if (getPlayerPlayedTime(self) < playerPlayedTimeWhenTimerEnds) {
                         int isVisible = groundquests.getTaskIntDataEntry(questCrc, taskId, dataTableColumnVisible);
                         if (isVisible != 0) {
-                            questSetQuestTaskTimer(self, questGetQuestName(questCrc), taskId, "quest/groundquests:timer_timertext", (int) playerPlayedTimeWhenTimerEnds);
+                            questSetQuestTaskTimer(self, questGetQuestName(questCrc), taskId, "quest/groundquests:timer_timertext", playerPlayedTimeWhenTimerEnds);
                         }
                     }
                 }
