@@ -27,17 +27,17 @@ public class hoth_sharpshooter_buff extends script.base_script
         }
         if (item == menu_info_types.ITEM_USE)
         {
-            float buffTime = getFloatObjVar(player, "clickItem.hoth_sharpshooter");
+            int buffTime = utils.getIntTimeObjVar(player, "clickItem.hoth_sharpshooter");
             if (getGameTime() > buffTime || isGod(player))
             {
-                setObjVar(player, "clickItem.hoth_sharpshooter", (getGameTime() + REUSE_TIME));
+                setObjVar(player, "clickItem.hoth_sharpshooter", (getGameTime() + (int)REUSE_TIME));
                 sendCooldownGroupTimingOnly(player, getStringCrc("epic_items"), REUSE_TIME);
                 playClientEffectObj(player, "clienteffect/medic_reckless_stimulation.cef", player, "");
                 activateSharpshooterBuff(self, player);
             }
             else 
             {
-                int timeDiff = (int)buffTime - getGameTime();
+                int timeDiff = buffTime - getGameTime();
                 prose_package pp = prose.getPackage(SID_NOT_YET, timeDiff);
                 sendSystemMessageProse(player, pp);
                 return SCRIPT_CONTINUE;

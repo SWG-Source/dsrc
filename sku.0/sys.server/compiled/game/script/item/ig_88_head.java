@@ -38,7 +38,7 @@ public class ig_88_head extends script.base_script
         }
         if (item == menu_info_types.ITEM_USE)
         {
-            float buffTime = getIntObjVar(player, "clickItem.ig_head");
+            int buffTime = getIntObjVar(player, "clickItem.ig_head");
             if (getGameTime() > buffTime || isGod(player))
             {
                 setObjVar(player, "clickItem.ig_head", (getGameTime() + REUSE_TIME));
@@ -48,7 +48,7 @@ public class ig_88_head extends script.base_script
             }
             else 
             {
-                int timeDiff = (int)buffTime - getGameTime();
+                int timeDiff = buffTime - getGameTime();
                 prose_package pp = prose.getPackage(SID_NOT_YET, timeDiff);
                 sendSystemMessageProse(player, pp);
                 return SCRIPT_CONTINUE;
