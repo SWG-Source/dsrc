@@ -2157,7 +2157,9 @@ public class player_structure extends script.base_script
             sendSystemMessage(player, SID_GENERIC_CITY_PACKUP_ERROR);
             return;
         }
-        if ((getCalendarTime() - getPlayerLastLoginTime(owner)) < cityGetInactivePackupInactiveTimeSeconds())
+        // A last login time of 0 is unset (treated as long ago); calendar times wrap after 2038.
+        final int ownerLastLoginTime = getPlayerLastLoginTime(owner);
+        if (ownerLastLoginTime != 0 && (getCalendarTime() - ownerLastLoginTime) < cityGetInactivePackupInactiveTimeSeconds())
         {
             if (hasObjVar(player, "qa.city_packup"))
             {
@@ -4083,6 +4085,19 @@ public class player_structure extends script.base_script
             hours,
             minutes,
             seconds
+        };
+    }
+    // Split a calendar time (from getCalendarTime()) into {days, hours, minutes, seconds} since the epoch.
+    // Script calendar times are 32-bit ints that wrap negative after 2038-01-19; reading them as unsigned
+    // keeps the time-of-day fields correct until 2106. Use convertSecondsTime() for durations.
+    public static int[] convertCalendarTime(int calendarTime) throws InterruptedException
+    {
+        long time = ((long)calendarTime) & 0xFFFFFFFFL;
+        return new int[]{
+            (int)(time / 86400),
+            (int)((time % 86400) / 3600),
+            (int)((time % 3600) / 60),
+            (int)(time % 60)
         };
     }
     public static String assembleTimeRemaining(int[] time_values) throws InterruptedException

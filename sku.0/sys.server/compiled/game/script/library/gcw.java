@@ -2686,7 +2686,7 @@ public class gcw extends script.base_script
         int activeCityCount = gcwGetActiveCityCount();
         int currentCycle = gcwCalculateInvasionCycle();
         int invasionInterval = gcwGetTimeToInvasion();
-        int currentHour = player_structure.convertSecondsTime(getCalendarTime())[1];
+        int currentHour = player_structure.convertCalendarTime(getCalendarTime())[1];
 
         // loop through possible cycles to find when the city will be next active.
         int checkCycle = currentCycle;
@@ -2869,7 +2869,7 @@ public class gcw extends script.base_script
             invasionInterval = 3;
         }
 
-        int[] convertedCalendarTime = player_structure.convertSecondsTime(getCalendarTime());
+        int[] convertedCalendarTime = player_structure.convertCalendarTime(getCalendarTime());
         int hour = convertedCalendarTime[1];
         return ((hour / invasionInterval) % totalActiveCities);
     }
@@ -2894,7 +2894,7 @@ public class gcw extends script.base_script
         }
         int calendarTime = getCalendarTime();
 
-        int[] convertedCalendarTime = player_structure.convertSecondsTime(calendarTime);
+        int[] convertedCalendarTime = player_structure.convertCalendarTime(calendarTime);
         int hour = convertedCalendarTime[1];
 
         // get what cycle we are currently in.  A cycle is defined as a single invasion and where it occurs in the day.
