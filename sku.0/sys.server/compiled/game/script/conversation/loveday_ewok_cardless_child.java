@@ -45,7 +45,7 @@ public class loveday_ewok_cardless_child extends script.base_script
         if (groundquests.hasCompletedQuest(player, "loveday_ewok_bundle_of_cards") && hasObjVar(player, "loveday.eligibleBundleOfCards"))
         {
             int eligibleForNextQuestAt = getIntObjVar(player, "loveday.eligibleBundleOfCards");
-            if (getCalendarTime() < eligibleForNextQuestAt)
+            if ((getCalendarTime() - eligibleForNextQuestAt) < 0)
             {
                 return true;
             }

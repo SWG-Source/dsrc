@@ -45,7 +45,7 @@ public class vet_instance_reset extends script.base_script
 			if(hasObjVar(self, "used.timestamp"))
 			{
 				int lastUsed = getIntObjVar(self, "used.timestamp");
-				if(currentGameTime < (lastUsed + 172800))
+				if((currentGameTime - lastUsed) < 172800)
 				{
 					//TODO: add message here to tell player it aint time yet
 					return SCRIPT_CONTINUE; //If it hasn't been 2 days yet, don't allow them to continue.
@@ -87,7 +87,7 @@ public class vet_instance_reset extends script.base_script
 		{
 			int timeStamp = getIntObjVar(self, "used.timestamp");
 			int rightNow = getCalendarTime();
-			if(rightNow < (timeStamp + 172800))
+			if((rightNow - timeStamp) < 172800)
 			{
 				int dieTime = (timeStamp + 172800) - rightNow;
 				names[idx] = "storyteller_time_remaining";
@@ -121,7 +121,7 @@ public class vet_instance_reset extends script.base_script
 		if(hasObjVar(self, "used.timestamp"))
 		{
 			int lastUsed = getIntObjVar(self, "used.timestamp");
-			if(currentGameTime < (lastUsed + 172800))
+			if((currentGameTime - lastUsed) < 172800)
 			{
 				//TODO: add message here to tell player it aint time yet
 				return SCRIPT_CONTINUE; //If it hasn't been 2 days yet, don't allow them to continue.
@@ -194,7 +194,7 @@ public class vet_instance_reset extends script.base_script
 		if(hasObjVar(self, "used.timestamp"))
 		{
 			int lastUsed = getIntObjVar(self, "used.timestamp");
-			if(currentGameTime < (lastUsed + 172800))
+			if((currentGameTime - lastUsed) < 172800)
 			{
 				//TODO: add message here to tell player it aint time yet
 				return SCRIPT_CONTINUE; //If it hasn't been 2 days yet, don't allow them to continue.

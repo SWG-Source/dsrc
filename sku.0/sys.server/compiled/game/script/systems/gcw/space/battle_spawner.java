@@ -295,7 +295,7 @@ public class battle_spawner extends script.base_class {
         Vector shipList = getResizeableObjIdArrayObjVar(motherShip, "supportCraft");
         if(shipList == null) shipList = new Vector<>();
         boolean heroSpawned = false;
-        if(hasObjVar(motherShip, "heroSpawned") || (hasObjVar(motherShip, "heroSpawnTime") && getIntObjVar(motherShip, "heroSpawnTime") > (getCalendarTime() - (60 * 10)))){
+        if(hasObjVar(motherShip, "heroSpawned") || (hasObjVar(motherShip, "heroSpawnTime") && (getCalendarTime() - getIntObjVar(motherShip, "heroSpawnTime")) < (60 * 10))){
             // a hero is only eligible to spawn once every 10 minutes.
             heroSpawned = true;
         }

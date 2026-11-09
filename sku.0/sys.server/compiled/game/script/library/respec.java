@@ -1081,7 +1081,7 @@ public class respec extends script.base_script
         {
             int timeTillNextDecayOnPlayer = getIntObjVar(player, OBJVAR_RESPEC_DECAY_TIME);
             int now = getCalendarTime();
-            if (timeTillNextDecayOnPlayer <= now)
+            if ((timeTillNextDecayOnPlayer - now) <= 0)
             {
                 int currentRespecsBought = getIntObjVar(player, "respecsBought");
                 currentRespecsBought -= 1;

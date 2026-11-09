@@ -50,12 +50,12 @@ public class loot_ep3_clone_relics_starmap extends script.base_script
         }
         int currentTime = getCalendarTime();
         int starmapTimer = getIntObjVar(player, "ep3.starmapTimer");
-        if (starmapTimer > currentTime && !isGod(player))
+        if (starmapTimer != 0 && (starmapTimer - currentTime) > 0 && !isGod(player))
         {
             sendSystemMessage(player, "You cannot restart this quest for another " + utils.formatTimeVerbose(starmapTimer - currentTime), null);
             return;
         }
-        else if (starmapTimer > currentTime && isGod(player))
+        else if (starmapTimer != 0 && (starmapTimer - currentTime) > 0 && isGod(player))
         {
             sendSystemMessage(player, "Bypassing timer due to god mode. Please say 'Thank you god mode for saving me  " + utils.formatTimeVerbose(starmapTimer - currentTime) + "'", null);
         }

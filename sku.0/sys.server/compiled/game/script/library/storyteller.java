@@ -515,7 +515,7 @@ public class storyteller extends script.base_script
             {
                 int currentTime = getCalendarTime();
                 int alarmTime = getIntObjVar(token, storyteller.STORYTELLER_DAILY_COUNT_RESET);
-                if (currentTime >= alarmTime)
+                if ((currentTime - alarmTime) >= 0)
                 {
                     setTokenDailyCountResetTime(token);
                     if (hasObjVar(token, STORYTELLER_DAILY_COUNT_OBJVAR))

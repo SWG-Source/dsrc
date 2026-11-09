@@ -40,7 +40,7 @@ public class dynamic_region_master extends script.base_script
         int birth = getIntObjVar(self, BIRTH);
         int maxDuration = getIntObjVar(self, MAX_DURATION);
         obj_id[] myCreatures = getObjIdArrayObjVar(self, CREATURE_LIST);
-        if (currentEpoch < (birth + maxDuration * 60) && myCreatures != null && myCreatures.length > 0)
+        if ((currentEpoch - birth) < (maxDuration * 60) && myCreatures != null && myCreatures.length > 0)
         {
             for (obj_id myCreature : myCreatures) {
                 if (isIdValid(myCreature) && ai_lib.isInCombat(myCreature)) {
@@ -78,7 +78,7 @@ public class dynamic_region_master extends script.base_script
             messageTo(self, "destroySelf", null, 0.0f, false);
         }
         int currentEpoch = getCalendarTime();
-        if (currentEpoch > (birth + (duration * 60)))
+        if ((currentEpoch - birth) > (duration * 60))
         {
             messageTo(self, "destroySelf", null, 0.0f, false);
         }

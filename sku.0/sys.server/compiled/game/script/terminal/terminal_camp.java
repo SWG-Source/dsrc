@@ -22,7 +22,7 @@ public class terminal_camp extends script.base_script
             return SCRIPT_CONTINUE;
         }
         int destructTime = getIntObjVar(self, camping.VAR_DESTRUCT_TIME);
-        if (destructTime <= 0)
+        if (destructTime == 0)
         {
             return SCRIPT_CONTINUE;
         }

@@ -66,7 +66,7 @@ public class tcg_pet_controller extends script.base_script
             if (hasObjVar(self, house_pet.MASSIFF_LAST_FED))
             {
                 int lastFed = getIntObjVar(self, house_pet.MASSIFF_LAST_FED);
-                if (lastFed < 0)
+                if (lastFed == 0)
                 {
                     return SCRIPT_CONTINUE;
                 }
@@ -196,7 +196,7 @@ public class tcg_pet_controller extends script.base_script
                     int lastFedTime = getIntObjVar(self, house_pet.SCURRIER_SNACK_LAST_FED);
                     int nextSnackTime = lastFedTime + house_pet.SCURRIER_SNACK_DELAY;
                     int currentGameTime = getCalendarTime();
-                    if ((nextSnackTime <= currentGameTime) || !hasObjVar(self, house_pet.SCURRIER_SNACK_LAST_FED))
+                    if (((nextSnackTime - currentGameTime) <= 0) || !hasObjVar(self, house_pet.SCURRIER_SNACK_LAST_FED))
                     {
                         mi.addRootMenu(menu_info_types.SERVER_MENU2, SID_SNACK);
                     }

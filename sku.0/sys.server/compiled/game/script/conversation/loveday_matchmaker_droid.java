@@ -26,7 +26,7 @@ public class loveday_matchmaker_droid extends script.base_script
         if (groundquests.hasCompletedQuest(player, "loveday_playing_cupid") && hasObjVar(player, "loveday.eligiblePlayingCupid"))
         {
             int eligibleForNextQuestAt = getIntObjVar(player, "loveday.eligiblePlayingCupid");
-            if (getCalendarTime() < eligibleForNextQuestAt)
+            if ((getCalendarTime() - eligibleForNextQuestAt) < 0)
             {
                 return true;
             }

@@ -29,7 +29,7 @@ public class mtp_meatlumps_supplies_giver extends script.base_script
         if (groundquests.hasCompletedQuest(player, "mtp_hideout_instance_recover_supplies_success") && hasObjVar(player, "mtp_hideout.eligibleRecoverSupplies"))
         {
             int eligibleForNextQuestAt = getIntObjVar(player, "mtp_hideout.eligibleRecoverSupplies");
-            if (getCalendarTime() < eligibleForNextQuestAt)
+            if ((getCalendarTime() - eligibleForNextQuestAt) < 0)
             {
                 return true;
             }

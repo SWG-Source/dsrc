@@ -12169,7 +12169,7 @@ public class base_player extends script.base_script
         {
             int now = getCalendarTime();
             int then = getIntObjVar(player, "lifeday.time_stamp");
-            if (now > then)
+            if ((now - then) > 0)
             {
                 return true;
             }

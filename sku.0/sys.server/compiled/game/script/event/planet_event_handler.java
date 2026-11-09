@@ -79,7 +79,7 @@ public class planet_event_handler extends script.base_script
         {
             int now = getCalendarTime();
             int then = getIntObjVar(self, EVENT_TIMESTAMP);
-            return now > then;
+            return (now - then) > 0;
         }
         return true;
     }

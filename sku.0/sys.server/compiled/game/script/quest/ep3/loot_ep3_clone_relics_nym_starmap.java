@@ -42,12 +42,12 @@ public class loot_ep3_clone_relics_nym_starmap extends script.base_script
         int currentTime = getCalendarTime();
         int starmapTimer = getIntObjVar(transferer, "ep3.starmapTimer");
         int starmapPickupTimer = getIntObjVar(transferer, "ep3.starmapPickupTimer");
-        if (starmapTimer > currentTime && !isGod(transferer))
+        if (starmapTimer != 0 && (starmapTimer - currentTime) > 0 && !isGod(transferer))
         {
             sendSystemMessage(transferer, "You cannot pick up this item for another " + utils.formatTimeVerbose(starmapTimer - currentTime), null);
             return SCRIPT_OVERRIDE;
         }
-        else if (starmapTimer > currentTime && isGod(transferer))
+        else if (starmapTimer != 0 && (starmapTimer - currentTime) > 0 && isGod(transferer))
         {
             sendSystemMessage(transferer, "Bypassing timer due to god mode. Please say 'Thank you god mode for saving me  " + utils.formatTimeVerbose(starmapTimer - currentTime) + "'", null);
         }
@@ -56,7 +56,7 @@ public class loot_ep3_clone_relics_nym_starmap extends script.base_script
             sendSystemMessage(transferer, "You must complete the quest series before you can pick this item up again.", null);
             return SCRIPT_OVERRIDE;
         }
-        if (starmapPickupTimer > currentTime && !isGod(transferer))
+        if (starmapPickupTimer != 0 && (starmapPickupTimer - currentTime) > 0 && !isGod(transferer))
         {
             sendSystemMessage(transferer, "You cannot pick up this item for another " + utils.formatTimeVerbose(starmapPickupTimer - currentTime), null);
             return SCRIPT_OVERRIDE;

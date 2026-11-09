@@ -109,7 +109,7 @@ public class city_hall extends script.base_script
         {
             regionTimeEndDefend = getIntObjVar(self, "cityGcwRegionDefender.timeEnd");
         }
-        if ((region != null) && (region.length() > 0) && (regionTimeStartDefend > 0) && (regionTimeEndDefend <= 0))
+        if ((region != null) && (region.length() > 0) && (regionTimeStartDefend != 0) && (regionTimeEndDefend == 0))
         {
             citySetGcwDefenderRegion(city_id, region, regionTimeStartDefend, false);
             numberOfRetry = 0;
@@ -561,7 +561,7 @@ public class city_hall extends script.base_script
                 {
                     gracePeriod = 60 * 20;
                 }
-                if ((overageTimeStamp + gracePeriod) < curTime)
+                if (((overageTimeStamp + gracePeriod) - curTime) < 0)
                 {
                     int numCitizensToRemove = curSafe - maxSafe;
                     if (numCitizensToRemove > 0)
@@ -605,22 +605,22 @@ public class city_hall extends script.base_script
         for (int i = 0; i < safeHouseCitizenList.length; i++)
         {
             safeHouseCitizenLoginTime[i] = getPlayerLastLoginTime(safeHouseCitizenList[i]);
-            if (safeHouseCitizenLoginTime[i] == 0)
-            {
-                safeHouseCitizenLoginTime[i] = -1;
-            }
         }
+        // Login times are wrapping 32-bit calendar times: 0 means unknown and ranks lowest;
+        // known times are ordered by difference so the comparison survives 2038.
         int largestTime = 0;
+        boolean haveCandidate = false;
         obj_id citizenToRemove = obj_id.NULL_ID;
         for (int j = 0; j < safeHouseCitizenList.length; j++)
         {
-            if (largestTime == 0)
+            if (!haveCandidate)
             {
+                haveCandidate = true;
                 largestTime = safeHouseCitizenLoginTime[j];
                 citizenToRemove = safeHouseCitizenList[j];
                 continue;
             }
-            if (safeHouseCitizenLoginTime[j] > largestTime)
+            if (safeHouseCitizenLoginTime[j] != 0 && (largestTime == 0 || (safeHouseCitizenLoginTime[j] - largestTime) > 0))
             {
                 largestTime = safeHouseCitizenLoginTime[j];
                 citizenToRemove = safeHouseCitizenList[j];
@@ -714,7 +714,7 @@ public class city_hall extends script.base_script
         {
             regionTimeEndDefend = getIntObjVar(self, "cityGcwRegionDefender.timeEnd");
         }
-        if ((region != null) && (region.length() > 0) && (regionTimeStartDefend > 0) && (regionTimeEndDefend <= 0))
+        if ((region != null) && (region.length() > 0) && (regionTimeStartDefend != 0) && (regionTimeEndDefend == 0))
         {
             int city_id = findCityByCityHall(self);
             if (city_id > 0)

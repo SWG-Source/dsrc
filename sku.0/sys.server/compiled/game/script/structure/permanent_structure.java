@@ -1752,13 +1752,14 @@ public class permanent_structure extends script.base_script
             if (cityExists(city_id))
             {
                 int createTime = cityGetCreationTime(city_id);
-                if ((curTime - createTime) > 1814400)
+                // A time of 0 is unset (treated as long ago); calendar times wrap after 2038.
+                if (createTime == 0 || (curTime - createTime) > 1814400)
                 {
                     obj_id city_mayor = cityGetLeader(city_id);
                     if (!city.hasMayorProtectionFlag(owner, city_id))
                     {
                         int loginTime = getPlayerLastLoginTime(owner);
-                        if ((curTime - loginTime) > cityGetInactivePackupInactiveTimeSeconds())
+                        if (loginTime == 0 || (curTime - loginTime) > cityGetInactivePackupInactiveTimeSeconds())
                         {
                             if (!player_structure.isCityAbandoned(self))
                             {
@@ -1769,7 +1770,7 @@ public class permanent_structure extends script.base_script
                                 return SCRIPT_CONTINUE;
                             }
                         }
-                        if ((curTime - loginTime) > (60 * 24 * 60 * 60))
+                        if (loginTime == 0 || (curTime - loginTime) > (60 * 24 * 60 * 60))
                         {
                             if (hasObjVar(self, "city_packup.inactive_citizen_mail_sent"))
                             {

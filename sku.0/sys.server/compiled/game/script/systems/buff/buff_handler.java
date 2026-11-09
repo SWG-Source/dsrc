@@ -3977,7 +3977,7 @@ public class buff_handler extends script.base_script
         if (hasObjVar(self, event_perk.COUNTER_TIMESTAMP))
         {
             then = getIntObjVar(self, event_perk.COUNTER_TIMESTAMP);
-            if (now > then)
+            if ((now - then) > 0)
             {
                 removeObjVar(self, event_perk.COUNTER_TIMESTAMP);
                 buff.removeBuff(self, "event_halloween_coin_limit");
@@ -3996,7 +3996,7 @@ public class buff_handler extends script.base_script
         {
             int now = getCalendarTime();
             int then = getIntObjVar(self, event_perk.COUNTER_TIMESTAMP);
-            if (now >= then)
+            if ((now - then) >= 0)
             {
                 removeObjVar(self, event_perk.COUNTER_TIMESTAMP);
             }
@@ -4176,7 +4176,7 @@ public class buff_handler extends script.base_script
         {
             int now = getCalendarTime();
             int then = getIntObjVar(planet, "lifeday.time_stamp");
-            if (now > then)
+            if ((now - then) > 0)
             {
                 return true;
             }

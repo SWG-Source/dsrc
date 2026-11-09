@@ -29,7 +29,7 @@ public class mtp_trapped_meatlump_giver extends script.base_script
         if (groundquests.hasCompletedQuest(player, "mtp_hideout_instance_escort_trapped_meatlump_success") && hasObjVar(player, "mtp_hideout.eligibleRescueMeatlump"))
         {
             int eligibleForNextQuestAt = getIntObjVar(player, "mtp_hideout.eligibleRescueMeatlump");
-            if (getCalendarTime() < eligibleForNextQuestAt)
+            if ((getCalendarTime() - eligibleForNextQuestAt) < 0)
             {
                 return true;
             }

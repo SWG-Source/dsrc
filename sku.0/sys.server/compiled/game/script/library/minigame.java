@@ -1405,7 +1405,7 @@ public class minigame extends script.base_script
             setName(fish, sid_name);
         }
         int timeCaught = getCalendarTime();
-        if (timeCaught > 0)
+        if (timeCaught != 0)
         {
             setObjVar(fish, VAR_FISH_TIME_STAMP, timeCaught);
         }

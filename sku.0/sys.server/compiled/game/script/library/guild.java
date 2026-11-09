@@ -1020,9 +1020,14 @@ public class guild extends script.base_script
                     sb.append(" kills vs ");
                     sb.append(killCountBtoA);
                     sb.append(" kills");
-                    if ((killCountAtoBupdateTime > 0) || (killCountBtoAupdateTime > 0)) {
+                    if ((killCountAtoBupdateTime != 0) || (killCountBtoAupdateTime != 0)) {
+                        // Wrapping 32-bit calendar times: 0 is unset, the later time wins by difference.
+                        int lastUpdateTime = killCountAtoBupdateTime;
+                        if (lastUpdateTime == 0 || (killCountBtoAupdateTime != 0 && (killCountBtoAupdateTime - lastUpdateTime) > 0)) {
+                            lastUpdateTime = killCountBtoAupdateTime;
+                        }
                         sb.append(" - last updated ");
-                        sb.append(getCalendarTimeStringLocal(Math.max(killCountAtoBupdateTime, killCountBtoAupdateTime)));
+                        sb.append(getCalendarTimeStringLocal(lastUpdateTime));
                     }
                     sb.append(")");
                 }
@@ -1300,7 +1305,7 @@ public class guild extends script.base_script
             else if (!isPlayerConnected(memberIds[i]))
             {
                 int lastLoginTime = getPlayerLastLoginTime(memberIds[i]);
-                if (lastLoginTime > 0)
+                if (lastLoginTime != 0)
                 {
                     int timeDifference = getCalendarTime() - lastLoginTime;
                     if (timeDifference > 0)
@@ -1667,7 +1672,7 @@ public class guild extends script.base_script
         {
             guildInfoStr += ("GCW Region Defender: " + localize(new string_id("gcw_regions", gcwDefenderRegion)));
             final int timeJoinedGcwDefenderRegion = guildGetTimeJoinedCurrentGcwDefenderRegion(guildId);
-            if (timeJoinedGcwDefenderRegion > 0)
+            if (timeJoinedGcwDefenderRegion != 0)
             {
                 guildInfoStr += (" (started defending on " + getCalendarTimeStringLocal(timeJoinedGcwDefenderRegion) + ")\n");
                 final int gcwDaysRequiredForGcwRegionDefenderBonus = utils.stringToInt(getConfigSetting("GameServer", "gcwDaysRequiredForGcwRegionDefenderBonus"));
@@ -1773,7 +1778,10 @@ public class guild extends script.base_script
     }
     public static boolean isVotingEnabled(int guildId) throws InterruptedException
     {
-        if (getCalendarTime() < getVotingTime(guildId) && getVotingTime(guildId) > getGracePeriodTime(guildId))
+        // Calendar times are wrapping 32-bit ints: compare by difference; 0 means unset.
+        int votingTime = getVotingTime(guildId);
+        int gracePeriodTime = getGracePeriodTime(guildId);
+        if (votingTime != 0 && (getCalendarTime() - votingTime) < 0 && (gracePeriodTime == 0 || (votingTime - gracePeriodTime) > 0))
         {
             return true;
         }
@@ -1781,7 +1789,10 @@ public class guild extends script.base_script
     }
     public static boolean isVotingGracePeriod(int guildId) throws InterruptedException
     {
-        if (getCalendarTime() < getGracePeriodTime(guildId) && getVotingTime(guildId) < getGracePeriodTime(guildId))
+        // Calendar times are wrapping 32-bit ints: compare by difference; 0 means unset.
+        int votingTime = getVotingTime(guildId);
+        int gracePeriodTime = getGracePeriodTime(guildId);
+        if (gracePeriodTime != 0 && (getCalendarTime() - gracePeriodTime) < 0 && (votingTime == 0 || (votingTime - gracePeriodTime) < 0))
         {
             return true;
         }
@@ -1800,7 +1811,7 @@ public class guild extends script.base_script
         }
         int votingTime = getVotingTime(guildId);
         int gracePeriodTime = getGracePeriodTime(guildId);
-        if (gracePeriodTime == 0 && votingTime > 0 && votingTime < getCalendarTime())
+        if (gracePeriodTime == 0 && votingTime != 0 && (votingTime - getCalendarTime()) < 0)
         {
             return true;
         }

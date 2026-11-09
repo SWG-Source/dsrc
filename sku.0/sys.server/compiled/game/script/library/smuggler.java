@@ -1030,7 +1030,7 @@ public class smuggler extends script.base_script
         obj_id[] allObjects = getBuyBackItemsInContainer(player);
         if (allObjects != null && allObjects.length == 10)
         {
-            if (!isIdValid(allObjects[0]) || getIntObjVar(allObjects[0], BUYBACK_OBJ_TIMESTAMP) <= 0)
+            if (!isIdValid(allObjects[0]) || getIntObjVar(allObjects[0], BUYBACK_OBJ_TIMESTAMP) == 0)
             {
                 return false;
             }
@@ -1043,11 +1043,11 @@ public class smuggler extends script.base_script
                     continue;
                 }
                 int oldTimerCandidate = getIntObjVar(allObjects[i], BUYBACK_OBJ_TIMESTAMP);
-                if (oldTimerCandidate <= 0)
+                if (oldTimerCandidate == 0)
                 {
                     continue;
                 }
-                if (oldTimerCandidate < oldestTime)
+                if ((oldTimerCandidate - oldestTime) < 0)
                 {
                     oldestObject = allObjects[i];
                     oldestTime = oldTimerCandidate;

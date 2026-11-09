@@ -53,7 +53,7 @@ public class ep3_gursan_bryes extends script.base_script
     {
         int currentTime = getCalendarTime();
         int cysscTimer = getIntObjVar(player, "ep3.cysscTimer");
-        if (cysscTimer > currentTime)
+        if (cysscTimer != 0 && (cysscTimer - currentTime) > 0)
         {
             return false;
         }
@@ -79,7 +79,7 @@ public class ep3_gursan_bryes extends script.base_script
     {
         int currentTime = getCalendarTime();
         int cysscTimer = getIntObjVar(player, "ep3.cysscTimer");
-        if (cysscTimer > currentTime)
+        if (cysscTimer != 0 && (cysscTimer - currentTime) > 0)
         {
             return true;
         }

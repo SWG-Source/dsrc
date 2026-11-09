@@ -29,7 +29,7 @@ public class mtp_destroy_some_droids_giver extends script.base_script
         if (groundquests.hasCompletedQuest(player, "mtp_hideout_instance_kill_specific_droids_success") && hasObjVar(player, "mtp_hideout.eligibleSomeDroids"))
         {
             int eligibleForNextQuestAt = getIntObjVar(player, "mtp_hideout.eligibleSomeDroids");
-            if (getCalendarTime() < eligibleForNextQuestAt)
+            if ((getCalendarTime() - eligibleForNextQuestAt) < 0)
             {
                 return true;
             }
